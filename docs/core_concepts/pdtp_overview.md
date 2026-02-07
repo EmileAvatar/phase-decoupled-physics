@@ -11,6 +11,9 @@ Gravity is interpreted as:
 
 Phase-locking between matter-waves and spacetime-waves.
 
+Gravity is not a fundamental force — it is an emergent synchronization effect.
+Einstein's equations describe the macroscopic average of quantum phase-lock dynamics.
+
 Inertia arises from the same coupling.
 
 By weakening this lock:

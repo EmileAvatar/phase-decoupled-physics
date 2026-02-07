@@ -37,6 +37,9 @@ In this framework:
 
 Gravity = Phase-locking between matter-waves and spacetime-waves.
 
+Gravity is an emergent phenomenon — the statistical average of quantum phase-lock
+interactions, not a fundamental force.
+
 ---
 
 ## Phase Gradient

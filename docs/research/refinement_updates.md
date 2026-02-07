@@ -20,7 +20,11 @@ Gravity → Mass–Energy Coupling Rule
 - Gravity is not simply attraction.
 - In General Relativity, mass-energy curves spacetime.
 - Objects follow curved geodesics, not a pulling force.
-- This preserves compatibility with Einstein’s equations.
+- This preserves compatibility with Einstein's equations.
+- Critically, gravity is an **emergent** phenomenon — the coarse-grained statistical
+  result of phase-locking between matter-waves and spacetime-waves, not a fundamental
+  force requiring its own quantum description (see
+  [quantum_gravity_deep_dive.md](quantum_gravity_deep_dive.md)).
 
 ---
 

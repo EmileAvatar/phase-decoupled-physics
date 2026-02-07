@@ -74,6 +74,7 @@ The framework is called "Phase-Decoupled" because the interesting physics happen
 | [refinement_updates.md](docs/research/refinement_updates.md) | Ongoing refinements, risk adjustments, and precision improvements |
 | [pdtp_framework_5_issues.md](docs/research/pdtp_framework_5_issues.md) | PDTP interpretation of 5 key physics problems |
 | [phase_framework_mysteries.md](docs/research/phase_framework_mysteries.md) | 29 unsolved physics mysteries interpreted through the phase framework (Koide formula, entanglement, CMB, singularities, quark confinement, and more) |
+| [quantum_gravity_deep_dive.md](docs/research/quantum_gravity_deep_dive.md) | Deep dive into quantum gravity: why gravity is emergent (not fundamental), the Lagrangian formalism, coherence scale vs Planck scale, and honest mathematical gaps |
 
 ### Simulations
 
