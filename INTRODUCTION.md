@@ -73,6 +73,7 @@ The framework is called "Phase-Decoupled" because the interesting physics happen
 | [math_status.md](docs/research/math_status.md) | Honest assessment of what math exists, what's missing, and what would validate/falsify PDTP |
 | [refinement_updates.md](docs/research/refinement_updates.md) | Ongoing refinements, risk adjustments, and precision improvements |
 | [pdtp_framework_5_issues.md](docs/research/pdtp_framework_5_issues.md) | PDTP interpretation of 5 key physics problems |
+| [phase_framework_mysteries.md](docs/research/phase_framework_mysteries.md) | 29 unsolved physics mysteries interpreted through the phase framework (Koide formula, entanglement, CMB, singularities, quark confinement, and more) |
 
 ### Simulations
 
