@@ -2,6 +2,8 @@
 
 A conceptual, speculative, and physics-inspired framework exploring gravity, inertia, and propulsion using a wave-based interpretation of matter and spacetime.
 
+**New here?** Start with the [Introduction](INTRODUCTION.md) for a quick explanation of why it's called "Phase-Decoupled" and links to all documents.
+
 This repository documents a long-form theoretical discussion exploring:
 
 - Matter as standing waves
