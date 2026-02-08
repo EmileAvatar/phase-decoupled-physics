@@ -33,6 +33,13 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 17 | Einstein field equations | https://en.wikipedia.org/wiki/Einstein_field_equations | einstein_comparison.md, math_status.md |
 | 18 | Density matrix | https://en.wikipedia.org/wiki/Density_matrix | math_status.md §2.2 |
 | 19 | Koide formula | https://en.wikipedia.org/wiki/Koide_formula | phase_framework_mysteries.md |
+| 20 | Superfluid vacuum theory | https://en.wikipedia.org/wiki/Superfluid_vacuum_theory | advanced_formalization.md §1 |
+| 21 | Tests of general relativity | https://en.wikipedia.org/wiki/Tests_of_general_relativity | advanced_formalization.md §2.1 |
+| 22 | Brans-Dicke theory | https://en.wikipedia.org/wiki/Brans%E2%80%93Dicke_theory | advanced_formalization.md §2.2 |
+| 23 | Post-Newtonian expansion | https://en.wikipedia.org/wiki/Post-Newtonian_expansion | advanced_formalization.md §2.2 |
+| 24 | Schwarzschild geodesics | https://en.wikipedia.org/wiki/Schwarzschild_geodesics | advanced_formalization.md §2.5 |
+| 25 | Standard Model | https://en.wikipedia.org/wiki/Standard_Model | advanced_formalization.md §3.2 |
+| 26 | Superradiance | https://en.wikipedia.org/wiki/Superradiance | advanced_formalization.md §4.3 |
 
 ---
 
@@ -44,6 +51,12 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 2 | Kuramoto, Y. | 1975 | "Self-entrainment of a population of coupled non-linear oscillators" | *International Symposium on Mathematical Problems in Theoretical Physics*, Lecture Notes in Physics, vol. 39, pp. 420–422 | [Springer](https://link.springer.com/chapter/10.1007/BFb0013365) | mathematical_formalization.md §1.4, §4 |
 | 3 | Strogatz, S. H. | 2000 | "From Kuramoto to Crawford: exploring the onset of synchronization in populations of coupled oscillators" | *Physica D*, 143(1–4), 1–20 | [PDF (MIT)](http://web.mit.edu/~jadbabai/www/ESE680/Strogatz_Kuramoto.pdf) | mathematical_formalization.md §1.4, §4.2 |
 | 4 | Jadbabaie, A., Motee, N., Barahona, M. | 2004 | "On the stability of the Kuramoto model of coupled nonlinear oscillators" | *Proc. American Control Conference* | [PDF (MIT)](https://web.mit.edu/~jadbabai/www/ESE680/Kuramoto_reallyfinal.pdf) | mathematical_formalization.md §6.5 |
+| 5 | Volovik, G. E. | 2003 | *The Universe in a Helium Droplet* | Oxford University Press | [OUP](https://global.oup.com/academic/product/the-universe-in-a-helium-droplet-9780199564842) | advanced_formalization.md §1.2 |
+| 6 | Barceló, C., Liberati, S., Visser, M. | 2005 | "Analogue Gravity" | *Living Reviews in Relativity*, 8, 12 | [Springer](https://link.springer.com/article/10.12942/lrr-2011-3) | advanced_formalization.md §1.2 |
+| 7 | Unruh, W. G. | 1981 | "Experimental Black-Hole Evaporation?" | *Physical Review Letters*, 46, 1351 | [APS](https://doi.org/10.1103/PhysRevLett.46.1351) | advanced_formalization.md §1.4 |
+| 8 | Colella, R., Overhauser, A. W., Werner, S. A. | 1975 | "Observation of Gravitationally Induced Quantum Interference" | *Physical Review Letters*, 34, 1472 | [APS](https://doi.org/10.1103/PhysRevLett.34.1472) | advanced_formalization.md §4.5 |
+| 9 | Asenbaum, P. et al. | 2020 | "Atom-Interferometric Test of the Equivalence Principle at the 10⁻¹² Level" | *Physical Review Letters*, 125, 191101 | [APS](https://doi.org/10.1103/PhysRevLett.125.191101) | advanced_formalization.md §4.2 |
+| 10 | Bloom, B. J. et al. | 2014 | "An optical lattice clock with accuracy and stability at the 10⁻¹⁸ level" | *Nature*, 506, 71–75 | [Nature](https://doi.org/10.1038/nature12941) | advanced_formalization.md §4.5 |
 
 ---
 
@@ -91,6 +104,11 @@ physics. They should not be cited as if they are.
 | Energy cost of phase decoupling | mathematical_formalization.md §8 |
 | BEC coherence amplification prediction | mathematical_formalization.md §9.2 |
 | 29 physics mysteries interpreted via phase framework | phase_framework_mysteries.md |
+| φ identified as superfluid vacuum condensate phase | advanced_formalization.md §1.5 |
+| Post-Newtonian corrections from cosine nonlinearity | advanced_formalization.md §2.3 |
+| PDTP + Standard Model combined Lagrangian | advanced_formalization.md §3.2 |
+| Gauge invariance of gravitational coupling | advanced_formalization.md §3.3 |
+| BEC differential gravimetry experiment design | advanced_formalization.md §4.2–4.4 |
 
 ---
 

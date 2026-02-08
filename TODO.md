@@ -38,11 +38,13 @@ full context.
   - Phase charge conservation: proved via global phase symmetry (Section 5.3)
   - Causality: preserved by Lorentz-invariant Lagrangian construction
 
-- [ ] **Quantum description of spacetime phase field (phi)**
-  - phi is currently undefined in standard physics
-  - Framework implicitly requires spacetime to have a quantum phase structure
-  - Defining phi rigorously is the biggest foundational challenge
-  - Must be compatible with Lorentz invariance
+- [x] **Quantum description of spacetime phase field (phi)**
+  - ~~phi is currently undefined in standard physics~~
+  - φ identified as the phase of a vacuum superfluid condensate (SVT)
+  - Connected to established research: Volovik (2003), Barceló-Liberati-Visser (2005)
+  - Lorentz invariance emerges at low energies (Volovik mechanism)
+  - See [advanced_formalization.md](docs/research/advanced_formalization.md) §1
+  - **Remaining:** microscopic structure of the condensate is unknown
 
 - [x] **Quantitative GR recovery (Newtonian limit)**
   - Newtonian 1/r potential recovered in weak-field static limit (Section 7)
@@ -70,35 +72,58 @@ full context.
 - [x] Preserve energy-momentum conservation — proved via Noether (Section 5)
 - [x] Be derivable from a consistent Lagrangian — Sections 2–3
 - [x] Be experimentally testable — predictions in Section 9
-- [ ] Be distinguishable from existing GR/QFT predictions — requires
-  post-Newtonian calculation
+- [x] Be distinguishable from existing GR/QFT predictions — coherence-dependent
+  gravity is unique to PDTP (advanced_formalization.md §4.1)
 
 ---
 
-## Remaining Work
+## Completed (Advanced Topics — Part 2)
 
-- [ ] **Post-Newtonian corrections**
-  - Perihelion precession of Mercury
-  - Gravitational lensing angles
-  - Gravitational wave frequencies and amplitudes
-  - Frame-dragging (Lense-Thirring effect)
-  - Shapiro time delay
-  - These require going beyond the linearized (weak-field) approximation
+- [x] **Post-Newtonian corrections** ([advanced_formalization.md](docs/research/advanced_formalization.md) §2)
+  - Cosine nonlinearity gives 1/r² correction to potential → perihelion precession ✓
+  - Correct functional form (1/r³ force); magnitude depends on parameter fit
+  - Gravitational waves propagate at c ✓ (Lorentz invariant by construction)
+  - **Unresolved:** GW polarization (PDTP: scalar; GR: tensor); PPN parameter γ exact value
+  - **Unresolved:** Shapiro delay, frame-dragging require full PPN calculation
 
-- [ ] **Quantum description of spacetime phase field (phi)**
-  - The biggest open foundational challenge
-  - Must define what φ is in terms of standard quantum field theory
-  - Or must argue why φ is a new degree of freedom not in existing QFT
+- [x] **Quantum description of spacetime phase field** ([advanced_formalization.md](docs/research/advanced_formalization.md) §1)
+  - φ = phase of vacuum superfluid condensate (SVT identification)
+  - Connected to Volovik (2003), Barceló-Liberati-Visser (2005), Unruh (1981)
+  - **Remaining:** microscopic condensate structure
 
-- [ ] **EM and nuclear force integration**
-  - Current Lagrangian only describes gravitational coupling
-  - EM, strong, and weak interactions need to be incorporated
-  - May require additional coupling terms or field structure
+- [x] **EM and nuclear force integration** ([advanced_formalization.md](docs/research/advanced_formalization.md) §3)
+  - PDTP adds gravitational coupling to Standard Model (doesn't replace it)
+  - Full combined Lagrangian written (L_PDTP + L_SM)
+  - Gauge invariance resolved: gravity couples to de Broglie phase (gauge-invariant)
+  - **Remaining:** photon coupling to φ (needs tensor extension)
 
-- [ ] **Experimental test design**
-  - Specific BEC experiment protocol
-  - Required precision and coherence levels
-  - Control experiments (incoherent vs coherent)
+- [x] **Experimental test design** ([advanced_formalization.md](docs/research/advanced_formalization.md) §4)
+  - Dual-state BEC atom interferometry protocol designed
+  - Three-phase experiment: baseline → increased coherence → phase modulation
+  - Signal estimates: conservative ~10⁻¹⁶, optimistic ~10⁻¹³ (Δg/g)
+  - Current precision ~10⁻¹² — approaching testability
+
+## Remaining Work (Hard Open Problems)
+
+- [ ] **Gravitational wave polarization mismatch**
+  - PDTP gives 1 scalar mode; GR gives 2 tensor modes (LIGO-confirmed)
+  - May require extending PDTP to a tensor theory
+  - Or demonstrating tensor modes emerge from condensate structure
+
+- [ ] **Full PPN parameter calculation**
+  - Exact value of γ and β for PDTP
+  - Must satisfy Cassini bound |γ−1| < 2.3×10⁻⁵
+  - Substantial calculation not yet completed
+
+- [ ] **Vacuum condensate microscopic structure**
+  - What are the fundamental constituents?
+  - What mechanism causes condensation?
+  - Open problem in SVT itself, not specific to PDTP
+
+- [ ] **Photon coupling to φ**
+  - Current formalism uses scalar matter fields
+  - Photon coupling requires tensor extension
+  - Needed for quantitative lensing prediction (factor of 2)
 
 ---
 
@@ -121,10 +146,16 @@ full context.
 ## Status
 
 ```
-Mathematical formalization in progress.
-Core derivations complete: Lagrangian, field equations, conservation laws,
-stability, Newtonian recovery, order-of-magnitude predictions.
-Remaining: post-Newtonian corrections, quantum φ definition, force integration.
+Mathematical formalization substantially complete.
+
+Part 1: Lagrangian, field equations, conservation laws, stability,
+Newtonian recovery, order-of-magnitude predictions.
+
+Part 2: Quantum φ definition (superfluid vacuum), post-Newtonian corrections,
+Standard Model integration, experimental test design.
+
+Hard remaining: GW polarization mismatch, full PPN calculation,
+vacuum condensate microscopic structure, photon-φ coupling.
 ```
 
 ---
