@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-08
+Last updated: 2026-02-09
 
 ---
 
@@ -40,6 +40,18 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 24 | Schwarzschild geodesics | https://en.wikipedia.org/wiki/Schwarzschild_geodesics | advanced_formalization.md §2.5 |
 | 25 | Standard Model | https://en.wikipedia.org/wiki/Standard_Model | advanced_formalization.md §3.2 |
 | 26 | Superradiance | https://en.wikipedia.org/wiki/Superradiance | advanced_formalization.md §4.3 |
+| 27 | Newman-Penrose formalism | https://en.wikipedia.org/wiki/Newman%E2%80%93Penrose_formalism | hard_problems.md §1.2 |
+| 28 | Tetrad formalism | https://en.wikipedia.org/wiki/Tetrad_formalism | hard_problems.md §1.6 |
+| 29 | Parameterized post-Newtonian formalism | https://en.wikipedia.org/wiki/Parameterized_post-Newtonian_formalism | hard_problems.md §2.1 |
+| 30 | Yukawa potential | https://en.wikipedia.org/wiki/Yukawa_potential | hard_problems.md §2.8 |
+| 31 | Hydrostatic equilibrium | https://en.wikipedia.org/wiki/Hydrostatic_equilibrium | hard_problems.md §2.5 |
+| 32 | Nordtvedt effect | https://en.wikipedia.org/wiki/Equivalence_principle#The_Nordtvedt_effect | hard_problems.md §2.9 |
+| 33 | Spontaneous symmetry breaking | https://en.wikipedia.org/wiki/Spontaneous_symmetry_breaking | hard_problems.md §3.2 |
+| 34 | Loop quantum gravity | https://en.wikipedia.org/wiki/Loop_quantum_gravity | hard_problems.md §3.3 |
+| 35 | Josephson effect | https://en.wikipedia.org/wiki/Josephson_effect | hard_problems.md §3.4 |
+| 36 | Gravitational lens | https://en.wikipedia.org/wiki/Gravitational_lens | hard_problems.md §4.2 |
+| 37 | Electromagnetic stress-energy tensor | https://en.wikipedia.org/wiki/Electromagnetic_stress%E2%80%93energy_tensor | hard_problems.md §4.5 |
+| 38 | Gravitational redshift | https://en.wikipedia.org/wiki/Gravitational_redshift | hard_problems.md §4.6 |
 
 ---
 
@@ -57,6 +69,14 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 8 | Colella, R., Overhauser, A. W., Werner, S. A. | 1975 | "Observation of Gravitationally Induced Quantum Interference" | *Physical Review Letters*, 34, 1472 | [APS](https://doi.org/10.1103/PhysRevLett.34.1472) | advanced_formalization.md §4.5 |
 | 9 | Asenbaum, P. et al. | 2020 | "Atom-Interferometric Test of the Equivalence Principle at the 10⁻¹² Level" | *Physical Review Letters*, 125, 191101 | [APS](https://doi.org/10.1103/PhysRevLett.125.191101) | advanced_formalization.md §4.2 |
 | 10 | Bloom, B. J. et al. | 2014 | "An optical lattice clock with accuracy and stability at the 10⁻¹⁸ level" | *Nature*, 506, 71–75 | [Nature](https://doi.org/10.1038/nature12941) | advanced_formalization.md §4.5 |
+| 11 | Eardley, D. M., Lee, D. L., Lightman, A. P. | 1973 | "Gravitational-Wave Observations as a Tool for Testing Relativistic Gravity" | *Physical Review Letters*, 30, 884 | [APS](https://doi.org/10.1103/PhysRevLett.30.884) | hard_problems.md §1.2 |
+| 12 | Will, C. M. | 2014 | "The Confrontation between General Relativity and Experiment" | *Living Reviews in Relativity*, 17, 4 | [Springer](https://link.springer.com/article/10.12942/lrr-2014-4) | hard_problems.md §1.2, §2.1 |
+| 13 | Abbott, B. P. et al. (LIGO/Virgo) | 2019 | "Tests of General Relativity with the Binary Black Hole Signals from GWTC-1" | *Physical Review D*, 100, 104036 | [APS](https://doi.org/10.1103/PhysRevD.100.104036) | hard_problems.md §1.7 |
+| 14 | Isaacson, R. A. | 1968 | "Gravitational Radiation in the Limit of High Frequency. II." | *Physical Review*, 166, 1272 | [APS](https://doi.org/10.1103/PhysRev.166.1272) | hard_problems.md §1.6 |
+| 15 | Bertotti, B., Iess, L., Tortora, P. | 2003 | "A test of general relativity using radio links with the Cassini spacecraft" | *Nature*, 425, 374 | [Nature](https://doi.org/10.1038/nature01997) | hard_problems.md §2.1 |
+| 16 | Perivolaropoulos, L. | 2010 | "PPN Parameter γ and Solar System Constraints of Massive Brans-Dicke Theories" | *Physical Review D*, 81, 047501 | [arXiv:0911.3401](https://arxiv.org/abs/0911.3401) | hard_problems.md §2.8 |
+| 17 | Oriti, D. | 2014 | "Group Field Theory as the microscopic description of the quantum spacetime fluid" | *Proceedings of Science*, PoS(QG-Ph)030 | [arXiv:0710.3276](https://arxiv.org/abs/0710.3276) | hard_problems.md §3.3 |
+| 18 | Gielen, S. & Sindoni, L. | 2016 | "Quantum cosmology from group field theory condensates: a review" | *SIGMA*, 12, 082 | [arXiv:1602.08104](https://arxiv.org/abs/1602.08104) | hard_problems.md §3.3 |
 
 ---
 
@@ -109,6 +129,15 @@ physics. They should not be cited as if they are.
 | PDTP + Standard Model combined Lagrangian | advanced_formalization.md §3.2 |
 | Gauge invariance of gravitational coupling | advanced_formalization.md §3.3 |
 | BEC differential gravimetry experiment design | advanced_formalization.md §4.2–4.4 |
+| Emergent tensor GW modes from condensate tetrad structure | hard_problems.md §1.4–1.6 |
+| Breathing mode as testable GW prediction (E(2) class N₃) | hard_problems.md §1.7 |
+| PPN γ = 1 from acoustic metric density perturbation | hard_problems.md §2.5–2.7 |
+| PPN γ ≈ 1 via massive scalar Yukawa suppression | hard_problems.md §2.8 |
+| Condensate constraints from PDTP Lagrangian | hard_problems.md §3.2 |
+| Connection to Group Field Theory condensate program | hard_problems.md §3.3 |
+| Photon indirect coupling via acoustic metric null geodesics | hard_problems.md §4.3–4.4 |
+| Light bending factor-of-2 recovery (θ = 4GM/bc²) | hard_problems.md §4.4 |
+| Gravitational redshift from acoustic metric | hard_problems.md §4.6 |
 
 ---
 

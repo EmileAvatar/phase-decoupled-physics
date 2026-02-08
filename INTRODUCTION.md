@@ -77,6 +77,7 @@ The framework is called "Phase-Decoupled" because the interesting physics happen
 | [quantum_gravity_deep_dive.md](docs/research/quantum_gravity_deep_dive.md) | Deep dive into quantum gravity: why gravity is emergent (not fundamental), the Lagrangian formalism, coherence scale vs Planck scale, and honest mathematical gaps |
 | [mathematical_formalization.md](docs/research/mathematical_formalization.md) | Rigorous mathematical formalization: Lagrangian derivation, field equations, conservation laws, stability analysis, Newtonian gravity recovery, energy costs, and numerical predictions — all with cited sources |
 | [advanced_formalization.md](docs/research/advanced_formalization.md) | Advanced topics: quantum description of spacetime phase field (superfluid vacuum), post-Newtonian corrections (perihelion precession, lensing, gravitational waves), Standard Model integration, and experimental test design (BEC protocols) |
+| [hard_problems.md](docs/research/hard_problems.md) | Hard open problems: GW polarization (emergent tensor modes, breathing mode prediction), PPN parameters (γ=1, β=1 from acoustic metric), vacuum condensate microscopic structure (GFT connection), and photon coupling (indirect via acoustic metric, light bending factor-of-2 recovered) |
 
 ### Simulations
 
