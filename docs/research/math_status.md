@@ -296,14 +296,15 @@ Failure to observe these falsifies PDTP.
 
 ```
 
-PDTP is mathematically inspired
-but mathematically incomplete.
+PDTP mathematical formalization is in progress.
 
-It is internally consistent
-but externally unverified.
+Completed: Lagrangian, field equations, conservation laws,
+stability analysis, Newtonian gravity recovery.
 
-It proposes extensions
-beyond established physics.
+Remaining: post-Newtonian corrections, quantum description
+of spacetime phase, experimental test design.
+
+See mathematical_formalization.md for the full derivation.
 
 ```
 

@@ -75,8 +75,12 @@ proposes:
 ```
 L = half (d_mu phi)(d^mu phi)
   + Sum_i half (d_mu psi_i)(d^mu psi_i)
-  - Sum_i g_i cos(psi_i - phi)
+  + Sum_i g_i cos(psi_i - phi)
 ```
+
+> **Erratum:** The coupling sign is **+cos** (positive), not −cos. The positive
+> sign makes phase-alignment the stable equilibrium (gravity is attractive).
+> See [mathematical_formalization.md](mathematical_formalization.md) Section 2.3.
 
 Breaking this down:
 

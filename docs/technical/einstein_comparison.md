@@ -33,8 +33,15 @@ Toy Lagrangian:
 ```
 ℒ = ½(∂μφ)(∂^μφ)
   + Σᵢ ½(∂μψᵢ)(∂^μψᵢ)
-  − Σᵢ gᵢ cos(ψᵢ − φ)
+  + Σᵢ gᵢ cos(ψᵢ − φ)
 ```
+
+> **Note (erratum):** The coupling sign is **positive** (+cos), not negative.
+> The positive sign ensures that phase-alignment (ψᵢ = φ) is the stable
+> equilibrium (lowest energy), corresponding to gravitational attraction.
+> A negative sign would make anti-alignment stable — the opposite of gravity.
+> See [mathematical_formalization.md](../research/mathematical_formalization.md)
+> Section 2.3 for the full stability proof.
 
 Resulting spacetime phase equation:
 
