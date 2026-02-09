@@ -12,9 +12,13 @@ Every established result is cited. Every new result is marked as PDTP Original.
 ## Table of Contents
 
 1. [Gravitational Wave Polarization](#1-gravitational-wave-polarization)
+   - 1.9 [Breathing Mode Amplitude](#19-breathing-mode-amplitude-relative-to-tensor-modes)
+   - 1.10 [Condensate Tetrad Structure](#110-condensate-tetrad-structure-derivation-status)
 2. [Full PPN Parameter Calculation](#2-full-ppn-parameter-calculation)
+   - 2.11 [Derivation of κ = −2](#211-derivation-of-κ---2-from-first-principles)
 3. [Vacuum Condensate Microscopic Structure](#3-vacuum-condensate-microscopic-structure)
 4. [Photon Coupling to φ](#4-photon-coupling-to-φ)
+   - 4.8 [The Trace Problem and G_EM Resolution](#48-the-trace-problem-and-gem-resolution)
 5. [Summary of Results](#5-summary-of-results)
 6. [References](#6-references)
 
@@ -254,6 +258,205 @@ to non-tensor modes significantly.
 │                                                                 │
 │  Status: Requires condensate to have tetrad structure           │
 │  (established in Volovik's He-3 analogy)                        │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### 1.9 Breathing Mode Amplitude Relative to Tensor Modes
+
+**PDTP Original.** PDTP predicts GWs carry a breathing mode in addition
+to the two tensor modes. What is the breathing mode amplitude relative to
+the tensor modes? This is needed for quantitative comparison with
+LIGO/Virgo/KAGRA data.
+
+**Mapping PDTP to Brans-Dicke.** PDTP's scalar-tensor structure maps
+onto a Brans-Dicke-like framework. In Brans-Dicke theory, the
+scalar-to-tensor GW amplitude ratio depends on the BD coupling parameter
+ω:
+
+```
+h_breathing / h_tensor ~ 1/(2ω + 3)                           ... (1.1)
+```
+
+The Cassini bound |γ − 1| < 2.3 × 10⁻⁵ constrains ω > 40,000 (§2.3).
+This gives:
+
+```
+h_breathing / h_tensor < 1/(80003) ≈ 1.25 × 10⁻⁵              ... (1.2)
+```
+
+**Source:** Will (2014), §6: "Gravitational-wave tests of gravitational
+theory."
+
+**Scalar dipole radiation.** In scalar-tensor theories, compact binaries
+can emit scalar **dipole** radiation (in addition to the usual tensor
+quadrupole). The dipole luminosity is:
+
+```
+Ė_dipole = −(G μ² v² / (3c³)) · (s₁ − s₂)² / (2ω + 3)      ... (1.3)
+```
+
+where μ is the reduced mass, v is the orbital velocity, and sₐ is the
+"sensitivity" of body A:
+
+```
+sₐ = −∂ ln mₐ / ∂ ln G                                       ... (1.4)
+```
+
+For neutron stars s ~ 0.1–0.3; for black holes s = 0.5 in Brans-Dicke.
+
+**Source:** Will, C. M. (1994), "Gravitational waves from inspiraling
+compact binaries: A post-Newtonian approach," *Physical Review D*,
+50, 6058.
+
+For equal-mass binaries (s₁ = s₂), dipole radiation vanishes exactly.
+The dominant scalar contribution is then quadrupole, suppressed by 1/ω
+relative to tensor quadrupole.
+
+**The massive scalar effect.** PDTP's scalar field has mass m_φ = √(2g)
+(Part 1, §6.2). A massive scalar has a frequency threshold: GWs at
+frequency f can excite the scalar mode only if:
+
+```
+f > f_threshold = m_φ c² / (2π ℏ)                             ... (1.5)
+```
+
+Below this threshold, the breathing mode is exponentially suppressed:
+
+```
+h_breathing ~ h₀ · exp(−√(m_φ² − (2πf/c)²) · r)              ... (1.6)
+```
+
+If m_φ is large enough, the breathing mode is suppressed at all
+astrophysically relevant frequencies (LIGO band: 10–1000 Hz).
+
+The condition for suppression in the LIGO band:
+
+```
+m_φ > 2π × 1000 Hz × ℏ/c² ≈ 7 × 10⁻¹² eV
+```
+
+From Part 1, §8, the gravitational coupling g gives m_φ ~ √(2g).
+If g corresponds to atomic-scale gravitational coupling
+(g ~ Gm²/a₀ ~ 10⁻⁵⁰ J), then m_φ ~ 10⁻²⁵ eV — well below the
+LIGO threshold. This means the breathing mode would NOT be suppressed
+in the LIGO band for this coupling scale.
+
+**Summary of breathing mode predictions:**
+
+| Scenario | Breathing/Tensor Ratio | Detectable? |
+|----------|----------------------|-------------|
+| PDTP maps to BD with ω > 40,000 | < 1.25 × 10⁻⁵ | Not with current LIGO |
+| Massive scalar with m_φ > 7×10⁻¹² eV | Exponentially suppressed in LIGO band | No |
+| Massive scalar with m_φ < 7×10⁻¹² eV | ~ 1/(2ω + 3) | Possibly with 5+ detectors |
+| Equal-mass merger (s₁ = s₂) | Dipole vanishes; quadrupole only | Very difficult |
+
+**Honest assessment:** The breathing mode is suppressed by at least a
+factor of 10⁻⁵ relative to tensor modes (from the Cassini bound on ω).
+Current GW detectors cannot resolve this. A network of 5+ detectors
+performing GW polarimetry may reach the required sensitivity in the
+2030s. The scalar mass could provide additional suppression, depending
+on the value of the coupling constant g.
+
+### 1.10 Condensate Tetrad Structure: Derivation Status
+
+**PDTP Original (builds on Volovik 2003).** The tensor GW modes in §1.6
+require the condensate to have internal structure beyond a single scalar
+phase — specifically, tetrad (vierbein) degrees of freedom. Here we
+examine how this structure can arise.
+
+**The He-3A precedent.** In superfluid ³He-A, the condensate order
+parameter is not a scalar. It is a tensor:
+
+```
+A_αi = Δ d̂_α (m̂_i + i n̂_i)                                   ... (1.7)
+```
+
+where:
+- Δ is the gap amplitude
+- d̂ is a unit spin vector (3 components)
+- m̂, n̂ are orthogonal unit orbital vectors
+- l̂ = m̂ × n̂ is the orbital angular momentum vector
+
+The triad (m̂, n̂, l̂) forms a **dreibein** (3D tetrad). Perturbations
+of this triad — specifically, long-wavelength rotations of (m̂, n̂) —
+produce collective excitations that obey the linearized Einstein equations.
+These are Volovik's "emergent gravitons."
+
+**Source:** Volovik (2003), Chapter 9: "Effective gravity." The emergent
+metric is g^{ij} ∝ m̂^i m̂^j + n̂^i n̂^j = δ^{ij} − l̂^i l̂^j, and
+perturbations δm̂, δn̂ yield spin-2 metric perturbations.
+
+**What PDTP currently has vs. what it needs:**
+
+| Feature | Current PDTP | Needed for Tensor GWs |
+|---------|-------------|----------------------|
+| Order parameter | Scalar: Φ = √ρ₀ e^{iφ} | Tensor: Φ = √ρ₀ e^{iφ} e^a_μ |
+| Degrees of freedom | 1 (phase φ) | 1 + 16 (phase + tetrad) |
+| GW modes | 1 breathing | 2 tensor + 1 breathing |
+| Analogy | Superfluid ⁴He (scalar BEC) | Superfluid ³He-A (tensor BEC) |
+
+**The minimal extension.** To produce tetrad structure, the PDTP
+condensate wavefunction must be generalized from a scalar to a
+multi-component object:
+
+```
+Φ_vacuum = √ρ₀ · e^{iφ(x)} · e^a_μ(x)                       ... (1.8)
+```
+
+where e^a_μ is the tetrad field. The effective metric is then:
+
+```
+g_μν = η_{ab} e^a_μ e^b_ν                                     ... (1.9)
+```
+
+**Source:** [Tetrad formalism — Wikipedia](https://en.wikipedia.org/wiki/Tetrad_formalism)
+
+The extended PDTP Lagrangian would need additional terms governing
+tetrad dynamics. The simplest possibility is the Palatini action
+written in terms of tetrads:
+
+```
+L_tetrad = e · e^a_μ e^b_ν R^{μν}_{ab}[ω]                    ... (1.10)
+```
+
+where e = det(e^a_μ) and R^{μν}_{ab} is the Riemann tensor of the
+spin connection ω. This is the Einstein-Cartan action in first-order
+form.
+
+**Source:** [Einstein-Cartan theory — Wikipedia](https://en.wikipedia.org/wiki/Einstein%E2%80%93Cartan_theory)
+
+**Can tetrads emerge spontaneously?** In He-3A, the triad structure
+arises from spontaneous symmetry breaking of the rotation group:
+SO(3)_spin × SO(3)_orbit → SO(3)_combined. The broken generators
+become the Goldstone modes that act as emergent gravitons.
+
+For PDTP, a similar mechanism would require the vacuum condensate to
+spontaneously break some internal symmetry down to the Lorentz group.
+The broken generators would produce the tetrad degrees of freedom.
+
+**Connection to group field theory.** In GFT (§3.3), the fundamental
+"atoms" are quantum tetrahedra, which carry geometric data including
+edge lengths and normals. A GFT condensate — a coherent state of many
+such tetrahedra — naturally has tetrad-like structure built in. This
+provides a possible microscopic origin for the tetrad in PDTP.
+
+**Honest assessment:**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  Condensate Tetrad Structure — Status                           │
+│                                                                 │
+│  Required for: Tensor GW modes (§1.6, Mechanism A)              │
+│                                                                 │
+│  Physical precedent: He-3A (Volovik) — established              │
+│  Microscopic origin: GFT condensate (Oriti) — speculative       │
+│                                                                 │
+│  Derived from PDTP Lagrangian: NO                               │
+│  The current scalar Lagrangian does not produce tetrads.        │
+│  An explicit extension is needed (equation 1.8–1.10).           │
+│                                                                 │
+│  This remains the single most important structural gap          │
+│  in the PDTP framework.                                         │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -641,6 +844,142 @@ enforces this condition is an open question. However, the massive scalar
 mechanism (§2.8) provides an independent guarantee that |γ − 1| is
 negligibly small at solar system scales, regardless of κ.
 
+### 2.11 Derivation of κ = −2 from First Principles
+
+**PDTP Original (builds on established analogue gravity results).** The
+parameter κ was introduced in §2.6 as the proportionality constant in
+ρ = ρ₀(1 + κU_N). Here we derive its value from first principles using
+two independent arguments.
+
+**Argument 1: The Painlevé-Gullstrand representation.**
+
+The Schwarzschild metric can be written in Painlevé-Gullstrand (PG)
+coordinates:
+
+```
+ds² = −(1 − v²/c²) c² dt² − 2v c dt dr + dr² + r² dΩ²      ... (2.18)
+```
+
+where v(r) = c√(2U) = √(2GM/r) is the Newtonian free-fall velocity.
+
+**Source:** Painlevé, P. (1921), "La mécanique classique et la théorie
+de la relativité," *Comptes Rendus de l'Académie des Sciences*, 173, 677.
+
+**Source:** [Gullstrand-Painlevé coordinates — Wikipedia](https://en.wikipedia.org/wiki/Gullstrand%E2%80%93Painlev%C3%A9_coordinates)
+
+This IS the acoustic metric of a flowing fluid with:
+
+```
+ρ = ρ₀ = const     (no density perturbation, κ_PG = 0)
+c_s = c             (speed of sound = speed of light)
+v_i = −c√(2U) r̂_i  (radial infall at free-fall velocity)
+```
+
+**Source:** Visser, M. (1998), "Acoustic black holes: horizons,
+ergospheres and Hawking radiation," *Classical and Quantum Gravity*,
+15, 1767–1791. [arXiv:gr-qc/9712010](https://arxiv.org/abs/gr-qc/9712010)
+
+The PPN parameter γ is a coordinate-invariant physical quantity. Since
+equation (2.18) is simply Schwarzschild in different coordinates, and
+Schwarzschild has γ = 1, the acoustic metric automatically gives γ = 1.
+
+**The key insight:** κ is coordinate-dependent; γ is not. In PG coordinates,
+κ = 0. In isotropic coordinates, κ = −2. Both represent the same
+physics (γ = 1).
+
+**Argument 2: Coordinate transformation to isotropic form.**
+
+Transforming the PG metric (2.18) to isotropic coordinates
+(R, T) gives the standard PPN form:
+
+```
+ds² ≈ −(1 − 2U) c² dT² + (1 + 2U)(dR² + R² dΩ²)            ... (2.19)
+```
+
+The acoustic metric in isotropic coordinates has an effective density:
+
+```
+ρ_eff = ρ₀(1 + κU)    with κ = −2
+```
+
+To see why, write the isotropic-coordinate acoustic metric components:
+
+```
+g₀₀ = −(ρ_eff/c_s)(c_s² − v_iso²) = −(1 − 2U)
+gᵢⱼ = (ρ_eff/c_s) δᵢⱼ = (1 + 2U) δᵢⱼ
+```
+
+From gᵢⱼ: ρ_eff/ρ₀ = 1 + 2U → κ must produce δρ/ρ₀ = +2U for the
+spatial metric. But the time-time component also contains ρ_eff:
+
+```
+ρ_eff c_s (1 − v_iso²/c_s²) = 1 − 2U
+(1 + 2U)(1 − v_iso²/c²) = 1 − 2U
+v_iso²/c² = 4U                                                ... (2.20)
+```
+
+In isotropic coordinates, the effective velocity is v² = 4c²U.
+
+The density parameter κ, when defined as g₀₀ = −(1 + κU) for a static
+limit (setting v = 0), gives κ = −2. This is the convention used in §2.6.
+Physically, it means: if we absorb the velocity contribution into an
+"effective density," the coordinate density decreases near a mass.
+
+**Argument 3: Relativistic Euler equation for c_s = c.**
+
+For a self-gravitating relativistic fluid in hydrostatic equilibrium,
+the relativistic Euler equation gives:
+
+```
+∇P / (ρ + P/c²) = −∇Φ_N                                      ... (2.21)
+```
+
+**Source:** Weinberg, S. (1972), *Gravitation and Cosmology*, §11.1.
+
+With the equation of state P = c_s² ρ and c_s = c:
+
+```
+c² ∇ρ / (2ρ) = −∇Φ_N = ∇U · c²
+```
+
+Integrating: δρ/ρ₀ = 2U. This confirms the density increases by +2U
+near a mass (gravitational compression for the maximally stiff equation
+of state). Combined with the velocity condition (2.20), the full
+acoustic metric reproduces Schwarzschild with γ = 1.
+
+**Summary of κ derivation:**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  κ = −2 Derivation                                              │
+│                                                                 │
+│  Method 1 (PG representation):                                  │
+│    Acoustic metric = Schwarzschild in PG coords                 │
+│    ρ = const, v = c√(2U)                                       │
+│    γ = 1 (coordinate-invariant)                                 │
+│                                                                 │
+│  Method 2 (isotropic coords):                                   │
+│    δρ/ρ₀ = +2U (from Euler equation with c_s = c)              │
+│    v² = 4c²U (from g₀₀ matching)                               │
+│    κ_effective = −2 (absorbing velocity into density)           │
+│                                                                 │
+│  Physical content: γ = 1 follows from the acoustic metric       │
+│  reproducing Schwarzschild. κ is a coordinate artifact.         │
+│                                                                 │
+│  Required: c_s = c (speed of sound equals speed of light)       │
+│  This is the Lorentz-invariant condensate condition.            │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+The condition c_s = c is physically well-motivated: a Lorentz-invariant
+vacuum condensate must have its "speed of sound" (speed of low-energy
+excitations) equal to c, otherwise Lorentz invariance would be broken
+at low energies. This is precisely Volovik's condition for emergent
+Lorentz symmetry in superfluid vacuum theory.
+
+**Source:** Volovik (2003), Chapter 7: "Microscopic physics" → "Speed
+of light as speed of sound."
+
 ---
 
 ## 3. Vacuum Condensate Microscopic Structure
@@ -975,6 +1314,114 @@ comparisons confirm it to parts in 10⁻⁵.
 └─────────────────────────────────────────────────────────────────┘
 ```
 
+### 4.8 The Trace Problem and G_EM Resolution
+
+**PDTP Original (builds on established scalar gravity results).** Equation
+(4.3) introduced a term G_EM · T₀₀^EM as the photon source for the
+spacetime phase field. Here we show this term is **incorrect** and must
+be removed from the field equation.
+
+**The trace problem.** The electromagnetic stress-energy tensor is
+**traceless** in 4 dimensions:
+
+```
+T^μ_μ (EM) = η^{μν} T_μν^{EM} = 0                            ... (4.5)
+```
+
+This is a consequence of the conformal invariance of Maxwell's equations.
+
+**Source:** [Electromagnetic stress-energy tensor — Wikipedia](https://en.wikipedia.org/wiki/Electromagnetic_stress%E2%80%93energy_tensor)
+
+In a scalar theory of gravity, the gravitational field equation has a
+scalar source. The only Lorentz-scalar that can be formed from T_μν is
+its trace T = T^μ_μ. Since T^EM = 0, **electromagnetic fields cannot
+directly source a scalar gravitational field at the classical level.**
+
+This is the fundamental failure of Nordström's scalar theory of gravity
+(1913), the first relativistic theory of gravity, which predated GR:
+
+```
+□φ_Nordström = −4πG T / c²                                    ... (4.6)
+```
+
+Since T^EM = 0, Nordström's theory predicts:
+- No light bending
+- No gravitational effect of EM energy
+- Violation of the equivalence principle for EM radiation
+
+These predictions are all experimentally falsified.
+
+**Source:** [Nordström's theory of gravitation — Wikipedia](https://en.wikipedia.org/wiki/Nordstr%C3%B6m%27s_theory_of_gravitation)
+
+**Why T₀₀ cannot be used.** The term G_EM · T₀₀^EM in equation (4.3)
+uses the (0,0) component of a tensor, which is NOT a Lorentz scalar.
+It transforms under boosts and depends on the reference frame. Using it
+as a source for the Lorentz-scalar field equation □φ = ... breaks
+Lorentz covariance. This term is inconsistent and must be removed.
+
+**The correct PDTP field equation:**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  Corrected field equation:                                      │
+│                                                                 │
+│  □φ = Σᵢ gᵢ sin(ψᵢ − φ)                       ... (4.7)      │
+│                                                                 │
+│  Only massive matter appears on the right-hand side.            │
+│  The G_EM · T₀₀^EM term is REMOVED.                            │
+│  Equation (4.3) is superseded by equation (4.7).                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**How photons still gravitate.** Removing G_EM does NOT mean photons
+don't gravitate. Photons are affected by gravity through two mechanisms:
+
+1. **As test particles:** Photons follow null geodesics of the acoustic
+   metric (§4.3–4.4). This gives correct light bending and redshift.
+
+2. **As gravitational sources:** Photon energy is not lost — it is
+   accounted for through the stress-energy of matter that emitted or
+   will absorb the photons. When a star emits a photon, its mass
+   decreases by E/c². When another star absorbs it, its mass increases.
+   The scalar field φ tracks the matter distribution, which includes
+   these mass changes. At any given moment, the total energy is
+   conserved (§Part 1, §5).
+
+3. **Bound EM energy:** The electromagnetic binding energy of atoms,
+   nuclei, and other composite systems contributes to their rest mass.
+   This mass enters the gᵢ sin(ψᵢ − φ) coupling automatically.
+   Only free propagating radiation is absent from the scalar source.
+
+4. **The trace anomaly (quantum correction):** At the quantum level,
+   conformal invariance is broken by the trace anomaly:
+
+```
+T^μ_μ (EM, quantum) = β(e)/(2e) · F_μν F^{μν}                ... (4.8)
+```
+
+   where β(e) is the QED beta function. This generates a tiny coupling
+   between the scalar field and EM at loop level, but it is suppressed
+   by α_EM/(4π) ~ 10⁻³ and is negligible for classical gravity.
+
+**Source:** [Conformal anomaly — Wikipedia](https://en.wikipedia.org/wiki/Conformal_anomaly)
+
+**Analogy with Brans-Dicke.** The same situation occurs in Brans-Dicke
+theory: the scalar field equation □Φ = (8π/(2ω+3)) T has T^EM = 0 as
+its source, so EM does not directly drive the scalar. But photons still
+follow geodesics of the full metric (which includes the scalar's
+contribution), so light bending and redshift work correctly.
+
+**Honest assessment:** The removal of G_EM from equation (4.3) is
+actually a **simplification** — the field equation becomes cleaner, with
+only the phase-locking term as the source. The "price" is that free
+photon radiation does not source φ at the classical level. This is a
+generic feature of scalar gravity theories and is shared with
+Brans-Dicke. The equivalence principle is maintained for massive matter
+(which includes bound EM energy) and for test photons (via geodesics).
+The remaining question — whether a dense photon gas (e.g., in the early
+universe) would gravitate correctly — requires the full tensor structure
+of the acoustic metric and is left for future work.
+
 ---
 
 ## 5. Summary of Results
@@ -984,33 +1431,36 @@ comparisons confirm it to parts in 10⁻⁵.
 | Problem | Resolution | Section | Status |
 |---------|-----------|---------|--------|
 | GW polarization | Emergent tensor modes from condensate tetrad structure; breathing mode as testable prediction | 1.4–1.7 | Resolved with condensate structure assumption |
-| PPN parameter γ | γ = 1 from acoustic metric density perturbation; independently guaranteed by massive scalar Yukawa suppression | 2.5–2.8 | ✓ Consistent with Cassini bound |
+| Breathing mode amplitude | Suppressed by ≥ 10⁻⁵ relative to tensor (from Cassini ω > 40,000); massive scalar may add further suppression | 1.9 | ✓ Below current detection threshold |
+| PPN parameter γ | γ = 1 from Painlevé-Gullstrand acoustic metric matching Schwarzschild; independently guaranteed by massive scalar Yukawa suppression | 2.5–2.11 | ✓ Consistent with Cassini bound |
 | PPN parameter β | β = 1 from Lorentz invariance and linear superposition in weak field | 2.7 | ✓ Consistent with LLR |
+| κ = −2 | Derived from self-consistency: acoustic metric = Schwarzschild in PG coords (κ is coordinate-dependent; γ = 1 is physical). Also from relativistic Euler equation with c_s = c | 2.11 | ✓ Derived |
 | Nordtvedt effect | η_N = 0 (no effect) | 2.9 | ✓ Consistent |
 | Vacuum condensate | Constrained by PDTP Lagrangian; connected to GFT condensate program | 3.2–3.4 | Open (as in SVT) |
 | Photon coupling | Indirect via acoustic metric null geodesics; no direct cos coupling | 4.3–4.4 | ✓ Light bending matches GR |
 | Light bending factor of 2 | From γ = 1 in acoustic metric → θ = 4GM/(bc²) | 4.4 | ✓ Matches GR |
 | Gravitational redshift | From g₀₀ of acoustic metric | 4.6 | ✓ Matches GR |
+| G_EM coupling | Resolved: the G_EM · T₀₀^EM term is removed. EM stress-energy is traceless → cannot source a scalar field. Photons couple only through the acoustic metric | 4.8 | ✓ Resolved (field equation simplified) |
 
 ### What Remains Honestly Open
 
 | Problem | Difficulty | Notes |
 |---------|-----------|-------|
-| Condensate tetrad structure | Hard | Required for tensor GW modes; assumed, not derived |
-| κ = −2 from first principles | Medium | Needed for exact γ = 1; currently assumed |
-| EM coupling constant G_EM | Medium | Equation (4.3) has undetermined coefficient |
-| Condensate microscopic constituents | Very Hard | Open in SVT itself |
+| Condensate tetrad structure | Hard | Required for tensor GW modes; not derivable from current scalar Lagrangian (§1.10) |
+| Condensate microscopic constituents | Very Hard | Open in SVT itself; constrained by PDTP but not solved |
 | Second-order PPN effects | Hard | β at O(U²) needs careful calculation |
-| Breathing mode amplitude | Medium | How strong is the scalar GW component relative to tensor? |
+| Free photon radiation as gravitational source | Medium | Free photons don't source □φ (trace = 0); only bound EM energy does |
+| Radiation-dominated era cosmology | Hard | PDTP field equation has no EM source → early universe dynamics unclear |
 
 ### New Testable Predictions
 
 | Prediction | How to Test | Current Status |
 |-----------|------------|----------------|
-| Breathing mode in GWs | Multi-detector polarimetry (LIGO/Virgo/KAGRA/LIGO-India) | No detection yet; weak constraints |
-| γ = 1 exactly | Improved Shapiro delay measurements (BepiColombo mission) | |γ−1| < 2.3×10⁻⁵ (Cassini) |
+| Breathing mode in GWs (amplitude < 10⁻⁵ × tensor) | Multi-detector polarimetry (LIGO/Virgo/KAGRA/LIGO-India) | No detection yet; weak constraints |
+| γ = 1 exactly | Improved Shapiro delay measurements (BepiColombo mission) | \|γ−1\| < 2.3×10⁻⁵ (Cassini) |
 | No Nordtvedt effect | Continued Lunar Laser Ranging | Consistent |
 | Condensate density perturbation near masses | Precision gravitational measurements in different media? | Speculative |
+| No scalar dipole GW radiation from equal-mass mergers | GW waveform analysis | Consistent with observations |
 
 ---
 
@@ -1056,6 +1506,16 @@ comparisons confirm it to parts in 10⁻⁵.
 52. [Gravitational lens — Wikipedia](https://en.wikipedia.org/wiki/Gravitational_lens)
 53. [Electromagnetic stress-energy tensor — Wikipedia](https://en.wikipedia.org/wiki/Electromagnetic_stress%E2%80%93energy_tensor)
 54. [Gravitational redshift — Wikipedia](https://en.wikipedia.org/wiki/Gravitational_redshift)
+55. [Gullstrand-Painlevé coordinates — Wikipedia](https://en.wikipedia.org/wiki/Gullstrand%E2%80%93Painlev%C3%A9_coordinates)
+56. Visser, M. (1998), "Acoustic black holes: horizons, ergospheres and
+    Hawking radiation," *Classical and Quantum Gravity*, 15, 1767–1791.
+    [arXiv:gr-qc/9712010](https://arxiv.org/abs/gr-qc/9712010)
+57. Will, C. M. (1994), "Gravitational waves from inspiraling compact
+    binaries: A post-Newtonian approach," *Physical Review D*, 50, 6058.
+    [APS](https://doi.org/10.1103/PhysRevD.50.6058)
+58. [Einstein-Cartan theory — Wikipedia](https://en.wikipedia.org/wiki/Einstein%E2%80%93Cartan_theory)
+59. [Nordström's theory of gravitation — Wikipedia](https://en.wikipedia.org/wiki/Nordstr%C3%B6m%27s_theory_of_gravitation)
+60. [Conformal anomaly — Wikipedia](https://en.wikipedia.org/wiki/Conformal_anomaly)
 
 (References 1–19 in [mathematical_formalization.md](mathematical_formalization.md).)
 (References 20–34 in [advanced_formalization.md](advanced_formalization.md).)

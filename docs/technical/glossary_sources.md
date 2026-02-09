@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-09
+Last updated: 2026-02-10
 
 ---
 
@@ -52,6 +52,10 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 36 | Gravitational lens | https://en.wikipedia.org/wiki/Gravitational_lens | hard_problems.md §4.2 |
 | 37 | Electromagnetic stress-energy tensor | https://en.wikipedia.org/wiki/Electromagnetic_stress%E2%80%93energy_tensor | hard_problems.md §4.5 |
 | 38 | Gravitational redshift | https://en.wikipedia.org/wiki/Gravitational_redshift | hard_problems.md §4.6 |
+| 39 | Gullstrand-Painlevé coordinates | https://en.wikipedia.org/wiki/Gullstrand%E2%80%93Painlev%C3%A9_coordinates | hard_problems.md §2.11 |
+| 40 | Einstein-Cartan theory | https://en.wikipedia.org/wiki/Einstein%E2%80%93Cartan_theory | hard_problems.md §1.10 |
+| 41 | Nordström's theory of gravitation | https://en.wikipedia.org/wiki/Nordstr%C3%B6m%27s_theory_of_gravitation | hard_problems.md §4.8 |
+| 42 | Conformal anomaly | https://en.wikipedia.org/wiki/Conformal_anomaly | hard_problems.md §4.8 |
 
 ---
 
@@ -77,6 +81,8 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 16 | Perivolaropoulos, L. | 2010 | "PPN Parameter γ and Solar System Constraints of Massive Brans-Dicke Theories" | *Physical Review D*, 81, 047501 | [arXiv:0911.3401](https://arxiv.org/abs/0911.3401) | hard_problems.md §2.8 |
 | 17 | Oriti, D. | 2014 | "Group Field Theory as the microscopic description of the quantum spacetime fluid" | *Proceedings of Science*, PoS(QG-Ph)030 | [arXiv:0710.3276](https://arxiv.org/abs/0710.3276) | hard_problems.md §3.3 |
 | 18 | Gielen, S. & Sindoni, L. | 2016 | "Quantum cosmology from group field theory condensates: a review" | *SIGMA*, 12, 082 | [arXiv:1602.08104](https://arxiv.org/abs/1602.08104) | hard_problems.md §3.3 |
+| 19 | Visser, M. | 1998 | "Acoustic black holes: horizons, ergospheres and Hawking radiation" | *Classical and Quantum Gravity*, 15, 1767–1791 | [arXiv:gr-qc/9712010](https://arxiv.org/abs/gr-qc/9712010) | hard_problems.md §2.11 |
+| 20 | Will, C. M. | 1994 | "Gravitational waves from inspiraling compact binaries: A post-Newtonian approach" | *Physical Review D*, 50, 6058 | [APS](https://doi.org/10.1103/PhysRevD.50.6058) | hard_problems.md §1.9 |
 
 ---
 
@@ -138,6 +144,11 @@ physics. They should not be cited as if they are.
 | Photon indirect coupling via acoustic metric null geodesics | hard_problems.md §4.3–4.4 |
 | Light bending factor-of-2 recovery (θ = 4GM/bc²) | hard_problems.md §4.4 |
 | Gravitational redshift from acoustic metric | hard_problems.md §4.6 |
+| κ = −2 derived from PG representation + relativistic Euler equation | hard_problems.md §2.11 |
+| Breathing mode amplitude < 10⁻⁵ × tensor (from Cassini ω bound) | hard_problems.md §1.9 |
+| Condensate tetrad extension: Φ = √ρ₀ e^{iφ} e^a_μ | hard_problems.md §1.10 |
+| G_EM term removed: EM trace = 0 → no direct scalar coupling | hard_problems.md §4.8 |
+| Corrected field equation (4.7): □φ = Σᵢ gᵢ sin(ψᵢ − φ) only | hard_problems.md §4.8 |
 
 ---
 

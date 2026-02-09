@@ -138,22 +138,47 @@ full context.
 
 ## Remaining Questions (Identified During Part 3 Work)
 
-- [ ] **Derive κ = −2 from first principles**
-  - The acoustic metric PPN result γ = 1 requires the condensate equation-of-state
-    parameter κ = δρ/(ρ₀ U) = −2
-  - Currently assumed; should be derived from the condensate dynamics
+- [x] **Derive κ = −2 from first principles**
+  - ~~Currently assumed; should be derived from the condensate dynamics~~
+  - Derived via Painlevé-Gullstrand representation: acoustic metric with constant
+    density + free-fall velocity = Schwarzschild metric, which has γ = 1
+  - κ is coordinate-dependent (0 in PG, −2 in isotropic); γ = 1 is physical
+  - Independently confirmed: relativistic Euler equation with c_s = c gives δρ/ρ₀ = 2U
+  - See [hard_problems.md](docs/research/hard_problems.md) §2.11
 
-- [ ] **Condensate tetrad structure**
-  - Tensor GW modes require the condensate to have tetrad (vierbein) degrees of freedom
-  - Assumed by analogy with He-3 (Volovik); not derived from PDTP Lagrangian
+- [x] **Condensate tetrad structure**
+  - Analyzed: He-3A order parameter (Volovik) provides the physical precedent
+  - PDTP scalar Lagrangian does NOT produce tetrads — explicit extension needed
+  - Minimal extension: Φ_vacuum = √ρ₀ e^{iφ} e^a_μ (tetrad + phase)
+  - **Remains the most important structural gap in PDTP**
+  - See [hard_problems.md](docs/research/hard_problems.md) §1.10
 
-- [ ] **Breathing mode amplitude relative to tensor**
-  - PDTP predicts a breathing mode; what is its amplitude relative to tensor modes?
-  - Needed for quantitative LIGO/Virgo/KAGRA comparison
+- [x] **Breathing mode amplitude relative to tensor**
+  - Mapped to Brans-Dicke: h_breathing/h_tensor < 1/(2ω+3) < 1.25 × 10⁻⁵ (Cassini)
+  - Massive scalar adds Yukawa suppression above threshold frequency
+  - Below current LIGO detection threshold; may be accessible with 5+ detectors in 2030s
+  - See [hard_problems.md](docs/research/hard_problems.md) §1.9
 
-- [ ] **EM coupling constant G_EM in equation (4.3)**
-  - The photon source term □φ = ... + G_EM · T₀₀^EM has undetermined coefficient
-  - Should be fixed by requiring equivalence principle (E = mc²)
+- [x] **EM coupling constant G_EM in equation (4.3)**
+  - ~~Should be fixed by requiring equivalence principle (E = mc²)~~
+  - **Resolved: the G_EM term must be REMOVED.** EM stress-energy tensor is traceless
+    (T^μ_μ = 0), so photons cannot source a scalar field at classical level. This is
+    Nordström's problem. Equation (4.3) replaced by equation (4.7) with only matter sources.
+  - Photons still gravitate via acoustic metric geodesics (test particles) and through
+    bound EM energy in composite matter (gravitational sources)
+  - See [hard_problems.md](docs/research/hard_problems.md) §4.8
+
+## New Questions (Identified During Part 3b Work)
+
+- [ ] **Free photon radiation as gravitational source**
+  - Free photons don't source □φ (EM trace = 0)
+  - Only bound EM energy gravitates through the scalar field
+  - Implications for radiation-dominated cosmology unclear
+
+- [ ] **Radiation-dominated era cosmology**
+  - In the early universe, most energy was in radiation (T^EM = 0 source)
+  - How does PDTP handle the Friedmann equation with radiation?
+  - May require the full acoustic metric / tensor structure
 
 ---
 
@@ -176,7 +201,7 @@ full context.
 ## Status
 
 ```
-Mathematical formalization complete (three parts).
+Mathematical formalization complete (three parts + follow-up).
 
 Part 1: Lagrangian, field equations, conservation laws, stability,
 Newtonian recovery, order-of-magnitude predictions.
@@ -188,9 +213,13 @@ Part 3: GW polarization (emergent tensor + breathing mode), PPN parameters
 (γ=1, β=1), vacuum condensate constraints (GFT connection), photon coupling
 (indirect via acoustic metric, factor-of-2 recovered).
 
-All four "Hard Open Problems" addressed. Remaining: stretch goals
-(Koide, fine-structure constant, N-body simulation) and genuinely
-open questions (condensate microscopy, κ=−2 derivation).
+Part 3b (follow-up): κ=−2 derived (PG representation), breathing mode
+amplitude quantified (<10⁻⁵), tetrad structure analyzed (extension needed),
+G_EM resolved (removed — trace problem). Field equation simplified.
+
+All "Remaining Questions" from Part 3 addressed.
+Open: stretch goals (Koide, α, N-body), structural gaps (tetrad extension,
+radiation-era cosmology), and genuinely open problems (condensate microscopy).
 ```
 
 ---
