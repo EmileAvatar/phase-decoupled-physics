@@ -56,6 +56,8 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 40 | Einstein-Cartan theory | https://en.wikipedia.org/wiki/Einstein%E2%80%93Cartan_theory | hard_problems.md §1.10 |
 | 41 | Nordström's theory of gravitation | https://en.wikipedia.org/wiki/Nordstr%C3%B6m%27s_theory_of_gravitation | hard_problems.md §4.8 |
 | 42 | Conformal anomaly | https://en.wikipedia.org/wiki/Conformal_anomaly | hard_problems.md §4.8 |
+| 43 | Koide formula | https://en.wikipedia.org/wiki/Koide_formula | koide_derivation.md §1–§3 |
+| 44 | Standard Model (Z-width, 3 generations) | https://en.wikipedia.org/wiki/Standard_Model | koide_derivation.md §8.1 |
 
 ---
 
@@ -83,6 +85,12 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 18 | Gielen, S. & Sindoni, L. | 2016 | "Quantum cosmology from group field theory condensates: a review" | *SIGMA*, 12, 082 | [arXiv:1602.08104](https://arxiv.org/abs/1602.08104) | hard_problems.md §3.3 |
 | 19 | Visser, M. | 1998 | "Acoustic black holes: horizons, ergospheres and Hawking radiation" | *Classical and Quantum Gravity*, 15, 1767–1791 | [arXiv:gr-qc/9712010](https://arxiv.org/abs/gr-qc/9712010) | hard_problems.md §2.11 |
 | 20 | Will, C. M. | 1994 | "Gravitational waves from inspiraling compact binaries: A post-Newtonian approach" | *Physical Review D*, 50, 6058 | [APS](https://doi.org/10.1103/PhysRevD.50.6058) | hard_problems.md §1.9 |
+| 21 | Koide, Y. | 1982 | "A Fermion-Boson Composite Model of Quarks and Leptons" | *Lett. Nuovo Cimento* **34**, 201 | [Springer](https://link.springer.com/article/10.1007/BF02817096) | koide_derivation.md §1.1 |
+| 22 | Brannen, C. A. | 2006 | "The Lepton Masses" | Preprint | [brannenworks.com](https://brannenworks.com/MASSES2.pdf) | koide_derivation.md §2.1, §5.2 |
+| 23 | Rivero, A. & Gsponer, A. | 2005 | "The strange formula of Dr. Koide" | *arXiv:hep-ph/0505220* | [arXiv](https://arxiv.org/abs/hep-ph/0505220) | koide_derivation.md §4.4 |
+| 24 | Sumino, Y. | 2009 | "Family Gauge Symmetry as an Origin of Koide's Mass Formula" | *JHEP* **05**, 075 | [arXiv:0903.3640](https://arxiv.org/abs/0903.3640) | koide_derivation.md §6.4 |
+| 25 | Rodejohann, W. & Zhang, H. | 2011 | "Extended Empirical Fermion Mass Relation" | *arXiv:1101.5525* | [arXiv](https://arxiv.org/abs/1101.5525) | koide_derivation.md §7.3 |
+| 26 | Rivero, A. | 2011 | "A new Koide tuple: strange-charm-bottom" | *arXiv:1111.7232* | [arXiv](https://arxiv.org/abs/1111.7232) | koide_derivation.md §7.4 |
 
 ---
 
@@ -149,6 +157,10 @@ physics. They should not be cited as if they are.
 | Condensate tetrad extension: Φ = √ρ₀ e^{iφ} e^a_μ | hard_problems.md §1.10 |
 | G_EM term removed: EM trace = 0 → no direct scalar coupling | hard_problems.md §4.8 |
 | Corrected field equation (4.7): □φ = Σᵢ gᵢ sin(ψᵢ − φ) only | hard_problems.md §4.8 |
+| Koide formula from Z₃ phase parametrization: Q = (1+δ²/2)/3, Q=2/3 ⟺ δ=√2 | koide_derivation.md §3 |
+| 45° theorem: √m vector angle with (1,1,1) = 45° ⟺ Q=2/3 | koide_derivation.md §4 |
+| Equal partition principle: \|v‖\|² = \|v⊥\|² for δ=√2 | koide_derivation.md §6.1 |
+| Quark Koide analysis: (c,b,t) Q=0.669, generational quarks deviate | koide_derivation.md §7 |
 
 ---
 
