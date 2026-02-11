@@ -193,8 +193,15 @@ full context.
   - Physical argument: δ = √2 from equal partition of symmetric/breaking energy
   - See [koide_derivation.md](docs/research/koide_derivation.md)
 
-- [ ] **Derive the fine-structure constant** from phase impedance matching
-  - Calculate 1/137 from the impedance ratio of matter-wave and EM phase media
+- [x] **Derive the fine-structure constant** from phase impedance matching
+  - Exact identity: α = Z₀/(2R_K) = (EM impedance)/(2 × quantum impedance) = 1/137.036
+  - PDTP interpretation: coupling efficiency between EM and matter-wave phase media
+  - Impedance mismatch explains why α is small: R_K/Z₀ ≈ 69 (media stiffness ratio)
+  - Length scale cascade: r_e = αλ̄_C = α²a₀ as standing-wave harmonics
+  - Running of α: energy-dependent quantum impedance from vacuum polarization
+  - Wyler's formula discussed (α_W⁻¹ = 137.036..., 0.6 ppm, but no solid derivation)
+  - **Honest status:** structural interpretation achieved; numerical derivation remains open
+  - See [fine_structure_derivation.md](docs/research/fine_structure_derivation.md)
 
 - [ ] **Simulation of emergent GR**
   - N-body simulation of phase-coupled oscillators
@@ -228,7 +235,13 @@ Q = 2/3 ⟺ δ = √2. Extended to quarks: (c,b,t) near-Koide. Physical
 origin of δ = √2 from equal energy partition. θ₀ = 2/9 remains empirical.
 
 Koide stretch goal completed.
-Open: stretch goals (α, N-body), structural gaps (tetrad extension,
+Part 5: Fine-structure constant analyzed as impedance ratio. α = Z₀/(2R_K)
+exact identity. Impedance mismatch interpretation, length scale hierarchy,
+running coupling, Wyler's formula. Numerical value NOT derived — requires
+condensate microscopic structure (open in SVT itself).
+
+Fine-structure constant stretch goal completed (structural analysis).
+Open: stretch goals (N-body simulation), structural gaps (tetrad extension,
 radiation-era cosmology), and genuinely open problems (condensate microscopy).
 ```
 

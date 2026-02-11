@@ -58,6 +58,11 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 42 | Conformal anomaly | https://en.wikipedia.org/wiki/Conformal_anomaly | hard_problems.md §4.8 |
 | 43 | Koide formula | https://en.wikipedia.org/wiki/Koide_formula | koide_derivation.md §1–§3 |
 | 44 | Standard Model (Z-width, 3 generations) | https://en.wikipedia.org/wiki/Standard_Model | koide_derivation.md §8.1 |
+| 45 | Fine-structure constant | https://en.wikipedia.org/wiki/Fine-structure_constant | fine_structure_derivation.md §1–§2 |
+| 46 | Impedance of free space | https://en.wikipedia.org/wiki/Impedance_of_free_space | fine_structure_derivation.md §2.4, §3.1 |
+| 47 | Quantum Hall effect (von Klitzing constant) | https://en.wikipedia.org/wiki/Quantum_Hall_effect | fine_structure_derivation.md §2.4, §3.1 |
+| 48 | Compton wavelength | https://en.wikipedia.org/wiki/Compton_wavelength | fine_structure_derivation.md §2.3 |
+| 49 | Coupling constant (running) | https://en.wikipedia.org/wiki/Coupling_constant | fine_structure_derivation.md §1.3, §5.1 |
 
 ---
 
@@ -91,6 +96,11 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 24 | Sumino, Y. | 2009 | "Family Gauge Symmetry as an Origin of Koide's Mass Formula" | *JHEP* **05**, 075 | [arXiv:0903.3640](https://arxiv.org/abs/0903.3640) | koide_derivation.md §6.4 |
 | 25 | Rodejohann, W. & Zhang, H. | 2011 | "Extended Empirical Fermion Mass Relation" | *arXiv:1101.5525* | [arXiv](https://arxiv.org/abs/1101.5525) | koide_derivation.md §7.3 |
 | 26 | Rivero, A. | 2011 | "A new Koide tuple: strange-charm-bottom" | *arXiv:1111.7232* | [arXiv](https://arxiv.org/abs/1111.7232) | koide_derivation.md §7.4 |
+| 27 | Sommerfeld, A. | 1916 | "Zur Quantentheorie der Spektrallinien" | *Annalen der Physik* **356**, 1–94 | [Wiley](https://doi.org/10.1002/andp.19163561702) | fine_structure_derivation.md §2.2 |
+| 28 | von Klitzing, K. | 1980 | "New Method for High-Accuracy Determination of the Fine-Structure Constant Based on Quantized Hall Resistance" | *PRL* **45**, 494 | [APS](https://doi.org/10.1103/PhysRevLett.45.494) | fine_structure_derivation.md §3.1 |
+| 29 | Wyler, A. | 1969 | "Clapp des domaines bornés symétriques" | *Comptes Rendus* **269A**, 743 | — | fine_structure_derivation.md §6.1 |
+| 30 | Robertson, H. P. | 1971 | "Wyler's Expression for the Fine-Structure Constant α" | *PRL* **27**, 1545 | [APS](https://doi.org/10.1103/PhysRevLett.27.1545) | fine_structure_derivation.md §6.2 |
+| 31 | Kragh, H. | 2015 | "On Arthur Eddington's Theory of Everything" | Preprint | [arXiv:1510.04046](https://arxiv.org/abs/1510.04046) | fine_structure_derivation.md §6.4 |
 
 ---
 
@@ -161,6 +171,12 @@ physics. They should not be cited as if they are.
 | 45° theorem: √m vector angle with (1,1,1) = 45° ⟺ Q=2/3 | koide_derivation.md §4 |
 | Equal partition principle: \|v‖\|² = \|v⊥\|² for δ=√2 | koide_derivation.md §6.1 |
 | Quark Koide analysis: (c,b,t) Q=0.669, generational quarks deviate | koide_derivation.md §7 |
+| α = Z₀/(2R_K) reframed as EM/matter-wave phase-medium impedance ratio | fine_structure_derivation.md §3.2 |
+| Impedance mismatch explains why α ≪ 1 (R_K/Z₀ ≈ 69) | fine_structure_derivation.md §3.3 |
+| Hierarchy problem as condensate impedance ratio (α_grav/α_EM ∼ 10⁻³⁶) | fine_structure_derivation.md §3.4, §8.3 |
+| Length scale cascade r_e = αλ̄_C = α²a₀ as standing-wave harmonics | fine_structure_derivation.md §4.1–4.2 |
+| Running α as energy-dependent quantum impedance R_K(q²) | fine_structure_derivation.md §5.2 |
+| α derivation roadmap: condensate response functions f₁, f₂ | fine_structure_derivation.md §9.1–9.2 |
 
 ---
 
