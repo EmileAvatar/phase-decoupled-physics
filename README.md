@@ -15,6 +15,8 @@ This repository documents a long-form theoretical discussion exploring:
 This is not a claim of experimental proof.
 This is a structured thought experiment grounded in real physics principles and analogies.
 
+**Quick summary?** See the [Framework Summary](SUMMARY.md) for the core idea in one page.
+
 ---
 
 ## Core Premise
