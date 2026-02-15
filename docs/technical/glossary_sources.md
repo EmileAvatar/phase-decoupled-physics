@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-10
+Last updated: 2026-02-15
 
 ---
 
@@ -63,6 +63,9 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 47 | Quantum Hall effect (von Klitzing constant) | https://en.wikipedia.org/wiki/Quantum_Hall_effect | fine_structure_derivation.md §2.4, §3.1 |
 | 48 | Compton wavelength | https://en.wikipedia.org/wiki/Compton_wavelength | fine_structure_derivation.md §2.3 |
 | 49 | Coupling constant (running) | https://en.wikipedia.org/wiki/Coupling_constant | fine_structure_derivation.md §1.3, §5.1 |
+| 50 | Poisson's equation | https://en.wikipedia.org/wiki/Poisson%27s_equation | emergent_gr_results.md §2, §3 |
+| 51 | Green's function | https://en.wikipedia.org/wiki/Green%27s_function | emergent_gr_results.md §4 |
+| 52 | Tridiagonal matrix algorithm | https://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm | emergent_gr_results.md §3 |
 
 ---
 
@@ -177,6 +180,11 @@ physics. They should not be cited as if they are.
 | Length scale cascade r_e = αλ̄_C = α²a₀ as standing-wave harmonics | fine_structure_derivation.md §4.1–4.2 |
 | Running α as energy-dependent quantum impedance R_K(q²) | fine_structure_derivation.md §5.2 |
 | α derivation roadmap: condensate response functions f₁, f₂ | fine_structure_derivation.md §9.1–9.2 |
+| Numerical recovery of 1/r potential from PDTP field equations | emergent_gr_results.md §3 |
+| Emergence of smooth curvature from discrete phase oscillators | emergent_gr_results.md §4 |
+| Identification of PDTP phase-locking with Kuramoto synchronization | emergent_gr_results.md §5 |
+| Quantitative two-body gravitational force from phase-coupled oscillators | emergent_gr_results.md §6 |
+| Weak-field linearization validation with scaling analysis | emergent_gr_results.md §7 |
 
 ---
 
