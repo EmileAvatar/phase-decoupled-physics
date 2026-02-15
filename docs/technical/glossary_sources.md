@@ -66,6 +66,12 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 50 | Poisson's equation | https://en.wikipedia.org/wiki/Poisson%27s_equation | emergent_gr_results.md §2, §3 |
 | 51 | Green's function | https://en.wikipedia.org/wiki/Green%27s_function | emergent_gr_results.md §4 |
 | 52 | Tridiagonal matrix algorithm | https://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm | emergent_gr_results.md §3 |
+| 53 | Friedmann equations | https://en.wikipedia.org/wiki/Friedmann_equations | photon_gravity_analysis.md §2, §7 |
+| 54 | Solar luminosity | https://en.wikipedia.org/wiki/Solar_luminosity | photon_gravity_analysis.md §3.2 |
+| 55 | Radiation zone | https://en.wikipedia.org/wiki/Radiation_zone | photon_gravity_analysis.md §4.1 |
+| 56 | Free-fall time | https://en.wikipedia.org/wiki/Free-fall_time | photon_gravity_analysis.md §4.1 |
+| 57 | Cosmic microwave background | https://en.wikipedia.org/wiki/Cosmic_microwave_background | photon_gravity_analysis.md §7.3 |
+| 58 | Plasma frequency | https://en.wikipedia.org/wiki/Plasma_frequency | photon_gravity_analysis.md §9.2 |
 
 ---
 
@@ -185,6 +191,12 @@ physics. They should not be cited as if they are.
 | Identification of PDTP phase-locking with Kuramoto synchronization | emergent_gr_results.md §5 |
 | Quantitative two-body gravitational force from phase-coupled oscillators | emergent_gr_results.md §6 |
 | Weak-field linearization validation with scaling analysis | emergent_gr_results.md §7 |
+| Quantitative solar-system gravitational deficit from free photons (ΔM/M ~ 10⁻²¹/s) | photon_gravity_analysis.md §3.2 |
+| Thermal equilibrium suppression of free photon problem (f ~ 10⁻¹⁴) | photon_gravity_analysis.md §4.1 |
+| General thermal suppression principle: f = t_interaction/t_dynamical | photon_gravity_analysis.md §4.2 |
+| Free photon problem is cosmological, not astrophysical | photon_gravity_analysis.md §7.2 |
+| Self-limiting argument: radiation dominates only when tightly coupled | photon_gravity_analysis.md §7.3 |
+| Plasma frequency effective mass as pre-recombination coupling mechanism | photon_gravity_analysis.md §9.2 |
 
 ---
 

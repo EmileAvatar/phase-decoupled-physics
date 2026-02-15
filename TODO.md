@@ -170,10 +170,15 @@ full context.
 
 ## New Questions (Identified During Part 3b Work)
 
-- [ ] **Free photon radiation as gravitational source**
-  - Free photons don't source □φ (EM trace = 0)
-  - Only bound EM energy gravitates through the scalar field
-  - Implications for radiation-dominated cosmology unclear
+- [x] **Free photon radiation as gravitational source**
+  - Free photons don't source □φ (EM trace = 0) — established physics
+  - Energy bookkeeping: emitter loses mass E/c², absorber gains it back
+  - Thermal equilibrium suppression: t_interaction/t_grav ~ 10⁻¹⁴ in stellar interiors
+  - Solar system deficit: ΔM/M☉ ~ 2 × 10⁻²¹ per second — undetectable
+  - Self-limiting argument: radiation dominates only when tightly coupled
+  - **Conclusion:** cosmological problem, not astrophysical; negligible for all
+    post-equality physics. Radiation-era implications addressed separately.
+  - See [photon_gravity_analysis.md](docs/research/photon_gravity_analysis.md)
 
 - [ ] **Radiation-dominated era cosmology**
   - In the early universe, most energy was in radiation (T^EM = 0 source)
@@ -279,7 +284,16 @@ linearization validation (machine-precision match to |1−sin(x)/x|).
 Runtime ~10s. All tests PASS.
 
 Simulation stretch goal completed.
-Open: structural gaps (tetrad extension, radiation-era cosmology),
+Part 7: Free photon gravity analysis. Quantitative assessment: solar
+deficit ~10⁻²¹/s, thermal suppression ~10⁻¹⁴, trace anomaly ~0.04%.
+Key insight: radiation dominates only when tightly coupled (pre-
+recombination), and free-streams only when subdominant. Problem is
+cosmological, not astrophysical. Plasma frequency effective mass as
+possible pre-recombination coupling mechanism.
+
+Free photon analysis completed.
+Open: radiation-era cosmology, G derivation, strong-field EP,
+momentum balance, structural gaps (tetrad extension),
 and genuinely open problems (condensate microscopy).
 ```
 
