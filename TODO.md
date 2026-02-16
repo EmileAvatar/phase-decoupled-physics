@@ -180,10 +180,14 @@ full context.
     post-equality physics. Radiation-era implications addressed separately.
   - See [photon_gravity_analysis.md](docs/research/photon_gravity_analysis.md)
 
-- [ ] **Radiation-dominated era cosmology**
-  - In the early universe, most energy was in radiation (T^EM = 0 source)
-  - How does PDTP handle the Friedmann equation with radiation?
-  - May require the full acoustic metric / tensor structure
+- [x] **Radiation-dominated era cosmology**
+  - Matter-era Friedmann equation derived from condensate Euler + continuity
+  - Cosmic expansion = condensate Hubble flow v_i = H(t) x_i
+  - Tight-coupling resolves photon contribution: effective mass m_eff = m_b + ρ_γ/(n_b c²)
+  - Self-limiting: radiation dominates only when tightly coupled to baryons
+  - **Genuine gap:** decoupled neutrinos at BBN (41% of ρ_total missing, ~23% error in H)
+  - Resolution requires acoustic metric tensor channel or condensate extension
+  - See [radiation_era_cosmology.md](docs/research/radiation_era_cosmology.md)
 
 - [ ] **Derive Newton's constant G from coupling constants gᵢ independently**
   - Currently G is identified by matching to the Newtonian potential (Section 7.5)
@@ -292,9 +296,16 @@ cosmological, not astrophysical. Plasma frequency effective mass as
 possible pre-recombination coupling mechanism.
 
 Free photon analysis completed.
-Open: radiation-era cosmology, G derivation, strong-field EP,
-momentum balance, structural gaps (tetrad extension),
-and genuinely open problems (condensate microscopy).
+Part 8: Radiation-era cosmology. Matter-era Friedmann equation derived
+from condensate dynamics (Euler + continuity). Tight-coupling argument
+resolves photon contribution (effective mass). Genuine gap: decoupled
+neutrino kinetic energy at BBN (41% of ρ_total, 23% error in H).
+Requires acoustic metric tensor channel for full resolution.
+
+Radiation-era cosmology analysis completed.
+Open: G derivation, strong-field EP, momentum balance,
+structural gaps (tetrad extension),
+and genuinely open problems (condensate microscopy, neutrino energy).
 ```
 
 ---

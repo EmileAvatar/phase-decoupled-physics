@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-15
+Last updated: 2026-02-16
 
 ---
 
@@ -72,6 +72,15 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 56 | Free-fall time | https://en.wikipedia.org/wiki/Free-fall_time | photon_gravity_analysis.md §4.1 |
 | 57 | Cosmic microwave background | https://en.wikipedia.org/wiki/Cosmic_microwave_background | photon_gravity_analysis.md §7.3 |
 | 58 | Plasma frequency | https://en.wikipedia.org/wiki/Plasma_frequency | photon_gravity_analysis.md §9.2 |
+| 59 | Lambda-CDM model | https://en.wikipedia.org/wiki/Lambda-CDM_model | radiation_era_cosmology.md §1.2 |
+| 60 | Raychaudhuri equation | https://en.wikipedia.org/wiki/Raychaudhuri_equation | radiation_era_cosmology.md §2.3 |
+| 61 | Thomson scattering | https://en.wikipedia.org/wiki/Thomson_scattering | radiation_era_cosmology.md §3.1 |
+| 62 | Continuity equation | https://en.wikipedia.org/wiki/Continuity_equation | radiation_era_cosmology.md §2.2 |
+| 63 | Euler equations (fluid dynamics) | https://en.wikipedia.org/wiki/Euler_equations_(fluid_dynamics) | radiation_era_cosmology.md §2.3 |
+| 64 | Cosmic neutrino background | https://en.wikipedia.org/wiki/Cosmic_neutrino_background | radiation_era_cosmology.md §4.1 |
+| 65 | Neutrino decoupling | https://en.wikipedia.org/wiki/Neutrino_decoupling | radiation_era_cosmology.md §5.1 |
+| 66 | Big Bang nucleosynthesis | https://en.wikipedia.org/wiki/Big_Bang_nucleosynthesis | radiation_era_cosmology.md §4.1, §5.2 |
+| 67 | MSW effect | https://en.wikipedia.org/wiki/Mikheyev%E2%80%93Smirnov%E2%80%93Wolfenstein_effect | radiation_era_cosmology.md §5.3 |
 
 ---
 
@@ -197,6 +206,12 @@ physics. They should not be cited as if they are.
 | Free photon problem is cosmological, not astrophysical | photon_gravity_analysis.md §7.2 |
 | Self-limiting argument: radiation dominates only when tightly coupled | photon_gravity_analysis.md §7.3 |
 | Plasma frequency effective mass as pre-recombination coupling mechanism | photon_gravity_analysis.md §9.2 |
+| Matter-era Friedmann equation from condensate Euler + continuity equations | radiation_era_cosmology.md §2 |
+| Cosmic expansion identified as condensate Hubble flow | radiation_era_cosmology.md §2.1 |
+| Tight-coupling resolution of photon contribution via effective mass | radiation_era_cosmology.md §3.2 |
+| Radiation pressure correction through modified Euler equation | radiation_era_cosmology.md §3.4 |
+| Epoch-by-epoch quantitative assessment of radiation-era gaps | radiation_era_cosmology.md §4 |
+| Neutrino problem quantified: 41% of ρ_total missing at BBN | radiation_era_cosmology.md §5.2 |
 
 ---
 
