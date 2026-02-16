@@ -87,6 +87,13 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 71 | Healing length | https://en.wikipedia.org/wiki/Healing_length | G_derivation.md §4.5 |
 | 72 | Superfluid helium-4 | https://en.wikipedia.org/wiki/Superfluid_helium-4 | G_derivation.md §4.3 |
 | 73 | Cosmological constant problem | https://en.wikipedia.org/wiki/Cosmological_constant_problem | G_derivation.md §6.2 |
+| 74 | Equivalence principle | https://en.wikipedia.org/wiki/Equivalence_principle | strong_field_ep.md §1.1 |
+| 75 | Compactness (physics) | https://en.wikipedia.org/wiki/Compactness_(physics) | strong_field_ep.md §2.2 |
+| 76 | Neutron star | https://en.wikipedia.org/wiki/Neutron_star | strong_field_ep.md §2.3 |
+| 77 | Tolman-Oppenheimer-Volkoff limit | https://en.wikipedia.org/wiki/Tolman%E2%80%93Oppenheimer%E2%80%93Volkoff_limit | strong_field_ep.md §2.3 |
+| 78 | Taylor series | https://en.wikipedia.org/wiki/Taylor_series | strong_field_ep.md §2.4 |
+| 79 | Nordtvedt effect | https://en.wikipedia.org/wiki/Nordtvedt_effect | strong_field_ep.md §3.1 |
+| 80 | Lunar Laser Ranging experiment | https://en.wikipedia.org/wiki/Lunar_Laser_Ranging_experiment | strong_field_ep.md §4.1 |
 
 ---
 
@@ -126,6 +133,10 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 30 | Robertson, H. P. | 1971 | "Wyler's Expression for the Fine-Structure Constant α" | *PRL* **27**, 1545 | [APS](https://doi.org/10.1103/PhysRevLett.27.1545) | fine_structure_derivation.md §6.2 |
 | 31 | Kragh, H. | 2015 | "On Arthur Eddington's Theory of Everything" | Preprint | [arXiv:1510.04046](https://arxiv.org/abs/1510.04046) | fine_structure_derivation.md §6.4 |
 | 32 | Brans, C. & Dicke, R. H. | 1961 | "Mach's Principle and a Relativistic Theory of Gravitation" | *Physical Review* **124**, 925 | [APS](https://doi.org/10.1103/PhysRev.124.925) | G_derivation.md §5.3 |
+| 33 | Nordtvedt, K. | 1968 | "Equivalence Principle for Massive Bodies. II. Theory" | *Physical Review* **169**, 1017 | [APS](https://doi.org/10.1103/PhysRev.169.1017) | strong_field_ep.md §1.2, §3.1 |
+| 34 | Damour, T. & Esposito-Farèse, G. | 1996 | "Tensor-scalar gravity and binary-pulsar experiments" | *Physical Review D* **54**, 1474 | [APS](https://doi.org/10.1103/PhysRevD.54.1474) | strong_field_ep.md §3.2 |
+| 35 | Weisberg, J. M. & Huang, Y. | 2016 | "Relativistic Measurements from Timing the Binary Pulsar PSR B1913+16" | *Astrophysical Journal* **829**, 55 | [DOI](https://doi.org/10.3847/0004-637X/829/1/55) | strong_field_ep.md §4.2 |
+| 36 | Kramer, M. et al. | 2021 | "Strong-Field Gravity Tests with the Double Pulsar" | *Physical Review X* **11**, 041050 | [APS](https://doi.org/10.1103/PhysRevX.11.041050) | strong_field_ep.md §4.2, §7.1 |
 
 ---
 
@@ -226,6 +237,15 @@ physics. They should not be cited as if they are.
 | Healing length connection to analogue G and massless limit | G_derivation.md §4.5 |
 | Energy-cost circularity resolution via geometric coupling | G_derivation.md §7.2 |
 | Cosmological constant reframing: ρ₀ vs ρ_vacuum distinction | G_derivation.md §6.2 |
+| Phase difference δψ identified with compactness parameter Ξ | strong_field_ep.md §2.2 |
+| Quantitative cosine saturation across astrophysical compactness scales | strong_field_ep.md §2.4 |
+| Strong-field Nordtvedt parameter η ~ Ξ²/6 from cosine nonlinearity | strong_field_ep.md §3.3 |
+| Quantitative SEP violation prediction for neutron stars (~0.1%) | strong_field_ep.md §3.4 |
+| GW emission deficit ~1.5% for NS binaries (testable prediction) | strong_field_ep.md §7.2 |
+| Proof that cosine saturation is unobservable outside horizons | strong_field_ep.md §8.2 |
+| Acoustic horizon at Schwarzschild radius from PG coordinates | strong_field_ep.md §5.2 |
+| Perturbative verification: binding energy gravitates to O(Ξ) | strong_field_ep.md §6.3 |
+| Qualitative prediction of oscillatory black hole interior | strong_field_ep.md §5.5 |
 
 ---
 

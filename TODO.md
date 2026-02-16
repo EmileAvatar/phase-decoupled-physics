@@ -198,12 +198,16 @@ full context.
   - Full derivation needs: what condenses, why, and the ground-state density
   - See [G_derivation.md](docs/research/G_derivation.md)
 
-- [ ] **Strong-field equivalence principle**
-  - Weak-field EP verified: η_N = 0 from PPN (γ=1, β=1)
-  - Open: does PDTP preserve the equivalence principle in strong gravity?
-  - Specific cases: neutron star interiors, black hole horizons, binary mergers
-  - The cosine coupling saturates at |ψ−φ| → π — what happens physically?
-  - Strong EP violations would conflict with pulsar timing observations
+- [x] **Strong-field equivalence principle**
+  - Phase difference δψ = compactness Ξ = GM/(Rc²): 0.21 for NS, 0.50 at BH horizon
+  - Nonlinearity sin(δψ)/δψ: 0.7% for NS, 4.1% at horizon — mild throughout
+  - Strong-field Nordtvedt parameter: η ~ Ξ²/6 ≈ 7×10⁻³ for NS
+  - Gravitational binding energy gravitates correctly to leading order: M_eff = M(1−Ξ/2)
+  - Cosine saturation unobservable: δψ < 0.5 for all objects outside their horizons
+  - Acoustic horizon at r = 2GM/c² (exact Schwarzschild radius)
+  - **Tension:** Double pulsar Ṗ_b (0.013% precision) vs ~1% PDTP GW emission deficit
+  - Resolution requires numerical NS interior solution or self-consistent metric proof
+  - See [strong_field_ep.md](docs/research/strong_field_ep.md)
 
 - [ ] **Explicit momentum balance for phase-gradient motion**
   - Noether's theorem proves total momentum is conserved (Section 5.2)
@@ -310,7 +314,14 @@ apparent parameters to 1 unknown (𝒞). Energy-cost circularity resolved.
 Full derivation requires condensate microphysics (deepest open problem).
 
 G derivation completed (partial — one free parameter remains).
-Open: strong-field EP, momentum balance,
+Part 10: Strong-field equivalence principle. Phase difference = compactness
+parameter: δψ = GM/(Rc²). Nonlinearity sin(δψ)/δψ is 0.7% for NS, 4.1%
+at BH horizon. Strong-field Nordtvedt η ~ Ξ²/6. Binding energy gravitates
+correctly to O(Ξ). Acoustic horizon at r = 2GM/c² (exact). Tension with
+double pulsar Ṗ_b at ~1% level — critical open question.
+
+Strong-field EP analysis completed.
+Open: momentum balance,
 structural gaps (tetrad extension),
 and genuinely open problems (condensate microscopy, neutrino energy).
 ```
