@@ -189,14 +189,14 @@ full context.
   - Resolution requires acoustic metric tensor channel or condensate extension
   - See [radiation_era_cosmology.md](docs/research/radiation_era_cosmology.md)
 
-- [ ] **Derive Newton's constant G from coupling constants gᵢ independently**
-  - Currently G is identified by matching to the Newtonian potential (Section 7.5)
-  - This is circular: it uses GR's result to calibrate PDTP's parameter
-  - Need: derive G from condensate properties (ρ₀, c_s) and coupling gᵢ without
-    assuming the Newtonian answer
-  - Also resolves the energy-cost circularity (Section 8.2 uses Gm²/R to estimate gⱼ)
-  - Noted as open in [mathematical_formalization.md](docs/research/mathematical_formalization.md)
-    §10 but not previously tracked here
+- [x] **Derive Newton's constant G from coupling constants gᵢ independently**
+  - Dimensional analysis: G = 𝒞 c^(5/2)/√(ℏρ₀), exact for ρ₀ = ρ_Planck (§2)
+  - Coupling gᵢ shown to be geometric (~4πRᵢ), not independent parameters (§3)
+  - Reduces N+2 apparent free parameters to 1 effective unknown (𝒞 or ρ₀)
+  - Energy-cost circularity resolved: decoupling energy from gᵢ, not Gm²/R (§7)
+  - **Remaining gap:** dimensionless prefactor 𝒞 requires condensate microphysics
+  - Full derivation needs: what condenses, why, and the ground-state density
+  - See [G_derivation.md](docs/research/G_derivation.md)
 
 - [ ] **Strong-field equivalence principle**
   - Weak-field EP verified: η_N = 0 from PPN (γ=1, β=1)
@@ -303,7 +303,14 @@ neutrino kinetic energy at BBN (41% of ρ_total, 23% error in H).
 Requires acoustic metric tensor channel for full resolution.
 
 Radiation-era cosmology analysis completed.
-Open: G derivation, strong-field EP, momentum balance,
+Part 9: Newton's constant G derivation. Dimensional analysis gives
+G = 𝒞 c^(5/2)/√(ℏρ₀), exact when ρ₀ = ρ_Planck. Coupling constants
+gᵢ shown to be geometric (~4πRᵢ), not free parameters. Reduces N+2
+apparent parameters to 1 unknown (𝒞). Energy-cost circularity resolved.
+Full derivation requires condensate microphysics (deepest open problem).
+
+G derivation completed (partial — one free parameter remains).
+Open: strong-field EP, momentum balance,
 structural gaps (tetrad extension),
 and genuinely open problems (condensate microscopy, neutrino energy).
 ```

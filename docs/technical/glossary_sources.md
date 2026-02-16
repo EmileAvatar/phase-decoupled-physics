@@ -81,6 +81,12 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 65 | Neutrino decoupling | https://en.wikipedia.org/wiki/Neutrino_decoupling | radiation_era_cosmology.md §5.1 |
 | 66 | Big Bang nucleosynthesis | https://en.wikipedia.org/wiki/Big_Bang_nucleosynthesis | radiation_era_cosmology.md §4.1, §5.2 |
 | 67 | MSW effect | https://en.wikipedia.org/wiki/Mikheyev%E2%80%93Smirnov%E2%80%93Wolfenstein_effect | radiation_era_cosmology.md §5.3 |
+| 68 | Dimensional analysis | https://en.wikipedia.org/wiki/Dimensional_analysis | G_derivation.md §2.2 |
+| 69 | Planck units (Planck density) | https://en.wikipedia.org/wiki/Planck_units | G_derivation.md §2.3–2.4 |
+| 70 | Linearized gravity | https://en.wikipedia.org/wiki/Linearized_gravity | G_derivation.md §4.2 |
+| 71 | Healing length | https://en.wikipedia.org/wiki/Healing_length | G_derivation.md §4.5 |
+| 72 | Superfluid helium-4 | https://en.wikipedia.org/wiki/Superfluid_helium-4 | G_derivation.md §4.3 |
+| 73 | Cosmological constant problem | https://en.wikipedia.org/wiki/Cosmological_constant_problem | G_derivation.md §6.2 |
 
 ---
 
@@ -119,6 +125,7 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 29 | Wyler, A. | 1969 | "Clapp des domaines bornés symétriques" | *Comptes Rendus* **269A**, 743 | — | fine_structure_derivation.md §6.1 |
 | 30 | Robertson, H. P. | 1971 | "Wyler's Expression for the Fine-Structure Constant α" | *PRL* **27**, 1545 | [APS](https://doi.org/10.1103/PhysRevLett.27.1545) | fine_structure_derivation.md §6.2 |
 | 31 | Kragh, H. | 2015 | "On Arthur Eddington's Theory of Everything" | Preprint | [arXiv:1510.04046](https://arxiv.org/abs/1510.04046) | fine_structure_derivation.md §6.4 |
+| 32 | Brans, C. & Dicke, R. H. | 1961 | "Mach's Principle and a Relativistic Theory of Gravitation" | *Physical Review* **124**, 925 | [APS](https://doi.org/10.1103/PhysRev.124.925) | G_derivation.md §5.3 |
 
 ---
 
@@ -212,6 +219,13 @@ physics. They should not be cited as if they are.
 | Radiation pressure correction through modified Euler equation | radiation_era_cosmology.md §3.4 |
 | Epoch-by-epoch quantitative assessment of radiation-era gaps | radiation_era_cosmology.md §4 |
 | Neutrino problem quantified: 41% of ρ_total missing at BBN | radiation_era_cosmology.md §5.2 |
+| Dimensional constraint on G: G = 𝒞 c^(5/2)/√(ℏρ₀) | G_derivation.md §2.2 |
+| Identification of ρ₀ = ρ_Planck as consistency condition | G_derivation.md §2.4 |
+| Self-consistent coupling: gᵢ ~ 4πRᵢ (geometric, not free) | G_derivation.md §3.4 |
+| Reduction of N+2 free parameters to 1 effective unknown | G_derivation.md §5.2 |
+| Healing length connection to analogue G and massless limit | G_derivation.md §4.5 |
+| Energy-cost circularity resolution via geometric coupling | G_derivation.md §7.2 |
+| Cosmological constant reframing: ρ₀ vs ρ_vacuum distinction | G_derivation.md §6.2 |
 
 ---
 
