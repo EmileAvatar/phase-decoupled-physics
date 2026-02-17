@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-16
+Last updated: 2026-02-17
 
 ---
 
@@ -94,6 +94,14 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 78 | Taylor series | https://en.wikipedia.org/wiki/Taylor_series | strong_field_ep.md §2.4 |
 | 79 | Nordtvedt effect | https://en.wikipedia.org/wiki/Nordtvedt_effect | strong_field_ep.md §3.1 |
 | 80 | Lunar Laser Ranging experiment | https://en.wikipedia.org/wiki/Lunar_Laser_Ranging_experiment | strong_field_ep.md §4.1 |
+| 81 | Noether's theorem (field theory) | https://en.wikipedia.org/wiki/Noether%27s_theorem#Field_theory_version | momentum_balance.md §2.1 |
+| 82 | Stress-energy tensor (scalar field) | https://en.wikipedia.org/wiki/Stress%E2%80%93energy_tensor#Scalar_field | momentum_balance.md §3.1 |
+| 83 | Stress-energy tensor (special relativity) | https://en.wikipedia.org/wiki/Stress%E2%80%93energy_tensor#In_special_relativity_2 | momentum_balance.md §3.3 |
+| 84 | Gravitational wave (momentum) | https://en.wikipedia.org/wiki/Gravitational_wave#Energy,_momentum,_and_angular_momentum_carried_by_gravitational_waves | momentum_balance.md §5.5 |
+| 85 | Poynting vector (momentum) | https://en.wikipedia.org/wiki/Poynting_vector#Momentum_and_the_Abraham%E2%80%93Minkowski_controversy | momentum_balance.md §6.3 |
+| 86 | Equivalence principle (weak) | https://en.wikipedia.org/wiki/Equivalence_principle#The_weak_equivalence_principle | momentum_balance.md §7.2 |
+| 87 | Earth's orbit | https://en.wikipedia.org/wiki/Earth%27s_orbit | momentum_balance.md §8.1 |
+| 88 | Gravitational wave (radiated power) | https://en.wikipedia.org/wiki/Gravitational_wave#Power_radiated_by_orbiting_bodies | momentum_balance.md §8.3 |
 
 ---
 
@@ -246,6 +254,16 @@ physics. They should not be cited as if they are.
 | Acoustic horizon at Schwarzschild radius from PG coordinates | strong_field_ep.md §5.2 |
 | Perturbative verification: binding energy gravitates to O(Ξ) | strong_field_ep.md §6.3 |
 | Qualitative prediction of oscillatory black hole interior | strong_field_ep.md §5.5 |
+| Momentum density decomposition into individual field contributions | momentum_balance.md §2.1 |
+| Local momentum transfer force density F^k_j = −gⱼ sin(ψⱼ−φ) ∂^k ψⱼ | momentum_balance.md §3.2 |
+| Integrated momentum transfer rate in weak-field limit | momentum_balance.md §3.4 |
+| Test particle momentum budget: field absorbs equal and opposite momentum | momentum_balance.md §4.7 |
+| Rate of momentum transfer recovers F = mg | momentum_balance.md §4.8 |
+| Two-body momentum exchange via spacetime field intermediary | momentum_balance.md §5.4 |
+| Resolution of "reactionless drive" objection | momentum_balance.md §6.2 |
+| EM–PDTP structural correspondence for momentum | momentum_balance.md §7.1 |
+| Universality from uniform coupling sign (all gⱼ > 0) | momentum_balance.md §7.2 |
+| Earth–Sun quantitative momentum budget with hierarchy | momentum_balance.md §8.2–8.3 |
 
 ---
 

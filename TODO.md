@@ -209,15 +209,16 @@ full context.
   - Resolution requires numerical NS interior solution or self-consistent metric proof
   - See [strong_field_ep.md](docs/research/strong_field_ep.md)
 
-- [ ] **Explicit momentum balance for phase-gradient motion**
-  - Noether's theorem proves total momentum is conserved (Section 5.2)
-  - Missing: a concrete worked example showing momentum transfer between
-    matter (ψ) and the phase field (φ) during gradient-following motion
-  - Show quantitatively: when a body moves through a phase gradient,
-    the phase field φ absorbs equal and opposite momentum
-  - This directly addresses the "reactionless drive" objection
-  - The momentum density P^k = (∂₀φ)(∂^k φ) + Σⱼ(∂₀ψⱼ)(∂^k ψⱼ) (eq. 5.2)
-    should be evaluated for a specific scenario
+- [x] **Explicit momentum balance for phase-gradient motion**
+  - Derived local momentum transfer force density: F^k_j = −gⱼ sin(ψⱼ−φ) ∂^k ψⱼ
+  - Worked Example 1: Test particle in static phase gradient — field absorbs equal/opposite momentum
+  - Worked Example 2: Two-body exchange — spacetime field acts as transparent intermediary
+  - Newton's second law (F = mg) recovered from momentum transfer rate
+  - "Reactionless drive" objection fully resolved: propellant-free ≠ momentum-violating
+  - EM analogy: Poynting vector ↔ (∂₀φ)(∇φ) structural correspondence
+  - Earth–Sun quantitative budget: field momentum ~10⁻⁸ of matter momenta (post-Newtonian hierarchy)
+  - Key result: dP^k_ψ/dt = −dP^k_φ/dt (Newton's third law for phase-gradient motion)
+  - See [momentum_balance.md](docs/research/momentum_balance.md)
 
 ---
 
@@ -321,8 +322,14 @@ correctly to O(Ξ). Acoustic horizon at r = 2GM/c² (exact). Tension with
 double pulsar Ṗ_b at ~1% level — critical open question.
 
 Strong-field EP analysis completed.
-Open: momentum balance,
-structural gaps (tetrad extension),
+Part 11: Momentum balance for phase-gradient motion. Derived local force
+density F^k_j = −gⱼ sin(ψⱼ−φ) ∂^k ψⱼ. Two worked examples: test particle
+(field absorbs recoil) and two-body (field as intermediary). Newton's F=mg
+recovered. "Reactionless drive" resolved: propellant-free but momentum-
+conserving. Earth–Sun budget: field momentum ~10⁻⁸ of matter momenta.
+
+Momentum balance completed.
+Open: structural gaps (tetrad extension),
 and genuinely open problems (condensate microscopy, neutrino energy).
 ```
 
