@@ -594,6 +594,29 @@ analysis is needed to determine whether the tension is real.
 **PDTP Original:** Identification of GW emission rate as the critical strong-field
 test.
 
+### 7.4 Resolution (Part 13)
+
+**Update:** This tension has been resolved. The analysis in §7.2 was correct
+for the scalar-only PDTP (Parts 1–11), where the breathing mode was the only
+GW channel. However, the tetrad extension (Part 12) introduces tensor modes
+governed by the Einstein equation G_μν = (8πG/c⁴) T_μν. In the extended
+framework:
+
+1. **Tensor GW emission = GR.** The quadrupole formula follows from the
+   Einstein equation. The sin(Ξ)/Ξ nonlinearity lives in the scalar field
+   equation, not the Einstein equation — it does not affect tensor emission.
+
+2. **Scalar radiation = 0.** The PDTP Lagrangian has a global U(1) symmetry
+   (φ → φ+c, ψ → ψ+c) that guarantees the scalar charge α_A = 0 for all
+   bodies, regardless of compactness. All scalar radiation channels (monopole,
+   dipole, quadrupole) vanish identically.
+
+**Result:** Ṗ_b^PDTP = Ṗ_b^GR exactly. The tension is resolved via Path B
+(self-consistent metric back-reaction) combined with the U(1) symmetry argument.
+
+See [double_pulsar_resolution.md](double_pulsar_resolution.md) for the full
+derivation.
+
 ---
 
 ## 8. The Cosine Saturation Boundary
@@ -649,10 +672,10 @@ outside its own horizon.
 
 | Question | Status | What's Needed |
 |----------|--------|--------------|
-| Double pulsar GW emission rate | **Tension at ~1%** | Numerical NS interior solution |
+| Double pulsar GW emission rate | **Resolved** (Part 13) | Tensor emission = GR; scalar charge α = 0 by U(1) symmetry |
 | Self-consistent strong-field metric | Unresolved | Solve full nonlinear condensate + acoustic metric |
 | Black hole interior structure | Speculative | Proper strong-field treatment beyond weak-field mapping |
-| Gravitational wave polarization in mergers | Unresolved | Tetrad extension of condensate (see hard_problems.md §1.10) |
+| Gravitational wave polarization in mergers | **Resolved** (Part 12) | Tetrad extension: 2 tensor + 1 breathing mode |
 
 ### 9.3 Bottom Line
 
@@ -662,10 +685,11 @@ regimes.** The deviations from GR are of order Ξ² ~ (GM/Rc²)², which is:
 - ~0.7% for neutron stars
 - ~4% at the black hole horizon
 
-The double pulsar tests (0.013% precision on Ṗ_b) are approaching the regime where
-PDTP's nonlinearity could be detectable. Whether the predicted ~1% deviation in GW
-emission is real or absorbed by self-consistent metric dynamics is the critical
-open question.
+The double pulsar tests (0.013% precision on Ṗ_b) are the most precise strong-field
+gravity tests available. The ~1% GW emission deficit predicted by scalar-only PDTP
+has been resolved by the tetrad extension (Part 12) and the U(1) symmetry argument
+(Part 13): Ṗ_b^PDTP = Ṗ_b^GR exactly. See
+[double_pulsar_resolution.md](double_pulsar_resolution.md).
 
 **This is the most testable prediction PDTP currently offers in the strong-field
 regime.**

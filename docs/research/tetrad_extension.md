@@ -1171,10 +1171,10 @@ condensate constituents).
 │       for scalar matter, so this is aesthetic not physical)           │
 │     - Higher-derivative terms? (Suppressed at low energies)          │
 │                                                                      │
-│  5. Double pulsar tension                                            │
-│     - The ~1% GW emission deficit (from strong_field_ep.md §7)      │
-│       is not resolved by adding tetrads                              │
-│     - Still requires numerical NS interior solution                  │
+│  5. Double pulsar tension — **RESOLVED** (see Part 13)               │
+│     - The ~1% GW emission deficit was an artifact of scalar-only    │
+│       PDTP. Tensor emission = GR; U(1) symmetry → α_A = 0 →        │
+│       zero scalar radiation. See double_pulsar_resolution.md.        │
 │                                                                      │
 └──────────────────────────────────────────────────────────────────────┘
 ```

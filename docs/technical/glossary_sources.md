@@ -120,6 +120,8 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 104 | Lense-Thirring precession | https://en.wikipedia.org/wiki/Lense%E2%80%93Thirring_precession | tetrad_extension.md §9.1 |
 | 105 | Frame-dragging | https://en.wikipedia.org/wiki/Frame-dragging | tetrad_extension.md §9.1 |
 | 106 | Kerr metric | https://en.wikipedia.org/wiki/Kerr_metric | tetrad_extension.md §9.2 |
+| 107 | Gravitational wave | https://en.wikipedia.org/wiki/Gravitational_wave | double_pulsar_resolution.md §1.1, §2.3 |
+| 108 | Scalar-tensor theory | https://en.wikipedia.org/wiki/Scalar%E2%80%93tensor_theory | double_pulsar_resolution.md §3.2 |
 
 ---
 
@@ -169,6 +171,12 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 40 | Hehl, F. W., von der Heyde, P., Kerlick, G. D., Nester, J. M. | 1976 | "General relativity with spin and torsion: Foundations and prospects" | *Rev. Mod. Phys.* **48**, 393 | [APS](https://doi.org/10.1103/RevModPhys.48.393) | tetrad_extension.md §9.3 |
 | 41 | Wetterich, C. | 2005 | "Gravity from spinors" | *Physical Review D* **70**, 105004 | [APS](https://doi.org/10.1103/PhysRevD.70.105004) | tetrad_extension.md §8.3 |
 | 42 | Bjorken, J. D. | 2001 | "Emergent gauge bosons" | Preprint | [hep-th/0111196](https://arxiv.org/abs/hep-th/0111196) | tetrad_extension.md §8.3 |
+| 43 | Peters, P. C. & Mathews, J. | 1963 | "Gravitational radiation from point masses in a Keplerian orbit" | *Physical Review* **131**, 435 | [APS](https://doi.org/10.1103/PhysRev.131.435) | double_pulsar_resolution.md §1.1 |
+| 44 | Kramer, M. et al. | 2021 | "Strong-field gravity tests with the double pulsar" | *Physical Review X* **11**, 041050 | [APS](https://doi.org/10.1103/PhysRevX.11.041050) | double_pulsar_resolution.md §1.2, §6.1 |
+| 45 | Weisberg, J. M. & Huang, Y. | 2016 | "Relativistic measurements from timing the binary pulsar PSR B1913+16" | *Astrophysical Journal* **829**, 55 | [AAS](https://doi.org/10.3847/0004-637X/829/1/55) | double_pulsar_resolution.md §6.2 |
+| 46 | Damour, T. & Esposito-Farèse, G. | 1992 | "Tensor-multi-scalar theories of gravitation" | *Classical and Quantum Gravity* **9**, 2093 | [IOP](https://doi.org/10.1088/0264-9381/9/9/015) | double_pulsar_resolution.md §3.2, §4.3 |
+| 47 | Damour, T. & Esposito-Farèse, G. | 1996 | "Nonperturbative strong-field effects in tensor-multi-scalar theories" | *Physical Review Letters* **70**, 2220 | [APS](https://doi.org/10.1103/PhysRevLett.70.2220) | double_pulsar_resolution.md §3.4 |
+| 48 | Will, C. M. | 2014 | "The confrontation between general relativity and experiment" | *Living Reviews in Relativity* **17**, 4 | [Springer](https://doi.org/10.12942/lrr-2014-4) | double_pulsar_resolution.md §3.2, §4.1 |
 
 ---
 
@@ -300,6 +308,17 @@ physics. They should not be cited as if they are.
 | Frame-dragging recovery in extended PDTP | tetrad_extension.md §9.1 |
 | Kerr metric recovery from extended PDTP | tetrad_extension.md §9.2 |
 | Torsion prediction at extreme densities | tetrad_extension.md §9.3 |
+| Global U(1) symmetry of extended PDTP Lagrangian | double_pulsar_resolution.md §3.1 |
+| Scalar charge α_A = 0 for all bodies (proof) | double_pulsar_resolution.md §3.3 |
+| Higher-order charges β_A = γ_A = 0 (all orders) | double_pulsar_resolution.md §3.4 |
+| Absence of spontaneous scalarization in PDTP | double_pulsar_resolution.md §3.4 |
+| PDTP vs Brans-Dicke structural comparison (shift symmetry) | double_pulsar_resolution.md §3.5 |
+| Vanishing of all scalar radiation channels | double_pulsar_resolution.md §4.2 |
+| Dipole radiation threat analysis | double_pulsar_resolution.md §4.3 |
+| Self-consistency of mass measurements in extended PDTP | double_pulsar_resolution.md §5.2 |
+| Ṗ_b^PDTP = Ṗ_b^GR (double pulsar prediction) | double_pulsar_resolution.md §6.1 |
+| Correction of tetrad_extension.md §10.2 assessment | double_pulsar_resolution.md §7.3 |
+| Identification of U(1)-breaking scenarios | double_pulsar_resolution.md §8.3 |
 
 ---
 
