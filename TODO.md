@@ -254,6 +254,89 @@ full context.
 
 ---
 
+## Open Problems (Future Work)
+
+### Structural Gaps
+
+- [ ] **Condensate tetrad extension**
+  - The scalar Lagrangian does NOT produce tensor (spin-2) gravitational degrees of freedom
+  - Minimal extension needed: Φ_vacuum = √ρ₀ e^{iφ} e^a_μ (tetrad + phase)
+  - Physical precedent: He-3A order parameter (Volovik mechanism)
+  - This is the **most important structural gap** in PDTP
+  - Without it: GW polarization relies on analogy, not derivation
+  - Blocks: rigorous tensor mode derivation, frame-dragging, Kerr metric recovery
+  - See [hard_problems.md](docs/research/hard_problems.md) §1.10
+
+- [ ] **Double pulsar tension resolution**
+  - PDTP predicts ~1% GW emission deficit for neutron star binaries
+  - Double pulsar Ṗ_b measured to 0.013% precision — 100× tension
+  - Requires: numerical NS interior solution with full nonlinear cosine coupling,
+    or proof that self-consistent metric back-reaction cancels the deficit
+  - See [strong_field_ep.md](docs/research/strong_field_ep.md) §7
+
+### Genuinely Open Problems
+
+- [ ] **Condensate microphysics (microscopy)**
+  - What are the microscopic constituents of the vacuum condensate?
+  - Open in superfluid vacuum theory (SVT) itself — not specific to PDTP
+  - Connected to Group Field Theory: spacetime as condensate of quantum tetrahedra
+    (Oriti 2014, Gielen & Sindoni 2016)
+  - Blocks: full derivation of G (dimensionless prefactor 𝒞), fine-structure
+    constant numerical value, cosmological constant, phase drift rate
+  - This is the **deepest open problem** — everything else is downstream of it
+  - See [hard_problems.md](docs/research/hard_problems.md) §3,
+    [G_derivation.md](docs/research/G_derivation.md) §6
+
+- [ ] **Decoupled neutrino energy at BBN**
+  - At Big Bang nucleosynthesis (z ~ 10⁹), neutrinos carry 41% of ρ_total
+  - Neutrinos are decoupled and relativistic — they don't source □φ (trace = 0)
+    and are not tightly coupled to baryons
+  - This creates a ~23% error in the Hubble rate H at BBN
+  - Resolution requires: acoustic metric tensor channel coupling kinetic energy
+    to curvature, or condensate extension that couples to T^μν not just T^μ_μ
+  - See [radiation_era_cosmology.md](docs/research/radiation_era_cosmology.md) §5
+
+### Cosmological Open Problems
+
+- [ ] **Hubble tension from phase drift**
+  - Standard physics: H₀ = 73.0 ± 1.0 km/s/Mpc (local, SH0ES) vs
+    H₀ = 67.4 ± 0.5 km/s/Mpc (CMB + ΛCDM, Planck) — ~5σ tension
+  - PDTP qualitative interpretation: local vs global spacetime phase drift rates
+    should differ due to inhomogeneous phase-locking environments
+  - Currently only a conceptual suggestion (phase_framework_mysteries.md §8)
+  - **Needed:** quantitative model of how local matter density affects phase drift
+    rate, and whether the ~8% H₀ discrepancy emerges naturally
+  - **Needed:** connection between phase coherence decay rate and measurable
+    expansion rate — what sets the drift rate in different environments?
+  - See [phase_framework_mysteries.md](docs/research/phase_framework_mysteries.md) §8
+
+- [ ] **Cosmological constant / dark energy from phase drift**
+  - Standard physics: ρ_Λ ≈ 6 × 10⁻²⁷ kg/m³ (68% of universe), origin unknown
+  - Cosmological constant problem: QFT predicts ρ_vacuum ~ ρ_Planck, observed
+    value is 10¹²² times smaller — worst prediction in physics
+  - PDTP reframing: dark energy = gradual phase de-synchronization of φ at
+    cosmological scales; ρ_Λ corresponds to δρ₀/ρ₀ perturbations, not ρ₀ itself
+  - **Cannot currently:** derive ρ_Λ from first principles
+  - **Cannot currently:** compute the phase drift rate that produces observed H₀
+  - **Cannot currently:** explain why drift rate has its particular value
+  - Resolution requires condensate microphysics (what sets the coherence decay?)
+  - See [G_derivation.md](docs/research/G_derivation.md) §6.2,
+    [phase_framework_mysteries.md](docs/research/phase_framework_mysteries.md) §5
+
+- [ ] **Phase drift mechanism**
+  - What causes the spacetime phase field φ to de-synchronize at cosmic scales?
+  - Local phase-locking (atoms → galaxy clusters) is stable; drift dominates
+    only at > 100 Mpc scales — why this transition?
+  - Possible mechanisms: thermal fluctuations in the condensate, topological
+    defects (phase vortices) at cosmological scales, finite coherence length
+    of the condensate, or cosmological expansion itself as the cause
+  - The coherence length ξ = c/√(2g) may set the natural scale beyond which
+    drift dominates — but this requires knowing g for the vacuum condensate
+  - This is the "why" behind both dark energy and the Hubble tension
+  - No mechanism currently proposed — requires condensate microphysics
+
+---
+
 ## Status
 
 ```
@@ -329,8 +412,12 @@ recovered. "Reactionless drive" resolved: propellant-free but momentum-
 conserving. Earth–Sun budget: field momentum ~10⁻⁸ of matter momenta.
 
 Momentum balance completed.
-Open: structural gaps (tetrad extension),
-and genuinely open problems (condensate microscopy, neutrino energy).
+
+All formalization tasks (Parts 1–11) and stretch goals completed.
+Open problems documented in "Open Problems (Future Work)" section:
+- Structural: tetrad extension, double pulsar tension
+- Fundamental: condensate microphysics, neutrino BBN energy
+- Cosmological: Hubble tension, cosmological constant, phase drift mechanism
 ```
 
 ---
