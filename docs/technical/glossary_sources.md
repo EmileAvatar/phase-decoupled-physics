@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-17
+Last updated: 2026-02-20
 
 ---
 
@@ -102,6 +102,24 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 86 | Equivalence principle (weak) | https://en.wikipedia.org/wiki/Equivalence_principle#The_weak_equivalence_principle | momentum_balance.md §7.2 |
 | 87 | Earth's orbit | https://en.wikipedia.org/wiki/Earth%27s_orbit | momentum_balance.md §8.1 |
 | 88 | Gravitational wave (radiated power) | https://en.wikipedia.org/wiki/Gravitational_wave#Power_radiated_by_orbiting_bodies | momentum_balance.md §8.3 |
+| 89 | Klein-Gordon equation | https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation | tetrad_extension.md §1.1 |
+| 90 | Superfluid helium-3 | https://en.wikipedia.org/wiki/Superfluid_helium-3 | tetrad_extension.md §2.1 |
+| 91 | Tetrad formalism | https://en.wikipedia.org/wiki/Tetrad_formalism | tetrad_extension.md §3.1, §6.3 |
+| 92 | Lorentz group | https://en.wikipedia.org/wiki/Lorentz_group | tetrad_extension.md §3.3 |
+| 93 | Diffeomorphism | https://en.wikipedia.org/wiki/Diffeomorphism | tetrad_extension.md §3.3 |
+| 94 | Palatini variation | https://en.wikipedia.org/wiki/Palatini_variation | tetrad_extension.md §4.2 |
+| 95 | Einstein-Cartan theory | https://en.wikipedia.org/wiki/Einstein%E2%80%93Cartan_theory | tetrad_extension.md §4.2, §9.3 |
+| 96 | Spin connection | https://en.wikipedia.org/wiki/Spin_connection | tetrad_extension.md §4.2 |
+| 97 | Torsion tensor | https://en.wikipedia.org/wiki/Torsion_tensor | tetrad_extension.md §5.1 |
+| 98 | Einstein field equations | https://en.wikipedia.org/wiki/Einstein_field_equations | tetrad_extension.md §5.2 |
+| 99 | Stress-energy tensor | https://en.wikipedia.org/wiki/Stress%E2%80%93energy_tensor | tetrad_extension.md §5.2 |
+| 100 | d'Alembert operator | https://en.wikipedia.org/wiki/D%27Alembert_operator | tetrad_extension.md §5.3 |
+| 101 | Gravitational wave (polarizations) | https://en.wikipedia.org/wiki/Gravitational_wave#Polarizations | tetrad_extension.md §6.4 |
+| 102 | Linearized gravity | https://en.wikipedia.org/wiki/Linearized_gravity | tetrad_extension.md §6.5 |
+| 103 | Noether's theorem | https://en.wikipedia.org/wiki/Noether%27s_theorem | tetrad_extension.md §7.4 |
+| 104 | Lense-Thirring precession | https://en.wikipedia.org/wiki/Lense%E2%80%93Thirring_precession | tetrad_extension.md §9.1 |
+| 105 | Frame-dragging | https://en.wikipedia.org/wiki/Frame-dragging | tetrad_extension.md §9.1 |
+| 106 | Kerr metric | https://en.wikipedia.org/wiki/Kerr_metric | tetrad_extension.md §9.2 |
 
 ---
 
@@ -145,6 +163,12 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 34 | Damour, T. & Esposito-Farèse, G. | 1996 | "Tensor-scalar gravity and binary-pulsar experiments" | *Physical Review D* **54**, 1474 | [APS](https://doi.org/10.1103/PhysRevD.54.1474) | strong_field_ep.md §3.2 |
 | 35 | Weisberg, J. M. & Huang, Y. | 2016 | "Relativistic Measurements from Timing the Binary Pulsar PSR B1913+16" | *Astrophysical Journal* **829**, 55 | [DOI](https://doi.org/10.3847/0004-637X/829/1/55) | strong_field_ep.md §4.2 |
 | 36 | Kramer, M. et al. | 2021 | "Strong-Field Gravity Tests with the Double Pulsar" | *Physical Review X* **11**, 041050 | [APS](https://doi.org/10.1103/PhysRevX.11.041050) | strong_field_ep.md §4.2, §7.1 |
+| 37 | LIGO/Virgo | 2017 | "GW170814: A Three-Detector Observation of Gravitational Waves from a Binary-Black-Hole Coalescence" | *Physical Review Letters* **119**, 141101 | [APS](https://doi.org/10.1103/PhysRevLett.119.141101) | tetrad_extension.md §1.2 |
+| 38 | Carroll, S. | 2004 | *Spacetime and Geometry: An Introduction to General Relativity* | Addison-Wesley | — | tetrad_extension.md §5.1 |
+| 39 | Wald, R. M. | 1984 | *General Relativity* | University of Chicago Press | — | tetrad_extension.md §3.3 |
+| 40 | Hehl, F. W., von der Heyde, P., Kerlick, G. D., Nester, J. M. | 1976 | "General relativity with spin and torsion: Foundations and prospects" | *Rev. Mod. Phys.* **48**, 393 | [APS](https://doi.org/10.1103/RevModPhys.48.393) | tetrad_extension.md §9.3 |
+| 41 | Wetterich, C. | 2005 | "Gravity from spinors" | *Physical Review D* **70**, 105004 | [APS](https://doi.org/10.1103/PhysRevD.70.105004) | tetrad_extension.md §8.3 |
+| 42 | Bjorken, J. D. | 2001 | "Emergent gauge bosons" | Preprint | [hep-th/0111196](https://arxiv.org/abs/hep-th/0111196) | tetrad_extension.md §8.3 |
 
 ---
 
@@ -264,6 +288,18 @@ physics. They should not be cited as if they are.
 | EM–PDTP structural correspondence for momentum | momentum_balance.md §7.1 |
 | Universality from uniform coupling sign (all gⱼ > 0) | momentum_balance.md §7.2 |
 | Earth–Sun quantitative momentum budget with hierarchy | momentum_balance.md §8.2–8.3 |
+| Extended order parameter Φ = √ρ₀ e^{iφ} e^a_μ | tetrad_extension.md §3.1 |
+| Extended Lagrangian: Palatini + covariantized phase coupling | tetrad_extension.md §4.6 |
+| Coupling stress-energy T^(coupling)_μν = −g_μν Σ gᵢ cos(ψᵢ−φ) | tetrad_extension.md §5.2 |
+| Two-sector gravitational structure (tensor + scalar) | tetrad_extension.md §5.6 |
+| E(2) class N₃ GW polarization from extended PDTP | tetrad_extension.md §6.7 |
+| Mass hierarchy: m_tensor = 0, m_breathing = √(2g) explained | tetrad_extension.md §8.4 |
+| Symmetry breaking GL(4,ℝ) × U(1) → SO(3,1) | tetrad_extension.md §8.3 |
+| Pseudo-Goldstone interpretation of breathing mode | tetrad_extension.md §8.4 |
+| GFT condensate → PDTP order parameter mapping | tetrad_extension.md §8.5 |
+| Frame-dragging recovery in extended PDTP | tetrad_extension.md §9.1 |
+| Kerr metric recovery from extended PDTP | tetrad_extension.md §9.2 |
+| Torsion prediction at extreme densities | tetrad_extension.md §9.3 |
 
 ---
 

@@ -258,14 +258,19 @@ full context.
 
 ### Structural Gaps
 
-- [ ] **Condensate tetrad extension**
-  - The scalar Lagrangian does NOT produce tensor (spin-2) gravitational degrees of freedom
-  - Minimal extension needed: Φ_vacuum = √ρ₀ e^{iφ} e^a_μ (tetrad + phase)
-  - Physical precedent: He-3A order parameter (Volovik mechanism)
-  - This is the **most important structural gap** in PDTP
-  - Without it: GW polarization relies on analogy, not derivation
-  - Blocks: rigorous tensor mode derivation, frame-dragging, Kerr metric recovery
-  - See [hard_problems.md](docs/research/hard_problems.md) §1.10
+- [x] **Condensate tetrad extension**
+  - Extended order parameter: Φ = √ρ₀ e^{iφ} e^a_μ (phase + tetrad)
+  - Extended Lagrangian: Palatini action + covariantized phase coupling (eq. 4.8)
+  - Field equations derived: torsion (vanishes), Einstein, covariant □_g φ, covariant □_g ψ
+  - DOF counting: 16 − 6 (Lorentz) − 4 (diffeo) = 6 off-shell → 2 tensor + 1 breathing
+  - Linearized analysis: □h^{TT}_{ij} = 0 (tensor at c) + □θ + 2gθ = 0 (massive breathing)
+  - E(2) class N₃: matches LIGO observations (2 tensor) + suppressed breathing
+  - All Parts 1–11 results preserved in weak-field limit
+  - Symmetry breaking: GL(4,ℝ) × U(1) → SO(3,1), Goldstone interpretation
+  - New predictions unlocked: frame-dragging, Kerr metric, torsion at extreme densities
+  - GFT condensate identified as candidate microscopic origin
+  - **Remaining:** microscopic origin of tetrad structure, symmetry breaking potential
+  - See [tetrad_extension.md](docs/research/tetrad_extension.md)
 
 - [ ] **Double pulsar tension resolution**
   - PDTP predicts ~1% GW emission deficit for neutron star binaries
@@ -412,10 +417,18 @@ recovered. "Reactionless drive" resolved: propellant-free but momentum-
 conserving. Earth–Sun budget: field momentum ~10⁻⁸ of matter momenta.
 
 Momentum balance completed.
+Part 12: Condensate tetrad extension. Extended order parameter
+Φ = √ρ₀ e^{iφ} e^a_μ. Palatini + phase-coupling Lagrangian. Four field
+equations derived. Linearized analysis: 2 tensor modes (□h^TT = 0) +
+1 massive breathing mode. E(2) class N₃. All Parts 1–11 preserved.
+Symmetry breaking GL(4,R)×U(1) → SO(3,1). Frame-dragging, Kerr metric
+recovered. GFT condensate as microscopic origin candidate.
 
-All formalization tasks (Parts 1–11) and stretch goals completed.
+Tetrad extension completed.
+
+All formalization tasks (Parts 1–12) and stretch goals completed.
 Open problems documented in "Open Problems (Future Work)" section:
-- Structural: tetrad extension, double pulsar tension
+- Structural: double pulsar tension
 - Fundamental: condensate microphysics, neutrino BBN energy
 - Cosmological: Hubble tension, cosmological constant, phase drift mechanism
 ```
