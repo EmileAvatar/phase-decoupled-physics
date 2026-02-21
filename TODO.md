@@ -330,18 +330,20 @@ full context.
   - Conditional predictions: if scalar sector relevant, H₀ should correlate with environment density
   - See [hubble_tension_analysis.md](docs/research/hubble_tension_analysis.md)
 
-- [ ] **Cosmological constant / dark energy from phase drift**
+- [x] **Cosmological constant / dark energy from phase drift**
   - Standard physics: ρ_Λ ≈ 6 × 10⁻²⁷ kg/m³ (68% of universe), origin unknown
   - Cosmological constant problem: QFT predicts ρ_vacuum ~ ρ_Planck, observed
     value is 10¹²² times smaller — worst prediction in physics
-  - PDTP reframing: dark energy = gradual phase de-synchronization of φ at
-    cosmological scales; ρ_Λ corresponds to δρ₀/ρ₀ perturbations, not ρ₀ itself
-  - **Cannot currently:** derive ρ_Λ from first principles
-  - **Cannot currently:** compute the phase drift rate that produces observed H₀
-  - **Cannot currently:** explain why drift rate has its particular value
-  - Resolution requires condensate microphysics (what sets the coherence decay?)
-  - See [G_derivation.md](docs/research/G_derivation.md) §6.2,
-    [phase_framework_mysteries.md](docs/research/phase_framework_mysteries.md) §5
+  - **Quantitative analysis completed (Part 17):**
+    1. Scalar sector phase-filters vacuum fluctuations (⟨sin(ψ_vac − φ)⟩ = 0)
+    2. ρ₀ vs ρ_Λ reframing: dark energy = condensate perturbation δρ₀/ρ₀ ~ 10⁻¹²³
+    3. Phase drift → dynamical dark energy with w ≠ −1 (consistent with DESI 4.2σ evidence)
+    4. BUT: tensor sector has G_μν = 8πG T_μν → inherits GR's full Λ problem
+  - **Honest conclusion:** PDTP provides partial reframing (scalar sector novel mechanism)
+    but cannot solve the cosmological constant problem (tensor sector unsolved)
+  - Cannot derive ρ_Λ from first principles; drift rate requires microphysics
+  - Common root with Hubble tension and phase drift mechanism (Part 16)
+  - See [cosmological_constant_analysis.md](docs/research/cosmological_constant_analysis.md)
 
 - [ ] **Aharonov-Bohm effect and PDTP phase structure**
   - The AB effect (Tonomura 1986) proves phase is physically real and can
@@ -499,9 +501,21 @@ evolution). Conditional predictions provided for future surveys.
 
 Hubble tension analysis completed (genuinely open — no resolution claimed).
 
-All formalization tasks (Parts 1–16) and stretch goals completed.
+Part 17: Cosmological constant / dark energy analysis. Scalar sector
+phase-filters vacuum fluctuations (⟨sin(ψ_vac − φ)⟩ = 0 for random phases).
+ρ₀ vs ρ_Λ reframing: dark energy = condensate perturbation δρ₀/ρ₀ ~ 10⁻¹²³.
+Phase drift → dynamical dark energy with w ≠ −1 (qualitatively consistent
+with DESI DR2 4.2σ evidence for evolving dark energy). Tensor sector inherits
+GR's full cosmological constant problem (G_μν = 8πG T_μν includes vacuum
+energy). Honest conclusion: partial reframing with genuinely novel scalar
+sector mechanism, but not a solution. Common root with Hubble tension
+(Part 16) and phase drift mechanism — all require condensate microphysics.
+
+Cosmological constant analysis completed (partial reframing — not solved).
+
+All formalization tasks (Parts 1–17) and stretch goals completed.
 Open problems documented in "Open Problems (Future Work)" section:
-- Cosmological: cosmological constant, phase drift mechanism
+- Cosmological: phase drift mechanism
 - Research: Aharonov-Bohm deeper analysis
 ```
 

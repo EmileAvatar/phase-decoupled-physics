@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-20
+Last updated: 2026-02-21
 
 ---
 
@@ -193,6 +193,9 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 53 | Sen, A. | 1999 | "Tachyon condensation in string field theory" | *Journal of High Energy Physics* | [arXiv:hep-th/9912249](https://arxiv.org/abs/hep-th/9912249) | condensate_microphysics.md §3.5 |
 | 54 | Oriti, D. | 2014 | "Disappearance and emergence of space and time in quantum gravity" | *Studies in History and Philosophy of Modern Physics* **46**, 186 | — | condensate_microphysics.md §4.2 |
 | 55 | Rovelli, C. | 2004 | *Quantum Gravity* | Cambridge University Press | [CUP](https://www.cambridge.org/core/books/quantum-gravity/9EEB701AAB938F06DCF151AACE1A445D) | condensate_microphysics.md §3.3 |
+| 56 | DESI Collaboration | 2024 | "DESI 2024 VI: Cosmological Constraints from BAO Measurements" | *arXiv:2404.03002* | [arXiv](https://arxiv.org/abs/2404.03002) | cosmological_constant_analysis.md §4.5 |
+| 57 | Perlmutter, S. et al. | 1999 | "Measurements of Omega and Lambda from 42 High-Redshift Supernovae" | *Astrophysical Journal* **517**, 565 | [ADS](https://ui.adsabs.harvard.edu/abs/1999ApJ...517..565P) | cosmological_constant_analysis.md §1.2 |
+| 58 | Riess, A. G. et al. | 1998 | "Observational Evidence from Supernovae for an Accelerating Universe" | *Astronomical Journal* **116**, 1009 | [ADS](https://ui.adsabs.harvard.edu/abs/1998AJ....116.1009R) | cosmological_constant_analysis.md §1.2 |
 
 ---
 
@@ -354,6 +357,15 @@ physics. They should not be cited as if they are.
 | Phase-locking backreaction: σ²_δψ ~ 10⁻¹⁰ | hubble_tension_analysis.md §6.2 |
 | Deep connection: Hubble tension ↔ dark energy ↔ phase drift | hubble_tension_analysis.md §7.3 |
 | Conditional predictions for environment-dependent H₀ | hubble_tension_analysis.md §8 |
+| Scalar sector phase-filters vacuum fluctuations (⟨sin(ψ_vac − φ)⟩ = 0) | cosmological_constant_analysis.md §2.2 |
+| Two-sector split: scalar insensitive to vacuum energy, tensor not | cosmological_constant_analysis.md §2.3 |
+| ρ₀ vs ρ_Λ reframing: dark energy as condensate perturbation δρ₀/ρ₀ ~ 10⁻¹²³ | cosmological_constant_analysis.md §3.3 |
+| Phase drift as dynamical dark energy mechanism | cosmological_constant_analysis.md §4.1–4.2 |
+| Scale-dependent dark energy onset from coherence length | cosmological_constant_analysis.md §4.3 |
+| Prediction: w ≠ −1 generically (dynamical dark energy) | cosmological_constant_analysis.md §4.4 |
+| Tensor sector inherits GR's cosmological constant problem | cosmological_constant_analysis.md §5.2 |
+| Partial reframing assessment: novel insights but not a solution | cosmological_constant_analysis.md §5.4 |
+| Common root: Λ + Hubble tension + drift mechanism (Part 16 + 17) | cosmological_constant_analysis.md §6.3 |
 
 ### Source #118
 - **Title:** Hubble's law
@@ -378,6 +390,42 @@ physics. They should not be cited as if they are.
 - **URL:** https://en.wikipedia.org/wiki/Normal_distribution
 - **Used in:** hubble_tension_analysis.md §6.1
 - **Why:** Gaussian averaging of phase mismatches
+
+### Source #124
+- **Title:** Cosmological constant problem
+- **URL:** https://en.wikipedia.org/wiki/Cosmological_constant_problem
+- **Used in:** cosmological_constant_analysis.md §1.1
+- **Why:** Statement of the 10¹²² discrepancy, vacuum energy prediction
+
+### Source #125
+- **Title:** Cosmological constant
+- **URL:** https://en.wikipedia.org/wiki/Cosmological_constant
+- **Used in:** cosmological_constant_analysis.md §1.1
+- **Why:** History of Λ, observed value, coincidence problem
+
+### Source #126
+- **Title:** Dark energy
+- **URL:** https://en.wikipedia.org/wiki/Dark_energy
+- **Used in:** cosmological_constant_analysis.md §1.2
+- **Why:** Discovery history (1998 SNe Ia), Planck measurements
+
+### Source #127
+- **Title:** Quintessence (physics)
+- **URL:** https://en.wikipedia.org/wiki/Quintessence_(physics)
+- **Used in:** cosmological_constant_analysis.md §1.4
+- **Why:** Dynamical dark energy models, comparison with PDTP drift
+
+### Source #128
+- **Title:** Vacuum state
+- **URL:** https://en.wikipedia.org/wiki/Vacuum_state
+- **Used in:** cosmological_constant_analysis.md §2.2
+- **Why:** Vacuum fluctuations, zero-point energy
+
+### Source #129
+- **Title:** Equation of state (cosmology)
+- **URL:** https://en.wikipedia.org/wiki/Equation_of_state_(cosmology)
+- **Used in:** cosmological_constant_analysis.md §4.4
+- **Why:** Dark energy equation of state w = P/ρ, w₀-w_a parametrization
 
 ### Source #122
 - **Title:** Cosmic microwave background
