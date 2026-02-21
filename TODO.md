@@ -339,6 +339,26 @@ full context.
   - See [G_derivation.md](docs/research/G_derivation.md) §6.2,
     [phase_framework_mysteries.md](docs/research/phase_framework_mysteries.md) §5
 
+- [ ] **Aharonov-Bohm effect and PDTP phase structure**
+  - The AB effect (Tonomura 1986) proves phase is physically real and can
+    alter physics without any local force — the same paradigm PDTP uses
+  - Preliminary analysis completed: structural parallels documented, EM–gravity
+    phase analogy constructed, COW experiment connection noted
+  - **Deeper research needed:**
+    1. Fiber bundle formulation of PDTP — can phase-locking be expressed
+       geometrically? How does global U(1) relate to local U(1) of EM?
+    2. Gravitational AB effect — does PDTP predict the COW experiment result?
+    3. Topological aspects — phase vortices, defects in the condensate?
+    4. EM–gravity unification hints — both involve phase coupling; connection
+       to Kaluza-Klein?
+    5. Impact on existing results — could geometric structure constrain the
+       Lagrangian or modify GW analysis (similar to how Part 12 tetrad
+       extension changed the double pulsar analysis in Part 13)?
+  - **Potential impact on previous work:** If fiber bundle analysis reveals
+    deeper geometric structure, may require revisiting tetrad extension and
+    coupling structure (analogous to scalar→tensor upgrade in Parts 12–13)
+  - See [aharonov_bohm_pdtp.md](docs/research/aharonov_bohm_pdtp.md)
+
 - [ ] **Phase drift mechanism**
   - What causes the spacetime phase field φ to de-synchronize at cosmic scales?
   - Local phase-locking (atoms → galaxy clusters) is stable; drift dominates
