@@ -303,14 +303,17 @@ full context.
   - **Remaining:** This is the deepest open problem — genuinely unsolved across all QG programs
   - See [condensate_microphysics.md](docs/research/condensate_microphysics.md)
 
-- [ ] **Decoupled neutrino energy at BBN**
+- [x] **Decoupled neutrino energy at BBN**
   - At Big Bang nucleosynthesis (z ~ 10⁹), neutrinos carry 41% of ρ_total
-  - Neutrinos are decoupled and relativistic — they don't source □φ (trace = 0)
-    and are not tightly coupled to baryons
-  - This creates a ~23% error in the Hubble rate H at BBN
-  - Resolution requires: acoustic metric tensor channel coupling kinetic energy
-    to curvature, or condensate extension that couples to T^μν not just T^μ_μ
-  - See [radiation_era_cosmology.md](docs/research/radiation_era_cosmology.md) §5
+  - In scalar-only PDTP: neutrinos don't source □φ (trace = 0) → 23% error in H at BBN
+  - **Resolution via tetrad extension (Part 15):**
+    1. Extended PDTP (Part 12) derives Einstein equation G_μν = 8πG T_μν
+    2. The (0,0) component gives Friedmann equation with FULL ρ_total including ρ_ν
+    3. The tensor sector uses T_00 = ρ_ν directly — the trace T = 0 is irrelevant
+    4. Same pattern as double pulsar resolution (Part 13): scalar-only artifact resolved by tensor sector
+  - Result: H²_PDTP = H²_GR at ALL epochs (BBN, equality, recombination, present)
+  - Two-sector structure: tensor (all energy) + scalar (phase-locking mechanism)
+  - See [radiation_era_cosmology.md](docs/research/radiation_era_cosmology.md) §8
 
 ### Cosmological Open Problems
 
@@ -473,11 +476,21 @@ Three missing links for GFT derivation identified. Research roadmap
 provided. Status: genuinely open — thorough analysis, no resolution claimed.
 
 Condensate microphysics analysis completed.
+Part 15: Neutrino BBN resolution via tetrad extension. The 41% neutrino
+energy deficit at BBN was an artifact of scalar-only PDTP — the same
+pattern as the double pulsar tension (Part 13). Extended PDTP (Part 12)
+derives Einstein equation G_μν = 8πG T_μν, whose (0,0) component gives
+the Friedmann equation with ALL energy density including ρ_ν. The tensor
+sector uses T_00 (not the trace T = 0), so neutrinos contribute fully.
+Result: H²_PDTP = H²_GR at all epochs. Two-sector cosmological structure:
+tensor handles all energy-momentum, scalar provides phase-locking mechanism.
 
-All formalization tasks (Parts 1–14) and stretch goals completed.
+Neutrino BBN problem resolved.
+
+All formalization tasks (Parts 1–15) and stretch goals completed.
 Open problems documented in "Open Problems (Future Work)" section:
-- Fundamental: neutrino BBN energy
 - Cosmological: Hubble tension, cosmological constant, phase drift mechanism
+- Research: Aharonov-Bohm deeper analysis
 ```
 
 ---
