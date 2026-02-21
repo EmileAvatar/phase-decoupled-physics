@@ -317,17 +317,18 @@ full context.
 
 ### Cosmological Open Problems
 
-- [ ] **Hubble tension from phase drift**
+- [x] **Hubble tension from phase drift**
   - Standard physics: H₀ = 73.0 ± 1.0 km/s/Mpc (local, SH0ES) vs
     H₀ = 67.4 ± 0.5 km/s/Mpc (CMB + ΛCDM, Planck) — ~5σ tension
-  - PDTP qualitative interpretation: local vs global spacetime phase drift rates
-    should differ due to inhomogeneous phase-locking environments
-  - Currently only a conceptual suggestion (phase_framework_mysteries.md §8)
-  - **Needed:** quantitative model of how local matter density affects phase drift
-    rate, and whether the ~8% H₀ discrepancy emerges naturally
-  - **Needed:** connection between phase coherence decay rate and measurable
-    expansion rate — what sets the drift rate in different environments?
-  - See [phase_framework_mysteries.md](docs/research/phase_framework_mysteries.md) §8
+  - **Quantitative analysis completed (Part 16):**
+    1. Phase drift rate ∝ 1/ρ_local (nonlinear enhancement from cosine coupling)
+    2. Direct scalar drift mechanism: Cassini bound ε_s < 10⁻⁵ → quantitatively insufficient
+    3. Backreaction from phase inhomogeneity: σ²_δψ ~ 10⁻¹⁰ → also insufficient (~9 orders of magnitude)
+    4. Both mechanisms fail because phase mismatches Φ/c² ~ 10⁻⁵ are too small
+  - **Honest conclusion:** PDTP cannot currently explain the 8% Hubble tension
+  - Deep connection identified: Hubble tension ↔ dark energy ↔ phase drift (common root)
+  - Conditional predictions: if scalar sector relevant, H₀ should correlate with environment density
+  - See [hubble_tension_analysis.md](docs/research/hubble_tension_analysis.md)
 
 - [ ] **Cosmological constant / dark energy from phase drift**
   - Standard physics: ρ_Λ ≈ 6 × 10⁻²⁷ kg/m³ (68% of universe), origin unknown
@@ -486,10 +487,21 @@ Result: H²_PDTP = H²_GR at all epochs. Two-sector cosmological structure:
 tensor handles all energy-momentum, scalar provides phase-locking mechanism.
 
 Neutrino BBN problem resolved.
+Part 16: Hubble tension analysis. Developed quantitative model of
+environment-dependent phase drift rate. Two mechanisms analyzed:
+(1) direct scalar drift (1/ρ dependence) — Cassini bound ε_s < 10⁻⁵
+makes this negligible; (2) backreaction from phase inhomogeneity —
+σ²_δψ ~ 10⁻¹⁰, also negligible. Both mechanisms ~9 orders of magnitude
+too small. Honest conclusion: PDTP cannot currently explain the 8% H₀
+discrepancy. Deep connection identified between Hubble tension, dark
+energy, and phase drift mechanism (common root in condensate coherence
+evolution). Conditional predictions provided for future surveys.
 
-All formalization tasks (Parts 1–15) and stretch goals completed.
+Hubble tension analysis completed (genuinely open — no resolution claimed).
+
+All formalization tasks (Parts 1–16) and stretch goals completed.
 Open problems documented in "Open Problems (Future Work)" section:
-- Cosmological: Hubble tension, cosmological constant, phase drift mechanism
+- Cosmological: cosmological constant, phase drift mechanism
 - Research: Aharonov-Bohm deeper analysis
 ```
 

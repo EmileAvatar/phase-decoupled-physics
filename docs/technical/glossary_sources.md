@@ -346,6 +346,50 @@ physics. They should not be cited as if they are.
 | Three missing links for GFT derivation of PDTP | condensate_microphysics.md §7.2 |
 | Research roadmap (near/medium/long-term GFT-PDTP bridge) | condensate_microphysics.md §7.3 |
 | BEC analogy for PDTP microphysics gap | condensate_microphysics.md §1.3 |
+| Phase drift equation in FRW background | hubble_tension_analysis.md §3.1 |
+| Nonlinear scalar drift rate: 1/(1+δ) dependence | hubble_tension_analysis.md §3.3 |
+| Coherence length as natural Hubble tension scale | hubble_tension_analysis.md §3.4 |
+| Tensor-scalar decomposition of local Hubble rate | hubble_tension_analysis.md §4.1 |
+| Scalar sector quantitatively insufficient: ε_s < 10⁻⁵ | hubble_tension_analysis.md §4.3 |
+| Phase-locking backreaction: σ²_δψ ~ 10⁻¹⁰ | hubble_tension_analysis.md §6.2 |
+| Deep connection: Hubble tension ↔ dark energy ↔ phase drift | hubble_tension_analysis.md §7.3 |
+| Conditional predictions for environment-dependent H₀ | hubble_tension_analysis.md §8 |
+
+### Source #118
+- **Title:** Hubble's law
+- **URL:** https://en.wikipedia.org/wiki/Hubble%27s_law
+- **Used in:** hubble_tension_analysis.md §1.1, §1.3
+- **Why:** Hubble constant measurements, Hubble tension overview
+
+### Source #119
+- **Title:** Cosmological perturbation theory
+- **URL:** https://en.wikipedia.org/wiki/Cosmological_perturbation_theory
+- **Used in:** hubble_tension_analysis.md §3.2
+- **Why:** Density contrast definition, linear perturbation theory
+
+### Source #120
+- **Title:** Lemaître-Tolman metric
+- **URL:** https://en.wikipedia.org/wiki/Lema%C3%AEtre%E2%80%93Tolman_metric
+- **Used in:** hubble_tension_analysis.md §4.2
+- **Why:** LTB void model for Hubble tension
+
+### Source #121
+- **Title:** Normal distribution (characteristic function)
+- **URL:** https://en.wikipedia.org/wiki/Normal_distribution
+- **Used in:** hubble_tension_analysis.md §6.1
+- **Why:** Gaussian averaging of phase mismatches
+
+### Source #122
+- **Title:** Cosmic microwave background
+- **URL:** https://en.wikipedia.org/wiki/Cosmic_microwave_background
+- **Used in:** hubble_tension_analysis.md §6.2
+- **Why:** CMB temperature anisotropy ~ 10⁻⁵ as gravitational potential proxy
+
+### Source #123
+- **Title:** Dark Energy Spectroscopic Instrument
+- **URL:** https://en.wikipedia.org/wiki/Dark_Energy_Spectroscopic_Instrument
+- **Used in:** hubble_tension_analysis.md §8.3
+- **Why:** Future survey for testing environment-dependent H₀
 
 ---
 
