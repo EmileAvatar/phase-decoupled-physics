@@ -377,6 +377,58 @@ full context.
   - This is the "why" behind both dark energy and the Hubble tension
   - No mechanism currently proposed — requires condensate microphysics
 
+### Structural Directions (from external review, Part 17)
+
+These items were identified through independent external review of the
+cosmological constant analysis. Both reviews converged on the same
+structural diagnosis and recommended directions.
+
+- [ ] **Vacuum energy and the tensor sector: background subtraction mechanism**
+  - The "PDTP trilemma": cannot simultaneously have (a) exact GR recovery,
+    (b) scalar vacuum filtering, and (c) cosmological constant solution
+  - Both external reviews recommend Option 3: condensate background subtraction
+  - Key idea: if the condensate ground state defines the metric background,
+    then ρ₀ is "already included" in the geometry — only deviations δρ gravitate
+  - Possible implementation: T_μν^phys = T_μν − ⟨T_μν⟩_condensate
+  - This modifies what emerges from the Palatini variation in Part 12
+  - Related approaches: unimodular gravity, vacuum energy sequestering,
+    emergent gravity models, analogue gravity (acoustic metric doesn't feel
+    total fluid mass — only perturbations)
+  - **Must answer:** Does the Part 12 Palatini variation naturally produce
+    ground-state subtraction? Or does this require modifying the action?
+  - **Risk:** If GR is modified, solar system tests become nontrivial constraints
+  - See [cosmological_constant_analysis.md](docs/research/cosmological_constant_analysis.md) §6
+
+- [ ] **Dark energy as condensate normal fraction (temperature model)**
+  - Map dark energy to condensate thermodynamics near critical temperature T_c
+  - Superfluid analogy: below T_c → full coherence; near T_c → normal fraction grows
+  - Dark energy density ∝ normal fraction of condensate = (T/T_c)^β or similar
+  - This would naturally produce: time evolution of w, w₀ > −1, w_a < 0
+  - Must model: order parameter evolution, condensate fraction f(t), effective
+    equation of state from φ dynamics
+  - **Key question:** Is the universe sitting near criticality? Is this stable
+    or accidental? If criticality is an attractor state, this becomes powerful
+  - Connects to: DESI DR2 results (energy density peaked at z ≈ 0.45),
+    condensate microphysics (Part 14), phase drift mechanism
+
+- [ ] **Derive explicit w(z) from phase drift dynamics**
+  - DESI DR2 shows w₀ > −1, w_a < 0, energy density peaked at z ≈ 0.45
+  - This implies drift rate is NOT monotonic — there is a restoring tendency
+  - Suggests φ needs a relaxation equation: φ̈ + γφ̇ + V'(φ) = 0
+  - Not pure free drift — requires either a potential V(φ) or
+    temperature-dependent coupling g(T)
+  - Must produce: specific predictions for w₀ and w_a values
+  - Constraint: ξ must satisfy ξ ≫ galactic scales AND ξ ≪ Hubble radius
+  - This would make PDTP's dark energy predictions falsifiable
+
+- [ ] **Scalar sector backreaction on tensor sector**
+  - Does the scalar sector modify the effective T_μν seen by the tensor sector?
+  - If φ dynamics change the condensate stress-energy, this could feed back
+    into the Einstein equation through modified G or effective Λ
+  - Could bridge the gap between scalar (vacuum-insensitive) and tensor
+    (vacuum-sensitive) sectors
+  - Related to whether G varies dynamically through condensate evolution
+
 ---
 
 ## Status
@@ -517,6 +569,8 @@ All formalization tasks (Parts 1–17) and stretch goals completed.
 Open problems documented in "Open Problems (Future Work)" section:
 - Cosmological: phase drift mechanism
 - Research: Aharonov-Bohm deeper analysis
+- Structural: vacuum energy tensor sector, temperature model, w(z) derivation,
+  scalar-tensor backreaction (from external review of Part 17)
 ```
 
 ---
