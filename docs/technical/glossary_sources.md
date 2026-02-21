@@ -122,6 +122,14 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 106 | Kerr metric | https://en.wikipedia.org/wiki/Kerr_metric | tetrad_extension.md §9.2 |
 | 107 | Gravitational wave | https://en.wikipedia.org/wiki/Gravitational_wave | double_pulsar_resolution.md §1.1, §2.3 |
 | 108 | Scalar-tensor theory | https://en.wikipedia.org/wiki/Scalar%E2%80%93tensor_theory | double_pulsar_resolution.md §3.2 |
+| 109 | Bose-Einstein condensate | https://en.wikipedia.org/wiki/Bose%E2%80%93Einstein_condensate | condensate_microphysics.md §1.3, §4.1 |
+| 110 | Gross-Pitaevskii equation | https://en.wikipedia.org/wiki/Gross%E2%80%93Pitaevskii_equation | condensate_microphysics.md §1.3, §6.2 |
+| 111 | Superfluid helium-3 | https://en.wikipedia.org/wiki/Superfluid_helium-3 | condensate_microphysics.md §3.1 |
+| 112 | Spin foam | https://en.wikipedia.org/wiki/Spin_foam | condensate_microphysics.md §3.3 |
+| 113 | Topological insulator | https://en.wikipedia.org/wiki/Topological_insulator | condensate_microphysics.md §6.2 |
+| 114 | Universality (dynamical systems) | https://en.wikipedia.org/wiki/Universality_(dynamical_systems) | condensate_microphysics.md §6.2 |
+| 115 | Planck temperature | https://en.wikipedia.org/wiki/Planck_units#Planck_temperature | condensate_microphysics.md §4.3 |
+| 116 | String theory landscape | https://en.wikipedia.org/wiki/String_theory_landscape | condensate_microphysics.md §8.2 |
 
 ---
 
@@ -177,6 +185,13 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 46 | Damour, T. & Esposito-Farèse, G. | 1992 | "Tensor-multi-scalar theories of gravitation" | *Classical and Quantum Gravity* **9**, 2093 | [IOP](https://doi.org/10.1088/0264-9381/9/9/015) | double_pulsar_resolution.md §3.2, §4.3 |
 | 47 | Damour, T. & Esposito-Farèse, G. | 1996 | "Nonperturbative strong-field effects in tensor-multi-scalar theories" | *Physical Review Letters* **70**, 2220 | [APS](https://doi.org/10.1103/PhysRevLett.70.2220) | double_pulsar_resolution.md §3.4 |
 | 48 | Will, C. M. | 2014 | "The confrontation between general relativity and experiment" | *Living Reviews in Relativity* **17**, 4 | [Springer](https://doi.org/10.12942/lrr-2014-4) | double_pulsar_resolution.md §3.2, §4.1 |
+| 49 | Gielen, S., Oriti, D. & Sindoni, L. | 2013 | "Cosmology from group field theory formalism for quantum gravity" | *Physical Review Letters* **111**, 031301 | [arXiv:1303.3576](https://arxiv.org/abs/1303.3576) | condensate_microphysics.md §3.2 |
+| 50 | Gielen, S., Oriti, D. & Sindoni, L. | 2014 | "Homogeneous cosmologies as group field theory condensates" | *Journal of High Energy Physics* **2014**, 013 | [arXiv:1311.1238](https://arxiv.org/abs/1311.1238) | condensate_microphysics.md §3.2 |
+| 51 | Bombelli, L., Lee, J., Meyer, D. & Sorkin, R. D. | 1987 | "Space-time as a causal set" | *Physical Review Letters* **59**, 521 | [APS](https://doi.org/10.1103/PhysRevLett.59.521) | condensate_microphysics.md §3.4 |
+| 52 | Surya, S. | 2019 | "The causal set approach to quantum gravity" | *Living Reviews in Relativity* **22**, 5 | [arXiv:1903.11544](https://arxiv.org/abs/1903.11544) | condensate_microphysics.md §3.4 |
+| 53 | Sen, A. | 1999 | "Tachyon condensation in string field theory" | *Journal of High Energy Physics* | [arXiv:hep-th/9912249](https://arxiv.org/abs/hep-th/9912249) | condensate_microphysics.md §3.5 |
+| 54 | Oriti, D. | 2014 | "Disappearance and emergence of space and time in quantum gravity" | *Studies in History and Philosophy of Modern Physics* **46**, 186 | — | condensate_microphysics.md §4.2 |
+| 55 | Rovelli, C. | 2004 | *Quantum Gravity* | Cambridge University Press | [CUP](https://www.cambridge.org/core/books/quantum-gravity/9EEB701AAB938F06DCF151AACE1A445D) | condensate_microphysics.md §3.3 |
 
 ---
 
@@ -319,6 +334,17 @@ physics. They should not be cited as if they are.
 | Ṗ_b^PDTP = Ṗ_b^GR (double pulsar prediction) | double_pulsar_resolution.md §6.1 |
 | Correction of tetrad_extension.md §10.2 assessment | double_pulsar_resolution.md §7.3 |
 | Identification of U(1)-breaking scenarios | double_pulsar_resolution.md §8.3 |
+| Complete constraint catalog (10 requirements from Parts 1–13) | condensate_microphysics.md §2 |
+| Candidate theory comparison table (GFT best at 7/10) | condensate_microphysics.md §3.6 |
+| Causal set theory connection to PDTP (exploratory) | condensate_microphysics.md §3.4 |
+| String theory tachyon condensation analogy (speculative) | condensate_microphysics.md §3.5 |
+| Geometrogenesis in PDTP terms (order parameter evolution) | condensate_microphysics.md §4.2, §4.4 |
+| Downstream blockage analysis (phenomenology vs. deep quantities) | condensate_microphysics.md §5.1 |
+| Universality argument applied to PDTP specifically | condensate_microphysics.md §6.3 |
+| GFT-PDTP structural dictionary | condensate_microphysics.md §7.1 |
+| Three missing links for GFT derivation of PDTP | condensate_microphysics.md §7.2 |
+| Research roadmap (near/medium/long-term GFT-PDTP bridge) | condensate_microphysics.md §7.3 |
+| BEC analogy for PDTP microphysics gap | condensate_microphysics.md §1.3 |
 
 ---
 

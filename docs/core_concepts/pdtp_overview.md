@@ -23,6 +23,88 @@ By weakening this lock:
 
 ---
 
+## Plain-Language Summary (No Math Required)
+
+### What is spacetime in PDTP?
+
+Imagine spacetime as a vast ocean. Not empty vacuum — a real, physical substance
+that fills the universe. This "ocean" is a quantum fluid (a condensate) that
+oscillates with a wave-like rhythm. We call this rhythm the **spacetime phase** (φ).
+
+### What are particles?
+
+Every particle — every electron, proton, atom — is also a wave. This is not
+metaphor; it is established quantum mechanics (de Broglie, 1924). Each particle
+has its own wave rhythm: the **matter phase** (ψ).
+
+### What is gravity?
+
+When a particle's wave rhythm (ψ) synchronizes with spacetime's wave rhythm (φ),
+the particle "locks on" to spacetime. This phase-locking IS gravity.
+
+Think of two pendulum clocks on the same wall. Over time, vibrations through the
+wall cause them to swing in sync. Neither clock is "pulling" the other — they
+synchronize through a shared medium. Gravity works the same way: matter and
+spacetime synchronize through their shared wave nature.
+
+The strength of gravity depends on how tightly the phases are locked:
+- **Perfectly locked** (ψ = φ): normal gravity, normal inertia
+- **Partially unlocked** (ψ drifts from φ): reduced gravity, reduced inertia
+- **Fully decoupled** (ψ independent of φ): no gravitational interaction
+
+### What about Einstein's equations?
+
+Einstein's famous equation (G = 8πT) describes how mass curves spacetime. In
+PDTP, this equation still holds — it emerges naturally from the phase-locking
+framework when you include the full structure of the spacetime condensate
+(the "tetrad extension," Part 12).
+
+Einstein's gravity is not wrong — it is the large-scale description of what
+phase-locking produces, just as fluid dynamics is the large-scale description
+of what trillions of water molecules produce.
+
+### What is the spacetime condensate made of?
+
+This is the deepest open question. We know the condensate exists (because gravity
+exists), and we know its properties (because we can measure gravity precisely).
+But we don't know what "atoms" make it up — just as 19th-century physicists
+understood sound waves without knowing about molecules.
+
+The best candidate comes from **Group Field Theory** (GFT): spacetime may be a
+condensate of tiny quantum tetrahedra — geometric building blocks that, when
+enough of them "condense" into the same quantum state, produce smooth spacetime.
+
+The key insight: **we don't need to know the answer to use the framework.** All
+of PDTP's predictions — gravitational waves, orbital mechanics, light bending —
+work regardless of what the condensate is made of. This is called
+**universality**: the macroscopic physics depends on symmetries, not on
+microscopic details.
+
+### What has been shown so far?
+
+| What | Status |
+|------|--------|
+| Gravity as phase-locking | Mathematically derived (Parts 1-2) |
+| Matches Newton's gravity | Proven in weak-field limit (Part 1) |
+| Matches Einstein's gravity | Proven via tetrad extension (Part 12) |
+| Gravitational wave prediction | 2 tensor + 1 breathing mode (Part 12) |
+| Binary pulsar consistency | Matches observations exactly (Part 13) |
+| What spacetime is "made of" | Open question — analysis complete (Part 14) |
+
+### The ocean analogy, revisited
+
+| Ocean Physics | PDTP |
+|---------------|------|
+| Water | Spacetime condensate |
+| Water molecules (H₂O) | Unknown "atoms of spacetime" (quantum tetrahedra?) |
+| Ocean current | Spacetime phase gradient (= gravitational field) |
+| Sound waves in water | Gravitational waves |
+| Speed of sound (1500 m/s) | Speed of light (c) |
+| Wave equations work without knowing chemistry | PDTP works without knowing microphysics |
+| Knowing chemistry lets you predict speed of sound | Knowing microphysics would let you predict G |
+
+---
+
 ## PDTP Definition
 
 A Phase-Decoupled Transport Platform:
