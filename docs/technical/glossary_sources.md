@@ -585,4 +585,151 @@ physics. They should not be cited as if they are.
 
 ---
 
+## Sources Added in Part 19 (Phase Drift Mechanism)
+
+### Wikipedia Sources
+
+### Source #144
+- **Title:** Superconducting coherence length
+- **URL:** https://en.wikipedia.org/wiki/Superconducting_coherence_length
+- **Used in:** phase_drift_mechanism.md §3.1
+- **Why:** BCS coherence length formula ξ₀ = ℏv_F/(πΔ)
+
+### Source #145
+- **Title:** Gross-Pitaevskii equation (healing length)
+- **URL:** https://en.wikipedia.org/wiki/Gross%E2%80%93Pitaevskii_equation
+- **Used in:** phase_drift_mechanism.md §3.1
+- **Why:** BEC healing length ξ = 1/√(8πna)
+
+### Source #146
+- **Title:** Correlation length
+- **URL:** https://en.wikipedia.org/wiki/Correlation_length
+- **Used in:** phase_drift_mechanism.md §3.3
+- **Why:** Exponential decay of correlations beyond ξ in statistical field theory
+
+### Source #147
+- **Title:** Friedmann-Lemaître-Robertson-Walker metric
+- **URL:** https://en.wikipedia.org/wiki/Friedmann%E2%80%93Lema%C3%AEtre%E2%80%93Robertson%E2%80%93Walker_metric
+- **Used in:** phase_drift_mechanism.md §4.1
+- **Why:** FRW metric, scale factor, wavelength stretching
+
+### Source #148
+- **Title:** Cosmological redshift
+- **URL:** https://en.wikipedia.org/wiki/Redshift#Cosmological_redshift
+- **Used in:** phase_drift_mechanism.md §4.1
+- **Why:** Physical wavelength stretching λ_phys = a(t) × λ_comoving
+
+### Source #149
+- **Title:** Two-fluid model
+- **URL:** https://en.wikipedia.org/wiki/Two-fluid_model
+- **Used in:** phase_drift_mechanism.md §5.1
+- **Why:** Landau/Tisza two-fluid model, superfluid vs normal fraction
+
+### Source #150
+- **Title:** Superfluid helium-4 (normal fraction)
+- **URL:** https://en.wikipedia.org/wiki/Superfluid_helium-4
+- **Used in:** phase_drift_mechanism.md §5.1, §5.3
+- **Why:** Temperature dependence of ρ_n/ρ, lambda point, critical velocity
+
+### Source #151
+- **Title:** Landau criterion
+- **URL:** https://en.wikipedia.org/wiki/Landau_criterion
+- **Used in:** phase_drift_mechanism.md §5.3
+- **Why:** Critical velocity for excitation creation in superfluids
+
+### Source #152
+- **Title:** Kibble-Zurek mechanism
+- **URL:** https://en.wikipedia.org/wiki/Kibble%E2%80%93Zurek_mechanism
+- **Used in:** phase_drift_mechanism.md §6.3
+- **Why:** Topological defect formation in phase transitions, defect density scaling
+
+### Source #153
+- **Title:** Quintessence (physics)
+- **URL:** https://en.wikipedia.org/wiki/Quintessence_(physics)
+- **Used in:** phase_drift_mechanism.md §7.2
+- **Why:** Scalar field equation in FRW background with Hubble friction 3Hφ̇
+
+### Source #154
+- **Title:** Langevin equation
+- **URL:** https://en.wikipedia.org/wiki/Langevin_equation
+- **Used in:** phase_drift_mechanism.md §7.2
+- **Why:** Damped oscillator with stochastic noise, fluctuation-dissipation
+
+### Source #155
+- **Title:** Cosmological constant
+- **URL:** https://en.wikipedia.org/wiki/Cosmological_constant
+- **Used in:** phase_drift_mechanism.md §2.2
+- **Why:** Observed dark energy density ρ_Λ ≈ 5.96 × 10⁻²⁷ kg/m³
+
+### Source #156
+- **Title:** Friedmann equations
+- **URL:** https://en.wikipedia.org/wiki/Friedmann_equations
+- **Used in:** phase_drift_mechanism.md §4.3
+- **Why:** Self-consistent coupled cosmological evolution
+
+### Source #157
+- **Title:** Equation of state (cosmology)
+- **URL:** https://en.wikipedia.org/wiki/Equation_of_state_(cosmology)
+- **Used in:** phase_drift_mechanism.md §2.2
+- **Why:** w = P/ρ parametrization, quintessence vs Λ
+
+### Academic Papers
+
+### Paper #64
+- **Author(s):** DESI Collaboration
+- **Year:** 2025
+- **Title:** "DESI DR2 Results II: Measurements of Baryon Acoustic Oscillations and Cosmological Constraints"
+- **Publication:** *Physical Review D* 112, 083515
+- **URL:** [arXiv](https://arxiv.org/abs/2503.14738)
+- **Used in:** phase_drift_mechanism.md §2.2, §7.3, §9.1
+
+### Paper #65
+- **Author(s):** Kibble, T. W. B.
+- **Year:** 1976
+- **Title:** "Topology of cosmic domains and strings"
+- **Publication:** *Journal of Physics A* 9, 1387
+- **Used in:** phase_drift_mechanism.md §6.3
+
+### Paper #66
+- **Author(s):** Zurek, W. H.
+- **Year:** 1985
+- **Title:** "Cosmological experiments in superfluid helium?"
+- **Publication:** *Nature* 317, 505–508
+- **Used in:** phase_drift_mechanism.md §6.3
+
+### Paper #67
+- **Author(s):** Tisza, L.
+- **Year:** 1938
+- **Title:** "Transport Phenomena in Helium II"
+- **Publication:** *Nature* 141, 913
+- **Used in:** phase_drift_mechanism.md §5.1
+
+### Paper #68
+- **Author(s):** Landau, L. D.
+- **Year:** 1941
+- **Title:** "Theory of the Superfluidity of Helium II"
+- **Publication:** *Journal of Physics (USSR)* 5, 71
+- **Used in:** phase_drift_mechanism.md §5.1
+
+### PDTP Original Results (Part 19)
+
+| Result | Where |
+|--------|-------|
+| Phase drift defined as departure from locked equilibrium beyond ξ | phase_drift_mechanism.md §2.1 |
+| Vacuum coupling g ~ 5 × 10⁻³³ s⁻² for ξ ~ 100 Mpc | phase_drift_mechanism.md §3.2 |
+| Exponential phase correlator decay as primary drift mechanism | phase_drift_mechanism.md §3.3 |
+| Expansion as frequency-mismatch accumulator for condensate | phase_drift_mechanism.md §4.2 |
+| Self-consistent coupled system (drift ↔ expansion) | phase_drift_mechanism.md §4.3 |
+| Dark energy as normal fraction of spacetime condensate | phase_drift_mechanism.md §5.2 |
+| Universe deep in superfluid phase (T_cond ≪ T_c), not near criticality | phase_drift_mechanism.md §5.4 |
+| Landau critical velocity analogy for expansion-driven excitations | phase_drift_mechanism.md §5.3 |
+| Vortex network with inter-vortex spacing d as effective ξ | phase_drift_mechanism.md §6.2 |
+| Kibble-Zurek applied to spacetime condensate vortex formation | phase_drift_mechanism.md §6.3 |
+| Langevin equation for condensate phase drift | phase_drift_mechanism.md §7.2 |
+| Component mapping: γ = 3H, ω² = g_eff, η = thermal + vortex noise | phase_drift_mechanism.md §7.2 |
+| Qualitative w(z): overdamped → resonant → relaxation matches DESI | phase_drift_mechanism.md §7.3 |
+| Five microphysical parameters needed for quantitative predictions | phase_drift_mechanism.md §7.4 |
+
+---
+
 End of glossary_sources.md

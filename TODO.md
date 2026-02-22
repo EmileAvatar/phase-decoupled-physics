@@ -366,17 +366,22 @@ full context.
     EM–gravity parallel is real but not unification
   - See [aharonov_bohm_pdtp.md](docs/research/aharonov_bohm_pdtp.md)
 
-- [ ] **Phase drift mechanism**
-  - What causes the spacetime phase field φ to de-synchronize at cosmic scales?
-  - Local phase-locking (atoms → galaxy clusters) is stable; drift dominates
-    only at > 100 Mpc scales — why this transition?
-  - Possible mechanisms: thermal fluctuations in the condensate, topological
-    defects (phase vortices) at cosmological scales, finite coherence length
-    of the condensate, or cosmological expansion itself as the cause
-  - The coherence length ξ = c/√(2g) may set the natural scale beyond which
-    drift dominates — but this requires knowing g for the vacuum condensate
-  - This is the "why" behind both dark energy and the Hubble tension
-  - No mechanism currently proposed — requires condensate microphysics
+- [x] **Phase drift mechanism** *(Part 19 — 2026-02-22)*
+  - Analyzed four candidate mechanisms for cosmic-scale phase de-synchronization:
+    1. Finite coherence length ξ = c/√(2g) (★★★★ — primary mechanism, explains
+       scale transition directly via exponential decay of phase correlations)
+    2. Cosmological expansion (★★★ — provides time evolution through a(t),
+       self-consistent but circular)
+    3. Thermal fluctuations / two-fluid model (★★★ — maps dark energy to
+       condensate normal fraction; universe is deep in superfluid phase, T ≪ T_c)
+    4. Topological defects / phase vortices (★★☆ — Kibble-Zurek formation
+       mechanism, inter-vortex spacing sets effective ξ, most speculative)
+  - Developed effective Langevin equation: δφ̈ + 3H(t)δφ̇ + g_eff(t)δφ = η(t)
+  - Qualitative w(z) matches DESI DR2: w₀ > −1, w_a < 0 emerge naturally from
+    overdamped → resonant → relaxation dynamics without fine-tuning
+  - Honest conclusion: framework, not solution — quantitative predictions require
+    condensate microphysics (g, T_cond, n_vortex, γ_micro all unknown)
+  - See [phase_drift_mechanism.md](docs/research/phase_drift_mechanism.md)
 
 ### Structural Directions (from external review, Part 17)
 
@@ -583,9 +588,27 @@ cosmological vortex networks could relate to phase drift (Part 17).
 
 Aharonov-Bohm deep analysis completed (geometric consistency confirmed).
 
-All formalization tasks (Parts 1–18) and stretch goals completed.
+Part 19: Phase drift mechanism — deep analysis of why spacetime phase
+de-synchronizes at cosmic scales. Four candidate mechanisms analyzed:
+(1) finite coherence length ξ = c/√(2g) as primary mechanism — exponential
+decay of phase correlations beyond ξ explains the ~100 Mpc transition;
+(2) cosmological expansion stretches condensate wavelength, accumulating
+frequency mismatch; (3) thermal fluctuations map to Landau two-fluid model
+— dark energy as normal fraction (universe deep in superfluid phase,
+T ≪ T_c); (4) topological defects via Kibble-Zurek mechanism — primordial
+vortex networks set effective coherence scale. Key result: effective
+Langevin equation δφ̈ + 3H(t)δφ̇ + g_eff(t)δφ = η(t) unifies all four
+mechanisms. Qualitative w(z) matches DESI DR2 (w₀ > −1, w_a < 0) via
+overdamped → resonant → relaxation dynamics. Honest conclusion: framework
+analysis, not solution — quantitative predictions blocked by unknown
+condensate microphysics (g, T_cond, n_vortex, γ_micro).
+
+Phase drift mechanism analysis completed (framework established).
+
+All formalization tasks (Parts 1–19) and stretch goals completed.
 Open problems documented in "Open Problems (Future Work)" section:
-- Cosmological: phase drift mechanism
+- Cosmological: phase drift mechanism analyzed (Part 19) — framework established,
+  quantitative predictions still require condensate microphysics
 - Structural: vacuum energy tensor sector, temperature model, w(z) derivation,
   scalar-tensor backreaction (from external review of Part 17)
 - Topological: vortex dynamics in PDTP condensate, condensate phase transition
