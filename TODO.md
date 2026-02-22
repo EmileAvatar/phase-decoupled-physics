@@ -345,24 +345,25 @@ full context.
   - Common root with Hubble tension and phase drift mechanism (Part 16)
   - See [cosmological_constant_analysis.md](docs/research/cosmological_constant_analysis.md)
 
-- [ ] **Aharonov-Bohm effect and PDTP phase structure**
+- [x] **Aharonov-Bohm effect and PDTP phase structure**
   - The AB effect (Tonomura 1986) proves phase is physically real and can
     alter physics without any local force — the same paradigm PDTP uses
-  - Preliminary analysis completed: structural parallels documented, EM–gravity
-    phase analogy constructed, COW experiment connection noted
-  - **Deeper research needed:**
-    1. Fiber bundle formulation of PDTP — can phase-locking be expressed
-       geometrically? How does global U(1) relate to local U(1) of EM?
-    2. Gravitational AB effect — does PDTP predict the COW experiment result?
-    3. Topological aspects — phase vortices, defects in the condensate?
-    4. EM–gravity unification hints — both involve phase coupling; connection
-       to Kaluza-Klein?
-    5. Impact on existing results — could geometric structure constrain the
-       Lagrangian or modify GW analysis (similar to how Part 12 tetrad
-       extension changed the double pulsar analysis in Part 13)?
-  - **Potential impact on previous work:** If fiber bundle analysis reveals
-    deeper geometric structure, may require revisiting tetrad extension and
-    coupling structure (analogous to scalar→tensor upgrade in Parts 12–13)
+  - **Deep analysis completed (Part 18):**
+    1. COW experiment: PDTP reproduces gravitational phase shift exactly
+       (Δφ = (m/ℏ)∫Φdt) — consistency check via weak-field limit
+    2. Fiber bundle classification: PDTP = U(1)_global × SO(3,1) product
+       bundle (trivial scalar bundle + GR frame bundle)
+    3. Topological defects: cosmic strings interpreted as quantized vortex
+       lines in the condensate phase field (∮∇φ·dl = 2πn)
+    4. EM–gravity: genuine structural parallel (both phase coupling), but
+       gauging PDTP's U(1) does NOT naturally produce electromagnetism
+    5. Impact assessment: no modifications to existing results needed —
+       geometric consistency confirmed across all previous Parts
+  - 2022 Overstreet et al. (Science) observed gravitational AB phase shift
+    with atom interferometry — strongest experimental support for phase paradigm
+  - **Honest conclusion:** PDTP is geometrically consistent; topological
+    aspects (cosmic strings as vortices) are suggestive but speculative;
+    EM–gravity parallel is real but not unification
   - See [aharonov_bohm_pdtp.md](docs/research/aharonov_bohm_pdtp.md)
 
 - [ ] **Phase drift mechanism**
@@ -565,12 +566,29 @@ sector mechanism, but not a solution. Common root with Hubble tension
 
 Cosmological constant analysis completed (partial reframing — not solved).
 
-All formalization tasks (Parts 1–17) and stretch goals completed.
+Part 18: Aharonov-Bohm effect and PDTP phase structure — deep analysis.
+COW experiment derivation: PDTP reproduces Δφ = (m/ℏ)∫Φdt exactly via
+weak-field limit (consistency check, not new prediction). Overstreet et al.
+(2022, Science) observed gravitational AB phase shift with atom interferometry
+— strongest experimental support for PDTP's phase-centric paradigm. Fiber
+bundle classification: PDTP = U(1)_global × SO(3,1) product bundle (trivial
+scalar bundle for phase dynamics + GR frame bundle for spacetime geometry).
+Topological defects: cosmic strings interpreted as quantized vortex lines
+in condensate phase field (∮∇φ·dl = 2πn ↔ deficit angle Δθ = 8πGμ/c²).
+EM–gravity parallel: both involve phase coupling, but gauging PDTP's U(1)
+does NOT naturally produce electromagnetism (coupling constant mismatch,
+charge structure incompatible). Impact assessment: no modifications to
+previous Parts needed — geometric consistency confirmed. Speculative:
+cosmological vortex networks could relate to phase drift (Part 17).
+
+Aharonov-Bohm deep analysis completed (geometric consistency confirmed).
+
+All formalization tasks (Parts 1–18) and stretch goals completed.
 Open problems documented in "Open Problems (Future Work)" section:
 - Cosmological: phase drift mechanism
-- Research: Aharonov-Bohm deeper analysis
 - Structural: vacuum energy tensor sector, temperature model, w(z) derivation,
   scalar-tensor backreaction (from external review of Part 17)
+- Topological: vortex dynamics in PDTP condensate, condensate phase transition
 ```
 
 ---

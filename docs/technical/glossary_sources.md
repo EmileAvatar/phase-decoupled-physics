@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-21
+Last updated: 2026-02-22
 
 ---
 
@@ -145,7 +145,7 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 5 | Volovik, G. E. | 2003 | *The Universe in a Helium Droplet* | Oxford University Press | [OUP](https://global.oup.com/academic/product/the-universe-in-a-helium-droplet-9780199564842) | advanced_formalization.md §1.2 |
 | 6 | Barceló, C., Liberati, S., Visser, M. | 2005 | "Analogue Gravity" | *Living Reviews in Relativity*, 8, 12 | [Springer](https://link.springer.com/article/10.12942/lrr-2011-3) | advanced_formalization.md §1.2 |
 | 7 | Unruh, W. G. | 1981 | "Experimental Black-Hole Evaporation?" | *Physical Review Letters*, 46, 1351 | [APS](https://doi.org/10.1103/PhysRevLett.46.1351) | advanced_formalization.md §1.4 |
-| 8 | Colella, R., Overhauser, A. W., Werner, S. A. | 1975 | "Observation of Gravitationally Induced Quantum Interference" | *Physical Review Letters*, 34, 1472 | [APS](https://doi.org/10.1103/PhysRevLett.34.1472) | advanced_formalization.md §4.5 |
+| 8 | Colella, R., Overhauser, A. W., Werner, S. A. | 1975 | "Observation of Gravitationally Induced Quantum Interference" | *Physical Review Letters*, 34, 1472 | [APS](https://doi.org/10.1103/PhysRevLett.34.1472) | advanced_formalization.md §4.5, aharonov_bohm_pdtp.md §7.1 |
 | 9 | Asenbaum, P. et al. | 2020 | "Atom-Interferometric Test of the Equivalence Principle at the 10⁻¹² Level" | *Physical Review Letters*, 125, 191101 | [APS](https://doi.org/10.1103/PhysRevLett.125.191101) | advanced_formalization.md §4.2 |
 | 10 | Bloom, B. J. et al. | 2014 | "An optical lattice clock with accuracy and stability at the 10⁻¹⁸ level" | *Nature*, 506, 71–75 | [Nature](https://doi.org/10.1038/nature12941) | advanced_formalization.md §4.5 |
 | 11 | Eardley, D. M., Lee, D. L., Lightman, A. P. | 1973 | "Gravitational-Wave Observations as a Tool for Testing Relativistic Gravity" | *Physical Review Letters*, 30, 884 | [APS](https://doi.org/10.1103/PhysRevLett.30.884) | hard_problems.md §1.2 |
@@ -438,6 +438,150 @@ physics. They should not be cited as if they are.
 - **URL:** https://en.wikipedia.org/wiki/Dark_Energy_Spectroscopic_Instrument
 - **Used in:** hubble_tension_analysis.md §8.3
 - **Why:** Future survey for testing environment-dependent H₀
+
+---
+
+## Sources Added in Part 18 (Aharonov-Bohm Deep Analysis)
+
+### Wikipedia Sources
+
+### Source #130
+- **Title:** Aharonov-Bohm effect
+- **URL:** https://en.wikipedia.org/wiki/Aharonov%E2%80%93Bohm_effect
+- **Used in:** aharonov_bohm_pdtp.md §1.1, §2.1
+- **Why:** AB effect definition, phase shift formula, experimental verification
+
+### Source #131
+- **Title:** COW experiment
+- **URL:** https://en.wikipedia.org/wiki/Colella%E2%80%93Overhauser%E2%80%93Werner_experiment
+- **Used in:** aharonov_bohm_pdtp.md §6.2, §7.1
+- **Why:** Gravitational quantum interference, neutron interferometry
+
+### Source #132
+- **Title:** Connection (fiber bundle)
+- **URL:** https://en.wikipedia.org/wiki/Connection_(mathematics)
+- **Used in:** aharonov_bohm_pdtp.md §2.3, §8.1
+- **Why:** Fiber bundle connection definition, holonomy
+
+### Source #133
+- **Title:** Meissner effect
+- **URL:** https://en.wikipedia.org/wiki/Meissner_effect
+- **Used in:** aharonov_bohm_pdtp.md §1.2
+- **Why:** Superconductor magnetic field expulsion in Tonomura experiment
+
+### Source #134
+- **Title:** Fiber bundle
+- **URL:** https://en.wikipedia.org/wiki/Fiber_bundle
+- **Used in:** aharonov_bohm_pdtp.md §8.1
+- **Why:** Definition, principal bundles, gauge theory formulation
+
+### Source #135
+- **Title:** Frame bundle
+- **URL:** https://en.wikipedia.org/wiki/Frame_bundle
+- **Used in:** aharonov_bohm_pdtp.md §8.2
+- **Why:** GR as SO(3,1) frame bundle, tetrad formulation
+
+### Source #136
+- **Title:** Quantum vortex
+- **URL:** https://en.wikipedia.org/wiki/Quantum_vortex
+- **Used in:** aharonov_bohm_pdtp.md §9.1
+- **Why:** Quantized circulation in superfluids, Onsager-Feynman condition
+
+### Source #137
+- **Title:** Superfluid helium-4
+- **URL:** https://en.wikipedia.org/wiki/Superfluid_helium-4
+- **Used in:** aharonov_bohm_pdtp.md §9.1
+- **Why:** Quantized vortex properties, phase coherence
+
+### Source #138
+- **Title:** Cosmic string
+- **URL:** https://en.wikipedia.org/wiki/Cosmic_string
+- **Used in:** aharonov_bohm_pdtp.md §9.3
+- **Why:** Topological defect, deficit angle, gravitational AB effect
+
+### Source #139
+- **Title:** Topological defect
+- **URL:** https://en.wikipedia.org/wiki/Topological_defect
+- **Used in:** aharonov_bohm_pdtp.md §9.5
+- **Why:** Classification of defects by symmetry breaking dimension
+
+### Source #140
+- **Title:** Kaluza-Klein theory
+- **URL:** https://en.wikipedia.org/wiki/Kaluza%E2%80%93Klein_theory
+- **Used in:** aharonov_bohm_pdtp.md §10.2
+- **Why:** 5D metric decomposition, EM-gravity unification
+
+### Source #141
+- **Title:** Neutron interferometer
+- **URL:** https://en.wikipedia.org/wiki/Neutron_interferometer
+- **Used in:** aharonov_bohm_pdtp.md §7.2
+- **Why:** COW phase shift formula derivation
+
+### Source #142
+- **Title:** Path integral formulation
+- **URL:** https://en.wikipedia.org/wiki/Path_integral_formulation
+- **Used in:** aharonov_bohm_pdtp.md §7.3
+- **Why:** Action-phase relation ψ ∝ exp(iS/ℏ) for PDTP derivation
+
+### Source #143
+- **Title:** Stokes' theorem
+- **URL:** https://en.wikipedia.org/wiki/Stokes%27_theorem
+- **Used in:** aharonov_bohm_pdtp.md §2.2
+- **Why:** Topological constraint on vector potential
+
+### Academic Papers
+
+### Paper #59
+- **Author(s):** Aharonov, Y. & Bohm, D.
+- **Year:** 1959
+- **Title:** "Significance of electromagnetic potentials in the quantum theory"
+- **Publication:** *Physical Review* 115(3), 485–491
+- **Used in:** aharonov_bohm_pdtp.md §1.1
+
+### Paper #60
+- **Author(s):** Tonomura, A. et al.
+- **Year:** 1982
+- **Title:** "Observation of Aharonov-Bohm Effect by Electron Holography"
+- **Publication:** *Physical Review Letters* 48(21), 1443–1446
+- **Used in:** aharonov_bohm_pdtp.md §1.2
+
+### Paper #61
+- **Author(s):** Tonomura, A. et al.
+- **Year:** 1986
+- **Title:** "Evidence for Aharonov-Bohm effect with magnetic field completely shielded from electron wave"
+- **Publication:** *Physical Review Letters* 56(8), 792–795
+- **Used in:** aharonov_bohm_pdtp.md §1.2
+
+### Paper #62
+- **Author(s):** Overstreet, C. et al.
+- **Year:** 2022
+- **Title:** "Observation of a gravitational Aharonov-Bohm effect"
+- **Publication:** *Science* 375, 226–229
+- **URL:** [Science](https://doi.org/10.1126/science.abl7152)
+- **Used in:** aharonov_bohm_pdtp.md §7.5
+
+### Paper #63
+- **Author(s):** Weatherall, J. O.
+- **Year:** 2016
+- **Title:** "Fiber Bundles, Yang-Mills Theory, and General Relativity"
+- **Publication:** *Synthese* 193, 2389–2425
+- **URL:** [arXiv](https://arxiv.org/abs/1411.3281)
+- **Used in:** aharonov_bohm_pdtp.md §8.2, §10.1
+
+### PDTP Original Results (Part 18)
+
+| Result | Where |
+|--------|-------|
+| COW experiment derivation from PDTP — matches standard QM via weak-field limit | aharonov_bohm_pdtp.md §7.3 |
+| Overstreet 2022 as strongest support for PDTP's phase paradigm | aharonov_bohm_pdtp.md §7.5 |
+| Fiber bundle classification: U(1)_global × SO(3,1) product bundle | aharonov_bohm_pdtp.md §8.3–8.4 |
+| Trivial U(1) (PDTP) vs non-trivial U(1) (EM) structural comparison | aharonov_bohm_pdtp.md §8.3 |
+| Cosmic strings as quantized vortex lines in condensate phase field | aharonov_bohm_pdtp.md §9.3 |
+| Deficit angle ↔ phase winding number identification | aharonov_bohm_pdtp.md §9.3 |
+| Topological defect classification for PDTP: vortex lines, domain walls | aharonov_bohm_pdtp.md §9.5 |
+| EM–gravity phase coupling parallel (genuine but not unification) | aharonov_bohm_pdtp.md §10.3, §10.5 |
+| Gauging PDTP U(1) — obstacles to EM emergence identified | aharonov_bohm_pdtp.md §10.4 |
+| Impact assessment: no modifications to existing Parts needed | aharonov_bohm_pdtp.md §11 |
 
 ---
 
