@@ -435,6 +435,53 @@ structural diagnosis and recommended directions.
     (vacuum-sensitive) sectors
   - Related to whether G varies dynamically through condensate evolution
 
+### Standard Model Mapping
+
+- [x] **Standard Model and PDTP particle-force mapping** *(Part 20 — 2026-02-22)*
+  - Systematic side-by-side mapping of all 17 SM particles to PDTP interpretations
+  - Key equations for each SM force (EM, strong, weak) + PDTP gravity
+  - Complete particle table with PDTP coupling constant estimates gᵢ
+  - Combined Lagrangian: L_total = L_spacetime + L_SM + L_PDTP_gravity
+  - Higgs ↔ PDTP condensate structural parallel identified
+  - Mass hierarchy reframed as coupling hierarchy (not solved)
+  - Honest conclusion: PDTP adds gravity as phase-locking, preserves all SM
+    gauge structure unchanged. Mapping is interpretive, not predictive.
+  - See [standard_model_pdtp_mapping.md](docs/research/standard_model_pdtp_mapping.md)
+
+### Microphysics Priority (from external review)
+
+These items target the keystone open problem: condensate microphysics.
+Strategic priority: derive κ → G from first principles.
+
+- [ ] **Energy-Frequency-Vibration microphysics approach** *(Part 21)*
+  - Tesla-inspired framework: assume universe = energy, frequency, vibration
+  - Define E/F/V rigorously in established physics AND PDTP
+  - Build on oscillator lattice Hamiltonian: H = Σ(I/2)(∂ₜθ)² + (K/2)Σ(θᵢ−θⱼ)²
+  - Derive: c² = κ/ρ, G = 1/(4πKa²), M_eff = ρ∫(∇θ₀)²d³x
+  - Attempt symmetry breaking derivation of cosine coupling
+  - Isolated from main PDTP — exploratory microphysics document
+
+- [ ] **Derive cosine coupling from symmetry breaking**
+  - Start with complex field Φ = √ρ e^{iφ}, add |Φ − Ψ|² interaction
+  - Show cos(ψ − φ) emerges from expansion of interaction term
+  - If successful: coupling term justified from first principles
+
+- [ ] **Derive phase stiffness κ from condensate equation of state**
+  - κ = Ka² sets G via G = 1/(4πκ)
+  - Must derive from compressibility and density of the condensate
+  - This is the deepest microphysics task — determines Newton's constant
+
+- [ ] **Derive inertial mass–frequency relation explicitly**
+  - Show E₀ = ℏω₀ and E = mc² from phase rotation frequency
+  - If E = mc² = ℏω, then mass = localized frequency detuning
+  - Would be a major structural win for PDTP
+
+- [ ] **Oscillator lattice Hamiltonian for spacetime**
+  - Minimal discrete model from ChatGPT derivation
+  - Continuum limit → scalar wave equation
+  - Derive effective G, c, M_eff from lattice parameters
+  - Connect to GFT (Part 14) as possible microscopic realization
+
 ---
 
 ## Status
@@ -605,12 +652,26 @@ condensate microphysics (g, T_cond, n_vortex, γ_micro).
 
 Phase drift mechanism analysis completed (framework established).
 
-All formalization tasks (Parts 1–19) and stretch goals completed.
+All formalization tasks (Parts 1–20) and stretch goals completed.
+
+Part 20: Standard Model and PDTP particle-force mapping. Systematic side-by-side
+comparison of all 17 SM particles and 4 forces with PDTP interpretations. Key
+finding: PDTP adds gravity (phase-locking) while preserving the entire SM gauge
+structure (SU(3)×SU(2)×U(1)) unchanged. Complete particle table with coupling
+constant estimates. Combined Lagrangian L_total written. Higgs ↔ PDTP condensate
+parallel identified. Mass hierarchy reframed as coupling hierarchy. Honest
+conclusion: mapping is interpretive, not predictive — no new particle physics
+predictions. Strategic assessment: confirms external review recommendation to
+focus on microphysics as the keystone problem.
+
+All formalization tasks (Parts 1–20) and stretch goals completed.
 Open problems documented in "Open Problems (Future Work)" section:
 - Cosmological: phase drift mechanism analyzed (Part 19) — framework established,
   quantitative predictions still require condensate microphysics
 - Structural: vacuum energy tensor sector, temperature model, w(z) derivation,
   scalar-tensor backreaction (from external review of Part 17)
+- Microphysics priority: EFV approach (Part 21), cosine coupling derivation,
+  phase stiffness κ, mass-frequency relation, oscillator lattice
 - Topological: vortex dynamics in PDTP condensate, condensate phase transition
 ```
 

@@ -732,4 +732,151 @@ physics. They should not be cited as if they are.
 
 ---
 
+## Sources Added in Part 20 (Standard Model and PDTP Mapping)
+
+### Wikipedia Sources
+
+### Source #158
+- **Title:** Standard Model
+- **URL:** https://en.wikipedia.org/wiki/Standard_Model
+- **Used in:** standard_model_pdtp_mapping.md §2.1
+- **Why:** SM particle content, gauge group structure, 17 fundamental particles
+
+### Source #159
+- **Title:** Quark
+- **URL:** https://en.wikipedia.org/wiki/Quark
+- **Used in:** standard_model_pdtp_mapping.md §2.1, §3.2
+- **Why:** Quark properties, masses, color charge, confinement
+
+### Source #160
+- **Title:** Lepton
+- **URL:** https://en.wikipedia.org/wiki/Lepton
+- **Used in:** standard_model_pdtp_mapping.md §2.1, §3.3
+- **Why:** Lepton properties, masses, neutrino mass bounds
+
+### Source #161
+- **Title:** Gauge boson
+- **URL:** https://en.wikipedia.org/wiki/Gauge_boson
+- **Used in:** standard_model_pdtp_mapping.md §2.1, §3.4
+- **Why:** Photon, gluon, W/Z boson properties and masses
+
+### Source #162
+- **Title:** Higgs boson
+- **URL:** https://en.wikipedia.org/wiki/Higgs_boson
+- **Used in:** standard_model_pdtp_mapping.md §2.1, §3.5
+- **Why:** Higgs mass 125.2 GeV, discovery, role in electroweak symmetry breaking
+
+### Source #163
+- **Title:** General relativity
+- **URL:** https://en.wikipedia.org/wiki/General_relativity
+- **Used in:** standard_model_pdtp_mapping.md §2.2
+- **Why:** Einstein field equation G_μν = 8πG T_μν
+
+### Source #164
+- **Title:** Electromagnetic field
+- **URL:** https://en.wikipedia.org/wiki/Electromagnetic_field
+- **Used in:** standard_model_pdtp_mapping.md §2.2, §4.2
+- **Why:** Maxwell equations, field strength tensor F_μν
+
+### Source #165
+- **Title:** Quantum chromodynamics
+- **URL:** https://en.wikipedia.org/wiki/Quantum_chromodynamics
+- **Used in:** standard_model_pdtp_mapping.md §2.2, §2.3, §4.3
+- **Why:** QCD Lagrangian, gluon field strength, confinement scale Λ_QCD
+
+### Source #166
+- **Title:** Electroweak interaction
+- **URL:** https://en.wikipedia.org/wiki/Electroweak_interaction
+- **Used in:** standard_model_pdtp_mapping.md §2.2, §2.3
+- **Why:** SU(2)_L × U(1)_Y gauge structure, electroweak Lagrangian
+
+### Source #167
+- **Title:** Higgs mechanism
+- **URL:** https://en.wikipedia.org/wiki/Higgs_mechanism
+- **Used in:** standard_model_pdtp_mapping.md §2.4
+- **Why:** Spontaneous symmetry breaking, VEV v = 246 GeV, fermion masses m_f = y_f v/√2
+
+### Source #168
+- **Title:** Mathematical formulation of the Standard Model
+- **URL:** https://en.wikipedia.org/wiki/Mathematical_formulation_of_the_Standard_Model
+- **Used in:** standard_model_pdtp_mapping.md §2.3
+- **Why:** Complete SM Lagrangian structure (gauge + fermion + Higgs + Yukawa)
+
+### Source #169
+- **Title:** Quantum electrodynamics
+- **URL:** https://en.wikipedia.org/wiki/Quantum_electrodynamics
+- **Used in:** standard_model_pdtp_mapping.md §4.2
+- **Why:** QED Lagrangian, covariant Maxwell equations
+
+### Source #170
+- **Title:** Asymptotic freedom
+- **URL:** https://en.wikipedia.org/wiki/Asymptotic_freedom
+- **Used in:** standard_model_pdtp_mapping.md §4.3
+- **Why:** QCD β-function, running coupling α_s
+
+### Source #171
+- **Title:** Weak interaction
+- **URL:** https://en.wikipedia.org/wiki/Weak_interaction
+- **Used in:** standard_model_pdtp_mapping.md §4.4
+- **Why:** Fermi constant G_F, beta decay, W/Z boson mediation
+
+### Source #172
+- **Title:** CKM matrix
+- **URL:** https://en.wikipedia.org/wiki/Cabibbo%E2%80%93Kobayashi%E2%80%93Maskawa_matrix
+- **Used in:** standard_model_pdtp_mapping.md §4.4
+- **Why:** Quark mixing matrix, CP violation
+
+### Source #173
+- **Title:** Neutrino oscillation
+- **URL:** https://en.wikipedia.org/wiki/Neutrino_oscillation
+- **Used in:** standard_model_pdtp_mapping.md §2.1, §3.3
+- **Why:** PMNS matrix, oscillation probability formula, mass eigenstate interference
+
+### Source #174
+- **Title:** Proton
+- **URL:** https://en.wikipedia.org/wiki/Proton
+- **Used in:** standard_model_pdtp_mapping.md §3.2
+- **Why:** Proton mass 938.3 MeV, quark content, QCD binding energy ~99% of mass
+
+### Source #175
+- **Title:** Hierarchy problem
+- **URL:** https://en.wikipedia.org/wiki/Hierarchy_problem
+- **Used in:** standard_model_pdtp_mapping.md §6.1
+- **Why:** Mass hierarchy m_t/m_e ≈ 340,000, gauge hierarchy problem
+
+### Source #176
+- **Title:** Physics beyond the Standard Model
+- **URL:** https://en.wikipedia.org/wiki/Physics_beyond_the_Standard_Model
+- **Used in:** standard_model_pdtp_mapping.md §2.5
+- **Why:** SM gaps: gravity, dark matter, dark energy, mass hierarchy, BSM neutrino masses
+
+### Academic Papers
+
+### Paper #69
+- **Author(s):** Particle Data Group, R.L. Workman et al.
+- **Year:** 2024
+- **Title:** "Review of Particle Physics"
+- **Publication:** *Physical Review D* 110, 030001
+- **URL:** [PDG](https://pdg.lbl.gov/)
+- **Used in:** standard_model_pdtp_mapping.md §2.1 (all mass values)
+
+### PDTP Original Results (Part 20)
+
+| Result | Where |
+|--------|-------|
+| Phase-locking interpretation of all SM particle categories | standard_model_pdtp_mapping.md §3.1 |
+| Quarks as confined phase modes with QCD binding → gravitational coupling | standard_model_pdtp_mapping.md §3.2 |
+| Lepton mass hierarchy as Z₃ phase harmonics (cross-ref Part 4) | standard_model_pdtp_mapping.md §3.3 |
+| Neutrino oscillations as phase interference in PDTP language | standard_model_pdtp_mapping.md §3.3 |
+| Photon indirect coupling via acoustic metric | standard_model_pdtp_mapping.md §3.4 |
+| Higgs ↔ PDTP condensate structural parallel table | standard_model_pdtp_mapping.md §3.5 |
+| Complete SM particle table with PDTP coupling estimates | standard_model_pdtp_mapping.md §3.6 |
+| Gravity as synchronization vs gauge exchange comparison | standard_model_pdtp_mapping.md §4.1 |
+| Force comparison table (what PDTP changes vs preserves) | standard_model_pdtp_mapping.md §4.5 |
+| Combined Lagrangian L_total = L_spacetime + L_SM + L_PDTP (extended) | standard_model_pdtp_mapping.md §5.1 |
+| Mass hierarchy reframing as coupling hierarchy | standard_model_pdtp_mapping.md §6.2 |
+| Five things PDTP explains that SM cannot | standard_model_pdtp_mapping.md §7 |
+
+---
+
 End of glossary_sources.md
