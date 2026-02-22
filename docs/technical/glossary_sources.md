@@ -879,4 +879,134 @@ physics. They should not be cited as if they are.
 
 ---
 
+## Sources Added in Part 21
+
+### Wikipedia Sources
+
+177. **Energy**
+- **URL:** [Energy — Wikipedia](https://en.wikipedia.org/wiki/Energy)
+- **Used in:** efv_microphysics.md §2.1
+
+178. **Noether's theorem**
+- **URL:** [Noether's theorem — Wikipedia](https://en.wikipedia.org/wiki/Noether%27s_theorem)
+- **Used in:** efv_microphysics.md §2.1
+
+179. **Planck relation**
+- **URL:** [Planck relation — Wikipedia](https://en.wikipedia.org/wiki/Planck_relation)
+- **Used in:** efv_microphysics.md §2.1, §3.2
+
+180. **Hamiltonian (quantum mechanics)**
+- **URL:** [Hamiltonian (QM) — Wikipedia](https://en.wikipedia.org/wiki/Hamiltonian_(quantum_mechanics))
+- **Used in:** efv_microphysics.md §2.1
+
+181. **Classical field theory**
+- **URL:** [Classical field theory — Wikipedia](https://en.wikipedia.org/wiki/Classical_field_theory)
+- **Used in:** efv_microphysics.md §2.1, §5.1
+
+182. **Frequency**
+- **URL:** [Frequency — Wikipedia](https://en.wikipedia.org/wiki/Frequency)
+- **Used in:** efv_microphysics.md §2.2
+
+183. **Schrödinger equation**
+- **URL:** [Schrödinger equation — Wikipedia](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation)
+- **Used in:** efv_microphysics.md §2.2
+
+184. **Dispersion relation**
+- **URL:** [Dispersion relation — Wikipedia](https://en.wikipedia.org/wiki/Dispersion_relation)
+- **Used in:** efv_microphysics.md §2.2
+
+185. **Gravitational redshift**
+- **URL:** [Gravitational redshift — Wikipedia](https://en.wikipedia.org/wiki/Gravitational_redshift)
+- **Used in:** efv_microphysics.md §2.2
+
+186. **Vibration**
+- **URL:** [Vibration — Wikipedia](https://en.wikipedia.org/wiki/Vibration)
+- **Used in:** efv_microphysics.md §2.3
+
+187. **Harmonic oscillator**
+- **URL:** [Harmonic oscillator — Wikipedia](https://en.wikipedia.org/wiki/Harmonic_oscillator)
+- **Used in:** efv_microphysics.md §2.3
+
+188. **Quantum field theory**
+- **URL:** [Quantum field theory — Wikipedia](https://en.wikipedia.org/wiki/Quantum_field_theory)
+- **Used in:** efv_microphysics.md §2.3
+
+189. **Phonon**
+- **URL:** [Phonon — Wikipedia](https://en.wikipedia.org/wiki/Phonon)
+- **Used in:** efv_microphysics.md §2.3
+
+190. **Mass–energy equivalence**
+- **URL:** [Mass–energy equivalence — Wikipedia](https://en.wikipedia.org/wiki/Mass%E2%80%93energy_equivalence)
+- **Used in:** efv_microphysics.md §3.2
+
+191. **Classical XY model**
+- **URL:** [Classical XY model — Wikipedia](https://en.wikipedia.org/wiki/Classical_XY_model)
+- **Used in:** efv_microphysics.md §4.1
+
+192. **Lattice model (physics)**
+- **URL:** [Lattice model — Wikipedia](https://en.wikipedia.org/wiki/Lattice_model_(physics))
+- **Used in:** efv_microphysics.md §4.2
+
+193. **Wave equation**
+- **URL:** [Wave equation — Wikipedia](https://en.wikipedia.org/wiki/Wave_equation)
+- **Used in:** efv_microphysics.md §4.4
+
+194. **Poisson's equation**
+- **URL:** [Poisson's equation — Wikipedia](https://en.wikipedia.org/wiki/Poisson%27s_equation)
+- **Used in:** efv_microphysics.md §5.2
+
+195. **Gauss's law for gravity**
+- **URL:** [Gauss's law for gravity — Wikipedia](https://en.wikipedia.org/wiki/Gauss%27s_law_for_gravity)
+- **Used in:** efv_microphysics.md §5.2
+
+196. **Polaron**
+- **URL:** [Polaron — Wikipedia](https://en.wikipedia.org/wiki/Polaron)
+- **Used in:** efv_microphysics.md §6.1, §6.3
+
+197. **Soliton**
+- **URL:** [Soliton — Wikipedia](https://en.wikipedia.org/wiki/Soliton)
+- **Used in:** efv_microphysics.md §6.1, §6.3
+
+198. **Effective mass (solid-state physics)**
+- **URL:** [Effective mass — Wikipedia](https://en.wikipedia.org/wiki/Effective_mass_(solid-state_physics))
+- **Used in:** efv_microphysics.md §6.3
+
+199. **Spontaneous symmetry breaking**
+- **URL:** [Spontaneous symmetry breaking — Wikipedia](https://en.wikipedia.org/wiki/Spontaneous_symmetry_breaking)
+- **Used in:** efv_microphysics.md §7.1
+
+200. **Goldstone boson**
+- **URL:** [Goldstone boson — Wikipedia](https://en.wikipedia.org/wiki/Goldstone_boson)
+- **Used in:** efv_microphysics.md §7.1
+
+201. **Superfluid density**
+- **URL:** [Superfluid density — Wikipedia](https://en.wikipedia.org/wiki/Superfluid_density)
+- **Used in:** efv_microphysics.md §8.1
+
+202. **Gross-Pitaevskii equation** *(previously cited #110, extended use)*
+- **URL:** [Gross-Pitaevskii equation — Wikipedia](https://en.wikipedia.org/wiki/Gross%E2%80%93Pitaevskii_equation)
+- **Used in:** efv_microphysics.md §8.1
+
+203. **Planck units**
+- **URL:** [Planck units — Wikipedia](https://en.wikipedia.org/wiki/Planck_units)
+- **Used in:** efv_microphysics.md §8.2
+
+### PDTP Original Results (Part 21)
+
+| Result | Where |
+|--------|-------|
+| EFV reinterpretation: energy = phase tension, frequency = phase rate, vibration = phase deviation | efv_microphysics.md §3 |
+| Oscillator lattice Hamiltonian for spacetime | efv_microphysics.md §4.2 |
+| Continuum limit with dimensional analysis: ℋ = (ρ/2)(∂ₜθ)² + (κ/2)(∇θ)² | efv_microphysics.md §4.3 |
+| Speed of light as phase propagation: c² = κ/ρ | efv_microphysics.md §4.4 |
+| Newton's constant from phase stiffness: G = c²/(4πκ) | efv_microphysics.md §8.4 |
+| Inertial mass as phase distortion energy: M_eff = (ρ/3)∫(∇θ₀)²d³x | efv_microphysics.md §6.2 |
+| Mass-frequency connection: ω₀ = M_eff c²/ℏ | efv_microphysics.md §6.4 |
+| Cosine coupling from |Φ−Ψ|² symmetry breaking: g = 2λ√(ρσ) | efv_microphysics.md §7.2 |
+| Lattice parameter estimates: K ≈ 5.78 × 10⁻¹⁰ J, I ≈ 5.03 × 10⁻⁹⁶ kg·m² | efv_microphysics.md §8.5 |
+| Part 14 constraint satisfaction analysis: 5/10 for scalar model | efv_microphysics.md §10 |
+| Strategic assessment: framework for G derivation, not first-principles prediction | efv_microphysics.md §11 |
+
+---
+
 End of glossary_sources.md

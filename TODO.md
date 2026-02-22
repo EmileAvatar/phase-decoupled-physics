@@ -453,34 +453,39 @@ structural diagnosis and recommended directions.
 These items target the keystone open problem: condensate microphysics.
 Strategic priority: derive κ → G from first principles.
 
-- [ ] **Energy-Frequency-Vibration microphysics approach** *(Part 21)*
+- [x] **Energy-Frequency-Vibration microphysics approach** *(Part 21 — 2026-02-22)*
   - Tesla-inspired framework: assume universe = energy, frequency, vibration
-  - Define E/F/V rigorously in established physics AND PDTP
-  - Build on oscillator lattice Hamiltonian: H = Σ(I/2)(∂ₜθ)² + (K/2)Σ(θᵢ−θⱼ)²
-  - Derive: c² = κ/ρ, G = 1/(4πKa²), M_eff = ρ∫(∇θ₀)²d³x
-  - Attempt symmetry breaking derivation of cosine coupling
+  - Defined E/F/V rigorously in established physics AND PDTP
+  - Built oscillator lattice Hamiltonian: H = Σ(I/2)(∂ₜθ)² + (K/2)Σ(θᵢ−θⱼ)²
+  - Derived: c² = κ/ρ, G = c²/(4πκ), M_eff = (ρ/3)∫(∇θ₀)²d³x
+  - Cosine coupling derived from |Φ−Ψ|² symmetry breaking: g = 2λ√(ρσ)
+  - Lattice parameters computed: K ≈ 5.78 × 10⁻¹⁰ J, I ≈ 5.03 × 10⁻⁹⁶ kg·m²
+  - Constraint check: 5/10 (scalar model; tensor constraints need Part 12)
   - Isolated from main PDTP — exploratory microphysics document
+  - See [efv_microphysics.md](docs/research/efv_microphysics.md)
 
-- [ ] **Derive cosine coupling from symmetry breaking**
-  - Start with complex field Φ = √ρ e^{iφ}, add |Φ − Ψ|² interaction
-  - Show cos(ψ − φ) emerges from expansion of interaction term
-  - If successful: coupling term justified from first principles
+- [x] **Derive cosine coupling from symmetry breaking** *(Part 21 — 2026-02-22)*
+  - Started with complex fields Φ = √ρ e^{iφ}, Ψ = √σ e^{iψ}
+  - Expanded |Φ − Ψ|² = ρ + σ − 2√(ρσ) cos(ψ − φ)
+  - Cosine coupling emerges naturally with g = 2λ√(ρσ)
+  - Status: plausibility argument (choice of |Φ−Ψ|² needs justification)
 
 - [ ] **Derive phase stiffness κ from condensate equation of state**
   - κ = Ka² sets G via G = 1/(4πκ)
   - Must derive from compressibility and density of the condensate
   - This is the deepest microphysics task — determines Newton's constant
 
-- [ ] **Derive inertial mass–frequency relation explicitly**
-  - Show E₀ = ℏω₀ and E = mc² from phase rotation frequency
-  - If E = mc² = ℏω, then mass = localized frequency detuning
-  - Would be a major structural win for PDTP
+- [x] **Derive inertial mass–frequency relation explicitly** *(Part 21 — 2026-02-22)*
+  - Derived M_eff = (ρ/3)∫(∇θ₀)²d³x from moving defect kinetic energy
+  - Rest energy E₀ = M_eff c², Compton frequency ω₀ = M_eff c²/ℏ
+  - Mass = localized frequency detuning = integrated phase distortion energy
+  - Structural win: mass is emergent, not fundamental (polaron/soliton analogy)
 
-- [ ] **Oscillator lattice Hamiltonian for spacetime**
-  - Minimal discrete model from ChatGPT derivation
-  - Continuum limit → scalar wave equation
-  - Derive effective G, c, M_eff from lattice parameters
-  - Connect to GFT (Part 14) as possible microscopic realization
+- [x] **Oscillator lattice Hamiltonian for spacetime** *(Part 21 — 2026-02-22)*
+  - Minimal discrete model: H = Σ(I/2)(∂ₜθ)² + (K/2)Σ(θᵢ−θⱼ)²
+  - Continuum limit with careful dimensional analysis: ℋ = (ρ/2)(∂ₜθ)² + (κ/2)(∇θ)²
+  - Derived c² = κ/ρ, G = c²/(4πκ), M_eff = (ρ/3)∫(∇θ₀)²d³x
+  - GFT connection noted (Part 14) — tetrahedra as possible oscillators
 
 ---
 
@@ -652,7 +657,7 @@ condensate microphysics (g, T_cond, n_vortex, γ_micro).
 
 Phase drift mechanism analysis completed (framework established).
 
-All formalization tasks (Parts 1–20) and stretch goals completed.
+All formalization tasks (Parts 1–21) and stretch goals completed.
 
 Part 20: Standard Model and PDTP particle-force mapping. Systematic side-by-side
 comparison of all 17 SM particles and 4 forces with PDTP interpretations. Key
@@ -664,14 +669,26 @@ conclusion: mapping is interpretive, not predictive — no new particle physics
 predictions. Strategic assessment: confirms external review recommendation to
 focus on microphysics as the keystone problem.
 
-All formalization tasks (Parts 1–20) and stretch goals completed.
+Part 21: Energy-Frequency-Vibration condensate microphysics (exploratory, isolated
+from main PDTP). Tesla-inspired premise: universe = energy, frequency, vibration.
+Built oscillator lattice Hamiltonian H = Σ(I/2)(∂ₜθ)² + (K/2)Σ(θᵢ−θⱼ)². Derived:
+c² = κ/ρ (speed of light = stiffness/inertia), G = c²/(4πκ) (gravity = inverse
+stiffness), M_eff = (ρ/3)∫(∇θ₀)²d³x (mass = phase distortion energy). Cosine
+coupling derived from |Φ−Ψ|² symmetry breaking: g = 2λ√(ρσ). Lattice parameters
+computed from known G: K ≈ 5.78 × 10⁻¹⁰ J. Constraint satisfaction: 5/10 (scalar
+model limitation — tensor constraints require Part 12 extension). Honest conclusion:
+framework for G derivation established, but true first-principles prediction requires
+independent determination of lattice coupling K.
+
+All formalization tasks (Parts 1–21) and stretch goals completed.
 Open problems documented in "Open Problems (Future Work)" section:
 - Cosmological: phase drift mechanism analyzed (Part 19) — framework established,
   quantitative predictions still require condensate microphysics
 - Structural: vacuum energy tensor sector, temperature model, w(z) derivation,
   scalar-tensor backreaction (from external review of Part 17)
-- Microphysics priority: EFV approach (Part 21), cosine coupling derivation,
-  phase stiffness κ, mass-frequency relation, oscillator lattice
+- Microphysics priority: EFV approach completed (Part 21), cosine coupling derived
+  (plausibility), oscillator lattice built, mass-frequency derived. Remaining:
+  phase stiffness κ from first principles (deepest gap), tensor lattice extension
 - Topological: vortex dynamics in PDTP condensate, condensate phase transition
 ```
 
