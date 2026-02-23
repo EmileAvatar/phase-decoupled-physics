@@ -1088,7 +1088,7 @@ universe requires a deeper microscopic theory.
 
 ### 8.1 Phase Stiffness from Superfluid Physics
 
-**Source:** [Superfluid density — Wikipedia](https://en.wikipedia.org/wiki/Superfluid_density);
+**Source:** [Superfluidity — Wikipedia](https://en.wikipedia.org/wiki/Superfluidity);
 [Gross-Pitaevskii equation — Wikipedia](https://en.wikipedia.org/wiki/Gross%E2%80%93Pitaevskii_equation)
 
 In a BEC described by the Gross-Pitaevskii equation, the phase stiffness
@@ -1595,7 +1595,7 @@ K can be determined from a deeper theory (e.g., GFT).
 198. [Effective mass (solid-state physics) — Wikipedia](https://en.wikipedia.org/wiki/Effective_mass_(solid-state_physics))
 199. [Spontaneous symmetry breaking — Wikipedia](https://en.wikipedia.org/wiki/Spontaneous_symmetry_breaking)
 200. [Goldstone boson — Wikipedia](https://en.wikipedia.org/wiki/Goldstone_boson)
-201. [Superfluid density — Wikipedia](https://en.wikipedia.org/wiki/Superfluid_density)
+201. [Superfluidity — Wikipedia](https://en.wikipedia.org/wiki/Superfluidity)
 202. [Gross-Pitaevskii equation — Wikipedia](https://en.wikipedia.org/wiki/Gross%E2%80%93Pitaevskii_equation)
 203. [Planck units — Wikipedia](https://en.wikipedia.org/wiki/Planck_units)
 

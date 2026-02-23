@@ -84,11 +84,11 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 68 | Dimensional analysis | https://en.wikipedia.org/wiki/Dimensional_analysis | G_derivation.md §2.2 |
 | 69 | Planck units (Planck density) | https://en.wikipedia.org/wiki/Planck_units | G_derivation.md §2.3–2.4 |
 | 70 | Linearized gravity | https://en.wikipedia.org/wiki/Linearized_gravity | G_derivation.md §4.2 |
-| 71 | Healing length | https://en.wikipedia.org/wiki/Healing_length | G_derivation.md §4.5 |
+| 71 | Gross–Pitaevskii equation (healing length) | https://en.wikipedia.org/wiki/Gross%E2%80%93Pitaevskii_equation | G_derivation.md §4.5 |
 | 72 | Superfluid helium-4 | https://en.wikipedia.org/wiki/Superfluid_helium-4 | G_derivation.md §4.3 |
 | 73 | Cosmological constant problem | https://en.wikipedia.org/wiki/Cosmological_constant_problem | G_derivation.md §6.2 |
 | 74 | Equivalence principle | https://en.wikipedia.org/wiki/Equivalence_principle | strong_field_ep.md §1.1 |
-| 75 | Compactness (physics) | https://en.wikipedia.org/wiki/Compactness_(physics) | strong_field_ep.md §2.2 |
+| 75 | Compact star (compactness) | https://en.wikipedia.org/wiki/Compact_star | strong_field_ep.md §2.2 |
 | 76 | Neutron star | https://en.wikipedia.org/wiki/Neutron_star | strong_field_ep.md §2.3 |
 | 77 | Tolman-Oppenheimer-Volkoff limit | https://en.wikipedia.org/wiki/Tolman%E2%80%93Oppenheimer%E2%80%93Volkoff_limit | strong_field_ep.md §2.3 |
 | 78 | Taylor series | https://en.wikipedia.org/wiki/Taylor_series | strong_field_ep.md §2.4 |
@@ -453,7 +453,7 @@ physics. They should not be cited as if they are.
 
 ### Source #131
 - **Title:** COW experiment
-- **URL:** https://en.wikipedia.org/wiki/Colella%E2%80%93Overhauser%E2%80%93Werner_experiment
+- **URL:** https://en.wikipedia.org/wiki/Neutron_interferometer
 - **Used in:** aharonov_bohm_pdtp.md §6.2, §7.1
 - **Why:** Gravitational quantum interference, neutron interferometry
 
@@ -632,8 +632,8 @@ physics. They should not be cited as if they are.
 - **Why:** Temperature dependence of ρ_n/ρ, lambda point, critical velocity
 
 ### Source #151
-- **Title:** Landau criterion
-- **URL:** https://en.wikipedia.org/wiki/Landau_criterion
+- **Title:** Superfluidity (Landau criterion)
+- **URL:** https://en.wikipedia.org/wiki/Superfluidity
 - **Used in:** phase_drift_mechanism.md §5.3
 - **Why:** Critical velocity for excitation creation in superfluids
 
@@ -979,8 +979,8 @@ physics. They should not be cited as if they are.
 - **URL:** [Goldstone boson — Wikipedia](https://en.wikipedia.org/wiki/Goldstone_boson)
 - **Used in:** efv_microphysics.md §7.1
 
-201. **Superfluid density**
-- **URL:** [Superfluid density — Wikipedia](https://en.wikipedia.org/wiki/Superfluid_density)
+201. **Superfluidity** (superfluid density)
+- **URL:** [Superfluidity — Wikipedia](https://en.wikipedia.org/wiki/Superfluidity)
 - **Used in:** efv_microphysics.md §8.1
 
 202. **Gross-Pitaevskii equation** *(previously cited #110, extended use)*
@@ -1006,6 +1006,157 @@ physics. They should not be cited as if they are.
 | Lattice parameter estimates: K ≈ 5.78 × 10⁻¹⁰ J, I ≈ 5.03 × 10⁻⁹⁶ kg·m² | efv_microphysics.md §8.5 |
 | Part 14 constraint satisfaction analysis: 5/10 for scalar model | efv_microphysics.md §10 |
 | Strategic assessment: framework for G derivation, not first-principles prediction | efv_microphysics.md §11 |
+
+---
+
+## Sources Added in Part 23
+
+### Wikipedia Sources (#204–232)
+
+204. **Electric charge**
+- **URL:** [Electric charge — Wikipedia](https://en.wikipedia.org/wiki/Electric_charge)
+- **Used in:** charge_quantum_numbers.md §2.1, §2.3, §4.1
+
+205. **Charge quantization**
+- **URL:** [Charge quantization — Wikipedia](https://en.wikipedia.org/wiki/Electric_charge#Charge_quantization)
+- **Used in:** charge_quantum_numbers.md §2.3
+
+206. **Dirac string (magnetic monopole)**
+- **URL:** [Dirac string — Wikipedia](https://en.wikipedia.org/wiki/Dirac_string)
+- **Used in:** charge_quantum_numbers.md §2.3
+
+207. **Anomaly (physics) — anomaly cancellation**
+- **URL:** [Anomaly (physics) — Wikipedia](https://en.wikipedia.org/wiki/Anomaly_(physics))
+- **Used in:** charge_quantum_numbers.md §2.3, §4.2
+
+208. **Quark**
+- **URL:** [Quark — Wikipedia](https://en.wikipedia.org/wiki/Quark)
+- **Used in:** charge_quantum_numbers.md §4.1
+
+209. **Weak hypercharge**
+- **URL:** [Weak hypercharge — Wikipedia](https://en.wikipedia.org/wiki/Weak_hypercharge)
+- **Used in:** charge_quantum_numbers.md §4.2
+
+210. **Hadron**
+- **URL:** [Hadron — Wikipedia](https://en.wikipedia.org/wiki/Hadron)
+- **Used in:** charge_quantum_numbers.md §3.1
+
+211. **Baryon**
+- **URL:** [Baryon — Wikipedia](https://en.wikipedia.org/wiki/Baryon)
+- **Used in:** charge_quantum_numbers.md §3.1, §3.2
+
+212. **Meson**
+- **URL:** [Meson — Wikipedia](https://en.wikipedia.org/wiki/Meson)
+- **Used in:** charge_quantum_numbers.md §3.1, §3.3
+
+213. **Proton**
+- **URL:** [Proton — Wikipedia](https://en.wikipedia.org/wiki/Proton)
+- **Used in:** charge_quantum_numbers.md §3.2
+
+214. **Neutron**
+- **URL:** [Neutron — Wikipedia](https://en.wikipedia.org/wiki/Neutron)
+- **Used in:** charge_quantum_numbers.md §3.2
+
+215. **Baryon number**
+- **URL:** [Baryon number — Wikipedia](https://en.wikipedia.org/wiki/Baryon_number)
+- **Used in:** charge_quantum_numbers.md §3.2
+
+216. **Pion**
+- **URL:** [Pion — Wikipedia](https://en.wikipedia.org/wiki/Pion)
+- **Used in:** charge_quantum_numbers.md §3.3, §3.7, §6.5
+
+217. **Gluon**
+- **URL:** [Gluon — Wikipedia](https://en.wikipedia.org/wiki/Gluon)
+- **Used in:** charge_quantum_numbers.md §3.4
+
+218. **Color charge**
+- **URL:** [Color charge — Wikipedia](https://en.wikipedia.org/wiki/Color_charge)
+- **Used in:** charge_quantum_numbers.md §3.4, §4.3
+
+219. **Color confinement**
+- **URL:** [Color confinement — Wikipedia](https://en.wikipedia.org/wiki/Color_confinement)
+- **Used in:** charge_quantum_numbers.md §3.4, §3.5
+
+220. **Asymptotic freedom**
+- **URL:** [Asymptotic freedom — Wikipedia](https://en.wikipedia.org/wiki/Asymptotic_freedom)
+- **Used in:** charge_quantum_numbers.md §3.4
+
+221. **Quantum chromodynamics**
+- **URL:** [Quantum chromodynamics — Wikipedia](https://en.wikipedia.org/wiki/Quantum_chromodynamics)
+- **Used in:** charge_quantum_numbers.md §4.3
+
+222. **Color singlet states**
+- **URL:** [Color charge (singlet) — Wikipedia](https://en.wikipedia.org/wiki/Color_charge#Color_singlet_states)
+- **Used in:** charge_quantum_numbers.md §3.5
+
+223. **Exotic hadron**
+- **URL:** [Exotic hadron — Wikipedia](https://en.wikipedia.org/wiki/Exotic_hadron)
+- **Used in:** charge_quantum_numbers.md §3.5
+
+224. **Tetraquark**
+- **URL:** [Tetraquark — Wikipedia](https://en.wikipedia.org/wiki/Tetraquark)
+- **Used in:** charge_quantum_numbers.md §3.5
+
+225. **Nuclear force**
+- **URL:** [Nuclear force — Wikipedia](https://en.wikipedia.org/wiki/Nuclear_force)
+- **Used in:** charge_quantum_numbers.md §3.7, §6.5
+
+226. **Yukawa potential**
+- **URL:** [Yukawa potential — Wikipedia](https://en.wikipedia.org/wiki/Yukawa_potential)
+- **Used in:** charge_quantum_numbers.md §3.7, §6.5
+
+227. **Center of a group (Z₃ symmetry)**
+- **URL:** [Center (group theory) — Wikipedia](https://en.wikipedia.org/wiki/Center_(group_theory))
+- **Used in:** charge_quantum_numbers.md §4.3, §6.2
+
+228. **Special unitary group SU(3)**
+- **URL:** [Special unitary group — Wikipedia](https://en.wikipedia.org/wiki/Special_unitary_group)
+- **Used in:** charge_quantum_numbers.md §4.3, §6.2
+
+229. **Topological defect**
+- **URL:** [Topological defect — Wikipedia](https://en.wikipedia.org/wiki/Topological_defect)
+- **Used in:** charge_quantum_numbers.md §5.1, §6.1
+
+230. **Winding number**
+- **URL:** [Winding number — Wikipedia](https://en.wikipedia.org/wiki/Winding_number)
+- **Used in:** charge_quantum_numbers.md §5.1
+
+231. **Fractional vortex**
+- **URL:** [Fractional vortices — Wikipedia](https://en.wikipedia.org/wiki/Fractional_vortices)
+- **Used in:** charge_quantum_numbers.md §6.1
+
+232. **Matter wave (de Broglie wavelength)**
+- **URL:** [Matter wave — Wikipedia](https://en.wikipedia.org/wiki/Matter_wave)
+- **Used in:** charge_quantum_numbers.md §7.2
+
+### External Sources
+
+233. **Standard Model of Elementary Particles (image)**
+- **Source:** Wikimedia Commons, CC0 public domain
+- **Creator:** User:Cush
+- **URL:** https://commons.wikimedia.org/wiki/File:Standard_Model_of_Elementary_Particles.svg
+- **Used in:** charge_quantum_numbers.md §1
+
+234. **Quark, hadron, pion illustration**
+- **Source:** Encyclopaedia Britannica, Inc.
+- **Description:** Illustration of quarks in protons, neutrons, neutral pions, charged pions, with gluons
+- **Used in:** charge_quantum_numbers.md §3.4
+
+### PDTP Original and Speculative Results (Part 23)
+
+| Result | Where | Type |
+|--------|-------|------|
+| Electric charge = winding number of ψ defect | charge_quantum_numbers.md §5.1 | PDTP Original |
+| Integer charge quantization from winding topology | charge_quantum_numbers.md §5.1 | PDTP Original |
+| Z₃ phase positions (0, 2π/3, 4π/3) as color charge | charge_quantum_numbers.md §6.2 | PDTP Original |
+| Baryon = complete Z₃ phase cycle = integer winding | charge_quantum_numbers.md §6.3 | PDTP Original |
+| Confinement as incomplete phase cycle instability | charge_quantum_numbers.md §6.3 | PDTP Original |
+| Gluons as condensate phase transfer between partial defects | charge_quantum_numbers.md §6.4 | PDTP Original |
+| Nuclear binding as phase wave packet overlap | charge_quantum_numbers.md §6.5 | PDTP Original |
+| Particle = stable crest (∂²V/∂ψ² > 0), Antiparticle = unstable trough | charge_quantum_numbers.md §7.3 | PDTP Speculative |
+| Confinement from Z₃ wave locking and string tension | charge_quantum_numbers.md §7.4 | PDTP Speculative |
+| Gluon = condensate phase exchange; color = phase position | charge_quantum_numbers.md §7.5 | PDTP Speculative |
+| Nuclear binding = phase wave packet overlap (Yukawa mechanism) | charge_quantum_numbers.md §7.6 | PDTP Speculative |
 
 ---
 

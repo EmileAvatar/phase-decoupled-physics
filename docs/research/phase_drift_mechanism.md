@@ -545,7 +545,7 @@ For He-4: v_c ≈ 58 m/s (roton minimum)
 ```
 
 **Source:** [Superfluid helium-4 — Wikipedia](https://en.wikipedia.org/wiki/Superfluid_helium-4);
-[Landau criterion — Wikipedia](https://en.wikipedia.org/wiki/Landau_criterion)
+[Superfluidity — Wikipedia](https://en.wikipedia.org/wiki/Superfluidity)
 
 **PDTP analogy:** Cosmological expansion imposes a "flow velocity" on the
 condensate. If the expansion rate H exceeds some critical rate H_c, phase
@@ -1164,7 +1164,7 @@ Future observations that could test PDTP-specific drift predictions:
 10. [Friedmann-Lemaître-Robertson-Walker metric](https://en.wikipedia.org/wiki/Friedmann%E2%80%93Lema%C3%AEtre%E2%80%93Robertson%E2%80%93Walker_metric)
 11. [Cosmological redshift](https://en.wikipedia.org/wiki/Redshift#Cosmological_redshift)
 12. [Two-fluid model](https://en.wikipedia.org/wiki/Two-fluid_model)
-13. [Landau criterion](https://en.wikipedia.org/wiki/Landau_criterion)
+13. [Superfluidity — Wikipedia](https://en.wikipedia.org/wiki/Superfluidity)
     (critical velocity)
 14. [Kibble-Zurek mechanism](https://en.wikipedia.org/wiki/Kibble%E2%80%93Zurek_mechanism)
 15. [Quantum vortex](https://en.wikipedia.org/wiki/Quantum_vortex)

@@ -437,6 +437,26 @@ structural diagnosis and recommended directions.
 
 ### Standard Model Mapping
 
+- [ ] **Part 22: Antimatter as Opposite-Winding Topological Defects** *(planned)*
+  - Antiparticle = opposite winding number (−1) vs particle (+1)
+  - Vortex/antivortex analogy from BEC/superfluid
+  - Annihilation as winding cancellation → energy radiated as φ-waves
+  - CPT symmetry in PDTP: explicit verification needed
+  - Matter-antimatter asymmetry: initial condensate asymmetry (open)
+  - Gravity of antimatter: same cos coupling → falls down ✓ (ALPHA 2023)
+  - Status: planned — not yet written
+
+- [x] **Part 23: Charge, Color, Hadrons, and Quantum Numbers in PDTP** *(Part 23 — 2026-02-23)*
+  - Electric charge: U(1) symmetry + winding number interpretation
+  - Fractional charges: Z₃ structure, partial topological cycles
+  - Hadrons: baryons (3 quarks = complete cycle) and mesons (quark+antiquark)
+  - Color as phase position (0, 2π/3, 4π/3) in condensate wave
+  - Confinement = completing the wave cycle (3 × 1/3 = integer)
+  - Gluons as condensate phase transfer between partial defects
+  - Nuclear binding as phase wave packet overlap (Yukawa range check ✓)
+  - Speculative section: condensate wave model (crest=particle, trough=antiparticle)
+  - Status: completed 2026-02-23
+
 - [x] **Standard Model and PDTP particle-force mapping** *(Part 20 — 2026-02-22)*
   - Systematic side-by-side mapping of all 17 SM particles to PDTP interpretations
   - Key equations for each SM force (EM, strong, weak) + PDTP gravity

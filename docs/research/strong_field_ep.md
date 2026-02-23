@@ -95,7 +95,7 @@ $$\delta\psi \sim \frac{GM}{Rc^2} \equiv \Xi$$
 where Ξ is the **compactness parameter** — the standard measure of
 gravitational-field strength.
 
-**Source:** [Wikipedia: Compactness (physics)](https://en.wikipedia.org/wiki/Compactness_(physics))
+**Source:** [Compact star — Wikipedia](https://en.wikipedia.org/wiki/Compact_star)
 
 ### 2.3 Compactness of Known Objects
 
@@ -700,7 +700,7 @@ regime.**
 
 ### Established Physics Sources
 - [Wikipedia: Equivalence principle](https://en.wikipedia.org/wiki/Equivalence_principle)
-- [Wikipedia: Compactness (physics)](https://en.wikipedia.org/wiki/Compactness_(physics))
+- [Compact star — Wikipedia](https://en.wikipedia.org/wiki/Compact_star)
 - [Wikipedia: Neutron star](https://en.wikipedia.org/wiki/Neutron_star)
 - [Wikipedia: Tolman-Oppenheimer-Volkoff limit](https://en.wikipedia.org/wiki/Tolman%E2%80%93Oppenheimer%E2%80%93Volkoff_limit)
 - [Wikipedia: Taylor series](https://en.wikipedia.org/wiki/Taylor_series)

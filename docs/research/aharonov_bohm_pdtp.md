@@ -396,7 +396,7 @@ for neutrons in Earth's gravitational field (1975).
 "Observation of gravitationally induced quantum interference,"
 *Physical Review Letters* 34, 1472–1474.
 
-**Source:** [COW experiment — Wikipedia](https://en.wikipedia.org/wiki/Colella%E2%80%93Overhauser%E2%80%93Werner_experiment)
+**Source:** [COW experiment — Wikipedia](https://en.wikipedia.org/wiki/Neutron_interferometer)
 
 The COW experiment shows that gravitational potentials DO affect quantum
 phases — strengthening the PDTP interpretation that phase is central
@@ -429,7 +429,7 @@ interference pattern.
 "Observation of gravitationally induced quantum interference,"
 *Physical Review Letters* 34, 1472–1474.
 
-**Source:** [COW experiment — Wikipedia](https://en.wikipedia.org/wiki/Colella%E2%80%93Overhauser%E2%80%93Werner_experiment)
+**Source:** [COW experiment — Wikipedia](https://en.wikipedia.org/wiki/Neutron_interferometer)
 
 ### 7.2 Standard QM Derivation
 
@@ -1262,7 +1262,7 @@ and General Relativity," *Synthese* 193, 2389–2425.
 
 **Source:** [Aharonov-Bohm effect — Wikipedia](https://en.wikipedia.org/wiki/Aharonov%E2%80%93Bohm_effect)
 
-**Source:** [COW experiment — Wikipedia](https://en.wikipedia.org/wiki/Colella%E2%80%93Overhauser%E2%80%93Werner_experiment)
+**Source:** [COW experiment — Wikipedia](https://en.wikipedia.org/wiki/Neutron_interferometer)
 
 **Source:** [Hitachi — Verification of the Aharonov-Bohm effect](https://www.hitachi.com/rd/research/materials/quantum/aharonov-bohm/index.html)
 

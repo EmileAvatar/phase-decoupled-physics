@@ -326,7 +326,7 @@ perturbation):
 
 $$\xi = \frac{c}{\sqrt{2g}} = \frac{1}{m_\phi}$$
 
-**Source:** [Wikipedia: Healing length](https://en.wikipedia.org/wiki/Healing_length)
+**Source:** [Gross–Pitaevskii equation — Wikipedia](https://en.wikipedia.org/wiki/Gross%E2%80%93Pitaevskii_equation)
 (BEC analogy)
 
 In BEC analogue gravity, the analogue Newton's constant is:
@@ -586,7 +586,7 @@ itself is measured.
 - [Wikipedia: Planck units](https://en.wikipedia.org/wiki/Planck_units)
 - [Wikipedia: Matter wave](https://en.wikipedia.org/wiki/Matter_wave)
 - [Wikipedia: Linearized gravity](https://en.wikipedia.org/wiki/Linearized_gravity)
-- [Wikipedia: Healing length](https://en.wikipedia.org/wiki/Healing_length)
+- [Gross–Pitaevskii equation — Wikipedia](https://en.wikipedia.org/wiki/Gross%E2%80%93Pitaevskii_equation)
 - [Wikipedia: Superfluid helium-4](https://en.wikipedia.org/wiki/Superfluid_helium-4)
 - [Wikipedia: Cosmological constant problem](https://en.wikipedia.org/wiki/Cosmological_constant_problem)
 
