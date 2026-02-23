@@ -130,6 +130,79 @@ physically real, not just a mathematical convenience.
 
 ---
 
+## The Wave Itself — Phase Sign Revealed (Image 2)
+
+The image above shows **|ψ|²** — the probability density, always positive.
+This second image shows something different: **ψ itself**, with a signed
+color scale (− to +). This reveals the actual phase of the wave.
+
+![Hydrogen Wave Function — phase signed](../../assets/images/hydrogen%20wave%20function%200_kGoy-0UmjweaqEZB.png)
+
+The color scale runs from **dark (negative)** through white (zero) to
+**bright (positive)**. White boundaries — where the color crosses zero — are
+the **nodal surfaces** where ψ = 0.
+
+### Standard QM: What the Signs Mean
+
+In standard quantum mechanics, the sign (phase) of ψ at any single point has
+no direct physical meaning — only **relative** signs between regions matter:
+
+- Two adjacent lobes of **opposite sign** will **interfere destructively** when
+  mixed together (e.g., by a perturbation or bond formation in chemistry)
+- Two lobes of the **same sign** interfere constructively (bonding in molecular
+  orbitals)
+- The absolute phase is unobservable — rotating all phases by the same amount
+  changes nothing
+
+The patterns visible in Image 2 match Image 1 exactly: the same (n, l, m)
+structure, same nodal surfaces. Image 2 just shows the signed amplitude rather
+than its square. For example:
+
+- **(2, 1, 0)**: two lobes, one bright (+), one dark (−) — a p-orbital with
+  one nodal plane separating opposite-phase halves
+- **(3, 2, 0)**: cloverleaf with alternating +/−/+/− lobes around the nodal
+  planes of the d-orbital
+- **(4, 0, 0)**: concentric rings — the sign alternates between each radial
+  shell, with nodal spheres at each sign change
+
+**Source:** [Hydrogen atom — Wikipedia](https://en.wikipedia.org/wiki/Hydrogen_atom)
+
+### PDTP: The Phase Signs Are Physically Real
+
+This image is the clearest visual evidence for the PDTP interpretation.
+
+In standard QM, the +/− signs are "just math" — the global phase is arbitrary.
+PDTP takes the opposite position: **the signed wavefunction ψ is the actual
+physical displacement of the phase medium (the condensate)**. The signs are
+not abstract; they are literal wave crests (+) and wave troughs (−).
+
+| Feature in Image 2 | Standard QM | PDTP |
+|---------------------|-------------|------|
+| Bright (+ regions) | Positive wave amplitude — unobservable alone | Condensate displaced in positive phase direction — physically real crest |
+| Dark (− regions) | Negative wave amplitude — unobservable alone | Condensate displaced in negative phase direction — physically real trough |
+| White nodal surfaces | ψ = 0, purely mathematical boundary | Phase medium at rest — true physical node, like a node in a standing sound wave |
+| Alternating lobes | Sign convention, arbitrary overall | Opposite oscillation phases — medium pushes out on one side while pulling in on the other |
+
+The analogy: a vibrating drumhead has real physical regions that move **up**
+(crest) and regions that move **down** (trough), separated by nodal lines that
+don't move. Image 2 shows the hydrogen orbital as exactly this — a 3D standing
+wave with real spatial phase structure, not a probability cloud.
+
+**Why this matters for PDTP:**
+
+The d-orbital (l = 2) shows four lobes in alternating + and − pairs. In standard
+QM, these signs are mathematical and their absolute values are unphysical. In
+PDTP, the electron is a 3D standing wave mode of the phase medium, and these
+four lobes represent a real spatial oscillation pattern — two regions of the
+medium compressed in one phase direction, two compressed in the opposite. The
+whole structure oscillates coherently at the electron's de Broglie frequency.
+
+**PDTP Original:** The signed wavefunction ψ in PDTP is interpreted as the
+physical phase displacement of the condensate medium, making the orbital phase
+structure directly observable in principle — not merely a calculation artifact.
+
+---
+
 ## Summary
 
 | Aspect | Standard QM | PDTP |
@@ -139,10 +212,17 @@ physically real, not just a mathematical convenience.
 | Why quantized? | Boundary conditions on ψ | Boundary conditions on standing waves |
 | What is the electron? | Point particle (undefined between measurements) | Extended standing wave |
 | What is measurement? | Mysterious "collapse" | Phase-locking to macroscopic detector |
+| What do the +/− signs in ψ mean? | Relative interference only — no absolute meaning | Physical wave crests (+) and troughs (−) of the condensate |
+| What are the nodal surfaces? | Where ψ = 0 — abstract boundary | Physical rest points of the oscillating medium |
 
 Both frameworks produce identical predictions. PDTP provides a concrete
 physical picture: the hydrogen wavefunction images are not abstract math —
-they are photographs of reality.
+they are photographs of a real wave in a real medium.
+
+The signed image (Image 2) is the most direct view of this wave structure.
+Where standard QM sees a mathematical sign with no individual meaning, PDTP
+sees the actual shape of the condensate's oscillation — crests, troughs,
+and the nodal surfaces between them.
 
 ---
 
