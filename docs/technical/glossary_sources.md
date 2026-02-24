@@ -200,6 +200,8 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 57 | Perlmutter, S. et al. | 1999 | "Measurements of Omega and Lambda from 42 High-Redshift Supernovae" | *Astrophysical Journal* **517**, 565 | [ADS](https://ui.adsabs.harvard.edu/abs/1999ApJ...517..565P) | cosmological_constant_analysis.md §1.2 |
 | 58 | Riess, A. G. et al. | 1998 | "Observational Evidence from Supernovae for an Accelerating Universe" | *Astronomical Journal* **116**, 1009 | [ADS](https://ui.adsabs.harvard.edu/abs/1998AJ....116.1009R) | cosmological_constant_analysis.md §1.2 |
 | 59 | Weinberg, S. | 1989 | "The cosmological constant problem" | *Reviews of Modern Physics* **61**, 1 | [APS](https://doi.org/10.1103/RevModPhys.61.1) | vacuum_background_subtraction.md §6.1 |
+| 60 | Chevallier, M. & Polarski, D. | 2001 | "Accelerating Universes with Scaling Dark Matter" | *International Journal of Modern Physics D* **10**, 213 | [arXiv:gr-qc/0009008](https://arxiv.org/abs/gr-qc/0009008) | dark_energy_normal_fraction.md §8.2 |
+| 61 | Linder, E. V. | 2003 | "Exploring the Expansion History of the Universe" | *Physical Review Letters* **90**, 091301 | [arXiv:astro-ph/0208512](https://arxiv.org/abs/astro-ph/0208512) | dark_energy_normal_fraction.md §8.2 |
 
 ---
 
@@ -1133,6 +1135,22 @@ physics. They should not be cited as if they are.
 - **URL:** [Matter wave — Wikipedia](https://en.wikipedia.org/wiki/Matter_wave)
 - **Used in:** charge_quantum_numbers.md §7.2
 
+235. **Landau theory**
+- **URL:** [Landau theory — Wikipedia](https://en.wikipedia.org/wiki/Landau_theory)
+- **Used in:** dark_energy_normal_fraction.md §4.1
+
+236. **Ginzburg–Landau theory**
+- **URL:** [Ginzburg–Landau theory — Wikipedia](https://en.wikipedia.org/wiki/Ginzburg%E2%80%93Landau_theory)
+- **Used in:** dark_energy_normal_fraction.md §4.1
+
+237. **Critical exponent**
+- **URL:** [Critical exponent — Wikipedia](https://en.wikipedia.org/wiki/Critical_exponent)
+- **Used in:** dark_energy_normal_fraction.md §4.3
+
+238. **Phase transition**
+- **URL:** [Phase transition — Wikipedia](https://en.wikipedia.org/wiki/Phase_transition)
+- **Used in:** dark_energy_normal_fraction.md §9.2
+
 ### External Sources
 
 233. **Standard Model of Elementary Particles (image)**
@@ -1161,6 +1179,71 @@ physics. They should not be cited as if they are.
 | Confinement from Z₃ wave locking and string tension | charge_quantum_numbers.md §7.4 | PDTP Speculative |
 | Gluon = condensate phase exchange; color = phase position | charge_quantum_numbers.md §7.5 | PDTP Speculative |
 | Nuclear binding = phase wave packet overlap (Yukawa mechanism) | charge_quantum_numbers.md §7.6 | PDTP Speculative |
+
+---
+
+## Dark Energy as Condensate Normal Fraction (2026-02-24)
+
+**Document:** [dark_energy_normal_fraction.md](../research/dark_energy_normal_fraction.md)
+
+### Key Concepts
+
+- Two-fluid split: superfluid fraction (gravity) + normal fraction (dark energy)
+- Core identification: ρ_DE = f_n × ρ₀
+- Equation of state: w_drift = (K−V)/(K+V) from phase field dynamics
+- Universe deep in superfluid phase: T_cond/T_c ~ 10⁻³¹
+
+### Wikipedia Sources
+
+| # | Topic | URL | Used In |
+|---|-------|-----|---------|
+| 1 | Two-fluid model | https://en.wikipedia.org/wiki/Two-fluid_model | dark_energy_normal_fraction.md §3.1 |
+| 2 | Superfluid helium-4 | https://en.wikipedia.org/wiki/Superfluid_helium-4 | dark_energy_normal_fraction.md §3.1, §4.3 |
+| 3 | Bose–Einstein condensate | https://en.wikipedia.org/wiki/Bose%E2%80%93Einstein_condensate | dark_energy_normal_fraction.md §4.2 |
+| 4 | Landau theory | https://en.wikipedia.org/wiki/Landau_theory | dark_energy_normal_fraction.md §4.1 |
+| 5 | Ginzburg–Landau theory | https://en.wikipedia.org/wiki/Ginzburg%E2%80%93Landau_theory | dark_energy_normal_fraction.md §4.1 |
+| 6 | Critical exponent | https://en.wikipedia.org/wiki/Critical_exponent | dark_energy_normal_fraction.md §4.3 |
+| 7 | Phase transition | https://en.wikipedia.org/wiki/Phase_transition | dark_energy_normal_fraction.md §9.2 |
+| 8 | Equation of state (cosmology) | https://en.wikipedia.org/wiki/Equation_of_state_(cosmology) | dark_energy_normal_fraction.md §6.2, §8.2 |
+| 9 | Planck density | https://en.wikipedia.org/wiki/Planck_units#Planck_density | dark_energy_normal_fraction.md §5.3 |
+
+### Academic Papers
+
+### Paper #60
+- **Author(s):** Chevallier, M. & Polarski, D.
+- **Year:** 2001
+- **Title:** "Accelerating Universes with Scaling Dark Matter"
+- **Publication:** *International Journal of Modern Physics D* 10, 213
+- **URL:** [arXiv:gr-qc/0009008](https://arxiv.org/abs/gr-qc/0009008)
+- **Used in:** dark_energy_normal_fraction.md §8.2
+- **Why:** CPL dark energy parametrization w(z) = w₀ + w_a z/(1+z)
+
+### Paper #61
+- **Author(s):** Linder, E. V.
+- **Year:** 2003
+- **Title:** "Exploring the Expansion History of the Universe"
+- **Publication:** *Physical Review Letters* 90, 091301
+- **URL:** [arXiv:astro-ph/0208512](https://arxiv.org/abs/astro-ph/0208512)
+- **Used in:** dark_energy_normal_fraction.md §8.2
+- **Why:** CPL parametrization (Linder formulation), w₀ and w_a definitions
+
+### PDTP Original Results (this document)
+
+| Result | Where | Type |
+|--------|-------|------|
+| Two-fluid split: ρ_s = gravity, ρ_n = dark energy | §3.3 | PDTP Original |
+| Core identification ρ_DE = f_n × ρ₀ | §5.1 | PDTP Original |
+| Normal fraction as background subtraction residual | §5.2 | PDTP Original |
+| Required normal fraction f_n ~ 10⁻¹²³ | §5.3 | PDTP Original |
+| Massive mode Boltzmann suppression of f_n | §4.3 | PDTP Original |
+| Equation of state w_drift = (K−V)/(K+V) | §6.2 | PDTP Original |
+| Frozen drift gives w ≈ −1 | §6.3 | PDTP Original |
+| Kinetic contribution gives w₀ > −1 | §6.4 | PDTP Original |
+| Three-regime time evolution | §7.1 | PDTP Original |
+| Criticality: T_cond/T_c ~ 10⁻³¹, not near criticality | §9.1 | PDTP Original |
+| No attractor mechanism for T_cond → T_c | §9.2 | PDTP Original |
+| Coincidence problem in normal fraction language | §9.3 | PDTP Original |
+| Canonical field cannot produce phantom w < −1 | §8.3 | PDTP Original |
 
 ---
 

@@ -409,7 +409,7 @@ structural diagnosis and recommended directions.
   - See [vacuum_background_subtraction.md](docs/research/vacuum_background_subtraction.md)
   - Status: completed 2026-02-24
 
-- [ ] **Dark energy as condensate normal fraction (temperature model)**
+- [x] **Dark energy as condensate normal fraction (temperature model)** *(2026-02-24)*
   - Map dark energy to condensate thermodynamics near critical temperature T_c
   - Superfluid analogy: below T_c → full coherence; near T_c → normal fraction grows
   - Dark energy density ∝ normal fraction of condensate = (T/T_c)^β or similar
@@ -420,6 +420,15 @@ structural diagnosis and recommended directions.
     or accidental? If criticality is an attractor state, this becomes powerful
   - Connects to: DESI DR2 results (energy density peaked at z ≈ 0.45),
     condensate microphysics (Part 14), phase drift mechanism
+  - **Answered:**
+    - ρ_DE = f_n × ρ₀ (normal fraction of Planck-density condensate)
+    - Equation of state: w_drift = (K−V)/(K+V) naturally gives w₀ > −1, w_a < 0
+    - Universe is NOT near criticality: T_cond/T_c ~ 10⁻³¹ (f_n ~ 10⁻¹²³)
+    - No attractor mechanism known — coincidence problem persists
+    - Qualitative DESI DR2 match (peaked density at z ~ 0.45) from Langevin dynamics
+    - Canonical scalar cannot produce phantom w < −1 (DESI tension noted)
+  - See [dark_energy_normal_fraction.md](docs/research/dark_energy_normal_fraction.md)
+  - Status: completed 2026-02-24
 
 - [ ] **Derive explicit w(z) from phase drift dynamics**
   - DESI DR2 shows w₀ > −1, w_a < 0, energy density peaked at z ≈ 0.45
