@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-22
+Last updated: 2026-02-24
 
 ---
 
@@ -131,6 +131,9 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 115 | Planck temperature | https://en.wikipedia.org/wiki/Planck_units#Planck_temperature | condensate_microphysics.md §4.3 |
 | 116 | String theory landscape | https://en.wikipedia.org/wiki/String_theory_landscape | condensate_microphysics.md §8.2 |
 | 117 | Perfect fluid | https://en.wikipedia.org/wiki/Perfect_fluid | radiation_era_cosmology.md §8.2 |
+| 118 | Acoustic metric | https://en.wikipedia.org/wiki/Acoustic_metric | vacuum_background_subtraction.md §3.1, §5.2 |
+| 119 | Analog models of gravity | https://en.wikipedia.org/wiki/Analog_models_of_gravity | vacuum_background_subtraction.md §3.1, §6.3 |
+| 120 | Normal order | https://en.wikipedia.org/wiki/Normal_order | vacuum_background_subtraction.md §2.2 |
 
 ---
 
@@ -196,6 +199,7 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 56 | DESI Collaboration | 2024 | "DESI 2024 VI: Cosmological Constraints from BAO Measurements" | *arXiv:2404.03002* | [arXiv](https://arxiv.org/abs/2404.03002) | cosmological_constant_analysis.md §4.5 |
 | 57 | Perlmutter, S. et al. | 1999 | "Measurements of Omega and Lambda from 42 High-Redshift Supernovae" | *Astrophysical Journal* **517**, 565 | [ADS](https://ui.adsabs.harvard.edu/abs/1999ApJ...517..565P) | cosmological_constant_analysis.md §1.2 |
 | 58 | Riess, A. G. et al. | 1998 | "Observational Evidence from Supernovae for an Accelerating Universe" | *Astronomical Journal* **116**, 1009 | [ADS](https://ui.adsabs.harvard.edu/abs/1998AJ....116.1009R) | cosmological_constant_analysis.md §1.2 |
+| 59 | Weinberg, S. | 1989 | "The cosmological constant problem" | *Reviews of Modern Physics* **61**, 1 | [APS](https://doi.org/10.1103/RevModPhys.61.1) | vacuum_background_subtraction.md §6.1 |
 
 ---
 

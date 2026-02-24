@@ -389,7 +389,7 @@ These items were identified through independent external review of the
 cosmological constant analysis. Both reviews converged on the same
 structural diagnosis and recommended directions.
 
-- [ ] **Vacuum energy and the tensor sector: background subtraction mechanism**
+- [x] **Vacuum energy and the tensor sector: background subtraction mechanism** *(2026-02-24)*
   - The "PDTP trilemma": cannot simultaneously have (a) exact GR recovery,
     (b) scalar vacuum filtering, and (c) cosmological constant solution
   - Both external reviews recommend Option 3: condensate background subtraction
@@ -400,10 +400,14 @@ structural diagnosis and recommended directions.
   - Related approaches: unimodular gravity, vacuum energy sequestering,
     emergent gravity models, analogue gravity (acoustic metric doesn't feel
     total fluid mass — only perturbations)
-  - **Must answer:** Does the Part 12 Palatini variation naturally produce
-    ground-state subtraction? Or does this require modifying the action?
-  - **Risk:** If GR is modified, solar system tests become nontrivial constraints
-  - See [cosmological_constant_analysis.md](docs/research/cosmological_constant_analysis.md) §6
+  - **Answered:** Palatini variation does NOT naturally produce background
+    subtraction — explicit action modification required (Option B: perturbative
+    expansion around ground state is the most natural implementation)
+  - **Risk assessed:** Uniform subtraction does not modify local gravitational
+    dynamics — solar system tests are passed; time-varying subtraction is
+    bounded by Brans-Dicke constraints
+  - See [vacuum_background_subtraction.md](docs/research/vacuum_background_subtraction.md)
+  - Status: completed 2026-02-24
 
 - [ ] **Dark energy as condensate normal fraction (temperature model)**
   - Map dark energy to condensate thermodynamics near critical temperature T_c
