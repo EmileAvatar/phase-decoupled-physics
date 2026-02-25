@@ -252,6 +252,16 @@ full context.
   - See [emergent_gr_results.md](docs/research/emergent_gr_results.md)
   - Simulation: [emergent_gr_simulation.py](simulations/emergent_gr_simulation.py)
 
+- [x] **Derive Hawking temperature from acoustic horizon** *(Part 24 — 2026-02-25)*
+  - PDTP condensate flow v = −√(2GM/r); acoustic horizon at r_H = 2GM/c² (Schwarzschild)
+  - Surface gravity: κ_s = (1/2)|d(c²−v²)/dr|_{r_H} = c⁴/(4GM) — exact match to GR
+  - Hawking temperature: T_H = ℏκ_s/(2πk_Bc) = ℏc³/(8πGMk_B) ✓ (Unruh formula applied)
+  - Trans-Planckian resolved: lattice cutoff at ω_Planck; spectrum preserved by Unruh & Schützhold (2003)
+  - Robustness check: ω_Planck/(κ_s/c) ~ 10¹¹ for stellar BHs — condition well satisfied
+  - Physical mechanism: phonon pair separation at sonic horizon (cf. Steinhauer 2016 BEC experiment)
+  - Key references: Unruh (1981) PRL 46 1351; Visser (1998) CQG 15 1767; Unruh & Schützhold (2003) PRD 71 024028
+  - See [hawking_radiation_pdtp.md](docs/research/hawking_radiation_pdtp.md)
+
 ---
 
 ## Open Problems (Future Work)
@@ -447,6 +457,36 @@ structural diagnosis and recommended directions.
   - Could bridge the gap between scalar (vacuum-insensitive) and tensor
     (vacuum-sensitive) sectors
   - Related to whether G varies dynamically through condensate evolution
+
+### Black Holes in PDTP
+
+- [ ] **Black hole singularity as topological defect**
+  - Standard GR: r=0 singularity (curvature → ∞, classical divide-by-zero)
+  - In PDTP: phase θ is periodic (θ mod 2π), gradients bounded by lattice spacing a ~ ℓ_Planck
+  - r=0 is replaced by a vortex core: a topological defect with finite energy density
+    (analogous to a superfluid vortex, where the core has finite healing length ξ)
+  - Needs: formal treatment of condensate structure at r < ℓ_Planck; what replaces the
+    curvature singularity in the PDTP picture?
+  - Possible resolution: Penrose singularity theorems assume continuous manifold — lattice
+    cutoff evades them (similar to LQC bounce)
+
+- [ ] **Hawking radiation information paradox in PDTP condensate**
+  - Standard paradox: Hawking radiation is thermal (random) → information about infalling
+    matter appears lost, violating unitarity
+  - PDTP angle: infalling matter perturbs the condensate phase field φ; these phase
+    perturbations propagate outward as phonons — phase correlations persist outside horizon
+  - Question: do exterior condensate phase correlations encode the phase pattern of
+    infalling matter? (analogous to superfluid vortex retaining circulation information)
+  - May be testable in analogue systems (sonic black holes in BECs — Steinhauer 2016)
+  - Status: speculative — requires explicit calculation of phase correlations in condensate
+
+- [ ] **Black hole evaporation endpoint in PDTP**
+  - As BH evaporates: M decreases → T_H = ℏc³/(8πGMk_B) increases → evaporation
+    accelerates → M → M_Planck
+  - At M ~ M_Planck: condensate picture breaks down (BH radius ~ lattice spacing ~ ℓ_Planck)
+  - What replaces the classical singularity in the final state? Topological defect?
+    Phase soliton? Complete decoherence of the condensate locally?
+  - Status: genuinely open — requires full lattice-scale condensate theory (GFT/LQG)
 
 ### Standard Model Mapping
 
