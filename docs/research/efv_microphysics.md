@@ -1379,8 +1379,170 @@ computed the lattice parameters K and I. However:
    have reasonable values: K is sub-Planck-energy (gravity is weak), ρ is
    finite and positive, I is tiny but nonzero.
 
-4. **The deepest question remains:** What determines K? This requires knowing
-   the interaction between the fundamental oscillators — the true microphysics.
+4. **The deepest question remains:** What determines K (or equivalently, the
+   condensate order parameter v)?  Section §8.7 below derives κ from the
+   equation of state, but the value of v itself requires microscopic quantum
+   gravity (e.g., GFT).
+
+---
+
+### 8.7 Phase Stiffness from the Condensate Equation of State
+
+**PDTP Original.** Sections §8.4–8.5 determined κ *backwards* from the known
+value of G. This section derives κ *forwards*, using only the condensate order
+parameter and the Goldstone phonon result. This addresses the TODO item:
+"Derive phase stiffness κ from condensate equation of state."
+
+**Source:** [Spontaneous symmetry breaking — Wikipedia](https://en.wikipedia.org/wiki/Spontaneous_symmetry_breaking);
+[Superfluidity — Wikipedia](https://en.wikipedia.org/wiki/Superfluidity)
+
+#### 8.7.1 The Goldstone Effective Lagrangian
+
+From §4.5 of
+[dark_energy_normal_fraction.md](dark_energy_normal_fraction.md), the spacetime
+condensate is described by a complex scalar field Ψ with Mexican hat potential.
+Expanding around the ground state Ψ = (v + σ)e^{iθ}/√2, the heavy breathing
+mode σ decouples and the effective Lagrangian for the Goldstone phase θ is:
+
+```
+L_eff = −½ v² (∂_μθ)(∂^μθ)                                             ... (8.28)
+```
+
+where v = √2 |Ψ₀| is the order parameter (vev) and θ is dimensionless.
+
+Separating temporal and spatial parts (metric signature −+++):
+
+```
+L_eff = +½ (v²/c²)(∂_tθ)² − ½ v²(∇θ)²                                 ... (8.29)
+```
+
+#### 8.7.2 Reading Off κ and ρ
+
+Comparing (8.29) with the continuum Hamiltonian density ℋ = (ρ/2)(∂_tθ)² +
+(κ/2)(∇θ)²:
+
+```
+ρ_inertia = v²/c²     (phase inertia density)                           ... (8.30)
+κ          = v²        (phase stiffness)                                  ... (8.31)
+```
+
+**Consistency check:** c_s² = κ/ρ_inertia = v²/(v²/c²) = c²  →  c_s = c ✓
+
+This confirms that the sound speed equals c, consistent with the Goldstone
+dispersion ω = c|k| (§4.5.3 of dark_energy_normal_fraction.md).
+
+#### 8.7.3 Connection to the Bulk Modulus
+
+For a superfluid condensate with mass density ρ_mass = ε₀/c² and sound speed
+c_s, the bulk modulus is:
+
+```
+B = ρ_mass × c_s²                                                        ... (8.32)
+```
+
+**Source:** [Speed of sound — Wikipedia](https://en.wikipedia.org/wiki/Speed_of_sound#Equations)
+
+Substituting ρ_mass = ρ_inertia = v²/c² and c_s = c:
+
+```
+B = (v²/c²) × c² = v²                                                   ... (8.33)
+```
+
+Therefore:
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│   κ  =  v²  =  B   (bulk modulus)          │
+│                                             │
+│   Phase stiffness = bulk modulus of the     │
+│   condensate  (when c_s = c)                │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+The phase stiffness equals the bulk modulus because the only degree of freedom
+available for phase variation is the superfluid flow — there is no other elastic
+channel in a single-component condensate.
+
+#### 8.7.4 Compressibility and Gravity
+
+The adiabatic compressibility is:
+
+```
+χ_s = 1/B = 1/v² = 4πG/c²                                              ... (8.34)
+```
+
+where in the last step we substituted v² = κ = c²/(4πG) from equation (8.20).
+
+Numerically:
+
+```
+χ_s = 4π × 6.674 × 10⁻¹¹ / (2.998 × 10⁸)² ≈ 9.32 × 10⁻²⁷ m/J       ... (8.35)
+```
+
+**Physical interpretation:** The spacetime condensate is *extraordinarily*
+incompressible — its bulk modulus B = v² ≈ 10²⁶ J/m is ∼10³⁶ times larger than
+the bulk modulus of steel (∼10¹¹ Pa). Gravity is weak precisely because the
+condensate is extremely stiff.
+
+#### 8.7.5 G from the Order Parameter
+
+Substituting κ = v² into G = c²/(4πκ):
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│   G  =  c² / (4π v²)                       │
+│                                             │
+│   Newton's constant is set by the inverse   │
+│   square of the condensate order parameter  │
+│   (vev) — gravity is weak because v is      │
+│   large (Planck scale).                     │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+Inverting: v = c / √(4πG) ≈ 1.036 × 10¹³ kg^{1/2}/m
+
+This is the required condensate amplitude — on the order of the Planck scale,
+as expected for a spacetime condensate.
+
+#### 8.7.6 What the Equation of State Fixes — and What It Doesn't
+
+**What is fixed by the equation-of-state + Goldstone argument:**
+
+- κ = v² (stiffness determined by the order parameter)
+- B = v² = κ (bulk modulus equals stiffness for c_s = c condensate)
+- G = c²/(4πv²) (once v is known)
+- c_s = c (consistent, not assumed)
+- Compressibility χ_s = 4πG/c² (extraordinarily small)
+
+**What remains open:**
+
+- The value of v itself. From the Mexican hat potential V = −μ²|Ψ|² + λ|Ψ|⁴:
+  v² = μ²/λ, so v requires both the condensate mass scale μ and the
+  self-coupling λ independently.
+- These are determined by the microscopic theory — e.g., GFT (Part 14) would
+  need to compute μ and λ from the combinatorics of quantum tetrahedra.
+- Without a microscopic theory, we can only infer v = c/√(4πG) from the
+  measured value of G.
+
+**Summary of the equation-of-state route to κ:**
+
+```
+Condensate order parameter v
+    │
+    ├── Phase stiffness:  κ = v²
+    │       │
+    │       ├── Phase inertia:    ρ_inertia = v²/c²
+    │       │       └── Wave speed:  c_s² = κ/ρ = c²  ✓
+    │       │
+    │       └── Bulk modulus:     B = v²  (for c_s = c)
+    │               └── Compressibility: χ = 1/v² = 4πG/c²
+    │
+    └── Newton's constant:  G = c²/(4πv²)
+```
 
 ---
 
@@ -1400,6 +1562,10 @@ computed the lattice parameters K and I. However:
 │  6  │  Compton freq.    │  ω₀ = M_eff c²/ℏ            │  §6.4        │
 │  7  │  Lattice coupling │  K = ac²/(12πG) ≈ 10⁻¹⁰ J  │  §8.5        │
 │  8  │  Oscillator I     │  I = ρa³                    │  §8.5        │
+│  9  │  Phase stiffness  │  κ = v²  (order parameter²) │  §8.7        │
+│ 10  │  Bulk modulus     │  B = v² = κ  (for c_s = c)  │  §8.7        │
+│ 11  │  Compressibility  │  χ_s = 4πG/c²               │  §8.7        │
+│ 12  │  G from EOS       │  G = c²/(4πv²)              │  §8.7        │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -1417,6 +1583,18 @@ Newton's constant: G = c²/(4πκ)
 Inertial mass: M_eff = (ρ/3)∫(∇θ₀)²d³x
     ↓ E = mc²
 Compton frequency: ω₀ = M_eff c²/ℏ
+```
+
+**Alternative (equation-of-state) route to κ:**
+
+```
+Condensate order parameter v  (from Mexican hat potential)
+    ↓ Goldstone effective Lagrangian
+Phase stiffness: κ = v²  (= bulk modulus B for c_s = c condensate)
+    ↓ G = c²/(4πκ)
+Newton's constant: G = c²/(4πv²)
+    ↓
+Compressibility: χ_s = 4πG/c²  (gravity weak ⟺ condensate stiff)
 ```
 
 **From symmetry breaking:**

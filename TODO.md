@@ -503,10 +503,13 @@ Strategic priority: derive κ → G from first principles.
   - Cosine coupling emerges naturally with g = 2λ√(ρσ)
   - Status: plausibility argument (choice of |Φ−Ψ|² needs justification)
 
-- [ ] **Derive phase stiffness κ from condensate equation of state**
-  - κ = Ka² sets G via G = 1/(4πκ)
-  - Must derive from compressibility and density of the condensate
-  - This is the deepest microphysics task — determines Newton's constant
+- [x] **Derive phase stiffness κ from condensate equation of state**
+  - κ = v² (condensate order parameter squared) — from Goldstone effective Lagrangian
+  - Equals bulk modulus B = ρ_mass × c_s² = ρ_mass × c² for a c_s = c condensate
+  - Compressibility χ_s = 4πG/c² (extraordinarily small — gravity weak ↔ condensate stiff)
+  - G = c²/(4πv²): Newton's constant set by inverse square of the condensate vev
+  - Remaining open: what sets v? Requires μ and λ from microscopic theory (GFT, Part 14)
+  - See [efv_microphysics.md](docs/research/efv_microphysics.md) §8.7
 
 - [x] **Derive inertial mass–frequency relation explicitly** *(Part 21 — 2026-02-22)*
   - Derived M_eff = (ρ/3)∫(∇θ₀)²d³x from moving defect kinetic energy
