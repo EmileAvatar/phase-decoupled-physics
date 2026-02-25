@@ -286,6 +286,466 @@ f_n ≡ ρ_n/ρ ≈ C × (T_cond/m)^{3/2} × exp(−m/T_cond)           ... (4.9
 This extremely rapid fall-off with decreasing T_cond is consistent with the
 universe having an exceedingly small normal fraction (§5.3).
 
+### 4.4 β = 4 from Goldstone Phonon Dispersion — Prediction, Not Parameter
+
+**PDTP Original.** This section derives β = 4 from first principles using
+the PDTP excitation spectrum. The result elevates β from a phenomenological
+fit parameter to a theoretical prediction of the framework.
+
+**Claim:** The low-temperature PDTP condensate is dominated by massless
+Goldstone bosons (phase modes δφ) with linear dispersion ω = c|k|. Their
+energy density obeys the Stefan-Boltzmann T⁴ law, giving β = 4 exactly.
+
+#### Step 1 — Identify the Goldstone Mode
+
+The PDTP condensate breaks a continuous global symmetry: the Lagrangian
+
+```
+L = ½(∂μφ)(∂^μφ) + Σᵢ ½(∂μψᵢ)(∂^μψᵢ) + Σᵢ gᵢ cos(ψᵢ − φ)
+```
+
+is invariant under the global phase shift φ → φ + ε, ψᵢ → ψᵢ + ε
+(overall rotation of all phases by the same constant). When the condensate
+develops a nonzero ground-state order parameter ⟨φ⟩ = φ₀, this symmetry
+is spontaneously broken and — by Goldstone's theorem — a massless boson
+appears.
+
+**Source:** [Goldstone boson — Wikipedia](https://en.wikipedia.org/wiki/Goldstone_boson)
+
+In the vacuum (no matter, ψᵢ absent), the φ field equation reduces to:
+
+```
+□φ = 0                                                              ... (4.10)
+```
+
+Small perturbations δφ around the vacuum satisfy the same massless wave
+equation. These are the **Goldstone phonons** of the PDTP condensate, with
+dispersion relation:
+
+```
+ω = c |k|     (massless, linear dispersion)                        ... (4.11)
+```
+
+The sound speed equals c because Lorentz invariance requires c_s = c
+([hard_problems.md](hard_problems.md) §2.11).
+
+#### Step 2 — Phonon Density of States
+
+For a massless scalar boson in 3D with linear dispersion ω = c|k|,
+the number of modes per unit frequency interval per unit volume is:
+
+```
+g(ω) = ω² / (2π² c³)                                              ... (4.12)
+```
+
+The PDTP phase field φ is a scalar, so there is one phonon branch
+(compared with two polarizations for photons).
+
+**Source:** [Debye model — Wikipedia](https://en.wikipedia.org/wiki/Debye_model)
+(density of states formula, generalized to c_s = c and a single scalar mode)
+
+#### Step 3 — Stefan-Boltzmann Energy Density
+
+The phonon energy density at temperature T_cond is:
+
+```
+u = ∫₀^∞ ℏω g(ω) n_BE(ω, T_cond) dω
+
+where n_BE = 1 / (exp(ℏω / kT_cond) − 1)    (Bose-Einstein distribution)
+```
+
+Substituting equation (4.12):
+
+```
+u = ℏ/(2π²c³) × ∫₀^∞ ω³ / (exp(ℏω/kT_cond) − 1) dω
+```
+
+Change of variable x = ℏω / kT_cond:
+
+```
+u = (kT_cond)⁴ / (2π²ℏ³c³) × ∫₀^∞ x³ / (eˣ − 1) dx
+```
+
+The definite integral evaluates to π⁴/15 (from the Riemann zeta function
+ζ(4) = π⁴/90 combined with Γ(4) = 6):
+
+```
+∫₀^∞ x³ / (eˣ − 1) dx = Γ(4) ζ(4) = 6 × π⁴/90 = π⁴/15
+```
+
+**Source:** [Planck's law — Wikipedia](https://en.wikipedia.org/wiki/Planck%27s_law#Derivation)
+
+Therefore:
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                                                                  │
+│   u = π²(kT_cond)⁴ / (30 ℏ³c³)                        (4.13) │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+This is the **Stefan-Boltzmann energy density** for a single massless scalar
+boson — identical to the photon gas formula divided by 2 (two photon
+polarizations versus one PDTP phase mode).
+
+**Source:** [Stefan-Boltzmann law — Wikipedia](https://en.wikipedia.org/wiki/Stefan%E2%80%93Boltzmann_law)
+
+#### Step 4 — Normal Fraction Scales as T⁴
+
+The phonon energy density contributes to the normal fraction:
+
+```
+f_n ≡ ρ_n / ρ₀ = u / (ρ₀ c²)
+               = π²(kT_cond)⁴ / (30 ℏ³c⁵ ρ₀)                    ... (4.14)
+```
+
+This is proportional to T_cond⁴. Writing T_r ≡ T_cond / T_c, where T_c
+is the condensate critical temperature, and using the normalization condition
+f_n(T_c) = 1 to relate T_c to ρ₀:
+
+```
+π²(kT_c)⁴ / (30 ℏ³c⁵ ρ₀) = 1
+
+→  T_c = (30 ℏ³c⁵ ρ₀ / π²k⁴)^{1/4}
+```
+
+For ρ₀ ~ ρ_Planck ≈ 5.16 × 10⁹⁶ kg/m³ this gives T_c ~ T_Planck ≈ 1.4 × 10³²
+K, consistent with the condensate forming in the very early universe. Then:
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                                                                  │
+│   f_n = (T_cond / T_c)⁴  =  T_r⁴                      (4.15)  │
+│                                                                  │
+│   β = 4  — a PDTP prediction, not a free parameter              │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+**PDTP Original.** β = 4 is derived from the Goldstone theorem and
+Stefan-Boltzmann integral, not fitted to data.
+
+#### Step 5 — Why Goldstone Modes Dominate at Low T_cond
+
+The condensate supports two classes of excitations:
+
+| Mode | Type | Mass | Low-T_cond behavior |
+|------|------|------|---------------------|
+| Phase mode δφ | Goldstone boson | 0 | T_cond⁴ (power law) |
+| Amplitude mode δ\|Φ\| | Breathing/Higgs | m = ℏ√(2g)/c² | ∝ T_cond^{3/2} exp(−m c²/kT_cond) |
+
+At cosmological temperatures T_cond ≪ m (which holds whenever T_cond/T_c
+≪ 1), the ratio of massive-mode to Goldstone-mode contributions is:
+
+```
+ρ_n^{massive} / ρ_n^{Goldstone} ~ (kT_cond / mc²)^{5/2} × exp(−mc²/kT_cond) → 0
+```
+
+exponentially fast. Therefore the Goldstone (phase) modes dominate, and
+β = 4 applies. The massive breathing modes discussed in §4.3 are relevant
+only at intermediate temperatures T_cond ~ m/k_B; below that threshold they
+are negligible.
+
+**Source:** [Gross-Pitaevskii equation — Wikipedia](https://en.wikipedia.org/wiki/Gross%E2%80%93Pitaevskii_equation)
+(Bogoliubov treatment section — linearized excitation spectrum of the condensate)
+
+#### Step 6 — Comparison with Superfluid He-4
+
+This derivation reproduces the established result for superfluid He-4 at low
+temperature, where the phonon branch (ω = c_s k, c_s ≈ 240 m/s) gives:
+
+```
+ρ_n^{He-4} ∝ T⁴     (Landau 1941; experimentally confirmed)
+```
+
+**Source:** Landau, L. D. (1941), "Theory of the Superfluidity of Helium II,"
+*J. Phys. (USSR)*, 5, 71 (already in §12 References)
+
+The PDTP condensate differs only in c_s = c and having one scalar polarization.
+The T⁴ scaling is **universal** for any 3D superfluid with a linear phonon branch.
+
+#### Step 7 — Summary and Scan Consistency
+
+| Quantity | Value | Origin |
+|----------|-------|--------|
+| Phonon dispersion | ω = c\|k\| | Goldstone theorem + Lorentz invariance |
+| Energy density | u ∝ T_cond⁴ | Stefan-Boltzmann integral (eq. 4.13) |
+| Normal fraction | f_n ∝ T_cond⁴ | eq. (4.14) |
+| Critical temperature | T_c = (30ℏ³c⁵ρ₀/π²k⁴)^{1/4} | normalization |
+| **Critical exponent** | **β = 4** | eq. (4.15) |
+
+**Consistency with parameter scan:** The microphysics scan applied constraint
+C8 (|β − 4| ≤ 0.5), finding that score-8 solutions concentrate in
+β ∈ [3.5, 4.5] with C8 as the dominant binding constraint (62.6% of
+near-misses fail only C8). The theoretical prediction β = 4 sits at the
+centre of this window, and β is now understood as a prediction rather than
+a scan parameter.
+
+### 4.5 Rigorous Field-Theory Justification
+
+This section answers five questions about §4.4 that require explicit derivation
+rather than analogy: (1) global vs gauged symmetry, (2) linear dispersion from
+first principles, (3) mode counting, (4) thermal energy from the action, and
+(5) the f_n = u/(ρ₀c²) mapping.
+
+#### 4.5.1 — The Full Condensate Lagrangian
+
+The PDTP spacetime condensate is a complex scalar field Ψ = |Ψ| e^{iφ(x)}.
+Its microscopic Lagrangian (natural units ℏ = c = 1) is:
+
+```
+L[Ψ] = −(∂_μΨ*)(∂^μΨ) − V(|Ψ|²)
+
+V(|Ψ|²) = −μ² |Ψ|² + λ |Ψ|⁴      (Mexican hat potential, μ²>0, λ>0)
+```
+
+**Source:** [Spontaneous symmetry breaking — Wikipedia](https://en.wikipedia.org/wiki/Spontaneous_symmetry_breaking)
+
+**Global symmetry:** L[Ψ] is invariant under Ψ → e^{iα}Ψ (equivalently,
+φ → φ + α) for any constant α. There is **no gauge field** A_μ in this
+Lagrangian. The U(1) symmetry is therefore **global, not gauged**.
+
+Consequence: by Goldstone's theorem, spontaneous breaking of this global
+U(1) produces a **physical**, massless Goldstone boson — it is NOT eaten
+by any gauge field. The Higgs mechanism requires a gauge field, which is
+absent here.
+
+**Source:** [Goldstone boson — Wikipedia](https://en.wikipedia.org/wiki/Goldstone_boson)
+
+The PDTP Lagrangian of CLAUDE.md,
+L = ½(∂_μφ)(∂^μφ) + ..., is the **phase-only (non-linear sigma model)**
+limit of L[Ψ], valid when amplitude fluctuations are heavy and can be
+integrated out (shown explicitly in §4.5.2).
+
+#### 4.5.2 — SSB Expansion and Goldstone Mode Extraction
+
+The potential V is minimized at:
+
+```
+dV / d|Ψ|² = 0   →   |Ψ|₀² = μ² / 2λ  ≡  ρ₀ / 2         ... (4.16)
+```
+
+This defines the vacuum condensate density ρ₀. The vacuum breaks U(1):
+⟨Ψ⟩ = (v/√2) e^{iφ₀}, v = √(μ²/λ), φ₀ = arbitrary constant.
+
+**Expand around the vacuum.** Write:
+
+```
+Ψ(x) = (1/√2)(v + σ(x)) e^{iθ(x)}                         ... (4.17)
+
+  σ(x) = amplitude fluctuation  (radial / Higgs / breathing mode)
+  θ(x) = phase fluctuation      (Goldstone mode)
+```
+
+Compute the kinetic term:
+
+```
+∂_μΨ = (e^{iθ} / √2) [∂_μσ + i(v + σ)∂_μθ]
+
+|∂_μΨ|² = ½(∂_μσ)² + ½(v + σ)²(∂_μθ)²
+```
+
+Expand V around the minimum (using dV/d|Ψ|²|₀ = 0):
+
+```
+V ≈ V₀ + ½m_σ² σ²    (quadratic order)
+
+m_σ² = d²V/d|Ψ|²² |₀ × 2 = 2λv² = 2μ²     (mass of amplitude mode)
+```
+
+**Quadratic action** (terms second-order in σ, θ):
+
+```
+L_quad = −½(∂_μσ)² + ½m_σ²σ² − ½v²(∂_μθ)²              ... (4.18)
+```
+
+The σ field has mass m_σ = √(2μ²) = √(2λ)v — this is the **breathing
+mode** (= √(2g) in condensate_microphysics.md §2, identifying g = λv²/ρ₀).
+
+The θ field has **no mass term** — it is the Goldstone boson.
+
+**Mode count:** The original complex field Ψ has 2 real degrees of freedom.
+After SSB, one becomes the massive σ; **one becomes the massless θ**. The
+breaking pattern U(1) → {1} has exactly one broken generator, producing
+exactly **one Goldstone mode** (as required by Goldstone's theorem).
+
+**Phase-only limit:** When m_σ → ∞ (deep condensate), σ can be integrated
+out. The remaining low-energy effective theory contains only:
+
+```
+L_eff = −½v²(∂_μθ)²  =  −½ρ₀(∂_μθ)²                    ... (4.19)
+```
+
+Rescaling θ̃ ≡ vθ = √ρ₀ θ reproduces the PDTP CLAUDE.md kinetic term:
+L_eff = −½(∂_μθ̃)² ≡ ½(∂_μφ)(∂^μφ).
+
+#### 4.5.3 — Dispersion Relation from the Quadratic Action
+
+The Euler-Lagrange equation for θ from L_quad (eq. 4.18):
+
+```
+∂L / ∂θ − ∂_μ(∂L / ∂(∂_μθ)) = 0
+
+→  ∂_μ(v² ∂^μθ) = 0
+
+→  v² □θ = 0
+
+→  □θ = 0                                                   ... (4.20)
+```
+
+In Fourier space (θ ∝ e^{i(k·x − ωt)}):
+
+```
+□ e^{i(kx−ωt)} = (−ω²/c² + k²) e^{i(kx−ωt)} = 0
+
+→  ω² = c² k²                                               ... (4.21)
+
+→  ω = c |k|   (exact, no approximation)
+```
+
+**This is exact at quadratic order.** No higher-derivative terms appear in
+the PDTP Lagrangian (there are no additional operators), so (4.21) holds to
+all momenta accessible in the condensate effective theory.
+
+**Source:** [Klein-Gordon equation — Wikipedia](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation)
+(massless limit, m=0 gives □φ = 0 with ω² = c²k²)
+
+For comparison, the σ mode satisfies □σ − m_σ²σ = 0 → ω² = c²k² + m_σ²c²
+(massive, gapped dispersion). As k → 0, σ oscillates at frequency m_σc²/ℏ;
+θ oscillates at frequency c|k| → 0.
+
+#### 4.5.4 — Thermal Energy Derived from the Action
+
+**Mode expansion** of the canonically normalized field φ̃ = vθ:
+
+```
+φ̃(x, t) = Σ_k [a_k u_k(x) e^{−iω_k t} + a_k† u_k*(x) e^{+iω_k t}]
+
+u_k(x) = e^{ik·x} / √(2ω_k V)   (normalization in volume V)
+ω_k = c|k|
+```
+
+**Canonical commutation:** [φ̃(x), π(x')] = iℏδ³(x−x') where π = ∂_tφ̃.
+This gives [a_k, a_k'†] = δ_{kk'}.
+
+**Thermal state** at temperature T_cond (grand canonical, μ_chem = 0 for
+massless Goldstone bosons):
+
+```
+⟨a_k† a_k⟩ = n_BE(ω_k) = 1 / (exp(ℏω_k / kT_cond) − 1)  ... (4.22)
+```
+
+**Source:** [Bose-Einstein statistics — Wikipedia](https://en.wikipedia.org/wiki/Bose%E2%80%93Einstein_statistics)
+
+**Energy density** (thermodynamic limit V → ∞):
+
+```
+u = lim_{V→∞} (1/V) Σ_k ℏω_k ⟨a_k† a_k⟩
+
+  = ∫ d³k/(2π)³ × ℏc|k| / (exp(ℏc|k|/kT_cond) − 1)
+
+  = 1/(2π²) × (1/ℏ³c³) × ∫₀^∞ dE × E³ / (exp(E/kT_cond) − 1)
+
+    [substitution E = ℏck]
+```
+
+Substituting x = E/kT_cond:
+
+```
+u = (kT_cond)⁴ / (2π²ℏ³c³) × ∫₀^∞ x³ / (eˣ − 1) dx       ... (4.23)
+```
+
+The integral evaluates via the Riemann zeta function:
+
+```
+∫₀^∞ x³ / (eˣ − 1) dx  =  Γ(4) ζ(4)  =  6 × π⁴/90  =  π⁴/15
+```
+
+**Source:** [Riemann zeta function — Wikipedia](https://en.wikipedia.org/wiki/Riemann_zeta_function)
+(the result ζ(4) = π⁴/90 is classical; the integral identity Γ(n)ζ(n) =
+∫₀^∞ x^{n−1}/(eˣ−1)dx is standard, also in [Planck's law — Wikipedia](https://en.wikipedia.org/wiki/Planck%27s_law#Derivation))
+
+Therefore:
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                                                                  │
+│   u = π²(kT_cond)⁴ / (30 ℏ³c³)                        (4.24)  │
+│                                                                  │
+│   Derived from the PDTP quadratic action — no analogy used.     │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+This is IDENTICAL to the Stefan-Boltzmann result for a single massless
+scalar, derived here from the PDTP action, not imported by analogy.
+
+#### 4.5.5 — Justification of f_n = u / (ρ₀c²)
+
+The PDTP background subtraction (§5.2, [vacuum_background_subtraction.md](vacuum_background_subtraction.md))
+assigns the physical stress-energy tensor:
+
+```
+T_μν^{phys} = T_μν^{total} − T_μν^{ground state}
+```
+
+The ground state contributes T^{00}_{ground} = ρ₀c² (rest-mass energy density
+of the condensate). After subtraction, only the thermal excitations remain in
+T_μν^{phys}:
+
+```
+T^{00}_phys = u      (thermal phonon energy density, from eq. 4.24)
+```
+
+The effective mass density of the thermal excitations follows from
+relativistic energy-mass equivalence:
+
+```
+ρ_n  =  T^{00}_phys / c²  =  u / c²                         ... (4.25)
+```
+
+This is exact for the phonon sector: the phonons are relativistic (ω = c|k|),
+so their energy and mass-energy are identical (E = pc = mc² for massless
+particles). There is no non-relativistic approximation here.
+
+The normal fraction is then:
+
+```
+f_n  =  ρ_n / ρ₀  =  u / (ρ₀ c²)  =  π²(kT_cond)⁴/(30 ℏ³c⁵ρ₀)
+```
+
+which gives f_n ∝ T_cond⁴, i.e. **β = 4 exactly**.
+
+**Validity condition:** This identification holds when ρ_n ≪ ρ₀ (deep
+superfluid, f_n ≪ 1). Cosmologically, f_n ~ 10⁻¹²³, so the approximation
+is valid to 123 orders of magnitude.
+
+**Source:** [Mass-energy equivalence — Wikipedia](https://en.wikipedia.org/wiki/Mass%E2%80%93energy_equivalence)
+(E = mc² applied to the rest-mass density of thermal excitations)
+
+#### 4.5.6 — Summary of Rigorous Checks
+
+| ChatGPT concern | Answer | Status |
+|-----------------|--------|--------|
+| Global vs gauged symmetry | GLOBAL U(1), no gauge field A_μ in PDTP Lagrangian | ✓ Resolved |
+| Linear dispersion from first principles | □θ = 0 from Euler-Lagrange (eq. 4.20, 4.21) — exact, no approximation | ✓ Resolved |
+| Exactly one Goldstone mode | U(1) → {1}: one broken generator → one massless θ | ✓ Resolved |
+| Thermal energy from action, not analogy | Derived from canonical quantization of quadratic action (eq. 4.23–4.24) | ✓ Resolved |
+| f_n = u/(ρ₀c²) justification | Valid to O(f_n) from PDTP background subtraction + Landau two-fluid theory | ✓ Resolved (leading order) |
+
+**PDTP Original.** The five-step rigorous justification above.
+
+**Remaining caveats (honest assessment):**
+- The O(f_n) correction to the f_n mapping is negligible cosmologically
+  but could matter near the condensation transition.
+- The underlying condensate Lagrangian L[Ψ] with Mexican hat potential is
+  postulated, not derived from a more fundamental theory. The value of λ
+  (and hence m_σ and ρ₀) remains a microphysics input.
+- β = 4 is exact for the pure Goldstone sector. Interactions between phonons
+  (higher-order terms in the effective action) could shift β by O(f_n^{1/4})
+  corrections — negligible at the current level of precision.
+
 ---
 
 ## 5. Normal Fraction as Dark Energy — Core Model
@@ -766,13 +1226,21 @@ microscopic identification: δρ₀ = f_n × ρ₀.
 5. **Criticality question answered:** Universe is NOT near T_c.
    T_cond/T_c ~ 10⁻³¹. No attractor mechanism known.
 
-6. **Coincidence problem identified:** f_n × ρ₀ ~ ρ_matter today is not
+6. **β = 4 derived from first principles (§4.4):** PDTP phonons are
+   Goldstone bosons of the broken U(1) phase symmetry. Their linear
+   dispersion ω = c|k| gives a Stefan-Boltzmann T⁴ energy density → β = 4
+   exactly. β is now a prediction, not a free parameter. Massive breathing
+   modes are exponentially suppressed at T_cond ≪ m and do not affect the
+   low-T scaling.
+
+7. **Coincidence problem identified:** f_n × ρ₀ ~ ρ_matter today is not
    explained by PDTP. Open problem.
 
 ### 11.2 Remaining Gaps
 
 | Gap | Status | Path Forward |
 |-----|--------|--------------|
+| β exponent | **RESOLVED: β = 4** (§4.4) | Goldstone phonon dispersion |
 | Quantitative f_n | Requires T_cond (microphysics) | Part 14 roadmap |
 | Specific w₀, w_a values | Requires g, γ, noise spectrum | Langevin solution |
 | Phantom (w < −1) at high z | Canonical field cannot do this | Non-canonical kinetic term? |
@@ -790,6 +1258,7 @@ microscopic identification: δρ₀ = f_n × ρ₀.
 │    ✓ Two-fluid superfluid model (standard physics)                  │
 │    ✓ Phase drift dynamics (Part 19)                                 │
 │    ✓ Qualitative DESI w(z) behavior                                 │
+│    ✓ β = 4 derived from Goldstone phonon dispersion (§4.4)         │
 │                                                                      │
 │  The model cannot yet produce:                                       │
 │    ✗ Specific w₀, w_a values (requires microphysics)               │
@@ -857,6 +1326,8 @@ microscopic identification: δρ₀ = f_n × ρ₀.
 | 12 | Coincidence problem restated in normal fraction language | §9.3 |
 | 13 | Canonical scalar field cannot produce w < −1 (phantom) | §8.3 |
 | 14 | Normal fraction model as thermodynamic framework for Phase Drift (Part 19) | §10.2 |
+| 15 | β = 4 derived from Goldstone phonon dispersion (Stefan-Boltzmann T⁴ law) | §4.4 |
+| 16 | Full field-theory justification: global U(1), exact ω=c\|k\|, one mode, thermal E from action, f_n mapping | §4.5 |
 
 ### Cross-References
 
