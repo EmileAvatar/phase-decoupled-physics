@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-24
+Last updated: 2026-02-25
 
 ---
 
@@ -1244,6 +1244,83 @@ physics. They should not be cited as if they are.
 | No attractor mechanism for T_cond → T_c | §9.2 | PDTP Original |
 | Coincidence problem in normal fraction language | §9.3 | PDTP Original |
 | Canonical field cannot produce phantom w < −1 | §8.3 | PDTP Original |
+
+---
+
+## Sources Added in Part 25 — w(z) from Phase Drift Dynamics (2026-02-25)
+
+**Document:** [wz_dark_energy_pdtp.md](../research/wz_dark_energy_pdtp.md)
+
+### Wikipedia Sources
+
+239. **Equation of state (cosmology)** *(extended use — see also #129, Part 20)*
+- **URL:** [Equation of state (cosmology) — Wikipedia](https://en.wikipedia.org/wiki/Equation_of_state_(cosmology))
+- **Used in:** wz_dark_energy_pdtp.md §2.2, §4.2
+
+240. **Chevallier–Polarski–Linder model**
+- **URL:** [Chevallier–Polarski–Linder model — Wikipedia](https://en.wikipedia.org/wiki/Chevallier%E2%80%93Polarski%E2%80%93Linder_model)
+- **Used in:** wz_dark_energy_pdtp.md §6.1
+
+241. **Slow-roll approximation**
+- **URL:** [Slow-roll approximation — Wikipedia](https://en.wikipedia.org/wiki/Slow-roll_approximation)
+- **Used in:** wz_dark_energy_pdtp.md §3.1
+
+242. **Friedmann equations** *(extended use — see also general cosmology sources)*
+- **URL:** [Friedmann equations — Wikipedia](https://en.wikipedia.org/wiki/Friedmann_equations)
+- **Used in:** wz_dark_energy_pdtp.md §6.3
+
+243. **Klein–Gordon equation** *(extended use — see also #8)*
+- **URL:** [Klein–Gordon equation — Wikipedia](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation)
+- **Used in:** wz_dark_energy_pdtp.md §2.3
+
+244. **Cosmological constant** *(extended use — see also #125)*
+- **URL:** [Cosmological constant — Wikipedia](https://en.wikipedia.org/wiki/Cosmological_constant)
+- **Used in:** wz_dark_energy_pdtp.md §4.2
+
+245. **Phantom dark energy**
+- **URL:** [Phantom dark energy — Wikipedia](https://en.wikipedia.org/wiki/Phantom_dark_energy)
+- **Used in:** wz_dark_energy_pdtp.md §9.3
+
+246. **Quintessence (cosmology)**
+- **URL:** [Quintessence (cosmology) — Wikipedia](https://en.wikipedia.org/wiki/Quintessence_(cosmology))
+- **Used in:** wz_dark_energy_pdtp.md §2.1
+
+247. **Hubble's law** *(extended use — see also #118)*
+- **URL:** [Hubble's law — Wikipedia](https://en.wikipedia.org/wiki/Hubble%27s_law)
+- **Used in:** wz_dark_energy_pdtp.md §5
+
+### Academic Papers
+
+### Paper #69
+- **Author(s):** Baumann, D.
+- **Year:** 2009
+- **Title:** "TASI Lectures on Inflation"
+- **Publication:** arXiv:0907.5424
+- **URL:** [arXiv:0907.5424](https://arxiv.org/abs/0907.5424)
+- **Used in:** wz_dark_energy_pdtp.md §3.2
+- **Why:** Slow-roll approximation formalism; ε parameter definition
+
+*(Papers #60 and #61, Chevallier-Polarski and Linder CPL papers, already cited in Part 20 — see above.)*
+
+*(DESI Collaboration (2025) arXiv:2503.14738 already cited in Part 20 — see dark_energy_normal_fraction.md §8.2.)*
+
+### PDTP Original Results (Part 25)
+
+| Result | Where | Type |
+|--------|-------|------|
+| Slow-roll parameter ε = g_eff/(9H²) for phase drift field | §3.3 | PDTP Original |
+| Equation of state w(z) = [ε(z)−1]/[ε(z)+1] | §4.1 | PDTP Original |
+| Inversion formula: ε₀ = (1+w₀)/(1−w₀) ≈ 0.095 for DESI | §5 | PDTP Original |
+| CPL slope: w_a = −(1−w₀²)/2 × (m + 3Ω_m) for g_eff ∝ a^m | §6.5 | PDTP Original |
+| PDTP consistency line in (w₀, w_a) plane (falsifiable) | §7.1 | PDTP Original |
+| Constant coupling (m=0): w_a ≈ −0.147 (2.1σ from DESI) | §9.2 | PDTP Original |
+| DE-tracking coupling (m=3): w_a ≈ −0.621 (0.4σ from DESI) | §9.2 | PDTP Original |
+| Best-fit m ≈ 3.8 reproduces DESI w_a = −0.75 exactly | §9.2 | PDTP Original |
+| R ≡ −w_a/[(1−w₀²)/2] = m + 3Ω_m as condensate probe | §9.4 | PDTP Original |
+| Phantom tension: canonical scalar gives w ≥ −1 always | §9.3 | PDTP Original |
+| Peak condition for ρ_DE(z): ε(a_peak) = m/2 | §10.3 | PDTP Original |
+| g_eff ∝ Ω_DE(z) ∝ a³ as physical mechanism for m=3 | §8.2 | PDTP Original |
+| Coherence length evolution: ξ ∝ a^{−m/2} = (1+z)^{m/2} | §8.3 | PDTP Original |
 
 ---
 

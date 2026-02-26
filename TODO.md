@@ -440,15 +440,52 @@ structural diagnosis and recommended directions.
   - See [dark_energy_normal_fraction.md](docs/research/dark_energy_normal_fraction.md)
   - Status: completed 2026-02-24
 
-- [ ] **Derive explicit w(z) from phase drift dynamics**
-  - DESI DR2 shows w₀ > −1, w_a < 0, energy density peaked at z ≈ 0.45
-  - This implies drift rate is NOT monotonic — there is a restoring tendency
-  - Suggests φ needs a relaxation equation: φ̈ + γφ̇ + V'(φ) = 0
-  - Not pure free drift — requires either a potential V(φ) or
-    temperature-dependent coupling g(T)
-  - Must produce: specific predictions for w₀ and w_a values
-  - Constraint: ξ must satisfy ξ ≫ galactic scales AND ξ ≪ Hubble radius
-  - This would make PDTP's dark energy predictions falsifiable
+- [x] **Derive explicit w(z) from phase drift dynamics** *(Part 25 — 2026-02-25)*
+  - Slow-roll approximation: ε = g_eff/(9H²) (phase-locking coupling / Hubble friction)
+  - Equation of state: w(z) = [ε(z) − 1] / [ε(z) + 1]
+  - CPL prediction: w_a = −(1 − w₀²)/2 × (m + 3Ω_m)  for g_eff ∝ a^m
+  - Constant coupling (m=0): w_a ≈ −0.15  (2.1σ below DESI central value)
+  - DE-tracking coupling (m=3): w_a ≈ −0.62  (consistent with DESI, 0.4σ)
+  - Best-fit m ≈ 3.8 matches DESI's w_a = −0.75 exactly
+  - Consistency line in (w₀, w_a) plane: falsifiable by future surveys (Euclid, DESI Y5)
+  - R ≡ −w_a/[(1−w₀²)/2] = m + 3Ω_m directly measures condensate coupling evolution
+  - Phantom tension: PDTP canonical scalar cannot produce w < −1 (honest assessment)
+  - See [wz_dark_energy_pdtp.md](docs/research/wz_dark_energy_pdtp.md)
+
+- [x] **Free parameter m analysis** *(Part 26 — 2026-02-26)*
+  - The coupling evolution exponent m in g_eff(a) = g₀ a^m was a free parameter
+  - Self-consistency condition derived: m = 6ε (ε = slow-roll parameter)
+  - With DESI ε₀ = 0.095 → m = 0.57, giving w_a ≈ −0.24 (1.8σ from DESI)
+  - Dynamical scaling argument: m = 2 − η ≈ 2.0 (XY universality class)
+  - Thermal activation (speculative): m = 3 (2D) or m = 4.5 (3D)
+  - **Honest finding:** m = 3 (from Part 25) was curve-fitting, not a derivation
+  - Best internal prediction: m ≈ 0.57 (self-consistency) or m ≈ 2 (scaling)
+  - Escape hatch: non-constant ε(a) could boost effective m (calculable)
+  - Falsifiable predictions robust regardless of m: consistency line R = m + 3Ω_m,
+    phantom bound w ≥ −1
+  - See [free_parameter_m_analysis.md](docs/research/free_parameter_m_analysis.md)
+
+- [x] **Scalar vs tensor gravity analysis** *(Part 27 — 2026-02-26)*
+  - Scalar PDTP predicts breathing mode GWs; LIGO confirms tensor (+ and ×) modes
+  - **Key insight:** Part 21 oscillator lattice already has shear rigidity
+  - Lattices support transverse (shear) waves → these ARE the tensor modes
+  - Scalar PDTP has been using only the longitudinal branch of the lattice
+  - Two transverse branches contain the missing tensor GW polarizations
+  - Required condition: shear modulus μ = bulk modulus B = v² (gives c_T = c)
+  - Three approaches identified: tetrad extension, lattice shear modes, elastic condensate
+  - **Most promising:** extract all three wave branches from the Part 21 lattice
+  - This is a mathematical completion task, not a conceptual redesign
+  - See [scalar_vs_tensor_gravity.md](docs/research/scalar_vs_tensor_gravity.md)
+
+- [ ] **PRIORITY: Derive tensor GW modes from oscillator lattice** *(Part 28 — planned)*
+  - Compute full dispersion relation of Part 21 lattice (all branches)
+  - Show transverse modes propagate at c in continuum limit
+  - Identify two transverse polarizations with GR's + and × modes
+  - Derive effective metric g_μν = η_ab ∂_μφ^a ∂_νφ^b from lattice
+  - Verify shear modulus = bulk modulus condition (μ = B = κ = v²)
+  - Show accelerating phase defect emits transverse waves (quadrupole formula)
+  - If successful: closes the single biggest gap in PDTP
+  - **Depends on:** efv_microphysics.md (Part 21), tetrad_extension.md (Part 12)
 
 - [ ] **Scalar sector backreaction on tensor sector**
   - Does the scalar sector modify the effective T_μν seen by the tensor sector?
@@ -766,6 +803,27 @@ Open problems documented in "Open Problems (Future Work)" section:
   (plausibility), oscillator lattice built, mass-frequency derived. Remaining:
   phase stiffness κ from first principles (deepest gap), tensor lattice extension
 - Topological: vortex dynamics in PDTP condensate, condensate phase transition
+
+Part 25: Dark energy w(z) from phase drift dynamics. Derived CPL parametrization:
+w_a = −(1−w₀²)/2 × (m + 3Ω_m) for g_eff ∝ a^m. DE-tracking coupling (m=3)
+gives 0.4σ match to DESI DR2. Consistency line R = m + 3Ω_m is falsifiable.
+Phantom bound w ≥ −1 is a hard constraint from canonical scalar.
+
+Part 26: Free parameter m analysis. Derived self-consistency condition m = 6ε
+(most robust internal prediction: m ≈ 0.57). Dynamical scaling gives m ≈ 2.
+Honest finding: m = 3 was phenomenological curve-fitting, not a derivation.
+The non-constant ε(a) integral is the most promising route to larger m values.
+
+Part 27: Scalar vs tensor gravity analysis. Identified the single biggest gap
+(breathing mode vs LIGO tensor modes) AND the path to closing it: the Part 21
+oscillator lattice already has shear rigidity → supports transverse waves →
+these are the tensor GW modes. Extracting all three lattice wave branches is
+the highest-priority next task (Part 28).
+
+CURRENT PRIORITY: Part 28 — derive tensor GW modes from oscillator lattice.
+This is the most impactful task remaining: if successful, it closes PDTP's
+biggest observational gap (GW polarization) using physics already present
+in the framework (lattice shear rigidity from Part 21).
 ```
 
 ---
