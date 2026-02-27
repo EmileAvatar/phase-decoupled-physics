@@ -1406,4 +1406,75 @@ physics. They should not be cited as if they are.
 
 ---
 
+## Sources Added in Part 28b — Polarization Analogy Investigation (2026-02-27)
+
+**Document:** [polarization_analogy.md](../research/polarization_analogy.md)
+
+### Wikipedia Sources
+
+258. **Polarizer (Malus's law)**
+- **URL:** [Polarizer — Malus's law — Wikipedia](https://en.wikipedia.org/wiki/Polarizer#Malus's_law_and_other_properties)
+- **Used in:** polarization_analogy.md §3.1
+
+259. **Jones calculus**
+- **URL:** [Jones calculus — Wikipedia](https://en.wikipedia.org/wiki/Jones_calculus)
+- **Used in:** polarization_analogy.md §3.2
+
+260. **Wigner's classification**
+- **URL:** [Wigner's classification — Wikipedia](https://en.wikipedia.org/wiki/Wigner%27s_classification)
+- **Used in:** polarization_analogy.md §3.4, §7.3
+
+261. **Birefringence**
+- **URL:** [Birefringence — Wikipedia](https://en.wikipedia.org/wiki/Birefringence)
+- **Used in:** polarization_analogy.md §5.3
+
+262. **Wilson loop**
+- **URL:** [Wilson loop — Wikipedia](https://en.wikipedia.org/wiki/Wilson_loop)
+- **Used in:** polarization_analogy.md §4.2
+
+263. **Special unitary group (SU(3))**
+- **URL:** [Special unitary group — Wikipedia](https://en.wikipedia.org/wiki/Special_unitary_group#n_%3D_3)
+- **Used in:** polarization_analogy.md §4.4
+
+### Academic Papers / Technical Sources
+
+### Paper #72
+- **Author(s):** Eardley, D. M., Lee, D. L., & Lightman, A. P.
+- **Year:** 1973
+- **Title:** "Gravitational-wave observations as a tool for testing relativistic gravity"
+- **Publication:** *Physical Review D* 8(10), 3308–3321
+- **Used in:** polarization_analogy.md §2.1
+- **Why:** Six GW polarization modes in general metric theories; foundational for polarization testing
+
+### Paper #73
+- **Author(s):** Isi, M. & Weinstein, A. J.
+- **Year:** 2017
+- **Title:** "Probing gravitational wave polarizations with signals from compact binary coalescences"
+- **Publication:** [LIGO-P1700276](https://dcc.ligo.org/public/0145/P1700276/005/maxisi_cbcpols.pdf)
+- **Used in:** polarization_analogy.md §2.3
+- **Why:** LIGO antenna pattern for breathing/longitudinal mode degeneracy; scalar mode sensitivity
+
+### Paper #74
+- **Author(s):** Tong, D.
+- **Year:** 2018
+- **Title:** *Gauge Theory* (Lecture notes, Chapter 4: Lattice Gauge Theory)
+- **Publication:** [Cambridge DAMTP](https://www.damtp.cam.ac.uk/user/tong/gaugetheory/4lattice.pdf)
+- **Used in:** polarization_analogy.md §4.2
+- **Why:** Wilson loop area law and confinement from lattice gauge theory
+
+### PDTP Original Results (Part 28b)
+
+| Result | Where | Type |
+|--------|-------|------|
+| α = cos(ψ−φ) is U(1) inner product: Re⟨ψ\|φ⟩ on unit circle | §3.5 | PDTP Original |
+| LIGO geometric blindness to breathing mode analogous to crossed polarizers | §2.4 | PDTP Original |
+| Colour singlet Z₃ cancellation = "depolarized" colour state | §4.4 | PDTP Original |
+| Mass gap acts as frequency-dependent polarization filter for GW modes | §5.3 | PDTP Original |
+| Spacetime birefringence: c_L ≠ c_T when λ ≠ 0 | §5.3 | PDTP Original |
+| Decoupling energy cost ΔV = g per oscillator | §6.2 | PDTP Original |
+| Higher harmonics cos 2(ψ−φ) could create metastable decoupled state | §6.4 | PDTP Original |
+| Lattice modes decompose as 1 spin-0 + 2 spin-2, matching Wigner classification | §7.3 | PDTP Original |
+
+---
+
 End of glossary_sources.md

@@ -536,7 +536,7 @@ structural diagnosis and recommended directions.
   - Python script: symbolic algebra (SymPy) to automate substitutions and check consistency
   - **Depends on:** efv_microphysics.md (Part 21), G_derivation.md (Part 9)
 
-- [ ] **Investigate: polarization as unifying language across EM, colour, and GW sectors** *(Future — from Part 28 observation)*
+- [x] **Investigate: polarization as unifying language across EM, colour, and GW sectors** *(Part 28b — 2026-02-27)*
   - **Observation:** an EM wave viewed head-on (along propagation axis) shows the
     field vector tracing a circle (if circularly polarized) or oscillating linearly —
     visually resembling the scalar breathing mode of the PDTP lattice
@@ -948,6 +948,21 @@ force lattice gives c_T = c/√3 (fails LIGO by 15 orders of magnitude). Angular
 forces resolve this: condition μ = κ gives c_T = c. Two transverse modes map to
 h₊ and h× (tensor GW polarizations). Matches Part 12 tetrad extension. Honest
 surprise: spin connection physics (angular forces) required for tensor gravity.
+
+Part 28b: Polarization analogy investigation. EM wave viewed head-on resembles
+breathing mode — investigated whether "polarization" is a unifying concept.
+Results: (1) LIGO IS geometrically blind to breathing modes (standard result,
+differential arms cancel isotropic strain); (2) α = cos(ψ−φ) IS a genuine
+polarization projection (U(1) inner product Re⟨ψ|φ⟩), not just a coincidental
+cosine; (3) colour confinement as "depolarization" captures Z₃ centre but NOT
+full SU(3) — partial analogy only; (4) mass gap acts as frequency-dependent
+polarization filter (breathing mode evanescent below gap frequency — testable);
+(5) decoupling = crossed polarizers, costs ΔV = g per oscillator, needs
+metastable state from higher harmonics. Key finding: spacetime may be
+"birefringent" (c_L ≠ c_T). Predictions: massive breathing mode at high
+frequency, GW birefringence timing delay. Honest conclusion: projection
+structure is shared across all forces, but different representation spaces
+(U(1), SU(2), SU(3), spin-0/1/2) prevent calling it true unification.
 
 CURRENT PRIORITY: Part 29 — substitution chain analysis (derive K or G from
 known equations). Engineering goal: determine decoupling energy cost.
