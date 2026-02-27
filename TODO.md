@@ -536,6 +536,65 @@ structural diagnosis and recommended directions.
   - Python script: symbolic algebra (SymPy) to automate substitutions and check consistency
   - **Depends on:** efv_microphysics.md (Part 21), G_derivation.md (Part 9)
 
+- [ ] **Investigate: polarization as unifying language across EM, colour, and GW sectors** *(Future — from Part 28 observation)*
+  - **Observation:** an EM wave viewed head-on (along propagation axis) shows the
+    field vector tracing a circle (if circularly polarized) or oscillating linearly —
+    visually resembling the scalar breathing mode of the PDTP lattice
+  - **Reference images:**
+    - [Circular polarization of EM wave](../assets/images/waves%20polorization/licensed-image%20Circular%20polarization%20of%20n%20electromagnetic%20wave.jpg) — E-vector rotates; head-on view traces a circle
+    - [EM wave components](../assets/images/waves%20polorization/licensed-image%20electromatnetic%20waves.jpg) — E and H perpendicular, both transverse to propagation
+    - [Polarization filters](../assets/images/waves%20polorization/licensed-image%20polrization.jpg) — selective transmission by orientation; crossed filters → opaque
+  - **Key questions to investigate rigorously:**
+    1. **LIGO as GW polarization filter:** LIGO's Michelson geometry measures
+       differential arm strain (ΔL/L). A breathing mode (isotropic expansion)
+       changes both arms equally → differential signal ≈ 0. Is LIGO geometrically
+       blind to scalar GW modes? (Standard result: yes — see Eardley et al. 1973,
+       Will 1993 "Theory and Experiment in Gravitational Physics")
+       What detector geometry would be sensitive to breathing modes? (Triangular
+       detectors like LISA, or pulsar timing arrays, have partial scalar sensitivity)
+    2. **α = cos(ψ − φ) as polarization projection:** in Malus's law, transmitted
+       intensity I = I₀ cos²θ where θ is the angle between polarizer and light
+       polarization. PDTP's coupling α = cos(ψ − φ) has the same structure.
+       Question: is this analogy superficial (both are just cosines) or structural
+       (does the phase angle ψ − φ formally act as a polarization angle in some
+       representation)? Must distinguish mathematical similarity from physical
+       equivalence — cosine projections appear everywhere in physics
+    3. **Colour confinement as forced depolarization:** three quarks at 0°, 120°,
+       240° in phase space sum to zero (Z₃ singlet). This is analogous to three
+       equal vectors at 120° summing to zero → "unpolarized" colour state.
+       Question: can this be made rigorous? The actual QCD confinement mechanism
+       involves the Wilson loop area law and non-perturbative vacuum — does the
+       phase-cancellation picture reduce to or approximate this in any limit?
+       **Caution:** superficial pattern-matching with confinement is a known trap
+       in alternative frameworks; must engage with actual SU(3) lattice gauge theory
+    4. **Spacetime "polarization":** the PDTP lattice has 3 displacement DOF per
+       site (2 transverse + 1 longitudinal). Near a mass, the longitudinal mode
+       dominates (scalar gravity). In a GW, transverse modes dominate. Question:
+       is there a meaningful sense in which curved spacetime is "polarized" toward
+       the longitudinal sector? Does the mass distribution act as a polarization
+       filter for lattice modes?
+    5. **Phase decoupling as orthogonal polarization:** if α = cos(ψ − φ) → 0
+       at ψ − φ = π/2, this is like crossed polarizers blocking all light.
+       Question: what physical mechanism could rotate ψ relative to φ by 90°?
+       What energy cost does this require? (Connects to Part 29 engineering goal)
+  - **Rigour requirements:**
+    - Every analogy must be tested: does the math actually map, or is it just
+      a visual similarity? Malus's law is I ∝ cos²θ (squared); PDTP coupling
+      is α = cos(ψ−φ) (linear) — these are different. Must resolve this
+    - EM polarization is a vector property (spin-1); GW polarization is tensor
+      (spin-2); colour is an internal SU(3) quantum number — these live in
+      different mathematical spaces. The analogy must respect this or explicitly
+      state where it breaks down
+    - "Looks like" is not "is equivalent to" — every claim needs either a
+      formal mapping or an honest statement that it remains speculative
+  - **Potential payoff:** if the polarization language is more than analogy,
+    it suggests a representation-theoretic unification: all forces as different
+    representations of phase-space rotations, with coupling = projection onto
+    the interaction axis. This would connect to Wigner's classification of
+    particles by representations of the Poincaré group
+  - **Depends on:** Part 28 (lattice modes), Part 27b (universal phase-locking),
+    Part 12 (tetrad extension)
+
 - [ ] **Scalar sector backreaction on tensor sector**
   - Does the scalar sector modify the effective T_μν seen by the tensor sector?
   - If φ dynamics change the condensate stress-energy, this could feed back
