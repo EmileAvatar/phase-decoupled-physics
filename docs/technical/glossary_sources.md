@@ -1324,4 +1324,86 @@ physics. They should not be cited as if they are.
 
 ---
 
+## Sources Added in Part 28 — Tensor GW Modes from Oscillator Lattice (2026-02-27)
+
+**Document:** [tensor_gw_lattice.md](../research/tensor_gw_lattice.md)
+
+### Wikipedia Sources
+
+248. **Phonon**
+- **URL:** [Phonon — Wikipedia](https://en.wikipedia.org/wiki/Phonon)
+- **Used in:** tensor_gw_lattice.md §3.1
+
+249. **Linear elasticity**
+- **URL:** [Linear elasticity — Wikipedia](https://en.wikipedia.org/wiki/Linear_elasticity)
+- **Used in:** tensor_gw_lattice.md §4.4, §4.7
+
+250. **Lamé parameters**
+- **URL:** [Lamé parameters — Wikipedia](https://en.wikipedia.org/wiki/Lam%C3%A9_parameters)
+- **Used in:** tensor_gw_lattice.md §4.5
+
+251. **Helmholtz decomposition**
+- **URL:** [Helmholtz decomposition — Wikipedia](https://en.wikipedia.org/wiki/Helmholtz_decomposition)
+- **Used in:** tensor_gw_lattice.md §4.7
+
+252. **Dispersion relation**
+- **URL:** [Dispersion relation — Wikipedia](https://en.wikipedia.org/wiki/Dispersion_relation)
+- **Used in:** tensor_gw_lattice.md §6.1
+
+253. **Gravitational wave** *(extended use — see also #41)*
+- **URL:** [Gravitational wave — Wikipedia](https://en.wikipedia.org/wiki/Gravitational_wave)
+- **Used in:** tensor_gw_lattice.md §6.3
+
+254. **Linearized gravity** *(extended use — see also #70)*
+- **URL:** [Linearized gravity — Wikipedia](https://en.wikipedia.org/wiki/Linearized_gravity)
+- **Used in:** tensor_gw_lattice.md §7.2
+
+255. **Taylor series**
+- **URL:** [Taylor series — Wikipedia](https://en.wikipedia.org/wiki/Taylor_series)
+- **Used in:** tensor_gw_lattice.md §4.1
+
+256. **Classical XY model** *(extended use — see also Part 21)*
+- **URL:** [Classical XY model — Wikipedia](https://en.wikipedia.org/wiki/Classical_XY_model)
+- **Used in:** tensor_gw_lattice.md §2.1
+
+257. **Tetrad formalism**
+- **URL:** [Tetrad formalism — Wikipedia](https://en.wikipedia.org/wiki/Tetrad_formalism)
+- **Used in:** tensor_gw_lattice.md §5.3
+
+### Academic Papers
+
+### Paper #70
+- **Author(s):** Born, M. & Huang, K.
+- **Year:** 1954
+- **Title:** *Dynamical Theory of Crystal Lattices*
+- **Publication:** Oxford University Press
+- **Used in:** tensor_gw_lattice.md §4.6, §5.1
+- **Why:** Cauchy relation (λ = μ) for central-force lattices; conditions for its violation
+
+### Paper #71
+- **Author(s):** Abbott, B. P. et al. (LIGO Scientific Collaboration and Virgo Collaboration)
+- **Year:** 2017
+- **Title:** "Gravitational Waves and Gamma-Rays from a Binary Neutron Star Merger: GW170817 and GRB 170817A"
+- **Publication:** *The Astrophysical Journal Letters* 848(2), L13
+- **Used in:** tensor_gw_lattice.md §4.9
+- **Why:** GW speed constraint |c_GW − c|/c < 10⁻¹⁵ (already cited in Part 27)
+
+### PDTP Original Results (Part 28)
+
+| Result | Where | Type |
+|--------|-------|------|
+| Scalar lattice is longitudinal sector of vector lattice | §2.3 | PDTP Original |
+| Central-force cubic lattice gives Cauchy relation λ = μ = K/a | §4.6 | PDTP Original |
+| Central-force lattice gives c_T = c/√3 ≈ 0.577c (fails LIGO) | §4.8 | PDTP Original |
+| Angular forces needed for tensor gravity (spin connection = frame twist resistance) | §5.3 | PDTP Original |
+| Condition for c_T = c: μ_shear = κ = c²/(4πG) | §5.4 | PDTP Original |
+| Mass gap only in longitudinal sector (transverse massless) | §5.5 | PDTP Original |
+| Two transverse lattice modes = tensor GW h₊ and h× polarizations | §6.3 | PDTP Original |
+| Lattice strain tensor = linearized metric perturbation | §7.2 | PDTP Original |
+| Elastic shear wave equation → linearized Einstein equation □h^TT = 0 | §7.2 | PDTP Original |
+| Factor-of-4 discrepancy between scalar and tensor G derivations | §7.3 | PDTP Original |
+| Cauchy relation violation = lattice-level signature of spin connection | §8.3 | PDTP Original |
+
+---
+
 End of glossary_sources.md

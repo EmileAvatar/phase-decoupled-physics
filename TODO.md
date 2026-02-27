@@ -477,15 +477,64 @@ structural diagnosis and recommended directions.
   - This is a mathematical completion task, not a conceptual redesign
   - See [scalar_vs_tensor_gravity.md](docs/research/scalar_vs_tensor_gravity.md)
 
-- [ ] **PRIORITY: Derive tensor GW modes from oscillator lattice** *(Part 28 — planned)*
-  - Compute full dispersion relation of Part 21 lattice (all branches)
-  - Show transverse modes propagate at c in continuum limit
-  - Identify two transverse polarizations with GR's + and × modes
-  - Derive effective metric g_μν = η_ab ∂_μφ^a ∂_νφ^b from lattice
-  - Verify shear modulus = bulk modulus condition (μ = B = κ = v²)
-  - Show accelerating phase defect emits transverse waves (quadrupole formula)
-  - If successful: closes the single biggest gap in PDTP
-  - **Depends on:** efv_microphysics.md (Part 21), tetrad_extension.md (Part 12)
+- [x] **Phase-locking as universal force mechanism** *(Part 27b — 2026-02-26)*
+  - All forces reframed as cosine phase-coupling at different strengths:
+    gravity g cos(ψ−φ), strong gₛ cos(ψ₁−ψ₂), EM gₑ cos(ψ−A)
+  - Quarks as standing waves; gluons as phase-locking oscillations (not particles)
+  - 3 quarks at 120° phase spacing = colour singlet = Z₃ phase cancellation
+  - Confinement = uncancelled phase costs energy ∝ distance (linear potential)
+  - Proton Lagrangian written: 3 strong couplings + 3 gravitational couplings
+  - Coupling hierarchy reframed (not solved): gₛ ≈ 1, gₑ ≈ 1/137, g ≈ 10⁻⁴⁰
+  - **Key gap:** SU(3) gauge structure (8 gluons, asymptotic freedom) not yet
+    derived from phase lattice — biggest challenge for this approach
+  - Investigation roadmap: 120° stability proof, linear confinement, SU(3) emergence
+  - **Extended (Part 27b update):** lattice modes mapped to particle spin
+    (l=0 → spin-0, l=1 → spin-1, l=2 → spin-2 = graviton); hydrogen orbital
+    shapes (s,p,d,f) = same mathematics as condensate mode patterns;
+    longitudinal + transverse = circular polarization (↻); × mode = + mode
+    rotated 45°; spin-2 graviton = 180° periodicity of quadrupole deformation;
+    4th lattice mode (internal rotation/torsion) could be EM (open question,
+    connects to Kaluza-Klein); spacetime and EM currently separate fields in
+    PDTP but lattice internal modes are a candidate for unification
+  - See [phase_locking_unification.md](docs/research/phase_locking_unification.md)
+
+- [ ] **Investigate: SU(3) gauge structure from phase lattice** *(Future — from Part 27b)*
+  - Can 8 gluon modes emerge as normal modes of the quark-condensate system?
+  - Does asymptotic freedom (coupling weaker at high energy) follow from phase-locking?
+  - Can linear confinement (energy ∝ distance) be derived from phase string tension?
+  - Can SU(2) weak structure emerge from Z₂ matter/antimatter phase symmetry?
+  - Ultimate test: derive ALL coupling constants from single condensate parameter
+  - **Depends on:** Part 23 (colour as Z₃ phase), Part 27b (universal coupling)
+
+- [x] **Derive tensor GW modes from oscillator lattice** *(Part 28 — 2026-02-27)*
+  - Vector lattice (3 DOF/site) gives 3 wave branches: 2 transverse + 1 longitudinal
+  - **Key finding:** central-force lattice gives Cauchy relation λ = μ → c_T = c/√3 (fails LIGO)
+  - Resolution: angular (non-central) forces break Cauchy relation → c_T = c when μ = κ
+  - Condition for tensor GW speed = c: μ_shear = κ = c²/(4πG) ≈ 1.07 × 10²⁶ Pa
+  - Transverse modes map to h₊ and h× polarizations; breathing mode is massive (gap from cos coupling)
+  - Strain-metric correspondence: elastic shear wave eq → □h^TT = 0 (linearized Einstein eq)
+  - Matches Part 12 (tetrad extension) exactly: E(2) class N₃ (2 tensor + 1 breathing)
+  - **Honest finding:** central forces alone don't work; angular forces = spin connection physics
+  - **Remaining:** specific angular potential, quadrupole formula, G prefactor resolution
+  - See [tensor_gw_lattice.md](docs/research/tensor_gw_lattice.md)
+
+- [ ] **Substitution chain analysis: derive K or G from known equations** *(Part 29 — planned)*
+  - Method: take every known equation containing G, substitute PDTP definitions
+    (c² = κ/ρ, G = c²/(4πκ), κ = K/a²), simplify until only K (or κ) remains
+  - Each independent chain that gives the same K = strong consistency check
+  - Chains to try:
+    1. Gravitational + electromagnetic (α = Z₀/(2R_K) combined with G = c²/(4πκ))
+    2. Planck units (ℓ_P, t_P, m_P → substitute G → express in terms of κ)
+    3. Black hole thermodynamics (T_H with G substituted)
+    4. Schwarzschild radius (r_s = 2GM/c² → r_s = M/(2πκ))
+    5. Compton wavelength meets gravity (dimensionless coupling m²c/(4πκℏ))
+    6. Friedmann equation (H² = 2c²ρ_matter/(3κ))
+    7. Fine structure + gravitational fine structure (α_G/α_EM → κ relation)
+    8. Condensate equation of state (κ = ρc², combined with G = 1/(4πρ))
+  - Goal: if all chains converge on same K with no free parameters → PDTP validated
+  - Engineering application: K determines decoupling energy cost (phase control → propulsion)
+  - Python script: symbolic algebra (SymPy) to automate substitutions and check consistency
+  - **Depends on:** efv_microphysics.md (Part 21), G_derivation.md (Part 9)
 
 - [ ] **Scalar sector backreaction on tensor sector**
   - Does the scalar sector modify the effective T_μν seen by the tensor sector?
@@ -820,10 +869,29 @@ oscillator lattice already has shear rigidity → supports transverse waves →
 these are the tensor GW modes. Extracting all three lattice wave branches is
 the highest-priority next task (Part 28).
 
-CURRENT PRIORITY: Part 28 — derive tensor GW modes from oscillator lattice.
-This is the most impactful task remaining: if successful, it closes PDTP's
-biggest observational gap (GW polarization) using physics already present
-in the framework (lattice shear rigidity from Part 21).
+Part 27b: Phase-locking as universal force mechanism. All forces reframed as
+cosine phase-coupling: gravity (matter↔spacetime), strong (quark↔quark), EM
+(charge↔field). Same equation L = g cos(ψ₁−ψ₂), different coupling strength.
+Quarks as standing waves, gluons as phase anchors (coupling patterns, not
+particles). 3 quarks at 120° = colour singlet via Z₃ phase cancellation.
+Confinement from uncancelled phase energy. Key gap: deriving SU(3) gauge
+structure from phase lattice. Investigation roadmap created.
+Extended with: lattice modes → spin (l=0,1,2 = spin 0,1,2), hydrogen orbital
+analogy, wave combination (longitudinal + transverse = circular = ↻),
+× mode = rotated + mode, spin-2 = 180° periodicity. 4th lattice mode
+(torsion/internal rotation) as candidate for EM (Kaluza-Klein connection).
+Spacetime vs EM field: currently separate, but lattice internal modes are
+open investigation path.
+
+Part 28: Tensor GW modes from oscillator lattice. Generalized Part 21 scalar
+lattice to vector (3 DOF/site). Derived 3 wave branches. Key finding: central-
+force lattice gives c_T = c/√3 (fails LIGO by 15 orders of magnitude). Angular
+forces resolve this: condition μ = κ gives c_T = c. Two transverse modes map to
+h₊ and h× (tensor GW polarizations). Matches Part 12 tetrad extension. Honest
+surprise: spin connection physics (angular forces) required for tensor gravity.
+
+CURRENT PRIORITY: Part 29 — substitution chain analysis (derive K or G from
+known equations). Engineering goal: determine decoupling energy cost.
 ```
 
 ---
