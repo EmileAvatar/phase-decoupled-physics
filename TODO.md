@@ -653,14 +653,18 @@ structural diagnosis and recommended directions.
 
 ### Standard Model Mapping
 
-- [ ] **Part 22: Antimatter as Opposite-Winding Topological Defects** *(planned)*
+- [x] **Part 22: Antimatter as Opposite-Winding Topological Defects** *(Part 22 — 2026-02-28)*
   - Antiparticle = opposite winding number (−1) vs particle (+1)
-  - Vortex/antivortex analogy from BEC/superfluid
-  - Annihilation as winding cancellation → energy radiated as φ-waves
-  - CPT symmetry in PDTP: explicit verification needed
-  - Matter-antimatter asymmetry: initial condensate asymmetry (open)
-  - Gravity of antimatter: same cos coupling → falls down ✓ (ALPHA 2023)
-  - Status: planned — not yet written
+  - BEC vortex-antivortex physics as physical precedent
+  - Two competing models clarified: Model A (winding) ≠ Model B (trough equilibrium)
+    - Model A = topological (global charge) — the QFT antiparticle
+    - Model B = dynamical (local stability) — a different object (domain excitation)
+  - Annihilation as winding cancellation → energy 2g = 2mc² per pair
+  - CPT symmetry verified: Lagrangian is separately C, P, T invariant
+  - CP violation absent → blocks Sakharov baryogenesis (honest limitation)
+  - Antimatter gravity: g_anti/g = 1.000 predicted, consistent with ALPHA-g 2023
+  - Key gaps: CP violation, positronium lifetime, formal vortex solution
+  - See [antimatter_topological_defects.md](docs/research/antimatter_topological_defects.md)
 
 - [x] **Part 23: Charge, Color, Hadrons, and Quantum Numbers in PDTP** *(Part 23 — 2026-02-23)*
   - Electric charge: U(1) symmetry + winding number interpretation
@@ -1008,6 +1012,14 @@ is G-free but a = ℓ_P still uses G; condensate density is white-dwarf scale (1
 not Planck (10⁹⁷); decoupling energy ~10 kW/ton. Strategic conclusion: stop
 substitution algebra, focus on (1) vacuum dispersion tests, (2) breathing mode
 detection, (3) hierarchy ratio R derivation from lattice topology.
+
+Part 22: Antimatter as topological defects (2026-02-28). Clarified the two
+competing antimatter models from Part 23: Model A (opposite winding n = −1) is
+the QFT antiparticle; Model B (trough at ψ = φ+π) is a different object (domain
+excitation). CPT verified — Lagrangian is separately C, P, T invariant. CP
+violation absent → Sakharov baryogenesis blocked (honest gap). Antimatter gravity
+g_anti/g = 1.000 predicted, consistent with ALPHA-g 2023. BEC vortex-antivortex
+physics provides the physical precedent for winding-number antimatter.
 
 CURRENT PRIORITY: Break the circularity — pursue Strategy A (independent κ
 measurement via breathing mode detection) and Strategy B (derive hierarchy

@@ -1669,4 +1669,99 @@ physics. They should not be cited as if they are.
 
 ---
 
+## Sources Added in Part 22: Antimatter as Topological Defects (2026-02-28)
+
+**Document:** [antimatter_topological_defects.md](../research/antimatter_topological_defects.md)
+
+### Wikipedia Sources
+
+292. **Antimatter**
+- **URL:** [Antimatter — Wikipedia](https://en.wikipedia.org/wiki/Antimatter)
+- **Used in:** antimatter_topological_defects.md §2
+
+293. **Dirac equation**
+- **URL:** [Dirac equation — Wikipedia](https://en.wikipedia.org/wiki/Dirac_equation)
+- **Used in:** antimatter_topological_defects.md §2.1
+
+294. **CPT symmetry**
+- **URL:** [CPT symmetry — Wikipedia](https://en.wikipedia.org/wiki/CPT_symmetry)
+- **Used in:** antimatter_topological_defects.md §2.2, §6.1
+
+295. **Pair production**
+- **URL:** [Pair production — Wikipedia](https://en.wikipedia.org/wiki/Pair_production)
+- **Used in:** antimatter_topological_defects.md §2.3
+
+296. **Electron–positron annihilation**
+- **URL:** [Electron–positron annihilation — Wikipedia](https://en.wikipedia.org/wiki/Electron%E2%80%93positron_annihilation)
+- **Used in:** antimatter_topological_defects.md §2.3, §5.3
+
+297. **Positronium**
+- **URL:** [Positronium — Wikipedia](https://en.wikipedia.org/wiki/Positronium)
+- **Used in:** antimatter_topological_defects.md §2.3, §5.4
+
+298. **Quantum vortex** *(extended use — see also Part 18)*
+- **URL:** [Quantum vortex — Wikipedia](https://en.wikipedia.org/wiki/Quantum_vortex)
+- **Used in:** antimatter_topological_defects.md §3.1
+
+299. **Berezinskii–Kosterlitz–Thouless transition**
+- **URL:** [Berezinskii–Kosterlitz–Thouless transition — Wikipedia](https://en.wikipedia.org/wiki/Berezinskii%E2%80%93Kosterlitz%E2%80%93Thouless_transition)
+- **Used in:** antimatter_topological_defects.md §3.2
+
+300. **Baryogenesis**
+- **URL:** [Baryogenesis — Wikipedia](https://en.wikipedia.org/wiki/Baryogenesis)
+- **Used in:** antimatter_topological_defects.md §7.1
+
+301. **CP violation**
+- **URL:** [CP violation — Wikipedia](https://en.wikipedia.org/wiki/CP_violation)
+- **Used in:** antimatter_topological_defects.md §6.2
+
+### Academic Papers
+
+### Paper #80
+- **Author(s):** Anderson, C. D.
+- **Year:** 1933
+- **Title:** "The Positive Electron"
+- **Publication:** *Physical Review* 43, 491
+- **Used in:** antimatter_topological_defects.md §2.1
+- **Why:** Discovery of the positron (first antiparticle observed)
+
+### Paper #81
+- **Author(s):** Dirac, P. A. M.
+- **Year:** 1928
+- **Title:** "The Quantum Theory of the Electron"
+- **Publication:** *Proceedings of the Royal Society A* 117, 610
+- **Used in:** antimatter_topological_defects.md §2.1
+- **Why:** Prediction of antimatter from the relativistic wave equation
+
+### Paper #82
+- **Author(s):** ALPHA Collaboration (Anderson, E. K. et al.)
+- **Year:** 2023
+- **Title:** "Observation of the effect of gravity on the motion of antimatter"
+- **Publication:** *Nature* 621, 716–722
+- **Used in:** antimatter_topological_defects.md §2.4, §8.1
+- **Why:** First direct measurement of antimatter gravitational acceleration
+
+### Paper #83
+- **Author(s):** Sakharov, A. D.
+- **Year:** 1967
+- **Title:** "Violation of CP invariance, C asymmetry, and baryon asymmetry of the Universe"
+- **Publication:** *JETP Letters* 5, 24
+- **Used in:** antimatter_topological_defects.md §7.1
+- **Why:** Three necessary conditions for baryogenesis
+
+### PDTP Original Results (Part 22)
+
+| Result | Where | Type |
+|--------|-------|------|
+| Models A and B are different objects (topology vs dynamics) | §4.2 | PDTP Original |
+| C conjugation = winding flip n → −n | §4.4 | PDTP Original |
+| Lagrangian is separately C, P, T invariant | §6.1 | PDTP Original |
+| g = m_e c² identification for electron coupling | §5.2 | PDTP Original |
+| g_anti / g = 1.000 prediction | §8.3 | PDTP Original |
+| Two-level picture: winding (topology) + trough (dynamics) | §4.3 | PDTP Speculative |
+| Phase-bias mechanism for baryogenesis | §7.2 | PDTP Speculative |
+| Winding non-conservation at Planck energies | §7.3 | PDTP Speculative |
+
+---
+
 End of glossary_sources.md
