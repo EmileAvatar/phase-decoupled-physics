@@ -1527,4 +1527,146 @@ physics. They should not be cited as if they are.
 
 ---
 
+## Sources Added in Wave Effects Catalog (2026-02-28)
+
+**Document:** [wave_effects_pdtp.md](../research/wave_effects_pdtp.md)
+
+### Wikipedia Sources
+
+266. **Longitudinal wave**
+- **URL:** [Longitudinal wave — Wikipedia](https://en.wikipedia.org/wiki/Longitudinal_wave)
+- **Used in:** wave_effects_pdtp.md §1.1
+
+267. **Transverse wave**
+- **URL:** [Transverse wave — Wikipedia](https://en.wikipedia.org/wiki/Transverse_wave)
+- **Used in:** wave_effects_pdtp.md §1.1
+
+268. **Surface wave**
+- **URL:** [Surface wave — Wikipedia](https://en.wikipedia.org/wiki/Surface_wave)
+- **Used in:** wave_effects_pdtp.md §1.1
+
+269. **Standing wave**
+- **URL:** [Standing wave — Wikipedia](https://en.wikipedia.org/wiki/Standing_wave)
+- **Used in:** wave_effects_pdtp.md §1.1
+
+270. **Topological defect**
+- **URL:** [Topological defect — Wikipedia](https://en.wikipedia.org/wiki/Topological_defect)
+- **Used in:** wave_effects_pdtp.md §2.1 (surface waves)
+
+271. **Gravitational lens**
+- **URL:** [Gravitational lens — Wikipedia](https://en.wikipedia.org/wiki/Gravitational_lens)
+- **Used in:** wave_effects_pdtp.md §2.3
+
+272. **Total internal reflection**
+- **URL:** [Total internal reflection — Wikipedia](https://en.wikipedia.org/wiki/Total_internal_reflection)
+- **Used in:** wave_effects_pdtp.md §2.3
+
+273. **Birefringence**
+- **URL:** [Birefringence — Wikipedia](https://en.wikipedia.org/wiki/Birefringence)
+- **Used in:** wave_effects_pdtp.md §2.5
+
+274. **Dichroism**
+- **URL:** [Dichroism — Wikipedia](https://en.wikipedia.org/wiki/Dichroism)
+- **Used in:** wave_effects_pdtp.md §2.5
+
+275. **Dispersion relation**
+- **URL:** [Dispersion relation — Wikipedia](https://en.wikipedia.org/wiki/Dispersion_relation)
+- **Used in:** wave_effects_pdtp.md §2.6
+
+276. **Soliton**
+- **URL:** [Soliton — Wikipedia](https://en.wikipedia.org/wiki/Soliton)
+- **Used in:** wave_effects_pdtp.md §2.7
+
+277. **Superradiance**
+- **URL:** [Superradiance — Wikipedia](https://en.wikipedia.org/wiki/Superradiance)
+- **Used in:** wave_effects_pdtp.md §2.7
+
+278. **Cherenkov radiation**
+- **URL:** [Cherenkov radiation — Wikipedia](https://en.wikipedia.org/wiki/Cherenkov_radiation)
+- **Used in:** wave_effects_pdtp.md §2.10
+
+279. **Gravitational redshift**
+- **URL:** [Gravitational redshift — Wikipedia](https://en.wikipedia.org/wiki/Gravitational_redshift)
+- **Used in:** wave_effects_pdtp.md §2.6
+
+280. **Redshift**
+- **URL:** [Redshift — Wikipedia](https://en.wikipedia.org/wiki/Redshift)
+- **Used in:** wave_effects_pdtp.md §2.10
+
+## Sources Added in Part 29: Substitution Chain Analysis (2026-02-28)
+
+**Document:** [substitution_chain_analysis.md](../research/substitution_chain_analysis.md)
+
+### Wikipedia Sources
+
+281. **Fine-structure constant**
+- **URL:** [Fine-structure constant — Wikipedia](https://en.wikipedia.org/wiki/Fine-structure_constant)
+- **Used in:** substitution_chain_analysis.md §2 (Chain 1, 7), §4
+- **Note:** Already cited as Source #36; re-referenced for Chain 1 and 7
+
+282. **Impedance of free space**
+- **URL:** [Impedance of free space — Wikipedia](https://en.wikipedia.org/wiki/Impedance_of_free_space)
+- **Used in:** substitution_chain_analysis.md §2 (Chain 1)
+
+283. **Planck units**
+- **URL:** [Planck units — Wikipedia](https://en.wikipedia.org/wiki/Planck_units)
+- **Used in:** substitution_chain_analysis.md §2 (Chain 2)
+
+284. **Gravitational coupling constant**
+- **URL:** [Gravitational coupling constant — Wikipedia](https://en.wikipedia.org/wiki/Gravitational_coupling_constant)
+- **Used in:** substitution_chain_analysis.md §2 (Chain 5)
+
+285. **Bulk modulus**
+- **URL:** [Bulk modulus — Wikipedia](https://en.wikipedia.org/wiki/Bulk_modulus)
+- **Used in:** substitution_chain_analysis.md §2 (Chain 8)
+
+286. **Speed of sound**
+- **URL:** [Speed of sound — Wikipedia](https://en.wikipedia.org/wiki/Speed_of_sound)
+- **Used in:** substitution_chain_analysis.md §2 (Chain 8)
+
+287. **Cavendish experiment**
+- **URL:** [Cavendish experiment — Wikipedia](https://en.wikipedia.org/wiki/Cavendish_experiment)
+- **Used in:** substitution_chain_analysis.md §4 (historical parallels)
+
+288. **Speed of light**
+- **URL:** [Speed of light — Wikipedia](https://en.wikipedia.org/wiki/Speed_of_light)
+- **Used in:** substitution_chain_analysis.md §4 (historical parallels)
+
+289. **Planck constant**
+- **URL:** [Planck constant — Wikipedia](https://en.wikipedia.org/wiki/Planck_constant)
+- **Used in:** substitution_chain_analysis.md §4 (historical parallels)
+
+290. **Fermi's interaction**
+- **URL:** [Fermi's interaction — Wikipedia](https://en.wikipedia.org/wiki/Fermi%27s_interaction)
+- **Used in:** substitution_chain_analysis.md §4 (historical parallels)
+
+291. **Fermi Gamma-ray Space Telescope**
+- **URL:** [Fermi Gamma-ray Space Telescope — Wikipedia](https://en.wikipedia.org/wiki/Fermi_Gamma-ray_Space_Telescope)
+- **Used in:** substitution_chain_analysis.md §5 (Strategy A, dispersion limits)
+
+### Academic Papers
+
+### Paper #79
+- **Author(s):** Born, M. & Huang, K.
+- **Year:** 1954
+- **Title:** *Dynamical Theory of Crystal Lattices*
+- **Publication:** Oxford University Press
+- **Used in:** substitution_chain_analysis.md §4 (elastic moduli from atomic potentials)
+
+### PDTP Original Results (Part 29)
+
+| Result | Where |
+|--------|-------|
+| All 8 substitution chains give κ = c²/(4πG) — circularity proven | substitution_chain_analysis.md §2–3 |
+| Circularity diagnosis: 1 equation, 2 unknowns | substitution_chain_analysis.md §4 |
+| K = ℏ/(4πc) as G-free "quantum of spring constant" | substitution_chain_analysis.md §2 (Chain 2), §5 |
+| Condensate density ρ ~ 10⁹ kg/m³ (white dwarf, not Planck) | substitution_chain_analysis.md §2 (Chain 8) |
+| Decoupling energy ~10 kW for 1 ton | substitution_chain_analysis.md §6 |
+| Four strategies to break circularity (measurement, hierarchy, GFT, postulate) | substitution_chain_analysis.md §5 |
+| Schwarzschild radius as condensate "holding capacity" | substitution_chain_analysis.md §2 (Chain 4) |
+| Hawking temperature proportional to condensate stiffness | substitution_chain_analysis.md §2 (Chain 3) |
+| Hubble rate as density/stiffness ratio | substitution_chain_analysis.md §2 (Chain 6) |
+
+---
+
 End of glossary_sources.md

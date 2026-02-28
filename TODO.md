@@ -518,23 +518,23 @@ structural diagnosis and recommended directions.
   - **Remaining:** specific angular potential, quadrupole formula, G prefactor resolution
   - See [tensor_gw_lattice.md](docs/research/tensor_gw_lattice.md)
 
-- [ ] **Substitution chain analysis: derive K or G from known equations** *(Part 29 — planned)*
-  - Method: take every known equation containing G, substitute PDTP definitions
-    (c² = κ/ρ, G = c²/(4πκ), κ = K/a²), simplify until only K (or κ) remains
-  - Each independent chain that gives the same K = strong consistency check
-  - Chains to try:
-    1. Gravitational + electromagnetic (α = Z₀/(2R_K) combined with G = c²/(4πκ))
-    2. Planck units (ℓ_P, t_P, m_P → substitute G → express in terms of κ)
-    3. Black hole thermodynamics (T_H with G substituted)
-    4. Schwarzschild radius (r_s = 2GM/c² → r_s = M/(2πκ))
-    5. Compton wavelength meets gravity (dimensionless coupling m²c/(4πκℏ))
-    6. Friedmann equation (H² = 2c²ρ_matter/(3κ))
-    7. Fine structure + gravitational fine structure (α_G/α_EM → κ relation)
-    8. Condensate equation of state (κ = ρc², combined with G = 1/(4πρ))
-  - Goal: if all chains converge on same K with no free parameters → PDTP validated
-  - Engineering application: K determines decoupling energy cost (phase control → propulsion)
-  - Python script: symbolic algebra (SymPy) to automate substitutions and check consistency
-  - **Depends on:** efv_microphysics.md (Part 21), G_derivation.md (Part 9)
+- [x] **Substitution chain analysis: derive K or G from known equations** *(Part 29 — 2026-02-28)*
+  - Ran 8 substitution chains (Gravitational+EM, Planck units, BH thermodynamics,
+    Schwarzschild, Compton+gravity, Friedmann, fine structure+gravitational, EoS)
+  - **Key result: ALL 8 chains reduce to κ = c²/(4πG) — algebraic circularity proven**
+  - Circularity is fundamental: 1 equation (bridge), 2 unknowns (κ, G) → cannot derive G
+  - Historical parallels: same circularity hit Newton's G (resolved by Cavendish), c (elevated
+    to postulate by Einstein), G_F (resolved by electroweak unification)
+  - Four strategies identified: (A) independent κ measurement, (B) derive hierarchy ratio
+    R = α_G/α_EM ~ 10⁻³⁷, (C) emergent G from GFT microphysics, (D) postulate K = ℏ/(4πc)
+  - Promising lead: K = ℏ/(4πc) = 2.80×10⁻⁴⁴ J (uses only ℏ and c, no G)
+  - Condensate density ρ ~ 10⁹ kg/m³ (white dwarf), NOT Planck density (10⁹⁷ kg/m³)
+  - Decoupling energy: ~10 kW for 1 ton (~13 hp) — bottleneck is mechanism, not energy
+  - **Strategic conclusion:** stop substitution attempts; focus on vacuum dispersion,
+    breathing mode detection, and hierarchy ratio derivation
+  - Python script: [substitution_chains.py](simulations/substitution_chains.py)
+  - Full output: [substitution_chains_output.md](simulations/substitution_chains_output.md)
+  - See [substitution_chain_analysis.md](docs/research/substitution_chain_analysis.md)
 
 - [x] **Investigate: polarization as unifying language across EM, colour, and GW sectors** *(Part 28b — 2026-02-27)*
   - **Observation:** an EM wave viewed head-on (along propagation axis) shows the
@@ -601,6 +601,17 @@ structural diagnosis and recommended directions.
   - Critical path: DESI confirms w₀>−1 → Part 29 determines ω_gap → high-freq detector finds breathing mode
   - Key gap: breathing mode mass ω_gap unknown until Part 29 completes
   - See [falsifiable_predictions.md](docs/research/falsifiable_predictions.md)
+
+- [x] **Wave effects catalog and PDTP connections** *(Part 28c — 2026-02-28)*
+  - All 50 standard wave phenomena mapped to PDTP framework
+  - Section 1: complete catalog of wave types, properties, and effects
+  - Section 2: PDTP connection for each effect with confidence rating
+  - Scorecard: 27 high confidence, 15 medium, 8 low (speculative/open)
+  - Key insight: several "different" GR phenomena are the same wave effect in PDTP
+    (lensing = refraction, horizons = total internal reflection, redshift = Doppler,
+    dark energy = beats)
+  - New predictions identified: Cherenkov breathing mode, L↔T mode conversion
+  - See [wave_effects_pdtp.md](docs/research/wave_effects_pdtp.md)
 
 - [ ] **Scalar sector backreaction on tensor sector**
   - Does the scalar sector modify the effective T_μν seen by the tensor sector?
@@ -979,8 +990,28 @@ Other tests: GW birefringence, phase-dependent gravity (BEC vs thermal), screene
 fifth force (atom interferometry), Planck-scale dispersion (gamma-ray bursts).
 Critical blocker: breathing mode mass ω_gap unknown until Part 29 determines K.
 
-CURRENT PRIORITY: Part 29 — substitution chain analysis (derive K or G from
-known equations). Engineering goal: determine decoupling energy cost.
+Part 28c: Wave effects catalog (2026-02-28). Mapped all 50 standard wave phenomena
+to PDTP. Key finding: PDTP naturally accommodates most wave effects because it IS
+a wave theory. Several "different" GR phenomena collapse to the same wave mechanism:
+gravitational lensing = refraction, event horizons = total internal reflection,
+gravitational redshift = Doppler in flowing condensate, dark energy = beats from
+phase drift. Scorecard: 27/50 high confidence, 15/50 medium, 8/50 open. New
+predictions: gravitational Cherenkov radiation of breathing mode, L↔T mode
+conversion at strong-field boundaries. Open frontier: nonlinear and boundary effects.
+
+Part 29: Substitution chain analysis (2026-02-28). Ran 8 algebraic chains — all
+reduce to κ = c²/(4πG). Circularity proven: PDTP bridge is a definition, not a
+derivation. Historical parallels (Cavendish/G, Einstein/c, electroweak/G_F) show
+this is normal — every new framework starts with circular parameters until an
+independent measurement or deeper theory breaks the loop. Key findings: K = ℏ/(4πc)
+is G-free but a = ℓ_P still uses G; condensate density is white-dwarf scale (10⁹),
+not Planck (10⁹⁷); decoupling energy ~10 kW/ton. Strategic conclusion: stop
+substitution algebra, focus on (1) vacuum dispersion tests, (2) breathing mode
+detection, (3) hierarchy ratio R derivation from lattice topology.
+
+CURRENT PRIORITY: Break the circularity — pursue Strategy A (independent κ
+measurement via breathing mode detection) and Strategy B (derive hierarchy
+ratio R from lattice microphysics). DESI/Euclid w₀ data is the near-term test.
 ```
 
 ---
