@@ -595,6 +595,13 @@ structural diagnosis and recommended directions.
   - **Depends on:** Part 28 (lattice modes), Part 27b (universal phase-locking),
     Part 12 (tetrad extension)
 
+- [x] **Falsifiable predictions document** *(2026-02-28)*
+  - 6 predictions that differ from GR, each with confirm/kill criteria
+  - Ranked by testability: dark energy w(z) most testable now, Planck dispersion least
+  - Critical path: DESI confirms w₀>−1 → Part 29 determines ω_gap → high-freq detector finds breathing mode
+  - Key gap: breathing mode mass ω_gap unknown until Part 29 completes
+  - See [falsifiable_predictions.md](docs/research/falsifiable_predictions.md)
+
 - [ ] **Scalar sector backreaction on tensor sector**
   - Does the scalar sector modify the effective T_μν seen by the tensor sector?
   - If φ dynamics change the condensate stress-energy, this could feed back
@@ -963,6 +970,14 @@ metastable state from higher harmonics. Key finding: spacetime may be
 frequency, GW birefringence timing delay. Honest conclusion: projection
 structure is shared across all forces, but different representation spaces
 (U(1), SU(2), SU(3), spin-0/1/2) prevent calling it true unification.
+
+Falsifiable predictions document (2026-02-28): compiled 6 testable predictions
+that differ from GR. Most testable now: dark energy w(z) via DESI/Euclid (w₀>−1
+predicted). Strongest smoking gun: massive scalar breathing mode at high GW
+frequencies (LIGO blind to it; need triangular detectors or resonant bars).
+Other tests: GW birefringence, phase-dependent gravity (BEC vs thermal), screened
+fifth force (atom interferometry), Planck-scale dispersion (gamma-ray bursts).
+Critical blocker: breathing mode mass ω_gap unknown until Part 29 determines K.
 
 CURRENT PRIORITY: Part 29 — substitution chain analysis (derive K or G from
 known equations). Engineering goal: determine decoupling energy cost.

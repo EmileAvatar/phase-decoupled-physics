@@ -1477,4 +1477,54 @@ physics. They should not be cited as if they are.
 
 ---
 
+## Sources Added in Falsifiable Predictions Document (2026-02-28)
+
+**Document:** [falsifiable_predictions.md](../research/falsifiable_predictions.md)
+
+### Wikipedia Sources
+
+264. **Equivalence principle**
+- **URL:** [Equivalence principle — Wikipedia](https://en.wikipedia.org/wiki/Equivalence_principle)
+- **Used in:** falsifiable_predictions.md §Prediction 3
+
+265. **Fifth force**
+- **URL:** [Fifth force — Wikipedia](https://en.wikipedia.org/wiki/Fifth_force)
+- **Used in:** falsifiable_predictions.md §Prediction 4
+
+### Academic Papers
+
+### Paper #75
+- **Author(s):** Abbott, B. P. et al. (LIGO/Virgo)
+- **Year:** 2018
+- **Title:** "A Search for Tensor, Vector, and Scalar Polarizations in the Stochastic Gravitational-Wave Background"
+- **Publication:** [arXiv:1802.10194](https://arxiv.org/abs/1802.10194)
+- **Used in:** falsifiable_predictions.md §Prediction 1
+- **Why:** Current constraints on non-tensor GW polarization modes
+
+### Paper #76
+- **Author(s):** Elder, B. et al.
+- **Year:** 2016
+- **Title:** "Atom-interferometry constraints on dark energy"
+- **Publication:** [Science](https://www.science.org/doi/abs/10.1126/science.aaa8883)
+- **Used in:** falsifiable_predictions.md §Prediction 3, 4
+- **Why:** Atom interferometry sensitivity to screened scalar forces
+
+### Paper #77
+- **Author(s):** Jaffe, M. et al.
+- **Year:** 2017
+- **Title:** "Testing sub-gravitational forces on atoms from a miniature in-vacuum source mass"
+- **Publication:** [Nature Physics](https://www.nature.com/articles/nphys4189)
+- **Used in:** falsifiable_predictions.md §Prediction 3, 4
+- **Why:** Short-range gravity tests with atom interferometry
+
+### Paper #78
+- **Author(s):** Badurina, L. et al. (AION)
+- **Year:** 2025
+- **Title:** "Searching for screened scalar forces with long-baseline atom interferometers"
+- **Publication:** [arXiv:2511.09750](https://arxiv.org/html/2511.09750)
+- **Used in:** falsifiable_predictions.md §Prediction 4
+- **Why:** Future atom interferometry constraints on screened scalar fields
+
+---
+
 End of glossary_sources.md
