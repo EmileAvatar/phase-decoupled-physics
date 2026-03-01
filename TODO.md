@@ -806,30 +806,23 @@ Strategic priority: derive κ → G from first principles.
   - String theory: R related to compactification geometry — any PDTP analogue?
   - Sakharov clearest path: determine N_eff (lattice symmetry) + a (breathing mode) independently
 
-- [ ] **Part 32: Koide-lattice analysis — use particle masses as input to constrain K and G** *(next)*
-  - **Core idea (bottom-up):** treat particle masses as EMERGENT from the spacetime lattice (not fundamental),
-    then reverse-engineer the lattice spring constant K and gravitational constant G from measured masses
-  - **Maxwell analogy:** Maxwell added ∂E/∂t to make Ampère's law consistent → got c = 1/√(ε₀μ₀) for free.
-    Here: find the missing "Maxwell term" connecting the lattice to one absolute mass scale
-  - **Koide formula as lattice eigenvalue constraint:**
-    - (√m_e + √m_mu + √m_tau)² / (m_e + m_mu + m_tau) = 3/2 (verified to 1 part in 10⁵)
-    - Brannen parameterization: √m_l = √M₀ × (1 + √2 cos(θ + 2πl/3)) for l = 0,1,2
-    - Eigenvlaues of a 3×3 circulant lattice matrix naturally produce this 2π/3 phase structure
-    - θ ≈ π/12 is the Koide phase angle — if derivable from lattice geometry, it's not a free parameter
-    - M₀ = ℏω₀ where ω₀ is the lattice fundamental mode frequency → gives K and a without G
-  - **Planck as emergent:** treat m_Pl as the mass of the heaviest stable lattice oscillator,
-    not as an input — derive it from K and a: m_Pl = ℏ/(ac)
-  - **Systematic search (Python script):** test each "Maxwell term" candidate:
-    1. a = λ_Compton(electron) — electron sets the lattice spacing
-    2. a = λ_Compton(electron) × α_EM — EM coupling scales the lattice (classical electron radius)
-    3. ω₀ from Koide M₀ = (m_e × m_mu × m_tau)^(1/3) — geometric mean sets the base mode
-    4. Lattice mass matrix: 3×3 circulant with eigenvalues = lepton masses → read off K
-  - **Sudoku test:** for each candidate, compute G_predicted and score against known G
-  - **Expected finding:** ratio G_predicted/G_known = (m_e/m_Pl)^N for some N
-    — if N ≠ 2, we have a new result; if N = 2 exactly, hierarchy restated in new language
-  - **Quarks too:** apply Koide-style analysis to up-type and down-type quark triplets
-    — do they suggest the same or different lattice parameters?
-  - Deliverables: Python script `koide_lattice_analysis.py` + research doc `koide_lattice_analysis.md`
+- [x] **Part 32: Koide-lattice analysis — use particle masses as input to constrain K and G** *(2026-03-01)*
+  - **Result:** 0/8 non-circular candidates pass (2 passes are circular — use G)
+  - **Key finding 1:** G_pred from electron Compton wavelength = (m_Pl/m_e)² × G_known (N=2.00 exactly)
+    — the hierarchy problem stated in its purest form
+  - **Key finding 2:** Koide base mass M₀ = μ² = 313.84 MeV ≈ m_proton/3 (constituent quark mass, 0.3% match)
+    — non-trivial coincidence worth tracking; may hint at lepton-QCD connection via shared lattice mode
+  - **Key finding 3:** The 3×3 circulant mass matrix naturally produces the Brannen eigenspectrum —
+    tight-binding ring lattice with μ on-site and μ/√2 hopping gives exactly the three lepton masses
+  - **Key finding 4:** Koide formula is a STRUCTURE theorem (mass ratios), not a SCALE theorem.
+    The "Maxwell term" cannot come from the mass spectrum alone; it requires one of:
+    - Breathing mode measurement: ω_gap → a → G (Strategy A, independent of G)
+    - Hierarchy ratio R = α_G/α_EM from lattice topology (Strategy B)
+    - Dvali species counting: N_s ~ 10³² modes/Planck volume → gravity weak by counting
+  - **Quark sector:** each quark triplet gives a different M₀ (94× or 2× lepton M₀) — no universal value
+    QCD corrections likely distort quark masses from their "bare" Koide values
+  - See [koide_lattice_analysis.md](docs/research/koide_lattice_analysis.md)
+  - Script: [koide_lattice_analysis.py](simulations/koide_lattice_analysis.py)
 
 ---
 
@@ -1132,12 +1125,17 @@ G = a^2/(N_eff*pi*hbar*c) cleanly separates two unknowns: lattice spacing
 and mode count. Breathing mode gap energy = 69.4 GeV (geometric mean model)
 — tantalizingly close to electroweak scale. Dvali needs ~10^32 species.
 
-CURRENT PRIORITY: Part 32 — Koide-lattice analysis (bottom-up derivation of K and G).
-Treat particle masses as emergent lattice eigenvalues. Koide formula gives mass RATIOS;
-the missing "Maxwell term" gives the absolute scale. Systematic Python search over
-candidate "Maxwell terms" to find which (if any) yields G without using G as input.
-If successful, this breaks the circularity from the particle-physics side.
-Parallel track: Strategy A (breathing mode detection → ω_gap → κ independently).
+Part 32: Koide-lattice analysis (2026-03-01). Bottom-up derivation attempt using the
+Koide/Brannen parameterization of lepton masses as lattice eigenvalues. Result: 0/8
+non-circular candidates give G_known. Key findings: (1) N=2.00 exactly for electron
+Compton — purest statement of the hierarchy problem; (2) M_0 = mu^2 = 313.84 MeV
+coincides with the constituent quark mass (m_p/3) to 0.3%; (3) 3x3 circulant mass
+matrix reproduces Brannen eigenspectrum exactly; (4) Koide is a STRUCTURE theorem,
+not a SCALE theorem — cannot provide the missing "Maxwell term".
+
+CURRENT PRIORITY: Strategy A — breathing mode detection (omega_gap → a → G).
+Strategy B — hierarchy ratio R = alpha_G/alpha_EM from lattice topology.
+Both require a non-gravitational measurement that accesses the Planck scale directly.
 ```
 
 ---
