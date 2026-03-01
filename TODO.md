@@ -732,43 +732,22 @@ Strategic priority: derive κ → G from first principles.
 
 ### Refraction as Universal Phase-Locking Mechanism (Speculative — Needs Consistency Check)
 
-- [ ] **Phase refraction as the physical mechanism for gravity and atomic binding** *(Proposed — 2026-03-01)*
-  - **Core idea:** spacetime is a denser phase medium; matter waves refract into it —
-    this refraction IS the phase-locking that PDTP identifies as gravity
-  - **Reference image:** [refraction-of-light-in-water](../assets/images/1722313593-refraction-of-light-in-water20150805-30610-expmepedited.webp)
-  - **Gravity = refraction of matter waves** into the spacetime phase medium
-    - Gravitational lensing is literally refraction (Substance 1 → Substance 2 in diagram)
-    - The phase gradient ∇φ near a mass = denser phase medium → waves bend inward
-    - Already established in PDTP Part 28c (high confidence)
-  - **Atomic orbitals = total internal reflection at the nuclear phase field**
-    - Electron wave enters the denser nuclear phase field and reflects back
-    - Stable orbital = resonant standing wave from repeated reflections
-    - Each shell (n=1, n=2, n=3...) = different resonant mode of the refraction cavity
-    - Matches de Broglie standing wave condition: nλ = 2πr (same math, new picture)
-  - **Ionization = exceeding the critical angle: ψ−φ = 90°**
-    - cos(ψ−φ) = 0 at 90° → gravity coupling vanishes → particle escapes
-    - Below 90°: bound (total internal reflection) → stable orbit
-    - Above 90°: cos goes negative → repulsion → particle free
-    - Ionization energy = energy required to rotate phase angle to 90°
-  - **Key PDTP connection:** ψ−φ = π/2 is the universal escape/decoupling point:
-    - At 90°: gravity α = 0 (decoupled from spacetime)
-    - At 90°: electron ionizes (decoupled from nucleus)
-    - At 90°: quark deconfines (speculative extension)
-    - **Same mechanism as Goal 2 (phase decoupling) and crossed polarizers (Part 28b)**
-  - **Consistency check scorecard (initial assessment):**
-    - Gravity = refraction: CONSISTENT (already in PDTP)
-    - cos(ψ−φ) = refraction angle: CONSISTENT (mathematically exact)
-    - Orbitals = total internal reflection: CONSISTENT (matches QM standing waves)
-    - Ionization = critical angle: CONSISTENT (cos → 0 at 90°)
-    - Specific ionization energy numbers: NOT CHECKED (needs calculation)
-    - Strong force / quark confinement = phase refraction: SPECULATIVE
-  - **Next steps to verify:**
-    1. Solve PDTP wave equation □ψ = −g sin(ψ−φ) for ψ around a proton → do
-       solutions give hydrogen energy levels (−13.6 eV, −3.4 eV, −1.5 eV...)?
-    2. Does the 90° critical angle map to ionization energy (13.6 eV) quantitatively?
-    3. Can orbital angular momentum quantum number l map to refraction angle?
-  - **Honest status:** conceptually consistent, quantitatively unverified
-  - **Depends on:** Part 23 (atomic phase coupling), Part 28b (polarization/decoupling)
+- [x] **Phase refraction as the physical mechanism for gravity and atomic binding** *(Part 31 — 2026-03-01)*
+  - **Core idea:** gravity and atomic binding are both wave refraction in phase media of different densities
+  - Gravity = refraction of matter waves (Part 28c, confirmed)
+  - EM binding = refraction with coupling g_EM = 27.2 eV (Hartree energy), 10^39 times stronger than gravity
+  - **Two-coupling problem identified:** gravitational g ~ 10^-40 eV vs EM g_EM ~ 27 eV — same mechanism, vastly different strength = the hierarchy problem restated in refraction language
+  - **Calculation 1 (KG → Schrödinger):** PDTP wave equation reduces to Schrödinger in non-relativistic limit — compatibility confirmed (standard result, not new)
+  - **Calculation 2 (critical angle):** Ionization angle is **60°, NOT 90°** (virial theorem for 1/r potentials)
+    - 60° = ionization threshold (cos = 0.5, E = g_EM/2 = 13.6 eV)
+    - 90° = total decoupling (cos = 0, E = g_EM = 27.2 eV)
+    - The simple "critical angle = 90°" picture FAILS for ionization — informative failure
+  - **Calculation 3 (angular momentum):** sin(θ) = √(l(l+1))/n correctly classifies orbital geometry (whispering gallery analogy) — qualitative match, not a derivation
+  - **Sudoku scorecard:** 11/11 tests pass for g_EM = Hartree energy
+  - **Gravitational Bohr radius:** a_G = ℏ²/(G m_e² m_p) = 1.2 × 10²⁹ m (larger than observable universe) — gravity too weak to form atoms at quantum scales
+  - **Honest conclusion:** unified physical picture (interpretive), not predictive; no new predictions beyond standard QM; hierarchy problem restated, not solved
+  - See [phase_refraction_analysis.md](docs/research/phase_refraction_analysis.md)
+  - Simulation: [phase_refraction_hydrogen.py](simulations/phase_refraction_hydrogen.py)
 
 ### Breaking the Circularity (from Part 29 follow-up)
 
@@ -826,6 +805,31 @@ Strategic priority: derive κ → G from first principles.
   - Dvali species bound: M_P² = N_s × Λ_species² — could N_s come from PDTP?
   - String theory: R related to compactification geometry — any PDTP analogue?
   - Sakharov clearest path: determine N_eff (lattice symmetry) + a (breathing mode) independently
+
+- [ ] **Part 32: Koide-lattice analysis — use particle masses as input to constrain K and G** *(next)*
+  - **Core idea (bottom-up):** treat particle masses as EMERGENT from the spacetime lattice (not fundamental),
+    then reverse-engineer the lattice spring constant K and gravitational constant G from measured masses
+  - **Maxwell analogy:** Maxwell added ∂E/∂t to make Ampère's law consistent → got c = 1/√(ε₀μ₀) for free.
+    Here: find the missing "Maxwell term" connecting the lattice to one absolute mass scale
+  - **Koide formula as lattice eigenvalue constraint:**
+    - (√m_e + √m_mu + √m_tau)² / (m_e + m_mu + m_tau) = 3/2 (verified to 1 part in 10⁵)
+    - Brannen parameterization: √m_l = √M₀ × (1 + √2 cos(θ + 2πl/3)) for l = 0,1,2
+    - Eigenvlaues of a 3×3 circulant lattice matrix naturally produce this 2π/3 phase structure
+    - θ ≈ π/12 is the Koide phase angle — if derivable from lattice geometry, it's not a free parameter
+    - M₀ = ℏω₀ where ω₀ is the lattice fundamental mode frequency → gives K and a without G
+  - **Planck as emergent:** treat m_Pl as the mass of the heaviest stable lattice oscillator,
+    not as an input — derive it from K and a: m_Pl = ℏ/(ac)
+  - **Systematic search (Python script):** test each "Maxwell term" candidate:
+    1. a = λ_Compton(electron) — electron sets the lattice spacing
+    2. a = λ_Compton(electron) × α_EM — EM coupling scales the lattice (classical electron radius)
+    3. ω₀ from Koide M₀ = (m_e × m_mu × m_tau)^(1/3) — geometric mean sets the base mode
+    4. Lattice mass matrix: 3×3 circulant with eigenvalues = lepton masses → read off K
+  - **Sudoku test:** for each candidate, compute G_predicted and score against known G
+  - **Expected finding:** ratio G_predicted/G_known = (m_e/m_Pl)^N for some N
+    — if N ≠ 2, we have a new result; if N = 2 exactly, hierarchy restated in new language
+  - **Quarks too:** apply Koide-style analysis to up-type and down-type quark triplets
+    — do they suggest the same or different lattice parameters?
+  - Deliverables: Python script `koide_lattice_analysis.py` + research doc `koide_lattice_analysis.md`
 
 ---
 
@@ -1128,11 +1132,12 @@ G = a^2/(N_eff*pi*hbar*c) cleanly separates two unknowns: lattice spacing
 and mode count. Breathing mode gap energy = 69.4 GeV (geometric mean model)
 — tantalizingly close to electroweak scale. Dvali needs ~10^32 species.
 
-CURRENT PRIORITY: Break the circularity — pursue Strategy A (independent κ
-measurement via breathing mode detection) and Strategy B (derive hierarchy
-ratio R from lattice microphysics). DESI/Euclid w₀ data is the near-term test.
-New path from Part 30: Sakharov's 2-unknown formula — determine N_eff from
-lattice symmetry + a from breathing mode → predicts G.
+CURRENT PRIORITY: Part 32 — Koide-lattice analysis (bottom-up derivation of K and G).
+Treat particle masses as emergent lattice eigenvalues. Koide formula gives mass RATIOS;
+the missing "Maxwell term" gives the absolute scale. Systematic Python search over
+candidate "Maxwell terms" to find which (if any) yields G without using G as input.
+If successful, this breaks the circularity from the particle-physics side.
+Parallel track: Strategy A (breathing mode detection → ω_gap → κ independently).
 ```
 
 ---
