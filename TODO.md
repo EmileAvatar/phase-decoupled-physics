@@ -730,6 +730,103 @@ Strategic priority: derive κ → G from first principles.
   - Derived c² = κ/ρ, G = c²/(4πκ), M_eff = (ρ/3)∫(∇θ₀)²d³x
   - GFT connection noted (Part 14) — tetrahedra as possible oscillators
 
+### Refraction as Universal Phase-Locking Mechanism (Speculative — Needs Consistency Check)
+
+- [ ] **Phase refraction as the physical mechanism for gravity and atomic binding** *(Proposed — 2026-03-01)*
+  - **Core idea:** spacetime is a denser phase medium; matter waves refract into it —
+    this refraction IS the phase-locking that PDTP identifies as gravity
+  - **Reference image:** [refraction-of-light-in-water](../assets/images/1722313593-refraction-of-light-in-water20150805-30610-expmepedited.webp)
+  - **Gravity = refraction of matter waves** into the spacetime phase medium
+    - Gravitational lensing is literally refraction (Substance 1 → Substance 2 in diagram)
+    - The phase gradient ∇φ near a mass = denser phase medium → waves bend inward
+    - Already established in PDTP Part 28c (high confidence)
+  - **Atomic orbitals = total internal reflection at the nuclear phase field**
+    - Electron wave enters the denser nuclear phase field and reflects back
+    - Stable orbital = resonant standing wave from repeated reflections
+    - Each shell (n=1, n=2, n=3...) = different resonant mode of the refraction cavity
+    - Matches de Broglie standing wave condition: nλ = 2πr (same math, new picture)
+  - **Ionization = exceeding the critical angle: ψ−φ = 90°**
+    - cos(ψ−φ) = 0 at 90° → gravity coupling vanishes → particle escapes
+    - Below 90°: bound (total internal reflection) → stable orbit
+    - Above 90°: cos goes negative → repulsion → particle free
+    - Ionization energy = energy required to rotate phase angle to 90°
+  - **Key PDTP connection:** ψ−φ = π/2 is the universal escape/decoupling point:
+    - At 90°: gravity α = 0 (decoupled from spacetime)
+    - At 90°: electron ionizes (decoupled from nucleus)
+    - At 90°: quark deconfines (speculative extension)
+    - **Same mechanism as Goal 2 (phase decoupling) and crossed polarizers (Part 28b)**
+  - **Consistency check scorecard (initial assessment):**
+    - Gravity = refraction: CONSISTENT (already in PDTP)
+    - cos(ψ−φ) = refraction angle: CONSISTENT (mathematically exact)
+    - Orbitals = total internal reflection: CONSISTENT (matches QM standing waves)
+    - Ionization = critical angle: CONSISTENT (cos → 0 at 90°)
+    - Specific ionization energy numbers: NOT CHECKED (needs calculation)
+    - Strong force / quark confinement = phase refraction: SPECULATIVE
+  - **Next steps to verify:**
+    1. Solve PDTP wave equation □ψ = −g sin(ψ−φ) for ψ around a proton → do
+       solutions give hydrogen energy levels (−13.6 eV, −3.4 eV, −1.5 eV...)?
+    2. Does the 90° critical angle map to ionization energy (13.6 eV) quantitatively?
+    3. Can orbital angular momentum quantum number l map to refraction angle?
+  - **Honest status:** conceptually consistent, quantitatively unverified
+  - **Depends on:** Part 23 (atomic phase coupling), Part 28b (polarization/decoupling)
+
+### Breaking the Circularity (from Part 29 follow-up)
+
+- [x] **Sudoku consistency check: test K = ℏ/(4πc) with candidate lattice spacings** *(Part 30a — 2026-03-01)*
+  - Assumed K = ℏ/(4πc) (G-free), tested 3 candidates for lattice spacing a:
+    - Planck length (control): 10/10 matches — recovers all physics exactly (circular)
+    - Electron Compton wavelength: 0/10 — off by 10^45 everywhere
+    - Proton Compton wavelength: 0/10 — off by 10^38 everywhere
+  - Bonus tests: geometric mean, harmonic mean, Bohr radius, α_EM scaling — all fail
+  - No clean integer power of α_EM fixes it (n = 10.47 for electron, 8.95 for proton)
+  - **Key finding:** correction factor = (m_particle/m_Planck)² exactly for both particles
+  - **Insight:** the Sudoku error IS the hierarchy problem — deriving G from particle masses
+    requires solving the hierarchy problem first
+  - Reverse engineering always gives a = l_P — algebraic identity, not coincidence
+  - Python script: [sudoku_consistency_check.py](simulations/sudoku_consistency_check.py)
+  - Full output: [sudoku_consistency_output.md](simulations/sudoku_consistency_output.md)
+
+- [x] **Research external frameworks for deriving G** *(Part 30b — 2026-03-01)*
+  - How do non-PDTP frameworks derive G? Survey of 8 approaches:
+    - Sakharov induced gravity: G ~ 1/(N_eff × Λ²) — most promising for PDTP
+    - String theory: G₄ = 8π⁶ g_s² l_s⁸ / V₆ — genuine derivation, but landscape problem
+    - Volovik superfluid: G_eff from condensate (ρ, c_s, ξ) — formally non-circular
+    - All others (LQG, CDT, causal sets, entropic gravity): G is input
+  - **No framework derives G from purely non-gravitational measurements**
+  - Best strategy: Sakharov + Volovik hybrid — breathing mode → ω_gap → κ → G
+
+- [x] **Apply Sakharov's induced gravity formula to PDTP lattice** *(Part 30b — 2026-03-01)*
+  - Sakharov (Visser 2002): 1/(16πG) = N_eff × Λ²/(16π²)
+  - SM content: N_eff = 49/30 ≈ 1.63 (vectors dominate: +2.07, fermions: −0.47, scalars: +0.03)
+  - Required Λ for correct G: Λ = 1.39 × M_Planck → CIRCULAR
+  - PDTP lattice: a = sqrt(N_eff × π) × l_P for all N_eff values → still Planck scale
+  - Sakharov + PDTP gives new bridge: G = a²/(N_eff × π × ℏ × c)
+  - **Cleanly separates two unknowns:** lattice spacing `a` and mode count `N_eff`
+  - String theory mapping: G ∝ g_s² × l_s² (string coupling × string length)
+  - PDTP analogue: G = c²/(4πv²) where v = condensate VEV → same structure
+  - **Honest result:** circularity is UNIVERSAL — every framework trades G for other unknowns
+  - Python script: [external_G_derivations.py](simulations/external_G_derivations.py)
+  - Full output: [external_G_derivations_output.md](simulations/external_G_derivations_output.md)
+
+- [x] **Breathing mode gap energy analysis** *(Part 30b — 2026-03-01)*
+  - E_gap = sqrt(2 × ℏc × E_Planck) ≈ 69.4 GeV (geometric mean model)
+  - Remarkably close to electroweak scale: E_gap/m_W = 0.86, E_gap/m_H = 0.55
+  - If this is physical (not coincidence), the hierarchy problem IS the breathing mode mass problem
+  - Simplest lattice model gives E_gap = sqrt(2) × E_Planck (too high) — model-dependent
+
+- [x] **Dvali species bound applied to PDTP** *(Part 30b — 2026-03-01)*
+  - M_P² = N_s × Λ_species² (Dvali 2007)
+  - SM has ~118 DOF → Λ_species ≈ 10¹⁸ GeV (still Planck-ish)
+  - To get Λ_species ~ electroweak: need N_s ~ 10³² species
+  - For Λ_species ~ 1 GeV (nuclear): need N_s ~ 10³⁸ (= α_G/α_EM hierarchy!)
+  - **Open question:** does the PDTP lattice have ~10³² modes per Planck volume?
+
+- [ ] **Derive hierarchy ratio R = α_G/α_EM from lattice structure**
+  - From Chain 7: if R ~ 10⁻³⁷ can be derived, G follows from particle physics alone
+  - Dvali species bound: M_P² = N_s × Λ_species² — could N_s come from PDTP?
+  - String theory: R related to compactification geometry — any PDTP analogue?
+  - Sakharov clearest path: determine N_eff (lattice symmetry) + a (breathing mode) independently
+
 ---
 
 ## Status
@@ -1021,9 +1118,21 @@ violation absent → Sakharov baryogenesis blocked (honest gap). Antimatter grav
 g_anti/g = 1.000 predicted, consistent with ALPHA-g 2023. BEC vortex-antivortex
 physics provides the physical precedent for winding-number antimatter.
 
+Part 30: Breaking the G circularity (2026-03-01). Two-part analysis:
+(a) Sudoku consistency check — assumed K = hbar/(4*pi*c), tested 3 lattice
+spacings. ALL fail except a = l_P (circular). Correction factor = (m/m_P)^2
+exactly — the Sudoku error IS the hierarchy problem.
+(b) External frameworks survey — Sakharov, string theory, Volovik, Dvali,
+plus 4 others. NO framework derives G non-circularly. Sakharov's formula
+G = a^2/(N_eff*pi*hbar*c) cleanly separates two unknowns: lattice spacing
+and mode count. Breathing mode gap energy = 69.4 GeV (geometric mean model)
+— tantalizingly close to electroweak scale. Dvali needs ~10^32 species.
+
 CURRENT PRIORITY: Break the circularity — pursue Strategy A (independent κ
 measurement via breathing mode detection) and Strategy B (derive hierarchy
 ratio R from lattice microphysics). DESI/Euclid w₀ data is the near-term test.
+New path from Part 30: Sakharov's 2-unknown formula — determine N_eff from
+lattice symmetry + a from breathing mode → predicts G.
 ```
 
 ---
