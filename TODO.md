@@ -824,6 +824,27 @@ Strategic priority: derive κ → G from first principles.
   - See [koide_lattice_analysis.md](docs/research/koide_lattice_analysis.md)
   - Script: [koide_lattice_analysis.py](simulations/koide_lattice_analysis.py)
 
+- [x] **Comprehensive Solver + Plain-Language Summary** *(2026-03-01)*
+  - **Deliverable A:** [docs/overview/pdtp_findings_summary.md](docs/overview/pdtp_findings_summary.md)
+    — complete plain-English summary of all findings, accessible to non-PDTP readers
+    — covers: core idea, all simulation results, confirmed predictions, the central
+      G-circularity mystery, falsifiable predictions, and strategy A/B next steps
+  - **Deliverable B:** Modular solver architecture in [simulations/solver/](simulations/solver/)
+    — `print_utils.py`: unified console + file output (ReportWriter class)
+    — `sudoku_engine.py`: 13 verified physics tests as a reusable engine
+    — `test_generator.py`: generates named, power-law, and mass-combo candidates
+    — `brute_force_runner.py`: sorts all candidates by closeness to G_known
+    — `main.py`: orchestrates all phases, writes timestamped report to outputs/
+  - **Key new finding:** Power-law sweep of 729 combinations of
+    a = l_P × (m_e/m_P)^p1 × (m_p/m_P)^p2 × alpha^p3 found:
+    Best non-circular: p1=−1, p2=+1, p3=+1.5 gives G_pred/G_known = 1.31 (0.12 decades off)
+    — dramatically better than Part 32 best (10^44 off), but still uses l_P (circular)
+  - **Analytical proof:** The constraint equation for G_pred = G_known has infinitely
+    many solutions in (p1,p2,p3), but all reduce to a = l_P = sqrt(hbar*G/c^3).
+    The circularity is algebraically proven for this parametric family.
+  - Run with: `python simulations/solver/main.py`
+  - Report saved to: `simulations/solver/outputs/` (timestamped .txt)
+
 ---
 
 ## Status
@@ -1133,10 +1154,108 @@ coincides with the constituent quark mass (m_p/3) to 0.3%; (3) 3x3 circulant mas
 matrix reproduces Brannen eigenspectrum exactly; (4) Koide is a STRUCTURE theorem,
 not a SCALE theorem — cannot provide the missing "Maxwell term".
 
+Comprehensive Solver (2026-03-01): Modular solver architecture in simulations/solver/.
+Power-law sweep of 729 combinations: best non-circular result is
+a = l_P*(m_e/m_P)^-1*(m_p/m_P)^1*alpha^1.5, giving G/G_known = 1.31 (0.12 decades off).
+Analytical proof: the constraint for G_pred=G_known always forces a=l_P (circular).
+Plain-language summary document: docs/overview/pdtp_findings_summary.md
+
 CURRENT PRIORITY: Strategy A — breathing mode detection (omega_gap → a → G).
 Strategy B — hierarchy ratio R = alpha_G/alpha_EM from lattice topology.
 Both require a non-gravitational measurement that accesses the Planck scale directly.
 ```
+
+Phase 7 — LISA Breathing Mode Simulation, Strategy A (2026-03-01).
+Numerical simulation of the omega_gap → G chain (simulations/solver/lisa_sim.py).
+6 frequency models (M1–M6b) mapping omega_gap ↔ lattice spacing, all G-free in
+the backward direction. Key results: (1) backward chain validated — M1/M2/M3/M4
+all recover 13/13 on Sudoku engine when given l_P as input, confirming the chain
+is logically non-circular (circularity is only in the input source, not the chain
+itself); (2) required omega_gap for G_pred = G_known = 2.95×10⁴² Hz (Planck
+frequency) — far outside any planned detector; (3) LISA gap = 43 orders of
+magnitude; ET gap = 38 orders; (4) what-if table: a LISA-band breathing mode
+detection (0.0001–0.1 Hz) would imply G_pred 80–93 decades off from G_known.
+This is the hierarchy problem expressed in frequency space. Honest conclusion:
+Strategy A is logically sound but needs a Planck-frequency detector — a technology
+gap comparable to 38–43 orders of magnitude.
+
+Phase 8 — Orbital Quantization Reframe, Strategy B (2026-03-01).
+Reframing the hierarchy problem as an orbital quantum number problem
+(simulations/solver/orbital_scanner.py). Key insight: n = m_P/m_particle =
+λ_Compton/l_P is a dimensionless integer for each SM particle. If n can be
+derived from lattice topology (without G), the chain a_0 = λ/n → G = c³a₀²/ħ
+is fully non-circular. Sudoku engine confirms G_pred/G_known = 1.000000 for all
+11 particles (chain validates). Key identity: n² = 1/α_G (the hierarchy problem
+IS the orbital number problem). Four candidate mechanisms surveyed: (1) vortex
+winding number [quantized, G-free, most natural in PDTP]; (2) cosmological phase
+accumulation [n ∝ age of universe — implies time-varying G, constrained by
+observation]; (3) 3D lattice mode count [N_modes^½ ~ 10⁵⁸ vs n_e ~ 10²², off by
+~10³⁵ — doesn't work]; (4) Dvali holographic species count [(R_H/l_P)² ~ 10¹²²
+vs n_e² ~ 10⁴⁵, off by ~10⁷⁷ — doesn't work at face value]. Direction B of the
+reframe: Compton wavelength IS the ground-state lattice spacing; Planck length
+emerges as l_P = λ/n from n² sub-modes inside each Compton cell. This is the
+Dvali picture in PDTP language. Honest conclusion: none of the four mechanisms
+closes cleanly, but mechanism (1) — particle as vortex with winding n — is the
+most natural because the PDTP condensate phase φ already exists for winding.
+
+---
+
+## Part 33: Vortex Winding Number Derivation — COMPLETED (2026-03-01)
+
+**Status: DONE.** Full derivation: [vortex_winding_derivation.md](docs/research/vortex_winding_derivation.md)
+Verification code: `simulations/solver/vortex_winding.py` (Phase 9 of solver)
+
+Key results:
+- Particle = vortex line in condensate; φ(r,θ) = nθ satisfies ∇²φ = 0 ✓
+- Vortex core condition: v_s(r_core) = c → r_core = n × λ_cond
+- Setting r_core = λ_Compton of the particle: **n = m_cond / m** [PDTP Original]
+- G-free chain: m_cond → n → a_0 = ħ/(m_cond c) → **G = ħc/m_cond²** [G-free given m_cond]
+- Sudoku: 13/13 pass for all 11 SM particles
+- **BONUS: Strategy A = Strategy B** — omega_gap = m_cond c²/ħ → same open question
+- One free parameter remains: m_cond (= m_P). What fixes it?
+
+---
+
+## Part 34: Condensate Self-Consistency for m_cond (NEXT TASK)
+
+**Priority: HIGH — the single remaining open question.**
+
+**Context:** Part 33 showed G = ħc/m_cond² is G-free given m_cond. The last
+step is to fix m_cond from the condensate's own micro-physics, without G.
+
+**The self-consistency equation (from BEC theory):**
+In a weakly-interacting BEC, the excitation gap obeys:
+```
+  omega_gap² = (g_coupling × ρ_cond) / m_cond
+```
+where:
+- omega_gap = m_cond c² / ħ  (breathing mode gap = quasiparticle mass, Part 33)
+- ρ_cond = condensate number density  [derivable from lattice: ρ = κ/c², κ = K/a₀²]
+- g_coupling = the PDTP coupling constant  [proportional to particle mass in PDTP]
+
+Substituting omega_gap and expanding:
+```
+  (m_cond c²/ħ)² = (g_coupling × ρ_cond) / m_cond
+  m_cond³ = ħ² × g_coupling × ρ_cond / c⁴
+```
+This is a cubic equation for m_cond in terms of g_coupling and ρ_cond.
+
+**The task:** Express g_coupling and ρ_cond in terms of known (G-free) constants
+and solve for m_cond. If the solution is m_cond = m_P without using G as input,
+the circularity is broken.
+
+**What to investigate:**
+1. g_coupling in PDTP: the coupling constant in the Lagrangian L = g cos(ψ−φ).
+   From Part 21: g ~ mc²/ħ (Compton frequency). Which m? The condensate itself
+   (g = m_cond c²/ħ)?
+2. ρ_cond in PDTP: from Part 21, ρ = κ/c² where κ = K/a₀² and K = ħ/(4πc).
+   With a₀ = ħ/(m_cond c): ρ_cond = m_cond²/(4πħc) [G-free!]
+3. Substitute both into the cubic: solve for m_cond.
+4. Sudoku check the solution.
+
+**Expected difficulty:** Medium. The algebra is tractable; the challenge is
+ensuring g_coupling is expressed correctly for the PDTP condensate (the coupling
+is to the SPACETIME oscillators, not to a test particle).
 
 ---
 
