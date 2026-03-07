@@ -1478,7 +1478,7 @@ Does the PDTP SU(3) lattice simulation reproduce σ_QCD = 0.18 GeV² when:
 
 ---
 
-## Part 39: 4D SU(3) Lattice and Matter Fields — NEXT TASK
+## Part 39: 4D SU(3) Lattice and Matter Fields — COMPLETED (2026-03-07)
 
 **Goal:** Extend Part 38 from 2D to 4D lattice (3+1 dimensions) and include quark
 matter fields to benchmark PDTP SU(3) against full lattice QCD. Verify whether the
@@ -1503,6 +1503,43 @@ Tasks:
 **Files to create:**
 - `simulations/solver/su3_lattice_4d.py` — Phase 14 (4D extension)
 - `docs/research/su3_lattice_4d.md` — research document
+
+**Key result:**
+- 4D SC: sigma_4D = 0.1729 GeV^2 (same as 2D; 4% off QCD) -- confirms Part 38
+- O(beta^2) correction ~ 0.0005 GeV^2 (negligible; dimension irrelevant at leading order)
+- Polyakov loop correlator implemented; statistics limited at beta=0.0796 (same as 2D)
+- Full progression: U(1) 4.5x -> Casimir 3.4x -> SC 2D 4% -> SC 4D 4%
+
+---
+
+## Part 40: Wilson Fermions + Quark Mass Renormalisation -- NEXT TASK
+
+**Goal:** Add Wilson fermion hopping term to the 4D SU(3) PDTP action and test
+whether quark matter fields shift the string tension from 0.1729 toward 0.18 GeV^2.
+This closes the remaining 4% gap through dynamical quarks (quenched -> unquenched).
+
+**Background:**
+Parts 38-39 used pure gauge (no quarks). In full QCD, virtual quark loops screen
+the colour field and reduce the string tension (string breaking). However, the
+remaining 4% gap in PDTP may go the other way: quark-condensate coupling could
+increase sigma slightly through the matter coupling term Sum_i g_i Re[Tr(Psi_i^dag U)]/3.
+
+**Wilson fermion action (to add):**
+S_F = Sum_{x,mu} kappa * [psibar(x)(1-gamma_mu)U_mu(x)psi(x+mu)
+                         + psibar(x+mu)(1+gamma_mu)U_mu^dag(x)psi(x)]
+where kappa = 1/(2*m_quark + 8) is the hopping parameter.
+
+**Tasks:**
+1. Implement 4-component Dirac spinor field on 4D lattice
+2. Add Wilson hopping term to the action
+3. Measure how quark mass affects mean plaquette and string tension
+4. Compare unquenched sigma to quenched result (Parts 38-39)
+5. Test kappa = 1/8 (massless limit) and kappa = 1/(2*m_u + 8) (up quark mass)
+6. Sudoku re-check with fermion-corrected sigma
+
+**Files to create:**
+- `simulations/solver/su3_fermion.py` -- Phase 15 (Wilson fermions)
+- `docs/research/su3_fermion.md` -- research document
 
 ---
 

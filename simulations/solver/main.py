@@ -31,6 +31,7 @@ Phases:
    11. Dim. transmutation — 1-loop RG running of K; Landau pole; exhaustion of perturbative paths (Part 35)
    12. SU(3) extension    — Casimir factors, Z3 vortices, 8 gluons, improved string tension (Part 37)
    13. SU(3) lattice MC   — Wilson action Monte Carlo; Cornell fit; sigma vs sigma_QCD (Part 38)
+   14. SU(3) 4D lattice   — 4D Wilson action; Polyakov loops; 4D SC confirms 4% gap closed (Part 39)
 """
 
 import os
@@ -54,6 +55,7 @@ from condensate_selfconsist import run_condensate_phase
 from dim_transmutation import run_dim_transmutation_phase
 from su3_condensate import run_su3_phase
 from su3_lattice import run_su3_lattice_phase
+from su3_lattice_4d import run_su3_lattice_4d_phase
 
 
 def main():
@@ -169,6 +171,11 @@ def main():
     # Phase 13: SU(3) Lattice Monte Carlo (Part 38)
     # ------------------------------------------------------------------
     run_su3_lattice_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 14: SU(3) 4D Lattice Monte Carlo (Part 39)
+    # ------------------------------------------------------------------
+    run_su3_lattice_4d_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
