@@ -27,6 +27,10 @@ Phases:
     7. LISA simulation    — breathing mode omega_gap -> G (Strategy A)
     8. Orbital scanner    — n = m_P/m reframe; Planck as excited state? (Strategy B)
     9. Vortex winding     — particle as vortex; n from core condition; A+B unified (Part 33)
+   10. Condensate BEC     — self-consistency: c_s=c; m_cond still free; dim. transmutation? (Part 34)
+   11. Dim. transmutation — 1-loop RG running of K; Landau pole; exhaustion of perturbative paths (Part 35)
+   12. SU(3) extension    — Casimir factors, Z3 vortices, 8 gluons, improved string tension (Part 37)
+   13. SU(3) lattice MC   — Wilson action Monte Carlo; Cornell fit; sigma vs sigma_QCD (Part 38)
 """
 
 import os
@@ -46,6 +50,10 @@ from brute_force_runner import (run_phase, run_analytical,
 from lisa_sim import run_lisa_phase
 from orbital_scanner import run_orbital_phase
 from vortex_winding import run_vortex_phase
+from condensate_selfconsist import run_condensate_phase
+from dim_transmutation import run_dim_transmutation_phase
+from su3_condensate import run_su3_phase
+from su3_lattice import run_su3_lattice_phase
 
 
 def main():
@@ -141,6 +149,26 @@ def main():
     # Phase 9: Vortex Winding Number (Part 33 -- Strategy A+B unified)
     # ------------------------------------------------------------------
     run_vortex_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 10: Condensate Self-Consistency (Part 34)
+    # ------------------------------------------------------------------
+    run_condensate_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 11: Dimensional Transmutation (Part 35)
+    # ------------------------------------------------------------------
+    run_dim_transmutation_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 12: SU(3) Condensate Extension (Part 37)
+    # ------------------------------------------------------------------
+    run_su3_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 13: SU(3) Lattice Monte Carlo (Part 38)
+    # ------------------------------------------------------------------
+    run_su3_lattice_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
