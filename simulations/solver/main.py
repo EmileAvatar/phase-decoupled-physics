@@ -32,6 +32,7 @@ Phases:
    12. SU(3) extension    — Casimir factors, Z3 vortices, 8 gluons, improved string tension (Part 37)
    13. SU(3) lattice MC   — Wilson action Monte Carlo; Cornell fit; sigma vs sigma_QCD (Part 38)
    14. SU(3) 4D lattice   — 4D Wilson action; Polyakov loops; 4D SC confirms 4% gap closed (Part 39)
+   15. Wilson fermions     — hopping expansion; sea quarks reduce sigma; quenched result best (Part 40)
 """
 
 import os
@@ -56,6 +57,7 @@ from dim_transmutation import run_dim_transmutation_phase
 from su3_condensate import run_su3_phase
 from su3_lattice import run_su3_lattice_phase
 from su3_lattice_4d import run_su3_lattice_4d_phase
+from su3_fermion import run_su3_fermion_phase
 
 
 def main():
@@ -176,6 +178,11 @@ def main():
     # Phase 14: SU(3) 4D Lattice Monte Carlo (Part 39)
     # ------------------------------------------------------------------
     run_su3_lattice_4d_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 15: Wilson Fermions + Quark Mass Renormalisation (Part 40)
+    # ------------------------------------------------------------------
+    run_su3_fermion_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

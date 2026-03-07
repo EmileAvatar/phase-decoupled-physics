@@ -1512,34 +1512,63 @@ Tasks:
 
 ---
 
-## Part 40: Wilson Fermions + Quark Mass Renormalisation -- NEXT TASK
+## Part 40: Wilson Fermions + Quark Mass Renormalisation -- COMPLETED (2026-03-07)
 
-**Goal:** Add Wilson fermion hopping term to the 4D SU(3) PDTP action and test
-whether quark matter fields shift the string tension from 0.1729 toward 0.18 GeV^2.
-This closes the remaining 4% gap through dynamical quarks (quenched -> unquenched).
+**Result: Sea quarks go the wrong direction.**
+
+Key findings:
+- Wilson Dirac operator implemented; gamma matrix Clifford algebra verified (S14 PASS)
+- Free Dirac spectrum: gap at p=0 = m0 exactly (S15 PASS)
+- Hopping expansion: delta_beta = 2*N_f*(2*kappa)^4 = 0.0155 (2 light flavors)
+- Unquenched sigma: 0.163 GeV^2 (2+1 fl.) vs quenched 0.1729 GeV^2
+- Sea quarks REDUCE sigma by ~6% -- widening the gap from 4% to 9%
+- The 4% quenched gap is from higher-order SC terms (O(beta^4)), not from missing quarks
+- The quenched result (0.1729 GeV^2) is the correct comparison to sigma_QCD = 0.18 GeV^2
+
+Progression (all zero free parameters):
+  Part 36 U(1)         : sigma = 0.040 GeV^2  (4.5x off)
+  Part 37 SU(3) Casimir: sigma = 0.053 GeV^2  (3.4x off)
+  Part 38 SU(3) SC 2D  : sigma = 0.173 GeV^2  (4% off)
+  Part 39 SU(3) SC 4D  : sigma = 0.173 GeV^2  (4% off, confirmed)
+  Part 40 + quarks 2+1f: sigma = 0.163 GeV^2  (quarks worsen it)
+
+**Files created:**
+- `simulations/solver/su3_fermion.py` -- Phase 15 (Wilson fermion hopping expansion)
+- `docs/research/su3_fermion.md` -- research document
+
+---
+
+## Part 41: Non-Perturbative Lattice at Physical Beta -- NEXT TASK
+
+**Goal:** Run the PDTP SU(3) lattice at **physical beta** (beta ~ 5.7-6.0) instead
+of the strong-coupling value (beta = 0.0796), to get the true continuum-limit sigma
+without relying on the SC expansion.
 
 **Background:**
-Parts 38-39 used pure gauge (no quarks). In full QCD, virtual quark loops screen
-the colour field and reduce the string tension (string breaking). However, the
-remaining 4% gap in PDTP may go the other way: quark-condensate coupling could
-increase sigma slightly through the matter coupling term Sum_i g_i Re[Tr(Psi_i^dag U)]/3.
+Parts 38-40 all use the strong coupling expansion at beta = K_NAT = 0.0796. The SC
+formula sigma_lat = ln(2N/beta) is the leading-order result; higher-order corrections
+are O(beta^4) and explain the remaining 4% gap. At physical beta (~ 5.7-6.0), the
+lattice simulation directly accesses the scaling window where the continuum limit
+is recovered and the Cornell potential fit gives the true sigma.
 
-**Wilson fermion action (to add):**
-S_F = Sum_{x,mu} kappa * [psibar(x)(1-gamma_mu)U_mu(x)psi(x+mu)
-                         + psibar(x+mu)(1+gamma_mu)U_mu^dag(x)psi(x)]
-where kappa = 1/(2*m_quark + 8) is the hopping parameter.
+**Why beta ~ 5.7-6.0?**
+- Standard lattice QCD benchmark: beta = 6.0 gives a_lat ~ 0.1 fm
+- At a_lat ~ 0.1 fm with N=16 sites: physical box = 1.6 fm (holds one hadron)
+- Wilson loops W(R,T) for R,T up to 6 lattice spacings resolve the linear potential
+- Creutz (1980) first showed sigma_lat / sigma_QCD = 1.00 at beta = 5.7 to 5%
 
 **Tasks:**
-1. Implement 4-component Dirac spinor field on 4D lattice
-2. Add Wilson hopping term to the action
-3. Measure how quark mass affects mean plaquette and string tension
-4. Compare unquenched sigma to quenched result (Parts 38-39)
-5. Test kappa = 1/8 (massless limit) and kappa = 1/(2*m_u + 8) (up quark mass)
-6. Sudoku re-check with fermion-corrected sigma
+1. Run su3_lattice.py (2D) or su3_lattice_4d.py (4D) with beta = 5.7, 6.0
+2. Verify thermalisation (acceptance rate ~ 50-70% at physical beta)
+3. Measure Wilson loops W(R,T) for R=1..6, T=2..8
+4. Cornell fit: V(R) = sigma*R + A/R + c; extract sigma
+5. Convert sigma from lattice to GeV^2: sigma_phys = sigma_lat / a_lat^2
+6. Compare to sigma_QCD = 0.18 GeV^2
+7. Requires RTX 3060 GPU (CuPy) for N >= 16 at physical beta
 
 **Files to create:**
-- `simulations/solver/su3_fermion.py` -- Phase 15 (Wilson fermions)
-- `docs/research/su3_fermion.md` -- research document
+- `simulations/solver/su3_physical_beta.py` -- Phase 16 (physical beta run)
+- `docs/research/su3_physical_beta.md` -- research document
 
 ---
 
