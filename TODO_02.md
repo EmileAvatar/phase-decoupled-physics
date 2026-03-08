@@ -135,10 +135,15 @@ symmetry groups). The following **values and mechanisms** remain open:
   - 10/10 Sudoku tests pass
   - Docs: `docs/research/wz_boson_masses.md`; Script: Phase 24 `wz_boson_masses.py`
 
-- [ ] **Chirality — why SU(2) couples only to left-handed particles**
-  - Biggest structural gap: PDTP Lagrangian has no left/right asymmetry
-  - Parity violation is observed (Wu 1956) but not yet explained
-  - Possible path: Z₂ vortex chirality from condensate winding direction?
+- [x] **Chirality — why SU(2) couples only to left-handed particles** — Part 50 RESOLVED (partial)
+  - PDTP Original: Z2 vortex winding direction (+1/2/-1/2) = chirality (left/right)
+  - PDTP Original: maximal parity violation A=-1 is AUTOMATIC — binary winding is not tunable; no partial violation possible
+  - PDTP Original: right-handed neutrino absent = -1/2 winding state decoupled from EW condensate
+  - NEGATIVE RESULT: which hand (L vs R) the EW condensate chose = free parameter of vacuum (spontaneous P-breaking)
+  - PDTP Lagrangian is P-symmetric; vacuum breaks parity analogous to ferromagnet choosing magnetization direction
+  - CKM matrix: (N-1)^2 = 4 parameters for N=3 generations (3 angles + 1 CP phase); all underdetermined
+  - 10/10 Sudoku tests pass (Dirac algebra exact; gamma5 eigenvalues exact; Wu asymmetry; CKM count)
+  - Docs: `docs/research/chirality_parity_violation.md`; Script: Phase 25 `chirality_parity.py`
 
 - [ ] **Three generations of fermions (electron, muon, tau + neutrinos)**
   - Standard Model has 3 identical copies of the fermion sector at different masses
@@ -176,6 +181,90 @@ symmetry groups). The following **values and mechanisms** remain open:
 - [ ] **CP violation and baryogenesis**
   - PDTP Lagrangian is C, P, T invariant separately → no CP violation
   - Sakharov baryogenesis blocked — needs an extension to break CP
+
+---
+
+## Speculation (not part of PDTP — ideas to investigate)
+
+These are unverified intuitions. No Sudoku check, no Part number, no derivation yet.
+They are recorded here so they are not lost. Each needs a full plan and user approval before becoming a Part.
+
+- [ ] **Multiple layers of spacetime / condensate**
+  - PDTP already has three confirmed condensate layers: gravitational (m_P), QCD (Lambda_QCD), electroweak (v=246 GeV)
+  - Speculation: each SM gauge group (U(1), SU(2), SU(3)) = a separate condensate layer nested inside the one below
+  - Deeper layer = higher energy scale = larger condensate stiffness
+  - Particles at each layer only "see" the layer below as a fixed background medium — they ride it without knowing it's there
+  - Open question: what is the gravitational condensate itself condensed FROM?
+    - Either infinite regress (layer below layer below...) or bottoms out at something genuinely discrete
+    - PDTP analogue of "what is the ether made of?"
+    - Loop quantum gravity answer: spin network (discrete spacetime); string theory answer: branes
+  - Observable consequence (if true): each layer transition (EW → QCD → gravity) should leave a signature
+    - EW phase transition at v=246 GeV: already observed (Higgs)
+    - QCD confinement transition at Lambda_QCD: already observed (hadronisation)
+    - Gravitational condensate transition: unknown scale — possibly at Planck energy
+  - What would make this a Part: a falsifiable prediction that differs from SM; a mechanism for the nesting;
+    or a derivation that the SM gauge groups MUST be separate condensates (not just an analogy)
+  - Precedent: Wen (2004) string-net condensation — all SM forces emerge from one underlying quantum liquid
+
+- [ ] **Phase-gradient coil drum — proposed analog experiment**
+  - Core idea: instead of driving matter at 10^23 Hz (proton Compton frequency), create a SPATIAL phase gradient
+    that travels through a stack of coils, each offset in phase — a slow-wave traveling phase structure
+  - Engineering concept: N coils in a drum/toroid, each carrying the signal at phase offset 360/N degrees
+    - Coil 1: phase 0deg, Coil 2: phase 120deg, Coil 3: phase 240deg (three-phase minimum; more = smoother)
+    - Creates a phase wave traveling axially at v_phase = omega * coil_spacing (controllable, not c)
+    - This is exactly how a linear induction motor and traveling wave tube amplifier work — proven technology
+  - PDTP connection: driving EM phase pattern -> couples (weakly) to gravitational condensate phase phi
+    - If EM-to-gravitational coupling exists (Tajmar 2006 hint: anomalous gravitomagnetic field from spinning SC)
+    - Then coil array is a lever: EM phase drive -> gravitational condensate phase shift -> alpha = cos(psi-phi) -> 0
+    - The collective condensate mode frequency (omega_gap) is the target, NOT individual particle Compton frequency
+    - Analogy: BCS gap (100 GHz) vs electron Compton frequency (10^20 Hz) — 9 orders lower because COLLECTIVE
+  - Saucer geometry: toroidal field is contained (no exhaust, no external reaction force visible)
+    - Three amplifiers at 120deg spacing = three-phase — matches Lazar's claimed craft geometry
+    - Force appears as internal pressure with no external propulsion signature
+  - Visual references:
+    - Phase sequence (3-phase rotating field): ![phase sequence](assets/images/phase sequesnce 02182.png)
+    - Coil array schematic (toroidal phase-gradient ring): ![coil schematic](assets/images/phase_gradient_coil_schematic.png)
+    - Analog simulation concepts (EM levitation, eddy current inertia reduction): ![analog sim](assets/images/pdtp_analog_simulation.png)
+  - Testable TODAY (no exotic materials):
+    1. Build toroidal coil drum (copper wire, fiberglass former, STM32 controller — ~£200)
+    2. Place YBCO superconducting ring inside (liquid nitrogen, 77K — ~£100)
+    3. Sweep phase rotation frequency through coil array
+    4. Measure assembly weight on precision scale (mg resolution)
+    - Prediction: if Tajmar coupling is real, frequency-dependent weight anomaly appears
+    - PDTP would predict the resonance frequency once m_cond is known
+  - What would make this a Part: derive the EM-to-gravitational phase coupling constant from PDTP Lagrangian;
+    predict the resonance frequency; design a discriminating test vs classical EM effects
+
+- [ ] **Acoustic standing wave levitation — inverted as decoupling mechanism**
+  - Standard acoustic levitation: transducer generates standing wave; object sits PASSIVELY at pressure node
+    - Object trapped where pressure gradient = gravity (node = zero net acoustic force)
+    - No propulsion, no contact — pure wave interaction with matter
+  - Visual references:
+    - How acoustic levitation works (transducer/reflector/node diagram): ![acoustic levitation](assets/images/acoustic standing waves levitation H19fQ==.jpg)
+    - Actual levitation experiment (multiple objects at nodes, pressure heatmap): ![acoustic nodes](assets/images/acoustic standing waves levitation 472926_1_En_2_Fig1_HTML.png)
+  - The KEY INVERSION (PDTP speculation):
+    - Standard: external wave source -> object trapped at node (object is PASSIVE)
+    - PDTP Goal 2: object GENERATES the phase wave in the spacetime condensate itself
+    - If matter can drive an oscillation in the phi field (gravitational condensate),
+      it creates its own standing wave pattern — and sits at its own node IN the gravitational field
+    - Result: matter decoupled from gravity at that node point; alpha = cos(psi-phi) -> 0 locally
+    - This is the physics of "the craft generates its own gravity bubble" — not shielding, self-generated node
+  - Analogy chain:
+    - Acoustic: transducer -> pressure standing wave -> object at node (passive levitation)
+    - PDTP: coil/reactor -> phi standing wave in condensate -> craft at node (active decoupling)
+    - The "reactor" in Lazar's description = the transducer in the acoustic analogy
+    - The "gravity amplifiers" = the phased array that shapes the standing wave geometry
+  - Why saucer shape: toroidal standing wave has a natural flat equatorial node plane
+    - A disk-shaped craft centered on this plane = maximum decoupling area for minimum energy
+    - Matches observed UAP geometry: flat disc, no exhaust, silent
+  - Open physics questions for PDTP to answer:
+    1. What is the coupling constant between matter oscillation and phi field? (needed to size the "transducer")
+    2. What frequency of phi oscillation creates a standing wave at craft scale? (sets the reactor frequency)
+    3. Is the node stable? (acoustic nodes are stable equilibria — is the gravitational node?)
+    4. Energy budget: how much power to sustain the node against condensate restoring force?
+       (Part 29 estimate: ~10 kW/ton if decoupling is complete; acoustic analogy suggests much less for partial)
+  - What would make this a Part: formulate the phi field wave equation in the presence of an oscillating matter source;
+    find the standing wave solutions; calculate node stability and energy cost
 
 ---
 
