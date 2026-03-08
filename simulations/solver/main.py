@@ -37,6 +37,9 @@ Phases:
    17. SU(3) gauge struct  — 8 gluons as normal modes; AF negative; SU(2) structural (Open Problem #1)
    18. Scalar backreaction — T_mu_nu^phi; vacuum zero (U(1) shift); excited -> dark energy w(z)
    19. Hierarchy ratio    — R=alpha_G/alpha_EM; PDTP identity R=1/(n^2*alpha_EM); paths A/B/C fail
+   20. BH topological     — r=0 replaced by vortex core xi=l_P/sqrt(2); Penrose evaded by lattice
+   21. Hawking info paradox — W=winding as information; topology protects; Resolution A (phase correlations)
+   22. BH evaporation endpoint — complete evaporation; S<1 bit; t_evap~T_P; E_final/M c^2=8*pi
 """
 
 import os
@@ -66,6 +69,9 @@ from su3_physical_beta import run_su3_physical_beta_phase
 from su3_gauge_structure import run_su3_gauge_structure_phase
 from scalar_backreaction import run_scalar_backreaction_phase
 from hierarchy_ratio import run_hierarchy_phase
+from bh_topological_defect import run_bh_topological_phase
+from hawking_info_paradox import run_hawking_info_phase
+from bh_evaporation_endpoint import run_bh_endpoint_phase
 
 
 def main():
@@ -211,6 +217,21 @@ def main():
     # Phase 19: Hierarchy Ratio (Part 44)
     # ------------------------------------------------------------------
     run_hierarchy_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 20: BH Singularity as Topological Defect (Part 45)
+    # ------------------------------------------------------------------
+    run_bh_topological_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 21: Hawking Information Paradox in PDTP Condensate (Part 46)
+    # ------------------------------------------------------------------
+    run_hawking_info_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 22: Black Hole Evaporation Endpoint (Part 47)
+    # ------------------------------------------------------------------
+    run_bh_endpoint_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
