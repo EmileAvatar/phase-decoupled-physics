@@ -33,6 +33,7 @@ Phases:
    13. SU(3) lattice MC   — Wilson action Monte Carlo; Cornell fit; sigma vs sigma_QCD (Part 38)
    14. SU(3) 4D lattice   — 4D Wilson action; Polyakov loops; 4D SC confirms 4% gap closed (Part 39)
    15. Wilson fermions     — hopping expansion; sea quarks reduce sigma; quenched result best (Part 40)
+   16. Physical beta       — Wilson loops at beta=6.0; scaling window; GPU needed for N>=16 (Part 41)
 """
 
 import os
@@ -58,6 +59,7 @@ from su3_condensate import run_su3_phase
 from su3_lattice import run_su3_lattice_phase
 from su3_lattice_4d import run_su3_lattice_4d_phase
 from su3_fermion import run_su3_fermion_phase
+from su3_physical_beta import run_su3_physical_beta_phase
 
 
 def main():
@@ -183,6 +185,11 @@ def main():
     # Phase 15: Wilson Fermions + Quark Mass Renormalisation (Part 40)
     # ------------------------------------------------------------------
     run_su3_fermion_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 16: Physical Beta Lattice (Part 41)
+    # ------------------------------------------------------------------
+    run_su3_physical_beta_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

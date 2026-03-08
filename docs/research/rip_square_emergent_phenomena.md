@@ -721,4 +721,4 @@ Theoretical and Experimental Physics* 2022, 083C01. (QCD string tension σ ≈ 0
 
 ---
 
-*This document is part of the PDTP research series. See [TODO.md](../../TODO.md) for the roadmap and open problems.*
+*This document is part of the PDTP research series. See [TODO_02.md](../../TODO_02.md) for the active roadmap and open problems.*

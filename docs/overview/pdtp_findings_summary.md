@@ -297,5 +297,5 @@ principles is the current frontier.
 *Last updated: 2026-03-01*
 
 *For full mathematical derivations, see [mathematical_formalization.md](../research/mathematical_formalization.md).*
-*For the TODO roadmap, see [TODO.md](../../TODO.md).*
+*For the active roadmap, see [TODO_02.md](../../TODO_02.md). For completed work summary, see [TODO_Summary.md](../../TODO_Summary.md).*
 *For falsifiable predictions, see [falsifiable_predictions.md](../research/falsifiable_predictions.md).*
