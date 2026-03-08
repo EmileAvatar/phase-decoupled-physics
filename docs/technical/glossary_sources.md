@@ -1786,7 +1786,12 @@ physics. They should not be cited as if they are.
 305. **Seismic wave**
 - **URL:** [Seismic wave — Wikipedia](https://en.wikipedia.org/wiki/Seismic_wave)
 - **Used in:** wave_effects_pdtp_visual.md §Seismology section
-- **Why:** P-wave (longitudinal) = PDTP breathing mode; S-wave (transverse) = tensor GW; L-wave (surface) = matter coupling zone. Strongest real-world analogy for the LIGO blind spot argument.
+- **Why:** P-wave (longitudinal) = PDTP breathing mode; S-wave (transverse) = tensor GW; L-wave (surface) = matter coupling zone. Strongest real-world analogy for the LIGO blind spot argument. V_S = √(μ/ρ) maps to c_T = √(κ/ρ_cond) = c (Part 28 condition).
+
+306. **Adams–Williamson equation**
+- **URL:** [Adams–Williamson equation — Wikipedia](https://en.wikipedia.org/wiki/Adams%E2%80%93Williamson_equation)
+- **Used in:** wave_effects_pdtp_visual.md §Seismology Equations
+- **Why:** Three equations map directly to PDTP: (1) V_S = √(μ/ρ) → c_T = c condition (Part 28); (2) seismic parameter Φ = K_s/ρ → Φ_PDTP = κ/ρ_cond = c² (Part 34); (3) dρ/dr = −ρg/Φ → condensate density falloff near massive body (Image 4 depth profile, healing length ξ = a₀/√2).
 
 ---
 

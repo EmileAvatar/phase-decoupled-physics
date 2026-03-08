@@ -312,6 +312,111 @@ like the orbit-shrinking in Image 4. In PDTP terms:
 The gap in the gravitational wave column — no longitudinal (P-wave) detector yet
 exists — is precisely where the PDTP breathing mode prediction lives.
 
+### Seismology Equations and Their PDTP Counterparts
+
+The seismology analogy is not just qualitative — three seismology equations have
+direct structural counterparts in the PDTP framework already derived in Parts 28 and 34.
+
+**Sources:**
+- [Seismic wave — Wikipedia](https://en.wikipedia.org/wiki/Seismic_wave) — P/S wave speed formulas
+- [Adams–Williamson equation — Wikipedia](https://en.wikipedia.org/wiki/Adams%E2%80%93Williamson_equation) — depth-density profile
+
+---
+
+#### Equation 1 — S-wave (Transverse) Speed
+
+Seismology:
+```
+V_S = √(μ / ρ)
+```
+where μ = shear modulus (resistance to shearing), ρ = medium density.
+
+PDTP mapping (Part 28):
+```
+c_T = √(μ_shear / ρ_cond)   →   μ_shear = κ = c²/(4πG)   →   c_T = c
+```
+
+The condition for tensor gravitational waves to travel at the speed of light is
+exactly the seismology condition — the shear modulus must equal the condensate
+stiffness κ. This requires **angular (non-central) forces** in the condensate lattice.
+Central forces alone give the Cauchy relation λ = μ, which yields c_T = c/√3 — ruled
+out by LIGO. The angular force requirement (Part 28) is the PDTP translation of the
+reason Earth rocks have V_P/V_S ≠ √3: rocks also have angular forces between atoms.
+
+**Source:** Seismic wave — Wikipedia (S-wave formula);
+Part 28 (PDTP Original — angular force condition for c_T = c).
+
+---
+
+#### Equation 2 — Seismic Parameter Φ
+
+Seismology:
+```
+Φ = V_P² − (4/3) V_S² = K_s / ρ
+```
+where K_s = adiabatic bulk modulus (resistance to uniform compression), ρ = density.
+
+**Source:** [Adams–Williamson equation — Wikipedia](https://en.wikipedia.org/wiki/Adams%E2%80%93Williamson_equation)
+
+PDTP mapping (Part 34):
+```
+Φ_PDTP = κ / ρ_cond = c²
+```
+
+From Part 34 self-consistency (c_s = c exactly), the condensate's bulk modulus divided
+by its density equals c². The seismic parameter Φ is a direct measure of how
+compressible a medium is — in the PDTP condensate, it is fixed at c² for any
+value of m_cond. This is why the condensate is the "stiffest possible medium":
+Φ = c² is the relativistic upper bound on bulk compressibility.
+
+**Note on V_P:** In seismology, V_P > V_S (P-waves are faster). In PDTP the situation
+is different: the breathing mode (P-wave equivalent) is **massive** — it has a frequency
+gap ω_gap at k = 0. The group velocity of the breathing mode is v_group = c²k/ω < c,
+always slower than c. The tensor GW (S-wave equivalent) travels at exactly c. So the
+PDTP "P/S" ratio is inverted from seismology at low frequencies. At high frequencies
+(k >> ω_gap/c), the breathing mode approaches c from below and the ratio approaches 1.
+This inversion is a falsifiable PDTP prediction: the breathing mode is subluminal and
+massive, not faster than the tensor GW.
+
+---
+
+#### Equation 3 — Adams–Williamson Depth Profile
+
+Seismology (Adams–Williamson equation):
+```
+dρ/dr = −ρ(r) g(r) / Φ(r)
+```
+This gives the density profile inside Earth as a function of radius r, assuming
+adiabatic compression and hydrostatic equilibrium.
+
+**Source:** [Adams–Williamson equation — Wikipedia](https://en.wikipedia.org/wiki/Adams%E2%80%93Williamson_equation)
+
+PDTP mapping (Image 4 / Part 34):
+```
+d(ρ_cond)/dr ∝ −ρ_cond(r) g(r) / c²   [same structure, Φ = c²]
+```
+
+This is the quantitative form of the depth-falloff shown in Image 4. The condensate
+coupling density decreases away from a massive body in exactly the Adams–Williamson
+pattern — density falls off as gravity weakens with distance. In PDTP terms:
+
+- Near the body (r small, g(r) large): condensate is compressed; coupling is strong
+- Far from the body (r large, g(r) → 0): condensate returns to uniform vacuum value
+- The healing length ξ = a₀/√2 (Part 34) sets the scale over which the condensate
+  adjusts to the presence of matter
+
+The Adams–Williamson equation is the quantitative version of the orbit-shrinking
+picture in Image 4: coupling strength (orbital radius) decreases with depth into
+empty space (increasing r from the massive body).
+
+| Seismology concept | PDTP equivalent | Key equation |
+|---|---|---|
+| Shear modulus μ | Condensate stiffness κ = c²/(4πG) | V_S = √(κ/ρ_cond) = c |
+| Seismic parameter Φ = K_s/ρ | Condensate compressibility κ/ρ_cond | Φ_PDTP = c² (exact) |
+| Adams–Williamson dρ/dr = −ρg/Φ | Condensate density falloff near matter | d(ρ_cond)/dr ∝ −ρ_cond g/c² |
+| Cauchy relation (central forces) λ = μ | Central-force condensate → c_T = c/√3 | Ruled out by LIGO |
+| Angular forces break Cauchy | Angular forces → c_T = c | Required in both rocks and PDTP |
+
 ---
 
 ## Connection to Phase Decoupling (Goal 2)
@@ -341,10 +446,13 @@ does not reverse.
 - [Transverse wave — Wikipedia](https://en.wikipedia.org/wiki/Transverse_wave)
 - [Surface wave — Wikipedia](https://en.wikipedia.org/wiki/Surface_wave)
 - [Seismic wave — Wikipedia](https://en.wikipedia.org/wiki/Seismic_wave)
+- [Adams–Williamson equation — Wikipedia](https://en.wikipedia.org/wiki/Adams%E2%80%93Williamson_equation) — depth-density profile; dρ/dr = −ρg/Φ maps to condensate density falloff near matter
 - [VisualPhysics — Module 31 Overview](https://d-arora.github.io/VisualPhysics/mod31.htm) — Ian Cooper; NSW Year 11–12 curriculum; wave types, properties, and phenomena
 - [VisualPhysics — Travelling Waves](https://d-arora.github.io/VisualPhysics/mod31/m31_tw.htm) — P/S/L wave diagrams, tsunami depth profiles, animated wave motion
 - **PDTP Original:** Two-sector mapping (scalar/tensor), cos(ψ−φ) = circular orbit analogy,
   depth-profile → vacuum/coupling-zone/horizon structure, LIGO blind spot argument,
-  seismology P/S/L → PDTP breathing/tensor/surface analogy
-- Cross-references: Part 28b (polarization analogy, LIGO blind spot derivation),
+  seismology P/S/L → PDTP breathing/tensor/surface analogy, Φ_PDTP = c² identification,
+  Adams–Williamson → condensate density falloff mapping
+- Cross-references: Part 28 (c_T = c condition, angular forces), Part 28b (polarization analogy,
+  LIGO blind spot derivation), Part 34 (c_s = c self-consistency, healing length),
   Part 24 (Hawking temperature), Part 29 (decoupling energy estimate)

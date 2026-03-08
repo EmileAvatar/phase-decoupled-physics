@@ -67,9 +67,16 @@ box size of 1.5 fm and reliable Cornell fit giving σ_phys ≈ 0.18 GeV².
   - 11/11 Sudoku tests pass
   - Docs: `docs/research/scalar_tensor_backreaction.md`; Script: Phase 18 `scalar_backreaction.py`
 
-- [ ] **Derive hierarchy ratio R = α_G/α_EM from lattice topology** *(Strategy B)*
-  - From Part 29 Chain 7: if R ~ 10⁻³⁷ can be derived, G follows from particle physics alone
-  - Sakharov path: determine N_eff (lattice symmetry) + a (breathing mode) independently
+- [x] **Derive hierarchy ratio R = α_G/α_EM from lattice topology** *(Strategy B — RESOLVED 2026-03-08)*
+  - **PDTP Original:** R = 1/(n² × α_EM) where n = m_cond/m (vortex winding number, Part 33) ✓
+  - Hierarchy problem = winding number problem: why is n_p = m_P/m_p ~ 10¹⁹?
+  - Path A (QCD chain): m_cond = Λ_QCD ≈ 200 MeV correctly inferred from σ_QCD; G off by 10⁴⁰ (hierarchy gap)
+  - Path B (Dirac large numbers): Eddington off 10²¹, Hubble off 10¹¹ — no clean coincidence
+  - Path C (Dvali species): N_required = n² ~ 10³⁸ >> N_SM ~ 118 — circular (needs G) and off by 10³⁶
+  - Two free parameters block derivation: m_cond (undetermined) AND α_EM (not derived in PDTP)
+  - 10/10 Sudoku tests pass
+  - Docs: `docs/research/hierarchy_ratio.md`; Script: Phase 19 `hierarchy_ratio.py`
+  - Open path: Sakharov route — N_eff from lattice symmetry + a from breathing mode measurement
 
 ### Black Holes
 

@@ -36,6 +36,7 @@ Phases:
    16. Physical beta       — Wilson loops at beta=6.0; scaling window; GPU needed for N>=16 (Part 41)
    17. SU(3) gauge struct  — 8 gluons as normal modes; AF negative; SU(2) structural (Open Problem #1)
    18. Scalar backreaction — T_mu_nu^phi; vacuum zero (U(1) shift); excited -> dark energy w(z)
+   19. Hierarchy ratio    — R=alpha_G/alpha_EM; PDTP identity R=1/(n^2*alpha_EM); paths A/B/C fail
 """
 
 import os
@@ -64,6 +65,7 @@ from su3_fermion import run_su3_fermion_phase
 from su3_physical_beta import run_su3_physical_beta_phase
 from su3_gauge_structure import run_su3_gauge_structure_phase
 from scalar_backreaction import run_scalar_backreaction_phase
+from hierarchy_ratio import run_hierarchy_phase
 
 
 def main():
@@ -204,6 +206,11 @@ def main():
     # Phase 18: Scalar Sector Backreaction (Open Problem #2)
     # ------------------------------------------------------------------
     run_scalar_backreaction_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 19: Hierarchy Ratio (Part 44)
+    # ------------------------------------------------------------------
+    run_hierarchy_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
