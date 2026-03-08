@@ -40,6 +40,8 @@ Phases:
    20. BH topological     — r=0 replaced by vortex core xi=l_P/sqrt(2); Penrose evaded by lattice
    21. Hawking info paradox — W=winding as information; topology protects; Resolution A (phase correlations)
    22. BH evaporation endpoint — complete evaporation; S<1 bit; t_evap~T_P; E_final/M c^2=8*pi
+   23. Weak coupling g_W — doubly underdetermined (alpha_EM + sin^2(theta_W) both free)
+   24. W and Z boson masses — Higgs mechanism; v = 246.22 GeV is 3rd free parameter (Part 49)
 """
 
 import os
@@ -72,6 +74,8 @@ from hierarchy_ratio import run_hierarchy_phase
 from bh_topological_defect import run_bh_topological_phase
 from hawking_info_paradox import run_hawking_info_phase
 from bh_evaporation_endpoint import run_bh_endpoint_phase
+from weak_coupling_gw import run_weak_coupling_phase
+from wz_boson_masses import run_wz_boson_phase
 
 
 def main():
@@ -232,6 +236,16 @@ def main():
     # Phase 22: Black Hole Evaporation Endpoint (Part 47)
     # ------------------------------------------------------------------
     run_bh_endpoint_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 23: Weak Coupling Strength g_W (Part 48)
+    # ------------------------------------------------------------------
+    run_weak_coupling_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 24: W and Z Boson Masses (Part 49)
+    # ------------------------------------------------------------------
+    run_wz_boson_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

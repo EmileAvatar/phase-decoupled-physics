@@ -116,14 +116,24 @@ box size of 1.5 fm and reliable Cornell fit giving σ_phys ≈ 0.18 GeV².
 PDTP now explains the *structure* of SU(3)×SU(2)×U(1) (force carriers, confinement,
 symmetry groups). The following **values and mechanisms** remain open:
 
-- [ ] **Weak coupling strength g_W**
-  - SU(2) coupling g_W ≈ 0.65 has no derivation in PDTP
-  - Analogous to the m_cond problem: structure known, scale not derived
+- [x] **Weak coupling strength g_W** *(RESOLVED 2026-03-08 — NEGATIVE RESULT)*
+  - g_W = √(4πα_EM/sin²θ_W) — not an independent parameter ✓
+  - PDTP Original: g_W is DOUBLY underdetermined — needs α_EM (Part 44) AND sin²θ_W (new) ✓
+  - sin²θ_W is a new free parameter: ratio of SU(2)/U(1)_Y condensate stiffnesses ✓
+  - Dimensional transmutation inapplicable: SU(2) is broken (not confining) ✓
+  - Structure exact: 3 W bosons (N²−1=3), C₂=3/4, b₀=19/6 (AF), Z₂ vortices ✓
+  - Analogy: g_W:SU(2) condensate :: G:gravitational condensate (free parameter) ✓
+  - 10/10 Sudoku tests pass
+  - Docs: `docs/research/weak_coupling_gw.md`; Script: Phase 23 `weak_coupling_gw.py`
 
-- [ ] **W and Z boson masses (Higgs mechanism)**
-  - W and Z are massive; current PDTP SU(2) gives massless bosons
-  - Needs a Higgs-like sector or symmetry-breaking mechanism within the condensate
-  - Candidate: condensate phase transition at electroweak scale ~246 GeV
+- [x] **W and Z boson masses (Higgs mechanism)** — Part 49 RESOLVED
+  - Three PDTP condensate layers: gravitational (m_P), QCD (Lambda_QCD), electroweak (v=246.22 GeV)
+  - Structural results: m_W = g_W*v/2 = 80.428 GeV, m_Z = m_W/cos(tW) = 91.76 GeV, rho=1 (custodial SU(2))
+  - N_Goldstone = 3 (exact); Higgs = amplitude mode of EW condensate (breathing mode analogy)
+  - NEGATIVE RESULT: v = 246.22 GeV is 3rd free condensate scale; m_W/m_Z DERIVED not predicted
+  - Three condensate layers span 84 decades in energy density: EW~10^46, QCD~10^29, gravity~10^113 J/m^3
+  - 10/10 Sudoku tests pass
+  - Docs: `docs/research/wz_boson_masses.md`; Script: Phase 24 `wz_boson_masses.py`
 
 - [ ] **Chirality — why SU(2) couples only to left-handed particles**
   - Biggest structural gap: PDTP Lagrangian has no left/right asymmetry
