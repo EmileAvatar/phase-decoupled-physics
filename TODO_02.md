@@ -52,14 +52,20 @@ box size of 1.5 fm and reliable Cornell fit giving σ_phys ≈ 0.18 GeV².
 
 ### Structural
 
-- [ ] **SU(3) gauge structure from phase lattice** *(from Part 27b)*
-  - Can 8 gluon modes emerge as normal modes of the quark-condensate system?
-  - Does asymptotic freedom follow from phase-locking?
-  - Can SU(2) weak structure emerge from Z₂ matter/antimatter phase symmetry?
+- [x] **SU(3) gauge structure from phase lattice** *(from Part 27b — RESOLVED 2026-03-08)*
+  - 8 gluons as normal modes: YES — SU(3) small fluctuations give 8 massless spin-1 modes ✓
+  - Asymptotic freedom: NEGATIVE — β(K)=+K²/(8π²)>0 (IR free); QCD AF is a gauge-level property ✓
+  - SU(2) from Z₂: PARTIAL — generator count matches, chirality/mass incomplete
+  - Key insight: K (condensate stiffness) ≠ g (QCD coupling) — distinct levels
+  - Docs: `docs/research/su3_gauge_structure.md`; Script: Phase 17 `su3_gauge_structure.py`
 
-- [ ] **Scalar sector backreaction on tensor sector**
-  - Does φ dynamics modify the effective T_μν seen by the Einstein equation?
-  - Could bridge scalar (vacuum-insensitive) and tensor (vacuum-sensitive) sectors
+- [x] **Scalar sector backreaction on tensor sector** *(RESOLVED 2026-03-08)*
+  - T_μν^φ = 0 in vacuum: U(1) shift symmetry makes condensate vacuum-insensitive ✓
+  - Excited condensate (breathing mode) gives w = −1 (potential) to +1 (kinetic) → dark energy ✓
+  - Bridges Part 25 w(z) result: phase drift IS a geometric backreaction on the Einstein eq ✓
+  - Does NOT fully solve Λ problem: matter-sector vacuum energy still contributes T_μν^vac^matter
+  - 11/11 Sudoku tests pass
+  - Docs: `docs/research/scalar_tensor_backreaction.md`; Script: Phase 18 `scalar_backreaction.py`
 
 - [ ] **Derive hierarchy ratio R = α_G/α_EM from lattice topology** *(Strategy B)*
   - From Part 29 Chain 7: if R ~ 10⁻³⁷ can be derived, G follows from particle physics alone
@@ -79,7 +85,44 @@ box size of 1.5 fm and reliable Cornell fit giving σ_phys ≈ 0.18 GeV².
   - At M ~ M_Planck: condensate picture breaks down
   - What replaces the classical singularity? Phase soliton? Local decoherence?
 
+### Standard Model Gaps (from OP#1 — SU(2) partial result)
+
+PDTP now explains the *structure* of SU(3)×SU(2)×U(1) (force carriers, confinement,
+symmetry groups). The following **values and mechanisms** remain open:
+
+- [ ] **Weak coupling strength g_W**
+  - SU(2) coupling g_W ≈ 0.65 has no derivation in PDTP
+  - Analogous to the m_cond problem: structure known, scale not derived
+
+- [ ] **W and Z boson masses (Higgs mechanism)**
+  - W and Z are massive; current PDTP SU(2) gives massless bosons
+  - Needs a Higgs-like sector or symmetry-breaking mechanism within the condensate
+  - Candidate: condensate phase transition at electroweak scale ~246 GeV
+
+- [ ] **Chirality — why SU(2) couples only to left-handed particles**
+  - Biggest structural gap: PDTP Lagrangian has no left/right asymmetry
+  - Parity violation is observed (Wu 1956) but not yet explained
+  - Possible path: Z₂ vortex chirality from condensate winding direction?
+
+- [ ] **Three generations of fermions (electron, muon, tau + neutrinos)**
+  - Standard Model has 3 identical copies of the fermion sector at different masses
+  - No explanation in any current theory including PDTP
+  - Possible path: excited vortex states (n=1,2,3 winding) → three generations?
+
+- [ ] **Coupling constant values (α_EM, α_W, α_S)**
+  - The three coupling constants run with energy and unify near 10¹⁶ GeV (GUT scale)
+  - PDTP predicts the group structure but not the coupling values
+  - Strategy B (hierarchy ratio R = α_G/α_EM) is the existing path toward this
+
 ### Cosmological
+
+- [ ] **Cosmological Constant via Forced Checklist Check**
+  - Part 43: condensate T_μν^φ = 0 in vacuum (U(1) shift) — does NOT add to Λ ✓
+  - But: matter-sector vacuum energy (quarks, leptons, Higgs zero-point) still unresolved
+  - Observed: Λ_obs ~ 1.1×10⁻⁵² m⁻²; QFT predicts ~10¹²⁰ × Λ_obs (worst prediction in physics)
+  - **Method: Forced Checklist Check** — go through ALL Methodology.md items one by one
+  - Question: can any checklist path reduce or explain the Λ problem in PDTP?
+  - Candidate paths not yet tried: topological argument (Λ from lattice winding?), order parameter (Λ as condensate gap?), analogy (BCS gap → Λ?), postulate-and-derive
 
 - [ ] **CP violation and baryogenesis**
   - PDTP Lagrangian is C, P, T invariant separately → no CP violation

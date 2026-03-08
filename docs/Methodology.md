@@ -119,6 +119,43 @@ but had not yet seen radio waves.
 
 ---
 
+### SymPy Symbolic Verification
+
+To prevent analytical errors (wrong signs, missing factors, incorrect EOS results),
+all **PDTP Original** analytical results are verified using `simulations/solver/sympy_checks.py`.
+
+**What SymPy can verify (use it for these):**
+- Algebraic identities: `check_equal(expr1, expr2)`
+- Shift/symmetry claims: `check_shift_symmetry(expr, subs_list)`
+- Euler-Lagrange derivations: `euler_lagrange_1d(L, phi, phi_dot)`
+- Stress-energy components: `hamiltonian_density(L, phi_dot)`, `pressure_uniform(L)`
+- Equation of state: `check_eos(rho, p, w_expected)`
+- Sign claims: `check_sign(expr, expected_positive)`
+- Trace identities: `verify_trace_identity()`
+
+**What SymPy cannot verify (document why instead):**
+- Numerical lattice results (Parts 38–41) — numerical, not symbolic
+- Full 4D field theory with gravity — EL in curved space requires manual derivation
+- Non-algebraic claims (e.g., "the Landau pole is at 10^431") — use numerical checks
+
+**Rule:** Every PDTP Original equation must have either a `sympy_checks` call verifying
+it, or an explicit note in the code/doc explaining why SymPy verification is inapplicable.
+
+**Example usage in a phase module:**
+```python
+from sympy_checks import check_equal, verify_pdtp_shift_symmetry
+import sympy as sp
+
+phi, psi, g, delta = sp.symbols('phi psi g delta', real=True)
+ok, msg = verify_pdtp_shift_symmetry()  # checks U(1) shift invariance
+ok2, msg2 = check_equal(sp.cos(psi-phi), sp.cos(phi-psi), label="cos is even")
+```
+
+**Historical note:** This is the same methodology as Wilson's lattice scaffolding —
+using a computational tool (here: SymPy) to verify results that are hard to check by hand.
+
+---
+
 ---
 
 ## Problem-Solving Checklist

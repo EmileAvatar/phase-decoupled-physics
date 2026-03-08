@@ -34,6 +34,8 @@ Phases:
    14. SU(3) 4D lattice   — 4D Wilson action; Polyakov loops; 4D SC confirms 4% gap closed (Part 39)
    15. Wilson fermions     — hopping expansion; sea quarks reduce sigma; quenched result best (Part 40)
    16. Physical beta       — Wilson loops at beta=6.0; scaling window; GPU needed for N>=16 (Part 41)
+   17. SU(3) gauge struct  — 8 gluons as normal modes; AF negative; SU(2) structural (Open Problem #1)
+   18. Scalar backreaction — T_mu_nu^phi; vacuum zero (U(1) shift); excited -> dark energy w(z)
 """
 
 import os
@@ -60,6 +62,8 @@ from su3_lattice import run_su3_lattice_phase
 from su3_lattice_4d import run_su3_lattice_4d_phase
 from su3_fermion import run_su3_fermion_phase
 from su3_physical_beta import run_su3_physical_beta_phase
+from su3_gauge_structure import run_su3_gauge_structure_phase
+from scalar_backreaction import run_scalar_backreaction_phase
 
 
 def main():
@@ -190,6 +194,16 @@ def main():
     # Phase 16: Physical Beta Lattice (Part 41)
     # ------------------------------------------------------------------
     run_su3_physical_beta_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 17: SU(3) Gauge Structure (Open Problem #1)
+    # ------------------------------------------------------------------
+    run_su3_gauge_structure_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 18: Scalar Sector Backreaction (Open Problem #2)
+    # ------------------------------------------------------------------
+    run_scalar_backreaction_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

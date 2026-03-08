@@ -77,6 +77,15 @@ Full archive: [TODO_01.md](TODO_01.md) | Active roadmap: [TODO_02.md](TODO_02.md
 
 ---
 
+## Open Problems — Resolved
+
+| Problem | Topic | Key result |
+|---|---|---|
+| OP#1 | SU(3) gauge structure (Part 42a) | 8 gluons from normal modes ✓; AF NEGATIVE (β(K)>0); SU(2) structural match |
+| OP#2 | Scalar sector backreaction (Part 43) | T_μν^φ = 0 in vacuum (U(1) shift) ✓; excited → w(z) dark energy ✓; Λ problem partial |
+
+---
+
 ## Central Open Problem
 
 **m_cond is underdetermined** — G = ħc/m_cond² is exact but m_cond = m_P is not derived.
