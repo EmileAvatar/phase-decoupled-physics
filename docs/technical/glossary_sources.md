@@ -1764,4 +1764,44 @@ physics. They should not be cited as if they are.
 
 ---
 
+---
+
+### Wikipedia Sources (wave_effects_pdtp_visual.md)
+
+302. **Longitudinal wave**
+- **URL:** [Longitudinal wave — Wikipedia](https://en.wikipedia.org/wiki/Longitudinal_wave)
+- **Used in:** wave_effects_pdtp_visual.md §Image 1
+- **Why:** Defines compression/rarefaction motion parallel to propagation — PDTP φ breathing mode analogy
+
+303. **Transverse wave**
+- **URL:** [Transverse wave — Wikipedia](https://en.wikipedia.org/wiki/Transverse_wave)
+- **Used in:** wave_effects_pdtp_visual.md §Image 1
+- **Why:** Defines perpendicular oscillation — PDTP tensor GW analogy
+
+304. **Surface wave**
+- **URL:** [Surface wave — Wikipedia](https://en.wikipedia.org/wiki/Surface_wave)
+- **Used in:** wave_effects_pdtp_visual.md §Images 2–4
+- **Why:** Circular orbit = combined longitudinal + transverse — PDTP matter-condensate coupling zone
+
+305. **Seismic wave**
+- **URL:** [Seismic wave — Wikipedia](https://en.wikipedia.org/wiki/Seismic_wave)
+- **Used in:** wave_effects_pdtp_visual.md §Seismology section
+- **Why:** P-wave (longitudinal) = PDTP breathing mode; S-wave (transverse) = tensor GW; L-wave (surface) = matter coupling zone. Strongest real-world analogy for the LIGO blind spot argument.
+
+---
+
+### Educational Website Sources
+
+#### VisualPhysics (Ian Cooper)
+- **URL:** [https://d-arora.github.io/VisualPhysics/](https://d-arora.github.io/VisualPhysics/)
+- **Author:** Ian Cooper
+- **Description:** NSW Year 11–12 physics curriculum; Modules 1–8 covering kinematics, dynamics, waves, thermodynamics, electricity, magnetism, electromagnetism, special relativity, and cosmology
+- **Used in:** wave_effects_pdtp_visual.md (reference)
+- **Why:** Visual diagrams and animations of wave types, P/S/L seismic waves, tsunami depth profiles, and travelling wave behaviour. Used as educational reference for wave type classification.
+
+- **Module 31 (Waves) overview:** [https://d-arora.github.io/VisualPhysics/mod31.htm](https://d-arora.github.io/VisualPhysics/mod31.htm)
+- **Module 31 Travelling Waves:** [https://d-arora.github.io/VisualPhysics/mod31/m31_tw.htm](https://d-arora.github.io/VisualPhysics/mod31/m31_tw.htm) — includes P, S, L wave type diagrams; tsunami depth/velocity table; animated transverse/longitudinal wave demos
+
+---
+
 End of glossary_sources.md
