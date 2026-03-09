@@ -157,10 +157,15 @@ symmetry groups). The following **values and mechanisms** remain open:
   - 10/10 Sudoku tests pass
   - Docs: `docs/research/three_generations.md`; Script: Phase 26 `three_generations.py`
 
-- [ ] **Coupling constant values (α_EM, α_W, α_S)**
-  - The three coupling constants run with energy and unify near 10¹⁶ GeV (GUT scale)
-  - PDTP predicts the group structure but not the coupling values
-  - Strategy B (hierarchy ratio R = α_G/α_EM) is the existing path toward this
+- [x] **Coupling constant values (α_EM, α_W, α_S)** *(RESOLVED 2026-03-09 — NEGATIVE RESULT)*
+  - **PDTP Original:** Beta functions b₀ DERIVED from group theory (no free parameters) ✓
+  - b₀(QCD) = 11 − (2/3)×6 = 7 > 0: asymptotic freedom in SU(3) EXACT ✓
+  - b₀(SU(2)) = 19/6 ≈ 3.167 > 0: asymptotically free above EW scale EXACT ✓
+  - b₀(QED) = −2 < 0: IR free (coupling grows at high E); Landau pole ~10²⁸⁶ GeV EXACT ✓
+  - GUT convergence direction DERIVED; exact scale sensitive to initial values ✓
+  - α_EM = 1/137, α_S = 0.118, sin²θ_W = 0.231: all FREE PARAMETERS [NEGATIVE] ✗
+  - 10/10 Sudoku tests pass
+  - Docs: `docs/research/coupling_constants.md`; Script: Phase 27 `coupling_constants.py`
 
 - [ ] **Z₃ phase positions → Koide formula → derive m_cond and G (HIGH PRIORITY)**
   - Key insight: Y-junction 120° (Part 37) and three-generation 120° spacing ARE THE SAME Z₃ geometry
