@@ -145,15 +145,51 @@ symmetry groups). The following **values and mechanisms** remain open:
   - 10/10 Sudoku tests pass (Dirac algebra exact; gamma5 eigenvalues exact; Wu asymmetry; CKM count)
   - Docs: `docs/research/chirality_parity_violation.md`; Script: Phase 25 `chirality_parity.py`
 
-- [ ] **Three generations of fermions (electron, muon, tau + neutrinos)**
-  - Standard Model has 3 identical copies of the fermion sector at different masses
-  - No explanation in any current theory including PDTP
-  - Possible path: excited vortex states (n=1,2,3 winding) → three generations?
+- [x] **Three generations of fermions (electron, muon, tau + neutrinos)** — Part 51 RESOLVED (partial)
+  - PDTP Original: 3 generations = 3 lowest radial vortex excitation modes (n_r=0,1,2)
+  - PDTP Original: lepton universality DERIVED — g_i couples to winding n, not radial mode n_r; all generations identical to W/Z
+  - PDTP Original: decay cascade gen3→gen2→gen1 DERIVED — excited vortex relaxes to lower radial mode
+  - Koide formula K=2/3 CONSISTENT (0.0009% agreement) — not yet derived from condensate potential
+  - NEGATIVE RESULT: mass values require EW condensate potential V(r) near vortex core (new unknown, analogous to m_cond Part 29)
+  - NEGATIVE RESULT: why exactly 3 stable modes underdetermined — needs decay width Gamma(n_r) from V(r)
+  - Anomaly cancellation: Σ Q_L = 0 per generation (exact structural, inherited from SU(3)×SU(2)×U(1))
+  - PMNS mixing: (N-1)^2 = 4 parameters for N=3 (same structure as CKM; values underdetermined)
+  - 10/10 Sudoku tests pass
+  - Docs: `docs/research/three_generations.md`; Script: Phase 26 `three_generations.py`
 
 - [ ] **Coupling constant values (α_EM, α_W, α_S)**
   - The three coupling constants run with energy and unify near 10¹⁶ GeV (GUT scale)
   - PDTP predicts the group structure but not the coupling values
   - Strategy B (hierarchy ratio R = α_G/α_EM) is the existing path toward this
+
+- [ ] **Z₃ phase positions → Koide formula → derive m_cond and G (HIGH PRIORITY)**
+  - Key insight: Y-junction 120° (Part 37) and three-generation 120° spacing ARE THE SAME Z₃ geometry
+    - Part 37: baryon Y-junction, force balance ê₁+ê₂+ê₃=0 → 120° in physical space
+    - Three generations: Z₃ phase positions 0, 2π/3, 4π/3 in phase space
+    - Same SU(3) Z₃ symmetry expressed at two levels simultaneously
+  - Koide formula recast as Z₃ geometry (PDTP Original):
+    - Koide: (√m_e + √m_μ + √m_τ)² = (3/2)(m_e + m_μ + m_τ) = 2/3 normalization
+    - This is EXACTLY the identity for three equal-length vectors at 120°
+    - √mᵢ are the natural Z₃ coordinates — amplitudes of vortex wavefunctions at each minimum
+    - Y-junction force balance ê₁+ê₂+ê₃=0 = same identity — NOT a coincidence
+  - Path to deriving m_cond without circularity:
+    - Step 1: Z₃ positions (0, 2π/3, 4π/3) are FIXED by SU(3) topology — not free parameters
+    - Step 2: If mass function m_i = f(Z₃ position, m_cond_QCD) is derivable from PDTP Lagrangian
+    - Step 3: Koide formula = geometric constraint from Z₃ → reduces 3 mass free parameters to 1 (overall scale)
+    - Step 4: Absolute scale m_e = 0.511 MeV fixes m_cond_QCD → m_cond_QCD ~ Λ_QCD (cross-check with Part 38)
+    - Step 5: G = ħc/m_cond² — closes the derivation loop that Part 29 failed to close
+  - Observable consequence: condensate oscillation frequency ω_gap = m_cond_QCD c²/ħ ~ 3×10²³ Hz
+    - This is the QCD scale, not Planck scale — potentially accessible via heavy-ion signatures
+  - What would make this a Part:
+    - Derive mass function m_i = f(Z₃ position, m_cond) from the SU(3) PDTP coupling Re[Tr(Ψ†U)]/3
+    - Show Koide formula follows from Z₃ geometry alone (no fitting)
+    - Test whether m_e fixes m_cond_QCD ~ Λ_QCD (Sudoku check vs Part 38 result)
+    - If chain closes: this is the non-circular G derivation; if not: identify where it breaks
+  - Why this is higher priority than the radial modes path (Part 51):
+    - Z₃ is already in the framework (Parts 36, 37) — not a new assumption
+    - Koide is already verified to 0.0009% (Part 32, Part 51)
+    - Y-junction is already derived (Part 37) — same geometry confirmed twice
+    - Could reduce free parameter count from 6 to 4 (replacing m_e, m_μ, m_τ with one scale + Z₃ topology)
 
 ### Cosmological
 
@@ -205,6 +241,28 @@ They are recorded here so they are not lost. Each needs a full plan and user app
   - What would make this a Part: a falsifiable prediction that differs from SM; a mechanism for the nesting;
     or a derivation that the SM gauge groups MUST be separate condensates (not just an analogy)
   - Precedent: Wen (2004) string-net condensation — all SM forces emerge from one underlying quantum liquid
+
+- [ ] **Chirality from condensate refractive index — path to making handedness DERIVED not free**
+  - Current Part 50 result: which hand the EW vacuum chose = free parameter (vacuum choice)
+  - Speculation: the EW condensate is chirally birefringent — two different effective refractive indices
+    for +1/2 and -1/2 winding vortices, forced by the condensate's own winding background
+  - Mechanism: +1/2 vortex in +1/2-wound condensate → slides freely (n_eff = 1)
+  - Mechanism: -1/2 vortex in +1/2-wound condensate → must "unwind" medium as it moves → energy cost ~ path length
+  - In infinite-volume limit: energy cost infinite → -1/2 vortex CANNOT propagate = topologically confined
+  - Observational signature: right-handed fermions not absent but CONFINED (locally exist near vortex core, cannot travel)
+  - This is identical to "not there" observationally — but the mechanism is propagation suppression, not non-existence
+  - Key prediction: parity restoration above EW scale
+    - Below v=246 GeV: condensate wound → n_eff splits → left propagates freely, right confined
+    - Above v=246 GeV: condensate melts → n_eff -> 1 for both → parity restored
+    - This IS observed: parity violation is an IR (low energy) phenomenon; EW theory is parity-symmetric above the phase transition
+  - Cascade hypothesis (links to multiple-layers speculation above):
+    - Deepest condensate layer winds in one direction (quantum fluctuation or topological charge of universe)
+    - Each layer transition (gravity -> QCD -> EW) acts as a polarizing filter, seeding the next layer's winding
+    - Chirality of the universe = amplified memory of the first symmetry-breaking event
+    - Analogy: each layer is a birefringent crystal in series; each passes only one polarization to the next
+  - Connection to Part 28b: spacetime birefringence already predicted for GWs; this extends it to fermion propagation
+  - What would make this a Part: derive n_eff(+1/2) and n_eff(-1/2) from the SU(2) PDTP Lagrangian;
+    show the confinement condition; predict the energy scale at which parity is restored; compare to v=246 GeV
 
 - [ ] **Phase-gradient coil drum — proposed analog experiment**
   - Core idea: instead of driving matter at 10^23 Hz (proton Compton frequency), create a SPATIAL phase gradient

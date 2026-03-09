@@ -43,6 +43,7 @@ Phases:
    23. Weak coupling g_W — doubly underdetermined (alpha_EM + sin^2(theta_W) both free)
    24. W and Z boson masses — Higgs mechanism; v = 246.22 GeV is 3rd free parameter (Part 49)
    25. Chirality — Z2 vortex winding = chirality; maximal A=-1 automatic; vacuum choice free (Part 50)
+   26. Three generations — radial vortex modes n_r=0,1,2; lepton universality derived (Part 51)
 """
 
 import os
@@ -78,6 +79,7 @@ from bh_evaporation_endpoint import run_bh_endpoint_phase
 from weak_coupling_gw import run_weak_coupling_phase
 from wz_boson_masses import run_wz_boson_phase
 from chirality_parity import run_chirality_phase
+from three_generations import run_three_generations_phase
 
 
 def main():
@@ -253,6 +255,11 @@ def main():
     # Phase 25: Chirality and Parity Violation (Part 50)
     # ------------------------------------------------------------------
     run_chirality_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 26: Three Generations of Fermions (Part 51)
+    # ------------------------------------------------------------------
+    run_three_generations_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
