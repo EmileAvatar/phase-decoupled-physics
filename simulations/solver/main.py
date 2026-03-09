@@ -45,6 +45,7 @@ Phases:
    25. Chirality — Z2 vortex winding = chirality; maximal A=-1 automatic; vacuum choice free (Part 50)
    26. Three generations — radial vortex modes n_r=0,1,2; lepton universality derived (Part 51)
    27. Coupling constants — beta functions derived; alpha_EM=1/137 underdetermined (Part 52)
+   28. Z3-Koide — Z3 center derives Koide Q=2/3; delta=sqrt(2) from equal partition (Part 53)
 """
 
 import os
@@ -82,6 +83,7 @@ from wz_boson_masses import run_wz_boson_phase
 from chirality_parity import run_chirality_phase
 from three_generations import run_three_generations_phase
 from coupling_constants import run_coupling_constants_phase
+from koide_z3 import run_koide_z3_phase
 
 
 def main():
@@ -267,6 +269,11 @@ def main():
     # Phase 27: Coupling Constant Values (Part 52)
     # ------------------------------------------------------------------
     run_coupling_constants_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 28: Z3 Phase Positions and the Koide Formula (Part 53)
+    # ------------------------------------------------------------------
+    run_koide_z3_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

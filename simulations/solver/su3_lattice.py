@@ -714,7 +714,7 @@ def run_su3_lattice_phase(rw, _engine, use_gpu=False, Ns=None, n_therm=None,
             rw.print("")
         else:
             rw.print("  Insufficient data points for Cornell fit (need >= 3 R values).")
-            rw.print("  Reason: at beta=K_NAT={:.4f}, W(R,T) ~ (beta/6)^(R*T) ~ 10^{-4}..10^{-8}".format(K_NAT))
+            rw.print("  Reason: at beta=K_NAT={:.4f}, W(R,T) ~ (beta/6)^(R*T) ~ 10^{{-4}}..10^{{-8}}".format(K_NAT))
             rw.print("  requires O(10^7) measurements to resolve. Use --gpu for larger lattice.")
             rw.print("")
     else:

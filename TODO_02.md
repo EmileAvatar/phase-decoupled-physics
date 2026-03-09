@@ -167,34 +167,16 @@ symmetry groups). The following **values and mechanisms** remain open:
   - 10/10 Sudoku tests pass
   - Docs: `docs/research/coupling_constants.md`; Script: Phase 27 `coupling_constants.py`
 
-- [ ] **Z₃ phase positions → Koide formula → derive m_cond and G (HIGH PRIORITY)**
-  - Key insight: Y-junction 120° (Part 37) and three-generation 120° spacing ARE THE SAME Z₃ geometry
-    - Part 37: baryon Y-junction, force balance ê₁+ê₂+ê₃=0 → 120° in physical space
-    - Three generations: Z₃ phase positions 0, 2π/3, 4π/3 in phase space
-    - Same SU(3) Z₃ symmetry expressed at two levels simultaneously
-  - Koide formula recast as Z₃ geometry (PDTP Original):
-    - Koide: (√m_e + √m_μ + √m_τ)² = (3/2)(m_e + m_μ + m_τ) = 2/3 normalization
-    - This is EXACTLY the identity for three equal-length vectors at 120°
-    - √mᵢ are the natural Z₃ coordinates — amplitudes of vortex wavefunctions at each minimum
-    - Y-junction force balance ê₁+ê₂+ê₃=0 = same identity — NOT a coincidence
-  - Path to deriving m_cond without circularity:
-    - Step 1: Z₃ positions (0, 2π/3, 4π/3) are FIXED by SU(3) topology — not free parameters
-    - Step 2: If mass function m_i = f(Z₃ position, m_cond_QCD) is derivable from PDTP Lagrangian
-    - Step 3: Koide formula = geometric constraint from Z₃ → reduces 3 mass free parameters to 1 (overall scale)
-    - Step 4: Absolute scale m_e = 0.511 MeV fixes m_cond_QCD → m_cond_QCD ~ Λ_QCD (cross-check with Part 38)
-    - Step 5: G = ħc/m_cond² — closes the derivation loop that Part 29 failed to close
-  - Observable consequence: condensate oscillation frequency ω_gap = m_cond_QCD c²/ħ ~ 3×10²³ Hz
-    - This is the QCD scale, not Planck scale — potentially accessible via heavy-ion signatures
-  - What would make this a Part:
-    - Derive mass function m_i = f(Z₃ position, m_cond) from the SU(3) PDTP coupling Re[Tr(Ψ†U)]/3
-    - Show Koide formula follows from Z₃ geometry alone (no fitting)
-    - Test whether m_e fixes m_cond_QCD ~ Λ_QCD (Sudoku check vs Part 38 result)
-    - If chain closes: this is the non-circular G derivation; if not: identify where it breaks
-  - Why this is higher priority than the radial modes path (Part 51):
-    - Z₃ is already in the framework (Parts 36, 37) — not a new assumption
-    - Koide is already verified to 0.0009% (Part 32, Part 51)
-    - Y-junction is already derived (Part 37) — same geometry confirmed twice
-    - Could reduce free parameter count from 6 to 4 (replacing m_e, m_μ, m_τ with one scale + Z₃ topology)
+- [x] **Z₃ phase positions → Koide formula → derive m_cond and G (HIGH PRIORITY)** *(RESOLVED 2026-03-09 — PARTIAL)*
+  - **PDTP Original:** SU(3) coupling Re[Tr(Ψ†U)]/3 at Z₃ centers → cos(2πk/3 − ψ₀) = Brannen modulation ✓
+  - **PDTP Original:** Y-junction 120° (Part 37) = Z₃ phase spacing (Part 53) = same geometry ✓
+  - **PDTP Original:** δ = √2 DERIVED from equal partition (45° angle, |v‖|² = |v⊥|²) ✓
+  - **PDTP Original:** Free parameter reduction: 3 lepton masses → 2 free params (M₀, θ₀); δ eliminated ✓
+  - M₀ = 313.84 MeV ≈ m_p/3 (0.3%) ≈ m_cond_QCD (Part 37: 367 MeV, factor 1.2) [CONSISTENT] ✓
+  - G derivation FAILS: hierarchy factor ~10⁴⁰ (two-condensate hypothesis) [NEGATIVE] ✗
+  - θ₀ = 2/9 underdetermined — no SU(3) derivation [NEGATIVE] ✗
+  - 10/10 Sudoku tests pass
+  - Docs: `docs/research/koide_z3_derivation.md`; Script: Phase 28 `koide_z3.py`
 
 ### Cosmological
 
