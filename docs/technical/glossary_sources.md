@@ -1809,4 +1809,32 @@ physics. They should not be cited as if they are.
 
 ---
 
+### Paper Sources (added 2026-03-14)
+
+#### P84: Haug (2024) — Compton Wavelength as True Matter Wavelength
+- **URL:** [https://doi.org/10.32388/OZ0IRU.5](https://doi.org/10.32388/OZ0IRU.5)
+- **Author:** Espen Gaarder Haug, Norwegian University of Life Sciences
+- **Description:** Demonstrates Compton wavelength = photon wavelength of rest mass energy; G = l_P^2 * c^3 / hbar; all gravity formulas reduce to l_P and lambda_C; Planck constant cancels from Schrodinger/Dirac/Klein-Gordon equations; Compton frequency = quantization of gravity
+- **Used in:** TODO_02.md Idea H (G as composite of layers)
+- **Why:** Supports PDTP decomposition of G; l_P/lambda_C = 1/n (inverse winding number); Compton frequency = vortex phase rotation rate
+- **Local copy:** `assets/pdfs/The_Compton_Wavelength_Is_the_True_Matter_Waveleng.pdf`
+
+#### P85: Strassler (2024) — Particles, Waves, and Wavicles
+- **URL:** [https://profmattstrassler.com/2024/07/09/particles-waves-and-wavicles/](https://profmattstrassler.com/2024/07/09/particles-waves-and-wavicles/)
+- **Author:** Matt Strassler, Professor of Physics
+- **Description:** Electrons/photons are "wavicles" — standing wave patterns with definite frequency AND definite energy. Compton wavelength = critical boundary between wave-like and particle-like behaviour. Massive wavicles can be standing waves without container.
+- **Used in:** TODO_02.md Idea H (wavicle = vortex in PDTP)
+- **Why:** Wavicle picture maps directly to PDTP vortex: self-sustaining standing wave in condensate; no container needed; Compton wavelength = vortex core size
+- **Local copy:** `assets/pdfs/Particles, Waves, and Wavicles.pdf`
+
+#### P86: Finne et al. (2006) — Quantized Vortex Lines in Superfluid He
+- **URL:** [https://www.researchgate.net/figure/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius_fig1_1854091](https://www.researchgate.net/figure/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius_fig1_1854091)
+- **Author:** Finne et al. (2006)
+- **Description:** Macroscopic structure of quantized vortex line in He superfluids showing core radius r_c, superfluid velocity v_s ~ 1/r, density rho_s = 0 inside core
+- **Used in:** TODO_02.md Idea F (vortex line reference image), vortex_winding_derivation.md
+- **Why:** Experimental confirmation of vortex structure that PDTP maps to particles: r_c = Compton wavelength, v_s(r_c) = c, rho_s = 0 inside = "the particle"
+- **Local image:** `assets/images/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius.webp`
+
+---
+
 End of glossary_sources.md

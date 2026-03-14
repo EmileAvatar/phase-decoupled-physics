@@ -541,6 +541,54 @@ They are recorded here so they are not lost. Each needs a full plan and user app
       interactions. Quantitative test needed: does surface tension between QCD and EW
       layers reproduce sigma = 0.18 GeV^2?
 
+- [ ] **Idea H: G is not one thing — it's the net effect of multiple condensate layers**
+  - Motivated by: ChatGPT decomposition G = l_P^2 * c^3 / hbar and user insight that G might
+    be a composite of MULTIPLE interacting effects that APPEAR as one constant.
+  - **G decomposed (Haug 2024):** G = l_P^2 * c^3 / hbar
+    - l_P^2 = gravitational condensate lattice spacing squared (layer 1 property)
+    - c^3 = propagation speed cubed (shared by all layers)
+    - 1/hbar = quantum scale (frequency-energy conversion)
+    - Mathematically identical to PDTP's G = hbar*c / m_cond^2 (since l_P = hbar/(m_P*c))
+    - Source: Haug (2024), "The Compton Wavelength Is the True Matter Wavelength"
+      (assets/pdfs/The_Compton_Wavelength_Is_the_True_Matter_Waveleng.pdf)
+  - **User's key insight:** what if G is like the stiffness of a LAYERED material?
+    - Springs in series: 1/k_eff = 1/k_1 + 1/k_2 + 1/k_3
+    - Light through glass panes: each pane reduces intensity
+    - G is weak not because any ONE layer is weak, but because coupling passes through
+      MULTIPLE interfaces, each reducing it
+    - Each component of G (l_P, c, hbar) may come from a DIFFERENT layer
+  - **Haug's key results relevant to PDTP:**
+    - ALL gravity formulas reduce to just l_P and lambda_C (Compton wavelength)
+    - The ratio l_P/lambda_C = Compton frequency per Planck time = quantum of gravity
+    - In PDTP: l_P/lambda_C = a_0/lambda_C = m/m_cond = 1/n (inverse winding number, Part 33)
+    - Planck constant hbar CANCELS OUT of Schrodinger, Dirac, Klein-Gordon equations
+      when mass is written as m = hbar/(lambda_C * c)
+    - What remains is the Compton frequency c/lambda_C — the particle's internal clock
+    - PDTP parallel: vortex core size = Compton wavelength (Part 33); vortex phase
+      rotation rate = Compton frequency
+  - **Strassler's "wavicle" concept (2024) — supports PDTP vortex picture:**
+    - Electrons are not particles or waves — they're "wavicles" (standing wave patterns
+      with definite frequency AND definite energy)
+    - Compton wavelength = critical scale: box smaller than lambda_C → energy explodes;
+      box larger → energy barely changes
+    - Massive wavicles can be standing waves in FREE SPACE (no container needed)
+    - PDTP mapping: vortex = self-sustaining standing wave pattern in the condensate
+      = wavicle. Container = condensate itself.
+    - Source: Strassler (2024), "Particles, Waves, and Wavicles"
+      (assets/pdfs/Particles, Waves, and Wavicles.pdf)
+  - **Connection to layers and strider model (Idea G):**
+    - If G passes through multiple layers, each layer adds a "surface tension" barrier
+    - Total coupling = product of all layer transmissions
+    - G_eff = G_grav * T_EW * T_QCD where T = transmission coefficient at each interface
+    - This naturally gives a VERY SMALL G_eff even if individual layers are stiff
+    - Like light through fog: each droplet scatters a little, net effect = very dim
+  - Status: **INTERPRETIVE** — Haug's decomposition is established math; the multi-layer
+    interpretation of G is speculative but physically motivated by the oil-water analogy
+  - What would make this a Part: derive G_eff from layer transmission coefficients;
+    show that 3 layers (grav/EW/QCD) with known properties produce G = 6.674e-11;
+    or show that adding/removing a layer changes G (testable at phase transitions)
+  - Reference image: `assets/images/Density Tower Experiment images.jpg` (density layering)
+
 - [ ] **Chirality from condensate refractive index — path to making handedness DERIVED not free**
   - Current Part 50 result: which hand the EW vacuum chose = free parameter (vacuum choice)
   - Speculation: the EW condensate is chirally birefringent — two different effective refractive indices
