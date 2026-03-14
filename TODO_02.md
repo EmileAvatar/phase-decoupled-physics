@@ -347,7 +347,7 @@ They are recorded here so they are not lost. Each needs a full plan and user app
     - **S10: LISA carrier frequency** — omega_gap as carrier; sideband separation delta_f/f for each particle
     - **S11: Score each truth table case** — tally passes/fails per case; overall verdict
 
-- [ ] **Multiple layers of spacetime / condensate**
+- [x] **Multiple layers of spacetime / condensate** (DONE 2026-03-14 -- investigation, no Part)
   - PDTP already has three confirmed condensate layers: gravitational (m_P), QCD (Lambda_QCD), electroweak (v=246 GeV)
   - Speculation: each SM gauge group (U(1), SU(2), SU(3)) = a separate condensate layer nested inside the one below
   - Deeper layer = higher energy scale = larger condensate stiffness
@@ -363,6 +363,48 @@ They are recorded here so they are not lost. Each needs a full plan and user app
   - What would make this a Part: a falsifiable prediction that differs from SM; a mechanism for the nesting;
     or a derivation that the SM gauge groups MUST be separate condensates (not just an analogy)
   - Precedent: Wen (2004) string-net condensation — all SM forces emerge from one underlying quantum liquid
+  - **Oil-and-water analogy — density stratification + immiscibility**
+    - Real fluids form layers by TWO mechanisms:
+      1. **Density stratification** — heavier fluid sinks, lighter floats (ocean thermocline, atmosphere)
+      2. **Immiscibility** — fluids that CANNOT mix even if forced (oil/water, liquid metals/slag)
+    - PDTP condensate layers may use BOTH:
+      - Stratification: layers ordered by energy density (EW~10^46, QCD~10^29, gravity~10^113 J/m^3)
+      - Immiscibility: different gauge groups (U(1), SU(2), SU(3)) cannot mix — topologically distinct
+    - Real-world parallels to investigate:
+      - Ocean halocline: salt density gradient creates stable layering
+      - Density tower experiment: honey/syrup/soap/water/oil/alcohol stack in order
+      - Magma chambers: molten rock separates by mineral density
+      - Planetary atmospheres (Jupiter): gas density layering creates visible bands
+    - Key physics questions for PDTP:
+      - Is the ordering by ENERGY DENSITY (like gravity stratification) or by TOPOLOGY (like immiscibility)?
+      - Can layers partially mix at boundaries (like alcohol/water) or are they strictly immiscible (like oil/water)?
+      - Does each layer have a sharp boundary (phase transition) or a gradual crossover?
+      - If immiscible: what property makes U(1), SU(2), SU(3) unable to mix? (different homotopy groups?)
+      - If stratified: what plays the role of "gravity" that orders the layers? (energy minimisation?)
+    - Possible effects of layering:
+      - Interfacial tension between layers — energy cost of a boundary = phase transition latent heat
+      - Capillary effects at layer boundaries — particles trapped at interfaces (like surfactants)
+      - Rayleigh-Taylor instability — if a heavier layer sits above a lighter one, it's unstable
+      - Mixing zones — partial mixing at boundaries could produce effective field theories (EFTs)
+  - **Investigation plan: `condensate_layers.py` (standalone script)**
+    - S1: Layer catalog — three layers with scales, gauge groups, energy densities, condensate masses
+    - S2: Density ordering — are layers ordered by energy density? Which is "heaviest"?
+    - S3: Scale ratios — are the gaps between layers uniform or patterned? (log spacing? power law?)
+    - S4: Immiscibility test — do different gauge groups allow mixing? (homotopy compatibility)
+    - S5: Phase transition signatures — EW and QCD transitions observed; predict gravitational transition
+    - S6: Inter-layer coupling — does PDTP Lagrangian have cross-layer terms? Should it?
+    - S7: Interfacial tension — energy cost of layer boundaries (latent heat of EW/QCD transitions)
+    - S8: What's below gravity? — self-termination vs infinite regress vs discrete base
+    - S9: Oil-water mapping — which real-world stratification system best matches PDTP?
+    - S10: Scorecard — derived vs interpretive vs speculative; falsifiable predictions
+  - **Results (2026-03-14): 13/17 PASS**
+    - ALL PASS: density ordering, immiscibility (topology), inter-layer coupling, interfacial tension, oil-water mapping
+    - PARTIAL: phase transitions (2/3 observed), below gravity (bootstrap yes, why 3 layers unknown)
+    - FAIL: scale ratios (gaps NOT geometric — hierarchy problem restated)
+    - Best analogy: He-3/He-4 superfluid mixture (Andreev-Bashkin coupling through shared matter)
+    - Conclusion: CONSISTENT and CLARIFYING but mostly INTERPRETIVE — no new predictions beyond SM + PDTP
+    - Does NOT warrant a Part number. Useful analogy framework for non-specialists.
+    - Script: `simulations/solver/condensate_layers.py`
 
 - [ ] **Idea C: Two coupling channels in one medium (amplitude vs topology)**
   - Motivated by truth table investigation (gravity_em_truth_table.py): beat/depth model FAILS for EM
@@ -440,6 +482,64 @@ They are recorded here so they are not lost. Each needs a full plan and user app
     superfluid velocity v_s ~ 1/r, and density rho_s = 0 inside core.
     PDTP mapping: r_c = Compton wavelength, v_s(r_c) = c, rho_s = 0 inside = "the particle"
     — Source: https://www.researchgate.net/figure/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius_fig1_1854091
+
+- [ ] **Idea G: Strider model — particles FLOAT on gravity (+cos lock vs -cos surface tension)**
+  - Motivated by oil/water layer analogy and water strider physics
+  - **Surface tension equation (real physics):**
+    - Water strider: F = 2 * gamma * L * cos(theta)
+    - gamma = surface tension (N/m), L = contact length (legs), theta = contact angle
+    - cos(theta) controls coupling: cos(0)=1 sinks, cos(90)=0 floats
+    - Source: Young-Laplace equation (1805)
+  - **PDTP mapping:** cos(theta) <-> cos(psi - phi) — SAME COSINE, SAME PHYSICS
+    - theta (contact angle) = psi - phi (phase difference)
+    - gamma (surface tension) = K/a_0 (condensate stiffness / lattice spacing)
+    - L (contact length) = lambda_C (Compton wavelength)
+  - **Sign insight (user idea):** Lagrangian sign was corrected -cos -> +cos.
+    Add strider as -cos (opposite sign = competition):
+    - L = +g*cos(psi - phi_bulk) - g*cos(psi - phi_surface)
+    - +cos = phase-locking (pulls particle INTO condensate)
+    - -cos = surface tension (keeps particle FLOATING)
+    - Trig identity: g_eff = 2g * sin(Delta), where Delta = bulk-surface phase gap
+  - **Key result (Model C):** If Delta = (m/m_P)^2 * pi/2, then:
+    - g_eff gives correct alpha_G for ALL particles (ratio = pi/2, constant)
+    - Black hole = Delta -> pi/2 (strider breaks through surface = sinks)
+    - Hierarchy problem reframed: "why is Delta so tiny?" (10^-45 rad for electron)
+    - Physical meaning: bulk and surface are ALMOST identical; tiny mismatch IS gravity
+  - **Why reframing matters:** seeing the problem from different angles prevents getting
+    stuck inside it. "Why is G so weak?" and "why is Delta so small?" and "why does the
+    strider barely dimple the surface?" are the SAME question viewed from 3 directions.
+    Each view suggests different attack strategies.
+  - **Naive strider (L = lambda_C) gives WRONG mass dependence:** lighter particles have
+    longer Compton wavelength = more contact = stronger coupling. But gravity is WEAKER
+    for lighter particles. The -cos sign fixes the direction but not the magnitude.
+    Model C (two phases) is needed to get quantitative agreement.
+  - Status: **INTERPRETIVE** — correct cosine form, beautiful physical picture,
+    reorganises hierarchy problem but does not solve it. Model C most promising.
+  - What would make this a Part: derive Delta = (m/m_P)^2 from vortex core depth
+    or condensate profile; show the two-phase Lagrangian produces new predictions
+    distinct from the single-phase version
+  - Script: `simulations/solver/strider_test.py` (Models A-E tested, Model C works)
+  - **Air-Water-Oil layer analogy (user idea):** particles live in DIFFERENT layers
+    based on how deeply they sit in the condensate stack:
+    - AIR (top/lightest): Leptons — float freely, not trapped by any surface tension.
+      Can move anywhere. Lighter = higher up = more free.
+    - WATER (middle/EW): W, Z, Higgs — the interface layer. Forces that connect
+      the free layer (air) to the confined layer (oil) live here.
+    - OIL (bottom/QCD): Quarks, gluons — stuck in the dense layer. Surface tension
+      between oil and water prevents escape = quark confinement.
+    - **Lepton freedom:** leptons float on air, no boundary traps them
+    - **Quark confinement:** quarks are IN the oil; pulling one out stretches the
+      oil-water interface = energy cost grows with distance = linear confinement
+    - **Leptons sticking to quarks:** a lepton can "land" on the water surface
+      (touch the EW interface) and interact with quarks below via W/Z exchange.
+      Like a bird dipping into water to catch a fish, then flying off.
+    - **Atoms:** proton (3 quarks in oil) creates a disturbance reaching up through
+      water to air; electron (in air) orbits the disturbance = EM attraction
+    - This maps onto the condensate layer table:
+      Gravitational (honey, deepest) > EW (water, middle) > QCD (oil, upper)
+    - Status: **ANALOGY** — qualitatively maps confinement, freedom, and cross-layer
+      interactions. Quantitative test needed: does surface tension between QCD and EW
+      layers reproduce sigma = 0.18 GeV^2?
 
 - [ ] **Chirality from condensate refractive index — path to making handedness DERIVED not free**
   - Current Part 50 result: which hand the EW vacuum chose = free parameter (vacuum choice)
