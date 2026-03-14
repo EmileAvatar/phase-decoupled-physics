@@ -180,30 +180,64 @@ symmetry groups). The following **values and mechanisms** remain open:
 
 ### Cosmological
 
-- [ ] **Cosmological Constant via Forced Checklist Check**
+- [x] **Cosmological Constant via Forced Checklist Check** *(RESOLVED 2026-03-10 — PARTIAL)*
+  - **Method: Forced Checklist Check** — went through ALL ~30 Methodology.md items
   - Part 43: condensate T_μν^φ = 0 in vacuum (U(1) shift) — does NOT add to Λ ✓
-  - But: matter-sector vacuum energy (quarks, leptons, Higgs zero-point) still unresolved
-  - Observed: Λ_obs ~ 1.1×10⁻⁵² m⁻²; QFT predicts ~10¹²⁰ × Λ_obs (worst prediction in physics)
-  - **Method: Forced Checklist Check** — go through ALL Methodology.md items one by one
-  - Question: can any checklist path reduce or explain the Λ problem in PDTP?
-  - Candidate paths not yet tried: topological argument (Λ from lattice winding?), order parameter (Λ as condensate gap?), analogy (BCS gap → Λ?), postulate-and-derive
-  - **Candidate: Tachyon condensate as second spacetime layer (postulation)**
-    - Postulate: a second condensate field φ_T exists, operating above c (FTL layer)
-    - Normal matter does NOT phase-lock to φ_T (analogous to neutrinos not coupling to EM)
-    - Tachyon particle: couples to φ_T, NOT to φ (the normal spacetime condensate); no violation of +cos rule
-    - φ_T has its own condensate scale m_cond_T, its own coupling constant g_T, potentially different topology
-    - Dispersion of φ_T sector: ω² = k²c² − m_cond_T²c⁴/ħ² (tachyonic, FTL group velocity v > c)
-    - Condensation endpoint: ψ_T − φ_T rolls from 0 → π; α_T = cos(π) = −1 → repulsive + w = −1 (Λ-like)
-    - Three-phase picture: FTL phase (v→∞) → rolling (v>c, α: +1→−1) → condensed (v→c⁺, w = −1 = Λ)
-    - Candidate for dark matter: decoupled from φ (no normal gravity) + decoupled from EM → invisible ✓
-    - Candidate for Λ: condensed φ_T sector contributes constant w=−1 term to Einstein eq
-    - Precedent: Sen (2002) hep-th/0203265 — tachyon condensation in string theory → cosmological constant
-    - Limits: m_cond_T undetermined; φ_T/φ coupling (if any) undetermined; two-layer architecture unverified
-    - Status: postulation only — no Sudoku check yet; needs a Part number and full derivation to proceed
+  - **Three paths converge:** ρ_Λ ~ ρ_Planck × (l_P / L_H)² ~ 10⁻¹²² ρ_Planck
+    - Path A: BEC quantum depletion analog (f_dep ~ l_P/L_H → ρ ~ f²)
+    - Path B: Topological sector energy differences on compact manifold
+    - Path C: Working backwards from ρ_Λ → L_required ~ 3.5 L_H (same order)
+  - **CKN bound:** ρ_CKN = c²/(G L_H²) = 7.1×10⁻²⁶ kg/m³ vs ρ_Λ = 5.8×10⁻²⁷ (factor 12) ✓
+  - **Geometric mean:** L_eff = √(l_P × L_H) ~ 47 μm; ρ(L_eff) matches CKN ✓
+  - **NEGATIVE:** BEC Bogoliubov invalid — n a_s³ ~ 1 (not dilute; strongly interacting) ✗
+  - **NEGATIVE:** L_H is NOT a PDTP parameter — cosmological input (free parameter) ✗
+  - **NEGATIVE:** Λ is a SECOND free parameter alongside G (= ℏc/m_cond²) ✗
+  - Analogy: G is to PDTP as Λ is to GR — both free parameters of the condensate
+  - 10/10 Sudoku tests pass
+  - Docs: `docs/research/cosmological_constant_fcc.md`; Script: Phase 29 `cosmo_constant.py`
+  - Tachyon condensate postulation remains speculative — moved to Speculation section
 
 - [ ] **CP violation and baryogenesis**
   - PDTP Lagrangian is C, P, T invariant separately → no CP violation
   - Sakharov baryogenesis blocked — needs an extension to break CP
+
+### G Determination — Fresh Reframe Ideas
+
+Five fresh approaches to reframing the problem of determining G (or equivalently m_cond).
+Each needs a full investigation before becoming a Part.
+
+- [x] **Idea 1: Measure the ratio alpha_G/alpha_EM instead of G alone** *(RESOLVED 2026-03-12 — NEGATIVE)*
+  - n = m_P/m_particle ~ 10^22 for electron, ~ 10^19 for proton
+  - Integer constraint on n requires ALL mass ratios to be exact rationals
+  - m_mu/m_e = 206.768... and m_p/m_e = 1836.15... are NOT simple rationals
+  - At n ~ 10^22, "integer vs non-integer" is unmeasurable anyway
+  - **CONCLUSION:** Integer winding constraint does NOT narrow m_cond
+
+- [x] **Idea 2: Count modes (oscillators per volume) instead of measuring stiffness** *(RESOLVED 2026-03-12 — NEGATIVE)*
+  - Mode counting (n_cond = 1/a_0^3) is mathematically identical to knowing m_cond
+  - All observational routes checked: GW spectrum gives G*M not G; CMB depends on H(z) which contains G
+  - Graviton scattering cross-section ~ G^2, not mode count
+  - **CONCLUSION:** Counting modes IS measuring m_cond — same circularity in different language
+
+- [x] **Idea 3: Time dilation as phase offset — measure condensate phase directly** *(RESOLVED 2026-03-12 — NEGATIVE)*
+  - Clocks measure gravitational redshift = GM/(rc^2) — gives GM combined, not G alone
+  - Equivalence principle: ALL frequencies shift by the same fraction GM/(rc^2)
+  - omega_gap is invisible because it shifts identically to every other frequency
+  - Could show up in GW dispersion at Planck frequency (~10^43 Hz) — completely inaccessible
+  - **CONCLUSION:** Equivalence principle makes omega_gap invisible to clock comparisons
+
+- [x] **Idea 4: Structural stability — what m_cond values allow self-consistent condensate?** *(RESOLVED 2026-03-12 — NEGATIVE)*
+  - Checked 6 stability criteria: c_s=c, kappa_GL=sqrt(2), vortex binding, core stability,
+    Z3 fractional winding, Landau criterion — ALL hold for ANY m_cond > 0
+  - Energy density positive for any m_cond; confinement (sigma > 0) for any m_cond
+  - **CONCLUSION:** Condensate is structurally stable at all scales. m_cond is truly free.
+
+- [x] **Idea 5: alpha_EM ~ K_0 ~ 1/(4pi) near-coincidence — derivable relationship?** *(RESOLVED 2026-03-12 — NEGATIVE)*
+  - K_0/alpha_EM = 10.905 — not close to any integer, simple fraction, or group theory factor
+  - Tested: Casimir factors (4/3, 3/4, 3), powers of K_0, sqrt combinations — no match
+  - Historical note: deriving 1/137 from pure numbers has been tried (Eddington, Wyler) — all failed
+  - alpha_EM runs with energy (QED RG flow), so its low-energy value is not a pure number
+  - **CONCLUSION:** No derivable relationship between K_0 and alpha_EM
 
 ---
 
@@ -211,6 +245,107 @@ symmetry groups). The following **values and mechanisms** remain open:
 
 These are unverified intuitions. No Sudoku check, no Part number, no derivation yet.
 They are recorded here so they are not lost. Each needs a full plan and user approval before becoming a Part.
+
+- [x] **Gravity-EM unification: one condensate, different frequency bands (truth table)** (DONE 2026-03-12)
+  - Inspired by the EM spectrum: what if all forces are frequency bands of ONE medium?
+  - Historical precedent: electricity + magnetism + light were "three things" until Maxwell unified them (1865)
+  - **Idea A: Gravity is weak because it is the slow beat frequency (envelope)**
+    - Condensate carrier: omega_P ~ 10^43 Hz (Planck frequency)
+    - Matter modulates this carrier at omega_matter = m c^2 / hbar
+    - What we feel as gravity = the BEAT = |omega_condensate - omega_matter|
+    - Modulation depth = m / m_cond = 1/n ~ 10^-19; coupling ~ 1/n^2 ~ 10^-38 = alpha_G
+    - Analogy: AM radio — you hear the slow audio envelope, not the MHz carrier
+  - **Idea B: Gravity and EM are the same condensate at different scales**
+    - PDTP already has three layers (gravitational/QCD/EW) with identical Lagrangian structure
+    - What if they're not separate condensates but frequency bands of ONE medium?
+    - Like radio vs gamma rays: same EM field, different frequencies
+    - Hierarchy of forces = frequency ratio spectrum of one medium
+  - **Truth table evaluation:**
+    - **(1) A true, B false:** Gravity IS a beat frequency, but gravity and EM are SEPARATE condensates
+      - Explains why gravity is weak (carrier >> signal)
+      - Does NOT explain why alpha_EM = 1/137 (separate medium, separate coupling)
+      - Three condensate layers remain independent — no unification
+      - Testable: beat frequency structure should produce sidebands detectable in GW spectrum
+    - **(2) A false, B true:** Gravity and EM are the same medium, but gravity is NOT a beat frequency
+      - Forces are different excitation modes (spin-0/2 vs spin-1) of one medium
+      - Still needs to explain WHY gravity is weak if not from beat/envelope mechanism
+      - Spin problem: must explain how one medium produces different spin excitations at different scales
+      - Testable: force unification at high energy (GUT-scale convergence already observed in running couplings)
+    - **(3) A true AND B true:** One medium, gravity = beat of that medium's self-oscillation
+      - Cleanest picture: alpha_force ~ (m_particle / m_condensate_layer)^2 for all forces
+      - Hierarchy problem becomes: "why does the spectrum have gaps at these specific scales?"
+      - Problem: naive scaling gives alpha_EM ~ (m_e/v_EW)^2 ~ 10^-12, not 10^-2 — coupling mechanism differs between bands
+      - Would predict: all forces converge at one frequency (= GUT scale); force strength = how far from carrier
+      - Testable: frequency-dependent deviations from 1/r^2 at the crossover between bands
+    - **(4) A false AND B false:** Gravity and EM are separate condensates AND gravity is not a beat
+      - This is the current PDTP baseline: three independent condensate layers, G = hbar c / m_cond^2
+      - Gravity is weak because m_cond = m_P is large (but WHY m_P is large = underdetermined)
+      - No unification — forces are genuinely different media with different stiffnesses
+      - Still consistent with all current results; just offers no explanation for the hierarchy
+  - Key obstacle for (3): spin problem — gravity excitations are spin-0/2, EM is spin-1
+    - BUT: PDTP lattice already produces both scalar (breathing) and tensor (shear) modes from ONE lattice (Part 28)
+    - Different vibration modes of one medium CAN produce different spins — this is not a showstopper
+  - What would make this a Part: derive coupling strength alpha = (m/m_layer)^2 for EM from the PDTP Lagrangian;
+    show that the same medium produces spin-0, spin-1, and spin-2 excitations at different scales;
+    predict a crossover scale or frequency-dependent deviation testable in experiment
+  - **Investigation findings (2026-03-12):**
+  - **Ocean wave spin-depth analogy** (from `assets/images/waves long and trans image072.png`)
+    - Ocean waves: surface = circular orbits (transverse + longitudinal), bottom = horizontal only (longitudinal)
+    - Transverse/longitudinal ratio = tanh(k*z) where z = height above bottom
+    - tanh is an L-shaped curve that NEVER reaches 0 — coupling always nonzero
+    - Higher spin modes (more transverse character) decay faster with depth
+    - Part 28 already confirmed: ONE lattice produces spin-0 (breathing) + spin-2 (shear)
+    - Mapping: "surface" = Planck scale (all spins excited), "depth" = lower energy (higher spin decays)
+  - **Coupling curve shapes — NOT exponential, L-shaped power law**
+    - alpha_G = (m/m_P)^2 is a POWER LAW (L-shape on linear plot), not exponential
+    - tanh^2(kz) approx (kz)^2 for small kz — matches power-law behavior near the "bottom"
+    - alpha_EM ~ 1/137 nearly flat (logarithmic running: 1/137 at low E, 1/128 at m_Z)
+    - alpha_s runs logarithmically (strong at low E, weak at high E — asymptotic freedom)
+    - GUT convergence at ~10^16 GeV: all three gauge couplings nearly cross at one point
+    - If forces are modes of one medium, GUT crossing = node where all modes have equal amplitude
+  - **Spin ordering matches observation (qualitative WIN)**
+    - Spin-2 (gravity): weakest at low energy — decays fastest with depth (most transverse)
+    - Spin-1 (EM/strong): intermediate coupling — intermediate decay rate
+    - Spin-0 (scalar/Higgs): persists to all scales — longitudinal, decays slowest
+    - Physical reason: transverse modes decay faster than longitudinal in any bounded medium
+    - This ordering is CORRECT and non-trivial — it is a genuine prediction of the depth model
+  - **Three quantitative problems found:**
+    - **(P1) Decay rate mismatch:** Need k_spin2/k_spin1 ~ 22 to get 43-order hierarchy.
+      Naive spin ratio gives k_2/k_1 = 2. Off by factor ~11. No physical justification for 22:1.
+    - **(P2) Mass-independence of alpha_EM (KILLER TEST):**
+      Gravity couples to MASS: alpha_G(electron) = 1.75e-45, alpha_G(proton) = 6.0e-37
+      EM couples to CHARGE: alpha_EM = 1/137 for BOTH electron and proton (mass-independent)
+      The beat/depth model inherently produces mass-dependent coupling for ALL modes.
+      EM's mass-independence requires a fundamentally different coupling mechanism (charge, not mass).
+    - **(P3) SU(3) vs U(1) same spin, different coupling:**
+      Strong force (spin-1, alpha_s ~ 1 at low E) and EM (spin-1, alpha_EM ~ 1/137) differ by ~137x.
+      Both are spin-1 gauge bosons. Depth model predicts same-spin = same coupling. FAILS.
+  - **Possible resolution: topological charge vs continuous phase (needs investigation)**
+    - Gravity couples to continuous phase gradient (proportional to mass) -> mass-dependent
+    - EM couples to discrete winding number (quantized charge) -> mass-independent
+    - In PDTP: vortex winding number W is integer; electron and proton both have |W| = 1 -> same alpha_EM
+    - Would explain mass-independence while keeping depth mechanism for gravity
+    - For SU(3): Z3 fractional winding (W = 1/3 per quark) -> different effective coupling from U(1)
+    - This is speculative but testable: script should check if alpha_EM ~ (1/N_colors)^2 or similar
+  - **LISA connection (from Phase 7 — lisa_sim.py):**
+    - omega_gap = m_P*c^2/hbar = 2.95e42 Hz (Planck frequency)
+    - In the beat model, this IS the carrier frequency of the gravitational condensate
+    - LISA band: 1e-4 to 0.1 Hz — gap of 43 orders = the hierarchy problem in frequency space
+    - The 43-order gap is NOT a failure of detection — it IS the hierarchy problem restated
+  - **Script plan: `gravity_em_truth_table.py` (standalone investigation, NOT integrated into main.py)**
+    - Script computes quantitative checks for all 4 truth table cases, with Sudoku-style PASS/FAIL:
+    - **S1: Frequency scale map** — omega for all 3 condensate layers (Planck, QCD, EW) + 6 SM particles
+    - **S2: Beat frequency test (Idea A)** — alpha_G = (m/m_P)^2 for e, mu, tau, p, W, Z; compare to G*m^2/(hbar*c)
+    - **S3: Naive beat for EM** — alpha_EM_beat = (m/v_EW)^2 for e, mu, p; expect FAIL (should all = 1/137)
+    - **S4: Ocean wave depth model** — fit tanh^2(k*z) to alpha_G and alpha_EM at electron scale
+      - Compute required k_spin2, k_spin1; report ratio (expect ~22, spin gives only ~2)
+    - **S5: Mass-independence test** — compute depth-model alpha_EM for e, mu, p (expect all different = FAIL)
+    - **S6: GUT convergence** — do alpha_1, alpha_2, alpha_3 converge near one energy? (reference values)
+    - **S7: Topological charge test** — if alpha_EM ~ (W/N)^p, what W, N, p gives 1/137?
+    - **S8: Spin ordering check** — rank forces by spin; compare to observed coupling strengths
+    - **S9: Power-law vs exponential** — fit alpha_G(m) to (m/m_P)^n and exp(-k*z); which fits?
+    - **S10: LISA carrier frequency** — omega_gap as carrier; sideband separation delta_f/f for each particle
+    - **S11: Score each truth table case** — tally passes/fails per case; overall verdict
 
 - [ ] **Multiple layers of spacetime / condensate**
   - PDTP already has three confirmed condensate layers: gravitational (m_P), QCD (Lambda_QCD), electroweak (v=246 GeV)
@@ -228,6 +363,83 @@ They are recorded here so they are not lost. Each needs a full plan and user app
   - What would make this a Part: a falsifiable prediction that differs from SM; a mechanism for the nesting;
     or a derivation that the SM gauge groups MUST be separate condensates (not just an analogy)
   - Precedent: Wen (2004) string-net condensation — all SM forces emerge from one underlying quantum liquid
+
+- [ ] **Idea C: Two coupling channels in one medium (amplitude vs topology)**
+  - Motivated by truth table investigation (gravity_em_truth_table.py): beat/depth model FAILS for EM
+    because EM is mass-independent (S5 killer test: 0/4 pass)
+  - **The problem:** gravity couples to MASS (continuous), EM couples to CHARGE (discrete).
+    Any model where coupling depends on mass (beat frequency, ocean wave depth) inherently
+    gives different alpha_EM for electron vs proton. Observed: same 1/137 for both.
+  - **Proposed resolution:** one medium, TWO coupling channels:
+    - Channel 1 (gravity): couples to the AMPLITUDE of the phase gradient = how fast the vortex winds
+      = mass. Continuous, particle-dependent. alpha_G = (m/m_P)^2. **DERIVED (Part 33).**
+    - Channel 2 (EM): couples to the TOPOLOGY of the phase = does it wind or not, which direction.
+      Discrete (integer winding number), particle-independent. alpha_EM = f(topology). **INTERPRETIVE (Part 23).**
+  - Analogy: a knotted rope. You can measure its tension (continuous = mass/gravity) or count its
+    knots (discrete = charge/EM). Both measurements on the SAME rope.
+  - Status: Channel 1 is DERIVED. Channel 2 is INTERPRETIVE — Part 23 identifies charge with winding
+    number sign (+1/-1/0) but does NOT derive this from the Lagrangian.
+  - Reference image: `assets/images/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius.webp`
+    — real vortex line in superfluid He, from Finne, Eltsov, Hanninen & Volovik (2006)
+    — Source: https://www.researchgate.net/figure/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius_fig1_1854091
+  - What would make this a Part: derive alpha_EM from the PDTP Lagrangian using winding number topology;
+    show that the coupling is mass-independent from first principles (not just by analogy)
+
+- [ ] **Idea D: Derive 1/137 from RG running of condensate coupling K_0 = 1/(4*pi)**
+  - Motivated by truth table S7: no clean topological number (W/N)^p gives 1/137.
+    But alpha_EM RUNS with energy (1/137 at low E, 1/128 at m_Z). This means 1/137 is DYNAMICAL.
+  - PDTP already has the bare coupling: K_0 = 1/(4*pi) ~ 0.0796 (Part 35, dimensionless in natural units)
+  - Question: does RG running from K_0 at Planck scale give alpha_EM = 1/137 at low energy?
+  - This is a CALCULATION, not a guess — testable with existing lattice code (Parts 38-41)
+  - Part 35 showed: K runs only 5.5% over 22 decades (beta = +K^2/(8*pi^2), IR free)
+  - But that was the GRAVITATIONAL condensate coupling. The EW condensate may have different beta function.
+  - Status: **TESTABLE** — run compact U(1) lattice at K_0 = 1/(4*pi), measure emergent alpha at low energy
+  - What would make this a Part: compute alpha_EM from K_0 using lattice RG; compare to 1/137
+
+- [ ] **Idea E: Running couplings as condensate dispersion (ocean wave 2.0)**
+  - Reframe of the ocean wave analogy that KEEPS the qualitative wins (spin ordering)
+    while fixing the quantitative failures (43-order gap)
+  - Instead of "higher spin decays with depth" -> "different modes disperse differently"
+  - In a dispersive medium (glass, water), different frequencies travel at different speeds
+  - The condensate has dispersion: different excitation modes (spin-0, spin-1, spin-2) have
+    different effective coupling constants at different energy scales
+  - GUT convergence at ~10^16 GeV (S6 PASS) = the energy where the medium is NON-DISPERSIVE
+    (all modes equal, like white light before a prism)
+  - At low energy: modes have dispersed apart -> hierarchy of force strengths
+  - Coupling curve shapes (S9): power law for gravity (L-shape), logarithmic for EM/strong
+  - These different curve shapes = different dispersion relations for different modes
+  - Status: **ANALOGY** — needs quantitative dispersion relation derived from condensate physics
+  - What would make this a Part: derive the dispersion relation for spin-0, spin-1, spin-2 modes
+    from the PDTP Lagrangian; show it reproduces the observed coupling constant running
+
+- [ ] **Idea F: Homotopy classification explains different forces from one medium**
+  - Motivated by truth table S8 problem P3: EM (spin-1) and strong (spin-1) have SAME spin but
+    differ by factor ~16 in coupling. Depth model can't distinguish same-spin modes.
+  - **Topology background (current science):**
+    - Topology = properties unchanged by stretching/bending, only by cutting/gluing
+    - Homotopy = classifying the fundamentally different ways to wrap one shape around another
+    - Example: rubber band around a pole — 0 wraps, 1 wrap, 2 wraps are topologically distinct
+    - pi_1(X) = ways to wrap a circle around space X. For U(1): pi_1 = Z (integers). For SU(3): pi_1 = Z_3.
+    - Source: Mermin (1979), "The topological theory of defects in ordered media" (cited in Part 33)
+  - **PDTP already uses this:**
+    - pi_1(U(1)) = Z -> integer winding vortices -> leptons (Part 33)
+    - pi_1(SU(3)/Z_3) = Z_3 -> fractional 1/3 winding -> quarks (Part 37)
+    - Winding number n = m_cond/m -> mass (Part 33, DERIVED)
+    - Charge = winding number sign (Part 23, INTERPRETIVE)
+  - **Why EM and strong differ despite same spin:**
+    - EM = U(1) gauge group -> vortices classified by Z (all integers) -> charge = +/-1
+    - Strong = SU(3) gauge group -> vortices classified by Z_3 (only 3 classes: 0, 1/3, 2/3) -> colour
+    - Different GROUP STRUCTURE -> different effective coupling, even at same spin
+    - The coupling depends on the topology (Z vs Z_3), not just the spin
+  - Status: **REAL MATH, SPECULATIVE CONNECTION** — the homotopy classification is established physics;
+    the connection to coupling STRENGTH (why alpha_s ~ 1 and alpha_EM ~ 1/137) is NOT derived
+  - What would make this a Part: derive coupling strength from group structure (Z vs Z_3);
+    show why Casimir factor alone is insufficient (it gives 4/3, not 137)
+  - Reference image for vortex lines: `assets/images/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius.webp`
+    — Finne et al. (2006), shows real quantized vortex in superfluid He with core radius r_c,
+    superfluid velocity v_s ~ 1/r, and density rho_s = 0 inside core.
+    PDTP mapping: r_c = Compton wavelength, v_s(r_c) = c, rho_s = 0 inside = "the particle"
+    — Source: https://www.researchgate.net/figure/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius_fig1_1854091
 
 - [ ] **Chirality from condensate refractive index — path to making handedness DERIVED not free**
   - Current Part 50 result: which hand the EW vacuum chose = free parameter (vacuum choice)

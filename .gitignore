@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+simulations/output/
+simulations/outputs_test/
+simulations/solver/outputs/
+simulations/solver/__pycache__/

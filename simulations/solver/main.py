@@ -46,6 +46,7 @@ Phases:
    26. Three generations — radial vortex modes n_r=0,1,2; lepton universality derived (Part 51)
    27. Coupling constants — beta functions derived; alpha_EM=1/137 underdetermined (Part 52)
    28. Z3-Koide — Z3 center derives Koide Q=2/3; delta=sqrt(2) from equal partition (Part 53)
+   29. Cosmo constant — FCC: rho_Lambda ~ rho_Planck*(l_P/L_H)^2; CKN bound; L_H free (Part 54)
 """
 
 import os
@@ -84,6 +85,7 @@ from chirality_parity import run_chirality_phase
 from three_generations import run_three_generations_phase
 from coupling_constants import run_coupling_constants_phase
 from koide_z3 import run_koide_z3_phase
+from cosmo_constant import run_cosmo_constant_phase
 
 
 def main():
@@ -274,6 +276,11 @@ def main():
     # Phase 28: Z3 Phase Positions and the Koide Formula (Part 53)
     # ------------------------------------------------------------------
     run_koide_z3_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 29: Cosmological Constant -- Forced Checklist Check (Part 54)
+    # ------------------------------------------------------------------
+    run_cosmo_constant_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
