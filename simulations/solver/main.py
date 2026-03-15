@@ -50,6 +50,7 @@ Phases:
    30. Two-phase Lagrangian — +cos/-cos EL derivation; biharmonic gravity; phi_- new field (Part 61)
    31. Reversed Higgs — phi_- environment-dependent mass; chameleon comparison; hollow shell test (Part 62)
    32. Two-phase re-derivation — 16/16 tests: all single-phase results reproduced (Part 63)
+   33. Temperature in PDTP — XY model identification; T_c ~ T_Planck; alpha(T) derived (Part 64)
 """
 
 import os
@@ -92,6 +93,7 @@ from cosmo_constant import run_cosmo_constant_phase
 from two_phase_lagrangian import run_two_phase_lagrangian
 from reversed_higgs import run_reversed_higgs
 from two_phase_rederivation import run_two_phase_rederivation
+from temperature_pdtp import run_temperature_phase
 
 
 def main():
@@ -302,6 +304,11 @@ def main():
     # Phase 32: Two-Phase Re-derivation of ALL Results (Part 63)
     # ------------------------------------------------------------------
     run_two_phase_rederivation(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 33: Temperature in PDTP (Part 64)
+    # ------------------------------------------------------------------
+    run_temperature_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

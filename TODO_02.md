@@ -828,6 +828,65 @@ They are recorded here so they are not lost. Each needs a full plan and user app
   - What would make this a Part: formulate the phi field wave equation in the presence of an oscillating matter source;
     find the standing wave solutions; calculate node stability and energy cost
 
+- [ ] **Leidenfrost Effect as PDTP decoupling analogue**
+  - Standard Leidenfrost: droplet on a hot pan vaporises its bottom layer instantly; the resulting
+    steam cushion (~0.1mm) insulates the droplet from the surface — droplet floats on its own vapour,
+    thermally decoupled, for minutes. Critical temperature ~193C for water.
+  - PDTP analogue: matter (psi) in gravitational condensate (phi); if matter drives phi oscillation
+    hard enough, local condensate becomes phase-incoherent ("vapour phase") — alpha = cos(psi-phi) -> 0
+    — matter decoupled from gravity. Self-sustains as long as driving energy continues.
+  - Mapping: hot surface = condensate, droplet = craft, steam layer = phase-incoherent boundary,
+    Leidenfrost temperature = critical coupling energy (Delta V = g per oscillator)
+  - phi_- connection (Part 61-62): phi_- is massless in vacuum, massive near matter (reversed Higgs).
+    phi_- IS environment-dependent — could it act as the "vapour layer" boundary field?
+    Question: can phi_- grow large enough to screen cos(psi - phi_+) -> 0?
+  - Z3 Y-junction geometry — the craft mechanism:
+    - Part 37: 3 quarks held by flux tubes in Y-junction at 120 degrees = Z3 symmetry
+    - Lazar's craft description: 3 "gravity amplifiers" arranged in triangle at 120 degrees = same geometry
+    - Hypothesis: 3 oscillating drums at 120 degree spacing create a Z3 topological defect in the
+      gravitational condensate (same topology as a baryon/Y-junction)
+    - Craft hull sits INSIDE this Z3 defect where phi is wound — cos(psi-phi) averages to 0
+    - The "Leidenfrost layer" = the wound condensate boundary of the Z3 defect
+    - Inverted acoustic levitation: craft generates its own standing wave pattern and sits at the node
+  - UAP EM interference observations: suggests decoupling mechanism involves EM oscillation coupling
+    to the gravitational condensate — consistent with the coil drum / phase-gradient concept
+  - Why Goal 1 is prerequisite: if GR + QM emerge from ONE phase-locking system, then the same
+    equations that explain quarks (Z3 confinement) tell you how to BUILD a Z3 decoupler.
+    You cannot engineer decoupling without understanding the coupling first.
+  - What would make this a Part: derive the phase-incoherent boundary condition from PDTP Lagrangian;
+    show the Z3 defect geometry creates alpha -> 0 inside; calculate energy cost; compare to Leidenfrost
+    critical temperature as a scaling argument
+
+- [ ] **ChatGPT review gaps — items flagged by external critical review (2026-03-15)**
+  - Context: ChatGPT given only two_phase_rederivation.md (old 157-line version without derivations).
+    Some criticisms were documentation quality (now fixed: expanded to 1074 lines with full derivations).
+    The items below are genuine PHYSICS gaps, not documentation gaps.
+  - [ ] **Full stress-energy tensor T_mu_nu** — currently only T_00 (energy density, Part 43).
+    Need spatial components T_ij. Required for: any reviewer who wants to check energy-momentum
+    conservation, gravitational source terms, equation of state. Formula: T_mu_nu = dL/d(d^mu phi) d_nu phi - g_mu_nu L.
+    Derive for all three fields (phi_b, phi_s, psi) in both single-phase and two-phase.
+  - [ ] **Emergent metric g_mu_nu in closed form** — currently have acoustic metric (c_s = c, S8),
+    tetrad extension (Part 12), PPN match (S9). But no single clean formula g_mu_nu(phi_b, phi_s, psi).
+    Strong-field regime untested. Needed for: light bending calculation, frame-dragging, Kerr limit.
+    Approach: use Part 12 tetrad Phi = sqrt(rho_0) exp(i*phi) e^a_mu and write g_mu_nu = eta_ab e^a_mu e^b_nu.
+  - [ ] **Einstein equations from PDTP Lagrangian alone** — currently derived via imported GR machinery
+    (tetrad, Part 12). Can we derive G_mu_nu = 8*pi*G T_mu_nu purely from phase-locking?
+    This is the HARDEST open problem. If solved, it proves gravity IS emergent phase-locking.
+    If it cannot be solved, PDTP remains a scalar-tensor complement to GR, not a replacement.
+  - [ ] **Eigenvalue vs frequency clarification** — Part 61 Jeans eigenvalue +2*sqrt(2)*g is a
+    growth rate (lambda), not omega^2. The system d^2x/dt^2 = Mx has: lambda > 0 = unstable (growth),
+    lambda < 0 = oscillatory (omega = sqrt(-lambda)). Research docs should distinguish these clearly.
+    Currently correct in the Python script but could confuse a reviewer reading only the .md file.
+  - [ ] **ODE vs PDE assumption made explicit in all docs** — Python script states [A1]: spatially
+    uniform fields (phi = phi(t) only). This is standard (Peskin & Schroeder sec 2.2) but research docs
+    must state it prominently. Full PDE adds nabla^2 to LHS; RHS (coupling terms) unchanged.
+    Every derivation that uses ODE form must say so, and state what changes when going to full PDE.
+  - Items already addressed (do NOT redo):
+    - "No SM path" — WRONG: Parts 37-53 cover SU(3), quarks, gluons, string tension, Koide, chirality
+    - "Unsupported claims" — FIXED: 16/16 scorecard now has full derivations (1074 lines)
+    - "PASS/FAIL scoreboards bad" — DISAGREE: scorecard WITH derivations is a powerful consistency tool
+    - "Symbolic fields as Functions" — SymPy implementation choice, not physics; current approach is standard
+
 ---
 
 ## Methodology Note
