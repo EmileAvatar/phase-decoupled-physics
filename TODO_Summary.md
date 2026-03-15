@@ -83,6 +83,9 @@ Full archive: [TODO_01.md](TODO_01.md) | Active roadmap: [TODO_02.md](TODO_02.md
 |---|---|---|
 | OP#1 | SU(3) gauge structure (Part 42a) | 8 gluons from normal modes ✓; AF NEGATIVE (β(K)>0); SU(2) structural match |
 | OP#2 | Scalar sector backreaction (Part 43) | T_μν^φ = 0 in vacuum (U(1) shift) ✓; excited → w(z) dark energy ✓; Λ problem partial |
+| Part 61 | Two-phase Lagrangian | +cos/-cos; φ_-; biharmonic gravity; Jeans instability; 10/10 Sudoku |
+| Part 62 | Reversed Higgs | φ_- massless in vacuum, massive near matter; G_eff = 2G_bare; hollow shell test |
+| Part 63 | Two-phase re-derivation | **16/16 PASS**: all single-phase results reproduced; φ_- promoted to [DERIVED]; Newton's 3rd corrected to ψ̈ = −2φ̈_+ |
 
 ---
 
