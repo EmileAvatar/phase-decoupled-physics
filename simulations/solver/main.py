@@ -47,6 +47,8 @@ Phases:
    27. Coupling constants — beta functions derived; alpha_EM=1/137 underdetermined (Part 52)
    28. Z3-Koide — Z3 center derives Koide Q=2/3; delta=sqrt(2) from equal partition (Part 53)
    29. Cosmo constant — FCC: rho_Lambda ~ rho_Planck*(l_P/L_H)^2; CKN bound; L_H free (Part 54)
+   30. Two-phase Lagrangian — +cos/-cos EL derivation; biharmonic gravity; phi_- new field (Part 61)
+   31. Reversed Higgs — phi_- environment-dependent mass; chameleon comparison; hollow shell test (Part 62)
 """
 
 import os
@@ -86,6 +88,8 @@ from three_generations import run_three_generations_phase
 from coupling_constants import run_coupling_constants_phase
 from koide_z3 import run_koide_z3_phase
 from cosmo_constant import run_cosmo_constant_phase
+from two_phase_lagrangian import run_two_phase_lagrangian
+from reversed_higgs import run_reversed_higgs
 
 
 def main():
@@ -281,6 +285,16 @@ def main():
     # Phase 29: Cosmological Constant -- Forced Checklist Check (Part 54)
     # ------------------------------------------------------------------
     run_cosmo_constant_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 30: Two-Phase Lagrangian Derivation (Part 61)
+    # ------------------------------------------------------------------
+    run_two_phase_lagrangian(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 31: Reversed Higgs -- Environment-Dependent Mass (Part 62)
+    # ------------------------------------------------------------------
+    run_reversed_higgs(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

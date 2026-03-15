@@ -406,7 +406,7 @@ They are recorded here so they are not lost. Each needs a full plan and user app
     - Does NOT warrant a Part number. Useful analogy framework for non-specialists.
     - Script: `simulations/solver/condensate_layers.py`
 
-- [ ] **Idea C: Two coupling channels in one medium (amplitude vs topology)**
+- [x] **Idea C: Two coupling channels in one medium (amplitude vs topology) -- INVESTIGATED (Part 55)**
   - Motivated by truth table investigation (gravity_em_truth_table.py): beat/depth model FAILS for EM
     because EM is mass-independent (S5 killer test: 0/4 pass)
   - **The problem:** gravity couples to MASS (continuous), EM couples to CHARGE (discrete).
@@ -419,42 +419,57 @@ They are recorded here so they are not lost. Each needs a full plan and user app
       Discrete (integer winding number), particle-independent. alpha_EM = f(topology). **INTERPRETIVE (Part 23).**
   - Analogy: a knotted rope. You can measure its tension (continuous = mass/gravity) or count its
     knots (discrete = charge/EM). Both measurements on the SAME rope.
-  - Status: Channel 1 is DERIVED. Channel 2 is INTERPRETIVE — Part 23 identifies charge with winding
-    number sign (+1/-1/0) but does NOT derive this from the Lagrangian.
   - Reference image: `assets/images/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius.webp`
     — real vortex line in superfluid He, from Finne, Eltsov, Hanninen & Volovik (2006)
     — Source: https://www.researchgate.net/figure/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius_fig1_1854091
-  - What would make this a Part: derive alpha_EM from the PDTP Lagrangian using winding number topology;
-    show that the coupling is mass-independent from first principles (not just by analogy)
+  - **Part 55 Results (two_channels.py, Phase 17):**
+    - Vortex-vortex interaction in BEC gives Coulomb 1/r law (established physics: Fetter 2009)
+    - The EM coupling depends on m_cond (condensate), NOT m_particle -- **mass-independent by construction**
+    - S5 killer test: **ALL 6 models PASS** (alpha_EM identical for e, mu, tau, proton)
+    - Best candidate: alpha = K_0^2 = 1/(4*pi)^2 = 1/157.9 -- **13.2% off from 1/137**
+    - Physical meaning: each vortex contributes one factor of K_0 to the coupling
+    - Also derived: charge quantization (topology), conservation (invariant), sign (attract/repel)
+    - Sudoku: **10/12 PASS** (S6 and S9 fail: exact value of alpha not reproduced)
+    - **STATUS: PARTIAL SUCCESS** -- form derived (mass-independent, 1/r, quantized), magnitude not exact
+    - The 13.2% gap between 1/158 and 1/137 could be closed by Idea D (RG running)
+    - Script: `simulations/solver/two_channels.py`
 
-- [ ] **Idea D: Derive 1/137 from RG running of condensate coupling K_0 = 1/(4*pi)**
+- [x] **Idea D: Derive 1/137 from RG running of condensate coupling K_0 = 1/(4*pi) -- NEGATIVE RESULT (Part 56)**
   - Motivated by truth table S7: no clean topological number (W/N)^p gives 1/137.
     But alpha_EM RUNS with energy (1/137 at low E, 1/128 at m_Z). This means 1/137 is DYNAMICAL.
   - PDTP already has the bare coupling: K_0 = 1/(4*pi) ~ 0.0796 (Part 35, dimensionless in natural units)
   - Question: does RG running from K_0 at Planck scale give alpha_EM = 1/137 at low energy?
-  - This is a CALCULATION, not a guess — testable with existing lattice code (Parts 38-41)
-  - Part 35 showed: K runs only 5.5% over 22 decades (beta = +K^2/(8*pi^2), IR free)
-  - But that was the GRAVITATIONAL condensate coupling. The EW condensate may have different beta function.
-  - Status: **TESTABLE** — run compact U(1) lattice at K_0 = 1/(4*pi), measure emergent alpha at low energy
-  - What would make this a Part: compute alpha_EM from K_0 using lattice RG; compare to 1/137
+  - **Part 56 Results (rg_alpha_em.py, Phase 18):**
+    - Model R1 (PDTP beta for K, alpha=K^2): K shrinks at low E -> 1/158 becomes 1/175 -> **WRONG direction**
+    - Model R2 (QED beta, start at K_0^2): alpha shrinks at low E -> 1/158 becomes 1/202 -> **WRONG direction**
+    - Model R3 (run 1/137 UP to Planck): alpha(E_P) = 1/98, vs K_0^2 = 1/158 -> **60% gap, NOT close**
+    - Backward solve: bare coupling needed for 1/137 at m_e = 1/93.3; this is K_0^1.79 (not clean power)
+    - QED running validated: alpha(m_Z) = 1/131.8 predicted vs 1/128.0 measured (3% off, 1-loop only)
+    - Sudoku: **8/10 PASS** (S8 K_0^2 = alpha(E_P) FAIL; S10 gap closure FAIL)
+    - **STATUS: NEGATIVE RESULT** -- RG running cannot derive 1/137 from K_0
+    - alpha_EM remains a free parameter in PDTP (as in the Standard Model)
+    - The two-channel STRUCTURE (Part 55) stands; the MAGNITUDE is not fixed by K_0
+    - Script: `simulations/solver/rg_alpha_em.py`
 
-- [ ] **Idea E: Running couplings as condensate dispersion (ocean wave 2.0)**
+- [x] **Idea E: Running couplings as condensate dispersion (ocean wave 2.0) -- NEGATIVE RESULT (Part 57)**
   - Reframe of the ocean wave analogy that KEEPS the qualitative wins (spin ordering)
     while fixing the quantitative failures (43-order gap)
   - Instead of "higher spin decays with depth" -> "different modes disperse differently"
-  - In a dispersive medium (glass, water), different frequencies travel at different speeds
-  - The condensate has dispersion: different excitation modes (spin-0, spin-1, spin-2) have
-    different effective coupling constants at different energy scales
-  - GUT convergence at ~10^16 GeV (S6 PASS) = the energy where the medium is NON-DISPERSIVE
-    (all modes equal, like white light before a prism)
-  - At low energy: modes have dispersed apart -> hierarchy of force strengths
-  - Coupling curve shapes (S9): power law for gravity (L-shape), logarithmic for EM/strong
-  - These different curve shapes = different dispersion relations for different modes
-  - Status: **ANALOGY** — needs quantitative dispersion relation derived from condensate physics
-  - What would make this a Part: derive the dispersion relation for spin-0, spin-1, spin-2 modes
-    from the PDTP Lagrangian; show it reproduces the observed coupling constant running
+  - **Part 57 Results (dispersion_coupling.py, Phase 19):**
+    - Dispersion hypothesis: alpha_eff(E) = alpha_0 * v_g(E)/c = alpha_0 * sqrt(1-(E_gap/E)^2)
+    - 4 fatal problems:
+      (1) Gravity: hard cutoff at E_P (alpha=0 below), not gradual alpha_G~m^2
+      (2) EM/strong: massless carriers have no dispersion -> no running
+      (3) Strong force runs WRONG way (asymptotic freedom = grows at low E)
+      (4) GUT scale: E_P (10^19) vs observed 10^16 GeV (3 orders off)
+    - 4 qualitative wins: ordering correct, curve shape matches gravity, high-E universality, weak force gap IS genuine dispersion
+    - Root cause: coupling running is QUANTUM (vacuum polarization, loops), not classical dispersion
+    - Sudoku: **3/10 PASS** (only S2, S3, S4 pass)
+    - **STATUS: NEGATIVE RESULT** -- retain as qualitative analogy only, not quantitative
+    - Confirms: topological two-channel model (Part 55) is the better path
+    - Script: `simulations/solver/dispersion_coupling.py`
 
-- [ ] **Idea F: Homotopy classification explains different forces from one medium**
+- [x] **Idea F: Homotopy classification explains different forces from one medium**
   - Motivated by truth table S8 problem P3: EM (spin-1) and strong (spin-1) have SAME spin but
     differ by factor ~16 in coupling. Depth model can't distinguish same-spin modes.
   - **Topology background (current science):**
@@ -482,8 +497,23 @@ They are recorded here so they are not lost. Each needs a full plan and user app
     superfluid velocity v_s ~ 1/r, and density rho_s = 0 inside core.
     PDTP mapping: r_c = Compton wavelength, v_s(r_c) = c, rho_s = 0 inside = "the particle"
     — Source: https://www.researchgate.net/figure/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius_fig1_1854091
+  - **Part 58 Results (homotopy_classification.py, Phase 20):**
+    - Four forces from four topological sectors of ONE condensate:
+      Gravity (smooth, no vortex), EM (Z vortex, Coulomb 1/r),
+      Strong (Z_3 vortex, flux tube sigma*r), Weak (Z_2 vortex, Yukawa)
+    - WHY interaction law changes: Z vortex can unwind -> flux leaks -> 1/r;
+      Z_3 vortex cannot unwind -> flux trapped in tube -> linear confinement
+    - Casimir factor 4/3 is insufficient (gives ratio 1.33, measured ~69 at 1 GeV)
+    - Missing factor ~51 is non-perturbative (Z_3 confinement phase transition)
+    - Homotopy explains STRUCTURE (which force is confining/Coulomb/Yukawa)
+      but NOT exact values (1/137, sigma = 0.18 GeV^2)
+    - Sudoku: **10/10 PASS** (all exact math + experimental consistency)
+    - **STATUS: PARTIAL SUCCESS** -- correct framework, qualitative not quantitative
+    - Cumulative (Parts 55-58): PDTP force STRUCTURE is correct;
+      coupling VALUES remain free parameters (same as Standard Model)
+    - Script: `simulations/solver/homotopy_classification.py`
 
-- [ ] **Idea G: Strider model — particles FLOAT on gravity (+cos lock vs -cos surface tension)**
+- [x] **Idea G: Strider model — particles FLOAT on gravity (+cos lock vs -cos surface tension)**
   - Motivated by oil/water layer analogy and water strider physics
   - **Surface tension equation (real physics):**
     - Water strider: F = 2 * gamma * L * cos(theta)
@@ -540,8 +570,23 @@ They are recorded here so they are not lost. Each needs a full plan and user app
     - Status: **ANALOGY** — qualitatively maps confinement, freedom, and cross-layer
       interactions. Quantitative test needed: does surface tension between QCD and EW
       layers reproduce sigma = 0.18 GeV^2?
+  - **Part 59 Results (strider_model.py, Phase 21):**
+    - Model A (naive): FAILS -- g_eff negative for all m << m_P
+    - Model C (two-phase): WORKS -- g_eff = 2g*sin(Delta), Delta = (m/m_P)^2 * pi/2
+      gives alpha_G ~ (m/m_P)^2 with constant ratio pi/2 for ALL particles
+    - Two-phase field equations: box(phi_b) = +g*sin, box(phi_s) = -g*sin (paired)
+    - NEW prediction: surface breathing mode phi_- = (phi_b - phi_s)/2 (TESTABLE)
+    - Black hole = Delta -> pi/2 (strider sinks through surface = max coupling)
+    - Air-water-oil layers: confinement/freedom explained qualitatively
+    - QCD layer tension: 0.0016 GeV^2 (vs 0.18 measured, factor ~100 off)
+    - Sudoku: **9/10 PASS** (S8 fails: QCD tension factor 100 off)
+    - **STATUS: INTERPRETIVE** -- correct mass dependence, beautiful picture,
+      new predictions, but Delta = (m/m_P)^2 assumed not derived
+    - Hierarchy reframe: "why is G weak?" = "why is Delta tiny?" = "why does
+      strider barely dimple surface?" (same question, 3 views)
+    - Script: `simulations/solver/strider_model.py`
 
-- [ ] **Idea H: G is not one thing — it's the net effect of multiple condensate layers**
+- [x] **Idea H: G is not one thing — it's the net effect of multiple condensate layers**
   - Motivated by: ChatGPT decomposition G = l_P^2 * c^3 / hbar and user insight that G might
     be a composite of MULTIPLE interacting effects that APPEAR as one constant.
   - **G decomposed (Haug 2024):** G = l_P^2 * c^3 / hbar
@@ -588,6 +633,120 @@ They are recorded here so they are not lost. Each needs a full plan and user app
     show that 3 layers (grav/EW/QCD) with known properties produce G = 6.674e-11;
     or show that adding/removing a layer changes G (testable at phase transitions)
   - Reference image: `assets/images/Density Tower Experiment images.jpg` (density layering)
+  - **Part 60 Results (composite_g.py, Phase 22):**
+    - Haug decomposition: G = l_P^2*c^3/hbar = hbar*c/m_P^2 (exact, both verified)
+    - Compton frequency = vortex rotation rate; l_P/lambda_C = 1/n (Part 33)
+    - Model 1 (springs in series): FAILS -- dominated by QCD (softest spring),
+      gives G ~ 10^29 (off by ~10^40). Wrong direction.
+    - Model 2 (transmission): FAILS -- T_total ~ 10^-59 makes G even smaller
+    - Model 3 (impedance): Z mismatch ~ 10^68 between Planck and EW layers.
+      The mismatch IS the hierarchy in disguise.
+    - Circularity: m_EW + m_QCD alone give G ~ 10^29 (need m_P = need G)
+    - Numerology: m_P = m_EW^2/m_QCD off by 10^14 (no simple combination works)
+    - Sudoku: **9/10 PASS** (S4 fails by design: 3-layer model doesn't give G)
+    - **STATUS: NEGATIVE RESULT** -- all 3 models REORGANISE hierarchy, don't solve it
+    - G confirmed as FREE PARAMETER (same conclusion as Parts 29, 35)
+    - Useful structure: impedance reframes hierarchy; phase transition prediction
+    - Cumulative (Parts 55-60): force STRUCTURE correct; force VALUES remain free
+    - Script: `simulations/solver/composite_g.py`
+
+- [x] **Two-phase Lagrangian: derive what +cos/-cos produces (Maxwell-style scaffolding)**
+  - **Part 61 (Phase 30) -- COMPLETED**
+  - Full Euler-Lagrange: 3 coupled PDEs derived and SymPy-verified
+    - box(phi_b) = +g*sin(psi-phi_b) [attractive, gravity]
+    - box(phi_s) = -g*sin(psi-phi_s) [repulsive, surface tension]
+    - box(psi) = -g*sin(psi-phi_b) + g*sin(psi-phi_s) [matter]
+  - Change of variables: phi_+ = (phi_b+phi_s)/2, phi_- = (phi_b-phi_s)/2
+    - Kinetic term diagonalises (no cross term)
+    - Coupling: g*cos(psi-phi_b) - g*cos(psi-phi_s) = 2g*sin(psi-phi_+)*sin(phi_-)
+    - PRODUCT coupling: gravity mode and surface mode multiplicatively linked
+  - **KEY RESULTS:**
+    - Newton's 3rd law: psi_ddot = -phi_+_ddot (EXACT, derived from Lagrangian)
+    - Jeans instability: coupled system has one growing mode (lambda = +2*sqrt(2)*g)
+      -- gravitational collapse IS the unstable eigenmode
+    - Biharmonic gravity: nabla^4(Phi) + 4g^2*Phi = 4g^2*psi
+      -- reduces to Poisson at short range (L << L_heal ~ l_P)
+      -- 4th-derivative corrections at long range
+    - phi_- is a NEW scalar field: massless in vacuum, gains mass in gravitational fields
+      -- reversed Higgs mechanism (matter gives mass, not vacuum)
+      -- on Earth: m_eff ~ 100 eV, lambda ~ 2 nm
+    - Complex scalar: Phi = phi_+ + i*phi_- (natural complex field)
+    - U(1) shift preserved, Z_2 exchange sends V -> -V (anti-symmetry, not symmetry)
+    - Testable: sub-mm gravity experiments constrain phi_- if m_cond < ~1 meV
+  - Sudoku: **10/10 PASS**
+  - Script: `simulations/solver/two_phase_lagrangian.py`
+
+- [x] **Reversed Higgs: phi_- environment-dependent mass research (Part 62)**
+  - **Part 62 (Phase 31) -- COMPLETED**
+  - CORRECTION to Part 61: phi_- = 0 is NOT the equilibrium near matter!
+    - V(phi_-) = -2g * Phi * sin(phi_-), where Phi = G*M/(r*c^2)
+    - V'(0) = -2g*Phi (nonzero!) -> 0 is NOT equilibrium
+    - V'(pi/2) = 0 -> TRUE equilibrium at phi_- = pi/2
+    - V''(pi/2) = 2g*Phi > 0 -> STABLE minimum
+  - In vacuum (Phi=0): V = 0 everywhere -> phi_- is GOLDSTONE-LIKE flat direction
+  - Near matter: phi_- rolls to pi/2, gains mass m^2 = 2g*Phi
+  - Compared to 3 known environment-dependent scalar fields:
+    - Chameleon (Khoury & Weltman 2004): couples to DENSITY rho
+    - Symmetron (Hinterbichler & Khoury 2010): VEV depends on density
+    - PDTP phi_-: couples to GRAVITATIONAL POTENTIAL Phi (nonlocal!)
+  - **KEY DIFFERENCE:** chameleon = heavy in dense matter; phi_- = heavy near potential wells
+  - **Hollow shell experiment:** DISTINGUISHES phi_- from chameleon
+    - Inside shell: rho=0 but Phi=const > 0
+    - Chameleon: massless (no density) -> long-range force -> DETECTABLE
+    - phi_-: massive (nonzero Phi) -> short-range force -> SUPPRESSED
+  - G_eff = 2*G_bare at equilibrium (measured G includes phi_- contribution)
+    - Roll time ~ 10^-18 s on Earth -> instantaneous, always at equilibrium
+  - Mass on Earth: ~106 eV; NS surface: ~1.8 MeV; vacuum: 0 (flat)
+  - 4 new testable predictions (Predictions 7-10 for falsifiable_predictions.md)
+  - Sudoku: **10/10 PASS**
+  - Script: `simulations/solver/reversed_higgs.py`
+
+- [ ] **Two-phase Lagrangian: re-derive ALL previous results (Parts 1-60) — CRITICAL**
+  - The two-phase Lagrangian (+cos/-cos, Part 61) MUST reproduce all single-phase results
+  - If it contradicts any established result, either the two-phase form is wrong or the
+    original result was incomplete — either way, we need to know
+  - Until this is done, two-phase-specific results (biharmonic gravity, Jeans instability,
+    phi_-) must be treated as [SPECULATIVE]
+  - **Checklist (each must be DERIVED, not assumed):**
+    - [ ] Newton's 1st law: free particle maintains constant velocity (inertia from phase)
+    - [ ] Newton's 2nd law: F = ma from phase-gradient coupling
+    - [ ] Newton's 3rd law: psi_ddot = -phi_+_ddot (ALREADY DERIVED, Part 61)
+    - [ ] Newtonian 1/r potential recovery (weak-field limit)
+    - [ ] PPN parameters gamma=1, beta=1
+    - [ ] Hawking temperature T_H = hbar*c^3/(8*pi*G*M*k_B)
+    - [ ] GW tensor modes at c
+    - [ ] Breathing mode dispersion: omega^2 = c^2*k^2 + omega_gap^2
+    - [ ] Double pulsar orbital decay (0.013% precision)
+    - [ ] Vortex winding number n = m_cond/m (Part 33)
+    - [ ] G = hbar*c/m_cond^2 (Part 33)
+    - [ ] c_s = c (Part 34)
+    - [ ] SU(3) Wilson action limit (Part 37)
+    - [ ] String tension sigma = 0.173 GeV^2 (Part 38)
+    - [ ] Koide Q = 2/3 (Part 53)
+    - [ ] Dark energy w(z) from phase drift (Part 25)
+  - **Expected outcome:** most results should carry over (two-phase reduces to single-phase
+    when phi_- = pi/2 at equilibrium, since sin(pi/2) = 1). But this MUST be shown explicitly.
+  - **If any result FAILS:** document as a TENSION and investigate whether the two-phase
+    form needs modification or the original result was incomplete
+
+- [ ] **Temperature in PDTP — what is temperature in the phase-locking picture?**
+  - Standard physics: T = average kinetic energy per DOF; k_B T = (2/3) <E_kin>
+  - QFT: temperature = periodicity of imaginary time (KMS condition)
+  - PDTP mapping: temperature = degree of phase incoherence among oscillators
+    - Hot = random phases (disordered); Cold = locked phases (synchronized)
+    - Absolute zero = perfect phase-locking (all oscillators in sync)
+    - Phase transition = Kuramoto synchronization transition (Part 1)
+  - Key questions:
+    1. Derive PDTP partition function Z = Sum exp(-H_PDTP / k_B T)
+    2. Show Kuramoto critical coupling K_c = thermal phase transition at T_c
+    3. Derive T_c for gravitational condensate (what temperature destroys spacetime?)
+    4. Does k_B emerge or remain free? (probably free — like G and Lambda)
+    5. Temperature-dependent gravity: does thermal matter couple differently? (Prediction 3)
+    6. Reversed Higgs + temperature: does phi_- mass depend on T as well as Phi?
+    7. SM compatibility: does thermal PDTP reproduce Bose-Einstein/Fermi-Dirac statistics?
+  - Already touched: Hawking T (Part 24), BEC vs thermal (Prediction 3), two-fluid model (Part 19)
+  - Missing: dedicated treatment of temperature as a PDTP concept
+  - What would make this a Part: derive Z, T_c, and show standard thermodynamics emerges
 
 - [ ] **Chirality from condensate refractive index — path to making handedness DERIVED not free**
   - Current Part 50 result: which hand the EW vacuum chose = free parameter (vacuum choice)

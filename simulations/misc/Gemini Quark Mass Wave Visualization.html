@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quark Mass Wave Visualization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: system-ui, -apple-system, sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        canvas {
+            flex-grow: 1;
+            width: 100%;
+            display: block;
+        }
+        .controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(30, 41, 59, 0.75);
+            padding: 20px 28px;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 32px;
+            min-width: 800px;
+        }
+        .toggle-btn {
+            transition: all 0.2s ease;
+        }
+        .toggle-btn.active {
+            background-color: #2563eb;
+            color: white;
+        }
+        .toggle-btn.inactive {
+            background-color: #334155;
+            color: #94a3b8;
+        }
+        @media (max-width: 1024px) {
+            .controls {
+                flex-direction: column;
+                min-width: auto;
+                width: 95%;
+                bottom: 10px;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="waveCanvas"></canvas>
+
+    <div class="controls shadow-2xl">
+        <div class="flex-1">
+            <h1 class="text-lg font-bold">Standard Model Quark Mapping</h1>
+            <p class="text-xs text-slate-400 mb-3">Comparing Mass Generations on a Cosine Cycle.</p>
+            <div class="flex flex-col gap-2">
+                <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Visibility Toggles</label>
+                <div class="flex gap-2">
+                    <button id="toggleUpType" class="toggle-btn active px-3 py-1.5 rounded-lg text-xs font-medium border border-white/10">Up / Charm / Top</button>
+                    <button id="toggleDownType" class="toggle-btn active px-3 py-1.5 rounded-lg text-xs font-medium border border-white/10">Down / Strange / Bottom</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex items-start gap-6 border-l border-slate-700 pl-6">
+            <div class="text-center">
+                <label class="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-2">Scale Mode</label>
+                <div class="flex flex-col gap-1">
+                    <button id="linearBtn" class="px-3 py-1 bg-slate-700 rounded text-xs transition hover:bg-slate-600">Linear</button>
+                    <button id="logBtn" class="px-4 py-1 bg-blue-600 rounded text-xs transition hover:bg-blue-500">Logarithmic</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-6 gap-y-1 border-l border-slate-700 pl-6 min-w-[240px]">
+                <!-- Up-Type Legend -->
+                <div id="legendUp" class="space-y-1">
+                    <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-pink-400"></div><span class="text-[10px] text-slate-300">U: 2.16 MeV</span></div>
+                    <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-purple-400"></div><span class="text-[10px] text-slate-300">C: 1.27 GeV</span></div>
+                    <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-indigo-400"></div><span class="text-[10px] text-slate-300">T: 172.5 GeV</span></div>
+                </div>
+                <!-- Down-Type Legend -->
+                <div id="legendDown" class="space-y-1">
+                    <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-orange-400"></div><span class="text-[10px] text-slate-300">D: 4.7 MeV</span></div>
+                    <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-yellow-400"></div><span class="text-[10px] text-slate-300">S: 93.5 MeV</span></div>
+                    <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-emerald-400"></div><span class="text-[10px] text-slate-300">B: 4.18 GeV</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('waveCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Data in MeV/c^2
+        const quarkGroups = {
+            upType: [
+                { name: 'Up', mass: 2.16, color: '#f472b6' },
+                { name: 'Charm', mass: 1273, color: '#c084fc' },
+                { name: 'Top', mass: 172570, color: '#818cf8' }
+            ],
+            downType: [
+                { name: 'Down', mass: 4.7, color: '#fb923c' },
+                { name: 'Strange', mass: 93.5, color: '#facc15' },
+                { name: 'Bottom', mass: 4183, color: '#34d399' }
+            ]
+        };
+
+        let mode = 'log'; 
+        let showUp = true;
+        let showDown = true;
+        let time = 0;
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        // UI Handlers
+        const linBtn = document.getElementById('linearBtn');
+        const logBtn = document.getElementById('logBtn');
+        const upToggle = document.getElementById('toggleUpType');
+        const downToggle = document.getElementById('toggleDownType');
+
+        linBtn.onclick = () => {
+            mode = 'linear';
+            linBtn.className = 'px-3 py-1 bg-blue-600 rounded text-xs transition';
+            logBtn.className = 'px-4 py-1 bg-slate-700 rounded text-xs transition';
+        };
+
+        logBtn.onclick = () => {
+            mode = 'log';
+            logBtn.className = 'px-4 py-1 bg-blue-600 rounded text-xs transition';
+            linBtn.className = 'px-3 py-1 bg-slate-700 rounded text-xs transition';
+        };
+
+        upToggle.onclick = () => {
+            showUp = !showUp;
+            upToggle.classList.toggle('active', showUp);
+            upToggle.classList.toggle('inactive', !showUp);
+            document.getElementById('legendUp').style.opacity = showUp ? '1' : '0.3';
+        };
+
+        downToggle.onclick = () => {
+            showDown = !showDown;
+            downToggle.classList.toggle('active', showDown);
+            downToggle.classList.toggle('inactive', !showDown);
+            document.getElementById('legendDown').style.opacity = showDown ? '1' : '0.3';
+        };
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const margin = 120;
+            const centerY = (canvas.height / 2) - 60;
+            const width = canvas.width - (margin * 2);
+            const amplitude = 140;
+            
+            // Draw baseline
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+            ctx.moveTo(margin, centerY);
+            ctx.lineTo(margin + width, centerY);
+            ctx.stroke();
+
+            // Draw Background Cosine Wave
+            ctx.beginPath();
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+            for (let x = 0; x <= width; x++) {
+                const angle = (x / width) * Math.PI * 2;
+                const y = centerY + Math.cos(angle + time) * amplitude;
+                if (x === 0) ctx.moveTo(margin + x, y);
+                else ctx.lineTo(margin + x, y);
+            }
+            ctx.stroke();
+
+            // Calculate min/max for scale
+            const allActiveQuarks = [
+                ...(showUp ? quarkGroups.upType : []),
+                ...(showDown ? quarkGroups.downType : [])
+            ];
+
+            if (allActiveQuarks.length > 0) {
+                // We use global absolute min/max for the axis stability
+                const absMin = 2.16; // Up
+                const absMax = 172570; // Top
+
+                allActiveQuarks.forEach(q => {
+                    let ratio;
+                    if (mode === 'linear') {
+                        ratio = (q.mass - absMin) / (absMax - absMin);
+                    } else {
+                        ratio = (Math.log10(q.mass) - Math.log10(absMin)) / (Math.log10(absMax) - Math.log10(absMin));
+                    }
+
+                    const xPos = margin + (ratio * width);
+                    const angle = (ratio * Math.PI * 2);
+                    const yPos = centerY + Math.cos(angle + time) * amplitude;
+
+                    // Projection line
+                    ctx.setLineDash([4, 4]);
+                    ctx.strokeStyle = q.color + '44';
+                    ctx.beginPath();
+                    ctx.moveTo(xPos, centerY);
+                    ctx.lineTo(xPos, yPos);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+
+                    // Particle
+                    ctx.shadowBlur = 15;
+                    ctx.shadowColor = q.color;
+                    ctx.fillStyle = q.color;
+                    ctx.beginPath();
+                    ctx.arc(xPos, yPos, 8, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+
+                    // Label
+                    ctx.fillStyle = '#fff';
+                    ctx.font = 'bold 13px sans-serif';
+                    ctx.textAlign = 'center';
+                    // Offset text if particles overlap (simple toggle-based height adjustment)
+                    const isDownType = quarkGroups.downType.includes(q);
+                    const textY = isDownType ? yPos + 35 : yPos - 20;
+
+                    ctx.fillText(q.name, xPos, textY);
+                    
+                    ctx.font = '9px font-mono';
+                    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+                    const displayVal = q.mass >= 1000 ? (q.mass / 1000).toFixed(2) + ' GeV' : q.mass + ' MeV';
+                    ctx.fillText(displayVal, xPos, isDownType ? textY + 12 : textY - 12);
+                });
+            }
+
+            time += 0.008;
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+</html>

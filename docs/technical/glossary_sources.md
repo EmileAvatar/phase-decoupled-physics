@@ -1835,6 +1835,95 @@ physics. They should not be cited as if they are.
 - **Why:** Experimental confirmation of vortex structure that PDTP maps to particles: r_c = Compton wavelength, v_s(r_c) = c, rho_s = 0 inside = "the particle"
 - **Local image:** `assets/images/Left-Macroscopic-structure-of-quantized-vortex-line-in-He-superfluids-The-core-radius.webp`
 
+#### P87: Fetter (2009) — Rotating Trapped Bose-Einstein Condensates
+- **URL:** [https://doi.org/10.1103/RevModPhys.81.647](https://doi.org/10.1103/RevModPhys.81.647)
+- **Author:** Fetter, A. L. (2009)
+- **Journal:** Reviews of Modern Physics, 81, 647-691
+- **Description:** Comprehensive review of vortex dynamics in rotating BECs. Derives vortex-vortex interaction as (hbar^2/m) * n1*n2/r (Coulomb-like in 3D).
+- **Used in:** two_channels.py (Part 55, Phase 17) -- vortex interaction as EM coupling
+- **Why:** Establishes the 1/r vortex-vortex interaction that maps to Coulomb's law in PDTP
+
+#### P88: Pethick & Smith (2008) — Bose-Einstein Condensation in Dilute Gases
+- **Author:** Pethick, C. J. & Smith, H. (2008)
+- **Publisher:** Cambridge University Press, 2nd edition
+- **Description:** Standard textbook on BEC physics. Ch. 9: vortex-vortex interaction V(r) = 2*pi*K*n1*n2*ln(r/xi) in 2D.
+- **Used in:** two_channels.py (Part 55, Phase 17) -- 2D vortex interaction formula
+- **Why:** Textbook source for the logarithmic vortex interaction in 2D superfluid
+
+#### P89: Tinkham (2004) — Introduction to Superconductivity
+- **Author:** Tinkham, M. (2004)
+- **Publisher:** Dover Publications, 2nd edition
+- **Description:** Standard textbook on superconductivity. Ch. 5: vortex dynamics and inter-vortex forces.
+- **Used in:** two_channels.py (Part 55, Phase 17) -- vortex interaction formula
+- **Why:** Establishes the vortex-vortex interaction from flux quantization and London theory
+
+#### P90: Mermin (1979) — The Topological Theory of Defects in Ordered Media
+- **Author:** Mermin, N. D. (1979)
+- **Journal:** Reviews of Modern Physics, 51, 591-648
+- **Description:** Foundational review of topological defect classification. Homotopy groups pi_n classify vortices (pi_1), monopoles (pi_2), textures (pi_3) in ordered media.
+- **Used in:** homotopy_classification.py (Part 58, Phase 20) -- homotopy group table
+- **Why:** Establishes the mathematical framework for classifying topological defects by homotopy
+
+#### P91: Nakahara (2003) — Geometry, Topology and Physics
+- **Author:** Nakahara, M. (2003)
+- **Publisher:** CRC Press, 2nd edition
+- **Description:** Graduate textbook on mathematical physics. Ch. 4: homotopy groups of Lie groups. pi_1(SU(N)) = 0, pi_1(SU(N)/Z_N) = Z_N.
+- **Used in:** homotopy_classification.py (Part 58, Phase 20) -- SU(3)/Z_3 homotopy
+- **Why:** Source for pi_1(SU(3)/Z_3) = Z_3 and pi_1(SO(3)) = Z_2
+
+#### P92: 't Hooft (1978) — On the Phase Transition Towards Permanent Quark Confinement
+- **Author:** 't Hooft, G. (1978)
+- **Journal:** Nuclear Physics B, 138, 1-25
+- **Description:** Center vortex mechanism for confinement. Z_N vortices in SU(N) gauge theory produce area law for Wilson loops -> linear confinement.
+- **Used in:** homotopy_classification.py (Part 58, Phase 20) -- Z_3 confinement mechanism
+- **Why:** Establishes that Z_3 center vortices are the topological origin of quark confinement
+
+#### P93: Young (1805) & Laplace (1806) — Surface Tension / Young-Laplace Equation
+- **Author:** Young, T. (1805); Laplace, P.-S. (1806)
+- **Description:** Foundational theory of surface tension. F = 2*gamma*L*cos(theta). Contact angle theta determines wetting/floating. PDTP mapping: cos(theta) <-> cos(psi-phi).
+- **Used in:** strider_model.py (Part 59, Phase 21) -- strider analogy for gravity
+- **Why:** Establishes the real-physics basis for the +cos/-cos competition model
+
+#### P94: Haug (2024) — The Compton Wavelength Is the True Matter Wavelength
+- **Author:** Haug, E. G. (2024)
+- **Description:** Shows all gravity formulas reduce to l_P and lambda_C. G = l_P^2*c^3/hbar. Planck constant cancels from wave equations when mass written as m = hbar/(lambda_C*c).
+- **Used in:** composite_g.py (Part 60, Phase 22) -- Haug decomposition of G
+- **Why:** Establishes that G decomposes into lattice spacing and Compton wavelength
+
+#### P95: Strassler (2024) — Particles, Waves, and Wavicles
+- **Author:** Strassler, M. (2024)
+- **Description:** Electrons as "wavicles" — standing wave patterns with definite frequency and energy. Compton wavelength = critical scale. PDTP mapping: wavicle = vortex.
+- **Used in:** composite_g.py (Part 60, Phase 22) -- wavicle-vortex connection
+- **Why:** Independent support for PDTP vortex picture from particle physics perspective
+
+#### P96: Khoury & Weltman (2004) — Chameleon Field Theory
+- **Author:** Khoury, J. & Weltman, A. (2004)
+- **Citation:** Phys. Rev. Lett. 93, 171104
+- **Description:** Introduces the chameleon scalar field whose mass depends on local matter density. Dense environments give large mass (screened); vacuum gives small mass. Thin-shell screening mechanism.
+- **Used in:** reversed_higgs.py (Part 62, Phase 31) -- comparison to PDTP phi_-
+- **Why:** phi_- couples to gravitational potential (not density), giving opposite behaviour inside hollow shells
+
+#### P97: Hinterbichler & Khoury (2010) — Symmetron Mechanism
+- **Author:** Hinterbichler, K. & Khoury, J. (2010)
+- **Citation:** Phys. Rev. Lett. 104, 231301
+- **Description:** Symmetron scalar field: VEV depends on density via Z_2 symmetry restoration. In dense regions phi=0 (symmetry restored, no force); in vacuum phi!=0 (symmetry broken, force active).
+- **Used in:** reversed_higgs.py (Part 62, Phase 31) -- comparison to PDTP phi_-
+- **Why:** Another density-dependent mass mechanism; phi_- is potential-dependent (different)
+
+#### P98: Burrage & Sakstein (2018) — Screened Scalar Fields Review
+- **Author:** Burrage, C. & Sakstein, J. (2018)
+- **Citation:** Living Rev. Rel. 21, 1
+- **Description:** Comprehensive review of screened modified gravity: chameleon, symmetron, dilaton, Vainshtein. Experimental constraints from torsion balances, atom interferometry, astrophysics.
+- **Used in:** reversed_higgs.py (Part 62, Phase 31) -- experimental constraints
+- **Why:** Establishes current bounds on environment-dependent scalar fields
+
+#### P99: Adelberger et al. (2003) — Short-Range Gravity Tests
+- **Author:** Adelberger, E.G. et al. (2003)
+- **Citation:** Ann. Rev. Nucl. Part. Sci. 53, 77
+- **Description:** Review of sub-mm gravity experiments using torsion balances. Constrains Yukawa fifth forces to |alpha| < 10^-2 at 100 micron range.
+- **Used in:** two_phase_lagrangian.py (Part 61), reversed_higgs.py (Part 62) -- experimental constraints on phi_-
+- **Why:** These experiments directly constrain the healing length and phi_- force range
+
 ---
 
 End of glossary_sources.md

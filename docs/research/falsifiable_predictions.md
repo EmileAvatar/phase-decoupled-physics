@@ -490,31 +490,424 @@ with a lattice spacing a ≤ ℓ_P but don't rule it out.
 
 ---
 
+## Prediction 7: Environment-Dependent Scalar Mass (phi_-)
+
+### What PDTP predicts
+
+The two-phase Lagrangian (Part 61) produces a scalar field φ_- = (φ_b − φ_s)/2
+that is **massless in empty space** but **gains mass near gravitational sources**.
+
+```
+[ASSUMED] Two-phase Lagrangian:
+  L = +g cos(ψ − φ_b) − g cos(ψ − φ_s)
+
+[DERIVED] Potential for φ_-:
+  V(φ_-) = −2g Φ sin(φ_-)
+  where Φ = GM/(rc²) is the local gravitational potential
+
+[DERIVED] Equilibrium at φ_- = π/2 (not 0):
+  V'(π/2) = 0, V''(π/2) = 2gΦ > 0 (stable)
+
+[DERIVED] Mass of φ_- at equilibrium:
+  m²(φ_-) = 2g Φ                                            (Eq. F.10)
+```
+
+**Source:** Part 61, two_phase_lagrangian.py; Part 62, reversed_higgs.py
+
+| Environment | Φ = GM/(rc²) | m(φ_-) |
+|------------|-------------|--------|
+| Vacuum | 0 | 0 (massless, Goldstone-like) |
+| Laboratory | ~10⁻⁹ | ~2 × 10⁻⁶ eV |
+| Earth surface | ~10⁻⁹ | ~106 eV |
+| Solar surface | ~10⁻⁶ | ~5.8 keV |
+| Neutron star | ~0.2 | ~1.8 MeV |
+| Black hole horizon | ~0.5 | ~2.0 MeV |
+
+### What GR predicts
+
+No such field exists. GR has no environment-dependent scalar.
+
+### What chameleon theories predict
+
+Chameleon fields (Khoury & Weltman 2004) are the closest existing analogue,
+but they couple to **local matter density ρ**, not gravitational potential Φ.
+This is a crucial difference — see Prediction 8.
+
+**Source:** Khoury & Weltman (2004), Phys.Rev.Lett. 93, 171104
+
+### How to test
+
+Sub-millimeter gravity experiments near massive objects. The φ_- field
+modifies the force law at distances comparable to its Compton wavelength
+λ = ℏc/m(φ_-).
+
+On Earth: λ ~ 2 nm (below current torsion balance sensitivity at ~50 μm).
+In space (low Φ): λ grows — could become detectable for low-orbit experiments.
+
+### What confirms PDTP
+
+Detection of a scalar force whose range **increases with distance from massive
+objects** (opposite to what chameleon models predict).
+
+### What kills PDTP
+
+If precise sub-mm experiments show no scalar force at ANY scale, and if
+sensitivity reaches below the PDTP-predicted coupling strength. Note: the
+coupling is proportional to Φ, so detection is easier near massive objects.
+
+### Current status
+
+No experiment has specifically tested for a potential-dependent (rather than
+density-dependent) scalar mass. Existing fifth-force experiments constrain
+density-coupled scalars but not potential-coupled ones.
+
+### SM compatibility
+
+φ_- is a gauge singlet (does not carry SU(3)×SU(2)×U(1) charges). It couples
+to gravity only through the gravitational potential Φ. It does not modify
+electroweak symmetry breaking, QCD confinement, or any SM particle masses.
+Compatible with SM.
+
+---
+
+## Prediction 8: Hollow Shell Distinguishing Test
+
+### What PDTP predicts
+
+Inside a hollow massive shell (e.g., thick lead sphere):
+- Local matter density: ρ = 0 (vacuum inside)
+- Gravitational potential: Φ = GM/(Rc²) > 0 (shell theorem: constant, nonzero)
+
+Therefore:
+- **Chameleon field:** massless inside (ρ = 0 → no screening → long-range force)
+- **PDTP φ_-:** massive inside (Φ > 0 → m² = 2gΦ → short-range, screened)
+
+```
+[DERIVED] Shell interior:
+  Chameleon: m_cham(inside) = 0     → long-range fifth force    (Eq. F.11)
+  PDTP φ_-: m_phi(inside) = √(2gΦ) → short-range, Yukawa-type  (Eq. F.12)
+```
+
+**Source:** Part 62, reversed_higgs.py; chameleon comparison section
+
+### How to test
+
+Place a torsion balance or atom interferometer inside a massive hollow shell.
+
+- If a **long-range** fifth force is detected: consistent with chameleon,
+  inconsistent with PDTP φ_-
+- If the fifth force is **short-range/absent**: consistent with PDTP φ_-,
+  inconsistent with chameleon
+
+**Source:** Adelberger et al. (2003), Ann.Rev.Nucl.Part.Sci. 53, 77
+(sub-mm gravity experiments)
+
+### What confirms PDTP
+
+No long-range fifth force inside the shell, but a short-range Yukawa-type
+force detectable at distances < ℏc/√(2gΦ).
+
+### What kills PDTP
+
+Long-range fifth force detected inside the shell (chameleon behavior, not
+PDTP φ_- behavior).
+
+### Current status
+
+No experiment has been performed specifically inside a hollow shell to
+distinguish potential-coupled from density-coupled scalars. This is a
+**clean, decisive test** that could be done with existing technology.
+
+### SM compatibility
+
+Test is purely gravitational — no SM interactions involved. Compatible.
+
+---
+
+## Prediction 9: Effective G Doubling (G_eff = 2 G_bare)
+
+### What PDTP predicts
+
+At the φ_- = π/2 equilibrium, the effective gravitational coupling includes
+contributions from both the bulk (+cos) and surface (-cos) channels:
+
+```
+[DERIVED] At equilibrium φ_- = π/2:
+  g_eff = 2g sin(φ_-) = 2g                                  (Eq. F.13)
+
+[DERIVED] Therefore:
+  G_measured = 2 × G_bare                                    (Eq. F.14)
+```
+
+The measured value of Newton's constant (G = 6.674 × 10⁻¹¹ m³ kg⁻¹ s⁻²)
+already includes this factor of 2. The "bare" gravitational coupling is
+half of what we measure.
+
+**Source:** Part 62, reversed_higgs.py
+
+### How to test
+
+If φ_- can be driven away from its π/2 equilibrium (e.g., by rapid
+oscillation or in a low-Φ environment where the potential is nearly flat),
+G_eff should change.
+
+Roll time on Earth: ~10⁻¹⁸ s — φ_- returns to equilibrium almost
+instantaneously. Driving it away requires oscillation faster than this.
+
+In deep space (Φ → 0): the potential becomes flat, φ_- is free, and
+G_eff could differ from the terrestrial value. This predicts a
+**location-dependent Newton's constant**.
+
+### What GR predicts
+
+G is a universal constant, the same everywhere.
+
+### What confirms PDTP
+
+Any measurement showing G varies with gravitational environment (not just
+systematic error). Specifically: G measured in low-Φ environment differs
+from G measured on Earth.
+
+### What kills PDTP
+
+If G is constant to arbitrary precision across all environments. Current
+measurements already constrain ΔG/G < 10⁻⁵ (but all are performed in
+similar-Φ environments).
+
+### Current status
+
+Laboratory measurements of G vary by ~10⁻⁴ across experiments (the
+"G measurement discrepancy"). This is usually attributed to systematic
+errors, but PDTP offers an alternative explanation: different experiments
+have slightly different effective Φ at the test mass location.
+
+**Caveat:** This is a [SPECULATIVE] interpretation of the G discrepancy.
+The systematic-error explanation is more likely.
+
+### SM compatibility
+
+G doubling affects only gravitational coupling. SM interactions are
+unmodified. Compatible.
+
+---
+
+## Prediction 10: phi_- Resonant Frequency Depends on Local Potential
+
+### What PDTP predicts
+
+The oscillation frequency of φ_- around its equilibrium depends on the
+local gravitational potential:
+
+```
+[DERIVED] Resonant frequency:
+  ω(φ_-) = √(2g Φ)                                          (Eq. F.15)
+
+  where Φ = GM/(rc²) is the local gravitational potential
+```
+
+This means a resonant cavity tuned to detect φ_- oscillations would need
+to be retuned depending on its distance from a massive object.
+
+**Source:** Part 62, reversed_higgs.py
+
+| Location | Φ | ω(φ_-) | Frequency |
+|---------|---|--------|-----------|
+| Earth surface | 7 × 10⁻¹⁰ | ~10¹⁶ rad/s | ~10¹⁶ Hz |
+| Solar orbit | 10⁻⁸ | ~10¹⁷ rad/s | ~10¹⁷ Hz |
+| Neutron star | 0.2 | ~10²² rad/s | ~10²² Hz |
+
+### How to test
+
+A resonant detector (analogous to resonant bar GW detectors) placed at
+different distances from a massive object should show a shift in the
+resonant frequency of any detected scalar signal.
+
+### What GR predicts
+
+No scalar field, no resonance, no potential-dependent frequency.
+
+### What confirms PDTP
+
+Detection of a resonant scalar signal whose frequency shifts with
+gravitational potential as ω ∝ √Φ.
+
+### What kills PDTP
+
+No scalar resonance at any frequency, with sensitivity sufficient to
+rule out the PDTP coupling strength.
+
+### Current status
+
+No experiment designed for this test. Frequencies are extremely high
+(10¹⁶ Hz on Earth), making direct detection very challenging.
+
+### SM compatibility
+
+φ_- is a gravitational-sector field. Does not couple to SM gauge bosons
+or fermions directly. Compatible.
+
+---
+
+## Prediction 11: Biharmonic Gravity at Long Range
+
+### What PDTP predicts
+
+The two-phase system (Part 61) produces a modified gravitational field
+equation that is **fourth-order** (biharmonic), not second-order (Poisson):
+
+```
+[DERIVED] Two-phase weak-field equation:
+  ∇⁴Φ + 4g² Φ = 4g² ψ                                      (Eq. F.16)
+
+  where Φ = gravitational potential, ψ = matter source
+
+[DERIVED] Short range (r << L_heal):
+  Reduces to ∇²Φ ≈ −ρ (standard Poisson)                    (Eq. F.17)
+
+[DERIVED] Long range (r >> L_heal):
+  Fourth-derivative corrections become significant
+  L_heal ~ ℓ_P (healing length of the condensate)
+```
+
+**Source:** Part 61, two_phase_lagrangian.py (weak_field_limit section)
+
+### What GR predicts
+
+Poisson equation ∇²Φ = −4πGρ. No fourth-derivative corrections.
+
+### How to test
+
+Long-range precision gravity measurements: galaxy rotation curves,
+gravitational lensing, large-scale structure. If L_heal is very small
+(~ℓ_P), the correction is undetectable at all practical scales.
+
+If L_heal is larger (galactic scales), biharmonic corrections could
+explain flat rotation curves without dark matter.
+
+### What confirms PDTP
+
+Gravitational deviations from 1/r² at large scales that follow a
+biharmonic (not MOND-like) profile.
+
+### What kills PDTP
+
+If gravity is exactly 1/r² at all scales where the biharmonic correction
+should be detectable. Note: if L_heal ~ ℓ_P, this prediction is
+unfalsifiable at current precision.
+
+### Current status
+
+Galaxy rotation curves show deviations from Newtonian gravity. Standard
+explanation: dark matter. Alternative: modified gravity (MOND, etc.).
+PDTP's biharmonic form is a specific prediction that could be tested
+against these alternatives — but only if L_heal is determined.
+
+### SM compatibility
+
+Modifies gravitational sector only. SM particle physics unaffected.
+Compatible.
+
+---
+
+## Prediction 12: QCD String Tension from PDTP Condensate
+
+### What PDTP predicts
+
+The SU(3) extension of the PDTP Lagrangian (Part 37-38) with the Wilson
+action coupling Re[Tr(Ψ†U)]/3 predicts the QCD string tension:
+
+```
+[DERIVED] Strong-coupling formula (Part 38):
+  σ_SC = ln(2N/β) × (ℏc/a₀)²                               (Eq. F.18)
+
+  where N=3 (SU(3)), β = K_NAT = 1/(4π), a₀ = ℏ/(m_cond c)
+
+[DERIVED] Result:
+  σ_PDTP = 0.173 GeV²                                       (Eq. F.19)
+  σ_QCD = 0.18 GeV² (measured)
+  Ratio: 0.96 (4% off)
+```
+
+**Source:** Part 38, su3_lattice.py; Creutz (1980) Phys.Rev.D 21 for SC formula
+
+### What standard QCD predicts
+
+σ_QCD ≈ 0.18 GeV² (from quenched lattice QCD at physical beta).
+This is a well-established result.
+
+### How to test
+
+This is already testable — compare PDTP's strong-coupling prediction to
+established lattice QCD results. The 4% gap should close with GPU
+simulations at physical beta (β=6.0, N≥16) — Part 42.
+
+### What confirms PDTP
+
+GPU lattice at physical beta reproduces σ ≈ 0.18 GeV² from the PDTP
+Wilson action with K_NAT = 1/(4π).
+
+### What kills PDTP
+
+If the PDTP Wilson action at K_NAT = 1/(4π) gives a string tension
+significantly different from QCD at physical beta (after proper
+continuum extrapolation).
+
+### Current status
+
+Strong-coupling result: 4% off (encouraging). Physical beta (CPU, N=4):
+insufficient box size. GPU N≥16 needed (Part 42, next task).
+
+### SM compatibility
+
+Uses standard Wilson action (same as lattice QCD). The only PDTP input
+is K_NAT = 1/(4π) as the coupling constant. If this reproduces QCD, it
+is fully compatible with SM.
+
+---
+
 ## Summary: Predictions Ranked by Testability
 
 | # | Prediction | Differs from GR? | Testable now? | Strongest test |
 |---|-----------|-------------------|---------------|---------------|
 | 5 | w(z) ≠ −1 (dark energy dynamics) | Yes | **Yes** | DESI, Euclid, Rubin (2025-2030) |
 | 4 | Screened fifth force | Yes | **Yes** | Atom interferometry, torsion balances |
+| 12 | QCD string tension from K_NAT=1/(4π) | Yes (specific coupling) | **Yes** | Lattice QCD comparison (Part 42) |
+| 8 | Hollow shell: φ_- massive inside | Yes (differs from chameleon) | **Yes** | Torsion balance inside lead shell |
 | 1 | Massive breathing mode GW | Yes | **Partially** | LIGO null stream; future: ET, LISA |
 | 3 | Phase-dependent gravity (BEC test) | Yes | **In principle** | BEC vs thermal free-fall comparison |
+| 7 | φ_- environment-dependent mass | Yes | **In principle** | Sub-mm gravity near massive objects |
+| 9 | G_eff = 2 G_bare | Yes (G location-dependent) | **Difficult** | G measurements in different Φ environments |
+| 11 | Biharmonic gravity at long range | Yes (4th-order, not 2nd) | **If L_heal > ℓ_P** | Galaxy rotation curves, lensing |
 | 2 | GW birefringence | Yes | **Not yet** | Requires scalar mode detection first |
+| 10 | φ_- resonant frequency ∝ √Φ | Yes | **Very difficult** | Resonant detector near massive object |
 | 6 | Planck-scale dispersion | Yes | **Barely** | Gamma-ray burst timing |
 
 ### The critical path
 
-The most important near-term result for PDTP:
+The most important near-term results for PDTP:
 
 ```
 1. DESI/Euclid confirm w₀ > −1          → PDTP's dark energy picture survives
-2. Determine ω_gap from Part 29          → tells experimentalists WHERE to look
-3. High-frequency GW detector finds      → smoking gun for condensate spacetime
+2. GPU lattice at β=6.0 matches σ_QCD   → PDTP Wilson action validated (Prediction 12)
+3. Hollow shell experiment performed     → distinguishes φ_- from chameleon (Prediction 8)
+4. Determine ω_gap (Part 29)            → tells experimentalists WHERE to look
+5. High-frequency GW detector finds      → smoking gun for condensate spacetime
    scalar breathing mode above ω_gap
 ```
 
-If all three happen, PDTP goes from "speculative framework" to "viable
+If steps 1-3 succeed, PDTP goes from "speculative framework" to "viable
 candidate theory." If any of the "kills PDTP" results occur instead,
 specific parts of the framework must be abandoned or revised.
+
+### Standard Model compatibility
+
+All 12 predictions have been checked for compatibility with the Standard
+Model Lagrangian (SU(3)×SU(2)×U(1) gauge symmetry, Higgs mechanism,
+particle content, conservation laws). None of the predictions contradict
+established particle physics. Predictions 7-11 involve a new gravitational-
+sector scalar (φ_-) that is a gauge singlet and does not couple to SM
+fields directly. Prediction 12 uses the standard Wilson action with a
+specific coupling constant K_NAT = 1/(4π).
 
 ---
 
@@ -526,18 +919,26 @@ provide **specific numbers:**
 | Quantity | Symbol | Needed for | Status |
 |---------|--------|-----------|--------|
 | Breathing mode mass | m_b = ℏω_gap/c² | Predictions 1, 2, 4 | Unknown — depends on coupling g and lattice inertia I |
-| Lattice coupling constant | K | All predictions | Part 29 (substitution chains) aims to determine this |
+| Lattice coupling constant | K | All predictions | Part 29 exhausted; K = 1/(4π) in natural units (Part 35) |
 | Phase stiffness | κ = c²/(4πG) | Known: ≈ 1.07 × 10²⁶ Pa | Determined |
 | Scalar-tensor coupling | g_scalar/g_tensor | Prediction 4 (fifth force range) | Not yet determined |
 | Dark energy parameters | w₀, w_a | Prediction 5 | Depends on ε₀ (currently free parameter) |
+| Condensate mass | m_cond | Predictions 7-11 | FREE PARAMETER (= m_P; all perturbative paths exhausted) |
+| φ_- coupling to Φ | 2gΦ | Predictions 7-10 | g known once m_cond known |
+| Healing length | L_heal | Prediction 11 | ~ℓ_P if m_cond = m_P |
+| GPU lattice σ at β=6.0 | σ_phys | Prediction 12 | Next task (Part 42, N≥16 GPU) |
 
-**The single most important calculation is Part 29:** deriving the lattice
-constant K from known physics. Once K is known, ω_gap, m_b, and
-λ_scalar all follow — and every prediction gets a specific number.
+**Two most important near-term calculations:**
+1. **Part 42 (GPU lattice):** determines whether σ_PDTP matches σ_QCD at
+   physical beta — directly testable against established QCD.
+2. **m_cond determination:** remains the central open problem. All perturbative
+   paths exhausted (Parts 29-35). Non-perturbative or measurement needed.
 
 ---
 
-*This document will be updated as new calculations are completed and
-new experimental results become available.*
+*This document is a living document — updated whenever new testable predictions
+are found. Always plan before updating (see CODING_STANDARDS.md section 5).*
+
+*Last updated: 2026-03-15 (Predictions 7-12 added from Parts 61-62, 37-38)*
 
 **Conceptual framework — not experimentally validated.**

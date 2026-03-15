@@ -102,10 +102,16 @@ Both strategies converge on the same unknown: m_cond.
 ## Falsifiable Predictions (ranked by testability)
 
 1. w(z): w₀ > −1 (canonical scalar bound) — testable now with DESI/Euclid
-2. Breathing mode GW at high frequency — LIGO blind; needs triangular detector
-3. GW birefringence (c_L ≠ c_T) — timing delay between polarizations
-4. Phase-dependent gravity: coherent vs thermal matter — BEC interferometry
-5. Screened fifth force — atom interferometry
-6. Planck dispersion — gamma-ray burst timing
+2. Screened fifth force — atom interferometry, torsion balances
+3. QCD string tension from K_NAT=1/(4pi) — lattice QCD comparison (Part 42)
+4. Hollow shell test: phi_- massive inside (distinguishes from chameleon) — Part 62
+5. Massive breathing mode GW — LIGO null stream; future: ET, LISA
+6. Phase-dependent gravity: coherent vs thermal matter — BEC interferometry
+7. phi_- environment-dependent mass — sub-mm gravity near massive objects (Part 62)
+8. G_eff = 2*G_bare — G measurements in different Phi environments (Part 62)
+9. Biharmonic gravity at long range — galaxy rotation curves, lensing (Part 61)
+10. GW birefringence (c_L != c_T) — timing delay between polarizations
+11. phi_- resonant frequency proportional to sqrt(Phi) — resonant detector (Part 62)
+12. Planck dispersion — gamma-ray burst timing
 
 See [falsifiable_predictions.md](docs/research/falsifiable_predictions.md)
