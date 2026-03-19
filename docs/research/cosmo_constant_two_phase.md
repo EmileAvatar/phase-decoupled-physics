@@ -351,7 +351,7 @@ rho(L_eff) ~ 12 * rho_Lambda                                       (25)
 
 ---
 
-## 7. Summary and Conclusions
+## 7. Summary and Conclusions (updated per ChatGPT review)
 
 ### What Holds [DERIVED]:
 1. Two-phase T_mu_nu = T_kin - V (SymPy verified)
@@ -359,27 +359,36 @@ rho(L_eff) ~ 12 * rho_Lambda                                       (25)
 3. phi_- is Goldstone-like at equilibrium (flat direction, massless in vacuum)
 4. Two dispersion branches: omega^2 = c^2*k^2 +/- 2*sqrt(2)*g
 5. Jeans wavelength = 2*pi*l_P
-6. **Omega_beat = 2/3 EXACTLY** (structural prediction from two-phase beat)
+6. Mode splitting kappa = omega_gap^2 [derived from Lagrangian, NOT free]
+7. Density scaling rho ~ c^2/(4*pi*G*L_H^2) = (2/3)*rho_crit
 
-### What Is [SPECULATIVE]:
-- Beat frequency = dark energy frequency
-- Interface energy = Lambda
-- phi_- vacuum condensate = dark energy field
+### Status Tags:
+- [DERIVED] Two-phase field structure, dispersion, mode splitting, kappa
+- [CONSISTENCY RELATION] Omega = 2/3 (uses G and H_0 as inputs; not a prediction)
+- [REJECTED] "Beat frequency = dark energy" (121 orders off at Hubble scale)
+- [REJECTED] Interface energy = Lambda (27 decades too large)
+- [ANSATZ] "One quantum per Hubble mode" (not derived from Lagrangian)
+- [CANDIDATE] phi_- as dark energy field (correct DOF, mechanism unproven)
+
+### What the real physics is:
+Two-phase Lagrangian produces two dispersion branches (mode splitting).
+The low-energy branch (phi_-) evaluated at cosmological scale gives a density
+scaling rho ~ 1/(G*L_H^2), yielding Omega ~ O(1), specifically 2/3.
+This is already better than standard QFT (which gives 10^122).
+The 2/3 is a consistency relation, not yet a prediction.
 
 ### Negative Results:
 - phi_- naive ZPE = rho_Planck (CC problem NOT solved by two-phase alone)
-- Interface energy 27 decades too large
-- Beat frequency at Hubble scale is NOT close to H_0 (121 orders off)
+- Beat frequency at Hubble scale is 121 orders off H_0 [REJECTED]
+- "One quantum per Hubble mode" is an ANSATZ, not derived
+- Interface energy 27 decades too large [REJECTED]
 
-### Status:
-**Upgrade from Part 54:** Lambda is no longer "completely free."
-If dark energy = one beat quantum per Hubble mode, then Omega_Lambda = 2/3.
-This is within 2.6% of observed. BUT: uses G and H_0 as inputs.
-
-**Open questions:**
-1. Can H_0 be derived from PDTP? (would make Omega = 2/3 a true prediction)
-2. Is the "one quantum per Hubble mode" ansatz derivable from the Lagrangian?
+### Open Questions (critical next steps):
+1. **Derive phi_- mode occupation from first principles** — WHY does phi_- populate
+   modes at Hubble scale? The "one quantum per mode" assumption MUST be derived or abandoned.
+2. Can H_0 be derived from PDTP? (would upgrade Omega = 2/3 to a true prediction)
 3. Does the 2.6% discrepancy have a systematic origin (matter corrections)?
+4. Is there a non-perturbative mechanism that suppresses phi_- ZPE below rho_Planck?
 
 ### Comparison to Standard Physics:
 
