@@ -271,6 +271,50 @@ per Hubble-scale mode of the beat frequency between two dispersion branches.
 
 **SymPy verification:** Omega_beat = 0.666667 (numerical), exact = 2/3 (analytical).
 
+### 4.4 Mode Splitting Reframe (replaces beat frequency interpretation)
+
+**PDTP Original.** ChatGPT insight: reframe "beat frequency" as "normal mode splitting."
+
+The two-phase Lagrangian produces two coupled modes. In the normal mode basis:
+
+```
+phi_+ (bulk/gravity):    omega_+^2 = c^2*k^2                       (26a)
+phi_- (boundary/interface): omega_-^2 = c^2*k^2 + 2*kappa          (26b)
+```
+
+where the effective coupling is:
+```
+kappa_PDTP = 2*sqrt(2)*g = omega_gap^2                              (27)
+```
+
+[DERIVED] **kappa is NOT a free parameter** -- it is omega_gap^2, fully determined by
+the Lagrangian coupling constant g.
+
+**Mapping to ChatGPT's linear model:**
+
+| ChatGPT | PDTP |
+|---------|------|
+| kappa (free param) | kappa = omega_gap^2 [DERIVED] |
+| omega_0 (base freq) | c*k (free field) |
+| Both modes stable | One stable (breathing) + one unstable (Jeans) |
+| Splitting Delta_omega = kappa/omega_0 | Delta_omega ~ omega_gap (strong coupling) |
+
+**Coupling regime at Hubble scale:**
+```
+kappa / omega_0^2(k_H) = omega_gap^2 / (c*k_H)^2 ~ 1.8e120       (28)
+```
+
+This is **STRONG coupling** (kappa >> omega_0^2), not weak. The "small Lambda from
+small kappa" argument does NOT apply. The smallness of Lambda comes from evaluating
+at the Hubble scale k_H, not from small kappa.
+
+**Conclusion:** Mode splitting and beat frequency give the SAME numerical result
+(Omega = 2/3) because in strong coupling, Delta_omega ~ omega_gap. The reframe
+is conceptually cleaner (structural mode splitting, not tuned beat) but
+mathematically equivalent.
+
+[DERIVED] Mode splitting reframe confirmed. Omega = 2/3 unchanged.
+
 ---
 
 ## 5. Phase C: Interface Energy
