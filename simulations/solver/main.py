@@ -54,6 +54,7 @@ Phases:
    34. Chirality refractive — condensate birefringence; n_eff split; confinement derived (Part 65)
    35. Quantum geometry — quantum metric in PDTP Lagrangian; D_geom scaling; GP vortex (Part 66)
    36. White comparison — NR limit D=hbar/(2m); constitutive profile; biharmonic parallel (Part 67)
+   37. Cosmo constant v2 — Two-phase FCC; Omega_beat=2/3; phi_- vacuum energy (Part 68)
 """
 
 import os
@@ -100,6 +101,7 @@ from temperature_pdtp import run_temperature_phase
 from chirality_refractive import run_chirality_refractive_phase
 from quantum_geometry import run_quantum_geometry_phase
 from white_comparison import run_white_comparison_phase
+from cosmo_constant_v2 import run_cosmo_constant_v2_phase
 
 
 def main():
@@ -330,6 +332,11 @@ def main():
     # Phase 36: White et al. (2026) Comparison (Part 67)
     # ------------------------------------------------------------------
     run_white_comparison_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 37: Cosmological Constant Two-Phase (Part 68)
+    # ------------------------------------------------------------------
+    run_cosmo_constant_v2_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

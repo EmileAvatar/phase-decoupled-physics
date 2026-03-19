@@ -1025,6 +1025,143 @@ They are recorded here so they are not lost. Each needs a full plan and user app
     - **NEGATIVE:** Hydrogen spectrum not directly derivable from PDTP gravitational profile
       (gravitational C_grav ~ 10^-71 m vs EM scale ~ 10^-11 m; need SU(2)xU(1) extension for EM)
 
+- [x] **Part 68: Cosmological Constant — Two-Phase Deep Investigation (Forced Checklist Check)** (DONE 2026-03-19)
+  - **KEY RESULT: Omega_beat = 2/3 EXACTLY (vs observed Omega_Lambda = 0.685, 2.6% off)**
+  - rho_beat = c^2/(4*pi*G*L_H^2) = (2/3)*rho_crit [DERIVED, step-by-step]
+  - The 2/3 factor comes from two-phase beat STRUCTURE (not tuning)
+  - Uses G and H_0 as inputs — consistency check, not G-free prediction
+  - phi_- is NOT shift-protected (unlike phi_+ in single-phase)
+  - phi_- is Goldstone-like: massless in vacuum, massive near matter
+  - phi_- naive ZPE ~ rho_Planck (CC problem NOT solved by two-phase alone)
+  - Sudoku: 15/15 pass; Script: cosmo_constant_v2.py (Phase 37)
+  - Docs: docs/research/cosmo_constant_two_phase.md
+  - **Status upgrade from Part 54:** Lambda no longer "completely free" — constrained to 2/3 of rho_crit
+  - **Method: Forced Checklist Check** — every Methodology.md item applied to Lambda with two-phase Lagrangian
+  - **Why revisit:** Part 54 FCC concluded "Lambda is a second free parameter." Since then we built
+    powerful new tools: two-phase Lagrangian (Parts 61-63), frequency reframe, reversed Higgs (Part 62),
+    White comparison (Part 67), quantum geometry (Part 66), chirality refractive (Part 65), scalar
+    backreaction (Part 43). These were NOT available during Part 54.
+  - **Significance:** Solving (or significantly constraining) the cosmological constant problem would be
+    a landmark result. The 10^122 discrepancy is the worst prediction in physics.
+  - **Central questions:**
+    1. Can the two-phase Lagrangian DERIVE Lambda from its own structure? (without L_H as input)
+    2. Is phi_- the dark energy field? (massless in vacuum = can have cosmological-frequency modes)
+    3. Does the beat frequency interpretation survive a proper derivation? (delta/omega_P ~ 10^-61)
+    4. Does phi_- break the U(1) shift symmetry that makes T_mu_nu^phi = 0? (Part 43 used single-phase)
+    5. Can impedance mismatch / interface physics naturally produce 10^-122?
+  - **What holds from frequency reframe (keep and strengthen):**
+    - Cosine coupling = nonlinear mixer -> valid (heterodyne/beat physics)
+    - Gap frequency omega_gap -> physically grounded (BEC, superconductors, waveguides)
+    - Two-phase structure (phi_+, phi_-) -> strongest result; produces two natural scales [DERIVED]
+    - Interface interpretation (bulk/surface) -> consistent with known multi-phase systems
+  - **Critical issues to address (from ChatGPT review):**
+    - Beat-frequency explanation for Lambda requires 10^-61 precision tuning -> physically unexplained
+    - No mechanism selecting detuning values -> violates PDTP rigor rules; mark [SPECULATIVE]
+    - Large frequency mismatch: if omega_P >> omega_particle -> mixing does NOT generate new scales
+    - "Particle masses = detuning hierarchy" is numerical fit, not derivation -> mark [SPECULATIVE]
+    - Must replace "hierarchy from beat frequencies" with "hierarchy from MULTI-MODE structure"
+  - **Clean physical picture (from ChatGPT):**
+    - phi_+ (bulk mode): high frequency (~Planck), sets G via omega_gap [DERIVED]
+    - phi_- (surface/interface mode): low frequency (possibly cosmological), independent DOF [SPECULATIVE]
+    - psi (matter): localised excitation at interface
+    - Mixing: produces local modulation (fine structure), NOT necessarily global scale hierarchy
+    - Two-phase frequency split -> [DERIVED / CORE RESULT]
+    - Beat-frequency cosmology -> [SPECULATIVE] until mechanism for detuning is found
+    - Central open problem: WHY omega_+ >> omega_- ?
+  - **Forced Checklist Check — all ~30 items:**
+    - **1. Reframe the Problem:**
+      - [ ] Change the field/lens — condensed matter (BEC vacuum energy), topologist (phi_- winding),
+            information theorist (entropy bound / CKN)
+      - [ ] What-if — what if phi_- has a tiny mass in vacuum (not exactly zero)?
+            What if the two phases are NOT exactly detuned?
+      - [ ] Invert — what vacuum energy does the two-phase Lagrangian predict? (derive, don't assume)
+      - [ ] Zoom in — 1D two-phase model; compute vacuum energy exactly
+      - [ ] Zoom out — does Lambda change with cosmic time? (phi_- is dynamical — could evolve)
+      - [ ] Rename — "surface mode vacuum occupation" instead of "cosmological constant"
+      - [ ] One sentence — "What is the vacuum energy of the phi_- field in the two-phase Lagrangian?"
+    - **2. Introduce Something New:**
+      - [ ] New term — does phi_- self-interaction (phi_-^4) generate vacuum energy?
+      - [ ] New variable — is there a phi_- condensate alongside the phi_+ condensate?
+      - [ ] New constraint — T_mu_nu conservation for the FULL two-phase system
+      - [ ] Change symmetry — phi_- breaks Z_2 exchange; does this generate Lambda?
+      - [ ] Postulate and derive — if Lambda = (H_0/omega_P)^2 * rho_Planck, what does this imply?
+      - [ ] Introduce a scale — can L_H emerge from phi_- dynamics? (not external input)
+      - [ ] Order parameter — phase transition in phi_- at cosmological scales?
+    - **3. Consistency Checks:**
+      - [ ] Sudoku — substitute Lambda candidates into all 13+ engine tests
+      - [ ] Limiting cases — Lambda -> 0 when phi_- -> 0? When phi_b = phi_s?
+      - [ ] Dimensional analysis — dimensions of phi_- vacuum energy
+      - [ ] Sign — does two-phase vacuum energy have the RIGHT sign (positive = accelerating)?
+      - [ ] Overcounting — phi_+ and phi_- vacuum energies: separate or combined?
+      - [ ] Circular — does any path use Lambda as input?
+      - [ ] Order of magnitude — does two-phase calculation land near 10^-122?
+    - **4. Use Analogies:**
+      - [ ] Air/water/oil — interface energy between layers = vacuum energy?
+      - [ ] Beat frequency — two detuned Planck oscillators (mark [SPECULATIVE])
+      - [ ] AM radio — DC component of modulation envelope = Lambda?
+      - [ ] Impedance mismatch — energy stored in bulk/surface mode mismatch
+      - [ ] BEC analogue — quantum depletion of phi_- condensate (Part 54 Path A, now two-phase)
+      - [ ] Chirality refractive — birefringence energy splitting of the vacuum?
+    - **5. Handle Negative Results:**
+      - [ ] If Lambda remains free, document exactly WHICH two-phase paths tried and failed
+      - [ ] Find the correction factor — if all paths give 10^-122 * (something), what is that?
+      - [ ] Find the sub-group — which consistency tests constrain Lambda? Which don't?
+    - **6. Mathematical Strategies:**
+      - [ ] Work backwards — assume rho_Lambda = observed; what phi_- vacuum state required?
+      - [ ] Invariants — what is conserved in the phi_- sector? (topological charge? winding?)
+      - [ ] Change coordinates — phi_- in Fourier space; vacuum mode occupation
+      - [ ] Symmetry argument — most general phi_- vacuum consistent with all symmetries
+      - [ ] Topological — topological contribution to Lambda from phi_- winding sectors?
+      - [ ] Perturbation — expand phi_- around pi/2 equilibrium; 1-loop zero-point energy
+    - **7. When Completely Stuck:**
+      - [ ] List every assumption
+      - [ ] What would have to be true?
+      - [ ] What would falsify this?
+      - [ ] Is Lambda the free parameter, or is it m_cond? (or both?)
+  - **Derivation path (core mathematical work):**
+    1. Write dispersion relations: phi_+: omega^2 = c^2*k^2 + m_+^2; phi_-: omega^2 = c^2*k^2 + m_-^2
+    2. Derive m_-(Phi) from Lagrangian (reversed Higgs, Part 62, already started)
+    3. Show omega_- emerges from symmetry/boundary conditions (NOT from tuning)
+    4. Compute energy density contribution of phi_- -> compare to Lambda
+    5. Compute T_mu_nu for FULL two-phase system (not just T_00; need T_ij too)
+    6. Evaluate in vacuum: psi=0, phi_+=const, phi_-=0; check if U(1) shift still kills vacuum energy
+    7. If not: compute rho_vacuum from phi_- zero-point fluctuations (1-loop)
+    8. SymPy verification of all results
+  - **Real physics mapping (validation / sanity check):**
+    - Map phi_+/phi_- system to known systems:
+      - BEC: phi_+ -> density (Higgs-like mode), phi_- -> phase (Goldstone mode)
+      - Superfluid: bulk vs surface excitations
+      - QFT: massive vs massless fields from symmetry breaking
+    - Test: does ANY known system naturally produce omega_high/omega_low ~ 10^61?
+      - If yes: same mechanism could apply to PDTP
+      - If no: PDTP needs a NEW mechanism (and this is itself a finding)
+  - **Implementation phases:**
+    - Phase A: Two-phase vacuum energy (T_mu_nu, U(1) shift, 1-loop)
+    - Phase B: Beat frequency derivation (delta, self-consistency, SymPy)
+    - Phase C: Interface/impedance (surface energy, Hubble volume, CKN)
+    - Phase D: Cross-checks (Part 63 16/16, Newton 3rd, Jeans, scalar backreaction,
+               White NR limit, quantum geometry D_geom, chirality birefringence)
+    - Phase E: Sudoku (15+ tests) + documentation
+  - **Files:**
+    - CREATE: `simulations/solver/cosmo_constant_v2.py` (Phase 37)
+    - CREATE: `docs/research/cosmo_constant_two_phase.md`
+    - EDIT: `simulations/solver/main.py` (add Phase 37)
+    - EDIT: `TODO_02.md` (results)
+    - READ ONLY: all existing phase modules for cross-checks
+  - **Success criteria:**
+    - BEST: Lambda derived from two-phase structure (no free parameters beyond m_cond)
+    - GOOD: Lambda constrained to narrow range by two-phase consistency
+    - ACCEPTABLE: mechanism (beat/interface) rigorously established, Lambda still free but understood
+    - NEGATIVE: all paths fail — Lambda confirmed independent free parameter (closes investigation)
+  - **Risk assessment:**
+    - HIGH probability: T_mu_nu two-phase will show phi_- contributes to vacuum energy
+    - MEDIUM probability: beat frequency gives correct ORDER of magnitude (10^-122 +/- few decades)
+    - LOW probability: exact Lambda derivation with no new free parameters (would be breakthrough)
+  - **Status markers to enforce:**
+    - [DERIVED]: two-phase frequency split, phi_- dispersion, T_mu_nu
+    - [SPECULATIVE]: beat-frequency cosmology, particle masses as detunings
+    - [OPEN]: mechanism for omega_+ >> omega_-, detuning selection
+
 - [ ] **Xi_cc+ baryon (LHCb 2026) — SU(3) flux tube benchmark**
   - LHCb confirmed Xi_cc+ (ccd) at 3619.97 MeV/c^2, ~915 events, decay Xi_cc+ -> Lambda_c+ K- pi+
   - Source: https://phys.org/news/2026-03-scientists-play-key-role-discovery.html
