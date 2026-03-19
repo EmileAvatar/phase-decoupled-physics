@@ -727,7 +727,7 @@ They are recorded here so they are not lost. Each needs a full plan and user app
     - [x] Koide Q = 2/3 (S15 PASS)
     - [x] Dark energy w(z) from phase drift (S16 PASS)
 
-- [ ] **Temperature in PDTP — what is temperature in the phase-locking picture?**
+- [x] **Temperature in PDTP — what is temperature in the phase-locking picture?** (Part 64, 2026-03-15)
   - Standard physics: T = average kinetic energy per DOF; k_B T = (2/3) <E_kin>
   - QFT: temperature = periodicity of imaginary time (KMS condition)
   - PDTP mapping: temperature = degree of phase incoherence among oscillators
@@ -746,7 +746,7 @@ They are recorded here so they are not lost. Each needs a full plan and user app
   - Missing: dedicated treatment of temperature as a PDTP concept
   - What would make this a Part: derive Z, T_c, and show standard thermodynamics emerges
 
-- [ ] **Chirality from condensate refractive index — path to making handedness DERIVED not free**
+- [x] **Chirality from condensate refractive index — path to making handedness DERIVED not free** (Part 65, 2026-03-15)
   - Current Part 50 result: which hand the EW vacuum chose = free parameter (vacuum choice)
   - Speculation: the EW condensate is chirally birefringent — two different effective refractive indices
     for +1/2 and -1/2 winding vortices, forced by the condensate's own winding background
@@ -768,7 +768,7 @@ They are recorded here so they are not lost. Each needs a full plan and user app
   - What would make this a Part: derive n_eff(+1/2) and n_eff(-1/2) from the SU(2) PDTP Lagrangian;
     show the confinement condition; predict the energy scale at which parity is restored; compare to v=246 GeV
 
-- [ ] **Phase-gradient coil drum — proposed analog experiment**
+- [x] **Phase-gradient coil drum — proposed analog experiment** (2026-03-15)
   - Core idea: instead of driving matter at 10^23 Hz (proton Compton frequency), create a SPATIAL phase gradient
     that travels through a stack of coils, each offset in phase — a slow-wave traveling phase structure
   - Engineering concept: N coils in a drum/toroid, each carrying the signal at phase offset 360/N degrees
@@ -797,7 +797,7 @@ They are recorded here so they are not lost. Each needs a full plan and user app
   - What would make this a Part: derive the EM-to-gravitational phase coupling constant from PDTP Lagrangian;
     predict the resonance frequency; design a discriminating test vs classical EM effects
 
-- [ ] **Acoustic standing wave levitation — inverted as decoupling mechanism**
+- [x] **Acoustic standing wave levitation — inverted as decoupling mechanism** (2026-03-16)
   - Standard acoustic levitation: transducer generates standing wave; object sits PASSIVELY at pressure node
     - Object trapped where pressure gradient = gravity (node = zero net acoustic force)
     - No propulsion, no contact — pure wave interaction with matter
@@ -827,6 +827,211 @@ They are recorded here so they are not lost. Each needs a full plan and user app
        (Part 29 estimate: ~10 kW/ton if decoupling is complete; acoustic analogy suggests much less for partial)
   - What would make this a Part: formulate the phi field wave equation in the presence of an oscillating matter source;
     find the standing wave solutions; calculate node stability and energy cost
+
+- [x] **Quantum geometry formalism for PDTP condensate — quantum metric + Berry curvature (Part 66)** ✅ DONE
+  - Source paper: Liu et al. (2025), "Quantum geometry in condensed matter", Natl Sci Rev 12, nwae334
+    https://academic.oup.com/nsr/article/12/3/nwae334/7762198
+  - The quantum geometric tensor Q^ab = g^ab - (i/2)*Omega^ab describes the geometry of wave functions
+    in momentum space. g^ab = quantum metric (distances), Omega^ab = Berry curvature (rotations).
+  - This is the RIGOROUS version of what PDTP does heuristically with alpha = cos(psi - phi).
+  - **5 connections to PDTP identified:**
+  - **Connection 1 (HIGH): Quantum metric = phase geometry**
+    - PDTP coupling alpha = cos(psi-phi) is a U(1) phase relationship
+    - The quantum geometric tensor describes exactly this — geometry of U(1) phases
+    - Upgrade path: replace heuristic cos(psi-phi) with quantum geometric tensor Q^ab of condensate
+    - This would make PDTP's coupling a proper geometric quantity, not just a trig function
+  - **Connection 2 (HIGH): Quantum metric gives mass in flat bands**
+    - Paper Eq. 31: (1/m_eff)^ab = (U*V)/(N*hbar^2) * integral[g^ab dk]
+    - Cooper pairs get effective mass from quantum metric even in perfectly flat bands
+    - PDTP Part 33: mass from winding number n = m_cond/m (topological origin)
+    - BOTH say: mass arises from phase geometry, not classical kinetic energy
+    - Paper PROVES this experimentally: twisted bilayer graphene Tc = 2.2 K vs 0.05 K conventional
+    - The 44x enhancement IS the quantum metric contribution — measured, not theoretical
+  - **Connection 3 (HIGH): Superfluid weight from geometry**
+    - D = D_conv + D_geom (conventional + geometric superfluid weight)
+    - D_conv vanishes for flat bands; D_geom survives (from quantum metric)
+    - PDTP condensate IS a superfluid (Part 34: c_s = c, xi = a_0/sqrt(2))
+    - The PDTP condensate's superfluid weight has a geometric contribution from its quantum metric
+    - Could this break the one-parameter degeneracy (m_cond undetermined, Part 34-35)?
+    - If D_geom constrains the condensate, it might fix m_cond independently of G
+  - **Connection 4 (MEDIUM): Uniform Berry curvature = stability**
+    - Fractional Chern insulators: stable ONLY when Berry curvature is uniform in Brillouin zone
+    - Non-uniform -> charge density waves (instability)
+    - PDTP analogue: uniform condensate phase = stable gravity; non-uniform = instabilities
+    - Possible link to Jeans instability (Part 61): eigenvalue +2*sqrt(2)*g > 0 could be the
+      Berry curvature non-uniformity threshold
+  - **Connection 5 (MEDIUM): Nonlinear Hall effect from phase dipoles**
+    - Berry curvature DIPOLE produces J ~ E^2 (nonlinear transport)
+    - PDTP: phase gradient dipole in condensate -> nonlinear gravitational effects?
+    - Potential falsifiable prediction: nonlinear gravitational "Hall effect" from condensate geometry
+    - Distinct from GR (which is linear in weak field limit) — could be testable
+  - **Detailed implementation plan (Part 66):**
+    - Phase A: Mathematical foundation
+      1. Define the quantum geometric tensor for the PDTP condensate field phi
+         - Start from the U(1) Lagrangian: L = 1/2(d_mu phi)(d^mu phi) + g*cos(psi - phi)
+         - The Bloch states |phi_k> of the condensate have a QGT: Q^ab = g^ab - (i/2)*Omega^ab
+         - Derive g^ab and Omega^ab for the PDTP cosine coupling
+      2. Show alpha = cos(psi-phi) emerges as a SPECIAL CASE of the quantum metric
+         - The overlap <psi|phi> = cos(psi-phi) is the inner product of two states
+         - The quantum metric g^ab measures how this overlap CHANGES with parameters
+         - alpha is the zeroth-order term; g^ab gives the first-order corrections
+      3. Derive the effective mass formula for PDTP vortices using paper's Eq. 31
+         - Substitute PDTP quantum metric into (1/m_eff) = integral[g^ab dk]
+         - Compare to Part 33 result: m = m_cond/n
+         - Check: do they agree? If yes, quantum metric formalism validates Part 33
+    - Phase B: Superfluid weight and m_cond
+      4. Compute D_geom for the PDTP condensate
+         - Use paper's Eq. 34 with PDTP band structure
+         - The geometric superfluid weight determines condensate rigidity
+      5. Check if D_geom constrains m_cond
+         - Part 34 showed condensate is self-consistent for ANY m_cond
+         - The quantum metric adds a NEW constraint: D_geom must be positive and finite
+         - If this fixes m_cond -> the hierarchy problem is solved (or at least constrained)
+      6. Compute Berry curvature distribution for PDTP condensate
+         - Check uniformity condition (Connection 4)
+         - Non-uniformity -> instabilities -> relate to Jeans criterion
+    - Phase C: Predictions and falsifiability
+      7. Derive nonlinear gravitational transport from Berry curvature dipole
+         - By analogy with nonlinear Hall effect: J_grav ~ (grad phi)^2 * Berry_dipole
+         - This is a NEW prediction not in standard GR
+      8. Compute numerical values for testable predictions
+         - Nonlinear gravity magnitude (relative to Newtonian)
+         - Energy scale where geometric effects dominate (flat-band regime)
+         - Compare to existing gravitational measurements (torsion balance, LISA)
+      9. Sudoku consistency check: all new equations against 10+ known results
+      10. Update falsifiable_predictions.md with any new testable predictions
+    - Phase D: Cross-references and documentation
+      11. Update vortex_winding_derivation.md (Part 33) with quantum metric validation
+      12. Update condensate_selfconsist.md (Part 34) with geometric superfluid weight
+      13. Update chirality_refractive_index.md (Part 65) — birefringence IS quantum metric anisotropy
+      14. Full research doc: quantum_geometry_pdtp.md with complete derivations
+  - **Key question this Part answers:** Can the quantum geometric tensor formalism
+    promote PDTP from a heuristic phase-coupling model to a rigorous geometric field theory?
+    If yes, it connects PDTP to the active experimental program in condensed matter
+    (twisted graphene, Moire materials, kagome magnets) — those labs are ALREADY measuring
+    the quantum metric effects that PDTP claims operate in the gravitational condensate.
+  - **Risk assessment:**
+    - HIGH probability: Connections 1-3 will work (the math is straightforward U(1) geometry)
+    - MEDIUM probability: Connection 5 yields a new falsifiable prediction
+    - LOW probability: D_geom actually fixes m_cond (would be a breakthrough, but don't count on it)
+  - What would make this a Part: derive Q^ab for PDTP condensate; recover alpha = cos(psi-phi) as
+    special case; compute m_eff from quantum metric and compare to Part 33; compute D_geom and
+    check if it constrains m_cond; derive at least one new falsifiable prediction from Berry curvature dipole
+  - Script: `simulations/solver/quantum_geometry.py` (Phase 35); Doc: `docs/research/quantum_geometry_pdtp.md`
+  - **Results (10/10 Sudoku pass):**
+    - **KEY RESULT 1:** PDTP kinetic term (1/4)(d_mu(psi-phi))^2 IS (1/4)*Tr(g^ab_PDTP) — SymPy verified, residual = 0
+    - **KEY RESULT 2:** Berry curvature = 0 for 1D U(1) (real parameter space) — SymPy verified
+    - **KEY RESULT 3:** g^ab = omega_PDTP^2/omega_gap^2 = 1/2 (dimensionless, m_cond-independent) — SymPy verified
+    - **KEY RESULT 4:** Vortex quantum metric: g_tt = n^2/r^2 (topological), g_rr = (f'/f)^2 (amplitude, from GP nonlinear core)
+    - **KEY RESULT 5:** D_geom scales as m_cond^3 exactly (power-law fit exponent = 3.0000) — does NOT fix m_cond
+    - GP vortex profile solved by shooting method (scipy solve_ivp); amplitude contribution 10-30x larger than simple estimate
+    - Eq. 66.35 corrected: mixed-unit formula replaced with consistent frequency-unit derivation
+    - **NEGATIVE:** D_geom smooth and monotonic — no special point, does NOT break one-parameter degeneracy (Part 34-35)
+    - Connections 1-3 confirmed (HIGH); Connection 4-5 remain open for future work (nonlinear Hall prediction)s
+
+- [x] **Part 67: White et al. (2026) — Emergent Quantization from Dynamic Vacuum** (HIGH PRIORITY) DONE
+  - **Source:** White, Vera, Sylvester & Dudzinski, Phys. Rev. Research 8, 013264 (2026).
+    DOI: 10.1103/l8y7-r3rm. "Emergent quantization from a dynamic vacuum."
+  - **What they do:** Model the vacuum as a dynamic acoustic medium (compressible continuum
+    with spatially varying density rho(r) and bulk modulus B(r)). Add quadratic temporal
+    dispersion omega = D*k^2 with D = hbar/(2*m_eff), derived from Madelung hydrodynamics.
+    With constitutive profile 1/c_s^2(r) = A(omega) + C(omega)/r, the Helmholtz equation
+    becomes EXACTLY the hydrogenic Coulomb equation. Recovers full hydrogen spectrum, all
+    eigenfunctions, angular momentum quantization — zero free parameters after one calibration.
+  - **Why this matters for PDTP:** This is the CLOSEST published peer-reviewed work to the
+    PDTP condensate vacuum model. Both frameworks:
+    - Treat the vacuum as a physical medium (acoustic/condensate)
+    - Derive quantum behaviour as emergent from classical-like wave equations
+    - Use Madelung/BEC hydrodynamics as the bridge
+    - Produce biharmonic (nabla^4) wave equations from quantum pressure
+    - Have bound states from stop bands / phase-locking
+  - **Key parallels:**
+    - White: 1/c_s^2(r) = A + C/r (Coulombic sound speed profile)
+    - PDTP: cos(psi - phi) coupling creates effective potential from mass source ~ 1/r
+    - White: omega = D*k^2 (Schrodinger-type, non-relativistic)
+    - PDTP: omega^2 = c^2*k^2 + omega_gap^2 (Klein-Gordon, relativistic)
+    - White: nabla^4 from quantum pressure (Eq. A17: d^2 rho/dt^2 = c_L^2 nabla^2 rho - (hbar^2/4mu^2) nabla^4 rho)
+    - PDTP: nabla^4 from two-phase Lagrangian (Part 61: nabla^4 Phi + 4g^2 Phi = source)
+    - White: bound states from A(omega) < 0 (reactive stop band)
+    - PDTP: bound states from phase-locking (alpha = cos(psi-phi) > 0)
+    - White: m_eff = mu (reduced mass, calibrated)
+    - PDTP: m_cond = m_P (free parameter)
+  - **Key difference:** White et al. is non-relativistic (omega = D*k^2); PDTP is relativistic
+    (omega^2 = c^2*k^2 + gap^2). White does hydrogen only; PDTP attempts gravity + full SM.
+    White assumes constitutive profile; PDTP derives from Lagrangian.
+  - **Three questions for PDTP to answer:**
+    1. Can PDTP derive the White constitutive profile 1/c_s^2 = A + C/r from cos(psi-phi)?
+       A vortex (particle) modifies local condensate -> local c_s changes -> other particles
+       see Coulombic effective potential. This would DERIVE what White ASSUMES.
+    2. Does PDTP's relativistic dispersion reduce to omega = D*k^2 in the non-relativistic limit?
+       If yes, PDTP contains White et al. as a special case. Check: expand omega^2 = c^2*k^2 + gap^2
+       for k << gap/c and see if it gives omega ~ const + D*k^2.
+    3. Is the nabla^4 term the same physics? White's comes from Madelung quantum pressure;
+       PDTP's comes from the two-phase Lagrangian (phi_b, phi_s). If they match, the two-phase
+       extension has a physical interpretation: quantum pressure of the condensate.
+  - **Implementation plan:**
+    - Phase A: Mathematical comparison (research, no code)
+      1. Write out both dispersion relations side by side; take non-relativistic limit of PDTP
+      2. Compare biharmonic terms: White Eq. A17 vs PDTP Part 61 biharmonic
+      3. Attempt to derive 1/c_s^2 = A + C/r from PDTP's cos coupling near a vortex source
+      4. Check: does the PDTP acoustic metric (Part 12, c_s = c) produce Coulombic sound speed?
+    - Phase B: SymPy verification
+      5. Verify non-relativistic limit gives omega = D*k^2 with D = hbar/(2*m_cond)
+      6. Derive effective Coulomb potential from linearised PDTP near a point source
+      7. Check isospectrality: does the PDTP Helmholtz equation give hydrogen-like spectrum?
+    - Phase C: Implications
+      8. If PDTP contains White et al.: hydrogen spectrum is a DERIVED PREDICTION (not assumed)
+      9. If not: identify where the frameworks diverge and what PDTP would need to match
+      10. Update falsifiable_predictions.md: hydrogen spectrum as PDTP prediction (if derived)
+    - Phase D: Documentation
+      11. Full research doc: white_emergent_quantization.md
+      12. Sudoku consistency check on all new equations
+      13. Update this TODO with results
+  - **Risk assessment:**
+    - HIGH probability: non-relativistic limit will give omega ~ D*k^2 (standard physics)
+    - MEDIUM probability: PDTP can derive the constitutive profile (requires solving linearised
+      field equations near a vortex source — doable but non-trivial)
+    - HIGH payoff: if PDTP derives the White constitutive profile, it EXPLAINS what White assumes
+      and the hydrogen spectrum becomes a PDTP prediction with no free parameters (beyond m_cond)
+  - **What would make this a Part:** derive non-relativistic limit; show PDTP contains White et al.;
+    derive constitutive profile from Lagrangian; reproduce hydrogen spectrum as emergent prediction
+  - Script: `simulations/solver/white_comparison.py` (Phase 36); Doc: `docs/research/white_emergent_quantization.md`
+  - **Results (12/12 Sudoku pass):**
+    - **Q1 ANSWER (Constitutive profile): PARTIAL YES**
+      - Metric perturbation (gravity) gives 1/c_eff^2 = A + C/r (matches White) [DERIVED]
+      - Condensate density (GP vortex) gives 1/c_s^2 = A + B/r^2 (different from White) [DERIVED]
+      - The 1/r profile requires the gravitational potential -> same circularity as Parts 29-35
+      - C_grav = -2GM/c^4 = -2.76e-71 m (for proton); ~10^50 smaller than White's EM profile
+    - **Q2 ANSWER (NR limit): YES** [DERIVED, SymPy VERIFIED]
+      - omega ~ omega_gap + [hbar/(2*m_cond)]*k^2 + O(k^4)
+      - D_PDTP = hbar/(2*m_cond) = D_White when m_cond = m_eff (exact same form)
+      - **PDTP contains White et al. as non-relativistic special case**
+      - k^4 correction: -hbar^3*k^4/(8*m_cond^3*c^2) [SymPy verified]
+    - **Q3 ANSWER (nabla^4): STRUCTURALLY YES, PHYSICALLY NO** [PDTP Original]
+      - Both nabla^4 arise from two-field -> one-field elimination (same mathematical pattern)
+      - White: (rho, S) -> eliminate S -> dispersive nabla^4 in wave equation (dynamic)
+      - PDTP: (phi_+, phi_-) -> eliminate phi_- -> biharmonic field equation (static)
+      - Deep connection identified: structural equivalence of the reduction [PDTP Original]
+    - **Two-phase cross-check: ALL PRESERVED**
+      - Breathing mode NR limit works (D = c^2/(2*sqrt(2*g*Phi))) [SymPy VERIFIED]
+      - Newton's 3rd law (psi_tt = -2*phi_+_tt) unchanged [SymPy VERIFIED]
+      - Jeans eigenvalue (+2*sqrt(2)*g) unchanged [SymPy VERIFIED]
+    - **What PDTP adds beyond White:**
+      1. Lagrangian foundation (derives what White assumes)
+      2. Relativistic (White is NR limit of PDTP)
+      3. Gravity included (White has hydrogen only)
+      4. Two-phase structure (breathing mode + biharmonic gravity)
+      5. Less circular (classical Lagrangian, not Madelung-from-QM)
+    - **NEGATIVE:** Hydrogen spectrum not directly derivable from PDTP gravitational profile
+      (gravitational C_grav ~ 10^-71 m vs EM scale ~ 10^-11 m; need SU(2)xU(1) extension for EM)
+
+- [ ] **Xi_cc+ baryon (LHCb 2026) — SU(3) flux tube benchmark**
+  - LHCb confirmed Xi_cc+ (ccd) at 3619.97 MeV/c^2, ~915 events, decay Xi_cc+ -> Lambda_c+ K- pi+
+  - Source: https://phys.org/news/2026-03-scientists-play-key-role-discovery.html
+  - Two charm quarks + one down quark: doubly-heavy baryon
+  - PDTP test: Part 37 Y-junction geometry + Part 38 string tension should predict binding energy
+  - Mass = 2*m_charm + m_down + string tension corrections; compare to sigma = 0.173 GeV^2
+  - Future work: when SU(3) lattice simulation (Part 42 GPU) is running, compute Xi_cc+ mass
 
 - [ ] **Leidenfrost Effect as PDTP decoupling analogue**
   - Standard Leidenfrost: droplet on a hot pan vaporises its bottom layer instantly; the resulting

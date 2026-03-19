@@ -202,6 +202,7 @@ topic is covered in any graduate-level physics or mathematics textbook.
 | 59 | Weinberg, S. | 1989 | "The cosmological constant problem" | *Reviews of Modern Physics* **61**, 1 | [APS](https://doi.org/10.1103/RevModPhys.61.1) | vacuum_background_subtraction.md §6.1 |
 | 60 | Chevallier, M. & Polarski, D. | 2001 | "Accelerating Universes with Scaling Dark Matter" | *International Journal of Modern Physics D* **10**, 213 | [arXiv:gr-qc/0009008](https://arxiv.org/abs/gr-qc/0009008) | dark_energy_normal_fraction.md §8.2 |
 | 61 | Linder, E. V. | 2003 | "Exploring the Expansion History of the Universe" | *Physical Review Letters* **90**, 091301 | [arXiv:astro-ph/0208512](https://arxiv.org/abs/astro-ph/0208512) | dark_energy_normal_fraction.md §8.2 |
+| 62 | Ryazanov, D. A., Providukhina, M. I., Sibgatullin, I. N. & Ermanyuk, E. V. | 2021 | "Biharmonic Attractors of Internal Gravity Waves" | *Fluid Dynamics* **56**(3), 403-412 | [DOI](https://doi.org/10.1134/S0015462821030046) | experiment_3y_rig.md §16 |
 
 ---
 
@@ -1923,6 +1924,103 @@ physics. They should not be cited as if they are.
 - **Description:** Review of sub-mm gravity experiments using torsion balances. Constrains Yukawa fifth forces to |alpha| < 10^-2 at 100 micron range.
 - **Used in:** two_phase_lagrangian.py (Part 61), reversed_higgs.py (Part 62) -- experimental constraints on phi_-
 - **Why:** These experiments directly constrain the healing length and phi_- force range
+
+---
+
+### Paper Sources (added 2026-03-15)
+
+#### P100: Tajmar et al. (2006) — Gravitomagnetic Field from Spinning Superconductor
+- **Author:** Tajmar, M., Plesescu, F., Seifert, B., Schnitzer, R., Vasiljevich, I.
+- **Citation:** AIP Conference Proceedings 880, 1071 (2006)
+- **Description:** Reported anomalous frame-dragging-like signal from spinning niobium superconductor at 5K. Gravitomagnetic field B_g ~ 10^-14 rad/s — 10^18 times larger than GR Lense-Thirring prediction. Coupling constant (if real) ~ 10^-7. Not independently confirmed; ESA Gravity Probe B did not reproduce. Controversial but published in peer-reviewed proceedings.
+- **Used in:** experiment_coil_drum.md §1.3, §2.3, §12.3 — motivates EM-gravitational coupling search
+- **Why:** Only experimental hint of EM-to-gravitational coupling; sets sensitivity target (~10^-7) for coil drum experiment
+
+#### Wikipedia Sources (added 2026-03-15)
+
+| # | Topic | URL | Used In |
+|---|-------|-----|---------|
+| 302 | Linear induction motor | https://en.wikipedia.org/wiki/Linear_induction_motor | experiment_coil_drum.md §1.1, §3 |
+| 303 | Traveling-wave tube | https://en.wikipedia.org/wiki/Traveling-wave_tube | experiment_coil_drum.md §1.1 |
+| 304 | BCS theory | https://en.wikipedia.org/wiki/BCS_theory | experiment_coil_drum.md §4 |
+| 305 | Yttrium barium copper oxide | https://en.wikipedia.org/wiki/Yttrium_barium_copper_oxide | experiment_coil_drum.md §5.2 |
+| 306 | Macroscopic quantum phenomena | https://en.wikipedia.org/wiki/Macroscopic_quantum_phenomena | experiment_coil_drum.md §5.1 |
+
+### Paper Sources (added 2026-03-16)
+
+#### P101: Gor'kov (1962) — Acoustic Radiation Force on Particles
+- **Author:** Gor'kov, L. P. (1962)
+- **Citation:** Soviet Physics - Doklady 6, 773
+- **Description:** Derives the acoustic radiation force on a small particle in a standing wave field. Establishes the Gor'kov potential U from which the trapping force at pressure nodes follows. Foundational paper for all acoustic levitation work.
+- **Used in:** experiment_acoustic_levitation.md §1.2 — theoretical basis for node trapping
+- **Why:** Establishes the physics that PDTP's decoupling analogy is built on
+
+#### P102: Marzo et al. (2017) — TinyLev Multi-Emitter Acoustic Levitator
+- **Author:** Marzo, A., Barnes, A. & Drinkwater, B. W. (2017)
+- **Citation:** Review of Scientific Instruments 88, 085105
+- **Description:** Open-source 72-transducer acoustic levitator design. Two facing hemispheres of 40 kHz transducers create 3D trapping volume. Build instructions freely available. Demonstrates multi-node trapping of droplets and solids.
+- **Used in:** experiment_acoustic_levitation.md §4.2, §7.2 — array rig design basis
+- **Why:** Practical open-source hardware design; demonstrates node geometry from source shape
+
+#### Wikipedia Sources (added 2026-03-16)
+
+| # | Topic | URL | Used In |
+|---|-------|-----|---------|
+| 307 | Acoustic levitation | https://en.wikipedia.org/wiki/Acoustic_levitation | experiment_acoustic_levitation.md §1.1 |
+| 308 | Ultrasonic transducer | https://en.wikipedia.org/wiki/Ultrasonic_transducer | experiment_acoustic_levitation.md §6 |
+
+### Paper Sources (added 2026-03-16)
+
+#### P103: Liu et al. (2025) — Quantum Geometry in Condensed Matter
+- **Author:** Liu, T., Qiang, X.-B., Lu, H.-Z. & Xie, X. C. (2025)
+- **Citation:** National Science Review 12, nwae334 (2025)
+- **URL:** https://academic.oup.com/nsr/article/12/3/nwae334/7762198
+- **Description:** Comprehensive review of quantum geometric tensor (quantum metric + Berry curvature) effects in condensed matter: nonlinear transport (Berry curvature dipole, quantum metric dipole), flat-band superconductivity (geometric superfluid weight in twisted bilayer graphene), and fractional Chern insulators (stability from uniform Berry curvature). Key result: quantum metric gives Cooper pairs effective mass even in perfectly flat bands (Eq. 31), explaining Tc = 2.2 K in magic-angle twisted bilayer graphene (44x above conventional estimate).
+- **Used in:** TODO_02.md Part 66 — quantum geometry formalism for PDTP condensate
+- **Why:** 5 connections to PDTP: (1) quantum geometric tensor = rigorous version of alpha = cos(psi-phi); (2) quantum metric giving mass = same mechanism as PDTP Part 33 winding mass; (3) geometric superfluid weight relevant to PDTP condensate (Part 34); (4) uniform Berry curvature stability condition; (5) nonlinear Hall effect from Berry curvature dipole = potential new PDTP prediction
+
+#### Wikipedia Sources (added 2026-03-16)
+
+| # | Topic | URL | Used In |
+|---|-------|-----|---------|
+| 309 | Quantum geometric tensor | https://en.wikipedia.org/wiki/Quantum_geometric_tensor | TODO_02.md Part 66 |
+| 310 | Berry curvature | https://en.wikipedia.org/wiki/Berry_connection_and_curvature | TODO_02.md Part 66 |
+| 311 | Quantum metric | https://en.wikipedia.org/wiki/Quantum_geometric_tensor | TODO_02.md Part 66 |
+| 312 | Twisted bilayer graphene | https://en.wikipedia.org/wiki/Twisted_bilayer_graphene | TODO_02.md Part 66 |
+| 313 | Fractional Chern insulator | https://en.wikipedia.org/wiki/Fractional_Chern_insulator | TODO_02.md Part 66 |
+
+### Paper Sources (added 2026-03-19)
+
+#### P104: White et al. (2026) — Emergent Quantization from a Dynamic Vacuum
+- **Author:** White, H., Vera, J., Sylvester, A. & Dudzinski, L. (2026)
+- **Citation:** Physical Review Research 8, 013264 (2026)
+- **DOI:** 10.1103/l8y7-r3rm
+- **URL:** https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.8.013264
+- **Description:** Adds quadratic temporal dispersion (omega = D*k^2, D = hbar/(2*m_eff)) to a dynamic-vacuum acoustic model. With a proton-imprinted constitutive profile 1/c_s^2(r) = A(omega) + C(omega)/r, the Helmholtz equation becomes exactly the hydrogenic Coulomb equation. Recovers full hydrogen spectrum (1/n^2 Rydberg ladder), all eigenfunctions R_nl Y_lm, angular momentum quantization from spherical symmetry — no free parameters after one reduced-mass calibration. Dispersion derived from Madelung hydrodynamics (linearised Gross-Pitaevskii). Biharmonic wave equation (nabla^4 term from quantum pressure) parallels PDTP Part 61.
+- **Used in:** TODO_02.md Part 67 — comparison with PDTP condensate vacuum model
+- **Why:** Closest published peer-reviewed work to PDTP. Both treat vacuum as physical medium, derive quantum behaviour as emergent, use Madelung/BEC hydrodynamics, produce biharmonic equations. White is non-relativistic (Schrodinger-type); PDTP is relativistic (Klein-Gordon). If PDTP can derive the White constitutive profile from cos(psi-phi), the hydrogen spectrum becomes a PDTP prediction.
+
+#### P105: White et al. (2019) — Acoustic Derivation from Schrodinger (prior work)
+- **Author:** White, H., Vera, J., Bailey, P., March, P., Lawrence, T., Sylvester, A. & Brady, D. (2019)
+- **Citation:** Physics Open 1, 100009 (2019)
+- **Description:** Prior work deriving acoustic wave equation from Schrodinger via Madelung hydrodynamics; numerical evidence for orbital resonances in a dynamic vacuum. Foundation for the 2026 analytic result.
+- **Used in:** TODO_02.md Part 67 — background reference
+
+### News Sources (added 2026-03-19)
+
+#### Xi_cc+ baryon discovery (LHCb 2026)
+- **Source:** https://phys.org/news/2026-03-scientists-play-key-role-discovery.html
+- **Description:** LHCb confirms Xi_cc+ baryon (two charm quarks + one down quark) at mass 3619.97 MeV/c^2. ~915 events in upgraded LHCb. Decay chain Xi_cc+ -> Lambda_c+ K- pi+. First particle discovery with upgraded detector.
+- **Used in:** TODO_02.md — SU(3) flux tube benchmark for PDTP Parts 37-38
+
+#### Wikipedia Sources (added 2026-03-19)
+
+| # | Topic | URL | Used In |
+|---|-------|-----|---------|
+| 314 | Madelung equations | https://en.wikipedia.org/wiki/Madelung_equations | TODO_02.md Part 67 |
+| 315 | Bogoliubov transformation | https://en.wikipedia.org/wiki/Bogoliubov_transformation | TODO_02.md Part 67 |
+| 316 | Helmholtz equation | https://en.wikipedia.org/wiki/Helmholtz_equation | TODO_02.md Part 67 |
+| 317 | Xi baryon | https://en.wikipedia.org/wiki/Xi_baryon | TODO_02.md Xi_cc+ benchmark |
 
 ---
 

@@ -51,6 +51,9 @@ Phases:
    31. Reversed Higgs — phi_- environment-dependent mass; chameleon comparison; hollow shell test (Part 62)
    32. Two-phase re-derivation — 16/16 tests: all single-phase results reproduced (Part 63)
    33. Temperature in PDTP — XY model identification; T_c ~ T_Planck; alpha(T) derived (Part 64)
+   34. Chirality refractive — condensate birefringence; n_eff split; confinement derived (Part 65)
+   35. Quantum geometry — quantum metric in PDTP Lagrangian; D_geom scaling; GP vortex (Part 66)
+   36. White comparison — NR limit D=hbar/(2m); constitutive profile; biharmonic parallel (Part 67)
 """
 
 import os
@@ -94,6 +97,9 @@ from two_phase_lagrangian import run_two_phase_lagrangian
 from reversed_higgs import run_reversed_higgs
 from two_phase_rederivation import run_two_phase_rederivation
 from temperature_pdtp import run_temperature_phase
+from chirality_refractive import run_chirality_refractive_phase
+from quantum_geometry import run_quantum_geometry_phase
+from white_comparison import run_white_comparison_phase
 
 
 def main():
@@ -309,6 +315,21 @@ def main():
     # Phase 33: Temperature in PDTP (Part 64)
     # ------------------------------------------------------------------
     run_temperature_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 34: Chirality from Condensate Refractive Index (Part 65)
+    # ------------------------------------------------------------------
+    run_chirality_refractive_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 35: Quantum Geometry in PDTP Condensate (Part 66)
+    # ------------------------------------------------------------------
+    run_quantum_geometry_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 36: White et al. (2026) Comparison (Part 67)
+    # ------------------------------------------------------------------
+    run_white_comparison_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

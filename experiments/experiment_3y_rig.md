@@ -876,3 +876,9 @@ unknown is the frequency setting on the VFD.
 9. **Inspiration:** Bob Lazar (1989) — 3 gravity amplifiers in Y-configuration.
    Speculative connection; included for motivation, not as evidence.
 10. **Inspiration:** Leidenfrost effect — thin boundary layer decoupling
+11. **Source:** Ryazanov, Providukhina, Sibgatullin & Ermanyuk (2021), "Biharmonic Attractors
+    of Internal Gravity Waves", *Fluid Dynamics* 56(3), 403-412.
+    DOI: 10.1134/S0015462821030046. Open access.
+    Relevance: biharmonic forcing of wave attractors produces triad resonance cascades
+    and beating regimes with order-of-magnitude energy bursts — directly relevant to
+    multi-frequency forcing in the 3Y geometry.
