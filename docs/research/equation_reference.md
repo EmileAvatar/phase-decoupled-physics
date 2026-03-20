@@ -504,7 +504,38 @@ L is C, P, T invariant
 
 ---
 
-## 15. Central Open Problem
+## 15. Xi_cc+ Baryon Benchmark (Part 70)
+
+| Equation | Formula | Status | Source |
+|----------|---------|--------|--------|
+| Current mass sum | 2*m_c + m_d = 2554.7 MeV | [KNOWN] | PDG 2024 |
+| Constituent mass sum | 2*m_c(const) + m_d(const) = 3430 MeV | [KNOWN] | EFG 2002 |
+| Diquark separation | r_cc = hbar*c/(2*m_c) ~ 0.064 fm | [DERIVED] | Part 70 |
+| String energy (PDTP) | E_str = sigma_PDTP * L_total = 494 MeV | [DERIVED] | Part 70 |
+| String energy (QCD) | E_str = sigma_QCD * L_total = 514 MeV | [DERIVED] | Part 70 |
+| PDTP combined mass | M = 3430 + 494 - 25 = 3899 MeV (+7.7%) | [DERIVED] | Part 70 |
+| Mass difference (sigma gap) | Delta_M = 20 MeV (from 4% sigma gap) | [DERIVED] | Part 70 |
+| Measured Xi_cc+ | 3619.97 +/- 0.40 MeV | [KNOWN] | LHCb 2026 |
+| Color factor (diquark-quark) | C_F = 2/3 | [KNOWN] | Textbook |
+
+---
+
+## 16. Leidenfrost Decoupling Analogue (Part 71)
+
+| Equation | Formula | Status | Source |
+|----------|---------|--------|--------|
+| Decoupling energy per oscillator | Delta_E = m_P*c^2/(2*sqrt(2)) | [DERIVED] | Part 71 |
+| Bulk decoupling energy | E_dec = M*c^2/(2*sqrt(2)) | [DERIVED] | Part 71 |
+| phi_- screening | <sin(A*sin(omega*t))> = 0 (all A) | [DERIVED] | Part 71 |
+| Z3 phase cancellation | psi_1+psi_2+psi_3 = 0 (120 deg spacing) | [DERIVED] | Part 71 |
+| Z3 coupling at centre | <alpha> = 0 (exact, any phi) | [DERIVED] | Part 71 |
+| phi_- resonant frequency | omega = sqrt(2*g*Phi), f = 6.55e37 Hz at Earth | [DERIVED] | Part 71 |
+| Metastability condition | g2/g1 >= 0.25 for V = -g1*cos + g2*cos(2*theta) | [DERIVED] | Part 71 |
+| Metastable angle | cos(theta*) = g1/(4*g2) | [DERIVED] | Part 71 |
+
+---
+
+## 17. Central Open Problem
 
 **m_cond is underdetermined** -- G = hbar*c/m_cond^2 is exact but m_cond = m_P is not derived.
 This is analogous to Lambda in GR. All perturbative paths exhausted (Parts 29-35).
@@ -514,5 +545,7 @@ This is analogous to Lambda in GR. All perturbative paths exhausted (Parts 29-35
 ---
 
 ## Changelog
+- 2026-03-20: Added Part 71 (Leidenfrost decoupling analogue, phi_- screening, Z3 cancellation)
+- 2026-03-20: Added Part 70 (Xi_cc+ baryon benchmark, string energy, mass prediction)
 - 2026-03-20: Added Part 69 (scale selection, cosine-Gordon, kink width, m_DE)
 - 2026-03-20: Initial creation from Parts 1-68

@@ -1233,15 +1233,20 @@ They are recorded here so they are not lost. Each needs a full plan and user app
   - **ChatGPT fix (partially wrong):** gradient term redundant; quartic may work but fails in vacuum
   - **PDTP approach:** derive from existing sine nonlinearity first; add terms only if sine analysis fails
 
-- [ ] **Xi_cc+ baryon (LHCb 2026) — SU(3) flux tube benchmark**
+- [x] **Xi_cc+ baryon (LHCb 2026) — SU(3) flux tube benchmark** -- DONE 2026-03-20, CONSISTENCY CHECK
   - LHCb confirmed Xi_cc+ (ccd) at 3619.97 MeV/c^2, ~915 events, decay Xi_cc+ -> Lambda_c+ K- pi+
   - Source: https://phys.org/news/2026-03-scientists-play-key-role-discovery.html
   - Two charm quarks + one down quark: doubly-heavy baryon
   - PDTP test: Part 37 Y-junction geometry + Part 38 string tension should predict binding energy
   - Mass = 2*m_charm + m_down + string tension corrections; compare to sigma = 0.173 GeV^2
+  - **RESULT:** PDTP combined = 3899 MeV (+7.7%), QCD combined = 3919 MeV (+8.3%)
+  - 4% sigma gap produces only 20 MeV mass difference (0.5% of M_Xi_cc) -- INVISIBLE
+  - NOT a distinguishing test; need pure-glue observables (glueballs, Omega_ccc)
+  - Script: `simulations/solver/xicc_baryon.py` (Phase 39), 5/10 Sudoku
+  - Research: `docs/research/xicc_baryon_benchmark.md`
   - Future work: when SU(3) lattice simulation (Part 42 GPU) is running, compute Xi_cc+ mass
 
-- [ ] **Leidenfrost Effect as PDTP decoupling analogue**
+- [x] **Leidenfrost Effect as PDTP decoupling analogue** -- DONE 2026-03-20
   - Standard Leidenfrost: droplet on a hot pan vaporises its bottom layer instantly; the resulting
     steam cushion (~0.1mm) insulates the droplet from the surface — droplet floats on its own vapour,
     thermally decoupled, for minutes. Critical temperature ~193C for water.
@@ -1269,6 +1274,17 @@ They are recorded here so they are not lost. Each needs a full plan and user app
   - What would make this a Part: derive the phase-incoherent boundary condition from PDTP Lagrangian;
     show the Z3 defect geometry creates alpha -> 0 inside; calculate energy cost; compare to Leidenfrost
     critical temperature as a scaling argument
+  - **RESULTS (Part 71):**
+  - phi_- screening: <sin(A*sin(omega*t))> = 0 for all A (exact, odd function symmetry)
+  - Z3 cancellation: psi_1+psi_2+psi_3 = 0 -> alpha = 0 at centre (exact, any phi)
+  - Bulk decoupling: E = M*c^2/(2*sqrt(2)) ~ 35% rest mass (impractical)
+  - Boundary-layer insight: only Planck-thin shell needed (like Leidenfrost steam)
+  - phi_- resonant frequency at Earth: f = 6.55e37 Hz (gamma-ray, impractical directly)
+  - Metastability: if g2/g1 >= 0.25 (second harmonic), stable decoupled state exists
+  - If g2/g1 >= 0.5, decoupled state is GLOBAL minimum (self-sustaining, like Leidenfrost)
+  - OPEN: does PDTP lattice generate cos(2*theta)? Collective mode costs?
+  - Script: `simulations/solver/leidenfrost_decoupling.py` (Phase 40), 9/10 Sudoku
+  - Research: `docs/research/leidenfrost_decoupling.md`
 
 - [ ] **ChatGPT review gaps — items flagged by external critical review (2026-03-15)**
   - Context: ChatGPT given only two_phase_rederivation.md (old 157-line version without derivations).

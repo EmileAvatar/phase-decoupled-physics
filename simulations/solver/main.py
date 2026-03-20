@@ -56,6 +56,8 @@ Phases:
    36. White comparison — NR limit D=hbar/(2m); constitutive profile; biharmonic parallel (Part 67)
    37. Cosmo constant v2 — Two-phase FCC; Omega_beat=2/3; phi_- vacuum energy (Part 68)
    38. Scale selection — cosine-Gordon phi_-; all scales ~ l_P; H_0 free (Part 69)
+   39. Xi_cc+ baryon — LHCb benchmark; constituent + string + hyperfine (Part 70)
+   40. Leidenfrost — decoupling analogue; phi_- screening; Z3 topology (Part 71)
 """
 
 import os
@@ -104,6 +106,8 @@ from quantum_geometry import run_quantum_geometry_phase
 from white_comparison import run_white_comparison_phase
 from cosmo_constant_v2 import run_cosmo_constant_v2_phase
 from scale_selection import run_scale_selection_phase
+from xicc_baryon import run_xicc_baryon_phase
+from leidenfrost_decoupling import run_leidenfrost_phase
 
 
 def main():
@@ -344,6 +348,16 @@ def main():
     # Phase 38: Scale-Selection Mechanism (Part 69)
     # ------------------------------------------------------------------
     run_scale_selection_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 39: Xi_cc+ Baryon Benchmark (Part 70)
+    # ------------------------------------------------------------------
+    run_xicc_baryon_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 40: Leidenfrost Decoupling Analogue (Part 71)
+    # ------------------------------------------------------------------
+    run_leidenfrost_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
