@@ -118,3 +118,11 @@ Both strategies converge on the same unknown: m_cond.
 12. Planck dispersion — gamma-ray burst timing
 
 See [falsifiable_predictions.md](docs/research/falsifiable_predictions.md)
+
+---
+
+## Equation Reference (Central Registry)
+
+All PDTP equations in one place: [equation_reference.md](docs/research/equation_reference.md)
+
+Update that file whenever a new equation is derived or status changes.

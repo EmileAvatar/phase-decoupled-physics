@@ -1162,6 +1162,77 @@ They are recorded here so they are not lost. Each needs a full plan and user app
     - [SPECULATIVE]: beat-frequency cosmology, particle masses as detunings
     - [OPEN]: mechanism for omega_+ >> omega_-, detuning selection
 
+- [x] **Part 69: Scale-Selection Mechanism for Lambda — Can PDTP derive H_0?** (DONE 2026-03-20, NEGATIVE RESULT)
+  - **Motivation:** Part 68 showed Omega = 2/3 [CONSISTENCY RELATION] but requires H_0 as input.
+    ChatGPT proposed: add gradient + quartic terms for phi_- to create a preferred scale k_*.
+    Claude analysis: gradient term already present (relativistic kinetic); quartic is genuinely new;
+    k_* = m_-/sqrt(lambda) fails in vacuum (m_- = 0 there). But the DIAGNOSIS is correct:
+    PDTP has no mechanism that selects the Hubble scale without inserting it.
+  - **Central question:** Can the existing two-phase Lagrangian (or a minimal extension) produce
+    a preferred cosmological wavelength WITHOUT H_0 as input?
+  - **What ChatGPT proposed (and Claude's critical check):**
+    1. Add -(lambda/2)(nabla phi_-)^2: **REDUNDANT** — already in relativistic kinetic term
+    2. Add -(beta/4)*phi_-^4: **GENUINELY NEW** — not in current Lagrangian
+    3. Scale selection k_*^2 ~ m_-^2/lambda: **FAILS IN VACUUM** — m_- = 0 when Phi = 0
+    4. Replace L_H with L_* = 1/k_*: good idea IF k_* can be derived
+  - **Three paths to investigate (from Claude's analysis):**
+    - **Path 1: Sine nonlinearity already selects a scale?**
+      - sin(phi_-) ~ phi_- - phi_-^3/6 + ... gives CUBIC self-interaction
+      - Does phi_-^3 (from sine expansion) generate pattern formation / domain structure?
+      - Check: nonlinear Schrodinger with cubic term -> soliton spacing?
+      - Known: sine-Gordon equation has breather solutions with characteristic length
+    - **Path 2: Two-condensate IR cutoff?**
+      - Part 37: gravitational condensate (m_P) + QCD condensate (Lambda_QCD)
+      - Interference between two condensates could produce long-wavelength modulation
+      - L_modulation ~ 1/(omega_P - omega_QCD) ~ 1/omega_P (dominated by larger)
+      - Check: does two-condensate interference give a DIFFERENT long scale?
+    - **Path 3: Jeans instability nonlinear saturation?**
+      - Branch A (Jeans, unstable) grows until nonlinearity saturates
+      - Saturation scale could be cosmological if growth rate ~ H_0
+      - Known in astrophysics: Jeans fragmentation produces characteristic mass/scale
+      - PDTP Jeans: k_J = omega_gap/c ~ 1/l_P (Planck scale, NOT cosmological)
+      - But: cosmological Jeans with rho_matter could give larger scale
+  - **What would need to be true for phi_-^4 to work:**
+    - beta must be derivable from condensate physics (not ad hoc)
+    - In GP theory: quartic comes from s-wave scattering
+    - In PDTP: coupling is cos(psi-phi_b) - cos(psi-phi_s) -> sine in EOM
+    - Sine IS the nonlinearity; adding phi_-^4 separately needs physical justification
+    - Candidate: two-body interaction between phi_- excitations (beyond mean-field)
+  - **Derivation tasks (Phase A: sine-Gordon analysis):**
+    1. Write phi_- equation of motion from two-phase Lagrangian (exact, not linearised)
+    2. Identify: is this a sine-Gordon equation? Modified sine-Gordon?
+    3. If sine-Gordon: breather solutions exist with characteristic length L_breather
+    4. Compute L_breather in terms of g and c (no free parameters)
+    5. Compare L_breather to L_H — if they match, scale selection is DERIVED
+  - **Derivation tasks (Phase B: quartic analysis):**
+    1. Expand sin(phi_-) to 4th order: phi_- - phi_-^3/6 + phi_-^5/120
+    2. Effective potential: V_eff(phi_-) = 2*g*sin(psi-phi_+)*[phi_- - phi_-^3/6 + ...]
+    3. When psi != phi_+ (matter present): Mexican hat? Double well?
+    4. Check: does phase transition in phi_- produce domain walls at cosmological scale?
+    5. SymPy verification of all expansions
+  - **Derivation tasks (Phase C: Jeans saturation):**
+    1. Nonlinear evolution of Jeans-unstable modes (Branch A)
+    2. Saturation condition: what amplitude stops growth?
+    3. Characteristic scale at saturation vs cosmic parameters
+  - **Success criteria:**
+    - BEST: L_* derived from Lagrangian parameters alone (g, c, hbar) without H_0
+    - GOOD: L_* contains only m_cond (already the one free parameter), giving H_0 = f(m_cond)
+    - ACCEPTABLE: mechanism identified but new parameter needed (document which)
+    - NEGATIVE: all paths fail — H_0 confirmed as independent 2nd free parameter
+  - **Files:**
+    - CREATE: `simulations/solver/scale_selection.py` (Phase 38)
+    - CREATE: `docs/research/scale_selection_mechanism.md`
+    - EDIT: `simulations/solver/main.py` (add Phase 38)
+    - EDIT: `TODO_02.md` (results)
+    - READ: `cosmo_constant_v2.py`, `two_phase_lagrangian.py`, `reversed_higgs.py`
+  - **Risk assessment:**
+    - HIGH probability: sine-Gordon analysis will be clean and produce breather scale
+    - MEDIUM probability: breather scale is cosmologically relevant
+    - LOW probability: L_* = L_H exactly from Lagrangian alone (would be breakthrough)
+  - **ChatGPT diagnosis (correct):** "No mechanism selects the scale k ~ H_0"
+  - **ChatGPT fix (partially wrong):** gradient term redundant; quartic may work but fails in vacuum
+  - **PDTP approach:** derive from existing sine nonlinearity first; add terms only if sine analysis fails
+
 - [ ] **Xi_cc+ baryon (LHCb 2026) — SU(3) flux tube benchmark**
   - LHCb confirmed Xi_cc+ (ccd) at 3619.97 MeV/c^2, ~915 events, decay Xi_cc+ -> Lambda_c+ K- pi+
   - Source: https://phys.org/news/2026-03-scientists-play-key-role-discovery.html

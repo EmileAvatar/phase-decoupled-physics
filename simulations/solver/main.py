@@ -55,6 +55,7 @@ Phases:
    35. Quantum geometry — quantum metric in PDTP Lagrangian; D_geom scaling; GP vortex (Part 66)
    36. White comparison — NR limit D=hbar/(2m); constitutive profile; biharmonic parallel (Part 67)
    37. Cosmo constant v2 — Two-phase FCC; Omega_beat=2/3; phi_- vacuum energy (Part 68)
+   38. Scale selection — cosine-Gordon phi_-; all scales ~ l_P; H_0 free (Part 69)
 """
 
 import os
@@ -102,6 +103,7 @@ from chirality_refractive import run_chirality_refractive_phase
 from quantum_geometry import run_quantum_geometry_phase
 from white_comparison import run_white_comparison_phase
 from cosmo_constant_v2 import run_cosmo_constant_v2_phase
+from scale_selection import run_scale_selection_phase
 
 
 def main():
@@ -337,6 +339,11 @@ def main():
     # Phase 37: Cosmological Constant Two-Phase (Part 68)
     # ------------------------------------------------------------------
     run_cosmo_constant_v2_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 38: Scale-Selection Mechanism (Part 69)
+    # ------------------------------------------------------------------
+    run_scale_selection_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
