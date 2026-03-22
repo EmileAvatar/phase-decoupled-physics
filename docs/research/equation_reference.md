@@ -785,7 +785,88 @@ This is analogous to Lambda in GR. All perturbative paths exhausted (Parts 29-35
 
 ---
 
+## 21. Three Lagrangians — Multiple Mathematical Forms
+
+Each Lagrangian can be expressed in equivalent forms. Different forms expose
+different structure — use all forms when testing and deriving.
+
+### 21a. Lagrangian Density (the defining form)
+
+```
+U(1):       L = (1/2)(d_mu phi)(d^mu phi) + Sum_i g_i cos(psi_i - phi)
+Two-Phase:  L = +g cos(psi - phi_b) - g cos(psi - phi_s)
+SU(3):      L = K Tr[(d_mu U^dag)(d^mu U)] + Sum_i g_i Re[Tr(Psi_i^dag U)] / 3
+```
+
+### 21b. Action Integral (variational principle)
+
+```
+U(1):       S = int d^4x [ (1/2)(d phi)^2 + Sum g_i cos(psi_i - phi) ]
+Two-Phase:  S = int d^4x  g [ cos(psi - phi_b) - cos(psi - phi_s) ]
+SU(3):      S = int d^4x { K Tr(dU^dag dU) + Sum g_i Re[Tr(Psi_i^dag U)] / 3 }
+```
+
+### 21c. Field Equations (Euler-Lagrange) [DERIVED]
+
+```
+U(1):       Box(phi) = Sum g_i sin(psi_i - phi)
+Two-Phase:  Box(phi_+) = g sin(psi - phi_+) cos(phi_-)
+            Box(phi_-) = -g cos(psi - phi_+) sin(phi_-)
+SU(3):      K d_mu(U^dag d^mu U) = Sum g_i Psi_i^dag / (6i) + h.c.
+```
+
+### 21d. Quadratic (Small Oscillation) Expansion [DERIVED]
+
+cos(x) ~ 1 - x^2/2 for small x:
+
+```
+U(1):       L ~ (1/2)(d phi)^2 - (1/2) g (psi - phi)^2     [harmonic oscillator]
+Two-Phase:  L ~ 2g (psi - phi_+) phi_-                       [bilinear coupling]
+SU(3):      L ~ K Tr(d chi)^2 + Sum g_i (1 - Tr(chi^2)/6)   [U = exp(i chi^a T^a)]
+```
+
+### 21e. Product / Lattice Form [DERIVED]
+
+```
+U(1):       cos(psi - phi)   [single coupling]
+Two-Phase:  2 sin(psi - phi_+) sin(phi_-)   [product of two modes]
+SU(3):      -K Re[Tr(U_plaquette)] / 3      [Wilson action on lattice]
+```
+
+### 21f. Emergent Metric [DERIVED where noted]
+
+```
+U(1):       g_mu_nu from acoustic analogy (Part 12, postulated)
+Two-Phase:  g_mu_nu from phi_+ sector (inherits U(1) form)
+SU(3):      g_mu_nu = Tr(d_mu U^dag d_nu U)   [DERIVED, Part 75; 2 TT modes]
+```
+
+### 21g. Newtonian Limit [DERIVED]
+
+```
+U(1):       nabla^2 Phi = 4 pi G rho                        [Poisson equation]
+Two-Phase:  nabla^4 Phi + 4g^2 Phi = source                 [biharmonic]
+SU(3):      nabla^2 Phi = 4 pi G rho + O(chi^2) corrections [Poisson + SU(3)]
+```
+
+### 21h. Summary Table
+
+| Property | U(1) | Two-Phase | SU(3) |
+|----------|------|-----------|-------|
+| Symmetry | U(1) shift | U(1) x U(1) | SU(3) gauge |
+| DOF | 1 scalar | 2 scalars (phi_+, phi_-) | 8 (N^2 - 1) |
+| Gravity | +cos phase-lock | phi_+ sector | Tr coupling |
+| Novel mode | breathing (massive) | phi_- reversed Higgs | 8 gluons, Z_3 quarks |
+| Newton limit | Poisson | biharmonic | Poisson + corrections |
+| GW modes | 2 TT + 1 breathing | same + phi_- mode | 2 TT (Fierz-Pauli) |
+| Status | 76 parts tested | 16/16 PASS (Part 63) | Einstein recovery (Part 75b) |
+
+**Source:** Parts 1, 37, 61, 75. Cross-reference: Sections 1a-1c above.
+
+---
+
 ## Changelog
+- 2026-03-22: Added Section 21 (three Lagrangians in multiple mathematical forms)
 - 2026-03-22: Added Part 76 (SU(3) graviton validation; gauge exclusion; FP; Isaacson; Bianchi; 12/12 PASS)
 - 2026-03-22: Added Part 75b (SU(3) Einstein recovery; auto-Lorenz; massive breathing; 12/12 PASS)
 - 2026-03-21: Added Part 75 (SU(3) tensor metric; NOT pure gauge; 2 TT modes; PSD constraint)

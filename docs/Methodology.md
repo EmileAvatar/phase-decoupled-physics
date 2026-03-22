@@ -285,6 +285,34 @@ Check off what you have tried. Untried items are where the answer may be hiding.
 
 ---
 
+### 8. Free Parameters and Negative Results
+
+- [ ] **Expand** — replace the free parameter with a deeper equation or independent
+  Lagrangian that computes it without using PDTP/GR/QED as input. Example: if G
+  cannot be derived from PDTP, find a separate theory that predicts m_cond.
+- [ ] **Contract** — derive the value from topology or symmetry already present
+  in the framework. Example: vortex winding number n = m_cond/m (Part 33).
+- [ ] **Reframe** — if both expand and contract fail, document that the parameter
+  points to physics deeper than PDTP/GR/QED. The failure IS the finding.
+  Example: G is to PDTP as Lambda is to GR — a free parameter (Part 35).
+- [ ] **Re-examine negatives with new findings** — when significant new results
+  accumulate (new symmetry group, new field, new derivation), revisit all previous
+  negative results. The path that failed under U(1) may succeed under SU(3).
+  Example: dimensional transmutation was IR-free for U(1) cosine; SU(3) has
+  asymptotic freedom — does PDTP's SU(3) Lagrangian inherit it?
+- [ ] **Two-phase extension** — if a single-term Lagrangian is stuck, add an
+  opposing term (+cos and -cos) to probe boundary/surface physics. The new mode
+  (phi_-) may resolve gaps the single-phase model cannot. Example: Parts 61-63.
+- [ ] **Emergent quantity** — instead of postulating a higher-level object (metric,
+  tetrad), derive it as a composite of lower-level fields. Example: g_mu_nu =
+  Tr(dU^dag dU) from SU(3) field (Part 75) — metric emerges, not assumed.
+- [ ] **Independent Lagrangian** — write a separate action principle specifically
+  to determine the free parameter. This Lagrangian must be self-contained (no
+  PDTP/GR/QED coupling constants as input). If it exists, it constrains the
+  parameter from outside the framework.
+
+---
+
 ## Quick Reference Summary
 
 | Strategy | One-line description | Historical example |
@@ -299,3 +327,9 @@ Check off what you have tried. Untried items are where the answer may be hiding.
 | Negative = finding | Failure pinpoints the broken assumption | Part 29 circularity |
 | Symmetry generalise | U(1) → SU(3); allow the algebra to speak | Part 37 SU(3) extension |
 | Topological derivation | Winding number fixes what algebra cannot | Part 33 vortex winding |
+| Expand free param | Find independent equation/Lagrangian for the value | Lambda problem in GR |
+| Contract free param | Derive from topology/symmetry within framework | Part 33 n = m_cond/m |
+| Reframe free param | Document as deeper physics; failure IS the finding | Part 35 m_cond = free |
+| Re-examine negatives | Revisit old failures after new symmetry/fields found | D1-D4 in TODO_03 |
+| Two-phase extension | Add opposing +cos/-cos term; probe boundary physics | Parts 61-63 phi_- |
+| Emergent quantity | Derive metric/tetrad as composite of lower fields | Part 75 g_mu_nu from SU(3) |
