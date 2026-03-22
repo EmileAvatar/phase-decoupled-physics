@@ -1420,45 +1420,31 @@ They are recorded here so they are not lost. Each needs a full plan and user app
     - "PASS/FAIL scoreboards bad" — DISAGREE: scorecard WITH derivations is a powerful consistency tool
     - "Symbolic fields as Functions" — SymPy implementation choice, not physics; current approach is standard
 
-- **Part 76: SU(3) Graviton Validation — Physical Spin-2 Tests**
-  Motivation: Parts 75+75b established the SU(3) emergent metric with 2 TT modes and
-  Sakharov-route Einstein recovery. External review raised valid questions about whether
-  these modes are truly physical gravitons vs structural artifacts. Part 76 collects all
-  open validation tests into one investigation. Each sub-item gets honest PASS/FAIL/PARTIAL.
-  - [ ] **76a. Quadratic effective action** — Expand Sakharov 1-loop to get explicit
-    L_eff ~ (dh)^2 and verify it matches the Fierz-Pauli structure for massless spin-2.
-    This is the "gold standard" graviton test. Must show the kinetic term has the correct
-    relative signs for the 2 TT polarizations.
-  - [ ] **76b. Isaacson stress-energy** — Compute T^GW_mu_nu = <dh dh> averaged over
-    wavelengths (Isaacson 1968). Must be non-zero for TT modes to carry energy.
-    If zero -> modes are gauge artifacts. Compare energy flux to GR prediction.
-  - [ ] **76c. Bianchi identity** — Show nabla^mu G_mu_nu = 0 emerges automatically from
-    the SU(3) structure (not imposed by hand). This is a geometric consistency check.
-    If Sakharov generates the full Einstein-Hilbert action, Bianchi follows from
-    diffeomorphism invariance of the effective action — but verify explicitly.
-  - [ ] **76d. Gauge artifact exclusion (O(chi) vs O(chi^2) proof)** — Explicitly show:
-    (1) The O(chi) part of h_mu_nu IS pure gauge (h ~ d_mu xi + d_nu xi, trivially a
-    coordinate transformation — this is correct and expected).
-    (2) The O(chi^2) part h_mu_nu = sum_a (d_mu chi^a)(d_nu chi^a) is NOT pure gauge
-    (cannot be written as d_mu xi + d_nu xi for any xi).
-    (3) Prove formally that rank-4 structure from Part 75 Step 3 is incompatible with
-    pure gauge (rank <= 2). Address the external claim that "pullback metrics always
-    produce gauge-type perturbations" — true at O(chi), false at O(chi^2).
-    This makes the Part 75 result airtight against the most common objection.
-  - [ ] **76e. Metric generality** — Can the pullback metric g_mu_nu = Tr(d_mu U_dag d_nu U)
-    represent arbitrary GR geometries (Schwarzschild, Kerr, FRW)? Or only a subset?
-    Map out which metrics are reachable. Known risk: pullback metrics are inherently
-    positive semi-definite, so Lorentzian signature requires careful treatment.
-    If only a subset is reachable, document which physical scenarios are excluded.
-  - [ ] **76f. Spin connection emergence** — Does omega^ab_mu emerge from the SU(3) field
-    structure? The SU(3) gauge connection A_mu = U_dag d_mu U is a natural candidate.
-    Investigate whether it can play the role of spin connection, or whether the spin
-    connection only appears at the Sakharov (1-loop) level.
-  - [ ] **76g. Nonlinear regime** — Push beyond linearized: at O(eps^4), does the SU(3)
-    sigma model equation match GR's nonlinear corrections (Landau-Lifshitz pseudotensor)?
-    Or do they diverge? This extends Part 75b Q5. The SU(3) internal Ricci curvature
-    R^(SU3)_ab = (3/4)*delta_ab drives the 2-loop beta function — does this map to
-    GR's R^2 corrections?
+- [x] **Part 76: SU(3) Graviton Validation — Physical Spin-2 Tests** — DONE (2026-03-22)
+  12/12 Sudoku PASS. Seven validation tests for physical graviton status:
+  - [x] **76d. Gauge artifact exclusion** — PASS. O(chi) IS pure gauge (expected); O(chi^2)
+    is NOT (rank 4 > 2, SymPy verified). "Pullback = pure gauge" true at O(chi), false at
+    O(chi^2). Part 75 result airtight. [DERIVED]
+  - [x] **76a. Quadratic effective action** — PASS (structure) / PARTIAL (coefficient).
+    Fierz-Pauli structure (+1:-2:+2:-1) emerges via Sakharov 1-loop. Unique ghost-free
+    massless spin-2 action. G_ind/G = 2.356 (N_eff gap persists). [DERIVED]
+  - [x] **76b. Isaacson stress-energy** — PASS. T^GW > 0 for any non-trivial chi^a.
+    rho_GW = 5.29e-12 J/m^3 (f=100Hz, h=1e-21). Formula identical to GR via Sakharov.
+    chi^a kinetic energy = GW energy. [DERIVED]
+  - [x] **76c. Bianchi identity** — PASS. Three independent arguments: diff invariance
+    (Wald 4.3.2), geometric identity, auto-Lorenz (Part 75b). All give nabla G = 0. [DERIVED]
+  - [x] **76e. Metric generality** — PARTIAL. Linearized: 2 TT modes match GR. Full: 8 fields
+    < 10 metric components (2-DOF deficit). Strong-field limited. [LIMITATION]
+  - [x] **76f. Spin connection emergence** — PARTIAL (negative). SU(3) (8 gen, compact) !=
+    SO(3,1) (6 gen, non-compact). Spin connection emerges from Sakharov metric, not direct
+    SU(3) map. Consistent: SU(3) = internal (QCD-like), spacetime = emergent. [NEGATIVE]
+  - [x] **76g. Nonlinear regime** — PARTIAL. O(eps^4) corrections exist (f^{abc} structure
+    constants). Derivative order differs from GR. Sakharov gives full Einstein at 1-loop;
+    2-loop gives R^2 corrections (Stelle 1977). [DERIVED]
+  KEY RESULT: Physical graviton passes all 4 key tests — not gauge artifact, carries energy,
+  correct kinetic structure, conservation laws automatic. Remaining gaps shared with ALL
+  induced gravity approaches.
+  Files: su3_graviton_validation.py (Phase 46), su3_tensor_metric.md (Sections 11.1-11.9)
 
 ---
 

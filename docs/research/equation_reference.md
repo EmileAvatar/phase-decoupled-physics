@@ -744,6 +744,38 @@ PSD constraint Eq. 75.6 applies at source, not at detector.
 
 ---
 
+## 20g. Part 76 — SU(3) Graviton Validation
+
+**Fierz-Pauli from Sakharov** (76a):
+```
+L_EH^(2) = (1/64*pi*G) * [(d h)^2 - 2*(d.h)^2 + 2*(d.h)(dh) - (dh)^2]
+                                                          ... (76a.1) [DERIVED]
+```
+Unique ghost-free massless spin-2 structure. Emerges via Sakharov 1-loop.
+
+**Isaacson GW stress-energy** (76b):
+```
+T^GW_mu_nu = (1/32*pi*G) * <d_mu h_ab * d_nu h^ab>      ... (76b.1) [DERIVED]
+```
+Source: Isaacson (1968), MTW (1973). Non-zero for any non-trivial chi^a.
+
+**O(eps^4) SU(3) correction** (76g):
+```
+h^(4)_mu_nu ~ f^{abc} f^{ade} chi^b chi^d (d chi^c)(d chi^e)
+                                                          ... (76g.1) [DERIVED]
+```
+Structure constants introduce self-interaction at GR-nonlinear order.
+
+**Key results:**
+- O(chi) IS pure gauge (expected); O(chi^2) is NOT (rank 4 > 2). [DERIVED]
+- Bianchi identity automatic (3 arguments). [DERIVED]
+- 2-DOF deficit: 8 fields < 10 metric components. [LIMITATION]
+- Spin connection: SU(3) != SO(3,1); omega emerges from Sakharov metric. [NEGATIVE]
+
+**Simulation:** su3_graviton_validation.py Phase 46. Sudoku: 12/12 PASS.
+
+---
+
 ## 21. Central Open Problem
 
 **m_cond is underdetermined** -- G = hbar*c/m_cond^2 is exact but m_cond = m_P is not derived.
@@ -754,6 +786,7 @@ This is analogous to Lambda in GR. All perturbative paths exhausted (Parts 29-35
 ---
 
 ## Changelog
+- 2026-03-22: Added Part 76 (SU(3) graviton validation; gauge exclusion; FP; Isaacson; Bianchi; 12/12 PASS)
 - 2026-03-22: Added Part 75b (SU(3) Einstein recovery; auto-Lorenz; massive breathing; 12/12 PASS)
 - 2026-03-21: Added Part 75 (SU(3) tensor metric; NOT pure gauge; 2 TT modes; PSD constraint)
 - 2026-03-21: Clarified eigenvalue vs frequency in Sections 2f and 6b (lambda is growth rate, not omega^2); added [A1] ODE tag

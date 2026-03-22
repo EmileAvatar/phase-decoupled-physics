@@ -63,6 +63,7 @@ Phases:
    43. Einstein from PDTP — Sakharov/Jacobson/frustration routes; Case B partial; DOF gap (Part 74)
    44. SU(3) tensor metric — g_mu_nu = Tr(dU_dag dU); NOT pure gauge; 2 TT modes; PSD constraint (Part 75)
    45. SU(3) Einstein recovery — 8*pi*G coefficient; auto-Lorenz; matter coupling; PSD obs; nonlinear (Part 75b)
+   46. SU(3) graviton validation — gauge exclusion; Fierz-Pauli; Isaacson; Bianchi; metric generality (Part 76)
 """
 
 import os
@@ -118,6 +119,7 @@ from emergent_metric import run_emergent_metric_phase
 from einstein_from_pdtp import run_einstein_from_pdtp_phase
 from su3_tensor_metric import run_su3_tensor_metric_phase
 from su3_einstein_recovery import run_su3_einstein_recovery_phase
+from su3_graviton_validation import run_su3_graviton_validation_phase
 
 
 def main():
@@ -393,6 +395,11 @@ def main():
     # Phase 45: SU(3) Einstein Recovery (Part 75b)
     # ------------------------------------------------------------------
     run_su3_einstein_recovery_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 46: SU(3) Graviton Validation (Part 76)
+    # ------------------------------------------------------------------
+    run_su3_graviton_validation_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
