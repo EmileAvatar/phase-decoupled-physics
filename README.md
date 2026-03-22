@@ -186,6 +186,12 @@ Disc-shaped craft geometry naturally supports:
 
 ## Renamed Physics Vocabulary (Functional)
 
+*These are plain-English labels to help non-physicists understand what each particle does.
+For PDTP's actual mathematical description of particles as vortices, winding numbers,
+and condensate modes, see the [Framework Summary](SUMMARY.md),
+[SM Particle Mapping](docs/core_concepts/physics_reframe.md),
+and [Renamed Terms Reference](docs/technical/renamed_physics_terms.md).*
+
 Matter Components:
 - Light-Core (Up quark)
 - Heavy-Core (Down quark)
