@@ -5,7 +5,7 @@
 *For readers who know some physics but are new to PDTP.
 No prior knowledge of the framework required.*
 
-*Last updated: 2026-03-15 (Parts 1-62)*
+*Last updated: 2026-03-22 (Parts 1-76)*
 
 ---
 
@@ -123,6 +123,7 @@ numerically. Each is tagged [DERIVED] and [VERIFIED].
 | phi_- massless in vacuum, massive near matter | DERIVED | reversed_higgs.py |
 | phi_- equilibrium at pi/2 (not 0) near matter | DERIVED, CORRECTED | Part 62 |
 | G_eff = 2*G_bare at equilibrium | DERIVED | Part 62 |
+| 16/16 re-derivation tests PASS | VERIFIED | two_phase_rederivation.py (Part 63) |
 
 ### 3.5 Black Holes (Parts 20, 24, 45-47)
 
@@ -134,6 +135,39 @@ numerically. Each is tagged [DERIVED] and [VERIFIED].
 | Topology protects information (Mermin 1979) | DERIVED | Part 46 |
 | Complete evaporation (no remnant) | DERIVED | bh_evaporation_endpoint.py |
 | Endpoint: S < 1 bit, t_evap ~ T_P | DERIVED | Part 47 |
+
+### 3.6 Einstein Equation Recovery (Parts 72-76)
+
+| Result | Status | Evidence |
+|--------|--------|----------|
+| Full T_mu_nu (all components, conservation law) | DERIVED | stress_energy_full.py (Part 72) |
+| Emergent metric g_mu_nu in closed form | DERIVED | emergent_metric.py (Part 73) |
+| PPN parameters gamma=1, beta=1 from metric | VERIFIED | Part 73 |
+| Kerr metric structure from rotating condensate | DERIVED | Part 73 |
+| Sakharov/Jacobson routes to Einstein equation | DERIVED | einstein_from_pdtp.py (Part 74) |
+| SU(3) emergent metric: g_mu_nu = Tr(dU_dag dU) | DERIVED | su3_tensor_metric.py (Part 75) |
+| NOT pure gauge (rank 4, vs rank<=2 for gauge) | VERIFIED | SymPy + NumPy (Part 75) |
+| 2 TT tensor modes (+ and x polarizations) | DERIVED | Part 75 |
+| PSD constraint: abs(h_TT)^2 <= h_scalar^2/4 | PDTP ORIGINAL | Part 75 |
+| Auto-Lorenz gauge (not imposed, DERIVED) | DERIVED | Part 75b |
+| Sakharov coefficient G_ind = 2.36*G (N_eff gap) | PARTIAL | su3_einstein_recovery.py (Part 75b) |
+| Massive breathing mode (m_B ~ m_P) | DERIVED | Part 75b |
+| Gauge artifact exclusion (O(chi) vs O(chi^2)) | DERIVED | su3_graviton_validation.py (Part 76) |
+| Fierz-Pauli structure from Sakharov 1-loop | DERIVED | Part 76 |
+| Isaacson stress-energy non-zero (modes carry energy) | DERIVED | Part 76 |
+| Bianchi identity automatic (3 arguments) | DERIVED | Part 76 |
+
+### 3.7 Advanced Topics (Parts 64-71)
+
+| Result | Status | Evidence |
+|--------|--------|----------|
+| Temperature: XY model identification, T_c ~ T_Planck | DERIVED | temperature_pdtp.py (Part 64) |
+| Chirality: condensate birefringence, confinement | DERIVED | chirality_refractive.py (Part 65) |
+| Quantum geometry: quantum metric in PDTP Lagrangian | DERIVED | quantum_geometry.py (Part 66) |
+| White comparison: NR limit D=hbar/(2m) | DERIVED | white_comparison.py (Part 67) |
+| Scale selection: all characteristic scales ~ l_P | DERIVED | scale_selection.py (Part 69) |
+| Xi_cc+ baryon mass: 3621 MeV (0.02% off LHCb) | DERIVED | xicc_baryon.py (Part 70) |
+| Leidenfrost decoupling analogue | DERIVED | leidenfrost_decoupling.py (Part 71) |
 
 ---
 
@@ -222,7 +256,7 @@ PDTP has the following undetermined quantities:
 
 ## 7. Key Structural Insights
 
-These are the most important conceptual results from 62 parts of work:
+These are the most important conceptual results from 76 parts of work:
 
 1. **Circularity is algebraically inevitable** (Part 29): No algebra, no matter how
    clever, can derive G from non-gravitational measurements. You need an independent
@@ -250,6 +284,19 @@ These are the most important conceptual results from 62 parts of work:
    mass near matter. This is the opposite of the standard Higgs (where the field
    gains mass in vacuum via VEV). Distinguishable from chameleon fields via hollow
    shell experiment.
+
+8. **SU(3) emergent metric produces physical gravitons** (Parts 75-76): The metric
+   g_mu_nu = Tr(dU_dag dU) is NOT pure gauge (rank 4 > 2), has exactly 2 TT modes,
+   and the Lorenz gauge condition is DERIVED (not imposed). Fierz-Pauli structure,
+   Isaacson energy, and Bianchi identity all emerge automatically via Sakharov.
+
+9. **Auto-Lorenz gauge is a genuine new result** (Part 75b): In GR, the Lorenz gauge
+   d^mu h = (1/2) d h must be IMPOSED as a coordinate choice. In PDTP, it follows
+   automatically from the structure h = sum V^a(V^a)^T and the EOM Box chi^a = 0.
+
+10. **16/16 two-phase re-derivation** (Part 63): All single-phase PDTP results
+    (Newton's laws, GR recovery, Hawking, etc.) reproduce exactly in the two-phase
+    (+cos/-cos) framework via the mapping chi = phi_+ + pi/2.
 
 ---
 
@@ -308,8 +355,9 @@ PDTP identifies three condensate layers with identical Lagrangian structure:
 |----------|--------|--------|
 | A: Measure omega_gap | LISA/ET breathing mode detection | Required freq ~10^43 Hz (Planck) — out of reach |
 | B: Derive n from topology | Hierarchy ratio R = alpha_G/alpha_EM | All 5 approaches failed (Part 44) |
-| C: Non-perturbative lattice | GPU SU(3) at beta=6.0, N>=16 | Next task (Part 42) |
+| C: Non-perturbative lattice | GPU SU(3) at beta=6.0, N>=16 | Pending (Part 42, needs GPU) |
 | D: Postulate K | Accept m_cond as free parameter | Current status (like Lambda in GR) |
+| E: Einstein recovery | SU(3) metric -> Sakharov -> GR | Parts 74-76: structure PASS, coefficient PARTIAL |
 
 ---
 

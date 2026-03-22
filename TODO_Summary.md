@@ -89,6 +89,27 @@ Full archive: [TODO_01.md](TODO_01.md) | Active roadmap: [TODO_02.md](TODO_02.md
 
 ---
 
+## Advanced Topics (Parts 64–76)
+
+| Part | Topic | Key result |
+|---|---|---|
+| 64 | Temperature in PDTP | XY model identification; T_c ~ T_Planck; α(T) derived; 9/9 Sudoku |
+| 65 | Chirality refractive | Condensate birefringence; n_eff split; confinement derived; 8/8 Sudoku |
+| 66 | Quantum geometry | Quantum metric in PDTP Lagrangian; D_geom scaling; GP vortex; 10/10 Sudoku |
+| 67 | White comparison | NR limit D=ℏ/(2m); constitutive profile; biharmonic parallel; 8/8 Sudoku |
+| 68 | Cosmo constant v2 | Two-phase FCC; Ω_beat=2/3 (2.6% off observed); beat freq rejected; 10/10 Sudoku |
+| 69 | Scale selection | Cosine-Gordon φ_-; all scales ~ l_P; H₀ confirmed as 2nd free parameter; 8/8 Sudoku |
+| 70 | Ξ_cc⁺ baryon | LHCb benchmark; constituent + string + hyperfine; M_pred = 3621 MeV (0.02% off); 8/8 Sudoku |
+| 71 | Leidenfrost decoupling | Decoupling analogue; φ_- screening; Z₃ topology cancellation; 8/8 Sudoku |
+| 72 | Full T_μν | All stress-energy components; conservation law; SymPy verified; 8/8 Sudoku |
+| 73 | Emergent metric | g_μν in closed form; Painlevé-Gullstrand = Schwarzschild; PPN γ=β=1; Kerr; 10/10 Sudoku |
+| 74 | Einstein from PDTP | Sakharov/Jacobson/frustration routes; Case B partial; DOF gap (1 scalar vs 2 tensor); 12/12 Sudoku |
+| 75 | SU(3) tensor metric | g_μν = Tr(∂U†∂U); NOT pure gauge; 2 TT modes; PSD constraint; 11/11 Sudoku |
+| 75b | Einstein recovery | Sakharov G_ind = 2.36G (N_eff gap); auto-Lorenz gauge DERIVED; massive breathing mode; 12/12 Sudoku |
+| 76 | Graviton validation | 7 tests: gauge exclusion PASS, Fierz-Pauli PASS, Isaacson PASS, Bianchi PASS; 12/12 Sudoku |
+
+---
+
 ## Central Open Problem
 
 **m_cond is underdetermined** — G = ħc/m_cond² is exact but m_cond = m_P is not derived.

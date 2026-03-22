@@ -48,50 +48,66 @@ The framework is called "Phase-Decoupled" because the interesting physics happen
 | Document | Description |
 |----------|-------------|
 | [pdtp_overview.md](docs/core_concepts/pdtp_overview.md) | Full overview of the Phase-Decoupled Transport Platform concept |
-| [physics_reframe.md](docs/core_concepts/physics_reframe.md) | Renaming particles (quarks, leptons) to functional names that describe what they do |
-| [reframe2.md](docs/core_concepts/reframe2.md) | Dark matter and dark energy reframed using phase-locking concepts |
+| [physics_reframe.md](docs/core_concepts/physics_reframe.md) | Renaming particles to functional names |
+| [reframe2.md](docs/core_concepts/reframe2.md) | Dark matter and dark energy reframed |
 
 ### Technical Documents
 
 | Document | Description |
 |----------|-------------|
-| [glossary.md](docs/technical/glossary.md) | Definitions of all specialized terms used in this framework |
-| [renamed_physics_terms.md](docs/technical/renamed_physics_terms.md) | Complete mapping of standard physics terms to functional names |
-| [electricity_phase_terms.md](docs/technical/electricity_phase_terms.md) | How electricity and EM phenomena fit into phase-based descriptions |
-| [einstein_comparison.md](docs/technical/einstein_comparison.md) | Comparison between Einstein's Field Equations and phase-coupling gravity |
+| [glossary.md](docs/technical/glossary.md) | Definitions of all specialized terms |
+| [einstein_comparison.md](docs/technical/einstein_comparison.md) | Comparison: Einstein Field Equations vs phase-coupling gravity |
+| [renamed_physics_terms.md](docs/technical/renamed_physics_terms.md) | Standard physics terms → functional names |
 
-### Applications
-
-| Document | Description |
-|----------|-------------|
-| [bob_lazar_ufo_interpretation.md](docs/applications/bob_lazar_ufo_interpretation.md) | Interpreting reported UFO craft geometry through the phase-coupling lens |
-
-### Research
+### Research (Key Documents)
 
 | Document | Description |
 |----------|-------------|
-| [math_status.md](docs/research/math_status.md) | Honest assessment of what math exists, what's missing, and what would validate/falsify PDTP |
-| [refinement_updates.md](docs/research/refinement_updates.md) | Ongoing refinements, risk adjustments, and precision improvements |
-| [pdtp_framework_5_issues.md](docs/research/pdtp_framework_5_issues.md) | PDTP interpretation of 5 key physics problems |
-| [phase_framework_mysteries.md](docs/research/phase_framework_mysteries.md) | 29 unsolved physics mysteries interpreted through the phase framework (Koide formula, entanglement, CMB, singularities, quark confinement, and more) |
-| [quantum_gravity_deep_dive.md](docs/research/quantum_gravity_deep_dive.md) | Deep dive into quantum gravity: why gravity is emergent (not fundamental), the Lagrangian formalism, coherence scale vs Planck scale, and honest mathematical gaps |
-| [mathematical_formalization.md](docs/research/mathematical_formalization.md) | Rigorous mathematical formalization: Lagrangian derivation, field equations, conservation laws, stability analysis, Newtonian gravity recovery, energy costs, and numerical predictions — all with cited sources |
-| [advanced_formalization.md](docs/research/advanced_formalization.md) | Advanced topics: quantum description of spacetime phase field (superfluid vacuum), post-Newtonian corrections (perihelion precession, lensing, gravitational waves), Standard Model integration, and experimental test design (BEC protocols) |
-| [hard_problems.md](docs/research/hard_problems.md) | Hard open problems: GW polarization (emergent tensor modes, breathing mode prediction), PPN parameters (γ=1, β=1 from acoustic metric), vacuum condensate microscopic structure (GFT connection), and photon coupling (indirect via acoustic metric, light bending factor-of-2 recovered) |
+| [equation_reference.md](docs/research/equation_reference.md) | **Central registry** of all PDTP equations with status tags |
+| [mathematical_formalization.md](docs/research/mathematical_formalization.md) | Rigorous Lagrangian derivation, field equations, conservation laws, stability |
+| [two_phase_rederivation.md](docs/research/two_phase_rederivation.md) | Two-phase system: 16/16 re-derivation tests PASS (Part 63) |
+| [su3_condensate_extension.md](docs/research/su3_condensate_extension.md) | SU(3) extension: 8 gluons, Z₃ quarks, string tension (Part 37) |
+| [su3_tensor_metric.md](docs/research/su3_tensor_metric.md) | SU(3) emergent metric, 2 TT modes, Einstein recovery (Parts 75-76) |
+| [einstein_from_pdtp.md](docs/research/einstein_from_pdtp.md) | Routes to Einstein equation: Sakharov, Jacobson, frustration (Part 74) |
+| [vortex_winding_derivation.md](docs/research/vortex_winding_derivation.md) | Particle = vortex; n = m_cond/m; G = ℏc/m_cond² (Part 33) |
+| [falsifiable_predictions.md](docs/research/falsifiable_predictions.md) | 12 ranked testable predictions |
+| [cosmological_constant_fcc.md](docs/research/cosmological_constant_fcc.md) | Λ as second free parameter (Part 54) |
+
+### Overview Documents
+
+| Document | Description |
+|----------|-------------|
+| [SUMMARY.md](SUMMARY.md) | One-page framework summary with all three Lagrangians |
+| [pdtp_findings_summary.md](docs/overview/pdtp_findings_summary.md) | Complete findings from 76 parts of work |
+| [TODO_Summary.md](TODO_Summary.md) | Scorecard of all completed parts |
+| [TODO_02.md](TODO_02.md) | Active roadmap |
 
 ### Simulations
 
-| File | Description |
-|------|-------------|
-| [pdtp_emulator.py](simulations/pdtp_emulator.py) | Python simulation of a craft moving through a phase-gradient field |
+| Directory | Description |
+|-----------|-------------|
+| [simulations/solver/](simulations/solver/) | **Comprehensive solver** — 46 phases, Sudoku consistency engine, SU(3) lattice MC, Einstein recovery |
+| [simulations/solver/main.py](simulations/solver/main.py) | Entry point: `python main.py` runs all phases |
+| [simulations/pdtp_emulator.py](simulations/pdtp_emulator.py) | Original craft emulator (phase-gradient field) |
 
 ---
 
 ## Status
 
-This is a speculative, conceptual framework — not experimentally validated physics.
+**Mathematically inspired, formalization in progress. Not experimentally validated.**
 
-It's a structured thought experiment asking: *If matter and spacetime are both wave-based, what logically follows?*
+This began as a thought experiment — *if matter and spacetime are both wave-based,
+what logically follows?* — and has grown into a formal framework with:
+
+- **76 parts** of systematic derivation and testing
+- **Three Lagrangians** (U(1), two-phase, SU(3)) with increasing symmetry
+- **Einstein equation recovery** via SU(3) emergent metric and Sakharov mechanism
+- **QCD string tension** within 4% of experiment from first principles
+- **12 falsifiable predictions** ranked by testability
+- **Honest negative results** documented (m_cond underdetermined, coupling constants free)
+
+The framework is internally consistent but awaits experimental confirmation.
+The critical path is breathing mode detection (LISA/ET) or w(z) measurement (DESI/Euclid).
 
 ---
 

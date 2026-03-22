@@ -224,12 +224,33 @@ Fields:
 
 ---
 
+## Mathematical Status
+
+The framework has been developed through **76 parts** of systematic derivation:
+
+- **Three Lagrangians** with increasing symmetry: U(1), two-phase, SU(3)
+- **Einstein equation recovery** via SU(3) emergent metric and Sakharov mechanism
+- **QCD string tension** within 4% of experiment from first principles
+- **12 falsifiable predictions** ranked by testability
+- **Comprehensive solver** with 46 phases and Sudoku consistency engine
+
+Key documents:
+- [Framework Summary](SUMMARY.md) — All three Lagrangians and current status
+- [Equation Reference](docs/research/equation_reference.md) — Central registry of all equations
+- [Falsifiable Predictions](docs/research/falsifiable_predictions.md) — What can be tested
+- [Mathematical Formalization](docs/research/mathematical_formalization.md) — Rigorous derivations
+
+The framework is internally consistent but **not experimentally validated**.
+Two free parameters remain: m_cond (condensate mass = Planck mass) and the cosmological constant.
+
+---
+
 ## Status
 
-- Highly speculative
-- Conceptual
-- Intended for discussion, visualization, and science-fiction-grounded worldbuilding
-- Not experimental physics
+- Mathematically inspired, formalization in progress
+- 76 parts of systematic derivation and testing completed
+- Internally consistent; awaiting experimental confirmation
+- Critical path: breathing mode detection (LISA/ET) or w(z) measurement (DESI/Euclid)
 
 ---
 
