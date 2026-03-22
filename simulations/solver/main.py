@@ -58,6 +58,11 @@ Phases:
    38. Scale selection — cosine-Gordon phi_-; all scales ~ l_P; H_0 free (Part 69)
    39. Xi_cc+ baryon — LHCb benchmark; constituent + string + hyperfine (Part 70)
    40. Leidenfrost — decoupling analogue; phi_- screening; Z3 topology (Part 71)
+   41. Full T_mu_nu — all components; conservation law; SymPy verified (Part 72)
+   42. Emergent metric — g_mu_nu in closed form; PG = Schwarzschild; PPN gamma=beta=1 (Part 73)
+   43. Einstein from PDTP — Sakharov/Jacobson/frustration routes; Case B partial; DOF gap (Part 74)
+   44. SU(3) tensor metric — g_mu_nu = Tr(dU_dag dU); NOT pure gauge; 2 TT modes; PSD constraint (Part 75)
+   45. SU(3) Einstein recovery — 8*pi*G coefficient; auto-Lorenz; matter coupling; PSD obs; nonlinear (Part 75b)
 """
 
 import os
@@ -108,6 +113,11 @@ from cosmo_constant_v2 import run_cosmo_constant_v2_phase
 from scale_selection import run_scale_selection_phase
 from xicc_baryon import run_xicc_baryon_phase
 from leidenfrost_decoupling import run_leidenfrost_phase
+from stress_energy_full import run_stress_energy_full_phase
+from emergent_metric import run_emergent_metric_phase
+from einstein_from_pdtp import run_einstein_from_pdtp_phase
+from su3_tensor_metric import run_su3_tensor_metric_phase
+from su3_einstein_recovery import run_su3_einstein_recovery_phase
 
 
 def main():
@@ -358,6 +368,31 @@ def main():
     # Phase 40: Leidenfrost Decoupling Analogue (Part 71)
     # ------------------------------------------------------------------
     run_leidenfrost_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 41: Full Stress-Energy Tensor T_mu_nu (Part 72)
+    # ------------------------------------------------------------------
+    run_stress_energy_full_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 42: Emergent Metric g_mu_nu in Closed Form (Part 73)
+    # ------------------------------------------------------------------
+    run_emergent_metric_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 43: Einstein Equations from PDTP Lagrangian (Part 74)
+    # ------------------------------------------------------------------
+    run_einstein_from_pdtp_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 44: SU(3) Tensor Metric Construction (Part 75)
+    # ------------------------------------------------------------------
+    run_su3_tensor_metric_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 45: SU(3) Einstein Recovery (Part 75b)
+    # ------------------------------------------------------------------
+    run_su3_einstein_recovery_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

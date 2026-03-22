@@ -83,10 +83,21 @@ nabla^4 Phi + 4g^2 Phi = source
 
 ### 2f. Jeans Instability Eigenvalue [PDTP Original, DERIVED]
 ```
-eigenvalue = +2*sqrt(2)*g > 0
+Coupled ODE system [A1: spatially uniform, k=0 limit]:
+  d^2/dt^2 [Phi, phi_-] = M [Phi, phi_-]
+Matrix: M = [[0, 4g], [2g, 0]]
+Characteristic equation: lambda^2 - 8g^2 = 0
+Eigenvalues: lambda = +/- 2*sqrt(2)*g
 ```
-- Positive = gravitational collapse from Lagrangian (not assumed)
-- **Source:** Part 61
+- **lambda is a growth-rate parameter, NOT a frequency (omega^2).**
+- The trial solution is x ~ exp(sigma*t) where sigma^2 = lambda:
+  - lambda > 0: sigma real => exponential growth (UNSTABLE = Jeans instability)
+  - lambda < 0: sigma imaginary => oscillation with omega = sqrt(|lambda|)
+- lambda_1 = +2*sqrt(2)*g > 0: gravitational collapse from Lagrangian (not assumed)
+- lambda_2 = -2*sqrt(2)*g < 0: oscillation (breathing mode) with omega = (2*sqrt(2)*g)^(1/2)
+- **Note:** The PDE version (Section 6b) gives omega^2 = c^2*k^2 +/- 2*sqrt(2)*g.
+  The ODE eigenvalue is the k=0 limit of that dispersion relation.
+- **Source:** Part 61; see `two_phase_lagrangian.py` Step 3 for full derivation
 
 ---
 
@@ -221,8 +232,10 @@ omega^2 = c^2 * k^2 + omega_gap^2
 ```
 omega^2 = c^2 * k^2 +/- 2*sqrt(2)*g
 ```
-- Branch A (+): gapped breathing mode
-- Branch B (-): Jeans unstable mode (gravitational collapse)
+- Branch A (+): gapped breathing mode (always stable)
+- Branch B (-): Jeans unstable mode at k < k_J (gravitational collapse)
+- These are omega^2 (frequency squared), NOT eigenvalues of the ODE matrix M.
+  The ODE eigenvalue lambda = +/- 2*sqrt(2)*g (Section 2f) is the k=0 limit.
 - **Source:** Part 61
 
 ### 6c. phi_- Reversed Higgs Mass [PDTP Original, DERIVED] (Part 62)
@@ -535,7 +548,203 @@ L is C, P, T invariant
 
 ---
 
-## 17. Central Open Problem
+## 17. Full Stress-Energy Tensor T_mu_nu (Part 72)
+
+**Single-phase** (phi condensate, psi matter):
+
+| # | Equation | Status |
+|---|----------|--------|
+| 72.1 | T_00 = 1/2 phi_dot^2 + 1/2 \|grad phi\|^2 + 1/2 psi_dot^2 + 1/2 \|grad psi\|^2 - g cos(psi-phi) | [DERIVED] |
+| 72.2 | T_0i = phi_dot d_i phi + psi_dot d_i psi | [DERIVED] |
+| 72.3 | T_ij = d_i phi d_j phi + d_i psi d_j psi + delta_ij L | [DERIVED] |
+
+**Two-phase** (phi_b bulk, phi_s surface, psi matter):
+
+| # | Equation | Status |
+|---|----------|--------|
+| 72.4 | T_00 = 1/2 \|d phi_b\|^2 + 1/2 \|d phi_s\|^2 + 1/2 \|d psi\|^2 - g cos(psi-phi_b) + g cos(psi-phi_s) | [DERIVED] |
+| 72.5 | T_0i = phi_b_dot d_i phi_b + phi_s_dot d_i phi_s + psi_dot d_i psi | [DERIVED] |
+| 72.6 | T_ij = d_i phi_b d_j phi_b + d_i phi_s d_j phi_s + d_i psi d_j psi + delta_ij L_2 | [DERIVED] |
+
+**Mode basis and identities:**
+
+| # | Equation | Status |
+|---|----------|--------|
+| 72.7 | 1/2(d phi_b)^2 + 1/2(d phi_s)^2 = (d phi_+)^2 + (d phi_-)^2 | [DERIVED] |
+| 72.8 | nabla^mu T_mu_nu = 0 (from Euler-Lagrange / Noether) | [DERIVED] |
+| 72.9 | T_xx(grad=0) = L (pressure = Lagrangian for uniform field) | [DERIVED] |
+
+**Source:** Peskin & Schroeder (1995) sec 2.2; Noether (1918). Script: `stress_energy_full.py` (Phase 41).
+**SymPy verification:** 6/6 identities pass. **Sudoku:** 10/10 pass.
+
+---
+
+## 18. Emergent Metric g_mu_nu in Closed Form (Part 73)
+
+**PDTP emergent metric** (Painleve-Gullstrand form, from acoustic metric):
+```
+ds^2 = -(c^2 - v^2) dt^2 - 2 v_i dx^i dt + delta_ij dx^i dx^j
+```
+where v_i = (hbar/m_cond) d_i phi (single-phase) or d_i phi_+ (two-phase).
+
+- **73.1** g_00 = -(c^2 - v^2) [DERIVED, from Unruh 1981 acoustic metric]
+- **73.2** g_0i = -v_i [DERIVED]
+- **73.3** g_ij = delta_ij [DERIVED]
+- **73.4** v_r = -sqrt(2GM/r) [radial free-fall] [ESTABLISHED, Visser 1998]
+- **73.5** g_00 = -(c^2 - 2GM/r) = Schwarzschild in PG coords [DERIVED]
+- **73.6** g_0r = sqrt(2GM/r) [DERIVED]
+- **73.7** r_H = 2GM/c^2 (sonic horizon = Schwarzschild) [DERIVED]
+- **73.8** v_i = (hbar/m_cond) d_i phi_+ (two-phase: only gravity mode) [PDTP Original]
+- **73.9** gamma_PPN = 1 [DERIVED, matches Cassini bound]
+- **73.10** beta_PPN = 1 [DERIVED, matches perihelion bound]
+- **73.11** v_r = -sqrt(2GM/r) (Kerr radial) [DERIVED]
+- **73.12** v_phi = a_J c sin(theta)/r (frame-dragging) [DERIVED, Doran 2000]
+- **73.13** r_H = GM/c^2 + sqrt(G^2M^2/c^4 - a_J^2) (Kerr horizon) [DERIVED]
+
+**Limitations:** Acoustic metric = propagation metric (not from action principle);
+Einstein equations NOT derived; tensor modes need tetrad extension (Part 12).
+
+**Sudoku:** 10/10 pass. Doc: `emergent_metric.md`. Script: `emergent_metric.py`.
+
+---
+
+## 19. Einstein Equations from PDTP Lagrangian (Part 74)
+
+### 74a. Linearized Gravity DOF Count [DERIVED]
+```
+PDTP acoustic metric: 1 propagating scalar DOF (phase phi)
+GR metric: 2 propagating tensor DOF (h_+, h_x)
+Level 4: FAIL -- scalar theory cannot reproduce tensor modes
+```
+- Known limitation of ALL analogue gravity models (Barcelo, Liberati, Visser 2005)
+- Tetrad extension (Part 12) required for tensor modes
+
+### 74b. Sakharov Induced Gravity [DERIVED]
+```
+S_eff = integral d^4x sqrt(-g) * [N*Lambda^2/(96*pi^2)] * R + ...    ... (74b.1)
+G_ind = 6*pi*hbar*c / (N * Lambda_mass^2)                             ... (74b.4)
+Lambda_mass = m_cond  (physical UV cutoff)                             ... (74b.5)
+N_eff = 6*pi ~ 18.85  (for G_Sakharov = G_PDTP)                       ... (74b.8)
+```
+- **Source:** Sakharov (1968), Visser (2002)
+- **PDTP Original:** Lambda = m_cond is physical (healing length), not arbitrary regulator
+- Achieves Levels 1, 3, 4; Level 2 partial (N_eff undetermined)
+
+### 74c. Phase Frustration Density [PDTP Original]
+```
+F(x) = g * [1 - cos(psi(x) - phi(x))]                                ... (74c.1)
+F ~ g/2 * (psi - phi)^2  [weak field]                                 ... (74c.2)
+R ~ (gradient of phase frustration)                                    ... (74c.3)
+```
+- PDTP field equation nabla^2 phi = g*sin(psi-phi) IS the Poisson equation
+- Phase frustration = mass density; curvature = gradient of frustration
+- Josephson junction analogy: sin(delta_phi) drives response
+
+### 74d. Jacobson Thermodynamic Route [DERIVED]
+```
+delta_Q = T_Unruh * delta_S_BH                                        ... (74d.1)
+-> G_mu_nu = (8*pi*G/c^4) * T_mu_nu                                   ... (74d.2)
+S = A/(4*a_0^2)  [lattice interpretation]                              ... (74d.3)
+```
+- **Source:** Jacobson (1995)
+- Achieves all 4 levels; cost: S = A/(4*l_P^2) [ASSUMED]
+
+### 74e. Direct Variational [NEGATIVE]
+```
+delta_S/delta_g_mu_nu is NOT well-defined (g_mu_nu composite)          ... (74e.1)
+delta_S/delta_phi gives SCALAR equation only (Box phi = g*sin(psi-phi))
+```
+- g_mu_nu depends on phi -> variation gives 1 scalar eq, not 10 tensor eqs
+
+### Overall Classification
+**Case B (Partial):** Einstein equations motivated (Sakharov, Jacobson) but not
+derived from cos(psi-phi) alone. DOF mismatch (1 scalar vs 2 tensor) is fundamental.
+Same status as He-3A (Volovik 2003).
+
+---
+
+## 20. SU(3) Tensor Metric Construction (Part 75)
+
+### 20a. Emergent Metric from SU(3) Linearization
+
+```
+g_mu_nu = Tr(d_mu U_dag * d_nu U)                               ... (75.0)
+
+Linearized: U = I + i*eps*sum_a chi^a T^a
+h_mu_nu = (eps^2/2) * sum_{a=1}^{8} (d_mu chi^a)(d_nu chi^a)   ... (75.1) [DERIVED]
+```
+
+**Source:** Non-linear sigma model pullback metric; Weinberg (1996) QFT Vol II Ch. 19
+**SymPy verified:** Tr(M_mu * M_nu) = (1/2)*sum_a dchi_mu^a dchi_nu^a, residual = 0
+
+### 20b. Pure Gauge Escape
+
+phi^a tetrad (Part 74): h = d_mu chi_nu + d_nu chi_mu -> pure gauge, rank <= 2
+SU(3) metric (Part 75): h = sum_a V^a (V^a)^T -> NOT pure gauge, rank 4 generically
+
+Key: quadratic in chi (product of gradients) cannot equal linear (symmetrized gradient). [DERIVED]
+
+### 20c. TT Mode Count
+
+Transverse-traceless components for wave in z-direction:
+
+```
+h_+ = (1/2) sum_a [(d_1 chi^a)^2 - (d_2 chi^a)^2]
+h_x = sum_a (d_1 chi^a)(d_2 chi^a)
+```
+
+Both can be independently excited -> 2 TT modes (matches GR). [DERIVED]
+
+### 20d. Wave Equation
+
+```
+Box h_mu_nu = 2 * sum_a (d^rho d_mu chi^a)(d_rho d_nu chi^a)   ... (75.4) [DERIVED]
+```
+
+For on-shell plane waves (k^2 = 0): RHS = 0 -> Box h_mu_nu = 0  ... (75.5) [DERIVED]
+Matches linearized Einstein equation in vacuum.
+
+### 20e. PSD Constraint (New Prediction)
+
+```
+h_+^2 + h_x^2 <= h_trace^2 / 4                                 ... (75.6) [PDTP Original, SPECULATIVE]
+```
+
+Tensor GW amplitude bounded by scalar (breathing) mode. Absent from GR. Falsifiable.
+
+### 20f. Part 75b: Full Einstein Recovery
+
+**Induced gravitational constant (Sakharov, N_s = 8 SU(3) scalars):**
+```
+G_ind = (6*pi / N_s) * hbar * c / m_cond^2 = (3*pi/4) * G    ... (75b.1) [DERIVED]
+```
+With N_eff = 6*pi: G_ind = G exactly. N_eff identification remains open.
+
+**Automatic Lorenz gauge (from EOM Box chi^a = 0):**
+```
+d^mu h_mu_nu = (1/2) d_nu h                                    ... (75b.2) [DERIVED, PDTP Original]
+```
+In GR this is IMPOSED; here it is AUTOMATIC from the SU(3) structure.
+Consequence: vector modes constrained, only 2 TT modes propagate.
+
+**Matter coupling (from propagation on emergent background):**
+```
+L_int = -(1/2) h^{mu nu} T_mu_nu^(psi)                        ... (75b.3) [DERIVED]
+```
+Standard graviton-matter coupling emerges from g_mu_nu = eta + h.
+
+**Breathing mode Yukawa range:**
+```
+lambda_B = hbar/(m_B * c) = l_P ~ 1.6e-35 m                   ... (75b.4) [DERIVED]
+```
+Breathing mode massive (m_B ~ m_P), invisible at astro distances.
+PSD constraint Eq. 75.6 applies at source, not at detector.
+
+**Simulation:** su3_einstein_recovery.py Phase 45. Sudoku: 12/12 PASS.
+
+---
+
+## 21. Central Open Problem
 
 **m_cond is underdetermined** -- G = hbar*c/m_cond^2 is exact but m_cond = m_P is not derived.
 This is analogous to Lambda in GR. All perturbative paths exhausted (Parts 29-35).
@@ -545,6 +754,12 @@ This is analogous to Lambda in GR. All perturbative paths exhausted (Parts 29-35
 ---
 
 ## Changelog
+- 2026-03-22: Added Part 75b (SU(3) Einstein recovery; auto-Lorenz; massive breathing; 12/12 PASS)
+- 2026-03-21: Added Part 75 (SU(3) tensor metric; NOT pure gauge; 2 TT modes; PSD constraint)
+- 2026-03-21: Clarified eigenvalue vs frequency in Sections 2f and 6b (lambda is growth rate, not omega^2); added [A1] ODE tag
+- 2026-03-21: Added Part 74 (Einstein from PDTP; Sakharov, Jacobson, frustration; Case B partial)
+- 2026-03-21: Added Part 73 (emergent metric g_mu_nu, PG form, PPN, Kerr)
+- 2026-03-21: Added Part 72 (full T_mu_nu, all components, conservation law, two-phase)
 - 2026-03-20: Added Part 71 (Leidenfrost decoupling analogue, phi_- screening, Z3 cancellation)
 - 2026-03-20: Added Part 70 (Xi_cc+ baryon benchmark, string energy, mass prediction)
 - 2026-03-20: Added Part 69 (scale selection, cosine-Gordon, kink width, m_DE)

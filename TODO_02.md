@@ -1290,31 +1290,175 @@ They are recorded here so they are not lost. Each needs a full plan and user app
   - Context: ChatGPT given only two_phase_rederivation.md (old 157-line version without derivations).
     Some criticisms were documentation quality (now fixed: expanded to 1074 lines with full derivations).
     The items below are genuine PHYSICS gaps, not documentation gaps.
-  - [ ] **Full stress-energy tensor T_mu_nu** — currently only T_00 (energy density, Part 43).
-    Need spatial components T_ij. Required for: any reviewer who wants to check energy-momentum
-    conservation, gravitational source terms, equation of state. Formula: T_mu_nu = dL/d(d^mu phi) d_nu phi - g_mu_nu L.
-    Derive for all three fields (phi_b, phi_s, psi) in both single-phase and two-phase.
-  - [ ] **Emergent metric g_mu_nu in closed form** — currently have acoustic metric (c_s = c, S8),
-    tetrad extension (Part 12), PPN match (S9). But no single clean formula g_mu_nu(phi_b, phi_s, psi).
-    Strong-field regime untested. Needed for: light bending calculation, frame-dragging, Kerr limit.
-    Approach: use Part 12 tetrad Phi = sqrt(rho_0) exp(i*phi) e^a_mu and write g_mu_nu = eta_ab e^a_mu e^b_nu.
-  - [ ] **Einstein equations from PDTP Lagrangian alone** — currently derived via imported GR machinery
-    (tetrad, Part 12). Can we derive G_mu_nu = 8*pi*G T_mu_nu purely from phase-locking?
-    This is the HARDEST open problem. If solved, it proves gravity IS emergent phase-locking.
-    If it cannot be solved, PDTP remains a scalar-tensor complement to GR, not a replacement.
-  - [ ] **Eigenvalue vs frequency clarification** — Part 61 Jeans eigenvalue +2*sqrt(2)*g is a
+  - [x] **Full stress-energy tensor T_mu_nu** — DONE 2026-03-21 (Part 72, Phase 41)
+    All components derived: T_00 (energy), T_0i (flux), T_ij (stress) for single-phase AND two-phase.
+    Conservation nabla^mu T_mu_nu = 0 proved from Noether/E-L. Mode basis (phi_+, phi_-) derived.
+    SymPy 6/6, Sudoku 10/10. Script: `stress_energy_full.py`. Doc: `stress_energy_full.md`.
+  - [x] **Emergent metric g_mu_nu in closed form** — DONE 2026-03-21 (Part 73, Phase 42)
+    Acoustic metric (Unruh 1981): ds^2 = -(c^2 - v^2)dt^2 - 2v_i dx^i dt + delta_ij dx^i dx^j.
+    Painleve-Gullstrand = Schwarzschild EXACTLY. PPN gamma=beta=1. Sonic horizon = r_Schwarzschild.
+    Kerr from rotational flow (Doran coords). Two-phase: only phi_+ sources metric.
+    Sudoku 10/10. Script: `emergent_metric.py`. Doc: `emergent_metric.md`.
+  - [x] **Einstein equations from PDTP Lagrangian alone** — DONE 2026-03-21 (Part 74, Phase 43)
+    **Result: Case B (Partial).** Einstein equations MOTIVATED but not DERIVED from cos(psi-phi) alone.
+    74a: Linearized test — 1 scalar DOF (PDTP) vs 2 tensor (GR). Level 4 FAIL. Known analogue limit.
+    74b: Sakharov — G_ind = 6*pi*hbar*c/(N*m_cond^2); N_eff = 6*pi for match. Levels 1,3,4 PASS.
+    74c: Phase frustration — Poisson eq from cos coupling; curvature = frustration gradient. PDTP Original.
+    Jacobson: Full Einstein eq from thermodynamics. Cost: S = A/(4*l_P^2) [ASSUMED].
+    Direct variational: NEGATIVE — g_mu_nu composite, variation gives scalar eq only (R1, R7 confirmed).
+    DOF mismatch is fundamental: tetrad extension (Part 12) required for tensor modes.
+    Sudoku 10/10. Script: `einstein_from_pdtp.py`. Doc: `einstein_from_pdtp.md`.
+    **ChatGPT Pre-Part 74 Review (2026-03-21) — 12 critical checks:**
+    - [x] R1: CONFIRMED — g_mu_nu composite; direct variation blocked. (Step 6)
+    - [x] R2: DOCUMENTED — v_r = sqrt(2GM/r) is INPUT; Schwarzschild is consistency check.
+    - [x] R3: CONFIRMED — 1 scalar vs 2 tensor DOF. (Step 2, 74a)
+    - [x] R4: EXPLAINED — T_mu_nu fundamental (Noether), g_mu_nu emergent (fewer DOF). (Step 6)
+    - [x] R5: MARKED [ASSUMED] — entropy-area law not derived from PDTP. (Step 5)
+    - [x] R6: STRUCTURAL > DIMENSIONAL — Sakharov coefficient 6*pi/N derived, not assumed. (Step 3)
+    - [x] R7: CONFIRMED — variation w.r.t. metric = variation w.r.t. phi = scalar eq. (Step 6)
+    - [x] R8: PASS — Sakharov/Jacobson both give Bianchi automatically. (Step 7)
+    - [x] R9: 1 scalar mode (Klein-Gordon); NO tensor modes. (Step 2, 74a)
+    - [x] R10: CASE B explicitly classified. (Step 9)
+    - [x] R11: Phase frustration route implemented — Poisson from cos coupling. (Step 4, 74c)
+    - [x] R12: All 4 levels defined and tested. (Step 1)
+    **ChatGPT Proposed Sub-Parts (2026-03-21) — ALL DONE:**
+    - [x] **Part 74a** — Linearized: 1 DOF, Level 4 FAIL. Constrains 74b/c claims.
+    - [x] **Part 74b** — Sakharov: G_ind with physical cutoff. N_eff = 6*pi. Structural match.
+    - [x] **Part 74c** — Phase frustration = curvature. Josephson analogy. PDTP Original.
+  - [x] **Eigenvalue vs frequency clarification** — Part 61 Jeans eigenvalue +2*sqrt(2)*g is a
     growth rate (lambda), not omega^2. The system d^2x/dt^2 = Mx has: lambda > 0 = unstable (growth),
     lambda < 0 = oscillatory (omega = sqrt(-lambda)). Research docs should distinguish these clearly.
     Currently correct in the Python script but could confuse a reviewer reading only the .md file.
-  - [ ] **ODE vs PDE assumption made explicit in all docs** — Python script states [A1]: spatially
+    **DONE (2026-03-21):** Added full eigenvalue vs frequency note after S7 in two_phase_rederivation.md
+    (coupled ODE matrix, characteristic equation, notation table). Updated equation_reference.md
+    Section 2f with full derivation and Section 6b with cross-reference. Updated quantum_geometry_pdtp.md
+    line 509 with "(growth rate, not frequency)" clarification.
+  - [x] **ODE vs PDE assumption made explicit in all docs** — Python script states [A1]: spatially
     uniform fields (phi = phi(t) only). This is standard (Peskin & Schroeder sec 2.2) but research docs
     must state it prominently. Full PDE adds nabla^2 to LHS; RHS (coupling terms) unchanged.
     Every derivation that uses ODE form must say so, and state what changes when going to full PDE.
+    **DONE (2026-03-21):** Added [A1] ODE assumption note at top of Group A derivations in
+    two_phase_rederivation.md (before S1). Added [A1] tag to ODE system in equation_reference.md
+    Section 2f and in the Jeans note. Files already using full PDE form (stress_energy_full.md,
+    scale_selection_mechanism.md, cosmo_constant_two_phase.md) already state "spatially uniform"
+    where appropriate — no changes needed.
+  - [x] **SU(3) tensor metric construction (Part 75) — DONE 2026-03-21, 11/11 PASS**
+    **RESULT: POSITIVE.** The SU(3) emergent metric g_mu_nu = Tr(d_mu U_dag * d_nu U) produces
+    physical (non-pure-gauge) gravitational DOF with exactly 2 TT tensor modes.
+    Key findings:
+    1. h_mu_nu = sum_a (d_mu chi^a)(d_nu chi^a) is QUADRATIC in chi (not linear) -> NOT pure gauge [DERIVED]
+    2. Rank 4 generically (pure gauge has rank <= 2) -> physical content [DERIVED, SymPy + NumPy verified]
+    3. Both + and x TT polarizations independently excitable -> 2 tensor modes for GR [DERIVED]
+    4. On-shell plane waves: Box h_mu_nu = 0 (linearized Einstein in vacuum) [DERIVED]
+    5. PSD constraint: |h_TT|^2 <= h_scalar^2/4 -> new falsifiable prediction [PDTP Original, SPECULATIVE]
+    6. U(1) limit: rank drops to 1 -> recovers scalar-only limitation [DERIVED]
+    Files: su3_tensor_metric.py (Phase 44), su3_tensor_metric.md, equation_reference.md updated
+    Open: Part 75b — exact Einstein coefficient, vector mode propagation, matter coupling, full nonlinear.
+    **Original TODO entry preserved below for context:**
+    The scalar-to-tensor DOF gap identified in
+    Part 74 (1 scalar DOF vs 2 tensor DOF needed for GR). The most promising path forward:
+    derive g_mu_nu from the SU(3) matrix field U(x) (Part 37) via g_mu_nu ~ Tr(d_mu U_dag d_nu U).
+    This is a genuine rank-2 tensor with up to 8 independent components (from 8 SU(3) generators).
+    Steps: (1) Write the SU(3) emergent metric explicitly, (2) Linearize U = I + i*eps*T^a*chi^a,
+    (3) Compute h_mu_nu perturbation, (4) Check: do 2 transverse-traceless polarizations appear?
+    (5) If yes, derive wave equation and compare to linearized Einstein equations.
+    Key constraint: do NOT add R (Ricci scalar) by hand — that defeats emergent gravity.
+    The metric must emerge from the phase dynamics alone.
+    References: Part 37 (SU(3) extension), Part 74 Section 10.4 Option C, Part 12 (tetrad).
+    ChatGPT suggests phi^a (4 scalars) + tetrad route as alternative — equivalent to Option D (Part 12).
+    SU(3) route preferred because U(x) already exists in PDTP and naturally gives 8 modes.
+    **ChatGPT linearization test (2026-03-21) — CRITICAL FINDING for the phi^a tetrad route:**
+    The naive tetrad construction e^a_mu = d_mu phi^a with phi^a = x^a + eps*chi^a gives:
+      h_mu_nu = d_mu chi_nu + d_nu chi_mu  (pure gauge form = coordinate transformation)
+    This means: curvature = 0 locally, NO physical spin-2 DOF, NO real gravitational waves.
+    The wave equation Box h_mu_nu = 0 is satisfied trivially (from Box chi^a = 0), but
+    h_mu_nu is pure gauge — it can be removed by a coordinate change. This RULES OUT the
+    naive phi^a tetrad approach (Option D / ChatGPT's "Version 1 minimal upgrade").
+    **Why this matters for Part 75:** The SU(3) route (Option C) may avoid this problem because:
+      - U(x) in SU(3) has 8 internal DOF (not 4 like phi^a)
+      - g_mu_nu ~ Tr(d_mu U_dag d_nu U) mixes internal and spacetime indices
+      - The SU(3) constraint det(U)=1 is non-linear — may break pure-gauge structure
+      - Need to check: does linearizing U = I + i*eps*T^a*chi^a give h_mu_nu that is NOT pure gauge?
+    **ChatGPT's fix options (if SU(3) also fails):**
+      Option A: Add independent h_mu_nu field (defeats emergent — rejected)
+      Option B: Add (d_mu d_nu phi^a)^2 term (higher-derivative, introduces curvature)
+      Option C: Spin-2 projection (force h_mu_nu != pure gauge by constraint)
+      Option D: Make tetrad independent (e^a_mu != d_mu phi^a) — Palatini-like
+    **Wave polarization perspective (2026-03-21):**
+    Spin = number of independent oscillation directions of the medium.
+    U(1) scalar phi = 1 DOF = spin-0 (breathing only). Two-phase (phi_b, phi_s) = 2 scalars,
+    still spin-0+0. SU(3) matrix U(x) = 8 internal DOF = potentially spin-0,1,2 combined.
+    Key distinction: "wave IN space" (current PDTP) vs "wave OF space" (gravity).
+    Need medium with directional internal structure (like crystal vs fluid) for tensor modes.
+    SU(3) provides this via non-abelian generators coupling internal to spacetime directions.
+    Analogy: U(1) = bowl of water (ripples only); SU(3) = block of jelly (supports shear).
+    Full conceptual note: einstein_from_pdtp.md Section 10.7.
+    **Recommended test order for Part 75:**
+      Step 1: SU(3) linearization first (most natural for PDTP)
+      Step 2: Decompose h_mu_nu into scalar/vector/tensor — count TT modes
+      Step 3: If pure gauge, try Option B (higher-derivative term)
+      Step 4: If still fails, document as fundamental limitation (honest negative result)
+      Step 5: SymPy verification at every step
+  - [x] **SU(3) tensor metric — full Einstein recovery (Part 75b)** — DONE (2026-03-22)
+    12/12 Sudoku PASS. All 5 sub-questions answered:
+    1. **Exact coefficient:** Sakharov with N_s=8 gives G_ind = (3*pi/4)*G ~ 2.36*G. Need N_eff=6*pi
+       for exact match. Gap closable with matter field contributions but N_eff not derived. PARTIAL.
+    2. **Vector modes:** CONSTRAINED (not propagating). Auto-Lorenz gauge d^mu h = (1/2) d_nu h
+       follows from h = sum V V^T and Box chi = 0. In GR this is imposed; here AUTOMATIC. [DERIVED]
+    3. **Matter coupling:** h*T emerges from propagation on emergent background. Standard mechanism
+       for all analogue gravity models. PDTP adds extra cos(psi-phi) phase-locking. [DERIVED]
+    4. **PSD observability:** Breathing mode MASSIVE (m_B ~ m_P, range ~ l_P). Yukawa-suppressed
+       at astro distances (exp(-10^59) ~ 0 for GW170817). Consistent with O3 data. NOT observable.
+    5. **Full nonlinear:** Sakharov 1-loop gives full Einstein eq. Direct derivation beyond 1-loop
+       remains open (shared limitation with ALL induced gravity approaches). PARTIAL.
+    KEY ADVANCE: Level 4 (tensor modes) now PASS. DOF gap from Part 74 RESOLVED.
+    Files: su3_einstein_recovery.py (Phase 45), su3_tensor_metric.md (Sections 10.1-10.7)
+    Remaining open: N_eff identification, full nonlinear beyond Sakharov, entropy-area law.
   - Items already addressed (do NOT redo):
     - "No SM path" — WRONG: Parts 37-53 cover SU(3), quarks, gluons, string tension, Koide, chirality
     - "Unsupported claims" — FIXED: 16/16 scorecard now has full derivations (1074 lines)
     - "PASS/FAIL scoreboards bad" — DISAGREE: scorecard WITH derivations is a powerful consistency tool
     - "Symbolic fields as Functions" — SymPy implementation choice, not physics; current approach is standard
+
+- **Part 76: SU(3) Graviton Validation — Physical Spin-2 Tests**
+  Motivation: Parts 75+75b established the SU(3) emergent metric with 2 TT modes and
+  Sakharov-route Einstein recovery. External review raised valid questions about whether
+  these modes are truly physical gravitons vs structural artifacts. Part 76 collects all
+  open validation tests into one investigation. Each sub-item gets honest PASS/FAIL/PARTIAL.
+  - [ ] **76a. Quadratic effective action** — Expand Sakharov 1-loop to get explicit
+    L_eff ~ (dh)^2 and verify it matches the Fierz-Pauli structure for massless spin-2.
+    This is the "gold standard" graviton test. Must show the kinetic term has the correct
+    relative signs for the 2 TT polarizations.
+  - [ ] **76b. Isaacson stress-energy** — Compute T^GW_mu_nu = <dh dh> averaged over
+    wavelengths (Isaacson 1968). Must be non-zero for TT modes to carry energy.
+    If zero -> modes are gauge artifacts. Compare energy flux to GR prediction.
+  - [ ] **76c. Bianchi identity** — Show nabla^mu G_mu_nu = 0 emerges automatically from
+    the SU(3) structure (not imposed by hand). This is a geometric consistency check.
+    If Sakharov generates the full Einstein-Hilbert action, Bianchi follows from
+    diffeomorphism invariance of the effective action — but verify explicitly.
+  - [ ] **76d. Gauge artifact exclusion (O(chi) vs O(chi^2) proof)** — Explicitly show:
+    (1) The O(chi) part of h_mu_nu IS pure gauge (h ~ d_mu xi + d_nu xi, trivially a
+    coordinate transformation — this is correct and expected).
+    (2) The O(chi^2) part h_mu_nu = sum_a (d_mu chi^a)(d_nu chi^a) is NOT pure gauge
+    (cannot be written as d_mu xi + d_nu xi for any xi).
+    (3) Prove formally that rank-4 structure from Part 75 Step 3 is incompatible with
+    pure gauge (rank <= 2). Address the external claim that "pullback metrics always
+    produce gauge-type perturbations" — true at O(chi), false at O(chi^2).
+    This makes the Part 75 result airtight against the most common objection.
+  - [ ] **76e. Metric generality** — Can the pullback metric g_mu_nu = Tr(d_mu U_dag d_nu U)
+    represent arbitrary GR geometries (Schwarzschild, Kerr, FRW)? Or only a subset?
+    Map out which metrics are reachable. Known risk: pullback metrics are inherently
+    positive semi-definite, so Lorentzian signature requires careful treatment.
+    If only a subset is reachable, document which physical scenarios are excluded.
+  - [ ] **76f. Spin connection emergence** — Does omega^ab_mu emerge from the SU(3) field
+    structure? The SU(3) gauge connection A_mu = U_dag d_mu U is a natural candidate.
+    Investigate whether it can play the role of spin connection, or whether the spin
+    connection only appears at the Sakharov (1-loop) level.
+  - [ ] **76g. Nonlinear regime** — Push beyond linearized: at O(eps^4), does the SU(3)
+    sigma model equation match GR's nonlinear corrections (Landau-Lifshitz pseudotensor)?
+    Or do they diverge? This extends Part 75b Q5. The SU(3) internal Ricci curvature
+    R^(SU3)_ab = (3/4)*delta_ab drives the 2-loop beta function — does this map to
+    GR's R^2 corrections?
 
 ---
 

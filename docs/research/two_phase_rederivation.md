@@ -60,6 +60,14 @@ With the redefinition chi = phi_+ + pi/2:
 
 ## Full Derivations — Group A: Algebraic (SymPy-Verified)
 
+**[A1] ODE assumption:** All derivations S1-S3 and the Jeans eigenvalue analysis
+use **spatially uniform fields**: phi = phi(t) only, with no spatial gradients
+(nabla phi = 0). This is the standard "particle mechanics" limit (Peskin &
+Schroeder, sec. 2.2). The full PDE includes nabla^2 on the LHS of each field
+equation; the RHS coupling terms (sin, cos) are unchanged. Derivations S4-S8
+explicitly promote to the full PDE (static limit or plane-wave ansatz).
+See `two_phase_lagrangian.py` [A1] for the corresponding code assumption.
+
 These tests derive each result directly from the two-phase Euler-Lagrange equations
 using SymPy. Every step is explicit and independently reproducible.
 
@@ -504,6 +512,64 @@ f_gap ~ 1.0e16 Hz  (UV, far above LISA/ET bands)
 
 **Result:** [DERIVED] Breathing mode = phi_- with omega^2 = c^2*k^2 + 2*g*Phi.
 Same structure as single-phase; environment-dependent mass is new. ✓ PASS
+
+---
+
+### Note: Jeans Instability — Eigenvalue vs Frequency Clarification
+
+**Important distinction for reviewers.** The Jeans instability eigenvalue
++2*sqrt(2)*g (Part 61) is often mentioned alongside the breathing mode
+frequency. These are related but different quantities. This note clarifies
+the relationship.
+
+**The ODE system** [A1: spatially uniform, k=0 limit]:
+
+The linearized two-phase equations give a coupled system (see
+`two_phase_lagrangian.py`, Step 3, lines 445-483):
+```
+d^2/dt^2 [Phi, phi_-] = M [Phi, phi_-]
+where M = [[0, 4g], [2g, 0]]
+```
+Here Phi = psi - phi_+ is the gravitational potential analogue.
+
+**Eigenvalue analysis:**
+```
+det(M - lambda*I) = lambda^2 - 8g^2 = 0
+lambda = +/- 2*sqrt(2)*g
+```
+
+**Critical point: lambda is NOT omega^2.** The trial solution is
+x ~ exp(sigma*t) where sigma^2 = lambda. Therefore:
+
+- lambda_1 = +2*sqrt(2)*g > 0: sigma is real => exponential growth
+  (UNSTABLE). This is the **Jeans instability** — gravitational collapse
+  derived from the Lagrangian, not assumed. [PDTP Original, DERIVED]
+
+- lambda_2 = -2*sqrt(2)*g < 0: sigma is imaginary => oscillation with
+  frequency omega = sqrt(|lambda|) = (2*sqrt(2)*g)^(1/2). This is the
+  **breathing mode** at k=0.
+
+**Connection to the PDE dispersion relation** (S7 above):
+
+The full PDE with spatial dependence gives:
+```
+omega^2 = c^2*k^2 +/- 2*sqrt(2)*g    (Part 61, Eq. 14a/b)
+```
+At k=0, the unstable branch gives omega^2 = -2*sqrt(2)*g < 0, which is
+equivalent to saying sigma^2 = +2*sqrt(2)*g > 0 (exponential growth).
+The ODE eigenvalue lambda = +2*sqrt(2)*g IS the k=0 limit of the PDE
+dispersion relation.
+
+**Summary of notation:**
+| Symbol | Meaning | Sign convention |
+|--------|---------|-----------------|
+| lambda | ODE matrix eigenvalue | lambda > 0 = unstable |
+| sigma | Growth/oscillation rate: sigma^2 = lambda | sigma real = growth |
+| omega | Oscillation frequency: omega^2 = -lambda | omega^2 > 0 = stable |
+| omega^2(k) | PDE dispersion: c^2*k^2 +/- 2*sqrt(2)*g | omega^2 < 0 at small k = Jeans |
+
+**Source:** Part 61, `two_phase_lagrangian.py` Step 3 (lines 453-473).
+SymPy verified: eigenvalues of M match +/- 2*sqrt(2)*g.
 
 ---
 
@@ -1041,7 +1107,7 @@ Live in SU(3), Koide, or cosmological sectors that do not depend on the
 |--------|----------------|------------|--------|
 | phi_- field | [SPECULATIVE] | [DERIVED] | 16/16 pass; no contradictions |
 | Biharmonic gravity | [SPECULATIVE] | [DERIVED] | Compatible with Poisson limit (S4) |
-| Jeans instability | [SPECULATIVE] | [DERIVED] | Eigenvalue analysis unchanged |
+| Jeans instability | [SPECULATIVE] | [DERIVED] | Eigenvalue +2*sqrt(2)*g = growth rate (not omega^2); see Note after S7 |
 | G_eff = 2*G_bare | [SPECULATIVE] | [DERIVED] | Consistent with 3rd law factor 2 (S3) |
 | Newton's 3rd: psi_ddot=-phi_+_ddot | [DERIVED] | **CORRECTED** | Should be -2*phi_+_ddot |
 

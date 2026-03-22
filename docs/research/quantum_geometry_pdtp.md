@@ -506,7 +506,8 @@ Uniform phi  -->  stable gravity (alpha ~ 1 everywhere)
 Lumpy phi    -->  phase-locking breaks down locally
 ```
 
-The Jeans instability (Part 61) has eigenvalue +2 sqrt(2) g > 0, meaning
+The Jeans instability (Part 61) has ODE matrix eigenvalue lambda = +2 sqrt(2) g > 0
+(a growth rate, not a frequency — see Part 63 Note after S7), meaning
 the uniform state is unstable to gravitational collapse. This is the
 condensed-matter analogue of the Berry curvature non-uniformity driving
 a phase transition from a fractional Chern insulator to a charge density
