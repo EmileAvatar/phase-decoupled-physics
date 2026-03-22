@@ -208,6 +208,35 @@ explicit tetrad (g_mu_nu = Tr(dU^dag dU) provides metric directly).
 **Status:** PDTP explains WHY parity breaks (Z_2 topology) but not WHICH hand (left vs right).
 Sakharov baryogenesis blocked without CP violation.
 **FCC trigger:** Yes — two-phase phi_- may break vacuum symmetry.
+
+**Preliminary investigation (2026-03-22, quick check):**
+Adding a -sin term to each Lagrangian as CP-violating extension:
+
+| # | Name | Lagrangian | CP violation? |
+|---|------|-----------|---------------|
+| L4 | U(1) - sin | +g cos(psi-phi) - eps sin(psi-phi) | FAKE — removable by field redefinition (trig identity: cos+sin = shifted cos) |
+| L5 | Two-Phase - sin | L2 - eps sin(phi_b - phi_s) | REAL — sin(2*phi_-) tilts vacuum, not removable |
+| L6 | SU(3) - sin | g Re[Tr(Psi^dag U)]/3 - eps Im[Tr(Psi^dag U)]/3 | REAL — IS the QCD theta-term |
+
+Key findings from quick check:
+- U(1) CANNOT break CP (sin absorbed by phase redefinition phi' = phi + delta)
+- Two-Phase CAN: -eps sin(2*phi_-) shifts vacuum from pi/2 to pi/2 - delta → matter preferred
+- SU(3) CAN: -eps Im[Tr] = QCD theta-term; experiment bounds theta < 10^-10 (Strong CP Problem)
+- Sign convention: -sin follows PDTP pattern (+cos = lock, -cos = repel, -sin = prefer one side)
+- The Strong CP Problem (why theta ~ 0) lands naturally in PDTP's SU(3) extension
+
+**TODO for full investigation:**
+- [ ] Define CP transformation rules for psi, phi_b, phi_s explicitly
+- [ ] Verify L4 is removable (SymPy: cos + sin = shifted cos)
+- [ ] Derive full potential V(phi_-) with -eps sin(2*phi_-) term
+- [ ] Find shifted vacuum: phi_- = pi/2 - delta, solve for delta(eps)
+- [ ] Check: does shifted vacuum break Sakharov condition 2 (CP)?
+- [ ] Compute matter vs antimatter production rate asymmetry
+- [ ] For SU(3): verify -eps Im[Tr(Psi^dag U)]/3 matches QCD theta-term on lattice
+- [ ] Check experimental constraint: what eps (= theta) gives observed baryon asymmetry?
+- [ ] Sudoku consistency: do L5/L6 still pass all 16 two-phase re-derivation tests?
+- [ ] If theta ~ 0 in SU(3), can PDTP explain WHY? (axion mechanism? topological cancellation?)
+
 **RESULTS:** [ ]
 
 #### [ ] B5. Three generations — why exactly 3? — PARTIAL (MEDIUM)
@@ -385,6 +414,47 @@ that are hidden in another.
 **TODO:** [ ] Output all 3 Lagrangians in each form as a reference sheet for systematic testing.
 Each form is a different lens — quadratic for perturbation theory, product for coupling analysis,
 field equation for dynamics, emergent metric for GR recovery. Cross-check results across forms.
+
+---
+
+## CP-Violating Extensions (L4-L6) — Preliminary
+
+Adding -sin terms to each Lagrangian to investigate CP violation (see B4 above).
+Sign convention follows PDTP pattern: +cos = lock, -cos = repel, -sin = prefer one side.
+
+| # | Lagrangian | CP violation? | Notes |
+|---|-----------|---------------|-------|
+| L4 | +g cos(psi-phi) - eps sin(psi-phi) | FAKE | = sqrt(g^2+eps^2) cos(psi-phi-delta); removable by phi' = phi + delta |
+| L5 | L2 - eps sin(phi_b - phi_s) | REAL | sin(2*phi_-) tilts vacuum; matter preferred for -eps |
+| L6 | g Re[Tr(Psi^dag U)]/3 - eps Im[Tr(Psi^dag U)]/3 | REAL | = QCD theta-term; experiment: theta < 10^-10 |
+
+L5 in multiple forms:
+
+| Form | L5: Two-Phase - sin |
+|------|-------------------|
+| **Lagrangian** | +g cos(psi-phi_b) - g cos(psi-phi_s) - eps sin(phi_b - phi_s) |
+| **phi_+/phi_- variables** | 2g sin(psi-phi_+) sin(phi_-) - eps sin(2*phi_-) |
+| **Field eq (phi_-)** | box phi_- = -g cos(psi-phi_+) sin(phi_-) - 2*eps cos(2*phi_-) |
+| **Quadratic** | L2_quad - 2*eps*phi_- (linear tilt — breaks phi_- <-> -phi_- symmetry) |
+| **Vacuum shift** | phi_- = pi/2 - delta where delta ~ eps/g for small eps |
+| **CP test** | Under CP: sin(2*phi_-) -> -sin(2*phi_-); L5 NOT invariant -> CP broken |
+
+L6 in multiple forms:
+
+| Form | L6: SU(3) - sin |
+|------|-----------------|
+| **Lagrangian** | g Re[Tr(Psi^dag U)]/3 - eps Im[Tr(Psi^dag U)]/3 |
+| **Complex form** | Re[(g + i*eps) Tr(Psi^dag U)/3] = |g_eff| Re[Tr(Psi^dag U) e^{-i*delta}]/3 |
+| **Lattice form** | Wilson: -K Re[Tr(U_plaq)]/3 + eps_lat Im[Tr(U_plaq)]/3 |
+| **QCD match** | eps_lat = theta/(32*pi^2) in continuum limit |
+| **Experimental** | Neutron EDM bounds theta < 10^-10 |
+| **CP test** | Under CP: Im[Tr] -> -Im[Tr]; L6 NOT invariant -> CP broken |
+
+**Key question for B4:** Can PDTP explain WHY eps (= theta) is so small?
+If yes → solves Strong CP Problem (major prediction).
+If no → eps is another free parameter (A7).
+
+**TODO:** [ ] Full investigation of L5 and L6 as part of B4 FCC.
 
 ---
 
