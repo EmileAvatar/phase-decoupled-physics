@@ -215,6 +215,21 @@ Check off what you have tried. Untried items are where the answer may be hiding.
   Does G appear on both sides? Does the result depend on what it is trying to prove?
 - [ ] **Order-of-magnitude check** — is the number in the right ballpark?
   If off by more than 10×, a fundamental assumption is wrong.
+- [ ] **Reverse scan** — instead of guessing the input and checking the output,
+  scan all possible inputs in a range and find which ones produce the desired
+  output. This inverts the usual forward calculation. Especially useful when:
+  (a) the forward path is blocked by circularity or underdetermination,
+  (b) there are too many candidate inputs to guess,
+  (c) you want to discover which physical field content produces a specific number.
+  Example (Part 83): instead of guessing which fields give N_eff = 6π, scan
+  N_eff from 10 to 34 and find which values give G_ind/G ≈ 1.
+- [ ] **Integer vs irrational check** — when a result is non-integer (like 6π
+  or √2), ask: is the non-integer value meaningful or a sign of missing structure?
+  Physics constants like π, φ (golden ratio), √2, e often appear in wave/phase
+  systems and geometric factors. Do not force integer answers when the mathematics
+  naturally produces irrational ones. Conversely, if the theory predicts an
+  irrational count where physics expects an integer (like particle species),
+  that tension is itself a finding.
 
 ---
 

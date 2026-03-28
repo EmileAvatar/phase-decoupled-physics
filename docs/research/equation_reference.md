@@ -779,13 +779,117 @@ Structure constants introduce self-interaction at GR-nonlinear order.
 ## 21. Central Open Problem
 
 **m_cond is underdetermined** -- G = hbar*c/m_cond^2 is exact but m_cond = m_P is not derived.
-This is analogous to Lambda in GR. All perturbative paths exhausted (Parts 29-35).
+This is analogous to Lambda in GR. All perturbative AND SU(3) paths exhausted (Parts 29-35, 77-78).
 
 **Free parameters:** m_cond (or equivalently G), and L_H (or equivalently Lambda)
 
+### Part 77 additions (SU(3) dimensional transmutation FCC):
+
+| # | Equation | Status | Source |
+|---|----------|--------|--------|
+| 77.4 | beta_lat = N_c * K_NAT = 3/(4*pi) = 0.2387 | [DERIVED] | Lattice coupling identification |
+| 77.6 | alpha_s(PDTP) = 2/K_NAT = 2.0 (strong coupling) | [DERIVED] | PDTP = strong SU(3) |
+| 77.10 | Lambda/mu = exp(-pi/11) = 0.752 (mild suppression) | [DERIVED] | No hierarchy from SU(3) AF |
+| 77.19 | m_cond_QCD = hbar/(c*sqrt(ln(6/beta_lat)/sigma_QCD)) = 0.236 GeV | [PDTP Original] | Reverse chain |
+| 77.24 | m_cond <= m_P/sqrt(2) (BH consistency bound) | [DERIVED] | Compton >= Schwarzschild |
+| 77.25 | m_cond = m_P saturates BH bound | [OBSERVED] | Extremal condensate hypothesis |
+
+### Part 78 additions (Extremal Condensate — 4 remaining A1 paths):
+
+| # | Equation | Status | Source |
+|---|----------|--------|--------|
+| 78.1 | S_Bek = 2*pi*k_B per cell (m_cond cancels) | [DERIVED] | Bekenstein (1981); R=a_0, E=m_cond*c^2 |
+| 78.2 | S_holo = pi per cell (l_P = a_0 tautology) | [DERIVED] | 't Hooft/Susskind; holographic limit by construction |
+| 78.3 | N_modes = V*(m_cond*c/hbar)^3/(6*pi^2) | [ESTABLISHED] | Mode counting; monotonic in m_cond |
+| 78.4 | eta = 1/(4*a_0^2) = m_cond^2*c^2/(4*hbar^2) | [DERIVED] | Jacobson entropy density |
+| 78.5 | M_P^2 = N*Lambda_grav^2; N=1 for PDTP | [ESTABLISHED] | Dvali (2007); one condensate field |
+| 78.7 | rho_0 = 12*K_NAT = 3/pi = 0.955 (VEV) | [PDTP Original] | Mexican hat from cosine expansion |
+| 78.9 | S_inst = 8*pi^2/g^2 = pi exactly | [PDTP Original] | BPST instanton with g^2=8*pi |
+| 78.10 | exp(-S_inst) = exp(-pi) = 0.0432 (10^15x QCD) | [PDTP Original] | Instanton weight; not suppressed |
+
+**Conclusion (Parts 29-35, 77-78):** PDTP determines dimensionless structure (S_Bek, S_holo,
+rho_0, S_inst) but not dimensional scale (m_cond). Confirmed after 11 independent paths.
+
+### Part 79 additions (alpha_EM FCC — fine-structure constant):
+
+| # | Equation | Status | Source |
+|---|----------|--------|--------|
+| 79.1 | alpha_EM(M_P) = 1/64.1 needed for 1/137 at m_e | [DERIVED] | 1-loop QED RG backward solve |
+| 79.2 | K_NAT^2 = 1/(4*pi)^2 = 1/157.9 (PDTP coupling^2) | [DERIVED] | Part 55; 13.2% off alpha_EM |
+| 79.3 | alpha = Z_0/(2*R_K) = e^2/(4*pi*eps_0*hbar*c) | [EXACT] | Established impedance identity |
+| 79.4 | e*g_m = 2*pi*n*hbar (Dirac quantization) | [ESTABLISHED] | Dirac (1931) |
+| 79.5 | g_m/e = 1/(2*alpha) = R_K/Z_0 = 68.5 | [DERIVED] | Impedance duality |
+| 79.6 | Wyler: alpha_W^{-1} = 137.03608 (0.6 ppm) | [ESTABLISHED] | Wyler (1969); O(4,2) geometry |
+| 79.7 | sin^2(theta_W) = 3/8 at GUT scale | [DERIVED] | SU(5) group theory |
+
+**Conclusion (Parts 52, 55-57, 79):** alpha_EM = 1/137.036 is a free parameter of PDTP,
+analogous to m_cond for gravity. Same barrier: structure derived, values not.
+8 independent approaches, all negative. Confirmed after Part 79 FCC.
+
+### Part 80 additions (dispersion two-phase re-examination):
+
+| # | Equation | Status | Source |
+|---|----------|--------|--------|
+| 80.1 | E_gap(phi_-) = hbar*sqrt(2*g*Phi) | [DERIVED] | Part 62 + Part 80 Check 1 |
+| 80.2 | phi_- does not couple to A_mu or A_mu^a | [DERIVED] | Part 80 Check 2 (spin-0 vs spin-1) |
+| 80.3 | b0_QCD = 7 unchanged by phi_- | [DERIVED] | Part 80 Check 3 (quantum loops) |
+| 80.4 | E_gap(BH) = hbar*sqrt(g) ~ 2.83 MeV << E_GUT | [DERIVED] | Part 80 Check 4 |
+
+**Conclusion (Part 80):** Dispersion model re-examined with two-phase phi_-. All 4 fatal
+problems persist (2 improved, 2 unchanged). Root cause: coupling running is quantum
+(vacuum polarization), not classical dispersion. D3 closed as NEGATIVE CONFIRMED.
+
+### Part 81 additions (wave effects audit — G as combination effect):
+
+| Eq. | Formula | Status | Source |
+|-----|---------|--------|--------|
+| 81.1 | 1/(16*pi*G) = N_eff * Lambda^2 / (192*pi^2) | [ASSUMED] | Sakharov (1967), Visser (2002) |
+| 81.2 | N_eff = 12*pi ~ 37.7 (PDTP-Sakharov consistency) | [DERIVED] | PDTP Original |
+| 81.3 | G = hbar*c * m_cond^(-2); all ingredients scale same way | [DERIVED] | PDTP Original |
+| 81.4 | Box(phi_+) = -g*cos(psi-phi_+)*sin(phi_-) | [VERIFIED] | Part 61 + Part 81 |
+
+**Conclusion (Part 81):** SOFAR hypothesis REJECTED — all G ingredients scale as m_cond^(-2),
+no cross-constraint. 55 wave effects audited: 30 YES, 12 NO. 9 candidate terms tested; none
+pin m_cond. DeepSeek derivation has 6 errors (factors, dimensions, wrong mechanism).
+Sakharov one-loop with PDTP layer confinement remains open (N_eff = 12*pi needed, 23-29 available).
+10/10 Sudoku PASS.
+
+### Part 82 additions (Koide circularity re-examination — D4):
+
+| Eq. | Formula | Status | Source |
+|-----|---------|--------|--------|
+| 82.1 | r_Yukawa = sqrt(hbar * Phi / (4 * m_P)) | [DERIVED] | PDTP Original (reversed Higgs + screened Poisson) |
+| 82.2 | M_0 = mu^2 = 313.84 MeV ~ m_p/3 | [CONFIRMED, 0.3%] | Brannen parametrization |
+| 82.3 | theta_0 ~ theta_C = arcsin(V_us) | [SPECULATIVE, 2.2%] | Near-miss; excluded by m_e precision |
+| 82.4 | G(M_0)/G = (m_P/M_0)^2 ~ 3.6e38 | [CONFIRMED] | Hierarchy wall |
+
+**Conclusion (Part 82):** D4 remains NEGATIVE — Koide is structure theorem, not scale theorem.
+New findings (Parts 37-81) do not change this. phi_- reversed Higgs = chameleon mechanism
+(environment-dependent mass, PDTP Original). Yukawa screening at Earth surface ~10^-18 m
+(too short for fifth-force tests, consistent with non-observation). theta_0 ~ theta_C at
+2.2% but excluded by electron mass sensitivity. M_0 ~ m_p/3 at 0.3% is structural.
+7/10 Sudoku PASS (3 expected failures: ratio mismatch, hierarchy, Yukawa range).
+
+### Part 83 additions (N_eff = 6pi gap in Sakharov formula — B1 FCC):
+
+| Eq. | Formula | Status |
+|-----|---------|--------|
+| 83.1 | G_ind = (6pi/N_eff) * hbar*c / m_cond^2 | [VERIFIED] |
+| 83.2 | N_eff = sum_i epsilon_i * nu_i (signed helicity sum) | [STANDARD] |
+| 83.3 | N_eff(PDTP, minimal) = 8 (gluon scalars) | [DERIVED] |
+| 83.4 | N_eff(PDTP, two-phase) = 10 (+ phi_+, phi_-) | [DERIVED] |
+| 83.5 | N_eff(PDTP, +matter) = 34 (+ 24 vortex phases) | [ESTIMATED] |
+| 83.6 | G_ind/G = 6pi/N_eff (scheme-independent ratio) | [DERIVED] |
+
+**Conclusion (Part 83):** B1 = PARTIAL — gap characterized, not closed. G_ind = 2.356*G
+with 8 gluons confirmed. PDTP N_eff range: 10 (two-phase) to 34 (with matter); target
+6pi ~ 18.85 lies between them — physically reasonable. Near-miss: 8 + (4/3)*8 = 18.67
+(Casimir enhancement, 1% off). SM signed sum = -62 (fermion-dominated, known issue).
+The gap is UNIVERSAL — shared by all induced gravity approaches. 10/10 Sudoku PASS.
+
 ---
 
-## 21. Three Lagrangians — Multiple Mathematical Forms
+## 22. Three Lagrangians — Multiple Mathematical Forms
 
 Each Lagrangian can be expressed in equivalent forms. Different forms expose
 different structure — use all forms when testing and deriving.
@@ -866,7 +970,15 @@ SU(3):      nabla^2 Phi = 4 pi G rho + O(chi^2) corrections [Poisson + SU(3)]
 ---
 
 ## Changelog
+- 2026-03-28: Added Part 83 (N_eff=6pi gap B1 FCC; PARTIAL; G_ind=2.356G confirmed; N_eff range 10-34; 6pi between; Casimir near-miss 1%; 10/10 PASS)
+- 2026-03-27: Added Part 82 (Koide D4 re-exam; STILL NEGATIVE; chameleon=reversed Higgs; r_Yukawa~10^-18 m; theta_0~theta_C 2.2%; 7/10 PASS)
+- 2026-03-25: Added Part 81 (wave effects audit; SOFAR rejected; 55 effects audited, 12 missing; N_eff=12pi; DeepSeek 6 errors; 10/10 PASS)
+- 2026-03-24: Added Part 80 (dispersion two-phase; 4 checks, 2 improved, 2 unchanged; E_gap=hbar*sqrt(2gPhi); 10/10 PASS)
+- 2026-03-22: Added Part 79 (alpha_EM FCC; 5 paths NEGATIVE; impedance duality; Wyler 0.6 ppm; backward-solve 1/64; 9/10 PASS)
+- 2026-03-22: Added Part 78 (extremal condensate; 4 paths NEGATIVE; S_Bek=2pi, S_holo=pi, VEV=3/pi, S_inst=pi; 9/9 PASS)
 - 2026-03-22: Added Section 21 (three Lagrangians in multiple mathematical forms)
+- 2026-03-22: Added Part 77 (SU(3) dim transmutation FCC; alpha_s=2.0; BH bound; m_cond_QCD reverse chain; 8/8 PASS)
+- 2026-03-22: Renumbered: Section 21=Open Problem, Section 22=Three Lagrangians (was duplicate 21)
 - 2026-03-22: Added Part 76 (SU(3) graviton validation; gauge exclusion; FP; Isaacson; Bianchi; 12/12 PASS)
 - 2026-03-22: Added Part 75b (SU(3) Einstein recovery; auto-Lorenz; massive breathing; 12/12 PASS)
 - 2026-03-21: Added Part 75 (SU(3) tensor metric; NOT pure gauge; 2 TT modes; PSD constraint)

@@ -120,6 +120,13 @@ from einstein_from_pdtp import run_einstein_from_pdtp_phase
 from su3_tensor_metric import run_su3_tensor_metric_phase
 from su3_einstein_recovery import run_su3_einstein_recovery_phase
 from su3_graviton_validation import run_su3_graviton_validation_phase
+from su3_dim_transmutation import run_su3_dim_transmutation_phase
+from extremal_condensate import run_extremal_condensate_phase
+from alpha_em_fcc import run_alpha_em_fcc_phase
+from dispersion_two_phase import run_dispersion_two_phase
+from wave_audit_g import run_wave_audit_g
+from koide_reexamine import run_koide_reexamine
+from neff_sakharov import run_neff_sakharov
 
 
 def main():
@@ -400,6 +407,41 @@ def main():
     # Phase 46: SU(3) Graviton Validation (Part 76)
     # ------------------------------------------------------------------
     run_su3_graviton_validation_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 47: SU(3) Dimensional Transmutation (Part 77)
+    # ------------------------------------------------------------------
+    run_su3_dim_transmutation_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 48: Extremal Condensate -- 4 Paths for A1 (Part 78)
+    # ------------------------------------------------------------------
+    run_extremal_condensate_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 49: Fine-Structure Constant FCC (Part 79)
+    # ------------------------------------------------------------------
+    run_alpha_em_fcc_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 50: Dispersion Re-examination with Two-Phase (Part 80)
+    # ------------------------------------------------------------------
+    run_dispersion_two_phase(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 51: Wave Effects Audit -- G as Combination Effect (Part 81)
+    # ------------------------------------------------------------------
+    run_wave_audit_g(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 52: Koide Circularity Re-examination (Part 82, D4)
+    # ------------------------------------------------------------------
+    run_koide_reexamine(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 53: N_eff = 6*pi Gap in Sakharov Formula (Part 83, B1)
+    # ------------------------------------------------------------------
+    run_neff_sakharov(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
