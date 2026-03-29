@@ -887,6 +887,24 @@ with 8 gluons confirmed. PDTP N_eff range: 10 (two-phase) to 34 (with matter); t
 (Casimir enhancement, 1% off). SM signed sum = -62 (fermion-dominated, known issue).
 The gap is UNIVERSAL — shared by all induced gravity approaches. 10/10 Sudoku PASS.
 
+### Part 84 additions (Tetrad from SU(3) — B3 FCC Resolution):
+
+| Eq | Expression | Status |
+|----|-----------|--------|
+| 84.1 | Phi_extended = sqrt(rho_0) * exp(i*phi) * e^a_mu | [ASSUMED] |
+| 84.2 | g_mu_nu = eta_ab * e^a_mu * e^b_nu | [ESTABLISHED] |
+| 84.4 | g_mu_nu = Tr(d_mu U_dag * d_nu U) | [PDTP Original] |
+| 84.5 | h_mu_nu = (eps^2/2) * sum_a (d_mu chi^a)(d_nu chi^a) | [DERIVED] |
+| 84.6 | DOF deficit = 10 - 8 = 2 (metric components - SU(3) fields) | [DERIVED] |
+| 84.9 | G_ind = (6*pi / N_eff) * hbar*c / m_cond^2 | [DERIVED] |
+| 84.10 | G_ind(N_s=8) = (3*pi/4) * G = 2.356 * G | [DERIVED] |
+
+**Conclusion (Part 84):** B3 = PARTIALLY RESOLVED. SU(3) emergent metric (Part 75)
+replaces explicit tetrad (Part 12) for linearized gravity: 2 TT modes derived (not
+postulated), auto-Lorenz gauge, Fierz-Pauli emergent, pure gauge escaped. Head-to-head:
+Part 75 wins 6, Part 12 wins 4, ties 7. Two-phase compatible (4/4 checks pass).
+Remaining: 2-DOF deficit for strong-field, N_eff gap (B1). 12/12 Sudoku PASS.
+
 ---
 
 ## 22. Three Lagrangians — Multiple Mathematical Forms
@@ -969,7 +987,80 @@ SU(3):      nabla^2 Phi = 4 pi G rho + O(chi^2) corrections [Poisson + SU(3)]
 
 ---
 
+### Part 86 additions (Nonlinear Einstein — B2 FCC Resolution):
+
+| Eq | Expression | Status |
+|----|-----------|--------|
+| 86.0 | S_PDTP = K * int d^4x Tr(d_mu U_dag d^mu U)  [principal chiral model] | [ASSUMED] |
+| 86.1 | U = I + i*eps*(chi^a T^a) - (eps^2/2)*(chi^a T^a)^2 + ... | [DERIVED] |
+| 86.2 | Tr(dU_dag dU)|_{O(eps^2)} = eps^2 * (d_mu chi^a)^2  [linearized] | [DERIVED] |
+| 86.3 | Tr(dU_dag dU)|_{O(eps^4)} ~ f^{abc}f^{ade} chi^b chi^d (d chi^c)(d chi^e)  [chi^2*(d chi)^2] | [DERIVED, PDTP Original] |
+| 86.4 | R^(2)_EH ~ (d_mu h_nu_rho)^2 - (1/2)(d_mu h)^2  [GR O(h^2)] | [KNOWN] |
+| 86.5 | d_mu(U_dag d^mu U) = 0  [sigma model field eq; NOT Einstein] | [DERIVED] |
+| 86.6 | N_boundary = A / a_0^2  [horizon boundary cells] | [DERIVED, PDTP Original] |
+| 86.7 | S_PDTP = k_B * ln(2) * A / a_0^2  [microscopic entropy] | [DERIVED, PDTP Original] |
+| 86.8 | S_BH = k_B * A / (4*l_P^2)  [Bekenstein-Hawking] | [KNOWN] |
+| 86.9 | S_PDTP/S_BH|_{a_0=l_P} = 4*ln(2) = 2.773  [entropy gap at baseline] | [DERIVED, PDTP Original] |
+| 86.10 | a_0 = 2*sqrt(ln(2))*l_P ~ 1.665*l_P  [entropy matching condition] | [DERIVED, PDTP Original] |
+| 86.11 | delta_Q = hbar*a*ln(2)/(2*pi*c*a_0^2) * dA  [PDTP Clausius] | [DERIVED, PDTP Original] |
+| 86.12 | G_mu_nu = 8*pi*G_eff T_mu_nu  [Jacobson + S_PDTP; exact at a_0=1.665*l_P] | [DERIVED, PARTIAL] |
+| 86.13 | nabla^4 Phi + 4*g^2*Phi = source  [biharmonic GR, Part 61] | [DERIVED] |
+| 86.14 | Phi(r) ~ source/(8*pi*r)  [biharmonic Green's fn at r << r* = l_P] | [DERIVED] |
+
+**Conclusion (Part 86):** B2 = PARTIALLY RESOLVED. Three strategies explored:
+(1) O(eps^4) sigma model: NEGATIVE — generates chi^2*(d chi)^2 but GR needs (d h)^2; field equations structurally different.
+(2) PDTP microscopic entropy: S = k_B*ln(2)*A/a_0^2 [PDTP Original]; entropy-area law holds at a_0 = 1.665*l_P.
+(3) Jacobson + S_PDTP: full GR derived at corrected a_0 [PARTIAL].
+Gap convergence: entropy gap 4*ln(2)=2.773 and Sakharov gap 3*pi/4=2.356 both ~2-3 independently. 12/12 PASS.
+
+---
+
+### Part 87 additions (Cosmological Constant — A3 FCC):
+
+| Eq | Expression | Status |
+|----|-----------|--------|
+| 87.1 | rho_vac ~ N_eff * hbar*c / (16*pi^2 * a_0^4)  [Sakharov vacuum sum] | [DERIVED] |
+| 87.2 | rho_vac_PDTP = hbar/(c*a_0^4) = rho_Planck/(4*ln(2))^2 = rho_P/7.68  [entropy-corrected] | [DERIVED, PDTP Original] |
+| 87.3 | V(phi_-) = -2*g*cos(phi_-)  [two-phase vacuum potential] | [DERIVED, Part 61] |
+| 87.4 | rho_Lambda_PDTP = g_phys * phi_-_vac^2  [Lambda = phi_- VEV] | [DERIVED, PDTP Original] |
+| 87.5 | phi_-_vac = sqrt(rho_Lambda/g_phys) ~ 10^-70 rad  [cosmological phase offset] | [DERIVED, PDTP Original] |
+| 87.6 | Lambda(t) = g * phi_-_vac(t)^2  [dynamical cosmological constant] | [SPECULATIVE, PDTP Original] |
+
+**Conclusion (Part 87):** A3 = CONFIRMED FREE PARAMETER -- CLOSED. Seven approaches all fail to
+derive Lambda. Reframe succeeds: Lambda = g*phi_-_vac^2 (VEV of phi_- field). Lambda is
+dynamical in PDTP: w(z) != -1 [SPECULATIVE, consistent with DESI 2024]. rho_Planck_PDTP =
+rho_Planck/7.68 [PDTP Original from entropy correction]. 12/12 Sudoku PASS.
+
+---
+
+### Part 88 additions (Hubble Tension — C1 FCC):
+
+| Eq | Expression | Status |
+|----|-----------|--------|
+| 88.0a | H_0^CMB = 67.4 km/s/Mpc [Planck 2020] | [ASSUMED] |
+| 88.0b | H_0^SH0ES = 73.04 km/s/Mpc [Riess+2022] | [ASSUMED] |
+| 88.1 | phi_-_ddot + 3*H(z)*phi_-_dot + m_phi_-^2*phi_- = 0  [phi_- EOM in FRW] | [DERIVED] |
+| 88.2 | m_phi_-^2 = 0 in vacuum (reversed Higgs, Part 62)  -> phi_-_dot = 0 -> w = -1 | [DERIVED] |
+| 88.3 | rho_phi_-(z=3000)/rho_EDE_req = 4.4e-10  (9.4 orders deficit) | [COMPUTED, PDTP Original] |
+| 88.4 | phi_-_vac_EDE = sqrt(rho_EDE/g_phys) ~ 5.41e-66 rad  (4.7 orders above today) | [COMPUTED, PDTP Original] |
+| 88.5 | delta_H_0/H_0 ~ (l_P/r_s)^2 = 1.27e-119  (biharmonic; 118 orders too small) | [COMPUTED] |
+| 88.6 | V_EDE(phi_-) = g*phi_-^2 + lambda*phi_-^4  [tracking attractor; NOT in PDTP] | [SPECULATIVE, PDTP Original] |
+
+**Conclusion (Part 88):** C1 = NEGATIVE (confirmed) -- CLOSED. All 5 mechanisms fail:
+(1) phi_- EDE: frozen (m=0 -> w=-1) AND 9.4 orders too weak.
+(2) phi_- -> G variation: G constant; phi_- not coupled to m_cond.
+(3) Biharmonic: 118 orders too small (sub-Planck only).
+Missing physics: positive phi_-^4 quartic term in condensate potential.
+Falsifiable: DESI w(z) distinguishes systematics vs real physics. 12/12 Sudoku PASS.
+
+---
+
 ## Changelog
+- 2026-03-29: Added Part 88 (Hubble tension C1 FCC; NEGATIVE confirmed; phi_- frozen w=-1; 9.4 orders deficit; phi_-^4 missing; biharmonic 118 orders off; 12/12 PASS)
+- 2026-03-29: Added Part 87 (Lambda A3 FCC; CONFIRMED FREE PARAM; Lambda=g*phi_-_vac^2; rho_vac=rho_P/7.68; phi_-_vac~10^-70 rad; DESI w(z) consistent; 12/12 PASS)
+- 2026-03-29: Added Part 86 (Nonlinear Einstein B2 FCC; PARTIALLY RESOLVED; sigma model NEGATIVE; S_PDTP=k_B*ln(2)*A/a_0^2; a_0=1.665*l_P for area law; Jacobson full GR; entropy gap 4*ln(2)~Sakharov 3*pi/4; 12/12 PASS)
+- 2026-03-29: Added Part 85 (CP violation B4 FCC; PARTIALLY RESOLVED; L5 sin(2phi_-)=real CP; delta=-eps/g; eps/g~3e-7 gives eta~6e-10; L6=theta-term; 12/12 PASS)
+- 2026-03-28: Added Part 84 (Tetrad B3 FCC; PARTIALLY RESOLVED; SU(3) replaces tetrad for linearized gravity; 6 replaced, 2 partial, 1 not; 12/12 PASS)
 - 2026-03-28: Added Part 83 (N_eff=6pi gap B1 FCC; PARTIAL; G_ind=2.356G confirmed; N_eff range 10-34; 6pi between; Casimir near-miss 1%; 10/10 PASS)
 - 2026-03-27: Added Part 82 (Koide D4 re-exam; STILL NEGATIVE; chameleon=reversed Higgs; r_Yukawa~10^-18 m; theta_0~theta_C 2.2%; 7/10 PASS)
 - 2026-03-25: Added Part 81 (wave effects audit; SOFAR rejected; 55 effects audited, 12 missing; N_eff=12pi; DeepSeek 6 errors; 10/10 PASS)

@@ -64,6 +64,13 @@ Phases:
    44. SU(3) tensor metric — g_mu_nu = Tr(dU_dag dU); NOT pure gauge; 2 TT modes; PSD constraint (Part 75)
    45. SU(3) Einstein recovery — 8*pi*G coefficient; auto-Lorenz; matter coupling; PSD obs; nonlinear (Part 75b)
    46. SU(3) graviton validation — gauge exclusion; Fierz-Pauli; Isaacson; Bianchi; metric generality (Part 76)
+   47-53. SU(3) dim transmutation, extremal condensate, alpha_EM FCC, dispersion,
+          wave audit, Koide re-examine, N_eff Sakharov (Parts 77-83)
+   54. Tetrad resolution — B3 FCC: SU(3) replaces tetrad for linearized gravity (Part 84)
+   55. CP violation — B4 FCC: L5 two-phase gives real CP; Sakharov cond. 2 derived (Part 85)
+   56. Nonlinear Einstein — B2 FCC: sigma model NEGATIVE; entropy+Jacobson PARTIAL (Part 86)
+   57. Cosmo constant A3 — B3 FCC: CONFIRMED FREE PARAM; Lambda=g*phi_-_vac^2; DESI w(z) (Part 87)
+   58. Hubble tension C1 — C1 FCC: all 5 mechanisms NEGATIVE; phi_-^4 missing term; DESI test (Part 88)
 """
 
 import os
@@ -127,6 +134,11 @@ from dispersion_two_phase import run_dispersion_two_phase
 from wave_audit_g import run_wave_audit_g
 from koide_reexamine import run_koide_reexamine
 from neff_sakharov import run_neff_sakharov
+from tetrad_resolution import run_tetrad_resolution
+from cp_violation import run_cp_violation
+from nonlinear_einstein import run_nonlinear_einstein
+from cosmo_constant_a3 import run_cosmo_constant_a3
+from hubble_tension_c1 import run_hubble_tension_phase
 
 
 def main():
@@ -442,6 +454,31 @@ def main():
     # Phase 53: N_eff = 6*pi Gap in Sakharov Formula (Part 83, B1)
     # ------------------------------------------------------------------
     run_neff_sakharov(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 54: Tetrad from SU(3) -- B3 FCC Resolution (Part 84)
+    # ------------------------------------------------------------------
+    run_tetrad_resolution(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 55: CP Violation in PDTP (Part 85, B4 FCC)
+    # ------------------------------------------------------------------
+    run_cp_violation(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 56: Full Nonlinear Einstein Equation (Part 86, B2 FCC)
+    # ------------------------------------------------------------------
+    run_nonlinear_einstein(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 57: Cosmological Constant -- A3 FCC (Part 87)
+    # ------------------------------------------------------------------
+    run_cosmo_constant_a3(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 58: Hubble Tension -- C1 FCC (Part 88)
+    # ------------------------------------------------------------------
+    run_hubble_tension_phase(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

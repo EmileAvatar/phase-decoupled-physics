@@ -157,7 +157,7 @@ after 8 independent approaches. Same barrier as m_cond (Part 78): PDTP determine
 dimensionless structure, not coupling values. Sudoku 9/10 pass.
 Most promising future: Wyler's conformal geometry (O(4,2)). **Status: CONFIRMED FREE PARAMETER — CLOSED.**
 
-#### [ ] A3. Cosmological constant Lambda — OPEN (CRITICAL)
+#### [x] A3. Cosmological constant Lambda — CONFIRMED FREE PARAMETER — CLOSED (Part 87)
 
 **Problem:** Lambda is a second free parameter alongside G. Cannot be derived.
 **Prior research:**
@@ -169,8 +169,19 @@ Most promising future: Wyler's conformal geometry (O(4,2)). **Status: CONFIRMED 
 - Docs: `cosmological_constant_fcc.md`, `cosmo_constant_two_phase.md`, `scale_selection_mechanism.md`
 **Status:** Lambda analogous to G — both free parameters of condensate initial conditions.
 **FCC trigger:** Yes — multiple approaches failed.
-**New findings since last attempt:** Two-phase phi_- + Einstein recovery may constrain.
-**RESULTS:** [ ]
+**RESULTS (Part 87, 2026-03-29):**
+- Approach A (Induced Lambda): NEGATIVE -- N_bose=8 gluons; no SUSY cancellation; Planck scale
+- Approach B (Entropy-corrected): rho_vac_PDTP = rho_Planck/(4*ln(2))^2 [PDTP Original]
+  Still ~10^121 x rho_Lambda -- hierarchy not closed
+- Approach C (phi_- reframe): Lambda = g*phi_-_vac^2 [PDTP Original, REFRAME]
+  phi_-_vac = sqrt(rho_Lambda/g_phys) ~ 10^-70 rad [tiny but consistent]
+  Lambda is the large-scale phi_- phase offset of the condensate
+  Lambda is DYNAMIC in PDTP: phi_-_vac(t) evolves -> w(z) != -1 [SPECULATIVE, PDTP Original]
+  DESI 2024 w_0~-0.7 is consistent with phi_- quintessence [SPECULATIVE]
+- 12/12 Sudoku PASS
+- Scripts: `cosmo_constant_a3.py` (Phase 57); Docs: `cosmo_constant_a3.md`
+**Status change:** OPEN (CRITICAL) --> CONFIRMED FREE PARAMETER -- CLOSED
+**Same as A1 (m_cond) and A2 (alpha_EM): PDTP gives physical meaning but not value.**
 
 #### [ ] A4. Koide theta_0 = 2/9 underdetermined — OPEN (MEDIUM)
 
@@ -234,9 +245,14 @@ These are missing derivations where the answer should come from the framework.
 - 6pi is geometric (4D heat kernel), not field-content; non-integer = no exact field content
 - Gap is UNIVERSAL — shared by all induced gravity approaches
 - Open: which matter species contribute how much? Lattice regularization may shift prefactor
+- **NEW CANDIDATE (Part 84 observation):** Y-junction rotational modes — the baryon
+  Y-vertex has 2 bosonic rotational DOF not counted in the 8-gluon N_eff. Bosonic =
+  positive sign (right direction). A fractional coupling could provide the missing 0.18
+  needed to close 18.67 → 18.85. Also: flux tube transverse vibrations (check double-counting
+  with gluons). Quark spin (fermions) contributes NEGATIVELY — wrong sign, do not include.
 - Script: `neff_sakharov.py` (Phase 53); Doc: `neff_sakharov.md`; Sudoku: 10/10 PASS
 
-#### [ ] B2. Full nonlinear Einstein equation — OPEN (HIGH)
+#### [x] B2. Full nonlinear Einstein equation — PARTIALLY RESOLVED (Part 86)
 
 **Problem:** Sakharov gives 1-loop only; full nonlinear GR requires all-loop or exact mechanism.
 **Prior research:**
@@ -246,23 +262,39 @@ These are missing derivations where the answer should come from the framework.
 - Docs: `einstein_from_pdtp.md`
 **Status:** Linearized Einstein recovered; nonlinear regime open.
 **FCC trigger:** Yes — 3 routes attempted, all partial.
-**RESULTS:** [ ]
+**RESULTS (Part 86, 2026-03-29):**
+- Strategy 1 (O(eps^4) sigma model): NEGATIVE — chi^2*(d chi)^2 ≠ (d h)^2 of GR; sigma
+  model field eq d_mu(U_dag d^mu U)=0 is structurally different from G_mu_nu=8*pi*G T_mu_nu
+- Strategy 2 (PDTP microscopic entropy): S_PDTP = k_B*ln(2)*A/a_0^2 [PDTP Original, DERIVED]
+  Entropy-area law holds if a_0 = 2*sqrt(ln(2))*l_P = 1.665*l_P [PDTP Original]
+- Strategy 3 (Jacobson + S_PDTP): PARTIAL — full GR via Clausius at corrected a_0 = 1.665*l_P
+- Strategy 4 (Biharmonic Part 61): CONSISTENT — nabla^4+4g^2 reduces to Newtonian at r >> l_P
+- Gap convergence: entropy gap 4*ln(2)=2.773 and Sakharov gap 3*pi/4=2.356 are both ~2-3
+  independently, pointing at same microstate counting uncertainty [PDTP Original]
+- 12/12 Sudoku PASS
+- Scripts: `nonlinear_einstein.py` (Phase 56); Docs: `nonlinear_einstein.md`
+**Remaining open:** WHY a_0 = 1.665 l_P (not l_P)? Closing this = closing B1 (N_eff) simultaneously.
 
-#### [ ] B3. Condensate tetrad structure — OPEN (HIGH)
+#### [x] B3. Condensate tetrad structure — PARTIALLY RESOLVED (Part 84)
 
 **Problem:** Need tensor (vierbein) degrees of freedom for full GW polarization.
 **Prior research:**
 - Part 12: Phi = sqrt(rho_0) e^{i*phi} e^a_mu; Einstein eq derived; frame-dragging recovered
 - Part 3b: kappa = -2 is coordinate-dependent (not universal PPN)
 - Docs: `tetrad_extension.md`, `hard_problems.md` section 1.10
-**Status:** Partial — tetrad postulated in Part 12, not derived from Lagrangian.
-Spin connection not yet derived from lattice curvature.
-**FCC trigger:** Yes — SU(3) emergent metric (Part 75) may REPLACE the need for
-explicit tetrad (g_mu_nu = Tr(dU^dag dU) provides metric directly).
-**New findings:** Part 75 metric has 2 TT modes without tetrad. May resolve this gap.
-**RESULTS:** [ ]
+**Resolution (Part 84):** SU(3) emergent metric (Part 75) REPLACES explicit tetrad
+for linearized/weak-field gravity. Head-to-head: Part 75 wins 6, Part 12 wins 4, 7 ties.
+- 2 TT modes DERIVED (not postulated) from 8 gluon fields
+- Lorenz gauge automatic, Fierz-Pauli emergent, pure gauge escaped
+- Two-phase compatible (all 4 checks pass)
+- 12/12 Sudoku PASS
+**Remaining gaps:** Strong-field (2-DOF deficit: 8 fields vs 10 metric), N_eff gap (B1).
+Part 12 needed ONLY for black hole interiors / mergers / extreme curvature.
+**Status change:** HIGH → LOW (residual gap is non-blocking for observable physics).
+**Docs:** `tetrad_resolution.md`; Script: Phase 54 `tetrad_resolution.py`
+**RESULTS:** [PARTIALLY RESOLVED — SU(3) replaces tetrad for linearized gravity]
 
-#### [ ] B4. CP violation absent — OPEN (HIGH)
+#### [x] B4. CP violation — PARTIALLY RESOLVED (Part 85)
 
 **Problem:** PDTP Lagrangian is C, P, T invariant. No CP violation = no baryogenesis.
 **Prior research:**
@@ -271,9 +303,20 @@ explicit tetrad (g_mu_nu = Tr(dU^dag dU) provides metric directly).
 - Part 65: Condensate birefringence; chirality from refractive index
 - Scripts: `antimatter_topological_defects.py`, `chirality_parity.py`
 - Docs: `antimatter_topological_defects.md`, `chirality_parity_violation.md`
-**Status:** PDTP explains WHY parity breaks (Z_2 topology) but not WHICH hand (left vs right).
-Sakharov baryogenesis blocked without CP violation.
-**FCC trigger:** Yes — two-phase phi_- may break vacuum symmetry.
+**Resolution (Part 85):** Three mechanisms analyzed. L5 (two-phase + sin(2*phi_-))
+provides REAL, non-removable CP violation:
+- L4 (U(1)+sin): FAKE — absorbed by field redefinition cos+sin=shifted cos [DERIVED]
+- L5 (two-phase + eps*sin(2*phi_-)): REAL — 3-field system, sin invariant under redefinitions
+- L6 (SU(3) + Im[Tr]): REAL — IS the QCD theta-term [IDENTIFIED]
+- Vacuum shifts: delta = -eps/g (small eps approx) [PDTP Original]
+- Sakharov condition 2 (CP): V(delta) != V(-delta) when eps != 0 [DERIVED]
+- Baryon asymmetry: eps/g ~ 3e-7 gives eta ~ 6e-10 [ESTIMATED]
+- Two-phase tests: all preserved at O(eps^2) corrections [CONSISTENT]
+- 12/12 Sudoku PASS
+**Remaining open:** B violation rate (vortex nucleation), non-equilibrium transition,
+WHY eps << g (PDTP version of Strong CP Problem), CKM phase from SU(3).
+**Docs:** `cp_violation.md`; Script: Phase 55 `cp_violation.py`
+**RESULTS:** [PARTIALLY RESOLVED — CP mechanism identified; Sakharov cond. 2 derived]
 
 **Preliminary investigation (2026-03-22, quick check):**
 Adding a -sin term to each Lagrangian as CP-violating extension:
@@ -346,16 +389,24 @@ of spin-statistics theorem (why half-integer spin = Fermi-Dirac) not yet complet
 
 Problems where the failure itself is informative — may require physics beyond any current framework.
 
-#### [ ] C1. Hubble tension — 9 orders too small — OPEN (HIGH)
+#### [x] C1. Hubble tension — NEGATIVE (confirmed) — CLOSED (Part 88)
 
 **Problem:** PDTP predicts two mechanisms for H_0 tension; both ~9 orders too small.
 **Prior research:**
 - Part 16: Dark energy drift + early-time acceleration both fail
 - Docs: `hubble_tension_analysis.md`
-**Status:** Genuinely open; requires new physics beyond PDTP (and possibly beyond GR).
-**FCC trigger:** Yes — re-examine with all findings from Parts 17-76.
-**New findings:** Two-phase (Part 61), phi_- dark energy (Part 68-69), Einstein recovery (Parts 72-76).
-**RESULTS:** [ ]
+**FCC Result (Part 88):** All 5 mechanisms tested. All NEGATIVE:
+- phi_- EDE: frozen (w=-1, m=0 in vacuum) AND 9.4 orders too weak
+- phi_- -> G variation: G is constant; phi_- not coupled to m_cond
+- Biharmonic correction: 118 orders too small (sub-Planck only)
+**New PDTP Original results:**
+- phi_-_vac_EDE = 5.41e-66 rad needed (4.7 orders > observed)
+- Missing physics identified: phi_-^4 quartic term (positive, higher-order correction)
+- Falsifiable: DESI w(z) distinguishes systematics vs real physics
+**Script:** `simulations/solver/hubble_tension_c1.py` (Phase 58)
+**Docs:** `docs/research/hubble_tension_c1.md`
+**Sudoku:** 12/12 PASS
+**RESULTS:** NEGATIVE (confirmed) — CLOSED
 
 #### [ ] C2. Hierarchy problem — why m_P >> m_e — FUNDAMENTAL
 
@@ -461,14 +512,14 @@ Order: most constrained first (most equations to cross-check).
 | 2 | D3 [x] D4 [x] (remaining negatives) | D3: DONE (Part 80); D4: DONE (Part 82, still neg; chameleon; theta_0~theta_C) | 80, 82 | DONE |
 | 2.5 | [x] Wave Effects Audit — G focus | Systematic: check all 55 wave effects + 28 vars against Lagrangian; G as combination? | 81 | DONE |
 | 3 | [x] B1 (N_eff = 6pi gap) | PARTIAL: N_eff range 10-34, target 6pi~18.85 between; Casimir near-miss 1%; universal gap | 83 | DONE |
-| 4 | [ ] B3 (tetrad from SU(3)) | Contract — does Part 75 metric replace tetrad? | 84 | **NEXT** |
+| 4 | [x] B3 (tetrad from SU(3)) | PARTIALLY RESOLVED: SU(3) replaces tetrad for linearized gravity; 2-DOF deficit for strong-field | 84 | DONE |
 | 5 | [x] A1 FCC (m_cond / hierarchy) | SU(3) AF + BCS + bounds — all negative; m_P saturates BH bound | 77-78 | DONE |
-| 6 | [ ] B4 (CP violation) | Contract — two-phase vacuum symmetry breaking? | 84 | PENDING |
+| 6 | [x] B4 (CP violation) | PARTIALLY RESOLVED: L5 sin(2phi_-) real CP; delta=-eps/g; eta~6e-10 | 85 | DONE |
 | 7 | [x] A2 (alpha_EM) | FCC 5 paths — all negative; confirmed free parameter | 79 | DONE |
-| 8 | [ ] B2 (nonlinear Einstein) | Contract — SU(3) structure constants at O(e^4) | 86 | PENDING |
-| 9 | [ ] A3 (Lambda) | Reframe — deepest problem, last | 87 | PENDING |
-| 10 | [ ] C1 (Hubble tension) | Reframe — after Lambda understood | 88 | PENDING |
-| 11 | [ ] B5, B6, A4, A5 (structural) | Mixed — as needed | 89+ | PENDING |
+| 8 | [x] B2 (nonlinear Einstein) | PARTIALLY RESOLVED: sigma model NEGATIVE; entropy+Jacobson PARTIAL (a_0=1.665*l_P) | 86 | DONE |
+| 9 | [x] A3 (Lambda) | CONFIRMED FREE PARAM: Lambda=g*phi_-_vac^2; rho_vac=rho_P/7.68; DESI w(z) | 87 | DONE |
+| 10 | [x] C1 (Hubble tension) | NEGATIVE: phi_- frozen; missing phi_-^4; DESI test | 88 | DONE |
+| 11 | [ ] B5, B6, A4, A5 (structural) | Mixed — as needed | 89+ | **NEXT** |
 
 ---
 
