@@ -383,6 +383,57 @@ of spin-statistics theorem (why half-integer spin = Fermi-Dirac) not yet complet
 **FCC trigger:** Not yet — theoretical proof needed, not numerical.
 **RESULTS:** [ ]
 
+#### [ ] B7. Condensate layer optics — TIR, dark matter, evanescent waves — OPEN (HIGH)
+
+**Problem:** The three condensate layers (C1 grav, C2 QCD, C3 EW) are defined in
+`wave_effects_extension.md` Section 3a, but the WAVE PHYSICS at the boundaries has
+never been derived: no refractive indices, no Snell's law, no critical angles, no
+evanescent penetration depths. The boundaries are where the most interesting physics
+happens — confinement, dark matter, and cross-layer coupling all live here.
+
+**Motivation (2026-03-29):** Interference fringe image (8.2.2.2 water waves) shows that
+two condensate "poles" at a boundary naturally produce constructive/destructive zones.
+The destructive zones may be where dark-matter-like excitations reside — trapped by
+total internal reflection (TIR) at B1 rather than being separate particle species.
+
+**Key questions:**
+1. What is n_eff(omega) for each condensate layer?
+   - Massless phonons (C1 grav): n_eff = 1 everywhere?
+   - Massive modes (C2 QCD gap ~ 200 MeV, C3 EW gap ~ 80 GeV): n_eff < 1 (plasma-like)?
+2. What is the critical angle at B1 (grav/QCD) and B2 (QCD/EW)?
+   - sin(theta_c) = n_lower/n_upper at each boundary
+3. Which excitations are totally internally reflected at B1?
+   - Low-energy C1 modes (E << Lambda_QCD): cannot propagate in C2 → dark matter candidates?
+   - Quarks (SU(3) winding 1/3): incompatible modes → confinement alternative explanation?
+4. What is the evanescent penetration depth at each boundary?
+   - lambda_evan ~ hbar/(Delta_m * c) — connection to virtual photon exchange range?
+5. Does the two-source interference fringe spacing predict any observable scale?
+   - Dark matter clustering? BAO scale? Void sizes?
+
+**Connection to existing work:**
+- Part 28b: spacetime birefringence (E24) — PDTP already predicts n depends on polarization
+- Part 65: condensate birefringence from chirality — two polarizations see different n
+- Part 67: White comparison; healing length xi ~ l_P/sqrt(2) as penetration depth candidate
+- Section 3a wave_effects_extension.md: three layers + boundaries defined (conceptual only)
+- E2 (wave_effects_extension.md): TIR listed as emergent effect — never computed for PDTP
+
+**FCC trigger:** YES — full Methodology.md check + full wave_effects_extension.md cross-check.
+**Wave Effects Check:** YES — specifically items 50 (evanescent), 52 (TIR), E2, E3, E10
+(Anderson localization), E16 (horizon as TIR — already identified, now extend to all boundaries).
+**Status:** First quantitative investigation complete (Part 89).
+**Script:** `simulations/solver/condensate_layer_optics.py` (Phase 59)
+**Docs:** `docs/research/condensate_layer_optics.md`
+**Sudoku:** 12/12 PASS
+**RESULTS (Part 89, 2026-03-29):**
+- n_eff hierarchy: n_C1=1 > n_C2(E) > n_C3(E) for E < m_W*c^2 [DERIVED]
+- lambda_evan(B1) = hbar/(Lambda_QCD*c) = 0.987 fm [QCD confinement scale, DERIVED]
+- lambda_evan(B2) = hbar/(m_W*c) = 0.00245 fm [weak force range, DERIVED]
+- Force ranges = evanescent depths at layer boundaries [PDTP Original, DERIVED]
+- Dark matter as mode-mismatch U(1) vortex: gravity-only, Bullet Cluster safe [SPECULATIVE]
+- Critical angle at B1 (proton) = 77.7 deg [DERIVED]
+- Two dual origins of quark confinement: string tension (Part 38) + evanescent depth (Part 89) [PDTP Original]
+**Full FCC + wave effects check:** Still pending (Priority 12).
+
 ---
 
 ### Category C — Reframe (may point to deeper physics)
@@ -485,6 +536,54 @@ theta_0 ~ theta_C at 2.2% (excluded by m_e precision). M_0 ~ m_p/3 at 0.3% is st
 
 ---
 
+### Category E — Living Reference Documents (ongoing, not problems)
+
+These are documents that must be created and kept continuously updated as new
+Parts are completed. They are not "problems" to solve — they are running records.
+
+#### [ ] E1. dark_matter_energy.md — Dark Matter and Dark Energy Living Reference
+
+**Purpose:** Single source of truth for ALL dark matter (DM) and dark energy (DE)
+findings in PDTP, alongside current science. Updated after every relevant Part.
+
+**Why it's needed:**
+- DM and DE appear in many separate Parts (22, 25, 28b, 29, 33, 54, 68, 69, 87, 88, 89...)
+- No single document currently summarises what PDTP says about either
+- Future Parts (B7 FCC, dark matter FCC) need this as a baseline reference
+- Allows direct comparison: current science observation vs PDTP prediction/mechanism
+
+**Contents to compile (first pass):**
+- Section 1: Dark matter — observed properties (Planck 2020, rotation curves, CMB, lensing)
+- Section 2: Dark matter — PDTP candidates (all Parts surveyed):
+  - Mode-mismatch U(1)-only vortex in C1 (Part 89) [SPECULATIVE]
+  - TIR confinement at B1 for sub-gap excitations (Part 89) [SPECULATIVE]
+  - Antimatter as topological defects — does not explain DM (Part 22) [NEGATIVE]
+  - Vortex winding candidates from Part 33
+- Section 3: Dark energy — observed properties (w(z), DESI 2024, acceleration)
+- Section 4: Dark energy — PDTP mechanisms (all Parts surveyed):
+  - Lambda = g*phi_-_vac^2 (Part 87) — confirmed free parameter
+  - Beats between phi and psi fields (Part 25, 68) — w(z) ≠ -1 [SPECULATIVE]
+  - phi_- quintessence — frozen w=-1 (Part 88) [NEGATIVE for H_0]
+  - phi_-^4 missing term (Part 88) — EDE candidate [SPECULATIVE]
+  - phi_-_vac ~ 10^-70 rad; rho_vac = rho_Planck/7.68 (Part 87)
+- Section 5: Neutrino detectability (Part 89) — evanescent/propagating transition
+- Section 6: Open questions and PDTP predictions (falsifiable)
+- Section 7: What PDTP does NOT explain (honest negative results)
+
+**Sources to survey before writing:**
+Parts 22, 25, 28b, 28c, 29, 33, 54, 61, 62, 68, 69, 71, 87, 88, 89
+Docs: hubble_tension_c1.md, cosmo_constant_a3.md, cosmo_constant_v2.md,
+      condensate_layer_optics.md, falsifiable_predictions.md, wave_effects_extension.md
+
+**Update rule:** Any Part that produces a DM or DE finding (positive or negative)
+must add an entry to dark_matter_energy.md in the same session before commit.
+
+**Expected Part #:** 90 (creation); then living update each relevant Part thereafter
+**Status:** [ ] TO CREATE
+**RESULTS:** [ ]
+
+---
+
 ### Previously "Open" — Now RESOLVED
 
 These were listed as open in earlier TODOs but have been resolved by later work.
@@ -520,6 +619,8 @@ Order: most constrained first (most equations to cross-check).
 | 9 | [x] A3 (Lambda) | CONFIRMED FREE PARAM: Lambda=g*phi_-_vac^2; rho_vac=rho_P/7.68; DESI w(z) | 87 | DONE |
 | 10 | [x] C1 (Hubble tension) | NEGATIVE: phi_- frozen; missing phi_-^4; DESI test | 88 | DONE |
 | 11 | [ ] B5, B6, A4, A5 (structural) | Mixed — as needed | 89+ | **NEXT** |
+| 12 | [ ] B7 (condensate layer optics) | FCC + Wave Effects Check: n_eff, TIR, dark matter, evanescent | 90+ | PENDING |
+| 13 | [ ] E1 (dark_matter_energy.md living doc) | Compile all DM/DE findings from all Parts into one file | 90+ | PENDING |
 
 ---
 

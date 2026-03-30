@@ -1046,6 +1046,27 @@ rho_Planck/7.68 [PDTP Original from entropy correction]. 12/12 Sudoku PASS.
 | 88.5 | delta_H_0/H_0 ~ (l_P/r_s)^2 = 1.27e-119  (biharmonic; 118 orders too small) | [COMPUTED] |
 | 88.6 | V_EDE(phi_-) = g*phi_-^2 + lambda*phi_-^4  [tracking attractor; NOT in PDTP] | [SPECULATIVE, PDTP Original] |
 
+### Part 89 additions (Condensate Layer Optics):
+
+| Eq | Expression | Status |
+|----|-----------|--------|
+| 89.1 | omega^2 = c^2*k^2 + omega_gap^2  [condensate phonon dispersion] | [ASSUMED] |
+| 89.2 | omega_gap = m_cond * c^2 / hbar  [gap from condensate mass] | [DERIVED] |
+| 89.3 | n_eff(omega) = sqrt(1 - (omega_gap/omega)^2)  [plasma-type index] | [DERIVED] |
+| 89.4 | sin(theta_c) = n_C2/n_C1  [Snell's law critical angle at B1] | [DERIVED] |
+| 89.5 | lambda_evan(B1,E=0) = hbar/(Lambda_QCD*c) = 0.987 fm  [QCD scale] | [DERIVED, PDTP Original] |
+| 89.6 | lambda_evan(B2,E=0) = hbar/(m_W*c) = 0.00245 fm  [weak force range] | [DERIVED, PDTP Original] |
+| 89.7 | lambda_evan(B1)/lambda_evan(B2) = m_W/Lambda_QCD = 402  [force range ratio] | [DERIVED, PDTP Original] |
+| 89.8 | sigma_DM/m = G/c^4 ~ 10^-43 cm^2/g << Bullet Cluster bound  [DM self-interaction] | [DERIVED] |
+
+**Conclusion (Part 89):** B7 first investigation complete. Force ranges of QCD (~1 fm) and
+weak interaction (~0.002 fm) derived as evanescent penetration depths at C1/C2 and C2/C3
+boundaries. n_eff hierarchy confirmed: n_C1=1 > n_C2(E) > n_C3(E). Dark matter as
+mode-mismatch U(1)-only C1 vortex: gravity-only coupling, Bullet Cluster safe. Full FCC +
+wave effects check pending (TODO_03 B7, Priority 12). 12/12 Sudoku PASS.
+
+---
+
 **Conclusion (Part 88):** C1 = NEGATIVE (confirmed) -- CLOSED. All 5 mechanisms fail:
 (1) phi_- EDE: frozen (m=0 -> w=-1) AND 9.4 orders too weak.
 (2) phi_- -> G variation: G constant; phi_- not coupled to m_cond.
@@ -1056,6 +1077,7 @@ Falsifiable: DESI w(z) distinguishes systematics vs real physics. 12/12 Sudoku P
 ---
 
 ## Changelog
+- 2026-03-29: Added Part 89 (condensate layer optics; n_eff, TIR, evanescent depths; lambda_evan(B1)=0.987 fm, lambda_evan(B2)=0.00245 fm; force ranges derived; DM mode-mismatch; 12/12 PASS)
 - 2026-03-29: Added Part 88 (Hubble tension C1 FCC; NEGATIVE confirmed; phi_- frozen w=-1; 9.4 orders deficit; phi_-^4 missing; biharmonic 118 orders off; 12/12 PASS)
 - 2026-03-29: Added Part 87 (Lambda A3 FCC; CONFIRMED FREE PARAM; Lambda=g*phi_-_vac^2; rho_vac=rho_P/7.68; phi_-_vac~10^-70 rad; DESI w(z) consistent; 12/12 PASS)
 - 2026-03-29: Added Part 86 (Nonlinear Einstein B2 FCC; PARTIALLY RESOLVED; sigma model NEGATIVE; S_PDTP=k_B*ln(2)*A/a_0^2; a_0=1.665*l_P for area law; Jacobson full GR; entropy gap 4*ln(2)~Sakharov 3*pi/4; 12/12 PASS)
