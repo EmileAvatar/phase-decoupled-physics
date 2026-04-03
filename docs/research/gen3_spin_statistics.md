@@ -251,6 +251,80 @@ times you've gone around. Spin-½ is not exotic — it's what you get automatica
 
 ---
 
+## Connection to the Dzhanibekov Effect (Spinning Top in Space)
+
+You may have seen the ISS video where a cosmonauts spins a wing nut or T-handle and it
+periodically flips 180° by itself, over and over again. This is the **Dzhanibekov effect**
+(also called the tennis racket theorem). It is related to — but distinct from — the quantum
+spin-½ flip.
+
+### The Dzhanibekov flip (classical mechanics)
+
+A rigid object has three principal axes of rotation (like the three axes of a rugby ball).
+Spinning around the longest or shortest axis is stable. Spinning around the **intermediate**
+axis is unstable — any tiny wobble causes the object to periodically flip 180° and flip back.
+This is classical mechanics, no quantum physics involved. It happens to wing nuts, tennis
+rackets, and any elongated object with three different moments of inertia.
+
+**Does this happen to quarks, leptons, or atoms?**
+
+Not in the Dzhanibekov sense — because fundamental particles (electrons, quarks) are
+point-like and have no "shape" that can tumble. They don't have an intermediate axis.
+Atoms are nearly spherical. The Dzhanibekov flip needs an object with three distinct
+rotational moments — something macroscopic with an irregular shape.
+
+### The quantum phase flip (spin-½)
+
+Separately from the Dzhanibekov flip, ALL fermions (electrons, quarks, protons, neutrons)
+undergo the quantum phase flip described in Result 7:
+
+```
+Rotate fermion by 360°  →  wavefunction picks up factor (−1)
+Rotate fermion by 720°  →  wavefunction returns to original (+1)
+```
+
+This is NOT visible as a physical tumble — the particle doesn't flip over in space. It is
+a change in the **mathematical sign** of the quantum state. It becomes observable only when
+you interfere two paths (like in a neutron interferometer), where the −1 shows up as a
+phase shift in the interference pattern.
+
+**Measured in the lab (neutron interferometry, 1975):**
+Rauch et al. (1975) split a neutron beam, rotated one path's neutrons by various angles using
+a magnetic field, and recombined. The interference pattern showed exactly the predicted
+(−1) at 360° and (+1) at 720° — confirming that neutrons behave as spin-½ particles.
+
+### Why "not meaningful" for a macroscopic spinning top
+
+| Object | Dzhanibekov flip | Quantum phase flip |
+|---|---|---|
+| Wing nut / T-handle in ISS | Yes — flips periodically (classical, unstable axis) | Not meaningful |
+| Electron / quark | No (pointlike, no intermediate axis) | Yes — 360° gives (−1) |
+| Proton / neutron | No visible tumble | Yes — measured in neutron interferometry |
+| Whole atom | Only if strongly asymmetric shape | Yes if spin is half-integer |
+
+"Not meaningful" for the macro top means: the top contains ~10²³ atoms. When you rotate the
+whole top by 360°, every individual electron and proton inside picks up a (−1) phase flip.
+But 10²³ tiny phase flips decohere almost instantly — the individual quantum phases scramble
+into thermal noise. You cannot measure the (−1) of the whole top as a single coherent quantum
+state. The Dzhanibekov flip IS visible and real — but it is the classical instability, not the
+quantum phase.
+
+**The deep connection:** Both phenomena ultimately come from the same geometry — the rotation
+group SO(3) has a "double cover" called SU(2). In plain terms: going around once in 3D space
+is not the same as going around twice, at the level of the underlying mathematics. The
+Dzhanibekov flip is the classical shadow of this asymmetry (intermediate-axis instability).
+The spin-½ phase flip is the quantum version (wavefunction sign change). In PDTP, the Z₂
+vortex winding IS the SU(2) double cover structure — so both phenomena have the same root in
+the condensate topology.
+
+**MRI practical connection:** Every time you get an MRI scan, the machine is exploiting the
+quantum phase flip of proton spins. A radio pulse tips the protons into a superposition, they
+precess (rotate) in the magnetic field, and as they relax they emit a detectable radio signal.
+The timing and frequency of that signal encodes the 720° = identity property of spin-½ protons.
+MRI is the Dzhanibekov connection made medically useful.
+
+---
+
 ## Sudoku Scorecard (Phase 62 — 12 tests)
 
 | Test | Description | Result |

@@ -512,6 +512,15 @@ Key findings from quick check:
   - This IS the definition of spin-1/2; Z_2 winding generates SU(2)->SO(3) double cover
 - Spin-statistics FULLY DERIVED: Z_2 winding -> spin-1/2 -> n=1 -> (-1) -> Fermi-Dirac
 - 12/12 Sudoku PASS (combined B5+B6 test)
+- Dzhanibekov connection documented (gen3_spin_statistics.md):
+  - Dzhanibekov/tennis-racket flip = CLASSICAL (intermediate-axis instability of rigid body)
+  - Spin-1/2 phase flip = QUANTUM (Z_2 vortex winding; 360 deg -> (-1), 720 deg -> +1)
+  - Both arise from same root geometry: SO(3) double cover by SU(2)
+  - Macro top: "not meaningful" for quantum phase because 10^23 atoms decohere instantly;
+    Dzhanibekov flip IS real/visible but is classical mechanics, not quantum phase
+  - Fundamental particles (electrons, quarks): no Dzhanibekov (pointlike, no axes);
+    quantum phase flip: YES -- measured in neutron interferometry (Rauch 1975)
+  - MRI connection: proton spin-1/2 phase flip exploited in every MRI machine
 **Status change:** PARTIAL --> FULL DERIVATION (Pauli, Fermi-Dirac, spin-1/2 all from topology) -- CLOSED
 
 #### [ ] B7. Condensate layer optics — TIR, dark matter, evanescent waves — OPEN (HIGH)
