@@ -219,6 +219,53 @@ Most promising future: Wyler's conformal geometry (O(4,2)). **Status: CONFIRMED 
 **FCC trigger:** Linked to A1; if m_cond determined, g follows.
 **RESULTS:** [ ]
 
+#### [ ] A7. Speed of light c — is it emergent? — OPEN (HIGH)
+
+**Problem:** c is treated as a fundamental constant in PDTP, but it may be emergent from the
+condensate lattice. If the spacetime condensate has a lattice spacing l_0 and a natural
+oscillation frequency omega_0, then c = omega_0 x l_0 — same as how sound speed in a crystal
+emerges from frequency x lattice spacing. Under this view c is NOT fundamental; it is the
+phonon dispersion speed of the spacetime condensate, which could in principle vary.
+
+**Key questions:**
+1. Does c = omega_0 x l_0 reduce to c_s = c (Part 34) or is it an independent statement?
+2. If l_0 = l_P and omega_0 = c/l_P (Planck frequency), is this circular or confirmatory?
+3. If the condensate has a background oscillation phi = phi_0 cos(omega_0 t), the coupling
+   is renormalized: g_eff = g x J_0(phi_0) (Bessel function). What sets phi_0?
+4. Could c vary locally? (Variable Speed of Light theories — VSL). If the condensate
+   density n or lattice spacing l_0 varies (near black holes, in early universe), c varies.
+5. Is there a dispersion relation for c itself? c(omega) — frequency-dependent speed of light?
+6. Connection to dark energy: if c changes cosmologically, H_0 and the Hubble tension may shift.
+
+**Prior research:**
+- Part 34 (condensate_selfconsist.py): c_s = c EXACTLY derived — sound speed of condensate = c
+- Part 29 (orbital_scanner.py): c/l_P = Planck frequency = omega_gap_C1
+- Part 89 (condensate_layer_optics.py): n_eff formula uses c as fixed; what if c = c(layer)?
+- CLAUDE.md key equation: c_s = sqrt(g_GP x n / m_cond) = c [always, any m_cond]
+
+**Approach (in order):**
+1. Reframe Part 34 result: c_s = c is NOT a coincidence — it IS the definition of c in PDTP
+2. Show c = omega_0 x l_0 in condensate notation; identify omega_0 and l_0 explicitly
+3. Derive what happens to c if n or l_0 changes (early universe, near singularity)
+4. Bessel renormalization: compute g_eff = g x J_0(phi_0); what observable does phi_0 set?
+5. VSL prediction: does c(z) at high redshift differ from c_0? Consistent with CMB/BBN?
+6. Sudoku: 10+ tests substituting c -> c(n, l_0) into known equations; check contradictions
+7. SM compatibility: variable c must not break gauge invariance or alter particle masses
+8. Two-phase check: does c_s = c hold separately for phi_+ and phi_- modes?
+
+**Expected outcome:** c is the condensate phonon speed (c_s = c, Part 34) — this is the
+derivation, not a coincidence. The Planck frequency sets omega_0; l_P sets l_0; c emerges.
+If correct: c is to PDTP as c_s is to BEC — a derived material property, not a postulate.
+This would make G, Lambda, AND c all emergent from the same condensate (m_cond, n, l_0).
+
+**VSL implication (SPECULATIVE):** Near a black hole or in the early universe, if n varies,
+c varies. May connect to Mach-effect theories and UAP phase-decoupling (Goal 2).
+
+**Status:** Not yet investigated. Partially hinted at in Part 34 (c_s = c) and Part 89 (n_eff).
+**FCC trigger:** Not yet — first pass needed.
+**Linked problems:** A1 (m_cond), A6 (g), C3 (why this Lagrangian)
+**RESULTS:** [ ]
+
 ---
 
 ### Category B — Structural Gaps (derive from within PDTP)
@@ -621,6 +668,7 @@ Order: most constrained first (most equations to cross-check).
 | 11 | [ ] B5, B6, A4, A5 (structural) | Mixed — as needed | 89+ | **NEXT** |
 | 12 | [ ] B7 (condensate layer optics) | FCC + Wave Effects Check: n_eff, TIR, dark matter, evanescent | 90+ | PENDING |
 | 13 | [ ] E1 (dark_matter_energy.md living doc) | Compile all DM/DE findings from all Parts into one file | 90+ | PENDING |
+| 14 | [ ] A7 (emergent c) | c = omega_0 x l_0; c_s=c reframe; Bessel renorm; VSL; Sudoku | 91+ | PENDING |
 
 ---
 
