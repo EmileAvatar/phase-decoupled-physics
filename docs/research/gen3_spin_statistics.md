@@ -325,6 +325,66 @@ MRI is the Dzhanibekov connection made medically useful.
 
 ---
 
+## [SPECULATIVE] Dzhanibekov Y-Junction: Quark Arms as the Three Axes
+
+**This is an open speculation, not yet derived. Filed for future investigation.**
+
+The Dzhanibekov effect needs three *different* moments of inertia. In PDTP, a baryon is a
+Y-junction (Part 36/37): three Z₃ flux tubes meeting at 120°, with one quark at each tip.
+The effective "moment" of each arm scales with the string tension and the quark mass at
+the tip. This gives a natural mapping:
+
+```
+Three quark arms  →  three rotational axes
+Quark masses      →  moments of inertia along each axis
+```
+
+**Which baryons are "asymmetric tops"?**
+
+| Baryon | Quark content | Arm moments | Dzhanibekov analog |
+|---|---|---|---|
+| Proton (uud) | u, u, d | I₁ = I₁ ≠ I₃ | Symmetric top — stable |
+| Neutron (udd) | u, d, d | I₁ ≠ I₂ = I₂ | Symmetric top — stable |
+| Lambda (uds) | u, d, s | I₁ ≠ I₂ ≠ I₃ | **Asymmetric top — unstable** |
+| Omega⁻ (sss) | s, s, s | I₁ = I₂ = I₃ | Spherical top — perfectly stable |
+
+The Lambda (uds) baryon has all three quarks different — exactly the asymmetric top
+condition. The proton and neutron have two arms equal — symmetric top, stable.
+The Omega has all three equal — also stable.
+
+**The speculation [SPECULATIVE]:** The Dzhanibekov "flip" of the Y-junction IS the weak
+decay. When the Lambda decays (Λ → p + π⁻), the strange quark arm "flips" to an up quark
+via a W boson — the arm changes length (mass changes), the Y-junction reconfigures, and
+it settles into the more stable proton configuration. Analogous to a wing nut flipping from
+its unstable intermediate axis to a stable one.
+
+**Connecting to B5 (N_gen = |Z₃| = 3):** The three arms of the Y-junction map to the
+three Z₃ center elements = three generations. A "Dzhanibekov flip" of one arm =
+a generation change on that quark line = a weak decay (via CKM matrix mixing).
+
+**Specific predictions to check [SPECULATIVE, not yet derived]:**
+1. Does the Lambda lifetime scale with a Dzhanibekov "flip time"? Flip time for a
+   classical asymmetric top: T_flip ~ 1/(ω × ε) where ε = (I₂ - I₁)/I₃ (asymmetry).
+   Could this give the right order of magnitude for τ_Λ ≈ 2.6×10⁻¹⁰ s?
+2. Are the most stable baryons exactly those with the most symmetric quark content?
+   Proton (uud, two equal), Omega (sss, all equal) — both longest-lived hadrons. ✓
+3. Does the CKM matrix encode the "coupling" between Y-junction arms analogous to the
+   coupling between rotational axes in the Euler equations?
+
+**Why the gluon is the right "body" here:**
+The flux tube itself (the gluon field between quarks) is the elastic arm of the Y-junction.
+The gluon oscillations (transverse waves on the flux tube, Part 36) carry the rotational
+energy. So the gluon is not one of the three axes — it IS the rigid body being spun.
+The three quark tips set the mass distribution (moments of inertia) of that body.
+
+**Status:** [SPECULATIVE] — no derivation attempted. The analogy is geometrically compelling
+but requires:
+- A formal mapping from Euler's rigid-body equations to the Y-junction field equations
+- Checking whether the Lambda lifetime emerges from a classical flip-time estimate
+- Two-phase Lagrangian check: does φ₋ couple to the asymmetry ε = (I₂ − I₁)/I₃?
+
+---
+
 ## Sudoku Scorecard (Phase 62 — 12 tests)
 
 | Test | Description | Result |

@@ -521,6 +521,18 @@ Key findings from quick check:
   - Fundamental particles (electrons, quarks): no Dzhanibekov (pointlike, no axes);
     quantum phase flip: YES -- measured in neutron interferometry (Rauch 1975)
   - MRI connection: proton spin-1/2 phase flip exploited in every MRI machine
+- [SPECULATIVE] Dzhanibekov Y-junction hypothesis (filed for future investigation):
+  - Y-junction baryon (Part 36/37): three quark arms -> three rotational axes
+  - Arm effective moment ~ string tension x quark mass at tip
+  - Proton (uud): two arms equal -> symmetric top -> STABLE [matches observation]
+  - Neutron (udd): two arms equal -> symmetric top -> STABLE [matches observation]
+  - Lambda (uds): all arms different -> ASYMMETRIC TOP -> unstable [matches: decays in 2.6e-10 s]
+  - Omega (sss): all arms equal -> spherical top -> STABLE [matches: longest-lived hyperon]
+  - Speculation: Lambda weak decay = Dzhanibekov "flip" of Y-junction (s arm -> u arm via W)
+  - Speculation: CKM matrix encodes "coupling" between Y-junction arms (like Euler equations)
+  - Speculation: gluon field IS the rigid body; quark masses set moments of inertia
+  - To check: does flip-time T ~ 1/(omega x epsilon) give right order for tau_Lambda?
+  - Docs: `gen3_spin_statistics.md` (SPECULATIVE section)
 **Status change:** PARTIAL --> FULL DERIVATION (Pauli, Fermi-Dirac, spin-1/2 all from topology) -- CLOSED
 
 #### [ ] B7. Condensate layer optics — TIR, dark matter, evanescent waves — OPEN (HIGH)
@@ -623,6 +635,50 @@ If solved, cascades to A1, A6, and most other free parameters.
 argument forcing this specific form would be a major advance.
 **FCC trigger:** Not yet — philosophical/foundational, not computational.
 **RESULTS:** [ ]
+
+---
+
+### Category F — Speculative Threads (not yet investigated; filed for future)
+
+These are ideas that emerged from the work but have not been formally pursued.
+They are geometrically or physically plausible but have no derivation yet.
+Tag: [SPECULATIVE] — evaluate with Methodology.md before starting any calculation.
+
+#### [ ] F1. Dzhanibekov Y-junction — SPECULATIVE (Part 93 addendum)
+
+**Hypothesis:** The PDTP baryon Y-junction (three Z₃ flux tube arms, Part 36/37) maps
+onto a classical asymmetric rigid body. The three quark arms give three different effective
+moments of inertia (proportional to string tension × quark mass). Baryons with all-different
+quark masses (e.g. Lambda uds) are "asymmetric tops" — unstable under the Dzhanibekov
+effect. Their weak decay IS the Dzhanibekov "flip": the strange quark arm flips to an up
+quark via a W boson, settling into the more symmetric proton configuration.
+
+**Stability pattern (matches observation):**
+- Proton (uud): two arms equal -> symmetric top -> STABLE [longest-lived baryon]
+- Neutron (udd): two arms equal -> symmetric top -> STABLE [decays only via weak, 15 min]
+- Lambda (uds): all arms different -> ASYMMETRIC TOP -> decays in 2.6e-10 s [CORRECT]
+- Omega (sss): all arms equal -> spherical top -> stable [longest-lived hyperon]
+
+**Three specific checks to do:**
+1. Does flip-time T ~ 1/(omega x epsilon) give right order of magnitude for tau_Lambda ~ 2.6e-10 s?
+   (epsilon = (I_2 - I_1)/I_3 = asymmetry; omega ~ QCD scale ~ Lambda_QCD c^2/hbar ~ 2e23 rad/s)
+2. Does the CKM matrix encode the "coupling" between Y-junction arms (analogous to Euler
+   equations coupling the three axes)?
+3. Two-phase check: does phi_- (Part 61) couple to the asymmetry epsilon?
+
+**PDTP connections:**
+- B5 (N_gen = |Z_3| = 3): three arms = three Z_3 elements = three generations
+- B6 (spin-statistics): gluon = elastic arm = rigid body; quark tips = mass distribution
+- Part 36 (Y-junction): force balance at 120 deg; string tension sigma
+- Part 61 (two-phase): phi_- environment-dependent mass; could modulate arm stiffness
+
+**Why NOT to pursue immediately:** No derivation, pure analogy. Classical Euler equations
+need to map rigorously to field equations before any number can be trusted.
+Use Methodology.md checklist before starting — especially items 2.1 (analogy vs derivation)
+and 3.8 (reverse scan: does any known QCD result produce flip-time formula?).
+
+**Docs:** `gen3_spin_statistics.md` (SPECULATIVE section)
+**Status:** SPECULATIVE — filed 2026-04-03. No calculation started.
 
 ---
 
