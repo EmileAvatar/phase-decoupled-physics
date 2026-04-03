@@ -256,7 +256,7 @@ but not the value theta_0. The neutrino mass prediction is the new falsifiable o
 - Script: Phase 63, `coupling_constant_g.py`; Doc: `docs/research/coupling_constant_g.md`
 **Status change:** OPEN (HIGH) --> PARTIAL + FREE -- CLOSED
 
-#### [ ] A7. Speed of light c — is it emergent? — OPEN (HIGH)
+#### [x] A7. Speed of light c — is it emergent? — PARTIAL + FREE (was OPEN HIGH)
 
 **Problem:** c is treated as a fundamental constant in PDTP, but it may be emergent from the
 condensate lattice. If the spacetime condensate has a lattice spacing l_0 and a natural
@@ -338,7 +338,27 @@ This is a concrete mechanism for phase decoupling (Goal 2) that doesn't require 
 **Status:** Not yet investigated. Partially hinted at in Part 34 (c_s = c) and Part 89 (n_eff).
 **FCC trigger:** Not yet — first pass needed.
 **Linked problems:** A1 (m_cond), A6 (g), C3 (why this Lagrangian)
-**RESULTS:** [ ]
+**RESULTS:**
+- c = c_s(C1) = sqrt(g_GP*n/m_cond) = c for ANY m_cond [DERIVED, algebraic, Part 34 restatement]
+  - c is the phonon speed of the C1 spacetime condensate -- structural identity, not postulate
+- c = omega_0 * l_0 = g * l_P [lattice identity; tautological in isolation] [DERIVED]
+- Photon = massless phonon: v_g = c always [PDTP Original]
+  - Vortex (matter) = massive topological defect: v_g = c^2*k/omega < c [PDTP Original]
+  - Speed difference is TOPOLOGICAL, not postulated
+- Bessel renormalization [PDTP Original]: g_eff = g*J_0(phi_0); c_eff = c*sqrt(J_0(phi_0))
+  - "Light stop": J_0(2.4048)=0 => c_eff=0 [PDTP Original, SPECULATIVE]
+  - Spacetime analog of Hau (1999) slow/stopped light in atomic BEC
+- Variable c from density [PDTP Original]: c_local = c*sqrt(n_local/n_0)
+  - Flat vacuum: n=n_P, c_local=c; Near matter/singularity: n varies, c_local varies
+  - PDTP version of VSL (Variable Speed of Light) theories
+- Hau analogy: SAME formula c_s=sqrt(g_GP*n/m) for PDTP and Na BEC [ANALOGY]
+  - n_Planck/n_Hau = 2.96e86; spacetime condensate 10^86 times denser
+  - Note: Hau's 17 m/s was EIT group velocity, NOT BEC phonon speed (~0.5 mm/s)
+- k_J << k_Planck: k_J/k_P = 3.9e-22; Jeans instability at nuclear scales, not Planck [DERIVED]
+- NEGATIVE: numerical value of c reduces to A1; c not independently determined
+- 12/12 Sudoku PASS
+- Script: Phase 64, `emergent_c.py`; Doc: `docs/research/emergent_c.md`
+**Status change:** OPEN (HIGH) --> PARTIAL + FREE -- CLOSED
 
 ---
 

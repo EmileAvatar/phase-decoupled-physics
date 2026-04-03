@@ -1170,6 +1170,35 @@ Observational path: measure omega_gap (breathing mode GW) => independent g => te
 
 ---
 
+### Part 95 additions (A7 FCC: Is c emergent?):
+
+| Eq.   | Expression | Status | Source |
+|---|---|---|---|
+| 95.0  | c_s = sqrt(g_GP * n / m_cond) [reference Eq 4b] | [DERIVED] | Part 34 |
+| 95.1  | c_s^2 = c^2 exactly for any m_cond [algebraic] | [DERIVED] | Part 95 |
+| 95.2  | omega_0 = g = m_cond*c^2/hbar [condensate natural freq] | [DERIVED] | Eq 4e |
+| 95.3  | l_0 = l_P = c/g [lattice spacing] | [DERIVED] | Eq 2b |
+| 95.4  | c = omega_0 * l_0 = g * l_P [lattice identity] | [DERIVED] | Part 95 |
+| 95.5  | Photon (phonon): omega = c*k, v_g = c [massless] | [PDTP Original] | Part 95 |
+| 95.6  | Vortex (matter): v_g = c^2*k/omega < c [massive] | [PDTP Original] | Part 95 |
+| 95.7  | g_eff = g * J_0(phi_0) [Bessel/Floquet renorm] | [PDTP Original] | Part 95 |
+| 95.8  | c_eff = c * sqrt(J_0(phi_0)) [variable c from osc.] | [PDTP Original] | Part 95 |
+| 95.9  | Light stop: J_0(phi_0)=0 => phi_0=2.4048 => c_eff=0 | [PDTP Original, SPECULATIVE] | Part 95 |
+| 95.10 | c_local = c * sqrt(n_local/n_0) [variable c from density] | [PDTP Original] | Part 95 |
+| 95.11 | k_J << k_Planck: k_J/k_P = 3.9e-22 [Jeans nuclear scale] | [DERIVED] | Eq 6b + Part 95 |
+
+**Conclusion (Part 95):** A7 PARTIAL + FREE (12/12 PASS).
+c = c_s(C1) = sqrt(g_GP*n/m_cond) DERIVED from condensate parameters; holds for any m_cond [STRUCTURAL].
+Photons travel at c because they ARE massless phonons; matter (vortices) travels at v<c [PDTP Original].
+NEW: c_eff = c*sqrt(J_0(phi_0)) -- Bessel renorm under condensate oscillation [PDTP Original].
+NEW: "Light stop" at phi_0=2.4048: spacetime analog of Hau (1999) experiment [SPECULATIVE].
+NEW: c_local = c*sqrt(n_local/n_0) -- variable c from density variation [PDTP Original].
+NEGATIVE: numerical value of c reduces to A1 (m_cond free).
+Hau analogy: same formula as PDTP, different condensate; spacetime n ~ 10^86 times denser.
+k_J << k_Planck: Jeans instability scale is nuclear (~0.26 pm), not Planck.
+
+---
+
 **Conclusion (Part 88):** C1 = NEGATIVE (confirmed) -- CLOSED. All 5 mechanisms fail:
 (1) phi_- EDE: frozen (m=0 -> w=-1) AND 9.4 orders too weak.
 (2) phi_- -> G variation: G constant; phi_- not coupled to m_cond.
@@ -1180,6 +1209,7 @@ Falsifiable: DESI w(z) distinguishes systematics vs real physics. 12/12 Sudoku P
 ---
 
 ## Changelog
+- 2026-04-04: Added Part 95 (A7 FCC: c=c_s DERIVED; photon=phonon; c_eff=c*sqrt(J_0); light-stop phi_0=2.4048; variable c from n; 12/12 PASS)
 - 2026-04-04: Added Part 94 (A6 FCC: G*g^2=c^5/hbar DERIVED; g=omega_P~1.855e43 rad/s; A6 PARTIAL+FREE; reduces to A1; 12/12 PASS)
 - 2026-04-03: Added Part 93 (B5: N_gen=|Z_3|=3 DERIVED from SU(3) center; B6: Fermi-Dirac+Pauli+spin-1/2 from Berry phase; 12/12 PASS)
 - 2026-04-03: Added Part 92 (EW condensate A5 FCC; sin2w=3/8 DERIVED at GUT (SU(5)); 1-loop 9% gap; v FREE PARAM; 12/12 PASS)
