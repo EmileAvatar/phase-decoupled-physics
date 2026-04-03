@@ -208,15 +208,28 @@ Most promising future: Wyler's conformal geometry (O(4,2)). **Status: CONFIRMED 
 **Same pattern as A1, A2, A3: PDTP gives structure (delta=sqrt(2), Q=2/3, 120-deg spacing)
 but not the value theta_0. The neutrino mass prediction is the new falsifiable output.**
 
-#### [ ] A5. sin^2(theta_W) and v_EW = 246 GeV — OPEN (MEDIUM)
+#### [x] A5. sin^2(theta_W) and v_EW = 246 GeV — PARTIAL DERIVATION + FREE PARAM — CLOSED (Part 92)
 
 **Problem:** Weak mixing angle and EW condensate scale are free parameters.
 **Prior research:**
 - Part 27: Structure derived (ratio of condensate stiffnesses); value not derived
-- Docs: `coupling_constants.md`
-**Status:** No derivation attempted beyond structure. Requires EW condensate model.
-**FCC trigger:** Not yet — minimal investigation so far.
-**RESULTS:** [ ]
+- Part 49: W/Z boson masses structural (m_W = g_2*v/2, m_Z = m_W/cos(theta_W))
+- Part 52: coupling constants running derived (beta functions); values free
+- Docs: `coupling_constants.md`, `wz_boson_masses.md`
+**Status:** FCC complete (Part 92). Two distinct results.
+**RESULTS:**
+- sin^2(theta_W)(M_GUT) = 3/8: DERIVED from SU(5) group normalization [EXACT, group theory]
+  - g_1 = sqrt(5/3)*g_Y [SU(5) normalization]; at GUT g_1=g_2=g_GUT; => sin2w = 3/8 [PDTP Original]
+- sin^2(theta_W)(m_Z) ~ 0.210: PARTIAL from one-loop RG (9% off measured 0.231)
+  - Gap = well-known non-SUSY SU(5) failure; SUSY-SU(5) gives 0.232 (closes gap)
+- SM non-unification confirmed: alpha_1(M_GUT) / alpha_GUT ~ 1.30 ≠ 1 in SM [NEGATIVE for unification]
+- v = 246.22 GeV: CONFIRMED FREE PARAMETER (C3 condensate density; EW hierarchy v/m_P ~ 2e-17)
+  - Same pattern as A1 (m_cond), A2 (alpha_EM), A3 (Lambda): free condensate scale
+- Topological scan: no PDTP topology within 4% of sin2w(m_Z) = 0.231 [NEGATIVE]
+- 12/12 Sudoku PASS
+**UNIQUE in A-series: sin^2(theta_W) has structural GROUP THEORY origin (SU(5) fixes it at M_GUT).**
+**Unlike A1-A4 (fully free), sin^2(theta_W) is PARTIALLY DERIVED. v = 246 GeV remains free.**
+**Status change:** OPEN (MEDIUM) --> PARTIAL + FREE -- CLOSED
 
 #### [ ] A6. Coupling constant g (Lagrangian) — OPEN (HIGH)
 

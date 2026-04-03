@@ -1094,6 +1094,32 @@ giving Q_nu = 0.52, distinct from charged lepton Q = 2/3.
 
 ---
 
+### Part 92 additions (EW condensate -- A5 FCC: sin^2(theta_W) and v_EW):
+
+| Eq.   | Expression | Status | Source |
+|---|---|---|---|
+| 92.0  | SU(5) embedding: Y = (1/sqrt(60))*diag(-2,-2,-2,+3,+3) | [ASSUMED] | Georgi & Glashow (1974) |
+| 92.1  | SU(5) normalization: g_1 = sqrt(5/3) * g_Y | [ASSUMED] | Georgi & Glashow (1974) |
+| 92.2  | GUT unification: g_1 = g_2 = g_3 = g_GUT at M_GUT | [ASSUMED] | Standard GUT |
+| 92.3  | From 92.1+92.2: g_Y = sqrt(3/5) * g_GUT | [DERIVED] | PDTP Original |
+| 92.4  | Weinberg angle: sin^2(theta_W) = g_Y^2/(g_Y^2+g_2^2) | [DERIVED] | Weinberg (1967) |
+| 92.5  | sin^2(theta_W)(M_GUT) = (3/5)/(8/5) = 3/8 [EXACT] | [DERIVED] | PDTP Original |
+| 92.6  | One-loop RGE: d(1/alpha_i)/d(ln mu) = b0_i/(2*pi) | [DERIVED] | Jones (1981) |
+| 92.7  | M_GUT from alpha_2=alpha_3: t = Delta(1/alpha)*2pi/(b0_3-b0_2) | [DERIVED] | PDTP Original |
+| 92.8  | 1-loop prediction: sin^2(theta_W)(m_Z) ~ 0.210 (9% off 0.231) | [PARTIAL] | PDTP Original |
+| 92.9  | v from G_F: v = 1/sqrt(sqrt(2)*G_F) = 246.22 GeV | [DERIVED] | Fermi (1934)/PDG |
+| 92.10 | EW hierarchy: v/m_P = 2.02e-17 [FREE PARAM] | [OBSERVED] | PDTP Original |
+| 92.11 | Higgs self-coupling: lambda = m_H^2/(2*v^2) = 0.1294 [free] | [OBSERVED] | ATLAS+CMS (2012) |
+| 92.12 | Top Yukawa: y_t = sqrt(2)*m_top/v ~ 0.994 [free] | [OBSERVED] | PDG |
+
+**Conclusion (Part 92):** A5 PARTIAL + FREE PARAM (12/12 PASS). sin^2(theta_W)(M_GUT) = 3/8
+DERIVED from SU(5) group normalization -- unique in A-series (A1-A4 fully free).
+One-loop running gives sin^2(theta_W)(m_Z) ~ 0.210 (9% gap; SUSY-SU(5) closes to <1%).
+v = 246 GeV CONFIRMED FREE PARAMETER (C3 condensate density; same status as A1, A2, A3).
+SM non-unification: alpha_1/alpha_GUT ~ 1.30 at M_GUT (non-SUSY SM fails to unify).
+
+---
+
 **Conclusion (Part 88):** C1 = NEGATIVE (confirmed) -- CLOSED. All 5 mechanisms fail:
 (1) phi_- EDE: frozen (m=0 -> w=-1) AND 9.4 orders too weak.
 (2) phi_- -> G variation: G constant; phi_- not coupled to m_cond.
@@ -1104,6 +1130,7 @@ Falsifiable: DESI w(z) distinguishes systematics vs real physics. 12/12 Sudoku P
 ---
 
 ## Changelog
+- 2026-04-03: Added Part 92 (EW condensate A5 FCC; sin2w=3/8 DERIVED at GUT (SU(5)); 1-loop 9% gap; v FREE PARAM; 12/12 PASS)
 - 2026-04-03: Added Part 91 (Koide theta_0 A4 FCC; CONFIRMED FREE PARAM; cross-sector pattern 2/3^n; nu masses Sum=58.6 meV NO; signed Brannen Q_nu=0.52; SU(5) NEGATIVE; 12/12 PASS)
 - 2026-03-29: Added Part 89 (condensate layer optics; n_eff, TIR, evanescent depths; lambda_evan(B1)=0.987 fm, lambda_evan(B2)=0.00245 fm; force ranges derived; DM mode-mismatch; 12/12 PASS)
 - 2026-03-29: Added Part 88 (Hubble tension C1 FCC; NEGATIVE confirmed; phi_- frozen w=-1; 9.4 orders deficit; phi_-^4 missing; biharmonic 118 orders off; 12/12 PASS)
