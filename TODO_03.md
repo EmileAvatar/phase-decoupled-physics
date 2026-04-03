@@ -183,19 +183,30 @@ Most promising future: Wyler's conformal geometry (O(4,2)). **Status: CONFIRMED 
 **Status change:** OPEN (CRITICAL) --> CONFIRMED FREE PARAMETER -- CLOSED
 **Same as A1 (m_cond) and A2 (alpha_EM): PDTP gives physical meaning but not value.**
 
-#### [ ] A4. Koide theta_0 = 2/9 underdetermined — OPEN (MEDIUM)
+#### [x] A4. Koide theta_0 = 2/9 — CONFIRMED FREE PARAMETER — CLOSED (Part 91)
 
 **Problem:** Lepton mass angular parameter has no SU(3) derivation.
 **Prior research:**
 - Part 4: Koide Q = 2/3 <=> delta = sqrt(2); Z_3 phase geometry
 - Part 32: 0/8 non-circular candidates; Koide = structure theorem, not scale theorem
 - Part 53: Z3 geometry + equal partition derives delta = sqrt(2); theta_0 remains free
-- Scripts: `koide_z3.py`, `koide_lattice_analysis.py`
-- Docs: `koide_z3_derivation.md`, `koide_lattice_analysis.md`
-**Status:** 3 lepton masses reduced to 2 free params (M_0, theta_0); delta eliminated.
-**FCC trigger:** Not yet — only 2 approaches tried.
-**New findings:** Xi_cc baryon (Part 70) provides new mass constraint; SU(3) geometry may fix angle.
-**RESULTS:** [ ]
+- Part 82: D4 re-examine; 0/5 new constraints; theta_0 ~ theta_C excluded by m_e precision
+- Part 91: A4 FCC; SU(5) NEGATIVE; reverse scan NEGATIVE; cross-sector pattern SPECULATIVE
+- Scripts: `koide_z3.py`, `koide_lattice_analysis.py`, `koide_reexamine.py`, `koide_theta0.py`
+- Docs: `koide_z3_derivation.md`, `koide_lattice_analysis.md`, `koide_reexamine.md`, `koide_theta0.md`
+**RESULTS (Part 91, 2026-04-03):**
+- Cross-sector Brannen: theta_0(lep)=2/9, theta_0(up)~2/27, theta_0(dn)~1/9
+  Pattern 2/3^n is suggestive but unconfirmed (quark mass uncertainty ~5%)
+  Q=2/3 holds ONLY for leptons (Z3-neutral); quarks (Z3-charged) give Q_up=0.849, Q_dn=0.732 [DERIVED]
+- SU(5) GUT center: Z5 phases all >20% off theta_0 [NEGATIVE]
+- Reverse scan: closest PDTP angle 4.5% off (C2_fund/2pi) [NEGATIVE]
+- NEW RESULT: Neutrino mass prediction from Koide + oscillation data [PDTP Original]
+  Sum(m_nu) = 58.6 meV (NO), 59.4 meV (IO) -- testable by CMB-S4/Euclid (~2030)
+  m_nu1 < 1 meV (nearly massless); lightest nu in SIGNED Brannen regime (Q_nu=0.52 not 2/3)
+- 12/12 Sudoku PASS
+**Status change:** OPEN (MEDIUM) --> CONFIRMED FREE PARAMETER -- CLOSED
+**Same pattern as A1, A2, A3: PDTP gives structure (delta=sqrt(2), Q=2/3, 120-deg spacing)
+but not the value theta_0. The neutrino mass prediction is the new falsifiable output.**
 
 #### [ ] A5. sin^2(theta_W) and v_EW = 246 GeV — OPEN (MEDIUM)
 
@@ -702,7 +713,7 @@ Order: most constrained first (most equations to cross-check).
 | 8 | [x] B2 (nonlinear Einstein) | PARTIALLY RESOLVED: sigma model NEGATIVE; entropy+Jacobson PARTIAL (a_0=1.665*l_P) | 86 | DONE |
 | 9 | [x] A3 (Lambda) | CONFIRMED FREE PARAM: Lambda=g*phi_-_vac^2; rho_vac=rho_P/7.68; DESI w(z) | 87 | DONE |
 | 10 | [x] C1 (Hubble tension) | NEGATIVE: phi_- frozen; missing phi_-^4; DESI test | 88 | DONE |
-| 11 | [ ] B5, B6, A4, A5 (structural) | Mixed — as needed | 89+ | **NEXT** |
+| 11 | [ ] B5, B6, A5 (structural); [x] A4 DONE | Mixed — as needed | 91+ | **NEXT (A4 done)** |
 | 12 | [ ] B7 (condensate layer optics) | FCC + Wave Effects Check: n_eff, TIR, dark matter, evanescent | 90+ | PENDING |
 | 13 | [ ] E1 (dark_matter_energy.md living doc) | Compile all DM/DE findings from all Parts into one file | 90+ | PENDING |
 | 14 | [ ] A7 (emergent c) | c = omega_0 x l_0; c_s=c reframe; Bessel renorm; VSL; Sudoku | 91+ | PENDING |

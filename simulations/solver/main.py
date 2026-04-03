@@ -72,6 +72,7 @@ Phases:
    57. Cosmo constant A3 — B3 FCC: CONFIRMED FREE PARAM; Lambda=g*phi_-_vac^2; DESI w(z) (Part 87)
    58. Hubble tension C1 — C1 FCC: all 5 mechanisms NEGATIVE; phi_-^4 missing term; DESI test (Part 88)
    59. Condensate layer optics — n_eff, TIR, evanescent depths; force ranges from B1/B2 (Part 89)
+   60. Koide theta_0 — A4 FCC: CONFIRMED FREE PARAM; nu masses predicted; cross-sector pattern (Part 91)
 """
 
 import os
@@ -141,6 +142,7 @@ from nonlinear_einstein import run_nonlinear_einstein
 from cosmo_constant_a3 import run_cosmo_constant_a3
 from hubble_tension_c1 import run_hubble_tension_phase
 from condensate_layer_optics import run_condensate_layer_optics
+from koide_theta0 import run_koide_theta0
 
 
 def main():
@@ -486,6 +488,11 @@ def main():
     # Phase 59: Condensate Layer Optics (Part 89)
     # ------------------------------------------------------------------
     run_condensate_layer_optics(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 60: Koide theta_0 Investigation (Part 91)
+    # ------------------------------------------------------------------
+    run_koide_theta0(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
