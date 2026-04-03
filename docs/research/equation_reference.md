@@ -1094,6 +1094,29 @@ giving Q_nu = 0.52, distinct from charged lepton Q = 2/3.
 
 ---
 
+### Part 93 additions (Three generations B5 + Spin-statistics B6):
+
+| Eq.   | Expression | Status | Source |
+|---|---|---|---|
+| 93.1  | N_gen = \|Z(SU(3))\| = \|Z_3\| = 3 [EXACT] | [DERIVED] | PDTP Original |
+| 93.2  | N_nu = Gamma_inv/Gamma_nu_SM = 2.999 [LEP] | [EMPIRICAL] | ALEPH+DELPHI+L3+OPAL (2006) |
+| 93.3  | Koide Q = 2/3 [Z_3 3-body identity; k=0,1,2 only] | [DERIVED] | Part 53 + PDTP Original |
+| 93.4  | Fermi: Gamma(lepton) = G_F^2 m^5/(192*pi^3) per leptonic channel | [DERIVED] | Fermi (1934) |
+| 93.5  | Finkelstein-Rubinstein: exchange phase = e^{i*pi*n} in 3+1D condensate | [ASSUMED] | Finkelstein & Rubinstein (1969) |
+| 93.6  | Berry phase for vortex winding n: (-1)^n [DERIVED] | [DERIVED] | PDTP Original |
+| 93.7  | Pauli exclusion: A + (-1)*A = 0 for n=1 vortices [DERIVED] | [DERIVED] | PDTP Original |
+| 93.8  | Z_2 vortex 2pi rotation -> phase (-1); 4pi -> (+1) [spin-1/2] | [DERIVED] | PDTP Original |
+
+**Conclusion (Part 93):** B5 KEY DERIVATION + B6 FULL DERIVATION (12/12 PASS).
+B5: N_gen = |Z_3| = 3 from SU(3) center [PDTP Original] -- not dynamical, group theory.
+Supporting: LEP N_nu = 2.999, Koide Q = 2/3 (3-body only), Fermi Gamma ~ m^5 verified.
+Weak decay cutoff 2572 GeV >> LEP exclusion 102 GeV: Z_3 group structure, not Fermi, limits N_gen.
+B6: Berry phase (-1)^n -> Fermi-Dirac for n=1; Pauli exclusion derived; spin-1/2 from Z_2 winding.
+All from Finkelstein-Rubinstein theorem -- no extra postulate for statistics.
+Remaining: why SU(3) specifically (not SU(2) or SU(4))? -> C3 open problem.
+
+---
+
 ### Part 92 additions (EW condensate -- A5 FCC: sin^2(theta_W) and v_EW):
 
 | Eq.   | Expression | Status | Source |
@@ -1130,6 +1153,7 @@ Falsifiable: DESI w(z) distinguishes systematics vs real physics. 12/12 Sudoku P
 ---
 
 ## Changelog
+- 2026-04-03: Added Part 93 (B5: N_gen=|Z_3|=3 DERIVED from SU(3) center; B6: Fermi-Dirac+Pauli+spin-1/2 from Berry phase; 12/12 PASS)
 - 2026-04-03: Added Part 92 (EW condensate A5 FCC; sin2w=3/8 DERIVED at GUT (SU(5)); 1-loop 9% gap; v FREE PARAM; 12/12 PASS)
 - 2026-04-03: Added Part 91 (Koide theta_0 A4 FCC; CONFIRMED FREE PARAM; cross-sector pattern 2/3^n; nu masses Sum=58.6 meV NO; signed Brannen Q_nu=0.52; SU(5) NEGATIVE; 12/12 PASS)
 - 2026-03-29: Added Part 89 (condensate layer optics; n_eff, TIR, evanescent depths; lambda_evan(B1)=0.987 fm, lambda_evan(B2)=0.00245 fm; force ranges derived; DM mode-mismatch; 12/12 PASS)

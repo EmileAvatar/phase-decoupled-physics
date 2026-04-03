@@ -74,6 +74,7 @@ Phases:
    59. Condensate layer optics — n_eff, TIR, evanescent depths; force ranges from B1/B2 (Part 89)
    60. Koide theta_0 — A4 FCC: CONFIRMED FREE PARAM; nu masses predicted; cross-sector pattern (Part 91)
    61. EW condensate — A5 FCC: sin2w=3/8 DERIVED at GUT (SU(5)); 9% gap 1-loop; v FREE PARAM (Part 92)
+   62. Three gen + Spin-stats — B5: N_gen=3=|Z_3| DERIVED; B6: Fermi-Dirac from Berry phase (Part 93)
 """
 
 import os
@@ -145,6 +146,7 @@ from hubble_tension_c1 import run_hubble_tension_phase
 from condensate_layer_optics import run_condensate_layer_optics
 from koide_theta0 import run_koide_theta0
 from ew_condensate import run_ew_fcc
+from gen3_spin_statistics import run_gen3_spin_stats
 
 
 def main():
@@ -500,6 +502,11 @@ def main():
     # Phase 61: EW Condensate -- A5 FCC (Part 92)
     # ------------------------------------------------------------------
     run_ew_fcc(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 62: Three Generations (B5) + Spin-Statistics (B6) (Part 93)
+    # ------------------------------------------------------------------
+    run_gen3_spin_stats(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
