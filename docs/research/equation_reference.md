@@ -1143,6 +1143,33 @@ SM non-unification: alpha_1/alpha_GUT ~ 1.30 at M_GUT (non-SUSY SM fails to unif
 
 ---
 
+### Part 94 additions (A6 FCC: Coupling constant g):
+
+| Eq.   | Expression | Status | Source |
+|---|---|---|---|
+| 94.0  | G = hbar*c/m_cond^2 [reference Eq 2a] | [DERIVED] | Part 33 |
+| 94.1  | g = m_cond*c^2/hbar [units: rad/s] | [PDTP Original] | Part 34 |
+| 94.2  | m_cond = hbar*g/c^2 [from 94.1] | [DERIVED] | Part 94 |
+| 94.3  | G = c^5/(hbar*g^2) [sub 94.2 into 94.0] | [DERIVED] | PDTP Original |
+| 94.4  | G * g^2 = c^5 / hbar [EXACT constraint] | [PDTP Original, DERIVED] | Part 94 |
+| 94.5  | g = sqrt(c^5/(hbar*G)) = omega_Planck ~ 1.855e43 rad/s | [DERIVED] | PDTP Original |
+| 94.6  | l_P = c/g; t_P = 1/g; m_P = hbar*g/c^2; E_P = hbar*g | [DERIVED] | Part 94 |
+| 94.7  | omega_gap = g [breathing mode gap = PDTP coupling] | [DERIVED] | Eq 6a + Part 94 |
+| 94.8  | 4g^2 = biharmonic coefficient in nabla^4 Phi + 4g^2*Phi | [DERIVED] | Eq 2e + Part 94 |
+| 94.9  | n = (g/c)^3 = 1/l_P^3 [condensate number density] | [DERIVED] | Eq 4d + Part 94 |
+| 94.10 | omega_phi(Earth) = sqrt(2g*Phi_E) ~ 4.82e25 rad/s ~ 31.7 GeV | [DERIVED] | Eq 6c + Part 94 |
+| 94.11 | G, g, m_cond: THREE NAMES for the same free parameter | [NEGATIVE] | PDTP Original |
+
+**Conclusion (Part 94):** A6 PARTIAL + FREE (12/12 PASS).
+NEW RESULT: G*g^2 = c^5/hbar [PDTP Original, DERIVED]. g = omega_Planck ~ 1.855e43 rad/s.
+All Planck units (l_P, t_P, m_P, E_P) follow from g alone.
+NEGATIVE: g is NOT independently determined. G, g, m_cond are equivalent encodings of one free parameter.
+A6 reduces to A1: until m_cond = m_P is derived from topology, g = omega_P remains a consequence of G.
+Note: Jeans eigenvalue (Eq 2f) uses g in natural units [mass^2]; Eq 4e uses SI [rad/s]. Different normalizations.
+Observational path: measure omega_gap (breathing mode GW) => independent g => test G*g^2=c^5/hbar.
+
+---
+
 **Conclusion (Part 88):** C1 = NEGATIVE (confirmed) -- CLOSED. All 5 mechanisms fail:
 (1) phi_- EDE: frozen (m=0 -> w=-1) AND 9.4 orders too weak.
 (2) phi_- -> G variation: G constant; phi_- not coupled to m_cond.
@@ -1153,6 +1180,7 @@ Falsifiable: DESI w(z) distinguishes systematics vs real physics. 12/12 Sudoku P
 ---
 
 ## Changelog
+- 2026-04-04: Added Part 94 (A6 FCC: G*g^2=c^5/hbar DERIVED; g=omega_P~1.855e43 rad/s; A6 PARTIAL+FREE; reduces to A1; 12/12 PASS)
 - 2026-04-03: Added Part 93 (B5: N_gen=|Z_3|=3 DERIVED from SU(3) center; B6: Fermi-Dirac+Pauli+spin-1/2 from Berry phase; 12/12 PASS)
 - 2026-04-03: Added Part 92 (EW condensate A5 FCC; sin2w=3/8 DERIVED at GUT (SU(5)); 1-loop 9% gap; v FREE PARAM; 12/12 PASS)
 - 2026-04-03: Added Part 91 (Koide theta_0 A4 FCC; CONFIRMED FREE PARAM; cross-sector pattern 2/3^n; nu masses Sum=58.6 meV NO; signed Brannen Q_nu=0.52; SU(5) NEGATIVE; 12/12 PASS)

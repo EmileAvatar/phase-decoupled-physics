@@ -231,7 +231,7 @@ but not the value theta_0. The neutrino mass prediction is the new falsifiable o
 **Unlike A1-A4 (fully free), sin^2(theta_W) is PARTIALLY DERIVED. v = 246 GeV remains free.**
 **Status change:** OPEN (MEDIUM) --> PARTIAL + FREE -- CLOSED
 
-#### [ ] A6. Coupling constant g (Lagrangian) — OPEN (HIGH)
+#### [x] A6. Coupling constant g (Lagrangian) — PARTIAL + FREE (was OPEN HIGH)
 
 **Problem:** g in L = g cos(psi - phi) is not determined from first principles.
 **Prior research:**
@@ -241,7 +241,20 @@ but not the value theta_0. The neutrino mass prediction is the new falsifiable o
 - Docs: `mathematical_formalization.md`
 **Status:** g determines all physical scales but is itself underdetermined. Related to A1 (m_cond).
 **FCC trigger:** Linked to A1; if m_cond determined, g follows.
-**RESULTS:** [ ]
+**RESULTS:**
+- NEW RESULT [PDTP Original]: G * g^2 = c^5 / hbar [DERIVED, algebraic identity]
+  - Derived from: G = hbar*c/m_cond^2 (Eq 2a) + g = m_cond*c^2/hbar (Eq 4e)
+  - Eliminate m_cond -> G = c^5/(hbar*g^2) -> G*g^2 = c^5/hbar
+  - Residual: 1.4e-16 (machine precision) [VERIFIED]
+- g = sqrt(c^5/(hbar*G)) = Planck angular frequency omega_P ~ 1.855e43 rad/s [DERIVED]
+- All Planck units follow from g: l_P=c/g, t_P=1/g, m_P=hbar*g/c^2, E_P=hbar*g [DERIVED]
+- NEGATIVE: g is NOT independent. G, g, m_cond are three names for one free parameter.
+- A6 reduces to A1: until m_cond = m_P is derived, g = omega_P is consequence of G.
+- NOTE (units): Jeans eigenvalue lambda=2*sqrt(2)*g (Eq 2f) uses g in natural units [mass^2];
+  Eq 4e uses SI [rad/s]. Different normalizations -- cross-unit Jeans test excluded.
+- 12/12 Sudoku PASS
+- Script: Phase 63, `coupling_constant_g.py`; Doc: `docs/research/coupling_constant_g.md`
+**Status change:** OPEN (HIGH) --> PARTIAL + FREE -- CLOSED
 
 #### [ ] A7. Speed of light c — is it emergent? — OPEN (HIGH)
 

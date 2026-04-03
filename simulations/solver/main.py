@@ -75,6 +75,7 @@ Phases:
    60. Koide theta_0 — A4 FCC: CONFIRMED FREE PARAM; nu masses predicted; cross-sector pattern (Part 91)
    61. EW condensate — A5 FCC: sin2w=3/8 DERIVED at GUT (SU(5)); 9% gap 1-loop; v FREE PARAM (Part 92)
    62. Three gen + Spin-stats — B5: N_gen=3=|Z_3| DERIVED; B6: Fermi-Dirac from Berry phase (Part 93)
+   63. Coupling constant g — A6 FCC: G*g^2=c^5/hbar DERIVED; g=omega_P; A6 PARTIAL+FREE (Part 94)
 """
 
 import os
@@ -147,6 +148,7 @@ from condensate_layer_optics import run_condensate_layer_optics
 from koide_theta0 import run_koide_theta0
 from ew_condensate import run_ew_fcc
 from gen3_spin_statistics import run_gen3_spin_stats
+from coupling_constant_g import run_coupling_g_fcc
 
 
 def main():
@@ -507,6 +509,11 @@ def main():
     # Phase 62: Three Generations (B5) + Spin-Statistics (B6) (Part 93)
     # ------------------------------------------------------------------
     run_gen3_spin_stats(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 63: Coupling Constant g -- A6 FCC (Part 94)
+    # ------------------------------------------------------------------
+    run_coupling_g_fcc(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
