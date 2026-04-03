@@ -236,6 +236,11 @@ phonon dispersion speed of the spacetime condensate, which could in principle va
    density n or lattice spacing l_0 varies (near black holes, in early universe), c varies.
 5. Is there a dispersion relation for c itself? c(omega) — frequency-dependent speed of light?
 6. Connection to dark energy: if c changes cosmologically, H_0 and the Hubble tension may shift.
+7. Why do photons travel at c? In PDTP, what IS a photon and why does it move at c_s?
+8. Slow-light experiments: Lene Hau (1999) slowed light to 17 m/s in a BEC, then stopped it
+   completely. What does this mean for PDTP? If c = c_s of the spacetime condensate, then
+   slowing light in an atomic BEC is exactly analogous to what would happen if the spacetime
+   condensate density were locally reduced. Does the Hau mechanism have a PDTP counterpart?
 
 **Prior research:**
 - Part 34 (condensate_selfconsist.py): c_s = c EXACTLY derived — sound speed of condensate = c
@@ -243,23 +248,55 @@ phonon dispersion speed of the spacetime condensate, which could in principle va
 - Part 89 (condensate_layer_optics.py): n_eff formula uses c as fixed; what if c = c(layer)?
 - CLAUDE.md key equation: c_s = sqrt(g_GP x n / m_cond) = c [always, any m_cond]
 
+**Experimental analog — Slow Light (Hau 1999):**
+Lene Hau slowed photons to 17 m/s (later 0 m/s) by passing them through a BEC of sodium
+atoms cooled near absolute zero. The mechanism: Electromagnetically Induced Transparency (EIT)
+creates a coupled photon-matter quasiparticle (dark-state polariton) whose group velocity
+is c_s of the atomic BEC, which can be made arbitrarily small by tuning n and g_GP.
+This is the EXACT same formula as Part 34: c_s = sqrt(g_GP x n / m_atom).
+PDTP interpretation: normal vacuum is a BEC at maximum density (n = n_Planck, c_s = c).
+Slow light = reduced local condensate density = same physics, different condensate.
+Key check: does PDTP predict a mechanism to locally reduce n of the spacetime condensate?
+If yes: this is a route to local c reduction — directly relevant to Goal 2 (phase decoupling).
+If light can be stopped in a lab BEC by reducing c_s to zero, can spacetime c be similarly
+reduced in a region of controlled condensate density? What energy/mechanism is required?
+
+**Why photons travel at c — PDTP answer to derive:**
+In standard QED, c is postulated (Lorentz invariance). In PDTP the question becomes:
+what IS a photon in the condensate picture? Candidates:
+(a) Photon = massless phonon of the C1 condensate (gravity sector) — travels at c_s = c
+(b) Photon = massless Goldstone boson of the U(1) phase symmetry — dispersion ω = ck
+(c) Photon = transverse wave in C3 condensate (EW sector, spin-1) — group velocity = c
+Option (a) is most natural: Part 34 shows c_s = c for C1; massless phonons travel at c_s.
+This gives a first-principles reason: photons travel at c BECAUSE they are the massless
+excitations of the same condensate whose sound speed is c. Not a postulate — a result.
+Cross-check: massive particles (matter) travel at v < c because they are VORTEX excitations
+(Part 33), not phonons. Phonons are massless; vortices have rest energy m_cond c^2.
+
 **Approach (in order):**
 1. Reframe Part 34 result: c_s = c is NOT a coincidence — it IS the definition of c in PDTP
 2. Show c = omega_0 x l_0 in condensate notation; identify omega_0 and l_0 explicitly
-3. Derive what happens to c if n or l_0 changes (early universe, near singularity)
-4. Bessel renormalization: compute g_eff = g x J_0(phi_0); what observable does phi_0 set?
-5. VSL prediction: does c(z) at high redshift differ from c_0? Consistent with CMB/BBN?
-6. Sudoku: 10+ tests substituting c -> c(n, l_0) into known equations; check contradictions
-7. SM compatibility: variable c must not break gauge invariance or alter particle masses
-8. Two-phase check: does c_s = c hold separately for phi_+ and phi_- modes?
+3. Derive photon = massless phonon of C1; show ω = ck follows from condensate dispersion
+4. Map Hau EIT mechanism onto PDTP: c_s formula identical; identify PDTP analog of coupling
+5. Derive what happens to c_s if n or l_0 changes (early universe, near singularity)
+6. Bessel renormalization: compute g_eff = g x J_0(phi_0); what observable does phi_0 set?
+7. VSL prediction: does c(z) at high redshift differ from c_0? Consistent with CMB/BBN?
+8. Sudoku: 10+ tests substituting c -> c(n, l_0) into known equations; check contradictions
+9. SM compatibility: variable c must not break gauge invariance or alter particle masses
+10. Two-phase check: does c_s = c hold separately for phi_+ and phi_- modes?
 
 **Expected outcome:** c is the condensate phonon speed (c_s = c, Part 34) — this is the
 derivation, not a coincidence. The Planck frequency sets omega_0; l_P sets l_0; c emerges.
 If correct: c is to PDTP as c_s is to BEC — a derived material property, not a postulate.
 This would make G, Lambda, AND c all emergent from the same condensate (m_cond, n, l_0).
+Photons travel at c because they are the massless phonons of that condensate.
+Massive particles travel at v < c because they are vortex excitations with rest energy.
 
 **VSL implication (SPECULATIVE):** Near a black hole or in the early universe, if n varies,
 c varies. May connect to Mach-effect theories and UAP phase-decoupling (Goal 2).
+Slow-light analog suggests: if spacetime condensate density can be locally reduced
+(e.g. by driving phi_- to large values, as in Part 71 Leidenfrost screening), c_local < c.
+This is a concrete mechanism for phase decoupling (Goal 2) that doesn't require exotic energy.
 
 **Status:** Not yet investigated. Partially hinted at in Part 34 (c_s = c) and Part 89 (n_eff).
 **FCC trigger:** Not yet — first pass needed.
