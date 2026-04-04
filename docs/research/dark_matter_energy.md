@@ -26,6 +26,144 @@ entry to this file in the same session before commit. See TODO_03.md Category E.
 
 ---
 
+## Plain English Overview
+
+### What is Dark Matter?
+
+Look at a galaxy spinning in space. The stars on the outer edge of the galaxy are moving
+much faster than they should be — if the only gravity came from the visible stars and gas,
+the outer stars would fly off into space. Something invisible is holding them in. That
+invisible something is dark matter.
+
+Dark matter is matter that:
+- Has gravity (it pulls things together normally)
+- Does NOT emit, absorb, or reflect light (completely invisible to telescopes)
+- Does NOT interact with the strong nuclear force or electromagnetism
+- Makes up about **27% of everything in the universe**
+
+We have never directly detected a dark matter particle. We only know it exists because
+of what it does gravitationally — it bends light (gravitational lensing), holds galaxies
+together, and shaped the large-scale structure of the universe after the Big Bang.
+
+**The Bullet Cluster** is the most convincing evidence: two galaxy clusters that collided.
+The hot gas (visible by X-ray) slowed down in the collision. But the dark matter (mapped
+by gravitational lensing) passed straight through — like two ghosts walking through each
+other. Dark matter barely interacts with itself either.
+
+**What current science does NOT know:**
+- What particle dark matter is made of
+- How heavy it is (guesses range from 10^-22 eV to 10^19 GeV — 60 orders of magnitude)
+- How it was produced in the early universe
+- Why we have never detected it directly despite 30 years of trying
+
+---
+
+### What is Dark Energy?
+
+The universe is expanding — galaxies are flying apart. In 1998, astronomers discovered
+something shocking: the expansion is **speeding up**. Something is pushing space apart
+faster and faster. That something is dark energy.
+
+Dark energy is:
+- A property of space itself (the more space there is, the more dark energy there is)
+- The dominant component of the universe — about **68% of everything**
+- Described mathematically by the cosmological constant Lambda (Einstein's "biggest blunder"
+  that turned out to be real)
+- Characterized by equation of state w = -1 (pressure = negative energy density)
+
+**The cosmological constant problem** is the biggest embarrassment in physics:
+quantum field theory predicts the vacuum energy should be 10^121 times larger than
+what we observe. Nobody knows why it is so small. This is sometimes called the worst
+prediction in the history of science.
+
+**DESI 2024 update:** New data hints that dark energy may not be constant —
+it may be slowly changing over time (w slightly different from -1). If confirmed,
+this rules out a pure cosmological constant and opens the door to "quintessence"
+models where dark energy is a slowly-evolving field.
+
+**What current science does NOT know:**
+- Why Lambda is so absurdly small (the 10^121 problem)
+- Whether w = -1 exactly or is evolving
+- Whether dark energy and dark matter are connected
+- Whether dark energy will eventually rip the universe apart (Big Rip)
+
+---
+
+### What Does PDTP Say?
+
+PDTP (Phase-Decoupled Transport Physics) treats space as a physical medium — a
+condensate (similar to a superfluid) with wave-like oscillations. Gravity emerges
+from wave synchronisation between matter and this spacetime medium. This picture
+naturally suggests explanations for both dark matter and dark energy.
+
+**PDTP on Dark Matter — the short version:**
+
+In PDTP, space has three layers stacked by energy scale:
+- C1: gravitational layer (the deepest layer, everything lives here)
+- C2: QCD/strong force layer (quarks and gluons live here)
+- C3: electroweak layer (W/Z bosons, Higgs live here)
+
+Dark matter candidates in PDTP are excitations that are **stuck in C1** and cannot
+enter C2 or C3. There are two trapping mechanisms:
+
+1. **Energy trap:** If a particle has energy below the QCD gap (~200 MeV), the C2
+   layer is like a mirror — the particle reflects back into C1 at all angles. It
+   experiences gravity (C1) but nothing else. This is like being trapped in the
+   core of an optical fiber — the cladding (C2 matter) reflects you back.
+
+2. **Topology trap (strongest):** A vortex with only U(1) winding (no colour charge)
+   simply cannot enter C2 — the quantum numbers don't match, like trying to plug the
+   wrong shaped connector. This excitation gravitates normally but is invisible to
+   every other force. Its mass is m_P divided by its winding number n — giving a
+   spectrum from Planck mass (n=1, "wimpzilla") down to ~200 MeV (n~6e19).
+
+**What PDTP does NOT explain about DM:** what specific n nature chose, how DM was
+produced in the early universe, and why there is so much of it (27%). The mass is
+a free parameter. Direct detection cross-section is ~10^35 times below current limits.
+
+---
+
+**PDTP on Dark Energy — the short version:**
+
+PDTP has a field called phi_- (the "surface tension mode" of the condensate, Part 61).
+In empty space, phi_- is massless and its background value is tiny — phi_-_vac ~ 10^-70
+radians. The cosmological constant Lambda is simply this tiny background tilt:
+```
+Lambda = g × phi_-_vac^2
+```
+This gives Lambda a physical meaning (it is the large-scale phase offset of the
+condensate) without deriving its value. PDTP cannot explain WHY it is so small —
+this is the same situation as GR (Lambda is a free parameter in both frameworks).
+
+**The interesting prediction:** if phi_-_vac slowly evolves with time, then dark
+energy is not constant — w slightly differs from -1 and changes with redshift.
+This is the PDTP version of quintessence, and it is **consistent with DESI 2024's
+4.2σ hint of evolving dark energy**. Not proven, but not ruled out.
+
+**What PDTP does NOT explain about DE:** the 10^121 hierarchy (same problem as
+everywhere else — free parameter); Hubble tension (all three phi_- mechanisms tried
+and failed); the specific value of w(z) (needs phi_-_vac evolution mechanism).
+
+---
+
+**Summary: How PDTP connects to DM and DE**
+
+| | Current Science | PDTP Explanation | Status |
+|--|----------------|-----------------|--------|
+| DM exists | Gravitational evidence: rotation curves, lensing, CMB | C1-trapped vortex (topology) or sub-gap excitation (energy) | PARTIAL |
+| DM mass | Unknown (10^-22 eV to 10^19 GeV) | m_P/n for winding n | FREE PARAMETER |
+| DM detectability | Not detected despite 30 years | sigma/m ~ 10^-39 cm^2/g (35 orders below limits) | CONSISTENT |
+| DE exists | Accelerating expansion since 1998 | phi_-_vac background tilt | PARTIAL |
+| Lambda value | 10^121 mystery | FREE PARAMETER (same as GR) | NO PROGRESS |
+| w(z) evolving? | DESI 4.2σ hint | phi_-_vac(t) evolution | CONSISTENT |
+| Hubble tension | H_0 discrepancy ~5σ | All phi_- paths NEGATIVE | NEGATIVE |
+
+PDTP gives physical *pictures* for both DM and DE. It does not yet give *values*.
+The framework is internally consistent with all observational constraints but does
+not predict the specific numbers (DM mass, Lambda magnitude) from first principles.
+
+---
+
 ## Part 1 — Dark Matter: Observed Properties
 
 **What current science knows:**
