@@ -504,3 +504,205 @@ cosmological dark matter.
 - Glashow, S.L. (1960), Phys. Rev. 118, 316 — Glashow resonance at 6.3 PeV
 - **PDTP Parts 37, 53, 61, 62, 65, 67, 38** (context for layer structure)
 - `wave_effects_extension.md` Section 3a (three-layer framework)
+
+---
+
+## Part 96 FCC Extension — Wave Effects E8/E10/E3 + phi_- Curved Spacetime
+
+**Status:** FULL FCC COMPLETE (Part 96, Phase 65)
+**Script:** `simulations/solver/condensate_layer_fcc.py` (Phase 65)
+**Sudoku:** 12/12 new (S13–S24) + 12/12 prior (S1–S12) = **24/24 PASS**
+**Date:** 2026-04-04
+
+### D1a: Bragg Reflection from Condensate Lattices [PDTP Original, DERIVED]
+
+Bragg condition at normal incidence: E_Bragg = π × ℏc / a  **[Eq 96.1]**
+
+**Source:** Wikipedia: [Bragg's law](https://en.wikipedia.org/wiki/Bragg%27s_law)
+
+**Starting point:** Condensate lattice spacing = Compton wavelength of gap mass.
+
+| Lattice | Spacing a | E_Bragg (n=1) | Scale |
+|---------|-----------|---------------|-------|
+| C1 (grav) | l_P = 1.62×10⁻³⁵ m | π × E_Planck ≈ 3.8×10²⁸ eV | Planck — inaccessible |
+| C2 (QCD)  | ℏc/Λ_QCD = 0.987 fm | π × 200 MeV = **628.3 MeV** | Nuclear scale |
+| C3 (EW)   | ℏc/m_W = 0.00245 fm  | π × 80.4 GeV = **252.6 GeV** | LHC scale |
+
+**Derivation:**
+```
+a = ℏc / E_gap             [Compton wavelength of condensate mass]
+E_Bragg = πℏc / a = π × E_gap   [Bragg condition, normal incidence]
+```
+
+**Step-by-step:**
+- E_Bragg_C2 = π × 200 MeV = 628.3 MeV  (between pion 140 MeV and rho 770 MeV)
+- E_Bragg_C3 = π × 80.4 GeV = 252.6 GeV (above W 80.4 GeV and Z 91.2 GeV)
+- E_Bragg_C1 = π × E_Planck ≈ 3.8×10²⁸ eV (inaccessible)
+
+**SymPy:** algebraic identity E = πℏc/a; no symbolic verification needed.
+
+**Plain English:** Like X-rays hitting a crystal lattice at just the right angle,
+specific energies will Bragg-reflect from the QCD condensate lattice.
+For the C2 lattice that energy is ~628 MeV — between pion and rho masses.
+For C3 it's ~252 GeV — within LHC reach.
+
+### D1b: Anderson Localization at B1 [PDTP Original, DERIVED]
+
+**Source:** Anderson (1958), Phys. Rev. 109, 1492; Wikipedia: [Anderson localization](https://en.wikipedia.org/wiki/Anderson_localization)
+
+**Starting point:** Thermal disorder at the QCD phase transition (T_QCD ~ 150 MeV/k_B).
+
+**Derivation:**
+
+1. Disorder amplitude:
+```
+W = k_B T_QCD / E_gap_C2 = 150 MeV / 200 MeV = 0.75      [Eq 96.4]
+```
+
+2. 3D Anderson criterion: W_c ≈ 1.0. Since W = 0.75 < 1, bulk states are extended.
+
+3. Near B1 surface (quasi-1D, motion perpendicular to boundary): ALL states localize for any W > 0.
+
+4. 1D localization length (strong disorder):
+```
+ξ_loc = a_C2 / W² = 0.987 fm / (0.75)² = 0.987 / 0.5625 = 1.754 fm  [Eq 96.5]
+```
+
+**SymPy:** arithmetic; no symbolic check needed.
+
+**Result:** ξ_loc ≈ 1.8 fm ≈ 2 × proton radius (r_p = 0.877 fm) **[PDTP Original]**
+
+**Plain English:** At the QCD phase transition, thermal fluctuations are 75% of the
+gap energy. This creates a ~1.8 fm disordered "skin" at the B1 boundary where
+C1 excitations are Anderson-trapped. Together with the 0.987 fm evanescent depth,
+the B1 boundary has an effective total thickness of ~2 fm — the proton diameter.
+
+### D1c: Guided Wave / C1 as Optical Fiber [DERIVED]
+
+**Source:** Wikipedia: [Optical fiber](https://en.wikipedia.org/wiki/Optical_fiber)
+
+Optical fiber requires n_core > n_clad. For C1 and sub-gap excitations:
+- n_C1 = 1 (massless C1 phonons: gravitons, photons)
+- n_C2 = imaginary for E < Λ_QCD (evanescent — effectively n = 0)
+
+```
+NA = √(n_core² − n_clad²) = √(1² − 0²) = 1   [maximum]  [Eq 96.6]
+```
+
+Acceptance angle = arcsin(NA) = 90°: **all angles are totally guided.**
+
+**Guided excitations (E < 200 MeV):** dark matter U(1) vortices, electrons
+(0.511 MeV), solar neutrinos (1–10 MeV).
+
+**NOT guided:** gravitons (massless, n_C1 = 1 everywhere — GW170817 consistent).
+
+**Gluon fiber hypothesis: NEGATIVE.** Gluons require SU(3) C2. n_C2 < n_C1,
+so C2 is not a waveguide core — it is the cladding/mirror.
+
+### D2: phi_- Evanescent Scale in Curved Spacetime [PDTP Original, DERIVED]
+
+**Source:** Part 62 (reversed Higgs); Part 94 Eq 6c.
+
+From two-phase Lagrangian (Part 61): φ_− is massless in vacuum, massive near matter:
+```
+m²_φ− = 2 g_SI Φ_Newton   [Part 62, PDTP Original]       [Eq 96.7a]
+ω_φ   = √(2 ω_P Φ_Newton)  [Part 94, Eq 6c]
+λ_φ   = c / ω_φ             [evanescent depth]            [Eq 96.8]
+```
+where Φ_Newton = GM/R [m²/s²] is the Newtonian gravitational potential.
+
+| Environment | Φ_Newton (m²/s²) | Φ/c² | ω_φ (rad/s) | E (GeV) | λ (fm) |
+|-------------|-----------------|------|------------|---------|--------|
+| Earth surface | 6.26×10⁷ | 6.96×10⁻¹⁰ | 4.82×10²⁵ | 31.7 | 0.00622 |
+| Neutron star | 1.99×10¹⁶ | 2.22×10⁻¹ | 8.60×10²⁹ | 5.66×10⁵ | 3.49×10⁻⁷ |
+| Proton (r=1 fm) | 1.12×10⁻²² | 1.24×10⁻³⁹ | 6.44×10¹⁰ | 4.24×10⁻¹⁴ | 4.66×10¹² |
+
+**Evanescent scale ordering near Earth [Eq 96.7b]:**
+```
+λ_B2 (0.00245 fm) < λ_φ−(Earth) (0.00622 fm) < λ_B1 (0.987 fm)
+```
+
+φ_− creates a **PDTP-specific intermediate scale** between QCD and EW boundaries.
+This does NOT exist in the Standard Model (no condensate-level gravity coupling). **[PDTP Original]**
+
+**Plain English:** The φ_− field gets heavier where gravity is stronger.
+Near Earth: mass ~31.7 GeV, range ~0.006 fm (between strong and weak force ranges).
+Near neutron star: mass ~566 TeV, range ~3.5×10⁻⁷ fm.
+Near a single proton (r=1 fm): mass ~42 µeV, range ~4.7 mm (macroscopic — irrelevant for nuclear physics).
+
+**Falsifiable prediction [SPECULATIVE]:** GW signals near a neutron star should show
+φ_− dispersion above ~566 TeV — distinguishing PDTP from GR. Currently above all
+GW detector energy ranges.
+
+### D3: Dark Matter Vortex Mass Spectrum [PDTP Original, DERIVED]
+
+From Part 33: n = m_cond/m (vortex winding = condensate mass / particle mass).
+In C1 with m_cond = m_P:
+
+```
+m_DM = m_P / n   for winding n = 1, 2, 3, ...            [Eq 96.9]
+```
+
+| n | m_DM | σ/m_DM (m²/kg) | Bullet safe? |
+|---|------|----------------|--------------|
+| 1 | 1.22×10¹⁹ GeV (wimpzilla) | 9.7×10⁻⁵³ | YES |
+| 2 | 6.1×10¹⁸ GeV | 4.8×10⁻⁵³ | YES |
+| 10 | 1.2×10¹⁸ GeV | 9.7×10⁻⁵⁴ | YES |
+| ~6×10¹⁹ | ~200 MeV (Λ_QCD scale) | 1.6×10⁻⁷² | YES |
+
+Bullet Cluster bound: σ/m < 10⁻⁴ m²/kg = 1 cm²/g.
+All winding numbers satisfy this by at least 48 orders of magnitude. **[DERIVED]**
+
+### D4: Two-Phase Consistency Check [PASS]
+
+φ_− is a **mode of C1** (not a new condensate layer). It does NOT create a 4th boundary.
+Its mass varies smoothly with the local gravitational potential — no discontinuity.
+
+Two-phase Lagrangian checks (CLAUDE.md requirement):
+
+| Check | Result |
+|-------|--------|
+| Jeans instability eigenvalue 2√2 g > 0 | PASS |
+| Newton 3rd law ψ̈ = −2φ̈₊ | PASS |
+| Biharmonic equation ∇⁴ + 4g² unchanged | PASS |
+| λ_B2 < λ_φ−(Earth) < λ_B1 ordering | PASS |
+| φ_− is a new 4th layer | NO (NEGATIVE) |
+
+### Sudoku S13–S24
+
+| Test | Description | Result |
+|------|-------------|--------|
+| S13 | E_Bragg_C2 = π × Λ_QCD = 628.3 MeV | PASS |
+| S14 | E_Bragg_C3 = π × m_W = 252.6 GeV | PASS |
+| S15 | E_Bragg_C1/E_Bragg_C2 = E_P/Λ_QCD | PASS |
+| S16 | Anderson W = 150/200 = 0.75 | PASS |
+| S17 | ξ_loc > a_C2 (localization > 1 lattice spacing) | PASS |
+| S18 | ξ_loc ∈ [1, 4] fm (nuclear scale) | PASS |
+| S19 | NA = 1 for C1 fiber (maximum acceptance) | PASS |
+| S20 | λ_B2 < λ_φ−(Earth) < λ_B1 ordering | PASS |
+| S21 | φ_−(Earth) ~ 31.7 GeV [Part 94 Eq 6c] | PASS |
+| S22 | DM n=1 (m_P): σ/m << Bullet bound | PASS |
+| S23 | n_max = m_P/Λ_QCD ~ 6.1×10¹⁹ | PASS |
+| S24 | φ_− NOT a 4th boundary | PASS |
+
+**Combined: S1–S12 (Part 89) + S13–S24 (Part 96) = 24/24 PASS**
+
+### New PDTP Original Results (Part 96)
+
+1. **E_Bragg(C2) = π × Λ_QCD ≈ 628 MeV** [DERIVED, Eq 96.1] — nuclear Bragg resonance
+2. **E_Bragg(C3) = π × m_W ≈ 252 GeV** [DERIVED, Eq 96.2] — LHC-scale Bragg resonance
+3. **Anderson ξ_loc ≈ 1.8 fm at B1** [DERIVED, Eq 96.5] — B1 boundary ~2 fm thick
+4. **C1 optical fiber NA = 1** [DERIVED, Eq 96.6] — all sub-gap modes guided
+5. **φ_−(Earth) ~ 31.7 GeV, λ ~ 0.006 fm** [DERIVED, Eq 96.8] — gravity-dependent scale
+6. **DM mass spectrum m_P/n** [DERIVED, Eq 96.9] — all Bullet Cluster safe
+7. **φ_− NOT a 4th boundary** [DERIVED] — passes all two-phase checks
+
+### Additional References (Part 96)
+
+- Wikipedia: [Bragg's law](https://en.wikipedia.org/wiki/Bragg%27s_law)
+- Anderson, P.W. (1958), Phys. Rev. 109, 1492 — Anderson localization
+- Wikipedia: [Anderson localization](https://en.wikipedia.org/wiki/Anderson_localization)
+- Wikipedia: [Optical fiber](https://en.wikipedia.org/wiki/Optical_fiber)
+- Part 94 (Phase 63): `coupling_constant_g.py` — φ_− formula Eq 6c
+- Part 62: `reversed_higgs.py` — m²_φ− = 2gΦ [PDTP Original]
+- Part 33: `vortex_winding.py` — n = m_cond/m [PDTP Original]

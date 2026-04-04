@@ -72,7 +72,7 @@ These are values PDTP cannot currently derive. Strategy: find an independent
 equation that produces the value without using PDTP/GR/QED as input, or reframe
 as pointing to deeper physics.
 
-#### [ ] A1. m_cond = m_P underdetermined — OPEN (BLOCKING)
+#### [exhausted] A1. m_cond = m_P underdetermined — OPEN (BLOCKING)
 
 **Problem:** G = hc/m_cond^2 is exact, but m_cond = m_P is not derived.
 **Prior research:**
@@ -147,7 +147,7 @@ This reframing suggests:
 
 **Not yet investigated as a standalone FCC item. Filed for future.**
 
-#### [ ] A2. alpha_EM = 1/137.036 not derived — OPEN (CONFIRMED FREE PARAMETER)
+#### [exhausted] A2. alpha_EM = 1/137.036 not derived — OPEN (CONFIRMED FREE PARAMETER)
 
 **Problem:** EM coupling constant value has no derivation in SM or PDTP.
 **Prior research:**
@@ -595,7 +595,7 @@ Key findings from quick check:
   - Docs: `gen3_spin_statistics.md` (SPECULATIVE section)
 **Status change:** PARTIAL --> FULL DERIVATION (Pauli, Fermi-Dirac, spin-1/2 all from topology) -- CLOSED
 
-#### [ ] B7. Condensate layer optics — TIR, dark matter, evanescent waves — OPEN (HIGH)
+#### [x] B7. Condensate layer optics — FULL FCC COMPLETE — CLOSED (Parts 89 + 96)
 
 **Problem:** The three condensate layers (C1 grav, C2 QCD, C3 EW) are defined in
 `wave_effects_extension.md` Section 3a, but the WAVE PHYSICS at the boundaries has
@@ -644,7 +644,17 @@ total internal reflection (TIR) at B1 rather than being separate particle specie
 - Dark matter as mode-mismatch U(1) vortex: gravity-only, Bullet Cluster safe [SPECULATIVE]
 - Critical angle at B1 (proton) = 77.7 deg [DERIVED]
 - Two dual origins of quark confinement: string tension (Part 38) + evanescent depth (Part 89) [PDTP Original]
-**Full FCC + wave effects check:** Still pending (Priority 12).
+**RESULTS (Part 96, 2026-04-04):**
+- E_Bragg(C2) = pi * Lambda_QCD ~ 628 MeV [DERIVED, Eq 96.1] — nuclear Bragg resonance
+- E_Bragg(C3) = pi * m_W ~ 252 GeV [DERIVED, Eq 96.2] — LHC-scale Bragg resonance
+- Anderson xi_loc ~ 1.8 fm at B1 (W=0.75, QCD thermal disorder) [DERIVED, Eq 96.5]
+- C1 optical fiber NA=1 for sub-gap modes; gluon fiber NEGATIVE [DERIVED, Eq 96.6]
+- phi_-(Earth) ~ 31.7 GeV; lambda ~ 0.006 fm (between B1 and B2) [DERIVED, Eq 96.8]
+- DM mass spectrum m_P/n; all Bullet Cluster safe for all n [DERIVED, Eq 96.9]
+- phi_- NOT a 4th boundary (C1 mode, smooth spatial variation)
+- 24/24 Sudoku PASS (12 new S13-S24 + 12 prior S1-S12)
+- Script: Phase 65, `condensate_layer_fcc.py`; Doc: `condensate_layer_optics.md` (Part 96 section)
+**Status change:** OPEN (HIGH) --> FULL FCC COMPLETE -- CLOSED
 
 ---
 
@@ -984,9 +994,9 @@ Order: most constrained first (most equations to cross-check).
 | 9 | [x] A3 (Lambda) | CONFIRMED FREE PARAM: Lambda=g*phi_-_vac^2; rho_vac=rho_P/7.68; DESI w(z) | 87 | DONE |
 | 10 | [x] C1 (Hubble tension) | NEGATIVE: phi_- frozen; missing phi_-^4; DESI test | 88 | DONE |
 | 11 | [x] B5, B6, A5 ALL DONE | B5: N_gen=|Z_3|=3 DERIVED; B6: Fermi-Dirac from Berry phase; A5: sin2w=3/8 | 91-93 | DONE |
-| 12 | [ ] B7 (condensate layer optics) | FCC + Wave Effects Check: n_eff, TIR, dark matter, evanescent | 90+ | PENDING |
+| 12 | [x] B7 (condensate layer optics) | FCC + Wave Effects E3/E8/E10/E16; Bragg, Anderson, phi_- curved spacetime | 89, 96 | DONE |
 | 13 | [ ] E1 (dark_matter_energy.md living doc) | Compile all DM/DE findings from all Parts into one file | 90+ | PENDING |
-| 14 | [ ] A7 (emergent c) | c = omega_0 x l_0; c_s=c reframe; Bessel renorm; VSL; Sudoku | 91+ | PENDING |
+| 14 | [x] A7 (emergent c) | c = omega_0 x l_0; c_s=c reframe; Bessel renorm; VSL; Sudoku | 95 | DONE |
 
 ---
 

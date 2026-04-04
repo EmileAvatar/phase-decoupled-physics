@@ -1199,6 +1199,33 @@ k_J << k_Planck: Jeans instability scale is nuclear (~0.26 pm), not Planck.
 
 ---
 
+### Part 96 additions (B7 FCC: Condensate Layer Optics):
+
+| Eq.   | Expression | Status | Source |
+|---|---|---|---|
+| 96.1  | E_Bragg(C2) = pi * hbar*c / a_C2 = pi * Lambda_QCD ~ 628 MeV | [DERIVED, PDTP Original] | Part 96 |
+| 96.2  | E_Bragg(C3) = pi * hbar*c / a_C3 = pi * m_W*c^2 ~ 252 GeV | [DERIVED, PDTP Original] | Part 96 |
+| 96.3  | E_Bragg_C1 / E_Bragg_C2 = E_Planck / Lambda_QCD ~ 6.1e22 | [DERIVED] | Part 96 |
+| 96.4  | W = k_B*T_QCD / Lambda_QCD = 150/200 = 0.75 [Anderson disorder] | [DERIVED] | Part 96 |
+| 96.5  | xi_loc = a_C2 / W^2 ~ 1.75 fm ~ 2 proton radii [1D Anderson] | [DERIVED, PDTP Original] | Part 96 |
+| 96.6  | NA = sqrt(n_C1^2 - n_C2^2) = 1 [C1 fiber, sub-gap modes] | [DERIVED] | Part 96 |
+| 96.7a | m_phi-^2 = 2*g_SI*Phi_Newton [phi_- mass from gravity; Part 62] | [PDTP Original] | Part 62, 96 |
+| 96.7b | lambda_B2 < lambda_phi-(Earth) < lambda_B1 [ordering near Earth] | [DERIVED] | Part 96 |
+| 96.8  | omega_phi(Earth) ~ 4.82e25 rad/s ~ 31.7 GeV; lambda ~ 0.006 fm | [DERIVED] | Part 94+96 |
+| 96.9  | m_DM = m_P / n for U(1)-only vortex, winding n = 1,2,3,... | [DERIVED, PDTP Original] | Part 33+96 |
+
+**Conclusion (Part 96):** B7 FULL FCC COMPLETE (24/24 PASS).
+Three condensate layers (C1/C2/C3) and boundaries (B1/B2) fully analyzed with wave effects.
+NEW: Bragg resonances E_Bragg(C2)~628 MeV, E_Bragg(C3)~252 GeV [PDTP Original, testable].
+NEW: Anderson localization xi_loc~1.8 fm at B1 (QCD thermal disorder W=0.75) [PDTP Original].
+C1 acts as optical fiber (NA=1) for all sub-gap excitations; gluon fiber NEGATIVE.
+phi_- creates PDTP-specific evanescent scale: 0.006 fm near Earth (between B1 and B2) [PDTP Original].
+DM mass spectrum m_P/n (wimpzilla to Lambda_QCD); all Bullet Cluster safe.
+phi_- is NOT a 4th boundary -- C1 mode, smooth variation with gravitational potential.
+Status change: OPEN (HIGH) --> FULL FCC COMPLETE -- CLOSED.
+
+---
+
 **Conclusion (Part 88):** C1 = NEGATIVE (confirmed) -- CLOSED. All 5 mechanisms fail:
 (1) phi_- EDE: frozen (m=0 -> w=-1) AND 9.4 orders too weak.
 (2) phi_- -> G variation: G constant; phi_- not coupled to m_cond.
@@ -1209,6 +1236,7 @@ Falsifiable: DESI w(z) distinguishes systematics vs real physics. 12/12 Sudoku P
 ---
 
 ## Changelog
+- 2026-04-04: Added Part 96 (B7 FCC: E_Bragg C2=628 MeV/C3=252 GeV; Anderson xi_loc=1.8 fm; C1 fiber NA=1; phi_-(Earth)=31.7 GeV; DM m_P/n; 24/24 PASS)
 - 2026-04-04: Added Part 95 (A7 FCC: c=c_s DERIVED; photon=phonon; c_eff=c*sqrt(J_0); light-stop phi_0=2.4048; variable c from n; 12/12 PASS)
 - 2026-04-04: Added Part 94 (A6 FCC: G*g^2=c^5/hbar DERIVED; g=omega_P~1.855e43 rad/s; A6 PARTIAL+FREE; reduces to A1; 12/12 PASS)
 - 2026-04-03: Added Part 93 (B5: N_gen=|Z_3|=3 DERIVED from SU(3) center; B6: Fermi-Dirac+Pauli+spin-1/2 from Berry phase; 12/12 PASS)

@@ -77,6 +77,7 @@ Phases:
    62. Three gen + Spin-stats — B5: N_gen=3=|Z_3| DERIVED; B6: Fermi-Dirac from Berry phase (Part 93)
    63. Coupling constant g — A6 FCC: G*g^2=c^5/hbar DERIVED; g=omega_P; A6 PARTIAL+FREE (Part 94)
    64. Emergent c — A7 FCC: c=c_s DERIVED; photon=phonon; Bessel renorm; variable c (Part 95)
+   65. B7 FCC -- Condensate layer optics: E8 Bragg, E10 Anderson, E3 fiber, phi_- curved spacetime (Part 96)
 """
 
 import os
@@ -151,6 +152,7 @@ from ew_condensate import run_ew_fcc
 from gen3_spin_statistics import run_gen3_spin_stats
 from coupling_constant_g import run_coupling_g_fcc
 from emergent_c import run_emergent_c
+from condensate_layer_fcc import run_condensate_layer_fcc
 
 
 def main():
@@ -521,6 +523,11 @@ def main():
     # Phase 64: Emergent Speed of Light -- A7 FCC (Part 95)
     # ------------------------------------------------------------------
     run_emergent_c(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 65: B7 FCC -- Condensate Layer Optics (Part 96)
+    # ------------------------------------------------------------------
+    run_condensate_layer_fcc(rw, engine)
 
     # ------------------------------------------------------------------
     # Done
