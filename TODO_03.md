@@ -817,6 +817,76 @@ what is the nearest Pythagorean fraction? This is a 5-minute calculation.
 
 ---
 
+### Category H — Riemann Zeta / Number Theory Connections [SPECULATION — untried] (2026-04-04)
+
+**Reference:**
+- ChatGPT review 04.md (local file, PDTP-zeta mapping research notes)
+- Wikipedia: https://en.wikipedia.org/wiki/Riemann_hypothesis
+- Wikipedia: https://en.wikipedia.org/wiki/Riemann_zeta_function
+- Montgomery (1973): pair correlation of zeta zeros matches GUE random matrix statistics
+- Hilbert-Polya conjecture: exists Hermitian operator H with eigenvalues = imaginary parts of zeros
+
+**Core idea [SPECULATION]:**
+The Riemann zeta function can be written as an infinite sum of phase oscillators:
+  zeta(s) = Sum_n A_n * exp(i*psi_n)
+where A_n = n^(-sigma) (amplitude decay) and psi_n = -t*ln(n) (phase).
+The zeta zero condition zeta(s) = 0 is PERFECT DESTRUCTIVE INTERFERENCE across all modes.
+This is mathematically identical in structure to the PDTP field:
+  Psi_total = Sum_i psi_i  (matter oscillators coupled to spacetime phase phi)
+The logarithmic frequency spectrum omega_n = ln(n) arises from prime factorization.
+
+**PDTP connections [ALL SPECULATION]:**
+
+#### [ ] H1. zeta(s) = 0 as perfect phase cancellation [SPECULATION]
+
+- zeta(s) = 0 iff Sum A_n cos(psi_n) = 0 AND Sum A_n sin(psi_n) = 0 simultaneously
+- Identical in form to PDTP equilibrium condition: Sum g_i cos(psi_i - phi) = 0
+- RH reformulation: "perfect global cancellation only possible at critical damping sigma = 1/2"
+- This is a restatement, not a derivation -- the hard part (WHY only sigma=1/2) remains open
+- But the oscillator language may expose symmetry arguments inaccessible in pure analysis
+
+#### [ ] H2. Moire / zeta triple connection [SPECULATION]
+
+- G5 (Category G): alpha = cos(psi - phi) = moire visibility function [PDTP coupling]
+- zeta: n^(-s) = A_n * exp(i*psi_n) -- same cos(psi_n - phi) structure when split real/imag
+- Three-way identity: PDTP coupling = moire visibility = zeta oscillator term
+- If G5 is confirmed (moire angle = phase difference), then zeta zeros may map to
+  specific phase-locking cancellation conditions in the PDTP landscape
+- Check: does the zeta zero at t ~ 14.135 (first non-trivial zero) correspond to any
+  known PDTP frequency? (omega = t * c/l_P ~ 14.135 * Planck freq)
+
+#### [ ] H3. Hilbert-Polya in PDTP [SPECULATION]
+
+- Hilbert-Polya conjecture: find Hermitian H with eigenvalues = Im(zeros of zeta)
+- Montgomery (1973) + random matrix: zero spacings match GUE (quantum chaos statistics)
+- PDTP angle: H emerges from phase-coupled Lagrangian (Part 33 vortex spectrum?)
+- The discrete vortex mass spectrum m_P/n (Part 96, Eq 96.9) has eigenvalue spacing
+  delta(m_n) = m_P/n - m_P/(n+1) = m_P/(n(n+1)) -- compare to GUE spacing distribution
+- Check: does the PDTP vortex spectrum n=1,2,3,... have the same pair correlation
+  statistics as GUE? (Montgomery conjecture for zeta)
+
+#### [ ] H4. Euler product and PDTP prime structure [SPECULATION]
+
+- Euler product: zeta(s) = Product_p (1 - p^(-s))^(-1)  [over primes p only]
+- This is EXACTLY EQUAL to the sum over all integers (unique prime factorization)
+- PDTP has a natural product structure: the SU(3) Wilson action is a product over plaquettes
+- Connection: does the PDTP path integral over all field configurations factor into
+  a product over prime-like "irreducible" topological sectors?
+- This is the deepest and most speculative connection -- filed for far future
+
+**Status:** ALL SPECULATION. The oscillator decomposition (H1) is mathematically exact.
+H2-H4 are analogies with no derivation.
+Do NOT start a Part on any H item until G1-G6 moire numerics are done first.
+H2 (moire/zeta triple connection) is the most promising -- builds directly on G5.
+
+**Priority order (when ready):**
+1. H2 first (depends on G5 confirmation)
+2. H3 second (vortex spectrum vs GUE -- numerical, low cost)
+3. H1 as framing only (no new calculation needed)
+4. H4 last (requires deep topology -- far future)
+
+---
+
 ### Category F — Speculative Threads (not yet investigated; filed for future)
 
 These are ideas that emerged from the work but have not been formally pursued.
