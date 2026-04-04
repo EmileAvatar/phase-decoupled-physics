@@ -98,24 +98,40 @@ naturally suggests explanations for both dark matter and dark energy.
 
 **PDTP on Dark Matter — the short version:**
 
+> **"Dark matter is the skeleton; visible matter is the flesh."**
+> — `phase_framework_mysteries.md`
+
+In PDTP, gravity is emergent phase-locking between matter-waves and spacetime-waves.
+Dark matter is **Phase-Coupled Structural Mass** — matter that phase-locks to spacetime
+(so gravity works) but does NOT phase-lock to the electromagnetic or nuclear interaction
+layers. It is not hiding. It simply does not participate in those coupling layers.
+
+| Coupling Layer | Normal Matter | Dark Matter (PDTP) |
+|----------------|---------------|--------------------|
+| Spacetime (gravity) | Locked | Locked |
+| EM fields (light) | Locked | NOT locked |
+| Nuclear fields (strong) | Locked | NOT locked |
+
+Galaxies form inside pre-existing dark matter phase structures — the dark matter
+came first, providing the gravitational scaffold. Visible matter (stars, gas)
+condensed inside that skeleton afterward.
+
 In PDTP, space has three layers stacked by energy scale:
 - C1: gravitational layer (the deepest layer, everything lives here)
 - C2: QCD/strong force layer (quarks and gluons live here)
 - C3: electroweak layer (W/Z bosons, Higgs live here)
 
-Dark matter candidates in PDTP are excitations that are **stuck in C1** and cannot
-enter C2 or C3. There are two trapping mechanisms:
+Dark matter candidates in PDTP are excitations **stuck in C1** that cannot enter
+C2 or C3. Two trapping mechanisms:
 
 1. **Energy trap:** If a particle has energy below the QCD gap (~200 MeV), the C2
-   layer is like a mirror — the particle reflects back into C1 at all angles. It
-   experiences gravity (C1) but nothing else. This is like being trapped in the
-   core of an optical fiber — the cladding (C2 matter) reflects you back.
+   layer is like a mirror — it reflects back at all angles. Like being trapped in
+   the core of an optical fiber — the cladding reflects you back.
 
 2. **Topology trap (strongest):** A vortex with only U(1) winding (no colour charge)
-   simply cannot enter C2 — the quantum numbers don't match, like trying to plug the
-   wrong shaped connector. This excitation gravitates normally but is invisible to
-   every other force. Its mass is m_P divided by its winding number n — giving a
-   spectrum from Planck mass (n=1, "wimpzilla") down to ~200 MeV (n~6e19).
+   simply cannot enter C2 — the quantum numbers don't match, like the wrong shaped
+   connector. Gravitates normally but invisible to every other force. Mass spectrum:
+   m_P divided by winding number n — from Planck mass (n=1) down to ~200 MeV (n~6e19).
 
 **What PDTP does NOT explain about DM:** what specific n nature chose, how DM was
 produced in the early universe, and why there is so much of it (27%). The mass is
@@ -125,24 +141,44 @@ a free parameter. Direct detection cross-section is ~10^35 times below current l
 
 **PDTP on Dark Energy — the short version:**
 
-PDTP has a field called phi_- (the "surface tension mode" of the condensate, Part 61).
-In empty space, phi_- is massless and its background value is tiny — phi_-_vac ~ 10^-70
-radians. The cosmological constant Lambda is simply this tiny background tilt:
+> **"Dark energy is gradual phase de-alignment within spacetime-waves themselves."**
+> — `phase_framework_mysteries.md`
+
+In PDTP, gravity IS phase-locking between matter-waves and spacetime-waves.
+Dark energy is **Spacetime Phase Drift** — a slow, uniform tendency for spacetime
+waves to de-synchronise over large distances.
+
+Think of it this way: gravity locks matter and spacetime together locally (solar
+systems, galaxies). But at cosmic scales, the spacetime condensate itself slowly
+drifts out of phase with itself — not enough to break local phase-locks, but enough
+to make the universe expand faster over billions of years.
+
+This is why dark energy does NOT tear atoms apart:
+
+| Scale | What dominates |
+|-------|----------------|
+| Atoms, molecules | Strong internal phase-locking — completely unaffected |
+| Solar systems | Local gravity phase-lock — unaffected |
+| Galaxies | Gravity phase-lock holds |
+| Galaxy clusters | Phase drift starts to matter |
+| Cosmic voids | Phase drift dominates — expansion wins |
+
+Dark energy is uniform because it is a baseline property of the spacetime
+condensate's phase behaviour — not a localized substance or exotic particle.
+
+**In PDTP maths:** the phi_- field (the "surface tension mode" of the condensate,
+Part 61) carries this drift. In empty space phi_- is massless; its large-scale
+background value phi_-_vac ~ 10^-70 rad encodes the cosmological constant:
 ```
 Lambda = g × phi_-_vac^2
 ```
-This gives Lambda a physical meaning (it is the large-scale phase offset of the
-condensate) without deriving its value. PDTP cannot explain WHY it is so small —
-this is the same situation as GR (Lambda is a free parameter in both frameworks).
+If phi_-_vac evolves slowly with cosmic time, dark energy is not constant — w
+slightly differs from -1 and changes with redshift. This is the PDTP version
+of quintessence, **consistent with DESI 2024's 4.2σ hint of evolving dark energy**.
 
-**The interesting prediction:** if phi_-_vac slowly evolves with time, then dark
-energy is not constant — w slightly differs from -1 and changes with redshift.
-This is the PDTP version of quintessence, and it is **consistent with DESI 2024's
-4.2σ hint of evolving dark energy**. Not proven, but not ruled out.
-
-**What PDTP does NOT explain about DE:** the 10^121 hierarchy (same problem as
-everywhere else — free parameter); Hubble tension (all three phi_- mechanisms tried
-and failed); the specific value of w(z) (needs phi_-_vac evolution mechanism).
+**What PDTP does NOT explain about DE:** the 10^121 hierarchy (free parameter,
+same as GR); Hubble tension (all three phi_- mechanisms tried and failed); the
+specific value of w(z) (needs phi_-_vac evolution mechanism).
 
 ---
 
