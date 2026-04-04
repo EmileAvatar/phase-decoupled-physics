@@ -986,7 +986,7 @@ theta_0 ~ theta_C at 2.2% (excluded by m_e precision). M_0 ~ m_p/3 at 0.3% is st
 These are documents that must be created and kept continuously updated as new
 Parts are completed. They are not "problems" to solve — they are running records.
 
-#### [ ] E1. dark_matter_energy.md — Dark Matter and Dark Energy Living Reference
+#### [x] E1. dark_matter_energy.md — Dark Matter and Dark Energy Living Reference — CREATED (Part 97)
 
 **Purpose:** Single source of truth for ALL dark matter (DM) and dark energy (DE)
 findings in PDTP, alongside current science. Updated after every relevant Part.
@@ -1024,8 +1024,9 @@ Docs: hubble_tension_c1.md, cosmo_constant_a3.md, cosmo_constant_v2.md,
 must add an entry to dark_matter_energy.md in the same session before commit.
 
 **Expected Part #:** 90 (creation); then living update each relevant Part thereafter
-**Status:** [ ] TO CREATE
-**RESULTS:** [ ]
+**Status:** CREATED (Part 97, 2026-04-04)
+**RESULTS:** 16 Parts surveyed; 8 sections compiled; all DM/DE findings consolidated.
+Doc: `docs/research/dark_matter_energy.md`
 
 ---
 
@@ -1065,7 +1066,7 @@ Order: most constrained first (most equations to cross-check).
 | 10 | [x] C1 (Hubble tension) | NEGATIVE: phi_- frozen; missing phi_-^4; DESI test | 88 | DONE |
 | 11 | [x] B5, B6, A5 ALL DONE | B5: N_gen=|Z_3|=3 DERIVED; B6: Fermi-Dirac from Berry phase; A5: sin2w=3/8 | 91-93 | DONE |
 | 12 | [x] B7 (condensate layer optics) | FCC + Wave Effects E3/E8/E10/E16; Bragg, Anderson, phi_- curved spacetime | 89, 96 | DONE |
-| 13 | [ ] E1 (dark_matter_energy.md living doc) | Compile all DM/DE findings from all Parts into one file | 90+ | PENDING |
+| 13 | [x] E1 (dark_matter_energy.md living doc) | Compile all DM/DE findings from all Parts into one file | 97 | DONE |
 | 14 | [x] A7 (emergent c) | c = omega_0 x l_0; c_s=c reframe; Bessel renorm; VSL; Sudoku | 95 | DONE |
 
 ---
