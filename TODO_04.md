@@ -246,6 +246,97 @@ derive a free parameter (Strategy A from Parts 29-35).
 
 ---
 
+### Phase 4 — Moire Pattern Extension [SPECULATION] (2026-04-04)
+
+**References:**
+- Wolfram NKS Notes 10-7: https://www.wolframscience.com/nks/notes-10-7--moire-patterns/
+- Wikipedia: https://en.wikipedia.org/wiki/Moir%C3%A9_pattern
+- Local PDF: `assets/pdfs/moire pattern Note (b) for Visual Perception...pdf`
+
+**Key Wolfram formulas relevant to tan investigation:**
+```
+Band spacing  = (1/2) * csc(theta/2) ~ 1/theta         (small angles)
+Exact repeat  : tan(theta) = u/v   where GCD(u,v) = 1   (Pythagorean condition)
+Minimum shift : {s, r} = {s, r} from u = r^2 - s^2, v = 2*r*s
+```
+
+**Critical connection to TODO_04:**
+The Wolfram condition tan(theta) = u/v for exact moire periodicity gives a
+PHYSICAL MEANING to the tan investigation:
+
+- **T2 (tan=1 critical point):** tan(theta)=1 means u=v, i.e. GCD(u,v)=u >= 2
+  -> NOT a primitive Pythagorean triple -> the moire pattern at tan=1 is
+  NOT exactly periodic. It is at the boundary of lock-in vs drift.
+  This makes tan(Delta)=1 (Delta=45 deg) the LOCK-IN THRESHOLD:
+  below it (tan < 1), moire can lock to small-integer rational; above it,
+  larger integers needed, harder to lock.
+
+- **T11 (Koide angle):** Koide Q=2/3 from three Z_3 lattices. Three-grid
+  moire exact repeat requires tan(theta_12)=u/v AND tan(theta_23)=p/q
+  simultaneously. For 120 deg spacing: tan(120)=-sqrt(3) is irrational
+  -> the three-grid moire is QUASIPERIODIC unless viewed mod Z_3.
+  The Koide formula Q=2/3 may be the quasiperiodic average of the three-grid
+  moire visibility function.
+
+**New moire-specific tan items [ALL SPECULATION]:**
+
+#### [ ] M1. Pythagorean lock-in of alpha_EM [SPECULATION]
+
+**Compute:** arccos(sqrt(alpha_EM)) = arccos(0.08542) = 85.1 degrees
+  tan(85.1 deg) = 11.55...   -> nearest Pythagorean: tan=u/v
+  Closest primitive pairs: (11,1)->(11.0), (23,2)->(11.5), (34,3)->(11.33)
+  Best: (23,2): tan=11.5 -> alpha_pred = 1/(1+11.5^2) * ... -> check
+**Why:** If alpha_EM corresponds to a Pythagorean angle, the EM and spacetime
+  lattices are in exact rational commensurability and alpha_EM is derivable
+  from the pair (u,v). If not, alpha_EM is quasiperiodic (confirmed free param).
+**Connection:** T10 (SU(3) group tan) -- the SU(3) generators define angles
+  in group space; their tan ratios may be Pythagorean.
+
+#### [ ] M2. tan(theta_W) = u/v for Weinberg angle [SPECULATION]
+
+**Compute:** tan(theta_W) where sin^2(theta_W) = 0.231 -> theta_W = 28.74 deg
+  tan(28.74) = 0.549...   -> nearest primitive: (1,2)=0.5, (3,5)=0.6, (5,9)=0.555
+  Best: (5,9) -> tan=5/9=0.556 (1.2% off). Check: is (5,9) primitive? GCD(5,9)=1. YES.
+  -> sin^2(theta_W) from (5,9): sin^2 = 25/(25+81) = 25/106 = 0.2358 (2% off 0.231)
+  At GUT scale: sin^2=3/8 -> tan=sqrt(3/5)=0.7746 ~ (3,4) Pythagorean? tan(3/4)=0.75 (3%)
+**Why:** If SU(5) embedding sets a Pythagorean angle, RG running rotates
+  the moire pattern from (3,4) at GUT to (5,9) at weak scale. This gives
+  a GEOMETRIC running of sin^2(theta_W) -- same physics as T3 (loss tangent).
+
+#### [ ] M3. Band spacing formula and PDTP condensate layers [SPECULATION]
+
+**Formula:** lambda_moire = (1/2) * csc(theta/2) * a  (a = lattice spacing)
+  For C1/C2 boundary: theta = angle between gravitational and QCD condensate lattices
+  lambda_moire = ? -- if this equals the evanescent depth from Part 89, that
+  would be a non-trivial cross-check.
+  Part 89: lambda_evan(C2) = 0.00245 fm; lambda_evan(C1) = 0.987 fm
+  Can these be expressed as moire band spacings of two misaligned condensates?
+**Connection:** T5 (multi-layer stacks) -- each layer boundary has a moire
+  angle; the evanescent depth may equal the moire band spacing.
+
+#### [ ] M4. Minimum displacement {s,r} and vortex winding [SPECULATION]
+
+**Wolfram:** Minimum displacement = {s, r} where u=r^2-s^2, v=2rs (Pythagorean generator)
+  This {s,r} pair is the smallest lattice vector that leaves the moire unchanged.
+  In PDTP: winding number n = m_cond/m_particle (Part 33).
+  Is n = r - s or r + s for some Pythagorean generator pair?
+  For electron: n = m_P/m_e ~ 2.4e22 -- too large for small integers.
+  For QCD condensate: n = m_cond_QCD/m_quark ~ 367MeV/5MeV ~ 73 -- small!
+  Check: is 73 = r^2 - s^2 for small integers? 73 = 37^2 - 36^2 = (37-36)(37+36) = 1*73.
+  Primitive pair: (r,s) = (37,36), u=73, v=2*37*36=2664. GCD(73,2664) = 1. YES.
+  This means quark winding n=73 MAY correspond to a primitive Pythagorean moire.
+
+**NOTE:** M1-M4 are all SPECULATIVE. Before investigating as full Parts,
+run the simple numerical checks (marked **Compute:** above) to see if the
+moire angle hypothesis survives first contact with numbers. These are
+10-minute calculations, not full Parts. Do them first.
+
+**First priority check (5 min):**
+  arccos(sqrt(alpha_EM)) = ?  Is tan of this angle a small rational number?
+  If yes: G1/M1 moves to ACTIVE. If no: moire is probably coincidental for alpha_EM.
+
+---
+
 ## Status Summary
 
 | ID | Investigation | Priority | Status | Part # |
@@ -264,4 +355,8 @@ derive a free parameter (Strategy A from Parts 29-35).
 | T12 | Heat kernel tan | 12 | PENDING | TBD |
 | T13 | Update predictions | -- | PENDING | -- |
 | T14 | Update equation ref | -- | PENDING | -- |
+| M1 | Pythagorean lock-in alpha_EM | SPEC | PENDING | -- |
+| M2 | tan(theta_W) Pythagorean | SPEC | PENDING | -- |
+| M3 | Band spacing vs evanescent depth | SPEC | PENDING | -- |
+| M4 | Min displacement vs vortex winding | SPEC | PENDING | -- |
 | T15 | Final verdict | -- | PENDING | -- |

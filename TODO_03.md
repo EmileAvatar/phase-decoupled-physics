@@ -698,6 +698,115 @@ argument forcing this specific form would be a major advance.
 
 ---
 
+### Category G — Moire Pattern Reframing [SPECULATION — untried] (2026-04-04)
+
+**Reference:**
+- Wolfram NKS, Notes 10-7: https://www.wolframscience.com/nks/notes-10-7--moire-patterns/
+- Wikipedia: https://en.wikipedia.org/wiki/Moir%C3%A9_pattern
+- Local PDF: `assets/pdfs/moire pattern Note (b) for Visual Perception...pdf`
+
+**Core idea [SPECULATION]:**
+A moire pattern emerges when two regular wave grids are superimposed at a slight angle.
+It is a large-scale interference pattern NOT present in either grid alone.
+Key Wolfram formula: band spacing = (1/2) * csc(theta/2) ~ 1/theta (small angles).
+Exact repetition ONLY when tan(theta) = u/v (primitive Pythagorean condition, GCD=1).
+Irrational angles -> quasiperiodic moire (never repeats).
+Rational angles -> true periodic crystal (locks in).
+
+PDTP already has two overlapping wave fields: psi (matter) and phi (spacetime),
+coupled by cos(psi - phi). The difference angle (psi - phi) IS the moire angle.
+The coupling constant alpha = cos(psi - phi) picks out the commensurability directly.
+
+**Moire connections to open PDTP problems [ALL SPECULATION]:**
+
+#### [ ] G1. alpha_EM = 1/137 as a moire ratio [SPECULATION]
+
+- Grid 1 = EM field (U(1), lattice spacing l_EM)
+- Grid 2 = C1 spacetime condensate (lattice spacing l_P)
+- Moire angle theta between the two lattices -> coupling alpha_EM = cos(theta)
+- 1/137.036 is irrational -> quasiperiodic moire -> the two lattices never
+  lock completely (no exact Pythagorean commensurability)
+- Check: does tan(theta_EM) = u/v for u/v near 1/137? What is the nearest
+  Pythagorean fraction to cos^-1(sqrt(alpha_EM)) ~ 0.16 degrees?
+- If alpha_EM is set by the angle between EM and spacetime lattices, it is
+  GEOMETRIC, not a particle property -- changes the whole question for A2.
+
+#### [ ] G2. Hierarchy problem m_P/m_proton as moire wavelength [SPECULATION]
+
+- Matter lattice spacing: l_matter = hbar/(m_proton * c) ~ 1.3 fm (Compton)
+- Spacetime lattice spacing: l_P ~ 1.6e-35 m
+- Ratio: l_matter/l_P ~ m_P/m_proton ~ 10^19
+- Moire wavelength of two nearly-aligned lattices with ratio 10^19:
+  lambda_moire = l_P / (1 - l_P/l_matter) ~ l_matter * 10^19 ~ 1.3 fm * 10^19
+- The hierarchy m_P/m_proton IS the moire wavelength in lattice units.
+- This does NOT derive m_cond, but reframes the hierarchy as a geometric ratio
+  between two incommensurate lattices rather than a particle mass ratio.
+- Connection to A1 stiffness reframing (2026-04-04): kappa_spacetime/kappa_matter
+  ~ (m_P/m_proton)^2 ~ 10^38 is the SQUARE of the moire ratio.
+
+#### [ ] G3. sin^2(theta_W) = 3/8 as moire commensurability [SPECULATION]
+
+- SU(5) embeds SU(2) and U(1)_Y at a fixed angle in group space.
+- The SU(5) embedding angle theta_GUT satisfies tan(theta_GUT) = sqrt(3/5)
+  (from g_1 = sqrt(5/3)*g_Y normalization).
+- This IS a Pythagorean-like rational condition: 3 and 5 are integers, GCD=1.
+- Wolfram: exact moire repetition requires tan(theta) = u/v, integers, GCD=1.
+- sin^2(theta_W) = 3/8 at M_GUT may be the exact Pythagorean lock-in of the
+  SU(2) and U(1) lattices within SU(5). The RG running to 0.231 is the
+  angle drift from GUT to weak scale (moire pattern slowly rotating).
+
+#### [ ] G4. Koide Q = 2/3 as three-grid moire [SPECULATION]
+
+- Koide: (m_e + m_mu + m_tau)/(sqrt(m_e)+sqrt(m_mu)+sqrt(m_tau))^2 = 2/3
+- Three-grid moire: three lattices at 120 deg spacings (= Z_3 center, Part 53)
+- Three-grid moire has exact 2/3 period compression when grids are at 120 deg.
+- Q = 2/3 may be the MOIRE RATIO of three Z_3-spaced matter lattices.
+- This is the Koide formula as a geometric identity, not a particle physics one.
+- Connection to Part 53 (Z_3 center derivation): same Z_3 geometry, now
+  understood as three-grid moire commensurability condition.
+
+#### [ ] G5. cos(psi - phi) coupling as moire visibility function [SPECULATION]
+
+- Moire visibility V = (I_max - I_min)/(I_max + I_min) = cos(theta) for two
+  sinusoidal grids at angle theta.
+- PDTP coupling: alpha = cos(psi - phi) is IDENTICAL in form.
+- alpha = 1 (full lock): perfect moire alignment, maximum visibility
+- alpha = 0 (quarter wave): destructive interference, zero visibility = decoupling
+- alpha = -1: anti-phase moire (repulsive mode)
+- The PDTP Lagrangian coupling IS the moire visibility function.
+- "Phase decoupling" (Goal 2) = reducing moire visibility to zero by rotating
+  one lattice by pi/2 relative to the other.
+
+#### [ ] G6. Wolfram tan(theta) = u/v condition and PDTP angle locking [SPECULATION]
+
+- Wolfram: exact periodic moire only for tan(theta) = u/v (integers, GCD=1).
+- PDTP field equation equilibrium: psi = phi (theta = 0) -> trivial lock.
+- Non-trivial lock: psi - phi = arctan(u/v) for small integers u,v.
+- This gives QUANTIZED coupling angles: alpha = cos(arctan(u/v)) = v/sqrt(u^2+v^2)
+- For u=1, v=11: alpha = 11/sqrt(122) ~ 0.996; v/sqrt(u^2+v^2) for various u,v
+  spans all rational couplings.
+- Check: which (u,v) pair gives alpha ~ sqrt(alpha_EM) ~ 0.085? Is it "primitive"?
+- If coupling constants are quantized by the Pythagorean condition, irrational
+  values like 1/137 are IMPOSSIBLE -- they would be quasiperiodic approximants.
+
+**NOTE on TODO_04 connection:**
+The Wolfram tan(theta) = u/v condition directly extends the tan function
+investigation in TODO_04. The moire interpretation gives a PHYSICAL MEANING
+to the critical angle tan(theta) = 1 (T2): it is the boundary between
+Pythagorean-lockable and non-lockable moire patterns. See TODO_04 for
+the tan investigation queue. G1-G6 are listed there as M1-M6.
+
+**Status:** ALL SPECULATION. None of the above have been calculated or verified.
+Before any Part is written, check: does the moire angle theta map cleanly
+onto the PDTP phase difference (psi - phi)? If yes: all of G1-G6 become
+testable. If no: the analogy may be superficial.
+
+**First check to run (low cost):** Compute arccos(sqrt(alpha_EM)) = 0.16 degrees.
+Is tan(0.16 deg) = u/v for small integers? If tan(0.16 deg) ~ 1/360 = pi/1800,
+what is the nearest Pythagorean fraction? This is a 5-minute calculation.
+
+---
+
 ### Category F — Speculative Threads (not yet investigated; filed for future)
 
 These are ideas that emerged from the work but have not been formally pursued.
