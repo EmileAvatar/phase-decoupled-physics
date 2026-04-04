@@ -120,6 +120,33 @@ Part 78: all 4 remaining paths NEGATIVE. 9 dimensionless quantities determined b
 Fundamental barrier: PDTP determines dimensionless structure, not dimensional scale.
 Sudoku 8/8 (Part 77) + 9/9 (Part 78) pass. **Status: CONFIRMED FREE PARAMETER — CLOSED.**
 
+**ALTERNATIVE FRAMING (2026-04-04 — untried):**
+m_cond may be the WRONG QUESTION. Spacetime is an oscillatory wave medium, not a gas of
+particles. In a wave medium you never ask "what is the particle mass?" -- you ask "what is
+the stiffness?" The natural medium-level description is:
+
+  c_s = sqrt(stiffness / density) = sqrt(kappa / rho)   [NO particle mass anywhere]
+  G = c^2 / (4*pi*kappa)                                 [Part 21; kappa = lattice stiffness]
+
+m_cond is not a fundamental input -- it is the ENERGY QUANTUM of one oscillation of the medium:
+  m_cond = hbar * omega_0 / c^2   (mass equivalent of one condensate phonon)
+
+Importing "m_cond = particle mass" from particle physics may be the wrong framing entirely.
+The reframed question is: **WHY IS SPACETIME SO STIFF?** (kappa = c^2/(4*pi*G) ~ 10^35 J/m^3)
+
+- Crystal stiffness: set by chemical bond energy (microscopic)
+- BEC stiffness: set by scattering length a_s (measurable)
+- Spacetime stiffness: set by... thermodynamics? topology? initial conditions?
+
+This reframing suggests:
+1. Look for a thermodynamic derivation of kappa (entropy maximization, Jacobson route)
+2. Look for a topological quantization of kappa (winding number fixes stiffness)
+3. Ask whether kappa is set by the cosmological initial conditions (not particle physics)
+4. The hierarchy problem becomes: "why is spacetime so much stiffer than nuclear matter?"
+   This may have a different class of answer than "why is m_P >> m_proton?"
+
+**Not yet investigated as a standalone FCC item. Filed for future.**
+
 #### [ ] A2. alpha_EM = 1/137.036 not derived — OPEN (CONFIRMED FREE PARAMETER)
 
 **Problem:** EM coupling constant value has no derivation in SM or PDTP.
