@@ -806,14 +806,36 @@ to the critical angle tan(theta) = 1 (T2): it is the boundary between
 Pythagorean-lockable and non-lockable moire patterns. See TODO_04 for
 the tan investigation queue. G1-G6 are listed there as M1-M6.
 
-**Status:** ALL SPECULATION. None of the above have been calculated or verified.
-Before any Part is written, check: does the moire angle theta map cleanly
-onto the PDTP phase difference (psi - phi)? If yes: all of G1-G6 become
-testable. If no: the analogy may be superficial.
+**M1/M2 quick numerical checks DONE (2026-04-04):**
 
-**First check to run (low cost):** Compute arccos(sqrt(alpha_EM)) = 0.16 degrees.
-Is tan(0.16 deg) = u/v for small integers? If tan(0.16 deg) ~ 1/360 = pi/1800,
-what is the nearest Pythagorean fraction? This is a 5-minute calculation.
+| Check | Target | Best small pair | Error | Verdict |
+|-------|--------|-----------------|-------|---------|
+| M1: arccos(sqrt(alpha_EM)) | tan=11.663 | (35,3) -> 1/alpha=137.11 | 0.03% | QUASIPERIODIC |
+| M2: tan(theta_W) at m_Z | tan=0.548 | (5,9) -> sin2=0.2358 | 1.3% | INCONCLUSIVE |
+| M2: tan(theta_W) at GUT | tan=sqrt(3/5) | irrational (sqrt) | exact | GROUP THEORY |
+
+**G1 VERDICT (2026-04-04):** NEGATIVE for small-integer lock-in.
+- Smallest primitive pair for alpha_EM: (23,2) -> 1/alpha=133.25 (1.4% off)
+- Best accurate small pair: (35,3) -> 1/alpha=137.11 (0.03% off, but u=35 is NOT small)
+- TODO_03 criterion: "if no: moire is probably coincidental for alpha_EM" -> G1 stays SPECULATION
+- G1 does NOT move to ACTIVE.
+
+**G3 VERDICT (2026-04-04):** NOT NEEDED.
+- sin^2(theta_W) = 3/8 at GUT already derived from SU(5) group theory (Part 92)
+- Low-energy 0.231 is just RG running — moire adds no predictive power here
+
+**G5 NOTE (2026-04-04):** CONFIRMED EXACT STRUCTURAL IDENTITY.
+- alpha = cos(psi-phi) is identically the moire visibility function V = cos(theta) [EXACT]
+- No numerical check needed — this is exact by definition; G5 is confirmed
+
+**G2, G4, G6:** Still untested speculation. G2 (hierarchy = moire wavelength) and G4
+(Koide three-grid) remain as geometric analogies; G6 (Pythagorean quantization) weakened
+by G1 result. None move to ACTIVE without a specific new calculation hook.
+
+**Status update:** G-series remains SPECULATION. G5 is a confirmed exact identity.
+G1 NEGATIVE. G3 NOT NEEDED. G2/G4/G6 deferred.
+
+**First check to run (low cost):** DONE. See M1/M2 results above.
 
 ---
 

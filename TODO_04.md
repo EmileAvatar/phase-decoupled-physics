@@ -280,28 +280,24 @@ PHYSICAL MEANING to the tan investigation:
 
 **New moire-specific tan items [ALL SPECULATION]:**
 
-#### [ ] M1. Pythagorean lock-in of alpha_EM [SPECULATION]
+#### [x] M1. Pythagorean lock-in of alpha_EM [SPECULATION] -- DONE (2026-04-04)
 
-**Compute:** arccos(sqrt(alpha_EM)) = arccos(0.08542) = 85.1 degrees
-  tan(85.1 deg) = 11.55...   -> nearest Pythagorean: tan=u/v
-  Closest primitive pairs: (11,1)->(11.0), (23,2)->(11.5), (34,3)->(11.33)
-  Best: (23,2): tan=11.5 -> alpha_pred = 1/(1+11.5^2) * ... -> check
-**Why:** If alpha_EM corresponds to a Pythagorean angle, the EM and spacetime
-  lattices are in exact rational commensurability and alpha_EM is derivable
-  from the pair (u,v). If not, alpha_EM is quasiperiodic (confirmed free param).
-**Connection:** T10 (SU(3) group tan) -- the SU(3) generators define angles
-  in group space; their tan ratios may be Pythagorean.
+**Result:** QUASIPERIODIC. No small-integer lock-in.
+- tan(arccos(sqrt(alpha_EM))) = 11.663
+- Smallest primitive pair: (23,2) -> 1/alpha = 133.25 (1.4% off -- not alpha_EM)
+- Best accurate small pair: (35,3) -> 1/alpha = 137.11 (0.03% off; u=35 is NOT small)
+- Conclusion: alpha_EM requires large integers to match. No Pythagorean lock-in.
+- G1 in TODO_03 stays SPECULATION -- does NOT move to ACTIVE.
+- Script output: `simulations/solver/outputs/moire_quick_checks.txt`
 
-#### [ ] M2. tan(theta_W) = u/v for Weinberg angle [SPECULATION]
+#### [x] M2. tan(theta_W) = u/v for Weinberg angle [SPECULATION] -- DONE (2026-04-04)
 
-**Compute:** tan(theta_W) where sin^2(theta_W) = 0.231 -> theta_W = 28.74 deg
-  tan(28.74) = 0.549...   -> nearest primitive: (1,2)=0.5, (3,5)=0.6, (5,9)=0.555
-  Best: (5,9) -> tan=5/9=0.556 (1.2% off). Check: is (5,9) primitive? GCD(5,9)=1. YES.
-  -> sin^2(theta_W) from (5,9): sin^2 = 25/(25+81) = 25/106 = 0.2358 (2% off 0.231)
-  At GUT scale: sin^2=3/8 -> tan=sqrt(3/5)=0.7746 ~ (3,4) Pythagorean? tan(3/4)=0.75 (3%)
-**Why:** If SU(5) embedding sets a Pythagorean angle, RG running rotates
-  the moire pattern from (3,4) at GUT to (5,9) at weak scale. This gives
-  a GEOMETRIC running of sin^2(theta_W) -- same physics as T3 (loss tangent).
+**Result:** INCONCLUSIVE / NOT NEEDED.
+- tan(theta_W) = 0.5484; best small pair: (5,9) -> sin2=0.2358 (1.3% off)
+- Most accurate compact pair: (17,31) -> sin2=0.2312 (0.006% off) -- but not small
+- GUT angle sqrt(3/5) is already DERIVED from SU(5) group theory (Part 92, exact)
+- Moire framing adds no predictive power beyond group theory result
+- Script output: `simulations/solver/outputs/moire_quick_checks.txt`
 
 #### [ ] M3. Band spacing formula and PDTP condensate layers [SPECULATION]
 
@@ -355,8 +351,8 @@ moire angle hypothesis survives first contact with numbers. These are
 | T12 | Heat kernel tan | 12 | PENDING | TBD |
 | T13 | Update predictions | -- | PENDING | -- |
 | T14 | Update equation ref | -- | PENDING | -- |
-| M1 | Pythagorean lock-in alpha_EM | SPEC | PENDING | -- |
-| M2 | tan(theta_W) Pythagorean | SPEC | PENDING | -- |
+| M1 | Pythagorean lock-in alpha_EM | SPEC | DONE -- QUASIPERIODIC | -- |
+| M2 | tan(theta_W) Pythagorean | SPEC | DONE -- INCONCLUSIVE | -- |
 | M3 | Band spacing vs evanescent depth | SPEC | PENDING | -- |
 | M4 | Min displacement vs vortex winding | SPEC | PENDING | -- |
 | T15 | Final verdict | -- | PENDING | -- |
