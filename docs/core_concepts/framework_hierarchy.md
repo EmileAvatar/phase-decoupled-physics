@@ -333,6 +333,114 @@ This kind of "deeper theory containing older ones" has happened before:
 
 ---
 
+## U(1) vs SU(2) vs SU(3) — Why PDTP Needs All Three
+
+PDTP uses three symmetry groups. They are not separate theories — they are
+layers of the **same** theory, each capturing more physics than the last.
+
+### What Are These Groups? (Plain Language)
+
+**U(1)** = rotations around a circle. The field phi is a single angle
+(one number at each point in space). Think of a clock hand that can only
+point in one direction at a time.
+
+**SU(2)** = rotations of a 2x2 matrix. The field has 3 internal directions
+(the Pauli matrices). Think of 3 clock hands — enough to describe spin
+and the weak nuclear force.
+
+**SU(3)** = rotations of a 3x3 matrix. The field U has 8 internal directions
+(the Gell-Mann matrices). Think of 8 clock hands — enough to describe
+the shape of 3D space and the strong nuclear force.
+
+### How They Relate
+
+```
+SU(3)  [8 DOF — full theory]
+  |
+  ├── contains SU(2) [3 DOF — weak force, spin]
+  |
+  └── contains U(1) [1 DOF — simplified gravity]
+```
+
+The U(1) Lagrangian is the **special case** of the SU(3) Lagrangian when
+you shrink the 3x3 matrix to a single number:
+
+- SU(3) coupling: Re[Tr(Psi^dag U)] / 3
+- U(1) limit: Re[Tr(Psi^dag U)] / 1 = cos(psi - phi)
+
+This was proved in Part 37. They are **the same equation** at different
+levels of detail.
+
+### What Each Group Handles in PDTP
+
+| Feature | U(1) | SU(2) | SU(3) |
+|---------|------|-------|-------|
+| **DOF per point** | 1 | 3 | 8 |
+| **Field** | angle phi | 2x2 matrix | 3x3 matrix U |
+| **Coupling** | cos(psi-phi) | Tr(Psi^dag U)/2 | Re[Tr(Psi^dag U)]/3 |
+| **Time curvature (g_00)** | YES | YES | YES |
+| **Spatial curvature (g_ij)** | NO (gamma=0) | NO (only 3 DOF, need 6) | YES (8 DOF > 6) |
+| **Light deflection** | 0.875" (half GR) | -- | 1.75" (matches GR) |
+| **PPN gamma** | 0 (ruled out) | -- | 1 (correct) |
+| **Gravitational waves** | scalar (breathing) | -- | tensor (h_+, h_x) |
+| **Strong force (QCD)** | -- | -- | 8 gluons, confinement |
+| **Weak force** | -- | W+, W-, Z (3 bosons) | -- |
+| **Particle types** | -- | Z_2 vortices (fermions) | Z_3 vortices (quarks) |
+| **Generations** | -- | -- | 3 (from |Z_3| = 3) |
+
+### Why Not Just Use SU(3) for Everything?
+
+Because SU(3) is mathematically harder. The U(1) version gives correct
+answers for many things (Newtonian gravity, Hawking radiation, horizons,
+dark energy). We use U(1) when it works and upgrade to SU(3) when needed.
+
+This is exactly like the Newton-to-Einstein relationship:
+- Newton (simple) handles 90% of gravity problems
+- Einstein (complex) needed for the other 10%
+- U(1) (simple) handles time curvature, horizons, Hawking
+- SU(3) (complex) handles spatial curvature, lensing, tensor GW, QCD
+
+### Is There a U(2)?
+
+The group SU(2) (not U(2)) has 3 DOF and describes the weak nuclear force
+in PDTP. It gives W+, W-, and Z bosons from its 3 generators. SU(2) also
+provides Z_2 vortices (winding 1/2) which give fermion statistics and
+spin-1/2 (Part 93). But SU(2) is too small to source the spatial metric
+(needs 6 DOF, SU(2) only has 3).
+
+### The Full PDTP Lagrangian (One Equation)
+
+All three groups combine into **one** Lagrangian:
+
+```
+L_full = K Tr[(d_mu U^dag)(d^mu U)]
+       + Sum_i K_i Tr[(d_mu Psi_i^dag)(d^mu Psi_i)]
+       + Sum_i g_i Re[Tr(Psi_i^dag U)] / 3
+```
+
+- U(x) in SU(3): the spacetime condensate field (8 DOF)
+- Psi_i(x) in SU(3): matter fields (8 DOF each)
+- The coupling Re[Tr(Psi^dag U)]/3 is the Wilson loop action
+
+When U and Psi are restricted to U(1), this reduces to the familiar:
+
+```
+L = (1/2)(d_mu phi)^2 + (1/2)(d_mu psi)^2 + g cos(psi - phi)
+```
+
+There is only one theory. U(1) is the simplified version.
+
+### What T24 (Part 103) Proved
+
+Part 103 showed **rigorously** that:
+
+1. U(1) captures the **time sector** (lapse N, shift N^i in ADM)
+2. SU(3) captures the **space sector** (spatial metric g_ij)
+3. You need BOTH for complete gravity (gamma = 1, full light bending)
+4. SU(3) with 8 DOF is the **smallest Lie group** that works (SU(2) = 3 DOF is too few)
+
+---
+
 ## Quick Reference Card
 
 | Question | Answer |

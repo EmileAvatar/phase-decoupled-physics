@@ -78,6 +78,9 @@ Phases:
    63. Coupling constant g — A6 FCC: G*g^2=c^5/hbar DERIVED; g=omega_P; A6 PARTIAL+FREE (Part 94)
    64. Emergent c — A7 FCC: c=c_s DERIVED; photon=phonon; Bessel renorm; variable c (Part 95)
    65. B7 FCC -- Condensate layer optics: E8 Bragg, E10 Anderson, E3 fiber, phi_- curved spacetime (Part 96)
+   66. T1 -- PDTP refractive index: n=1/alpha from acoustic metric; factor-2 scalar vs GR; TIR horizon (Part 98)
+   67. T2 -- Critical point tan=1: force-coupling crossover; n_c=sqrt(2); f_c=29.3%; sizzling onset (Part 99)
+   68. T16 -- Two-phase G_eff lensing check: ratio=2 invariant; BW theorem; SU(3) required (Part 100)
 """
 
 import os
@@ -145,7 +148,7 @@ from tetrad_resolution import run_tetrad_resolution
 from cp_violation import run_cp_violation
 from nonlinear_einstein import run_nonlinear_einstein
 from cosmo_constant_a3 import run_cosmo_constant_a3
-from hubble_tension_c1 import run_hubble_tension_phase
+from hubble_tension_c1 import run_hubble_tension_c1 as run_hubble_tension_phase
 from condensate_layer_optics import run_condensate_layer_optics
 from koide_theta0 import run_koide_theta0
 from ew_condensate import run_ew_fcc
@@ -153,6 +156,9 @@ from gen3_spin_statistics import run_gen3_spin_stats
 from coupling_constant_g import run_coupling_g_fcc
 from emergent_c import run_emergent_c
 from condensate_layer_fcc import run_condensate_layer_fcc
+from pdtp_refractive_index import run_pdtp_refractive_index
+from tan_critical_point import run_tan_critical_point
+from two_phase_lensing import run_two_phase_lensing
 
 
 def main():
@@ -528,6 +534,21 @@ def main():
     # Phase 65: B7 FCC -- Condensate Layer Optics (Part 96)
     # ------------------------------------------------------------------
     run_condensate_layer_fcc(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 66: T1 -- PDTP Refractive Index (Part 98)
+    # ------------------------------------------------------------------
+    run_pdtp_refractive_index(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 67: T2 -- Critical Point tan(Delta)=1 (Part 99)
+    # ------------------------------------------------------------------
+    run_tan_critical_point(rw, engine)
+
+    # ------------------------------------------------------------------
+    # Phase 68: T16 -- Two-Phase G_eff Lensing Check (Part 100)
+    # ------------------------------------------------------------------
+    run_two_phase_lensing(rw, engine)
 
     # ------------------------------------------------------------------
     # Done

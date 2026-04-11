@@ -1226,6 +1226,126 @@ Status change: OPEN (HIGH) --> FULL FCC COMPLETE -- CLOSED.
 
 ---
 
+### Part 98 additions (T1: PDTP Refractive Index):
+
+**Source:** Part 98, `simulations/solver/pdtp_refractive_index.py` (Phase 66); `docs/research/pdtp_refractive_index.md`
+
+| Eq | Formula | Tag | Source |
+|----|---------|-----|--------|
+| 98.1  | n_PDTP = 1/cos(Delta) = 1/alpha [from acoustic metric g_tt = -alpha^2*c^2] | [DERIVED, PDTP Original] | Part 98 |
+| 98.2  | alpha = sqrt(-g_tt/c^2) = sqrt(1 - 2GM/(rc^2)) [PDTP-Schwarzschild identification] | [DERIVED] | Part 98 |
+| 98.3  | n_PDTP ~ 1 + GM/(rc^2) [weak-field first order] | [DERIVED] | Part 98 |
+| 98.4  | n_GR ~ 1 + 2GM/(rc^2) [GR isotropic Schwarzschild benchmark] | [ESTABLISHED] | GR / Part 31 |
+| 98.5  | (n_GR - 1)/(n_PDTP - 1) = 2 [scalar vs tensor factor-of-2] | [DERIVED, PDTP Original] | Part 98 |
+| 98.6  | theta_scalar = 2GM/(bc^2) = 0.875" at Sun [PDTP U(1) scalar deflection] | [DERIVED] | Part 98 |
+| 98.7  | theta_GR = 4GM/(bc^2) = 1.75" at Sun [PDTP SU(3) / GR tensor deflection] | [ESTABLISHED] | Part 98 |
+| 98.8  | n -> inf as r -> r_S = 2GM/c^2 [TIR at event horizon] | [DERIVED, PDTP Original] | Part 98 |
+| 98.9  | n_1 sin(theta_1) = n_2 sin(theta_2) [Snell's law at condensate boundaries] | [STANDARD] | Part 98 |
+| 98.10 | n_+/n_- = 1/cos(Delta_+/Delta_-) [two-phase refractive indices] | [DERIVED, PDTP Original] | Part 98 |
+
+**Conclusion (Part 98):** T1 COMPLETE (10/10 Sudoku PASS).
+n_PDTP = 1/alpha derived from acoustic metric (g_tt = -alpha^2 c^2, Part 73).
+PDTP scalar (U(1)) gives n ~ 1+GM/(rc^2) = HALF of GR isotropic; PDTP SU(3) recovers GR.
+Factor-of-2 is the scalar-vs-tensor gravity discriminator (Eddington 1919 test).
+TIR at Schwarzschild radius derived: n -> inf as r -> r_S.
+Two-phase: n_- ~ 1 (negligible), n_+ = single-phase. G_eff = 2*G_bare consistent with Part 61.
+Speculative: two-phase factor-2 may close lensing gap without SU(3).
+
+---
+
+### Part 99 additions (T2: Critical Point tan(Delta)=1):
+
+**Source:** Part 99, `simulations/solver/tan_critical_point.py` (Phase 67); `docs/research/tan_critical_point.md`
+
+| Eq | Formula | Tag | Source |
+|----|---------|-----|--------|
+| 99.1 | ddot(Delta) = -2g sin(Delta) [pendulum equation for Delta=psi-phi] | [DERIVED] | Part 99 |
+| 99.2 | V(Delta) = -2g cos(Delta) [effective potential] | [DERIVED] | Part 99 |
+| 99.3 | tan(Delta_c) = 1, Delta_c = pi/4 [force-coupling crossover] | [PDTP Original, DERIVED] | Part 99 |
+| 99.4 | tan<1: coupling dominates; tan=1: crossover; tan>1: force dominates | [PDTP Original, DERIVED] | Part 99 |
+| 99.5 | n_c = 1/cos(pi/4) = sqrt(2) [refractive index at crossover] | [PDTP Original, DERIVED] | Part 99 |
+| 99.5a | alpha_c = cos(pi/4) = 1/sqrt(2) [coupling at crossover] | [DERIVED] | Part 99 |
+| 99.6 | f_c = 1 - 1/sqrt(2) approx 0.293 [energy fraction at crossover] | [PDTP Original, DERIVED] | Part 99 |
+| 99.7 | omega_0^2 = 2g [breathing mode, linearised at Delta=0] | [DERIVED] | Part 99 |
+| 99.8 | eigenvalue at Delta=pi: +2g (unstable) | [DERIVED] | Part 99 |
+
+**Conclusion (Part 99):** T2 COMPLETE (10/10 Sudoku PASS).
+tan(Delta)=1 is a force-coupling crossover, NOT a bifurcation. Fixed points: Delta=0 (stable), Delta=pi (unstable).
+n_c = sqrt(2) at crossover is a universal PDTP prediction (independent of g and m_cond).
+Energy fraction 1-1/sqrt(2) approx 29.3% is the "sizzling onset" threshold.
+Two-phase: n_+ = sqrt(2) at Delta_+=pi/4 (same as single-phase, negligible phi_- correction in vacuum).
+
+---
+
+### Part 100 additions (T16: Two-Phase G_eff Lensing Check):
+
+**Source:** Part 100, `simulations/solver/two_phase_lensing.py` (Phase 68); `docs/research/two_phase_lensing.md`
+**Verdict:** NEGATIVE — G_eff = 2*G_bare does NOT close the factor-of-2 lensing gap.
+
+| Eq | Formula | Tag | Source |
+|----|---------|-----|--------|
+| 100.1 | Two independent factor-of-2s: Factor A (G_eff/force law, Part 61) != Factor B (lensing/geodesic, g_ij) | [DERIVED, PDTP Original] | Part 100 |
+| 100.2 | theta_GR/theta_PDTP = 2, invariant under G -> f*G for any scalar f | [DERIVED, VERIFIED by SymPy] | Part 100 |
+| 100.3 | theta = (1+gamma)*G*M/(b*c^2), PPN lensing formula [scalar gamma=0, GR gamma=1] | [ESTABLISHED] | Will (2014) |
+
+**Conclusion (Part 100):** T16 COMPLETE (9/10 Sudoku PASS).
+NEGATIVE: G_eff=2*G_bare (Part 61) is already absorbed into measured G_N; cannot reuse.
+Ratio theta_GR/theta_PDTP = 2 is algebraically invariant under any G rescaling (SymPy verified).
+Bergmann-Wagoner theorem: ANY scalar field (including phi_+) gives PPN gamma=0 => lensing factor=1, not 2.
+GR requires gamma=1 (Cassini 2003: gamma = 1 +/- 2e-5).
+Fix requires SU(3) spatial metric (Part 75): g_ij = Tr(dU_dag dU) gives gamma=1 [SPECULATIVE, not yet derived].
+Changelog: 2026-04-06.
+
+### Part 101 additions (T21: Condensate Compression as Spatial Curvature):
+
+**Source:** Part 101, `simulations/solver/condensate_compression.py` (Phase 69); `docs/research/condensate_compression.md`
+**Verdict:** MIXED — compression confirmed, but static condensate gives zero lensing.
+
+| Eq | Formula | Tag | Source |
+|----|---------|-----|--------|
+| 101.1 | omega_eff^2 = g * alpha = g * cos(Delta) [oscillation slowing near matter] | [DERIVED, PDTP Original] | Part 101 |
+| 101.2 | n(r)/n_0 = 1 + u, u = GM/(rc^2) [Thomas-Fermi condensate compression] | [DERIVED] | Part 101 |
+| 101.3 | n_eff = 1 for static condensate (conformally flat: g_00 ~ g_ij ~ (1+u)) | [DERIVED, NEGATIVE] | Part 101 |
+| 101.4 | v_PDTP = GM/(c*r^2) [linearized PDTP phase gradient velocity] | [DERIVED] | Part 101 |
+| 101.5 | BH unification: alpha->0, omega_eff->0, n->inf are equivalent at r=r_S | [DERIVED, PDTP Original] | Part 101 |
+
+**Conclusion (Part 101):** T21 COMPLETE (9/10 Sudoku PASS).
+MIXED: Compression confirmed (n/n_0 = 1+u), oscillation slowing confirmed (omega^2 = g*alpha),
+black hole unification (TIR = frozen condensate = density divergence) confirmed.
+NEGATIVE: Static condensate -> conformally flat metric -> n_eff = 1 -> zero lensing.
+KEY INSIGHT: Lensing requires FLOW (v = sqrt(2GM/r)), not just compression.
+PG flow breaks conformal symmetry; static compression does not.
+OPEN: Linearized v_PDTP = GM/(cr^2) is 12 orders too small vs v_PG = sqrt(2GM/r).
+Changelog: 2026-04-06.
+
+### Part 102 additions (T3: Loss Tangent and Dark Energy Crossover):
+
+**Source:** Part 102, `simulations/solver/t3_loss_tangent.py` (Phase 70); `docs/research/loss_tangent_dark_energy.md`
+**Verdict:** PARTIAL — structural mapping works; no new z-scale; w_a under-predicted.
+
+| Eq | Formula | Tag | Source |
+|----|---------|-----|--------|
+| 102.0 | ddot(Delta) + 3H dot(Delta) = -2g sin(Delta) [full pendulum with Hubble friction] | [DERIVED, PDTP Original] | Part 102 |
+| 102.1 | epsilon(Delta, H) = g (1 + cos Delta) / (9 H^2) [full-pendulum slow-roll] | [DERIVED, PDTP Original] | Part 102 |
+| 102.2 | g_eff = 2g [harmonic limit Delta->0 matches Part 25 exactly] | [DERIVED] | Part 102 |
+| 102.3 | V(Delta) / V(pi/2) = 1 - cos Delta [normalised potential] | [DERIVED] | Part 102 |
+| 102.4 | f_c = V(pi/4)/V(pi/2) = 1 - 1/sqrt(2) ~ 0.293 [sizzling energy fraction] | [DERIVED] | Part 102 |
+| 102.5 | w_a = -6 eps_0 Omega_m / (eps_0 + 1)^2 [Case A, constant g] | [DERIVED, PDTP Original] | Part 102 |
+| 102.6 | w(Delta, H) = (eps - 1)/(eps + 1) via Eq 102.1 [full-pendulum EOS] | [DERIVED, via Part 25] | Part 102 |
+| 102.7 | eps_0 = (1 + w_0)/(1 - w_0) = 0.0947 [DESI DR2 w_0 = -0.827 inversion] | [DERIVED, OBSERVATIONAL] | Part 102 |
+
+**Conclusion (Part 102):** T3 PARTIAL (10/10 Sudoku PASS; 6/6 SymPy residuals = 0).
+POSITIVE: Full-pendulum slow-roll derived from Part 99 EOM; harmonic limit reproduces
+Part 25 with g_eff = 2g exactly; Case A (Delta_0 = pi/4) gives g ~ 2.4e-36 s^-2 within
+10% of Part 25's independent inference; f_c ~ Omega_m,0 coincidence within 7% [SPECULATIVE].
+NEGATIVE: Slow-roll attractor damps Delta -> 0 (rising drift picture is WRONG); w_a = -0.149
+vs DESI -0.75 (factor 5 too small, same as Part 25 m=0); NO new z-scale (Delta=pi/4 is
+a phase-space threshold, not a redshift threshold); T3 is algebraically identical to
+Part 25 m=0 via the identity (1-w_0^2)/2 = 2*eps/(eps+1)^2 [SymPy verified].
+Changelog: 2026-04-07.
+
+---
+
 **Conclusion (Part 88):** C1 = NEGATIVE (confirmed) -- CLOSED. All 5 mechanisms fail:
 (1) phi_- EDE: frozen (m=0 -> w=-1) AND 9.4 orders too weak.
 (2) phi_- -> G variation: G constant; phi_- not coupled to m_cond.
@@ -1235,7 +1355,38 @@ Falsifiable: DESI w(z) distinguishes systematics vs real physics. 12/12 Sudoku P
 
 ---
 
+### Part 103 additions (T24: Backward GR -> PDTP Lagrangian):
+
+**Source:** Part 103, `simulations/solver/t24_gr_reverse.py` (Phase 71); `docs/research/gr_reverse_pdtp.md`
+
+Changelog: 2026-04-11.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 103.1 | phi_PG(r) = -(4/3)(m_cond/hbar)sqrt(2GMr) | [DERIVED] | PG reverse map; phi ~ r^(1/2) |
+| 103.2 | Lap(phi_PG) = (3A)/(4r^(3/2)) != 0 | [DERIVED] | Vacuum not field-free; SymPy SV2 |
+| 103.3 | Delta_gamma = gamma_GR - gamma_scalar = 1 | [DERIVED] | PPN formalism |
+| 103.4 | theta_GR/theta_scalar = 2 | [DERIVED] | (1+gamma) ratio; SymPy SV6 |
+| 103.5 | R_acoustic ~ (d_i d_j phi)^2 + ... | [DERIVED] | Higher-derivative; cannot fix g_ij |
+| 103.6 | g_ij needs >= 6 DOF; SU(3) = 8 (minimal) | [DERIVED] | DOF counting; SymPy SV7-SV8 |
+| 103.7 | g_mu_nu = (1/3)Tr(dU^dag dU) [minimum fix] | [DERIVED] | Part 75; chiral model metric |
+
+Verdict: CONSTRUCTIVE NEGATIVE. Scalar PDTP gives gamma=0 (no spatial curvature).
+Three alternative fixes tested and rejected: (A) Brans-Dicke (circular),
+(B) higher-derivative scalar (DOF counting), (C) Nordstrom (gamma=-1).
+SU(3) (Part 75) is the minimal fix. ADM orphan: g_ij requires tensor field.
+Architecture: L_full = L_U1(time sector) + L_SU3(space sector).
+Sudoku 10/10 PASS. SymPy 8/8 VERIFIED.
+
+---
+
 ## Changelog
+- 2026-04-11: Added Part 103 (T24: backward GR -> PDTP; CONSTRUCTIVE NEGATIVE; gamma=0 for scalar; DOF counting -> SU(3) minimal; ADM orphan g_ij; 10/10 PASS; 8/8 SymPy)
+- 2026-04-07: Added Part 102 (T3: loss tangent dark energy; PARTIAL; eps(Delta,H)=g(1+cos Delta)/(9H^2); g_eff=2g; f_c~Omega_m within 7% [SPECULATIVE]; w_a=-0.149 vs DESI -0.75 [factor 5 off, same as Part 25 m=0]; no new z-scale; 10/10 PASS)
+- 2026-04-06: Added Part 101 (T21: compression confirmed n/n_0=1+u; omega^2=g*alpha; static=conformal flat=ZERO lensing; flow required; BH unification; 9/10 PASS)
+- 2026-04-06: Added Part 100 (T16: two-phase G_eff NEGATIVE; ratio=2 invariant; Bergmann-Wagoner; 9/10 PASS)
+- 2026-04-06: Added Part 99 (T2: tan=1 crossover DERIVED; n_c=sqrt(2); f_c=29.3%; sizzling onset; 10/10 PASS)
+- 2026-04-04: Added Part 98 (T1: n_PDTP=1/alpha DERIVED; factor-2 scalar vs GR; TIR at horizon; 10/10 PASS)
 - 2026-04-04: Added Part 96 (B7 FCC: E_Bragg C2=628 MeV/C3=252 GeV; Anderson xi_loc=1.8 fm; C1 fiber NA=1; phi_-(Earth)=31.7 GeV; DM m_P/n; 24/24 PASS)
 - 2026-04-04: Added Part 95 (A7 FCC: c=c_s DERIVED; photon=phonon; c_eff=c*sqrt(J_0); light-stop phi_0=2.4048; variable c from n; 12/12 PASS)
 - 2026-04-04: Added Part 94 (A6 FCC: G*g^2=c^5/hbar DERIVED; g=omega_P~1.855e43 rad/s; A6 PARTIAL+FREE; reduces to A1; 12/12 PASS)
