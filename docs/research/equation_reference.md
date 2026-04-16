@@ -1378,9 +1378,57 @@ SU(3) (Part 75) is the minimal fix. ADM orphan: g_ij requires tensor field.
 Architecture: L_full = L_U1(time sector) + L_SU3(space sector).
 Sudoku 10/10 PASS. SymPy 8/8 VERIFIED.
 
+### Part 104 additions (T23: Hilbert Space sin^2 Term):
+
+**Source:** Part 104, `simulations/solver/t23_sin2_term.py` (Phase 72); `docs/research/sin2_hilbert_term.md`
+
+Changelog: 2026-04-12.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 104.1 | V_eff(D) = -2g cos(D) + 2 lambda cos^2(D) | [PDTP Original, DERIVED, SymPy VERIFIED] | Extended potential with sin^2 |
+| 104.2 | Box(phi) = g sin(D) - lambda sin(2D); Box(psi) = -g sin(D) + lambda sin(2D) | [PDTP Original, DERIVED, SymPy VERIFIED] | Momentum conserved |
+| 104.3 | omega^2(D=0) = 2g - 4*lambda | [PDTP Original, DERIVED, SymPy VERIFIED] | Stability; critical at lambda=g/2 |
+| 104.4 | D* = arccos(g/(2*lambda)), lambda >= g/2 | [PDTP Original, DERIVED, SymPy VERIFIED] | New fixed point; pitchfork |
+| 104.5 | eps = (g/(9H^2))(1-2r cos D)^2(1+cos D)/(1-r(1+cos D)), r=lambda/g | [PDTP Original, DERIVED] | Extended slow-roll |
+| 104.6 | V(D) = sum_n a_n cos(nD) [most general] | [DERIVED] | Fourier completeness |
+
+Verdict: PRODUCTIVE. sin^2 is allowed (n=2 harmonic), generates pitchfork
+bifurcation at lambda=g/2 (permanent partial decoupling), BUT cannot resolve
+w_a tension (best w_a=-0.075, factor 10 off DESI). Physical meaning:
+sin^2(D) = |Im<psi|phi>|^2 = cross-polarization intensity. Arises from
+phi_- fluctuations in the two-phase system.
+SymPy 9/9 PASS. Sudoku 10/10 PASS.
+
+---
+
+### Part 105 additions (T22: Platonic Solids Lens):
+
+**Source:** Part 105, `simulations/solver/t22_platonic_lens.py` (Phase 73); `docs/research/platonic_solids_lens.md`
+
+Changelog: 2026-04-15.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 105.1 | V - E + F = 2 (Euler formula) | [DERIVED, SymPy VERIFIED] | All 5 Platonic solids; Coxeter (1973) |
+| 105.2 | SU(2) finite subgroups <-> ADE Dynkin (McKay) | [CATALOG] | 3 exceptional E <-> 3 non-A/D Platonic |
+| 105.3 | N_c = 3 from Z_3 center of SU(3) | [DERIVED, textbook] | Baryon psi1*psi2*psi3 is Z_3-invariant |
+| 105.4 | Y-junction E(n) = 1/n; Z_N selects n=N | [PDTP Original, DERIVED] | NOT planar force balance or energy |
+| 105.5 | K_0 = 1/(4 pi) NOT = Z/integer | [PDTP Original, NEGATIVE] | 4 pi irrational; FCC best gap 4.5% |
+| 105.6 | log(Lambda/M_P^4)/log(phi) non-integer | [PDTP Original, NEGATIVE] | No natural n; best 19 decades off |
+| 105.7 | N_c derivable; N_gen NOT derivable | [PDTP Original, REFRAME] | Different questions, different answers |
+
+Verdict: PARTIAL. 1 DERIVED (textbook), 3 NEGATIVE, 1 CATALOG. No new free
+parameter fixed. Key reframe: N_c = 3 (Z_3 structural) and N_gen = 3 (empirical)
+are DIFFERENT questions. Confirms Part 37 (N_c from Z_3) and Part 54 (Lambda
+free). Expected going in (most speculative of T22-T24).
+SymPy 8/8 PASS. Sudoku 10/10 PASS.
+
 ---
 
 ## Changelog
+- 2026-04-15: Added Part 105 (T22: Platonic solids lens; PARTIAL; 1 DERIVED + 3 NEGATIVE; N_c from Z_3 confirmed; N_gen/K_0/Lambda not fixed by Platonic arithmetic; 10/10 PASS; 8/8 SymPy)
+- 2026-04-12: Added Part 104 (T23: sin^2 Hilbert term; PRODUCTIVE; pitchfork at lambda=g/2; w_a cannot reach -0.75; cross-polarization interpretation; 10/10 PASS; 9/9 SymPy)
 - 2026-04-11: Added Part 103 (T24: backward GR -> PDTP; CONSTRUCTIVE NEGATIVE; gamma=0 for scalar; DOF counting -> SU(3) minimal; ADM orphan g_ij; 10/10 PASS; 8/8 SymPy)
 - 2026-04-07: Added Part 102 (T3: loss tangent dark energy; PARTIAL; eps(Delta,H)=g(1+cos Delta)/(9H^2); g_eff=2g; f_c~Omega_m within 7% [SPECULATIVE]; w_a=-0.149 vs DESI -0.75 [factor 5 off, same as Part 25 m=0]; no new z-scale; 10/10 PASS)
 - 2026-04-06: Added Part 101 (T21: compression confirmed n/n_0=1+u; omega^2=g*alpha; static=conformal flat=ZERO lensing; flow required; BH unification; 9/10 PASS)

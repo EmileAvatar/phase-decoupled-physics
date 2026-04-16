@@ -526,65 +526,61 @@ is structurally complete for the harmonic limit but does NOT predict:
 The hypothesis is that the Lagrangian is **missing one or more terms**.
 T22-T24 use three different lenses to identify candidate missing terms.
 
-#### [ ] T22. Platonic Solids Lens — Topology / Discrete Symmetry
+#### [x] T22. Platonic Solids Lens — Topology / Discrete Symmetry — DONE (PARTIAL)
 
-**Part:** TBD (after user picks order)
-**What:** Use the 5 Platonic solids and their finite symmetry groups
-(tetrahedral T_d, octahedral O_h, icosahedral I_h) as a discrete-symmetry lens
-on PDTP. McKay correspondence (finite SU(2) subgroups <-> Platonic groups <->
-ADE Lie algebras) gives a bridge from discrete geometry to gauge symmetry.
+**Part:** 105 (Phase 73)
+**Script:** `simulations/solver/t22_platonic_lens.py`
+**Doc:** `docs/research/platonic_solids_lens.md`
+**Sudoku:** 10/10 PASS | **SymPy:** 8/8 VERIFIED
+**Verdict:** PARTIAL — 1 DERIVED (textbook), 3 NEGATIVE, 1 CATALOG
 
-**Key questions:**
-1. Part 37 Y-junction (3 vortices at 120 deg) is a 2-simplex. Extending to a
-   tetrahedral 4-vortex 3-simplex: does it forbid (3 only allowed) or permit
-   a 4th flavour generation?
-2. Part 21 oscillator lattice -- what crystal structure (cubic, FCC, BCC,
-   diamond)? The coordination number could fix K = 1/(4 pi) geometrically.
-3. Could the 3 fermion generations be the 3 reflection planes of T_d?
-4. McKay: SU(2) finite subgroups -> Platonic -> ADE. Does PDTP's SU(3) extension
-   have a Platonic-group precursor that constrains its representations?
-5. Anti-icosahedral (Z_5) -- could this give a hidden 5-fold symmetry that
-   relates to the cosmological constant scale (Penrose tiling, quasicrystals)?
+**Results:**
+- Euler formula V-E+F=2 verified for all 5 solids; 3 distinct non-A/D groups
+  (tetrahedral A_4, octahedral S_4, icosahedral A_5) [Eq 105.1, DERIVED]
+- McKay: SU(2) finite subgroups <-> ADE Dynkin; 3 exceptional E groups
+  (E_6/E_7/E_8) <-> 3 non-cyclic/non-dihedral Platonic [Eq 105.2, CATALOG]
+- **N_c = 3 DERIVED from Z_3 center of SU(3)** [Eq 105.3, textbook]:
+  Baryon psi1*psi2*psi3 is Z_3-invariant -> exactly 3 quarks per baryon
+- Y-junction n=3 is selected by Z_3 center, NOT by planar force balance
+  (any n>=3 works) or energy (E(n)=1/n monotone decreasing) [Eq 105.4, DERIVED]
+- **N_gen = 3 NOT derivable from Platonic arithmetic** [Eq 105.7, NEGATIVE]:
+  No ratio of Platonic group orders gives 3 (S_4/A_4=2, A_5/A_4=5, A_5/S_4=2.5)
+- **K_0 = 1/(4 pi) NOT a lattice coordination** [Eq 105.5, NEGATIVE]:
+  4 pi irrational; Z integer; FCC best gap 4.5%. K_0 origin = 3D solid angle
+- **Lambda/M_P^4 ~ 10^-122 NOT phi^n for natural n** [Eq 105.6, NEGATIVE]:
+  Natural candidates (|A_5|, dim(E_8), |2I|, 2*dim(E_8)) all fail by >19 decades
 
-**Expected effort:** Medium. Mostly literature + algebra.
-**Likely outcome:** [SPECULATIVE]. Best case: discrete group fixes N_gen or Omega_m.
-Worst case: reframes "why 3 generations" without solving it.
-**Priority:** Lower (most speculative of the three).
+**Key reframe:** N_c = 3 (Z_3 structural, DERIVED) and N_gen = 3 (empirical,
+OPEN) are DIFFERENT QUESTIONS. The "three" in each has a different origin.
+Platonic lens makes this distinction clean.
 
-#### [ ] T23. Hilbert Space Lens — Real and Imaginary Parts
+**Outcome:** Confirms Part 37 (N_c from Z_3) and Part 54 (Lambda free parameter).
+No new free parameter fixed. Expected going in (most speculative of T22-T24).
+**Open:** N_gen = 3 needs non-discrete-symmetry input (topology of compactified
+extra dimensions, Koide-generalisation, or anomaly-cancellation UV completion).
 
-**Part:** TBD
-**What:** Promote PDTP's classical phase fields phi, psi to Hilbert-space states
-|phi>, |psi> and examine what new terms appear from the imaginary part of the
-inner product. Currently alpha = cos(Delta) = Re<psi|phi> is the gravitational
-coupling [Part 28b]. The imaginary part Im<psi|phi> = sin(Delta) appears only
-as a force gradient -- never as an independent Lagrangian term.
+#### [x] T23. Hilbert Space Lens — sin^2 Second Fourier Harmonic — DONE (PRODUCTIVE)
 
-**Hypothesis (Maxwell scaffolding move, Methodology section 2):**
-There may be a missing term proportional to sin^2(Delta) = (Im<psi|phi>)^2
-in the Lagrangian. This would be a Z_2-doubled coupling with period pi
-(half the period of the existing cos coupling).
+**Part:** 104 (Phase 72)
+**Script:** `simulations/solver/t23_sin2_term.py`
+**Doc:** `docs/research/sin2_hilbert_term.md`
+**Sudoku:** 10/10 PASS | **SymPy:** 9/9 VERIFIED
+**Verdict:** PRODUCTIVE — new physics, new prediction, w_a NOT resolved
 
-**Key questions:**
-1. Add L_new = lambda * sum_i sin^2(psi_i - phi) to the PDTP Lagrangian.
-   - Use sin^2 = (1 - cos(2 Delta))/2 to rewrite as a doubled-frequency cos term.
-   - Re-derive the field equations: Box(phi) = sum_i [g_i sin(Delta_i) + lambda sin(2 Delta_i)]
-   - Re-do the pendulum stability analysis -- does the new term shift Delta = pi/4?
-2. Compute the new ε(Delta, H) for slow-roll. Does the extra term resolve T3's
-   w_a tension? It should ADD a positive contribution to K/V at finite Delta.
-3. Density-matrix promotion: rho = |phi><phi|. Mixed states give intrinsic
-   damping (loss tangent at the field-theory level, not just cosmological friction).
-4. Promote U(1) -> U(2). The 4 generators split as U(1) x SU(2) -- electroweak.
-   Does this come naturally from the Hilbert-space promotion?
-5. Entanglement: if matter ψ_i and condensate phi are entangled, the reduced
-   density matrix has off-diagonal coherences. These contribute extra <H> terms
-   absent in the classical limit.
-
-**Expected effort:** Medium-High. Concrete math, SymPy verifiable, can become
-a Phase script (Part 103) if the sin^2 term gives a clean derivation.
-**Likely outcome:** [DERIVED] Either (a) a new Lagrangian term that resolves
-w_a, or (b) a NEGATIVE proving the sin^2 term is forbidden by some symmetry.
-**Priority:** High (most concrete path to a new Lagrangian term).
+**Results:**
+- Fourier analysis: V(Delta) = sum a_n cos(n*Delta); sin^2 is the n=2 harmonic [Eq 104.6]
+- Field equations: Box(phi) = g sin(D) - lambda sin(2D); momentum conserved exactly [Eq 104.2]
+- **PITCHFORK BIFURCATION:** At lambda = g/2, ground state shifts from D=0 to
+  D* = arccos(g/(2*lambda)). This is PERMANENT PARTIAL DECOUPLING. [Eq 104.3-104.4]
+  - alpha* = g/(2*lambda) < 1 when lambda > g/2
+  - Phase diagram: standard PDTP (lam<g/2) vs partially decoupled (lam>g/2)
+- **w_a: CANNOT REACH -0.75.** Best w_a = -0.075 (factor 10 off). Slow-roll is the
+  bottleneck, not the potential shape. Same structural limit as T3. [Eq 104.5]
+- Physical meaning: sin^2(D) = |Im<psi|phi>|^2 = cross-polarization intensity
+- Two-phase: compatible; adds -lambda sin(2*Sigma) sin(2*phi_-) [vanishes in vacuum]
+- Natural origin: phi_- fluctuations at 1-loop generate this harmonic
+- **NEW PREDICTION:** If lambda >= g/2, G_eff = G*alpha*. Testable via lunar laser ranging.
+**Open:** lambda undetermined (new free parameter); density-matrix and U(2) promotion deferred.
 
 #### [x] T24. Backward GR -> PDTP Lagrangian — Reverse Engineering — DONE (CONSTRUCTIVE NEGATIVE)
 
@@ -759,8 +755,8 @@ for the full investigation plan (16 website pages + JSFiddle code review).
 | T19 | L_4 SymPy verify + b quark check | 19 | PENDING | -- |
 | T20 | L_4 Goldstone mode -- what is it? | 20 | PENDING | -- |
 | T21 | Condensate compression as spatial curvature (lensing fix?) | 21 | DONE (MIXED) | 101 |
-| T22 | Platonic solids lens (discrete symmetry) | 24 (low) | PENDING | -- |
-| T23 | Hilbert space lens (sin^2 / Im^2 missing term) | 22 (high) | PENDING | -- |
+| T22 | Platonic solids lens (discrete symmetry) | 24 (low) | DONE (PARTIAL) | 105 |
+| T23 | Hilbert space lens (sin^2 / Im^2 missing term) | 22 (high) | DONE (PRODUCTIVE) | 104 |
 | T24 | Backward GR -> PDTP Lagrangian (missing tensor term) | 23 (high) | DONE (CONSTR. NEG.) | 103 |
 | T25 | String theory and PDTP (Regge slope, graviton, extra dims) | 25 (low) | PENDING | -- |
 | T26 | Bob Lazar truth table (decoupling phenomenology) | 26 (low) | PENDING | -- |
