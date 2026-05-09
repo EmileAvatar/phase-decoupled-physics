@@ -262,7 +262,31 @@ stacked regions with different alpha values.
 - Thermal insulation (air gaps, vacuum flasks)
 **Wave check:** Effects 3 (diffraction), 8 (interference), 15 (thin-film), 44 (impedance)
 
-#### [ ] T6. Leidenfrost + Tan: Phase Transition Analysis — PRIORITY 6
+#### [x] T6. Leidenfrost + Tan: Phase Transition Analysis — DONE (Part 110, Phase 78, 2026-05-09)
+
+**Part:** 110
+**Script:** `simulations/solver/t6_leidenfrost_tan.py` (Phase 78)
+**Doc:** `docs/research/leidenfrost_tan.md`
+**Sudoku:** 12/12 PASS | **SymPy:** 6/6 PASS
+**Verdict:** PRODUCTIVE — critical exponents derived; universality class classified.
+
+**RESULTS:**
+- Critical point: V''(pi/2) = 0 (phase stiffness vanishes) [Eq 110.4, DERIVED, SymPy S1]
+- Order parameter: alpha = cos(Delta) ~ eps, beta = 1 [Eq 110.5, DERIVED]
+- Correlation length: xi_phi = 1/sqrt(g cos(Delta)) ~ eps^{-1/2}, nu = 1/2 [Eq 110.6]
+- GW noise susceptibility: S ~ 1/(g*alpha) ~ eps^{-1}, gamma = 1 [Eq 110.8, testable]
+- Energy gap: Delta_V = g per oscillator exactly [Eq 110.9, matches Part 29/71]
+- Universality: (beta,nu,gamma)=(1,1/2,1) = NON-EQUILIBRIUM CROSSOVER [Eq 110.10, PDTP Original]
+  Matches laser-threshold universality, NOT Ising/XY/BKT equilibrium transitions.
+  NOT a spontaneous symmetry breaking -- always requires sustained drive.
+- T2 connection: tan=1 crossover at Delta=pi/4 is the exact midpoint of the tan->inf divergence.
+- T5 connection: perfect GW mirror condition (R->1, n->inf) = same critical point as V''=0 here.
+- Observable: GW phase noise diverges as alpha^{-1} near Leidenfrost decoupling.
+
+**Open:**
+- Fluctuation corrections beyond mean-field (RG calculation)
+- Two-phase (T9): does phi_- mass cutoff the noise divergence?
+- Hysteresis: approach from Delta<pi/2 vs Delta>pi/2
 
 **Part:** Next after T5
 **What:** Re-examine Part 71 Leidenfrost decoupling using tan framework.
@@ -1336,7 +1360,7 @@ enough from PDTP to provide independent constraints.
 | T3 | Loss tangent + dark energy | 3 | DONE (PARTIAL) | 102 |
 | T4 | Brewster angle for GWs | 4 | DONE (PRODUCTIVE) | 108 |
 | T5 | Multi-layer stacks | 5 | DONE (PRODUCTIVE+NEG) | 109 |
-| T6 | Leidenfrost + phase transition | 6 | PENDING | TBD |
+| T6 | Leidenfrost + phase transition | 6 | DONE (PRODUCTIVE) | 110 |
 | T7 | Hawking + n_PDTP | 7 | PENDING | TBD |
 | T8 | PPN corrections | 8 | PENDING | TBD |
 | T9 | Two-phase tan | 9 | PENDING | TBD |

@@ -1487,6 +1487,33 @@ corrections at (Z=115, N=184): +9 to +15 MeV extra binding.
 
 ---
 
+### Part 110 additions (T6: Leidenfrost + Tan Phase Transition):
+
+**Source:** Part 110 (Phase 78, 2026-05-09), `simulations/solver/t6_leidenfrost_tan.py`;
+`docs/research/leidenfrost_tan.md`. SymPy 6/6 PASS. Sudoku 12/12 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 110.1 | V(Delta) = -g cos(Delta) | [Part 99] | PDTP coupling potential; ground state Delta=0 |
+| 110.2 | V'(Delta) = g sin(Delta); V''(Delta) = g cos(Delta) | [DERIVED] | first and second derivatives; V'' = phase stiffness |
+| 110.3 | Delta=0: stable min (V''=+g); Delta=pi: unstable max (V''=-g) | [DERIVED, SymPy VERIFIED] | fixed points; stable gravity at Delta=0 |
+| 110.4 | V''(pi/2) = 0 (phase stiffness vanishes at Leidenfrost point) | [DERIVED, SymPy VERIFIED] | critical soft-mode condition; condensate maximally soft |
+| 110.5 | alpha = cos(Delta) ~ eps near pi/2; beta = 1 | [DERIVED, SymPy VERIFIED] | order parameter exponent; cos(pi/2-eps) = sin(eps) ~ eps |
+| 110.6 | xi_phi = 1/sqrt(g cos(Delta)) ~ (g*eps)^{-1/2}; nu = 1/2 | [DERIVED, SymPy VERIFIED] | phase correlation length; diverges at critical point |
+| 110.7 | tan(Delta) = sin(Delta)/alpha ~ 1/eps -> inf | [DERIVED, T2 connection] | loss tangent diverges; T2 tan=1 crossover is midpoint of this divergence |
+| 110.8 | S ~ 1/V'' = 1/(g*alpha) ~ eps^{-1}; gamma = 1 | [DERIVED] | GW noise susceptibility; diverging phase noise near decoupling |
+| 110.9 | Delta_V = V(pi/2) - V(0) = g | [DERIVED, SymPy VERIFIED] | energy per oscillator to reach critical point; matches Part 29 / Part 71 |
+| 110.10 | (beta, nu, gamma) = (1, 1/2, 1): non-equilibrium crossover, laser-threshold universality | [PDTP Original] | NOT equilibrium Ising/XY; NO spontaneous symmetry breaking; driven system analogy |
+
+Key results:
+- Critical point V''(pi/2) = 0: condensate phase stiffness vanishes at Leidenfrost angle [Eq 110.4, DERIVED]
+- (beta, nu, gamma) = (1, 1/2, 1): mean-field non-equilibrium exponents [Eq 110.10, PDTP Original]
+- Laser-threshold universality, NOT Ising/XY equilibrium transition
+- GW noise diverges as alpha^{-1} near decoupling [Eq 110.8, testable in principle]
+- Energy to decouple: Delta_V = g per oscillator exactly [Eq 110.9, Part 29 consistent]
+
+---
+
 ### Part 109 additions (T5: Multi-Layer Phase Stacks, air/water/oil model):
 
 **Source:** Part 109 (Phase 77, 2026-05-09), `simulations/solver/t5_phase_stack.py`;
@@ -1544,6 +1571,7 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-05-09: Added Part 110 (T6: Leidenfrost critical point; V''(pi/2)=0 DERIVED; (beta,nu,gamma)=(1,1/2,1) DERIVED; classified non-equilibrium crossover = laser-threshold universality; GW noise S~alpha^{-1} diverges near decoupling; Delta_V=g DERIVED; 12/12 Sudoku, 6/6 SymPy)
 - 2026-05-09: Added Part 109 (T5: multi-layer TMM; decoupled layer R->1 DERIVED; bandgap f_gap=c*alpha/(2d) PDTP Original; Leidenfrost layer alpha_crit~1e-41 at LIGO -- zero effect at Planck thickness; QW AR condition DERIVED; 12/12 Sudoku, 3/3 SymPy)
 - 2026-05-09: Added Part 108 (T4: Gravitational Brewster angle for GWs; PRODUCTIVE; tan(theta_B)=n2/n1=alpha1/alpha2 DERIVED; x-mode has Brewster angle, +-mode does not; breathing mode no Brewster angle but has TIR; mode splitting delta_theta_B PDTP Original; 12/12 Sudoku, 5/5 SymPy)
 - 2026-04-29: Added Part 107 (T37: SEMF + decay-rate isotope-stability baseline; PARTIAL; 6/15 Sudoku at 1.0 OoM; failure modes cluster at shell-stabilised magic nuclei; Z=115 longest-lived predicted at A=315 with T~11s; Lazar gap quantified at ~29 OoM ~ 10 MeV; pdtp_topology_correction stub reserved for T40)
