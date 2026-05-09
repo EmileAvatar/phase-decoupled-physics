@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element 115 & Isotope Stability Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .stable { color: #4ade80; }
+        .unstable { color: #f87171; }
+        .theoretical { color: #60a5fa; }
+        input[type=number] { background: #1e293b; border: 1px solid #475569; color: white; border-radius: 6px; padding: 6px 10px; font-weight: bold; }
+        .btn-action { background: linear-gradient(135deg, #2563eb, #7c3aed); transition: all 0.2s; }
+        .btn-action:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                Isotope Stability Lab
+            </h1>
+            <p class="text-slate-400">Nuclear Physics & The "Island of Stability"</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Calculator Input -->
+            <section class="glass p-6 rounded-2xl">
+                <h2 class="text-xl font-semibold mb-4 flex items-center">
+                    <span class="mr-2">🔬</span> Stability Calculator
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex flex-col">
+                        <label class="text-xs font-bold text-slate-500 uppercase mb-1">Protons (Z)</label>
+                        <input type="number" id="protons" value="115" min="1" max="130">
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="text-xs font-bold text-slate-500 uppercase mb-1">Neutrons (N)</label>
+                        <input type="number" id="neutrons" value="184" min="0" max="300">
+                    </div>
+                    <div class="pt-4">
+                        <button onclick="calculateStability()" class="w-full btn-action text-white font-bold py-3 px-4 rounded-lg transition">
+                            Run Nuclear Analysis
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Display -->
+            <section class="glass p-6 rounded-2xl" id="results-panel">
+                <h2 class="text-xl font-semibold mb-4">Real-time Analysis</h2>
+                <div id="status-box" class="mb-4 p-4 rounded-xl bg-slate-800/50 text-center font-bold text-lg border border-slate-700">
+                    Ready
+                </div>
+                <div class="space-y-3 text-sm">
+                    <div class="flex justify-between pb-1 border-b border-slate-700/50">
+                        <span class="text-slate-400">Mass Number (A):</span> 
+                        <span id="res-a" class="font-mono">-</span>
+                    </div>
+                    <div class="flex justify-between pb-1 border-b border-slate-700/50">
+                        <span class="text-slate-400">N/Z Ratio:</span> 
+                        <span id="res-nz" class="font-mono">-</span>
+                    </div>
+                    <div class="flex justify-between pb-1 border-b border-slate-700/50">
+                        <span class="text-slate-400">BE per Nucleon:</span> 
+                        <span id="res-be" class="font-mono">-</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Shell Closure:</span> 
+                        <span id="res-magic" class="font-mono">-</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Featured Isotope Section -->
+        <section class="mt-8 bg-blue-600/10 border border-blue-500/30 p-6 rounded-2xl">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-blue-400">Special Isotope: Element 115 (Moscovium)</h2>
+                    <p class="text-sm text-slate-300">The theoretical "Stable" configuration mentioned in S4 research.</p>
+                </div>
+                <button onclick="testIsotope(115, 184)" class="whitespace-nowrap bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-full transition text-sm">
+                    Load <sup>299</sup>Mc (Stable 115)
+                </button>
+            </div>
+        </section>
+
+        <!-- Context & Data Table -->
+        <section class="mt-8">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold">Stable Reference Points</h3>
+                <span class="text-xs text-slate-500">Benchmark against known stable nuclei</span>
+            </div>
+            <div class="overflow-x-auto glass rounded-2xl">
+                <table class="w-full text-left text-sm">
+                    <thead class="text-slate-400 border-b border-slate-700 bg-slate-800/30">
+                        <tr>
+                            <th class="p-4">Element</th>
+                            <th class="p-4 text-center">Z</th>
+                            <th class="p-4 text-center">N</th>
+                            <th class="p-4 text-center">N/Z</th>
+                            <th class="p-4 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reference-body" class="text-slate-300">
+                        <!-- Data injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const stableIsotopes = [
+            { name: "Hydrogen-1", z: 1, n: 0 },
+            { name: "Helium-4", z: 2, n: 2 },
+            { name: "Carbon-12", z: 6, n: 6 },
+            { name: "Oxygen-16", z: 8, n: 8 },
+            { name: "Silicon-28", z: 14, n: 14 },
+            { name: "Calcium-40", z: 20, n: 20 },
+            { name: "Iron-56", z: 26, n: 30 },
+            { name: "Tin-120", z: 50, n: 70 },
+            { name: "Xenon-132", z: 54, n: 78 },
+            { name: "Gold-197", z: 79, n: 118 },
+            { name: "Lead-208", z: 82, n: 126 },
+            { name: "Bismuth-209", z: 83, n: 126 }
+        ];
+
+        const magicNumbers = [2, 8, 20, 28, 50, 82, 126, 184];
+
+        function init() {
+            const tbody = document.getElementById('reference-body');
+            stableIsotopes.forEach(iso => {
+                const ratio = iso.z === 0 ? 0 : (iso.n / iso.z).toFixed(2);
+                const row = `
+                    <tr class="border-b border-slate-800 hover:bg-white/5 transition">
+                        <td class="p-4 font-semibold">${iso.name}</td>
+                        <td class="p-4 text-center font-mono">${iso.z}</td>
+                        <td class="p-4 text-center font-mono">${iso.n}</td>
+                        <td class="p-4 text-center font-mono">${ratio}</td>
+                        <td class="p-4 text-right">
+                            <button onclick="testIsotope(${iso.z}, ${iso.n})" class="bg-slate-700 hover:bg-slate-600 px-3 py-1 rounded text-xs transition">
+                                Analyze
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+            calculateStability();
+        }
+
+        /**
+         * Liquid Drop Model: Semi-Empirical Mass Formula
+         * Calculates binding energy based purely on nuclear physics constants.
+         */
+        function calculateBindingEnergy(Z, N) {
+            const A = Z + N;
+            if (A <= 1) return 0; 
+            
+            // Physical coefficients in MeV
+            const av = 15.8;  // Volume energy
+            const as = 18.3;  // Surface energy
+            const ac = 0.714; // Coulomb (repulsion) energy
+            const aa = 23.2;  // Asymmetry energy
+            const ap = 12.0;  // Pairing energy
+            
+            let pairingTerm = 0;
+            if (Z % 2 === 0 && N % 2 === 0) pairingTerm = ap / Math.sqrt(A);
+            else if (Z % 2 !== 0 && N % 2 !== 0) pairingTerm = -ap / Math.sqrt(A);
+
+            const bindingEnergy = (av * A) 
+                     - (as * Math.pow(A, 2/3)) 
+                     - (ac * (Z * Z) / Math.pow(A, 1/3)) 
+                     - (aa * Math.pow(A - 2 * Z, 2) / A) 
+                     + pairingTerm;
+            
+            return Math.max(0, bindingEnergy / A);
+        }
+
+        function calculateStability() {
+            const z = parseInt(document.getElementById('protons').value) || 0;
+            const n = parseInt(document.getElementById('neutrons').value) || 0;
+            const a = z + n;
+            const ratio = z === 0 ? 0 : n / z;
+            
+            // PURE CALCULATION START
+            const bePerNucleon = calculateBindingEnergy(z, n);
+            // PURE CALCULATION END
+            
+            const isMagicZ = magicNumbers.includes(z);
+            const isMagicN = magicNumbers.includes(n);
+            const magicText = (isMagicZ && isMagicN) ? "Doubly Magic ✨" : 
+                             (isMagicZ || isMagicN) ? "Shell Closure" : "None";
+
+            let resultStatus = "";
+            let statusClass = "";
+
+            // Handle Lightest elements specifically as they don't fit the macroscopic liquid drop well
+            if (z === 1 && (n === 0 || n === 1)) {
+                resultStatus = "STABLE (Fundamental)";
+                statusClass = "stable";
+            } else if (z === 2 && (n === 1 || n === 2)) {
+                resultStatus = "STABLE (Light Core)";
+                statusClass = "stable";
+            } else if (z > 118) {
+                resultStatus = "UNSTABLE: Theoretical Limit";
+                statusClass = "unstable";
+            } else if (z === 115) {
+                if (n === 184) {
+                    // Logic based on Shell Closure (Magic Number 184)
+                    resultStatus = "ISLAND OF STABILITY (Theoretical)";
+                    statusClass = "theoretical";
+                } else {
+                    resultStatus = "UNSTABLE: Rapid Decay";
+                    statusClass = "unstable";
+                }
+            } else if (z <= 83) {
+                // Determine stability based on calculated Binding Energy and N/Z deviation
+                const idealRatio = 1.0 + (0.5 * Math.pow(z/83, 2)); 
+                const diff = Math.abs(ratio - idealRatio);
+                
+                // Stable if BE is high enough and ratio isn't skewed
+                if (bePerNucleon > 7.0 && diff < 0.2) {
+                    resultStatus = "LIKELY STABLE";
+                    statusClass = "stable";
+                } else {
+                    resultStatus = "UNSTABLE: Energy Imbalance";
+                    statusClass = "unstable";
+                }
+            } else {
+                resultStatus = "UNSTABLE: Heavy Alpha Decay";
+                statusClass = "unstable";
+            }
+
+            document.getElementById('res-a').innerText = a;
+            document.getElementById('res-nz').innerText = ratio.toFixed(3);
+            document.getElementById('res-be').innerText = bePerNucleon.toFixed(3) + " MeV";
+            document.getElementById('res-magic').innerText = magicText;
+            
+            const statusBox = document.getElementById('status-box');
+            statusBox.innerText = resultStatus;
+            statusBox.className = `mb-4 p-4 rounded-xl text-center font-bold text-lg border border-slate-700 ${statusClass}`;
+        }
+
+        function testIsotope(z, n) {
+            document.getElementById('protons').value = z;
+            document.getElementById('neutrons').value = n;
+            calculateStability();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>

@@ -8,6 +8,50 @@
 
 ---
 
+## Open Items — Quick Reference
+
+New additions go on top. One line per item. Full details below.
+
+- T40 — Nuclear geometry from Y-junction packing (PDTP shell correction; fills pdtp_topology_correction(Z,N) stub from T37; target ~10 MeV extra binding at Z=115, N=184) [SPEC, Goal 2, depends on T37]
+- T38 — WCT regularizer Theta[psi] as UV-cure candidate in PDTP (from Wave Confinement Theory review, May 2026) [SPEC, low priority]
+- T39 — WCT effective metric cross-check vs PDTP acoustic metric (Part 73) and SU(3) metric (Part 75-76) [SPEC, low priority]
+- T36 — Three-component Hopf link as baryon structure (3 interlinked quark loops instead of Y-junction flux tube) [DONE, Part 106, Phase 74; E_H/E_Y=2pi; 20/20 Sudoku]
+- T37 — Isotope stability mini-project (SEMF baseline + decay rates; validate vs known isotopes; scan Z=115 for Lazar gap) [DONE PARTIAL, Part 107, Phase 75; 6/15 Sudoku; Z=115 longest=11s; Lazar gap ~29 OoM ~ 10 MeV; baseline for T28/T40]
+- T28 — Mc-299 / Element 115 topological closure lens (magic numbers as closed Z_3 vortex networks) [SPEC, Goal 2]
+- T29 — Phase self-locking mechanism (when does psi lock to internal omega_nuc instead of phi?) [SPEC, Goal 2]
+- T30 — Hopf-link topology protection for phase coherence (interlinked vortex loops, decoherence immunity) [SPEC, Goal 2]
+- T31 — Nonlinear converging horn / amplitude concentration -> high-harmonic generation in cos coupling [SPEC, Goal 2]
+- T32 — Soliton compression / supercontinuum in PDTP (Kerr chi3 from cos expansion, frequency comb) [SPEC, Goal 2]
+- T33 — Geometric blueshift via condensate infall flow (analog horizon as frequency pump) [SPEC, Goal 2]
+- T34 — Fractal Z_3 cascade (self-similar vortex subdivision, frequency ladder 3^n) [SPEC, Goal 2]
+- T35 — Analog-horizon Hawking emission test (device should emit T_H phase noise if T33 works) [SPEC, testable]
+- T4 — Gravitational Brewster angle for GWs (breathing vs tensor mode reflection) [priority 4]
+- T5 — Multi-layer phase stacks (air/water/oil decoupling, transfer matrix) [priority 5]
+- T6 — Leidenfrost + tan phase transition (critical exponents, universality class) [priority 6]
+- T7 — Hawking temperature with n_PDTP = 1/alpha (modify surface gravity kappa?) [priority 7]
+- T8 — PPN parameters with tan corrections (must keep gamma=1, beta=1) [priority 8]
+- T9 — Two-phase tan: Delta_+ and Delta_- diagnostics (reversed Higgs connection) [priority 9]
+- T10 — SU(3) group manifold tan (Brewster angle on SU(3)? sqrt(3), 1/2 generators) [priority 10]
+- T11 — Koide angle and tan (theta_0 = 2/9, Z_3 geometry) [priority 11]
+- T12 — N_eff and heat kernel tan (does n_PDTP modify 6*pi factor?) [priority 12]
+- T13 — Update falsifiable_predictions.md with new testable items from T1-T6 [integration]
+- T14 — Update equation_reference.md with all new T-equations [integration]
+- T15 — Final verdict and summary (did tan reveal new physics?) [integration]
+- M3 — Moire band spacing vs evanescent depth (Part 89 cross-check) [SPEC]
+- M4 — Moire min displacement {s,r} vs vortex winding (quark n=73 Pythagorean?) [SPEC]
+- T17 — n=sqrt(2) observable near compact objects (VLBI/EHT lensing signature) [priority 17]
+- T18 — Two-phase Delta_- crossover inside dense matter (neutron star f/g-modes) [priority 18]
+- T19 — L_4 SymPy verification + b quark check (all L_4 results currently unverified) [priority 19]
+- T20 — L_4 Goldstone mode: what is it? (graviton? phi_-? Higgs eater?) [priority 20]
+- T25 — String theory and PDTP (Regge slope, graviton, extra dims, landscape) [priority 25, low]
+- T26 — Bob Lazar truth table (decoupling phenomenology, 5 scenarios) [priority 26, low]
+- T27 — Elastic Universe review (shear modes, liquid crystal, visualizations) [priority 27, low]
+
+**Natural next pick:** T4 — builds directly on T1 (n_PDTP) and T2 (tan=1 crossover);
+concrete Fresnel-equivalent deliverable for GWs.
+
+---
+
 ## Motivation
 
 PDTP uses cos(psi - phi) for coupling and sin(psi - phi) for force, but the
@@ -726,6 +770,510 @@ for the full investigation plan (16 website pages + JSFiddle code review).
 
 ---
 
+### Phase 7 — Decoupling Device Speculation / Frequency-Ladder Brainstorm (2026-04-16)
+
+**Source:** User conversation 2026-04-16 on Element 115, Lazar device geometry,
+and how to bridge the 10^27 frequency gap from current technology (~10^15 Hz)
+to omega_gap ~ 10^42 Hz (Part 29 bottleneck).
+
+**Motivation:** T26 (Lazar truth table) identified the frequency gap as the
+central physics problem for Goal 2. T28-T35 break the gap into specific,
+mathematically-tractable sub-problems. All are [SPECULATIVE] and depend on
+Goal 1 being validated. The purpose is to surface candidate mechanisms that
+might fall out of the math when treated rigorously — a brainstorm channel.
+
+**Device geometry (Lazar-described, for reference in all T28-T35):**
+- Triangular element pointed downward (Z_3 symmetry axis)
+- Tube with wider bottom, narrower top (converging horn)
+- Top cap connected via DOME to base plate (closed outer loop)
+- Toroidal channel inside the base plate (closed inner loop)
+- Outer + inner loops = Hopf-linked topology
+- Radial injector protruding into the main tube (mode driver)
+
+#### [ ] T28. Element 115 / Mc-299 Topological Closure Lens [SPEC]
+
+**What:** Apply PDTP Z_3 / baryon-triangulation view to nuclear magic numbers.
+Does shell closure at N=184, Z=114/120/126 correspond to closed vortex-network
+topology in the SU(3) condensate?
+**Key questions:**
+1. Can the nuclear shell model's ~1-2 MeV extra binding at magic numbers be
+   derived from closed Z_3 vortex-loop topology rather than mean-field potential?
+2. Does Mc-299 (Z=115, N=184) sit at a special topological point (one away from
+   double-magic closure)? Predicted half-life in PDTP terms?
+3. For each candidate magic N, can a corresponding closed Z_3 network be drawn?
+   (2,8,20,28,50,82,126,184 — is this a Z_3 sequence?)
+**Cross-check with:** Part 37 (SU(3) Y-junctions), Part 38 (lattice MC), Part 53 (Z_3 Koide)
+**Effort:** Medium. Algebra + comparison to standard nuclear shell model.
+**Likely outcome:** Either a topological re-derivation of magic numbers (huge) or
+a NEGATIVE showing the sequence is not Z_3-generated (confirms nuclear shells
+are independent of PDTP condensate). Both informative.
+
+#### [ ] T29. Phase Self-Locking Mechanism [SPEC]
+
+**What:** Derive the conditions under which a matter phase psi locks to an
+INTERNAL resonance ψ_nuc (nuclear mode) rather than to the external spacetime
+phase phi. If achievable, this is the PDTP mechanism for "self-generated
+antigravity" — the object becomes its own phase reference.
+**Key equations to derive:**
+1. Two-timescale EOM: ddot(psi) = -g sin(psi - phi) + g_int sin(psi - psi_nuc)
+2. Regime condition: g_int >> g => <cos(psi - phi)> averages to 0 over coupling time
+3. Required Q-factor of internal oscillator: Q > omega_internal / g
+4. Compatibility with Part 33 (winding n = m_cond/m) — does a high-Q internal
+   mode change the effective winding?
+**Key questions:**
+- What nuclear isomers or resonances could provide g_int >> g?
+- Can two-phase Delta_- (Part 61) act as the internal reference?
+- Does self-locking require the nucleus to be in a metastable state, or can
+  ground-state nuclei self-lock under external drive?
+**Cross-check with:** Part 29 (decoupling energy 10 kW/ton), Part 33 (winding),
+Part 61 (two-phase Delta_-), Part 62 (reversed Higgs mass m^2 = 2g Phi)
+**Effort:** Medium. New SymPy derivation of two-timescale EOM.
+**Likely outcome:** Either a concrete Q-factor threshold (testable against
+known nuclear isomers) or a proof that no known isomer can reach it.
+
+#### [ ] T30. Hopf-Link Topology Protection [SPEC]
+
+**What:** Hopf-linked structures (two interlocking vortex loops that cannot be
+separated without cutting) are topologically protected in real condensates
+(liquid crystals, ferromagnets, superfluids). Investigate whether a Hopf-
+linked geometry in the PDTP condensate preserves phase coherence for vastly
+longer than simple vortex structures.
+**Key questions:**
+1. What is the decoherence time of a Hopf-linked phase mode vs an ordinary
+   vortex ring? (Standard result: topological protection ~ exp(E_barrier/kT).)
+2. Does the PDTP Lagrangian admit Hopfion solutions? (Skyrme-Faddeev model is
+   known to.)
+3. Can a macroscopic Hopf-link device enforce coherence at 10^15 Hz for 10^27
+   cycles? (N cycles / f gives physical time to hold coherence.)
+4. Is the Lazar-device geometry (dome + toroid) literally Hopf-linked, and if
+   so does that match the condensate Hopfion mode?
+**References:** Kedia-Bialynicki-Birula (2013) Hopfion EM solutions; Faddeev-
+Niemi (1997) Hopfions in SU(2) sigma model; Shen et al. (2014) optical Hopfions.
+**Cross-check with:** Part 27 (tensor GW modes), Part 36 (flux tubes)
+**Effort:** Medium-High. Requires introducing Hopfion ansatz into PDTP EOM.
+**Likely outcome:** Either PDTP admits stable Hopfion solitons (major new
+object type) or the Lagrangian is too simple to support them (new constraint).
+
+#### [ ] T31. Nonlinear Converging Horn / High-Harmonic Generation [SPEC]
+
+**What:** In a nonlinear medium, concentrating a wave to small cross-section
+triggers high-harmonic generation (HHG) — the mechanism behind attosecond
+science (Nobel 2023). PDTP's cos(psi - phi) is automatically nonlinear.
+Derive HHG in the cos coupling: what harmonic ladder does amplitude
+concentration produce?
+**Key equations to derive:**
+1. Expand cos(Delta) = 1 - Delta^2/2 + Delta^4/24 - Delta^6/720 + ... up to O(Delta^8)
+2. For a driving wave Delta(t) = A sin(omega t), compute output harmonics
+   (A^2 gives 2omega, A^3 gives 3omega, etc.)
+3. Effective "chi3" nonlinear coefficient of the cos coupling compared to
+   fused-silica Kerr chi3 (~ 10^-22 m^2/V^2)
+4. Amplitude amplification factor vs tip diameter ratio (bottom/top) of horn
+5. Predicted harmonic efficiency: A_n / A_1 as function of driving amplitude A
+**Key questions:**
+- What is the cutoff harmonic order for PDTP HHG?
+- Does the Z_3 triangular tip preferentially generate harmonics at 3n (n=1,2,3...)
+  rather than at all integer harmonics?
+- Can stacked converging horns (fractal cascade) chain HHG stages?
+**Cross-check with:** Part 28c (nonlinear wave effects), Part 61 (two-phase)
+**Effort:** Medium. SymPy expansion of cos + harmonic balance analysis.
+**Likely outcome:** Explicit formula for harmonic amplitudes; efficiency estimate
+tells us whether ~90 stages are physically plausible or hopeless.
+
+#### [ ] T32. Soliton Compression / Supercontinuum in PDTP [SPEC]
+
+**What:** In Kerr-nonlinear media, a single strong pulse undergoes soliton
+fission and shedding, generating a frequency comb spanning 4-5 orders of
+magnitude from one input. Does PDTP cos coupling support Kerr-like self-phase
+modulation? Can a single phase pulse generate a comb reaching omega_gap?
+**Key equations to derive:**
+1. NLSE (nonlinear Schrodinger equation) reduction of PDTP EOM for slowly-
+   varying phase envelope: i dA/dt = -beta d^2A/dz^2 + gamma |A|^2 A
+2. Soliton solution: A(z,t) = A_0 sech(t/T_0) exp(i z/z_s)
+3. Soliton fission threshold: pulse energy E > N * E_fundamental gives N-soliton
+   breakup into comb
+4. Spectral width formula: Delta omega / omega ~ gamma |A_0|^2 L (accumulated
+   nonlinear phase)
+**Key questions:**
+- Does PDTP cos coupling reduce to NLSE in the slowly-varying approximation?
+- What is the "dispersion" beta in PDTP? (Derivative term in the Lagrangian.)
+- Single-pulse comb span: what is the maximum omega_max / omega_min achievable?
+- Can soliton compression + horn concentration (T31) combine to bridge 10^27?
+**References:** Dudley-Genty-Coen (2006) Rev.Mod.Phys. "Supercontinuum generation
+in photonic crystal fiber"; Agrawal "Nonlinear Fiber Optics" (textbook)
+**Cross-check with:** Part 27 (wave modes), Part 28c (nonlinear catalog), T31
+**Effort:** Medium-High. NLSE reduction + SymPy + numerical soliton fission.
+**Likely outcome:** Either PDTP supports supercontinuum (new mechanism for
+broad-spectrum phase emission) or reduces to a trivial NLSE that doesn't
+span orders of magnitude.
+
+#### [ ] T33. Geometric Blueshift via Condensate Infall [SPEC]
+
+**What:** Waves falling toward a gravitational horizon blueshift by 1/(1-v/c),
+which diverges at the horizon. This is the mechanism behind the "trans-
+Planckian problem" in Hawking radiation. If a device can engineer a LOCAL
+condensate infall flow (analogous to Painleve-Gullstrand), any input wave
+moving with the flow blueshifts by 1/(1-v/c). For v/c = 1 - epsilon,
+blueshift factor = 1/epsilon. For epsilon = 10^-27, gives the 10^27x
+kick "for free."
+**Key equations to derive:**
+1. Extend Part 101 condensate infall velocity profile v(r) to arbitrary
+   toroidal geometry
+2. Compute wave blueshift factor f_out / f_in = sqrt((1+v/c)/(1-v/c)) (rel. Doppler)
+3. Derive v(r) for the Lazar-device toroidal-channel geometry
+4. Find maximum v/c achievable without forming a true horizon (wavebreaking limit)
+5. Energy balance: how much input energy does the condensate flow consume to
+   provide the blueshift? (Conservation: blueshift is paid for by flow kinetic energy.)
+**Key questions:**
+- Can the toroidal-channel geometry force v/c close to 1 stably?
+- What is the backreaction on the condensate flow from the blueshifted wave?
+- Does this mechanism predict a maximum attainable frequency f_max before
+  the flow wavebreaks or the geometry collapses?
+**Cross-check with:** Part 73 (acoustic metric), Part 98 (TIR at r_S), Part 101
+(condensate compression), Part 24 (Hawking T_H)
+**Effort:** High. New hydrodynamic derivation in toroidal coordinates.
+**Likely outcome:** Formula for max f_max given flow geometry; may reveal
+that infall geometry naturally hits an analog horizon and the Hawking emission
+(T35) becomes the dominant effect.
+
+#### [ ] T34. Fractal Z_3 Cascade / Frequency Ladder [SPEC]
+
+**What:** If Z_3 vortex structure self-replicates fractally — each vortex
+spawning 3 sub-vortices at 3x frequency and 1/3 scale — a cascade of n
+generations gives 3^n frequency ladder. Reaching omega_gap / omega_0 = 10^27
+requires log_3(10^27) = 57 generations. Investigate whether the PDTP
+Lagrangian supports such a fractal Z_3 cascade.
+**Key equations to derive:**
+1. SU(3) nested-vortex ansatz: U(x) = U_0(x) U_1(x/l_1) U_2(x/l_2) ...
+   with l_n = l_0 / 3^n
+2. Stability analysis: is the n-th level stable against decay to the (n-1)-th?
+3. Frequency hierarchy: does each nested vortex oscillate at 3 times the
+   frequency of its parent?
+4. Energy of the cascade: sum E_n = sum (1/n)^alpha — convergence condition
+5. Cut-off depth: at which n does the scale reach sub-Planckian (l_n < l_P)?
+**Key questions:**
+- Does SU(3) admit Z_3 nested-vortex solutions analytically?
+- Is the Z_3 center an exact fractal generator, or does each level have
+  different group structure?
+- If cascade reaches depth 57 then terminates at sub-Planck scale, the
+  maximum frequency is ~ 3^57 * omega_0 — matches 10^42 Hz for omega_0 ~ 10^15?
+**Cross-check with:** Part 37 (Z_3 center), Part 53 (Koide Z_3), Part 38 (lattice MC)
+**Effort:** High. Novel SU(3) soliton construction + renormalization-group
+style analysis of scale hierarchy.
+**Likely outcome:** Either PDTP has a natural fractal cascade (beautiful, and
+matches the 10^27 gap) or the Lagrangian forbids nesting below l_P (expected).
+
+#### [x] T36. Three-Component Hopf Link as Baryon Structure [DONE Part 106 Phase 74, 2026-04-18]
+
+**Resolution:** PARTIAL — structurally consistent but energetically disfavored
+vs Y-junction (Part 37). Hopf-link remains a candidate for excited baryons
+and for T30 (topologically protected device coherence).
+
+**Script:** `simulations/solver/t36_hopf_link_baryon.py` (7 steps)
+**Doc:** `docs/research/hopf_link_baryon.md`
+**Tests:** SymPy 9/9 PASS, Sudoku 20/20 PASS (all reading COMPUTED values).
+
+**Key results:**
+- Eq 106.1 [DERIVED]: 3 Hopf fibers at 120 deg pairwise linked |lk|=1.
+- Eq 106.2 [VERIFIED]: Gauss integral |lk| = 1.000 (200x200 grid).
+- Eq 106.3 [DERIVED]: B = sum(o_i)/3 reproduces standard QCD baryon numbers
+  for baryon, antibaryon, meson, tetraquark (4/4 match).
+- Eq 106.4 [DERIVED]: E_H / E_Y = 2 pi EXACTLY at same scale.
+  Y-junction is energetically favored; Hopf-link has topological protection.
+- Eq 106.5 [DERIVED + WZ fix]: loop circulation alone gives J = integer;
+  Wess-Zumino phase exp(i N_c pi B) = -1 at (N_c=3, B=1) gives fermion
+  statistics (same Skyrme-Witten fix as all topological baryon models).
+- Eq 106.6 [DERIVED]: Z_3 color x SU(3) flavor x U(1)_EM factorisation;
+  proton = +1, neutron = 0, Delta++ = +2 all computed correctly.
+- Eq 106.7 [DERIVED]: R_i = m_i c^2 / (2 pi sigma); u,d ~ 0.058 fm; s ~ 0.087 fm.
+
+**Negative results:** Hopf-link is NOT the energetic ground state; Y-junction
+(Part 37) remains preferred.
+
+**Open questions for future work:**
+- Hopf <-> Y-junction transition energy barrier (lattice MC).
+- Mass matching to specific excited baryons (Roper N(1440), etc.).
+- T30 device-scale Hopf coherence signature.
+
+---
+
+#### Original entry (for historical reference): T36. Three-Component Hopf Link as Baryon Structure [SPEC, Goal 1]
+
+**Source:** User proposal 2026-04-16 based on Hopf-link / trefoil covering.
+**Reference image:** `assets/images/Hopf link 3 hoops GWWJV.gif`
+**Reference:** Math StackExchange 4066425 (3-component Hopf link covers the trefoil)
+https://math.stackexchange.com/questions/4066425/the-3-component-hopf-link-covering-the-trefoil
+
+**What:** In Part 37 a baryon is modelled as a Y-junction of three Z_3 vortices
+meeting at a point (three rays). Investigate an alternative topology: the baryon
+is a **three-component Hopf link** — three interlinked CLOSED loops, each a
+quark, pairwise linked with linking number 1. Total linking number = 3 =
+baryon number. The three loops form a 3-fold Z_3-symmetric structure that
+covers a trefoil knot.
+
+**Why this could work (structural reasons):**
+1. Baryon number B = sum of pairwise linking numbers = 3 (from 3 pairs of loops)
+2. Color confinement = topological protection: can't remove one quark without
+   breaking all three loops (must cut the link)
+3. Z_3 symmetry is manifest: 120-degree rotation cycles the three loops
+4. Trefoil connection: the 3-link double-covers the trefoil knot (deep
+   topological relationship; trefoil appears in SU(2) Wess-Zumino anomaly
+   and in color-flavor locking)
+5. Meson = 2-component Hopf link (quark-antiquark pair), linking number 1
+6. Connection to T30 (2-component Hopf link in device): same topological
+   mechanism at two scales — baryons microscopic, device macroscopic
+
+**Key equations to derive:**
+1. Hopf-link ansatz in SU(3) condensate: U(x) from 3 linked loops gamma_1,
+   gamma_2, gamma_3 with pairwise linking lk(gamma_i, gamma_j) = 1
+2. Total baryon charge: B = (1/3) * sum_{i<j} lk(gamma_i, gamma_j) = 1 (for 3 pairs)
+3. Energy of 3-link configuration vs energy of Y-junction flux tube (Part 37):
+   E_Hopf = f(R, r, separation) — does it beat E_Y = 3 * sigma * L?
+4. Stability: compute the pair-linking-number conservation law. Is
+   decay = unlinking forbidden for any continuous field evolution?
+5. Angular momentum: each loop has circulation n_i * h/m_cond. Sum to total
+   baryon spin. Can we get J = 1/2 (proton spin) from three linked loops?
+6. Mass from loop radii: does R_i * r_i * mass density give quark masses?
+   Compare to Part 53 Koide: M_u : M_d : M_s = 2 : 5 : 95. Does loop-
+   radius ratio reproduce this?
+7. Charge distribution: each loop carries fractional charge +/- 1/3 or +/- 2/3.
+   Is the Hopf link compatible with the (2/3, -1/3, -1/3) proton charge pattern?
+
+**Key questions:**
+- Is the 3-link energetically favored over the Y-junction in PDTP?
+- Does the 3-link support Regge trajectories (J vs M^2 linear) like mesons/baryons?
+- Do excited baryons correspond to trefoil -> figure-8 -> higher knot transitions?
+- Can the glueball spectrum be derived from closed-loop (unlinked) solutions?
+- Connection to Skyrme baryons (U(x) with non-trivial pi_3(SU(3)) = Z)?
+
+**Topology math needed:**
+- Linking number via Gauss integral: lk = (1/4 pi) * integral integral
+  (dr_1 x dr_2).(r_1-r_2) / |r_1-r_2|^3
+- Covering map: how the 3-link projects to the trefoil
+- Z_3 symmetry group action on the link
+
+**Cross-check with:**
+- Part 37 (Y-junction baryon — the current PDTP baryon model)
+- Part 38 (lattice string tension — can Hopf-link give same sigma?)
+- Part 53 (Koide Z_3 — linking numbers and Z_3 both give "three")
+- Part 30 (Faddeev-Niemi Hopfions — related construction in SU(2))
+- T30 (2-component Hopf link in device geometry)
+
+**Connection to T30:** If both baryons AND the Lazar device geometry are
+Hopf-linked, it suggests Hopf structure is THE natural topology for stable
+phase objects in PDTP. This would unify: baryons (3-link), mesons (2-link),
+device cavities (2-link at macro scale), Hopfion solitons (T30).
+
+**Effort:** High. Topological / knot-theoretic derivation + SymPy for
+linking-number integrals + numerical energy comparison to Y-junction.
+
+**Likely outcome:**
+- If E_Hopf < E_Y: major model shift — baryons are loops, not Y-junctions.
+  Rewrites Part 37 and knocks on to Parts 38-41 (lattice).
+- If E_Hopf > E_Y: Y-junction is confirmed as the stable topology.
+- If both are metastable: baryon ground state vs excited state candidates.
+
+**Priority:** Medium-High. Structural alternative to Part 37 is foundational
+enough to investigate even speculatively. Could resolve or deepen the SU(3)
+confinement picture.
+
+#### [ ] T35. Analog-Horizon Hawking Emission Test [SPEC, testable]
+
+**What:** If T33 succeeds (condensate-flow geometry creates a local analog
+horizon), the device should emit Hawking-like phase noise at temperature
+T_H = hbar kappa / (2 pi k_B) where kappa is the surface gravity of the
+analog horizon. This is a TESTABLE consequence that does not depend on
+whether the device "works" for antigravity.
+**Key equations to derive:**
+1. Compute kappa for the Lazar-device toroidal-flow geometry from T33
+2. Predict T_H (likely micro-Kelvin or nano-Kelvin range for lab-scale devices)
+3. Predict phase-noise spectrum at the tip of the triangular element
+4. Specific-heat signature: device under drive should have excess phase
+   fluctuations proportional to T_H
+5. Dependence on drive amplitude: T_H scales with v/c at the horizon, which
+   scales with drive amplitude
+**Key questions:**
+- At what drive power does T_H exceed thermal noise floor of best detectors?
+- Is the spectrum Planckian (thermal) or structured (informs horizon physics)?
+- Does the Z_3 triangular tip produce anisotropic emission (preferred directions)?
+**Cross-check with:** Part 24 (Hawking T_H exact), Part 73 (acoustic metric),
+Part 98 (TIR / evanescent signature), T33
+**Effort:** Medium-High. Depends on T33 being derived first; then standard
+analog-gravity machinery (Unruh-DeWitt detector analysis).
+**Likely outcome:** A concrete, numerical, testable prediction — independent
+of whether Lazar's claims are true. This is the T26 truth-table payoff:
+a test that works regardless of the source of the hypothesis.
+
+#### [x] T37. Isotope Stability Mini-Project (SEMF Baseline) [DONE PARTIAL Part 107 Phase 75, 2026-04-29]
+
+**What:** Build an empirical baseline predictor for isotope stability and
+decay half-lives using the Bethe-Weizsacker Semi-Empirical Mass Formula
+(SEMF) plus standard decay-channel formulas. Validate against ~15 known
+isotopes. Then scan Z=115 to find the SEMF-predicted longest-lived
+moscovium isotope. This is the foundation for T28 (topological magic-number
+derivation) and T40 (PDTP topological correction to nuclear binding).
+
+**Why:** Bob Lazar (transcript "This Is The Truth About Element 115",
+2026-04-28) claims a stable isotope of Z=115 exists and is the propulsion
+fuel of the S4 craft. Standard SEMF almost certainly predicts NO stable
+Z=115 isotope -- not even near the predicted island of stability (N=184).
+The gap between SEMF prediction and Lazar's claim is exactly what PDTP
+topology must close (T28, T40) to be relevant to engineering Goal 2.
+Without a working SEMF predictor, we cannot quantify the size of that gap.
+
+**Steps (checklist):**
+
+- [x] 1. SEMF binding_energy(Z, N) implemented with Krane (1988) coeffs (Eq 107.1).
+- [x] 2. Q-values for alpha / beta- / beta+ / EC / p / n channels (Eqs 107.3a-e); all computed from mass-excess differences.
+- [x] 3. Decay-rate formulas: Viola-Seaborg (alpha), Sargent (beta), Bohr-Wheeler+WKB (SF) (Eqs 107.4-6); all computed from Q.
+- [x] 4. nucleon_stats(Z, N, electrons=Z) wrapper; every field computed (RECHECK rule); special-case A<=1 returns stable for H-1.
+- [x] 5. Reference T_1/2 table for 15 isotopes (NUBASE2020); H-1, He-4, Be-8, C-12, O-16, Ca-40, Ca-48, Fe-56, Pb-208, Bi-209, Po-210, Th-232, U-235, U-238, Mc-289.
+- [x] 6. Sudoku validation built; **6/15 PASS** at 1.0 OoM tolerance (under the aspirational 12/15 target). Failures cluster cleanly at shell-stabilised nuclei (Pb-208, Bi-209, Ca-48), Be-8 (He-4 doubly-magic), heavy alpha emitters (actinide Q-value sensitivity through Viola-Seaborg), and super-heavy SF (no shell corrections).
+- [x] 7. Z=115 scan: longest-lived predicted **A=315 (N=200)**, log_T = +1.06, T ~ 11 s, dominant SF (edge-of-scan; SEMF cannot see N=184 magic-number bump).
+- [x] 8. Z=114, 116, 118 cross-check: monotonic decrease of longest-lived T with Z (Z=114 -> +4.06, Z=116 -> -1.77, Z=118 -> -6.88). Real island has non-monotonic bump at N=184 from shell effects -- our baseline misses this cleanly.
+- [x] 9. Empty stub `pdtp_topology_correction(Z, N) -> 0.0` reserved for T40.
+- [x] 10. Log saved to `simulations/solver/outputs/isotope_stability_<ts>.txt`.
+- [x] 11. Research doc `docs/research/isotope_stability.md` (~280 lines, plain English + full derivations + Lazar gap quantification at ~10 MeV).
+- [x] 12. equation_reference.md updated with Eqs 107.1-107.11 (all tagged ESTABLISHED / VERIFIED; no PDTP Original results in this Part).
+- [x] 13. MEMORY.md updated (one new entry); falsifiable_predictions.md updated with topology-correction row + pending Prediction 13 placeholder (deferred until T40 supplies pdtp_topology_correction).
+
+**Cross-check with:** T28 (topological closure lens for Mc-299), T40 (proposed
+nuclear topology from Y-junction packing), Part 37 (SU(3) Y-junction baryon),
+Part 106 (Hopf-link baryon variant).
+
+**Files:**
+- Script: `simulations/solver/isotope_stability.py` (Phase 75)
+- Doc:    `docs/research/isotope_stability.md` (Part 107)
+- Log:    `simulations/solver/outputs/isotope_stability.txt`
+
+**Effort:** Medium. SEMF and decay formulas are textbook (~150 lines core);
+validation table and Sudoku checks are the bulk of the work.
+
+**Likely outcome:** SEMF reproduces the stable-isotope chart at >= 12/15 hit
+rate. Z=115 SEMF prediction: longest-lived isotope is Mc-289 or similar with
+T_1/2 ~ milliseconds-seconds, NO stable isotope at any N. This is the
+EXPECTED gap that T28 / T40 need to close. The size of that gap (in MeV of
+binding energy needed for stability at Mc-299) becomes a quantitative
+target for PDTP topology.
+
+**Related to Lazar transcript:** "Bob Lazar -- This Is The Truth About
+Element 115" (YouTube video Yci8FyI1768; transcript in repo root). Bismuth
+(Z=83) is the heaviest near-stable element; same column as Z=115 (group 15).
+Lazar predicts a stable Z=115 isotope used for gravitomagnetic propulsion
+(Ning Li). SEMF gives the standard-physics answer; PDTP topology (T28, T40)
+is the candidate mechanism for the gap.
+
+---
+
+### Phase 8 — Nuclear Topology and WCT Cross-checks (2026-05-09)
+
+#### [ ] T40. Nuclear Geometry from Y-Junction Packing [SPEC, depends on T37]
+
+**Part:** TBD
+**What:** Apply PDTP Y-junction / Z_3 vortex-network geometry (Part 37) to
+nuclear magic numbers. The goal is to fill `pdtp_topology_correction(Z, N)`
+in `t37_isotope_stability.py` with a PDTP-derived correction rather than
+a zero stub, closing the ~27 OoM / ~8-14 MeV gap identified in T37.
+
+**Why now:** T37 (Part 107) established the SEMF floor and quantified the
+gap from standard physics to Lazar's stable Z=115 claim. Standard shell
+corrections (Strutinsky, FRDM, Moller-Nix) explain ~1-2 MeV of shell
+binding via mean-field potential. PDTP candidate: closed Z_3 vortex-loop
+networks (Y-junction packing) give extra binding at magic-number closures
+from topological protection, not mean-field.
+
+**Key questions:**
+1. Do the nuclear magic numbers (2, 8, 20, 28, 50, 82, 126, 184) correspond
+   to complete closed Z_3 vortex networks in the SU(3) condensate?
+2. Is the magic-number sequence derivable from a Z_3 packing rule, or is
+   it purely coincidental?
+3. Does Mc-299 (Z=115, N=184) sit one proton away from a closed Z_3
+   network at Z=114 (Fl), making it "almost magic" with partial extra binding?
+4. How much extra binding (in MeV) does a closed vs open Z_3 network predict?
+   Target: ~8-14 MeV at (Z=115, N=184) to bridge the Lazar gap.
+5. Can the correction be expressed as a function `pdtp_topology_correction(Z, N)`
+   that can be dropped into T37's SEMF predictor without restructuring?
+
+**Steps (checklist):**
+- [ ] 1. Review magic-number sequence vs Z_3 closed-network counting rule.
+- [ ] 2. Derive topological binding delta_B_topo(Z, N) from Y-junction geometry.
+- [ ] 3. SymPy verify; Sudoku 10+ tests reading from computed values.
+- [ ] 4. Implement `pdtp_topology_correction(Z, N)` and drop into t37_isotope_stability.py.
+- [ ] 5. Re-run Sudoku; target >= 15/19 (was 10/19 with delta_B = 0).
+- [ ] 6. Re-run Z=115 scan; report new longest-lived and Mc-299 half-life.
+- [ ] 7. Research doc (full derivation + plain English); update equation_reference.md.
+- [ ] 8. Update falsifiable_predictions.md Prediction 13 placeholder.
+
+**Cross-check with:** T37 (SEMF baseline), T28 (Mc-299 topological closure),
+Part 37 (SU(3) Y-junction), Part 106 (Hopf-link baryon)
+**Effort:** Medium-High.
+**Likely outcome:** Either a topological re-derivation of some magic numbers
+(validates PDTP nuclear sector) or a clean NEGATIVE showing Z_3 packing
+gives the wrong sequence (rules out this mechanism; narrows T28 search).
+
+---
+
+#### [ ] T38. WCT Regularizer as UV-Cure Candidate [SPEC, low priority]
+
+**Part:** TBD
+**Source:** Wave Confinement Theory YouTube video review, May 2026.
+**Reference:** `D:\Dropbox\wave\` (screenshots + video summary)
+
+**What:** The WCT regularizer has the form:
+  Theta[psi] = -Delta(psi) / (psi + epsilon * exp(-alpha |psi|^2))
+This suppresses UV divergences by introducing amplitude-dependent damping,
+without requiring explicit renormalization counterterms. Investigate whether
+this functional form appears naturally in PDTP from the cos coupling
+nonlinearity, or whether it can be adopted as a UV completion of the
+PDTP Lagrangian.
+
+**Key questions:**
+1. Does the PDTP cos(psi - phi) coupling produce a similar amplitude-
+   dependent regularization when expanded to high order?
+   (cos expansion: 1 - x^2/2 + x^4/24 - ... gives built-in convergence.)
+2. Is the WCT Theta functional equivalent to any known PDTP term
+   (phi_- mass, reversed Higgs, higher-harmonic sin^2 from T23)?
+3. If Theta[psi] is NOT already in PDTP, could it be added as a
+   new Lagrangian term without breaking established results (Newton, GR, Hawking)?
+4. Does the epsilon parameter in Theta have a PDTP interpretation
+   (condensate healing length xi? decoupling coupling g?)?
+
+**Cross-check with:** Part 35 (dimensional transmutation, beta function),
+T23 (sin^2 second harmonic), Part 62 (reversed Higgs mass)
+**Effort:** Low-Medium. Mostly analytical comparison; no new simulation needed
+unless the form survives initial scrutiny.
+**Priority:** Low — speculative cross-framework import.
+
+---
+
+#### [ ] T39. WCT Effective Metric Cross-check [SPEC, low priority]
+
+**Part:** TBD
+**Source:** Wave Confinement Theory YouTube video review, May 2026.
+
+**What:** WCT derives an effective spacetime metric from wave-confinement
+geometry. Cross-check whether this effective metric matches:
+(A) PDTP acoustic metric (Part 73 / Unruh 1981): g_mu_nu derived from
+    condensate flow field v(r) and speed of sound c_s = c
+(B) PDTP SU(3) spatial metric (Part 75-76): g_ij = (1/3) Tr(dU^dag dU)
+
+**Key questions:**
+1. Does the WCT effective metric reproduce g_tt = -(1 - 2GM/rc^2)?
+   (If yes: same Newtonian limit as PDTP; if no: which one is wrong?)
+2. Does WCT give gamma = 1 (full spatial curvature) or gamma = 0 (scalar only)?
+   This is the Part 100 lensing question applied to an independent framework.
+3. Does WCT have a breathing-mode analogue (massive scalar sector)?
+   If yes: independent prediction of the PDTP breathing mode (testable overlap).
+4. Are there any WCT predictions that DIFFER from both GR and PDTP?
+   If so: which framework wins against experiment?
+
+**Cross-check with:** Part 73 (acoustic metric), Part 98 (n_PDTP = 1/alpha),
+Part 100 (lensing gap NEGATIVE), Part 75-76 (SU(3) graviton)
+**Effort:** Low. Mostly literature/video review + comparison table.
+**Priority:** Low — external framework; useful only if WCT metric is distinct
+enough from PDTP to provide independent constraints.
+
+---
+
 ## Status Summary
 
 | ID | Investigation | Priority | Status | Part # |
@@ -761,3 +1309,16 @@ for the full investigation plan (16 website pages + JSFiddle code review).
 | T25 | String theory and PDTP (Regge slope, graviton, extra dims) | 25 (low) | PENDING | -- |
 | T26 | Bob Lazar truth table (decoupling phenomenology) | 26 (low) | PENDING | -- |
 | T27 | Elastic Universe review (shear modes, visualizations) | 27 (low) | PENDING | -- |
+| T28 | Mc-299 / Element 115 topological closure lens | SPEC | PENDING | -- |
+| T29 | Phase self-locking mechanism (internal vs external) | SPEC | PENDING | -- |
+| T30 | Hopf-link topology protection for phase coherence | SPEC | PENDING | -- |
+| T31 | Nonlinear converging horn -> high-harmonic generation | SPEC | PENDING | -- |
+| T32 | Soliton compression / supercontinuum in PDTP | SPEC | PENDING | -- |
+| T33 | Geometric blueshift via condensate infall (frequency pump) | SPEC | PENDING | -- |
+| T34 | Fractal Z_3 cascade / frequency ladder 3^n | SPEC | PENDING | -- |
+| T35 | Analog-horizon Hawking emission test (testable signature) | SPEC | PENDING | -- |
+| T36 | Three-component Hopf link as baryon (vs Y-junction flux tube) | SPEC (med-high) | DONE (Part 106, Phase 74, 2026-04-18) | PARTIAL -- structurally consistent, E_H/E_Y=2pi, Y-junction preferred |
+| T37 | Isotope stability mini-project (SEMF baseline + decay rates; baseline for T28/T40 + Lazar Z=115 gap quantification) | SPEC (med) | DONE PARTIAL (Part 107, Phase 75, 2026-04-29) | 10/19 Sudoku (Wapstra coeffs + 4 extra isotopes); Z=115 longest=1067s; Mc-299(N=184)~9ns; Lazar gap ~27 OoM ~ 8-14 MeV |
+| T38 | WCT regularizer Theta[psi] as UV-cure candidate in PDTP | SPEC (low) | PENDING | -- |
+| T39 | WCT effective metric cross-check vs PDTP acoustic / SU(3) metric | SPEC (low) | PENDING | -- |
+| T40 | Nuclear geometry from Y-junction packing (PDTP shell correction; fills pdtp_topology_correction stub) | SPEC (med-high) | PENDING | -- |

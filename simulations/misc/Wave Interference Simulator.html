@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Interference & Slit Simulation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: system-ui, -apple-system, sans-serif;
+            overflow: hidden;
+            touch-action: none;
+        }
+        .control-panel {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        canvas {
+            cursor: crosshair;
+        }
+        input[type=range] {
+            accent-color: #3b82f6;
+        }
+        .toggle-btn {
+            transition: all 0.2s;
+        }
+        .active-toggle {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+</head>
+<body class="flex h-screen w-screen">
+
+    <!-- Sidebar Controls -->
+    <div class="control-panel w-80 p-6 flex flex-col gap-6 overflow-y-auto z-10">
+        <div>
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Wave Interference
+            </h1>
+            <p class="text-slate-400 text-sm mt-1">Interference & Diffraction Simulation</p>
+        </div>
+
+        <!-- View Mode Toggle -->
+        <div class="flex flex-col gap-2">
+            <label class="text-sm font-medium">Visualization Mode</label>
+            <div class="flex bg-slate-800 rounded-lg p-1">
+                <button id="mode-realistic" class="flex-1 py-1 text-xs rounded-md active-toggle toggle-btn">Realistic</button>
+                <button id="mode-schematic" class="flex-1 py-1 text-xs rounded-md toggle-btn">Schematic</button>
+            </div>
+        </div>
+
+        <!-- Frequency -->
+        <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-center">
+                <label class="text-sm font-medium">Frequency (Wavelength)</label>
+                <span id="freq-val" class="text-xs text-blue-400 font-mono">60</span>
+            </div>
+            <input type="range" id="frequency" min="10" max="150" value="60" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+        </div>
+
+        <!-- Slits -->
+        <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-center">
+                <label class="text-sm font-medium">Number of Slits</label>
+                <span id="slits-val" class="text-xs text-blue-400 font-mono">2</span>
+            </div>
+            <input type="range" id="slits" min="1" max="8" value="2" step="1" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+        </div>
+
+        <!-- Slit Separation -->
+        <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-center">
+                <label class="text-sm font-medium">Slit Separation</label>
+                <span id="sep-val" class="text-xs text-blue-400 font-mono">40</span>
+            </div>
+            <input type="range" id="separation" min="10" max="150" value="40" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+        </div>
+
+        <div class="mt-auto pt-6 border-t border-slate-700">
+            <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+                <p class="text-xs leading-relaxed text-blue-200">
+                    <strong>Schematic Mode:</strong> Shows wavefronts as discrete lines. Interference happens where lines from different slits intersect.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Viewport -->
+    <div class="flex-1 relative flex items-center justify-center bg-black">
+        <canvas id="waveCanvas" class="w-full h-full"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('waveCanvas');
+        const ctx = canvas.getContext('2d', { alpha: false });
+        
+        // UI Elements
+        const freqInput = document.getElementById('frequency');
+        const slitInput = document.getElementById('slits');
+        const sepInput = document.getElementById('separation');
+        
+        const freqLabel = document.getElementById('freq-val');
+        const slitLabel = document.getElementById('slits-val');
+        const sepLabel = document.getElementById('sep-val');
+
+        const btnRealistic = document.getElementById('mode-realistic');
+        const btnSchematic = document.getElementById('mode-schematic');
+
+        // Simulation State
+        let width, height;
+        let time = 0;
+        let resolution = 4;
+        let viewMode = 'realistic'; // 'realistic' or 'schematic'
+        
+        const settings = {
+            frequency: 60,
+            slits: 2,
+            separation: 40,
+            barrierX: 0.15, 
+            slitWidth: 6
+        };
+
+        function resize() {
+            width = canvas.width = window.innerWidth - 320;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        
+        // Input Listeners
+        freqInput.addEventListener('input', (e) => {
+            settings.frequency = parseFloat(e.target.value);
+            freqLabel.textContent = settings.frequency;
+        });
+        slitInput.addEventListener('input', (e) => {
+            settings.slits = parseInt(e.target.value);
+            slitLabel.textContent = settings.slits;
+        });
+        sepInput.addEventListener('input', (e) => {
+            settings.separation = parseFloat(e.target.value);
+            sepLabel.textContent = settings.separation;
+        });
+
+        btnRealistic.onclick = () => {
+            viewMode = 'realistic';
+            btnRealistic.classList.add('active-toggle');
+            btnSchematic.classList.remove('active-toggle');
+        };
+        btnSchematic.onclick = () => {
+            viewMode = 'schematic';
+            btnSchematic.classList.add('active-toggle');
+            btnRealistic.classList.remove('active-toggle');
+        };
+
+        function getSlitPositions() {
+            const startX = width * settings.barrierX;
+            const centerY = height / 2;
+            const positions = [];
+            const totalHeight = (settings.slits - 1) * settings.separation;
+            const topSlitY = centerY - (totalHeight / 2);
+
+            for (let i = 0; i < settings.slits; i++) {
+                positions.push({ x: startX, y: topSlitY + (i * settings.separation) });
+            }
+            return positions;
+        }
+
+        function drawRealistic(slits, barrierX, wavelength) {
+            for (let x = 0; x < width; x += resolution) {
+                for (let y = 0; y < height; y += resolution) {
+                    let intensity = 0;
+                    if (x < barrierX) {
+                        intensity = Math.sin((x / wavelength) - time);
+                    } else {
+                        for (let i = 0; i < slits.length; i++) {
+                            const dx = x - slits[i].x;
+                            const dy = y - slits[i].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            const falloff = 1 / Math.sqrt(dist + 10);
+                            intensity += Math.sin((dist / wavelength) - time) * falloff * 15;
+                        }
+                    }
+                    const val = Math.max(0, Math.min(255, (intensity * 127) + 128));
+                    ctx.fillStyle = `rgb(${val * 0.1}, ${val * 0.4}, ${val})`;
+                    ctx.fillRect(x, y, resolution, resolution);
+                }
+            }
+        }
+
+        function drawSchematic(slits, barrierX, wavelength) {
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, width, height);
+
+            const phaseShift = (time % (Math.PI * 2)) * wavelength;
+            
+            // 1. Plane waves (Incoming)
+            ctx.strokeStyle = 'rgba(100, 150, 255, 0.4)';
+            ctx.lineWidth = 2;
+            for (let x = barrierX - phaseShift; x > 0; x -= wavelength * Math.PI * 2) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+
+            // 2. Diffracted Waves (Outgoing arcs)
+            ctx.strokeStyle = '#3b82f6';
+            ctx.lineWidth = 1.5;
+            const maxRadius = width - barrierX;
+
+            slits.forEach(slit => {
+                // Draw multiple arcs representing wavefront crests
+                for (let r = phaseShift; r < maxRadius; r += wavelength * Math.PI * 2) {
+                    if (r < 0) continue;
+                    ctx.beginPath();
+                    // We draw a semi-circle from the slit
+                    ctx.arc(slit.x, slit.y, r, -Math.PI/2, Math.PI/2);
+                    ctx.stroke();
+                }
+            });
+        }
+
+        function drawBarrier(slits, barrierX) {
+            ctx.fillStyle = '#475569';
+            const firstSlit = slits[0];
+            const lastSlit = slits[slits.length - 1];
+            
+            ctx.fillRect(barrierX - 2, 0, 4, firstSlit.y - settings.slitWidth);
+            for(let i=0; i < slits.length - 1; i++) {
+                const yStart = slits[i].y + settings.slitWidth;
+                const h = (slits[i+1].y - settings.slitWidth) - yStart;
+                ctx.fillRect(barrierX - 2, yStart, 4, h);
+            }
+            ctx.fillRect(barrierX - 2, lastSlit.y + settings.slitWidth, 4, height);
+
+            // Highlight slits
+            ctx.fillStyle = '#fff';
+            slits.forEach(s => ctx.fillRect(s.x - 2, s.y - settings.slitWidth, 4, settings.slitWidth * 2));
+        }
+
+        function render() {
+            time += 0.08;
+            const slits = getSlitPositions();
+            const barrierX = width * settings.barrierX;
+            const wavelength = 2000 / settings.frequency;
+
+            if (viewMode === 'realistic') {
+                drawRealistic(slits, barrierX, wavelength);
+            } else {
+                drawSchematic(slits, barrierX, wavelength);
+            }
+
+            drawBarrier(slits, barrierX);
+            requestAnimationFrame(render);
+        }
+
+        window.onload = () => {
+            resize();
+            render();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 880" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 22px; font-weight: bold; fill: #222; }
+      .subtitle { font-size: 17px; font-weight: bold; fill: #333; }
+      .sublabel { font-size: 13px; fill: #555; }
+      .label { font-size: 15px; fill: #333; }
+      .clabel-u { font-size: 14px; font-weight: bold; fill: #b02a2a; }
+      .clabel-d { font-size: 14px; font-weight: bold; fill: #1a7434; }
+      .clabel-i { font-size: 15px; font-weight: bold; fill: #a84912; }
+      .quark-u { fill: #e74c3c; stroke: #6d1a1a; stroke-width: 2; }
+      .quark-d { fill: #27ae60; stroke: #104a24; stroke-width: 2; }
+      .qlabel { font-size: 20px; font-weight: bold; fill: white; text-anchor: middle; }
+      .y-line { stroke: #888; stroke-width: 1.5; }
+      .n-outline { stroke: #777; stroke-width: 1.5; fill: none; stroke-dasharray: 3,3; }
+      .u-cluster { stroke: #c0392b; stroke-width: 3; stroke-dasharray: 9,4; fill: rgba(231,76,60,0.08); }
+      .d-cluster { stroke: #1e7e34; stroke-width: 3; stroke-dasharray: 9,4; fill: rgba(39,174,96,0.08); }
+      .interface { stroke: #d98c2a; stroke-width: 3; stroke-dasharray: 9,4; fill: rgba(230,126,34,0.1); }
+      .note { font-size: 13px; fill: #333; }
+      .panel { fill: #ffffff; stroke: #555; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="880" fill="#f5f6f8"/>
+
+  <!-- Main title -->
+  <text x="600" y="35" class="title" text-anchor="middle">Two Candidate Nucleon Arrangements (PDTP Part 37 Y-Junction View)</text>
+  <text x="600" y="58" class="sublabel" text-anchor="middle">Proton = UUD triangle  |  Neutron = UDD triangle  |  each nucleon = three quark-vortices joined by a Z_3 Y-junction</text>
+
+  <!-- Top legend -->
+  <g transform="translate(310, 80)">
+    <circle cx="0" cy="0" r="14" class="quark-u"/>
+    <text x="0" y="6" class="qlabel" style="font-size:13px">U</text>
+    <text x="22" y="5" class="note">U quark (+2/3 e)</text>
+
+    <circle cx="180" cy="0" r="14" class="quark-d"/>
+    <text x="180" y="6" class="qlabel" style="font-size:13px">D</text>
+    <text x="202" y="5" class="note">D quark (-1/3 e)</text>
+
+    <line x1="370" y1="0" x2="410" y2="0" class="n-outline"/>
+    <text x="418" y="5" class="note">nucleon boundary (Y-junction triangle)</text>
+  </g>
+
+  <!-- ===================== PANEL A ===================== -->
+  <rect x="30" y="110" width="565" height="720" class="panel"/>
+
+  <text x="312" y="140" class="subtitle" text-anchor="middle">Arrangement A -- Same-flavor clustering</text>
+  <text x="312" y="160" class="label" text-anchor="middle">("UUU" and "DDD" pseudo-triangles form)</text>
+
+  <!-- Cluster triangles (drawn first so they sit behind quarks) -->
+  <path class="u-cluster" d="M 116,320 L 264,320 L 435,280 Z"/>
+  <path class="d-cluster" d="M 190,465 L 361,425 L 509,425 Z"/>
+
+  <!-- Proton Y-junction (UU top, D bottom). Centroid (190, 368) -->
+  <path class="n-outline" d="M 116,320 L 264,320 L 190,465 Z"/>
+  <line x1="190" y1="368" x2="116" y2="320" class="y-line"/>
+  <line x1="190" y1="368" x2="264" y2="320" class="y-line"/>
+  <line x1="190" y1="368" x2="190" y2="465" class="y-line"/>
+  <circle cx="190" cy="368" r="3" fill="#555"/>
+  <text x="203" y="374" class="sublabel" font-weight="bold">P</text>
+
+  <!-- Neutron Y-junction (U top, DD bottom). Centroid (435, 377) -->
+  <path class="n-outline" d="M 435,280 L 361,425 L 509,425 Z"/>
+  <line x1="435" y1="377" x2="435" y2="280" class="y-line"/>
+  <line x1="435" y1="377" x2="361" y2="425" class="y-line"/>
+  <line x1="435" y1="377" x2="509" y2="425" class="y-line"/>
+  <circle cx="435" cy="377" r="3" fill="#555"/>
+  <text x="448" y="383" class="sublabel" font-weight="bold">N</text>
+
+  <!-- Proton quarks -->
+  <circle cx="116" cy="320" r="26" class="quark-u"/>
+  <text x="116" y="327" class="qlabel">U</text>
+  <circle cx="264" cy="320" r="26" class="quark-u"/>
+  <text x="264" y="327" class="qlabel">U</text>
+  <circle cx="190" cy="465" r="26" class="quark-d"/>
+  <text x="190" y="472" class="qlabel">D</text>
+
+  <!-- Neutron quarks -->
+  <circle cx="435" cy="280" r="26" class="quark-u"/>
+  <text x="435" y="287" class="qlabel">U</text>
+  <circle cx="361" cy="425" r="26" class="quark-d"/>
+  <text x="361" y="432" class="qlabel">D</text>
+  <circle cx="509" cy="425" r="26" class="quark-d"/>
+  <text x="509" y="432" class="qlabel">D</text>
+
+  <!-- Cluster labels -->
+  <text x="275" y="235" class="clabel-u" text-anchor="middle">UUU pseudo-triangle</text>
+  <text x="275" y="252" class="sublabel" text-anchor="middle">(2 Us from proton + 1 U from neutron)</text>
+
+  <text x="353" y="510" class="clabel-d" text-anchor="middle">DDD pseudo-triangle</text>
+  <text x="353" y="527" class="sublabel" text-anchor="middle">(1 D from proton + 2 Ds from neutron)</text>
+
+  <!-- Explanation box -->
+  <rect x="55" y="555" width="515" height="255" fill="#fff8ed" stroke="#d98c2a" stroke-width="1"/>
+  <text x="70" y="580" class="note" font-weight="bold">Geometric picture</text>
+  <text x="70" y="600" class="note">- Us and Ds sort into same-flavor clusters across the nucleon pair.</text>
+  <text x="70" y="620" class="note">- UUU triangle (red) and DDD triangle (green) span both P and N.</text>
+  <text x="70" y="645" class="note" font-weight="bold">Physics intuition</text>
+  <text x="70" y="665" class="note">- Each flavor triangle is Delta-baryon-like (UUU = Delta++, DDD = Delta-).</text>
+  <text x="70" y="685" class="note">- Nucleon identity partly dissolves -- "6-quark bag" rather than p+n duo.</text>
+  <text x="70" y="705" class="note">- Matches some cluster-model fits to alpha particle (He-4) structure.</text>
+  <text x="70" y="730" class="note" font-weight="bold">Test in PDTP (proposed T40)</text>
+  <text x="70" y="750" class="note">- Sum flux-tube + Z_3 phase-mismatch + Coulomb energies (Part 37).</text>
+  <text x="70" y="770" class="note">- Check: does this reproduce deuteron binding (2.22 MeV)?</text>
+  <text x="70" y="790" class="note">- If yes, magic numbers emerge from same-flavor cluster packing.</text>
+
+  <!-- ===================== PANEL B ===================== -->
+  <rect x="605" y="110" width="565" height="720" class="panel"/>
+
+  <text x="887" y="140" class="subtitle" text-anchor="middle">Arrangement B -- UU face meets DD face</text>
+  <text x="887" y="160" class="label" text-anchor="middle">(majority-flavor faces oppose across the interface)</text>
+
+  <!-- Interface zone (behind quarks) -->
+  <path class="interface" d="M 814,338 L 966,338 L 966,422 L 814,422 Z"/>
+
+  <!-- Proton (D left, UU facing right). Centroid (740, 380) -->
+  <path class="n-outline" d="M 640,380 L 814,338 L 814,422 Z"/>
+  <line x1="740" y1="380" x2="640" y2="380" class="y-line"/>
+  <line x1="740" y1="380" x2="814" y2="338" class="y-line"/>
+  <line x1="740" y1="380" x2="814" y2="422" class="y-line"/>
+  <circle cx="740" cy="380" r="3" fill="#555"/>
+  <text x="730" y="400" class="sublabel" font-weight="bold">P</text>
+
+  <!-- Neutron (DD facing left, U right). Centroid (1060, 380) -->
+  <path class="n-outline" d="M 966,338 L 966,422 L 1160,380 Z"/>
+  <line x1="1060" y1="380" x2="966" y2="338" class="y-line"/>
+  <line x1="1060" y1="380" x2="966" y2="422" class="y-line"/>
+  <line x1="1060" y1="380" x2="1160" y2="380" class="y-line"/>
+  <circle cx="1060" cy="380" r="3" fill="#555"/>
+  <text x="1070" y="400" class="sublabel" font-weight="bold">N</text>
+
+  <!-- Proton quarks -->
+  <circle cx="640" cy="380" r="26" class="quark-d"/>
+  <text x="640" y="387" class="qlabel">D</text>
+  <circle cx="814" cy="338" r="26" class="quark-u"/>
+  <text x="814" y="345" class="qlabel">U</text>
+  <circle cx="814" cy="422" r="26" class="quark-u"/>
+  <text x="814" y="429" class="qlabel">U</text>
+
+  <!-- Neutron quarks -->
+  <circle cx="966" cy="338" r="26" class="quark-d"/>
+  <text x="966" y="345" class="qlabel">D</text>
+  <circle cx="966" cy="422" r="26" class="quark-d"/>
+  <text x="966" y="429" class="qlabel">D</text>
+  <circle cx="1160" cy="380" r="26" class="quark-u"/>
+  <text x="1160" y="387" class="qlabel">U</text>
+
+  <!-- Interface bond lines U-D -->
+  <line x1="840" y1="338" x2="940" y2="338" class="interface" stroke-width="2.5"/>
+  <line x1="840" y1="422" x2="940" y2="422" class="interface" stroke-width="2.5"/>
+
+  <!-- Interface label -->
+  <text x="890" y="378" class="clabel-i" text-anchor="middle">UU | DD</text>
+  <text x="890" y="395" class="sublabel" text-anchor="middle">interface</text>
+
+  <!-- Outer-quark labels -->
+  <text x="640" y="335" class="sublabel" text-anchor="middle">lone D</text>
+  <text x="640" y="348" class="sublabel" text-anchor="middle">(outside)</text>
+  <text x="1160" y="335" class="sublabel" text-anchor="middle">lone U</text>
+  <text x="1160" y="348" class="sublabel" text-anchor="middle">(outside)</text>
+
+  <!-- Explanation box -->
+  <rect x="630" y="555" width="515" height="255" fill="#fff8ed" stroke="#d98c2a" stroke-width="1"/>
+  <text x="645" y="580" class="note" font-weight="bold">Geometric picture</text>
+  <text x="645" y="600" class="note">- Each nucleon keeps its internal Y-junction triangle intact.</text>
+  <text x="645" y="620" class="note">- Doubled-flavor edges (UU from P, DD from N) meet across the interface.</text>
+  <text x="645" y="645" class="note" font-weight="bold">Physics intuition</text>
+  <text x="645" y="665" class="note">- Inner U-D pairs resemble two pion cores -- Yukawa-like binding.</text>
+  <text x="645" y="685" class="note">- Electric charge partially cancels (+4/3 faces -2/3 at the interface).</text>
+  <text x="645" y="705" class="note">- Matches the mainstream shell-model picture (nucleons stay distinct).</text>
+  <text x="645" y="730" class="note" font-weight="bold">Test in PDTP (proposed T40)</text>
+  <text x="645" y="750" class="note">- Same energy calc (Part 37); compare total with Arrangement A.</text>
+  <text x="645" y="770" class="note">- Does this recover the deuteron's spin-1 ground state and quadrupole?</text>
+  <text x="645" y="790" class="note">- If yes, magic numbers emerge from nucleon-preserving packing.</text>
+
+  <!-- Bottom summary -->
+  <text x="600" y="860" class="sublabel" text-anchor="middle">Ground-state arrangement is decided by which configuration minimises total flux-tube + phase-mismatch + Coulomb energy. PDTP Part 37 can compute both.</text>
+
+</svg>

@@ -927,6 +927,7 @@ provide **specific numbers:**
 | φ_- coupling to Φ | 2gΦ | Predictions 7-10 | g known once m_cond known |
 | Healing length | L_heal | Prediction 11 | ~ℓ_P if m_cond = m_P |
 | GPU lattice σ at β=6.0 | σ_phys | Prediction 12 | Next task (Part 42, N≥16 GPU) |
+| Topological binding correction | δB_topo(Z, N) | Future Prediction 13 (Z=115 stability) | Stub `pdtp_topology_correction(Z, N) -> 0.0` reserved for T40; SEMF baseline (Part 107) shows ~10 MeV needed at (Z=115, N≈184) to recover Lazar's stable-115 claim |
 
 **Two most important near-term calculations:**
 1. **Part 42 (GPU lattice):** determines whether σ_PDTP matches σ_QCD at
@@ -934,11 +935,20 @@ provide **specific numbers:**
 2. **m_cond determination:** remains the central open problem. All perturbative
    paths exhausted (Parts 29-35). Non-perturbative or measurement needed.
 
+**Pending Prediction 13 (proposed, requires T40):** The longest-lived
+isotope of Z=115 (moscovium). Standard SEMF baseline (Part 107)
+predicts no Z=115 isotope longer than ~11 seconds. Closing the gap to
+Lazar's "stable Z=115" claim requires +9 to +15 MeV of topological
+binding at (Z=115, N≈184) from PDTP T40 (Y-junction packing closure)
+or equivalent. Once T40 is built, this becomes a sharp falsifiable
+prediction: synthesize Mc-298 / Mc-299 / Mc-300 at FRIB and measure
+half-lives against the PDTP-corrected SEMF prediction.
+
 ---
 
 *This document is a living document — updated whenever new testable predictions
 are found. Always plan before updating (see CODING_STANDARDS.md section 5).*
 
-*Last updated: 2026-03-15 (Predictions 7-12 added from Parts 61-62, 37-38)*
+*Last updated: 2026-04-29 (Part 107 SEMF baseline added; Z=115 gap quantified at ~10 MeV; pending Prediction 13 deferred until T40 supplies pdtp_topology_correction)*
 
 **Conceptual framework — not experimentally validated.**

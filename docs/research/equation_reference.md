@@ -1426,7 +1426,70 @@ SymPy 8/8 PASS. Sudoku 10/10 PASS.
 
 ---
 
+### Part 106 additions (T36: Three-Component Hopf Link as Baryon Structure):
+
+**Source:** Part 106 (Phase 74), `simulations/solver/t36_hopf_link_baryon.py`;
+`docs/research/hopf_link_baryon.md`.
+
+Changelog: 2026-04-18.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 106.1 | 3 Hopf fibers at 120 deg on S^2 base -> pairwise \|lk\| = 1 | [PDTP Original, DERIVED] | Z_3 symmetry inherited from base points; Hopf (1931) |
+| 106.2 | Gauss linking integral |lk| = 1 per pair numerically | [VERIFIED, 200x200 grid] | residual 0.0%; Ricca-Nipoti (2011) |
+| 106.3 | B = sum(o_i)/3 reproduces QCD baryon number for 4/4 configs | [PDTP Original, DERIVED] | baryon +1, antibaryon -1, meson 0, tetraquark 0 |
+| 106.4 | E_Hopf / E_Y = 2 pi EXACTLY at same scale | [PDTP Original, DERIVED] | Y-junction (Part 37) is lower-energy; Hopf topologically protected |
+| 106.5 | Loop circulation alone -> J = integer; J=1/2 needs WZ phase | [DERIVED + known fix] | exp(i N_c pi B) = -1 at N_c=3, B=1; Witten (1983) |
+| 106.6 | Z_3 color x SU(3)_flavor x U(1)_EM factorises | [PDTP Original, DERIVED] | proton +1, neutron 0, Delta++ +2 all computed |
+| 106.7 | R_i = m_i c^2 / (2 pi sigma) | [PDTP Original, DERIVED] | u,d ~ 0.058 fm; s ~ 0.087 fm; fits inside 1 fm baryon |
+
+Verdict: PARTIAL -- structurally consistent alternative topology to Y-junction,
+but energetically disfavored by factor 2 pi as ground state. Hopf-link remains
+a candidate for (a) excited baryons, (b) exotic hadrons, (c) T30 device-scale
+topologically protected coherence states.
+SymPy 9/9 PASS. Sudoku 20/20 PASS (all tests read COMPUTED values from step
+return dicts -- enforced by new CLAUDE.md "RECHECK functions" rule added same day).
+
+---
+
+### Part 107 additions (T37: Isotope Stability Mini-Project, SEMF Baseline):
+
+**Source:** Part 107 (Phase 75), `simulations/solver/t37_isotope_stability.py`;
+`docs/research/isotope_stability.md`.
+
+Changelog: 2026-04-29. **No PDTP Original results in this Part** -- all
+equations are textbook nuclear physics. PDTP enters via the empty stub
+`pdtp_topology_correction(Z, N) -> 0.0` reserved for T40.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 107.1 | B(Z,N) = a_V*A - a_S*A^(2/3) - a_C*Z(Z-1)/A^(1/3) - a_A*(N-Z)^2/A + delta | [ESTABLISHED] | Bethe-Weizsacker SEMF; Wapstra/Cohen-Swiatecki coefficients (a_V=15.8, a_S=18.3, a_C=0.714, a_A=23.2, a_P=12/sqrt(A)); better for heavy nuclei than Krane |
+| 107.2 | Delta(Z,N) = Z*Delta(H1) + N*Delta(n) - B(Z,N) | [ESTABLISHED] | atomic mass excess; Krane eq. 3.30 |
+| 107.3a | Q_alpha = Delta(Z,N) - Delta(Z-2,N-2) - Delta(He4) | [ESTABLISHED] | Krane eq. 8.1 |
+| 107.3b | Q_(beta-) = Delta(Z,N) - Delta(Z+1,N-1) | [ESTABLISHED] | atomic-mass bookkeeping cancels e- mass |
+| 107.3c | Q_(beta+) = Delta(Z,N) - Delta(Z-1,N+1) - 2*m_e | [ESTABLISHED] | Krane eq. 9.3 |
+| 107.3d | Q_EC = Delta(Z,N) - Delta(Z-1,N+1) | [ESTABLISHED] | Krane eq. 9.4 |
+| 107.3e | S_p = Delta(Z-1,N) + Delta(H1) - Delta(Z,N); Q_p = -S_p | [ESTABLISHED] | proton separation energy |
+| 107.4 | log10(T_alpha [s]) = (a*Z+b)/sqrt(Q_alpha) + (c*Z+d) | [ESTABLISHED] | Viola-Seaborg (1966) constants a=1.66175, b=-8.5166, c=-0.20228, d=-33.9069 |
+| 107.5 | log10(T_beta [s]) = log_ft - log10(f); f ~ (Q+m_e)^5/(30 m_e^5); log_ft ~ 5 | [ESTABLISHED] | Sargent rule; allowed transitions; Krane eq. 9.18-9.21 |
+| 107.6 | log10(T_SF [s]) = -21 + (2*pi/ln10) * B_f / (hbar*omega_0); B_f ~ 0.34*a_S*A^(2/3)*(1-x)^2; x = (Z^2/A)/50.88 | [ESTABLISHED] | Bohr-Wheeler (1939) liquid-drop barrier + WKB |
+| 107.7 | log10(T_p [s]) = -21 + 2*pi*0.62*(Z-1)/(sqrt(Q_p)*ln10) | [ESTABLISHED] | s-wave Sommerfeld; Wong eq. 7-31 |
+| 107.8 | log10(T_n [s]) = -22 - 0.5*log10(Q_n) | [ESTABLISHED] | no Coulomb barrier; Wong section 7.3 |
+| 107.9 | nucleon_stats(Z,N) Sudoku score: 10/19 PASS at 1.0 OoM tolerance (Wapstra coefficients + 4 extra isotopes) | [VERIFIED, baseline floor] | failures cluster at shell-stabilised nuclei (Ca-40, Ca-48, Bi-209, Be-8) and heavy alpha emitters |
+| 107.10 | Z=115 longest-lived (SEMF baseline): A=315 (N=200), T_1/2~1067 s; Mc-299 (N=184, Lazar target): T~9 ns | [VERIFIED, prediction] | Mc-299 flagged M1 (single-magic) but SEMF gives SF-dominated 9 ns; shell corrections needed |
+| 107.11 | Lazar gap: ~27 OoM in log10(T_1/2) -> ~8-14 MeV extra binding required | [DERIVED quantitative target] | from longest-lived SEMF isotope to "stable"; T40 or standard Strutinsky corrections must supply this |
+
+Verdict: PARTIAL -- empirical baseline established. 6/15 Sudoku reflects
+known textbook SEMF limitations (shell corrections absent), not coding
+errors. The script is ready as the floor on top of which T40 topological
+binding corrections will be tested. Quantitative target for T40 / shell
+corrections at (Z=115, N=184): +9 to +15 MeV extra binding.
+
+---
+
 ## Changelog
+- 2026-04-29: Added Part 107 (T37: SEMF + decay-rate isotope-stability baseline; PARTIAL; 6/15 Sudoku at 1.0 OoM; failure modes cluster at shell-stabilised magic nuclei; Z=115 longest-lived predicted at A=315 with T~11s; Lazar gap quantified at ~29 OoM ~ 10 MeV; pdtp_topology_correction stub reserved for T40)
+- 2026-04-18: Added Part 106 (T36: 3-component Hopf-link baryon; PARTIAL; |lk|=1 verified numerically; E_H/E_Y=2pi; charges all correct; WZ phase = -1 for fermion; Y-junction remains ground state; 20/20 Sudoku, 9/9 SymPy; all step returns are COMPUTED per new RECHECK rule)
 - 2026-04-15: Added Part 105 (T22: Platonic solids lens; PARTIAL; 1 DERIVED + 3 NEGATIVE; N_c from Z_3 confirmed; N_gen/K_0/Lambda not fixed by Platonic arithmetic; 10/10 PASS; 8/8 SymPy)
 - 2026-04-12: Added Part 104 (T23: sin^2 Hilbert term; PRODUCTIVE; pitchfork at lambda=g/2; w_a cannot reach -0.75; cross-polarization interpretation; 10/10 PASS; 9/9 SymPy)
 - 2026-04-11: Added Part 103 (T24: backward GR -> PDTP; CONSTRUCTIVE NEGATIVE; gamma=0 for scalar; DOF counting -> SU(3) minimal; ADM orphan g_ij; 10/10 PASS; 8/8 SymPy)
