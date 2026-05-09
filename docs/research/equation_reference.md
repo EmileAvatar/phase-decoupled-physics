@@ -1487,6 +1487,33 @@ corrections at (Z=115, N=184): +9 to +15 MeV extra binding.
 
 ---
 
+### Part 109 additions (T5: Multi-Layer Phase Stacks, air/water/oil model):
+
+**Source:** Part 109 (Phase 77, 2026-05-09), `simulations/solver/t5_phase_stack.py`;
+`docs/research/phase_stack.md`. SymPy 3/3 PASS. Sudoku 12/12 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 109.1 | Layer transfer matrix M_j = [[cos(d), -i sin(d)/p], [-i p sin(d), cos(d)]] | [TEXTBOOK, Born & Wolf S1.6] | 2x2 complex matrix per layer; d = delta_j (phase thickness) |
+| 109.2 | delta_j = (2pi/lam) n_j d_j cos(theta_j) | [TEXTBOOK] | phase thickness; n_j = 1/alpha_j; lam = c/f |
+| 109.3 | p_j = n_j cos(theta_j) (TE), n_j/cos(theta_j) (TM) | [TEXTBOOK] | optical admittance; determines TE vs TM response |
+| 109.4 | r = (p0 B - C)/(p0 B + C), [B,C]^T = M.[1,p_out]^T | [TEXTBOOK, Born & Wolf S1.6] | total system reflection; N=0 recovers Fresnel exactly (S01 verified) |
+| 109.5 | alpha->0 (n->inf) => R->1 | [DERIVED] | decoupled layer is perfect GW mirror; r -> -1; Meissner analogy (Part 36) |
+| 109.6 | d_QW = lam*alpha/(4) = c*alpha/(4*f); alpha_AR = sqrt(alpha_in*alpha_out) | [DERIVED] | quarter-wave anti-reflection thickness; R=0 at ideal QW (SymPy S2 verified) |
+| 109.7 | r_FP = (r01 + r12 exp(2i*delta))/(1 + r01*r12 exp(2i*delta)) | [TEXTBOOK, SymPy VERIFIED] | N=1 Fabry-Perot; identical to TMM (3 numeric pts, residual<1e-12) |
+| 109.8 | f_gap = c*alpha_oil/(2*d_layer) | [PDTP Original] | photonic bandgap centre for periodic oil-water stack; observed within 2x in 5-period demo |
+| 109.9 | n_j d_j = d_j/alpha_j << lam/4 => R ~ 0 | [DERIVED] | sub-wavelength criterion; determines when a layer has negligible reflection |
+| 109.10 | alpha_crit = 4*xi/(sqrt(2)*lam_GW) = 4*lP/(sqrt(2)*lam_GW) | [PDTP Original] | Leidenfrost critical coupling; at LIGO (100Hz): alpha_crit = 1.52e-41; layer is R=0 for any physical alpha |
+
+Key results:
+- Decoupled layer (alpha=0): perfect gravitational mirror (R->1 DERIVED, Eq 109.5)
+- Quarter-wave anti-reflection: d_QW = c*alpha/(4f), alpha_AR = sqrt(alpha_out) (DERIVED, Eq 109.6)
+- Photonic bandgap: f_gap = c*alpha_oil/(2d) (PDTP Original, Eq 109.8)
+- NEGATIVE: Leidenfrost layer (d~lP) has R~0 at LIGO; alpha_crit~1e-41 (Eq 109.10)
+  Resonant GW shielding requires km-scale structures, not Planck-scale boundaries.
+
+---
+
 ### Part 108 additions (T4: Gravitational Brewster Angle for GWs):
 
 **Source:** Part 108 (Phase 76, 2026-05-09), `simulations/solver/t4_brewster_gw.py`;
@@ -1517,6 +1544,7 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-05-09: Added Part 109 (T5: multi-layer TMM; decoupled layer R->1 DERIVED; bandgap f_gap=c*alpha/(2d) PDTP Original; Leidenfrost layer alpha_crit~1e-41 at LIGO -- zero effect at Planck thickness; QW AR condition DERIVED; 12/12 Sudoku, 3/3 SymPy)
 - 2026-05-09: Added Part 108 (T4: Gravitational Brewster angle for GWs; PRODUCTIVE; tan(theta_B)=n2/n1=alpha1/alpha2 DERIVED; x-mode has Brewster angle, +-mode does not; breathing mode no Brewster angle but has TIR; mode splitting delta_theta_B PDTP Original; 12/12 Sudoku, 5/5 SymPy)
 - 2026-04-29: Added Part 107 (T37: SEMF + decay-rate isotope-stability baseline; PARTIAL; 6/15 Sudoku at 1.0 OoM; failure modes cluster at shell-stabilised magic nuclei; Z=115 longest-lived predicted at A=315 with T~11s; Lazar gap quantified at ~29 OoM ~ 10 MeV; pdtp_topology_correction stub reserved for T40)
 - 2026-04-18: Added Part 106 (T36: 3-component Hopf-link baryon; PARTIAL; |lk|=1 verified numerically; E_H/E_Y=2pi; charges all correct; WZ phase = -1 for fermion; Y-junction remains ground state; 20/20 Sudoku, 9/9 SymPy; all step returns are COMPUTED per new RECHECK rule)

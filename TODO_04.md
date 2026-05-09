@@ -214,7 +214,33 @@ Calculate the Brewster angle where one mode has zero reflection.
 **Sudoku:** Verify reflection coefficients reduce to known GR result when breathing mode = 0
 **Wave check:** Effects 1 (reflection), 2 (refraction), 11 (polarization), 32 (Brewster)
 
-#### [ ] T5. Multi-Layer Phase Stacks (Air/Water/Oil Model) — PRIORITY 5
+#### [x] T5. Multi-Layer Phase Stacks (Air/Water/Oil Model) — DONE (Part 109, Phase 77, 2026-05-09)
+
+**Part:** 109
+**Script:** `simulations/solver/t5_phase_stack.py` (Phase 77)
+**Doc:** `docs/research/phase_stack.md`
+**Sudoku:** 12/12 PASS | **SymPy:** 3/3 PASS
+**Verdict:** PRODUCTIVE + one key NEGATIVE result.
+
+**RESULTS:**
+- TMM (Born & Wolf S1.6) implemented for N layers with PDTP n_j = 1/alpha_j [Eqs 109.1-109.4]
+- N=0 recovery: TMM == Fresnel (T4) to 10^-16 [VERIFIED]
+- N=1 Fabry-Perot: TMM == r_FP formula (Eq 109.7, SymPy + numeric VERIFIED)
+- Decoupled limit [DERIVED]: alpha->0 => R->1; perfect gravitational mirror [Eq 109.5]
+  Physical: GW (propagating in phi) cannot enter a region where phi is decoupled from psi.
+  Meissner analogy from Part 36.
+- Quarter-wave AR [DERIVED]: d_QW = c*alpha/(4*f), alpha_AR = sqrt(alpha_out) [Eq 109.6]
+  Example: 650 km layer at 100 Hz reduces R from 0.020 to 10^-33
+- Photonic bandgap [PDTP Original]: f_gap = c*alpha_oil/(2*d) [Eq 109.8]
+  5-period stack at alpha=0.8, d=300km: R_max=0.64 at ~220 Hz (predicted 400 Hz; N too small)
+- NEGATIVE [key]: Leidenfrost layer (d~lP~1e-35 m) has R~0 at all GW detector frequencies.
+  alpha_crit(LIGO 100Hz) = 1.52e-41 [Eq 109.10, PDTP Original].
+  Layer must be km-scale for resonant shielding effect.
+
+**Open:**
+- Full N->inf bandgap structure (Bloch waves, band edges)
+- TM vs TE bandgap differences
+- Link to T6: does ξ diverge at Leidenfrost transition (making layer thicker)?
 
 **Part:** Next after T4
 **What:** Quantitative treatment of multiple phase-incoherent layers.
@@ -1309,7 +1335,7 @@ enough from PDTP to provide independent constraints.
 | T2 | Critical point tan=1 | 2 | DONE | 99 |
 | T3 | Loss tangent + dark energy | 3 | DONE (PARTIAL) | 102 |
 | T4 | Brewster angle for GWs | 4 | DONE (PRODUCTIVE) | 108 |
-| T5 | Multi-layer stacks | 5 | PENDING | TBD |
+| T5 | Multi-layer stacks | 5 | DONE (PRODUCTIVE+NEG) | 109 |
 | T6 | Leidenfrost + phase transition | 6 | PENDING | TBD |
 | T7 | Hawking + n_PDTP | 7 | PENDING | TBD |
 | T8 | PPN corrections | 8 | PENDING | TBD |
