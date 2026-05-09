@@ -1487,7 +1487,37 @@ corrections at (Z=115, N=184): +9 to +15 MeV extra binding.
 
 ---
 
+### Part 108 additions (T4: Gravitational Brewster Angle for GWs):
+
+**Source:** Part 108 (Phase 76, 2026-05-09), `simulations/solver/t4_brewster_gw.py`;
+`docs/research/brewster_gw.md`. SymPy 5/5 PASS. Sudoku 12/12 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 108.1 | n = 1/alpha = 1/cos(Delta) | [ESTABLISHED, Part 98] | PDTP refractive index for GWs; from acoustic metric g_tt = -alpha^2 c^2 |
+| 108.2 | n1 sin(theta_i) = n2 sin(theta_t) | [TEXTBOOK] | Snell's law applied to PDTP density boundary |
+| 108.3 | r_+ = (n1 cos_i - n2 cos_t)/(n1 cos_i + n2 cos_t) | [TEXTBOOK Fresnel TE] | + polarization (TE-equivalent); t_+ = 2 n1 cos_i / denom_TE |
+| 108.4 | r_x = (n2 cos_i - n1 cos_t)/(n2 cos_i + n1 cos_t) | [TEXTBOOK Fresnel TM] | x polarization (TM-equivalent); t_x = 2 n1 cos_i / denom_TM; note sign convention: r_x(0) = (n2-n1)/(n1+n2) |
+| 108.5 | tan(theta_B) = n2/n1 = alpha1/alpha2 | [DERIVED, SymPy VERIFIED] | Brewster angle for x (TM) GW polarization; r_x = 0 at this angle; PDTP Original application |
+| 108.6 | r_+ = 0 requires n1 = n2 (no TE Brewster angle) | [DERIVED] | + polarization always partially reflects; algebraic proof: n1^2(cos^2+sin^2) = n2^2 => n1=n2 |
+| 108.7 | n_b(omega) = sqrt(1 - omega_gap^2/omega^2), omega_gap = sqrt(2 g_eff) | [DERIVED, Part 99] | breathing mode (massive scalar); n_b < 1 in dense regions (contrast to n_tensor > 1) |
+| 108.8 | theta_c = arcsin(n_b2/n_b1) for n_b1 > n_b2 | [TEXTBOOK] | TIR angle for breathing mode; occurs vacuum->dense (opposite direction to tensor TIR) |
+| 108.9 | R + T = 1 for TE and TM | [TEXTBOOK, SymPy VERIFIED, numerical VERIFIED] | energy conservation; max numerical error 3.3e-16 across 9 angles |
+| 108.10 | delta_theta_B = theta_B_tensor - theta_B_breath = arctan(alpha1/alpha2) - arctan(n_b2/n_b1) | [PDTP Original] | mode splitting at density boundary; = 0 in GR (no breathing mode); = 12.4 deg hypothetically near omega_gap |
+
+Numerical results:
+- Galaxy cluster (phi/c^2 ~ 1e-5): theta_B = 45.0003 deg, deviation 5.0 urad = 1 arcsec
+- Neutron star surface (r = 4 r_S, alpha = sqrt(0.75)): theta_B = 49.1 deg, deviation 4.1 deg
+- Mode splitting near omega_gap (hypothetical): 12.4 deg
+
+New prediction: At theta_B, the x (cross) GW polarization has R = 0 (zero reflection);
++ polarization always reflects. Reflected beam at theta_B is pure + polarization.
+GR prediction: no such angle exists. Absent in any single-mode GW theory.
+
+---
+
 ## Changelog
+- 2026-05-09: Added Part 108 (T4: Gravitational Brewster angle for GWs; PRODUCTIVE; tan(theta_B)=n2/n1=alpha1/alpha2 DERIVED; x-mode has Brewster angle, +-mode does not; breathing mode no Brewster angle but has TIR; mode splitting delta_theta_B PDTP Original; 12/12 Sudoku, 5/5 SymPy)
 - 2026-04-29: Added Part 107 (T37: SEMF + decay-rate isotope-stability baseline; PARTIAL; 6/15 Sudoku at 1.0 OoM; failure modes cluster at shell-stabilised magic nuclei; Z=115 longest-lived predicted at A=315 with T~11s; Lazar gap quantified at ~29 OoM ~ 10 MeV; pdtp_topology_correction stub reserved for T40)
 - 2026-04-18: Added Part 106 (T36: 3-component Hopf-link baryon; PARTIAL; |lk|=1 verified numerically; E_H/E_Y=2pi; charges all correct; WZ phase = -1 for fermion; Y-junction remains ground state; 20/20 Sudoku, 9/9 SymPy; all step returns are COMPUTED per new RECHECK rule)
 - 2026-04-15: Added Part 105 (T22: Platonic solids lens; PARTIAL; 1 DERIVED + 3 NEGATIVE; N_c from Z_3 confirmed; N_gen/K_0/Lambda not fixed by Platonic arithmetic; 10/10 PASS; 8/8 SymPy)

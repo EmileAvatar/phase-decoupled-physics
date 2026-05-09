@@ -170,7 +170,34 @@ Same as TODO_03:
 
 ### Phase 2 — New Predictions (derive and test)
 
-#### [ ] T4. Gravitational Brewster Angle — PRIORITY 4
+#### [x] T4. Gravitational Brewster Angle — DONE (Part 108, Phase 76, 2026-05-09)
+
+**Part:** 108
+**Script:** `simulations/solver/t4_brewster_gw.py` (Phase 76)
+**Doc:** `docs/research/brewster_gw.md`
+**Sudoku:** 12/12 PASS | **SymPy:** 5/5 PASS
+**Verdict:** PRODUCTIVE — new testable prediction derived.
+
+**RESULTS:**
+- n = 1/alpha = 1/cos(Delta) (Part 98) used as GW refractive index [Eq 108.1]
+- + polarization (TE-equivalent): no Brewster angle; always partially reflects [Eq 108.6, DERIVED]
+- x polarization (TM-equivalent): Brewster angle tan(theta_B) = n2/n1 = alpha1/alpha2 [Eq 108.5, DERIVED, SymPy VERIFIED]
+- theta_B (galaxy cluster): 45.000286 deg (deviation 5.0 urad = 1 arcsec)
+- theta_B (NS surface r=4r_S): 49.1 deg (deviation 4.1 deg — detectable with GW polarimetry)
+- Breathing mode: n_b = sqrt(1-omega_gap^2/omega^2) < 1 in dense regions (opposite to tensor) [Eq 108.7]
+- Breathing mode has no Brewster angle (scalar/TE-form) but has TIR [Eqs 108.6, 108.8]
+- Mode splitting delta_theta_B = theta_B_tensor - theta_B_breath; up to 12.4 deg near omega_gap [Eq 108.10, PDTP Original]
+- GR prediction: no Brewster angle (GR has no GW refractive index); splitting = 0
+
+**New prediction [PDTP Original]:**
+  At theta_B, the x (cross) GW polarization has R=0; reflected beam at theta_B is
+  pure + polarization. Absent in GR. Observable via GW polarimetry at NS boundaries
+  (degree-scale deviation from 45 deg).
+
+**Open:**
+- Full spin-2 boundary condition derivation to confirm TE/TM assignment (currently [SPECULATIVE])
+- Breathing mode TIR → evanescent wave → testable phase noise (link to T35)
+- Two-phase phi_- correction to n near dense matter
 
 **Part:** Next after T3
 **What:** Full derivation of reflection/transmission coefficients for gravitational
@@ -1281,7 +1308,7 @@ enough from PDTP to provide independent constraints.
 | T1 | PDTP refractive index | 1 | DONE | 98 |
 | T2 | Critical point tan=1 | 2 | DONE | 99 |
 | T3 | Loss tangent + dark energy | 3 | DONE (PARTIAL) | 102 |
-| T4 | Brewster angle for GWs | 4 | PENDING | TBD |
+| T4 | Brewster angle for GWs | 4 | DONE (PRODUCTIVE) | 108 |
 | T5 | Multi-layer stacks | 5 | PENDING | TBD |
 | T6 | Leidenfrost + phase transition | 6 | PENDING | TBD |
 | T7 | Hawking + n_PDTP | 7 | PENDING | TBD |
