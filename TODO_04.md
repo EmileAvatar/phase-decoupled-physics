@@ -339,7 +339,30 @@ derivation (Part 24)? The surface gravity kappa involves the gradient of the
 metric — which is related to the gradient of alpha (and therefore of n).
 **Cross-check with:** Part 24 (Hawking: T_H = hbar*c^3/(8*pi*G*M*k_B))
 
-#### [ ] T8. PPN Parameters with Tan Corrections — PRIORITY 8
+#### [x] T8. PPN Parameters with Tan Corrections — DONE (Part 112, Phase 80, 2026-05-17)
+
+**Part:** 112
+**Script:** `simulations/solver/t8_ppn_tan.py` (Phase 80)
+**Doc:** `docs/research/ppn_tan.md`
+**Sudoku:** 12/12 PASS | **SymPy:** 5/5 PASS
+**Verdict:** PRODUCTIVE — gamma=1 derived from optical metric; beta=1 from Schwarzschild; tan corrections negligible.
+
+**RESULTS:**
+- gamma_scalar(U(1)) = 0  [Part 103, ESTABLISHED]  -- FAILS Cassini / Eddington 1919
+- gamma_acoustic = 1/2   [Part 101, ESTABLISHED]  -- FAILS Cassini
+- gamma_optical = 1      [Eq 112.4, DERIVED]  -- PASSES Cassini
+  g_ij = n^2 delta_ij = (1/alpha^2) delta_ij;  n^2 ~ 1+2u at 1PN -> gamma=1
+  Physical: optical metric is standard for medium with refractive index n; n=1/alpha is PDTP-natural.
+- Tan correction at 2PN: Delta_gamma_2PN = 4*(U/c^2) ~ 1e-7 at Cassini perihelion [Eq 112.5]
+  0.4% of Cassini bound -- NEGLIGIBLE
+- beta = 1 from Schwarzschild isotropic coordinates [Eq 112.6, DERIVED]
+  areal-coord beta=0 is a gauge artifact; PPN uses isotropic gauge -> beta=1 (PASSES LLR)
+- beta=1 inherited from Part 73 GR recovery
+
+**Open:**
+- Derive optical metric g_ij=n^2 delta_ij from the PDTP Lagrangian (currently a motivated prescription)
+- Connection to SU(3) metric g_ij=(1/3)Tr(dU^dag dU) from Part 103 -- are they equivalent?
+- 2PN tan correction potentially measurable by LISA/BepiColombo radio science
 
 **What:** Do the PPN parameters gamma and beta acquire tan-dependent corrections
 at post-Newtonian order? PDTP must maintain gamma = 1, beta = 1 to match
@@ -1387,7 +1410,7 @@ enough from PDTP to provide independent constraints.
 | T5 | Multi-layer stacks | 5 | DONE (PRODUCTIVE+NEG) | 109 |
 | T6 | Leidenfrost + phase transition | 6 | DONE (PRODUCTIVE) | 110 |
 | T7 | Hawking + n_PDTP | 7 | DONE (CONSTR. NEG.) | 111 |
-| T8 | PPN corrections | 8 | PENDING | TBD |
+| T8 | PPN corrections | 8 | DONE (PRODUCTIVE) | 112 |
 | T9 | Two-phase tan | 9 | PENDING | TBD |
 | T10 | SU(3) group tan | 10 | PENDING | TBD |
 | T11 | Koide angle | 11 | PENDING | TBD |

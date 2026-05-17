@@ -1487,6 +1487,29 @@ corrections at (Z=115, N=184): +9 to +15 MeV extra binding.
 
 ---
 
+### Part 112 additions (T8: PPN Parameters with Tan Corrections):
+
+**Source:** Part 112 (Phase 80, 2026-05-17), `simulations/solver/t8_ppn_tan.py`;
+`docs/research/ppn_tan.md`. SymPy 5/5 PASS. Sudoku 12/12 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 112.1 | PPN metric: g_00=-(1-2u), g_ij=(1+2*gamma*u)delta_ij | [TEXTBOOK] | u = U/c^2 = GM/(rc^2); constraints: Cassini gamma=1+-2.3e-5, LLR beta=1+-3e-4 |
+| 112.2 | gamma_scalar = 0  (g_ij = delta_ij) | [Part 103, ESTABLISHED] | Bergmann-Wagoner; fails Cassini; rules out plain U(1) PDTP |
+| 112.3 | gamma_acoustic = 1/2  (g_ij = n*delta_ij, Part 101) | [ESTABLISHED] | condensate compression gives g_ij ~ rho delta_ij ~ (1/alpha)delta_ij; fails Cassini |
+| 112.4 | gamma_optical = 1  (g_ij = n^2*delta_ij = (1/alpha^2)*delta_ij) | [DERIVED, SymPy S1] | n^2 = 1/(1-2u) ~ 1+2u -> gamma=1; optical metric is the PDTP-natural spatial metric; PASSES Cassini |
+| 112.5 | tan correction: Delta_gamma_2PN = 4*(U/c^2) ~ 1e-7 | [DERIVED] | 2PN correction to gamma=1 from n^2 expansion; 0.4% of Cassini bound -- negligible |
+| 112.6 | beta = 1 from isotropic Schwarzschild coordinates | [DERIVED, SymPy S4] | areal coords beta=0 is gauge artefact; isotropic: g_00=-(1-u/2)^2/(1+u/2)^2 ~ -1+2u-2u^2 -> beta=1 |
+| 112.7 | Cassini constraint: |gamma-1| < 2.3e-5 -> only gamma_optical=1 passes | [CONSTRAINT] | rules out scalar (gamma=0) and acoustic (gamma=0.5) PDTP |
+| 112.8 | LLR constraint: |beta-1| < 3e-4 -> beta=1 passes | [CONSTRAINT] | all prescriptions give beta=1 in isotropic gauge |
+| 112.9 | n^2 = 1/(1-2u) = 1+2u+4u^2+... (geometric series) | [DERIVED, SymPy S1] | exact n^2 expansion; gamma=1 from 2u term; 2PN correction = 4u^2 |
+
+Key result: optical metric g_ij=n^2 delta_ij gives gamma=1 (Cassini PASS). n=1/alpha is the PDTP refractive index -- the optical metric is PDTP-natural.
+beta=1 from Schwarzschild isotropic coordinates (Part 73 GR recovery).
+Tan corrections sub-leading (Delta_gamma_2PN ~ 4e-8 << Cassini 2.3e-5).
+
+---
+
 ### Part 111 additions (T7: Hawking Temperature with n_PDTP):
 
 **Source:** Part 111 (Phase 79, 2026-05-17), `simulations/solver/t7_hawking_n_pdtp.py`;
@@ -1594,6 +1617,7 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-05-17: Added Part 112 (T8: PPN gamma/beta; gamma=1 from optical metric g_ij=n^2 delta_ij DERIVED; beta=1 from Schwarzschild isotropic DERIVED; tan correction Delta_gamma_2PN=4u negligible vs Cassini; 12/12 Sudoku, 5/5 SymPy)
 - 2026-05-17: Added Part 111 (T7: T_H unchanged by n_PDTP; kappa=c^2/(2r_S) DERIVED; Eq 111.4 kappa=(c^2/2)|d(1/n^2)/dr| PDTP Original; phase vs group velocity argument; breathing mode cutoff negligible; 12/12 Sudoku, 5/5 SymPy)
 - 2026-05-09: Added Part 110 (T6: Leidenfrost critical point; V''(pi/2)=0 DERIVED; (beta,nu,gamma)=(1,1/2,1) DERIVED; classified non-equilibrium crossover = laser-threshold universality; GW noise S~alpha^{-1} diverges near decoupling; Delta_V=g DERIVED; 12/12 Sudoku, 6/6 SymPy)
 - 2026-05-09: Added Part 109 (T5: multi-layer TMM; decoupled layer R->1 DERIVED; bandgap f_gap=c*alpha/(2d) PDTP Original; Leidenfrost layer alpha_crit~1e-41 at LIGO -- zero effect at Planck thickness; QW AR condition DERIVED; 12/12 Sudoku, 3/3 SymPy)
