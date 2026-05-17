@@ -1487,6 +1487,29 @@ corrections at (Z=115, N=184): +9 to +15 MeV extra binding.
 
 ---
 
+### Part 111 additions (T7: Hawking Temperature with n_PDTP):
+
+**Source:** Part 111 (Phase 79, 2026-05-17), `simulations/solver/t7_hawking_n_pdtp.py`;
+`docs/research/hawking_n_pdtp.md`. SymPy 5/5 PASS. Sudoku 12/12 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 111.1 | T_H = hbar c^3/(8 pi G M k_B) | [Part 24, ESTABLISHED] | confirmed unchanged in PDTP |
+| 111.2 | alpha(r) = sqrt(1-r_S/r), r_S = 2GM/c^2 | [Part 98, ESTABLISHED] | PDTP Schwarzschild identification |
+| 111.3 | kappa = (c^2/2)|d(alpha^2)/dr|_{r_S} = c^2/(2r_S) | [DERIVED, SymPy S1-S2] | surface gravity from lapse; d(alpha^2)/dr=r_S/r^2; finite at r_S despite alpha->0 |
+| 111.4 | kappa = (c^2/2)|d(1/n^2)/dr|_{r_S} | [PDTP Original, SymPy S3] | surface gravity as gradient of n^{-2}; 1/n^2=alpha^2; same numerical result as 111.3 |
+| 111.5 | T_H^PDTP = T_H^GR | [DERIVED] | n_PDTP does NOT modify T_H; kappa is unchanged |
+| 111.6 | c_phase = c*alpha = c/n -> 0 at r_S | [Part 98, ESTABLISHED] | phase velocity slows; Hawking T does NOT depend on c_phase |
+| 111.7 | c_group = c_s = c (always) | [Part 34, ESTABLISHED] | group velocity = c; acoustic kappa depends on c_group, not c_phase |
+| 111.8 | Breathing mode: T_H unchanged; spectrum cut off at omega < omega_gap = sqrt(2g) | [DERIVED] | omega_gap ~ 2.2e-18 rad/s (cosmo); T_cutoff/T_H ~ 1e-22 for stellar BH -- negligible |
+| 111.9 | Two-phase: G_eff=2G_bare (Part 61); G_N=G_eff -> T_H unchanged | [VERIFIED] | birefringence (T4): T_H(+)=T_H(x) -- same alpha(r) profile |
+
+Key result: T_H^PDTP = T_H^GR (constructive negative). New PDTP Original: Eq 111.4.
+Physical reason: n=1/alpha slows phase velocity; Hawking T set by group velocity c_s=c.
+kappa = c^2/(2r_S) from three independent routes: lapse gradient, n^{-2} gradient, acoustic.
+
+---
+
 ### Part 110 additions (T6: Leidenfrost + Tan Phase Transition):
 
 **Source:** Part 110 (Phase 78, 2026-05-09), `simulations/solver/t6_leidenfrost_tan.py`;
@@ -1571,6 +1594,7 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-05-17: Added Part 111 (T7: T_H unchanged by n_PDTP; kappa=c^2/(2r_S) DERIVED; Eq 111.4 kappa=(c^2/2)|d(1/n^2)/dr| PDTP Original; phase vs group velocity argument; breathing mode cutoff negligible; 12/12 Sudoku, 5/5 SymPy)
 - 2026-05-09: Added Part 110 (T6: Leidenfrost critical point; V''(pi/2)=0 DERIVED; (beta,nu,gamma)=(1,1/2,1) DERIVED; classified non-equilibrium crossover = laser-threshold universality; GW noise S~alpha^{-1} diverges near decoupling; Delta_V=g DERIVED; 12/12 Sudoku, 6/6 SymPy)
 - 2026-05-09: Added Part 109 (T5: multi-layer TMM; decoupled layer R->1 DERIVED; bandgap f_gap=c*alpha/(2d) PDTP Original; Leidenfrost layer alpha_crit~1e-41 at LIGO -- zero effect at Planck thickness; QW AR condition DERIVED; 12/12 Sudoku, 3/3 SymPy)
 - 2026-05-09: Added Part 108 (T4: Gravitational Brewster angle for GWs; PRODUCTIVE; tan(theta_B)=n2/n1=alpha1/alpha2 DERIVED; x-mode has Brewster angle, +-mode does not; breathing mode no Brewster angle but has TIR; mode splitting delta_theta_B PDTP Original; 12/12 Sudoku, 5/5 SymPy)

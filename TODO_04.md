@@ -307,7 +307,32 @@ decoupling a true second-order phase transition?
 
 ### Phase 3 — Cross-Checks (verify against all previous results)
 
-#### [ ] T7. Hawking Temperature with n_PDTP — PRIORITY 7
+#### [x] T7. Hawking Temperature with n_PDTP — DONE (Part 111, Phase 79, 2026-05-17)
+
+**Part:** 111
+**Script:** `simulations/solver/t7_hawking_n_pdtp.py` (Phase 79)
+**Doc:** `docs/research/hawking_n_pdtp.md`
+**Sudoku:** 12/12 PASS | **SymPy:** 5/5 PASS
+**Verdict:** CONSTRUCTIVE NEGATIVE + one PDTP Original.
+
+**RESULTS:**
+- T_H^PDTP = T_H^GR = hbar c^3/(8pi G M k_B)  [DERIVED, Eq 111.5]
+  n_PDTP does NOT modify T_H.
+- kappa = c^2/(2r_S) from three routes: lapse gradient (Eq 111.3), n^{-2} gradient (Eq 111.4), acoustic (Unruh 1981). All agree.
+- New PDTP Original: kappa = (c^2/2)|d(1/n^2)/dr|_{r_S}  [Eq 111.4]
+  "Surface gravity = gradient of n^{-2} at the horizon"
+- Physical reason n doesn't change T_H: n=1/alpha slows PHASE velocity c_phase=c/n.
+  Hawking T depends on GROUP velocity c_group=c_s=c (Part 34) -- unchanged.
+  kappa_acoustic = (1/2)|d(c_s^2 - v^2)/dr| uses c_s=c, not c_phase.
+- Breathing mode: T_H unchanged; emission cut off below omega_gap=sqrt(2g)~2.2e-18 rad/s.
+  T_cutoff/T_H ~ 1e-22 for stellar BHs -- completely negligible.
+- Two-phase (Part 61): G_eff=2G_bare but G_N=G_eff -> T_H unchanged in terms of G_N.
+- Birefringence (T4): + and x modes have same T_H (share same alpha(r) profile).
+
+**Open:**
+- PG infall v(r) not derived from PDTP Lagrangian (Part 101 gap)
+- Breathing mode greybody factor modification (luminosity, not temperature)
+- Two-phase phi_- mass correction to kappa (T9)
 
 **What:** Does the refractive index n = 1/alpha modify the Hawking radiation
 derivation (Part 24)? The surface gravity kappa involves the gradient of the
@@ -1361,7 +1386,7 @@ enough from PDTP to provide independent constraints.
 | T4 | Brewster angle for GWs | 4 | DONE (PRODUCTIVE) | 108 |
 | T5 | Multi-layer stacks | 5 | DONE (PRODUCTIVE+NEG) | 109 |
 | T6 | Leidenfrost + phase transition | 6 | DONE (PRODUCTIVE) | 110 |
-| T7 | Hawking + n_PDTP | 7 | PENDING | TBD |
+| T7 | Hawking + n_PDTP | 7 | DONE (CONSTR. NEG.) | 111 |
 | T8 | PPN corrections | 8 | PENDING | TBD |
 | T9 | Two-phase tan | 9 | PENDING | TBD |
 | T10 | SU(3) group tan | 10 | PENDING | TBD |
