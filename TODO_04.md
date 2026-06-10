@@ -30,7 +30,7 @@ New additions go on top. One line per item. Full details below.
 - T6 — Leidenfrost + tan phase transition (critical exponents, universality class) [priority 6]
 - T7 — Hawking temperature with n_PDTP = 1/alpha (modify surface gravity kappa?) [priority 7]
 - T8 — PPN parameters with tan corrections (must keep gamma=1, beta=1) [priority 8]
-- T9 — Two-phase tan: Delta_+ and Delta_- diagnostics (reversed Higgs connection) [priority 9]
+- T9 — Two-phase tan: Delta_+ and Delta_- diagnostics [DONE, Part 113, Phase 81; 12/12 Sudoku; L_res=2g at Leidenfrost; phi_-=breathing mode at horizon]
 - T10 — SU(3) group manifold tan (Brewster angle on SU(3)? sqrt(3), 1/2 generators) [priority 10]
 - T11 — Koide angle and tan (theta_0 = 2/9, Z_3 geometry) [priority 11]
 - T12 — N_eff and heat kernel tan (does n_PDTP modify 6*pi factor?) [priority 12]
@@ -369,12 +369,36 @@ at post-Newtonian order? PDTP must maintain gamma = 1, beta = 1 to match
 solar system tests.
 **Cross-check with:** Part 12 (tetrad extension), Part 73 (Einstein recovery)
 
-#### [ ] T9. Two-Phase Tan: Delta_+ and Delta_- — PRIORITY 9
+#### [x] T9. Two-Phase Tan: Delta_+ and Delta_- — DONE (Part 113, Phase 81, 2026-05-24)
 
-**What:** In the two-phase Lagrangian (Part 61), there are TWO phase differences.
-Define tan(Delta_+) and tan(Delta_-). What does the ratio tan(Delta_-)/tan(Delta_+) mean?
-Does this connect to the reversed Higgs mass m^2 = 2g*Phi?
-**Cross-check with:** Part 61-63 (two-phase Lagrangian, all 16 tests)
+**Part:** 113
+**Script:** `simulations/solver/t9_two_phase_tan.py` (Phase 81)
+**Doc:** `docs/research/two_phase_tan.md`
+**Sudoku:** 12/12 PASS | **SymPy:** 5/5 PASS
+**Verdict:** PRODUCTIVE — product coupling in tan language; ratio diagnostic derived;
+T6 and T7 open questions resolved; two new PDTP Original results.
+
+**RESULTS:**
+- D+ = psi - phi_+  (gravity coupling gap); D- = phi_-  (surface mode) [Eq 113.1, DEFINED]
+- L = 2g*sin(D+)*sin(D-)  [Eq 113.2, DERIVED, SymPy S1]
+- L = 2g*alpha_+*alpha_-*tan(D+)*tan(D-)  [Eq 113.3, DERIVED, SymPy S2]
+- tan(D-)/tan(D+) = sin(D-)cos(D+)/(cos(D-)sin(D+))  [Eq 113.4, DERIVED, SymPy S3]
+- m^2(phi_-) = 2g*sin(D+) = 2g*alpha_+*tan(D+)  [Eq 113.5, DERIVED, SymPy S4]
+- T6: phi_- does NOT cutoff phi_+ noise divergence (separate sectors)  [Eq 113.6, VERIFIED]
+- T7: kappa unchanged; m^2(phi_-)=2g at horizon = omega_gap^2  [Eq 113.7, VERIFIED]
+  NEW: phi_- mode = breathing mode at event horizon [PDTP Original, Eq 113.7b]
+- Full decoupling: BOTH D+->pi/2 AND D-->0 required  [Eq 113.8, PDTP Original]
+- L_residual = 2g at D+=pi/2, D-=pi/2 (MAXIMUM!) -- closing phi_+ opens phi_-  [Eq 113.9, PDTP Original]
+- D- = pi/2 -> single-phase recovery via chi = phi_+ + pi/2  [Eq 113.10, VERIFIED, SymPy S5]
+
+**KEY FINDING:** Two-phase Leidenfrost (D+ = pi/2) is NOT decoupled!
+Closing the gravity channel opens the surface channel maximally (L_res = 2g).
+Full decoupling requires phi_- to be in vacuum (D- = 0), impossible near any gravity source.
+
+**Open:**
+- Can condition (B) D- -> 0 be achieved by screening Phi locally? (T29 connection)
+- Does tan(D-)/tan(D+) ratio appear as GW polarisation asymmetry?
+- Derive horizon coincidence m^2(phi_-)=omega_gap^2 from symmetry argument
 
 #### [ ] T10. SU(3) Tan: Group Manifold Geometry — PRIORITY 10
 
@@ -1399,6 +1423,36 @@ enough from PDTP to provide independent constraints.
 
 ---
 
+#### [x] T41. O(eps^4) Nonlinear Vertex vs Einstein-Hilbert — DONE (Part 114, Phase 82, 2026-06-10)
+
+**Part:** 114 (Phase 82) -- `simulations/solver/su3_nonlinear_vertex.py`
+**Doc:** `docs/research/su3_nonlinear_vertex.md`
+**Closes:** Part 76g OPEN item ("full nonlinear equivalence remains OPEN")
+**Result:** CONSTRUCTIVE NEGATIVE + PRODUCTIVE. 14/14 Sudoku PASS.
+
+**What was found:**
+1. Exact quartic vertex [DERIVED]: g^(4)_mu_nu = -(eps^4/24) f^(abe) f^(cde)
+   chi^a (d_mu chi^b) chi^c (d_nu chi^d) — upgrades 76g.1 from "~" to exact.
+   O(eps^3) vanishes identically; coefficient is group-independent; 0 for U(1).
+2. Trace theorem [DERIVED]: L_tree = K*eta^(mu nu)*g_mu_nu — the tree action
+   is the eta-trace of the emergent metric, so it contains NO graviton kinetic
+   term at any order. Sakharov 1-loop is the UNIQUE source of graviton
+   dynamics (Part 74/75's route is forced, not chosen).
+3. External anchor [VERIFIED]: SU(2) reduction reproduces Weinberg's 1966
+   pi-pi ChPT vertex 1/(6F^2)[(pi.dpi)^2 - pi^2(dpi.dpi)] exactly (residual 0).
+4. No-go [DERIVED, NEGATIVE]: derivative grading (NLSM D=2 vs EH D=4,6)
+   forbids identifying the tree vertex with GR's nonlinear vertex, on- or
+   off-shell.
+5. Planck suppression [PDTP Original]: lambda_4/(8*pi*G) = 1/48; the non-GR
+   contact term turns on only at E ~ sqrt(6/pi)*m_P = 1.382 m_P. GR recovery
+   at first nonlinear order SURVIVES at all accessible energies (~3.5e-31
+   at 10 TeV).
+
+**Open items unchanged:** N_eff = 6*pi gap; 2-DOF deficit (8 fields vs 10
+metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
+
+---
+
 ## Status Summary
 
 | ID | Investigation | Priority | Status | Part # |
@@ -1447,3 +1501,4 @@ enough from PDTP to provide independent constraints.
 | T38 | WCT regularizer Theta[psi] as UV-cure candidate in PDTP | SPEC (low) | PENDING | -- |
 | T39 | WCT effective metric cross-check vs PDTP acoustic / SU(3) metric | SPEC (low) | PENDING | -- |
 | T40 | Nuclear geometry from Y-junction packing (PDTP shell correction; fills pdtp_topology_correction stub) | SPEC (med-high) | PENDING | -- |
+| T41 | O(eps^4) nonlinear vertex vs Einstein-Hilbert (closes 76g OPEN; exact -1/24 vertex; trace theorem; Weinberg ChPT anchor; 1/48 Planck suppression) | high | DONE (CONSTR. NEG. + PRODUCTIVE) | 114 |

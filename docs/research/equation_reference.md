@@ -1487,6 +1487,55 @@ corrections at (Z=115, N=184): +9 to +15 MeV extra binding.
 
 ---
 
+### Part 114 additions (T41: O(eps^4) Nonlinear Vertex vs Einstein-Hilbert):
+
+**Source:** Part 114 (Phase 82, 2026-06-10), `simulations/solver/su3_nonlinear_vertex.py`;
+`docs/research/su3_nonlinear_vertex.md`. Sudoku 14/14 PASS. Closes Part 76g OPEN item.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 114.1 | g^(2)_mu_nu = (eps^2/2) sum_a (d_mu chi^a)(d_nu chi^a) | [VERIFIED] | recovers Eq 75.1; SymPy residual 0 |
+| 114.2 | g^(3)_mu_nu = 0 identically | [DERIVED] | metric expansion is EVEN in eps; Tr([A,B]C) = -Tr(B[A,C]) |
+| 114.3 | g^(4)_mu_nu = (eps^4/12) Tr([chi,d_mu chi][chi,d_nu chi]) | [DERIVED] | exact commutator form; SymPy residual 0 (232 monomials) |
+| 114.4 | g^(4)_mu_nu = -(eps^4/24) f^(abe) f^(cde) chi^a (d_mu chi^b) chi^c (d_nu chi^d) | [DERIVED] | upgrades 76g.1 from '~' to exact; coefficient -1/24 group-independent (SU(2)=SU(3)); 0 for U(1) |
+| 114.6 | L_tree = K eta^(mu nu) g_mu_nu (trace theorem) | [DERIVED] | tree action = eta-trace of emergent metric; NO (dh)^2 at tree level; Sakharov 1-loop is the UNIQUE source of graviton dynamics (forced, not chosen) |
+| 114.7 | SU(2) reduction = 1/(6F^2)[(pi.dpi)^2 - pi^2(dpi.dpi)] | [VERIFIED] | EXACT match to Weinberg (1966) pi-pi ChPT vertex; external anchor; SymPy residual 0 |
+| 114.8 | g_mu_nu^U(1) = eps^2 (d_mu phi)(d_nu phi) exactly | [DERIVED] | vertex is genuinely non-Abelian; two-phase results (Parts 61-63) provably unaffected |
+| 114.9 | No-go: NLSM vertex (D=2) != EH vertex (D=4,6) | [DERIVED, NEGATIVE] | derivative grading preserved by IBP and Box chi=0; 76g observation -> proof |
+| 114.10 | lambda_4/(8 pi G) = 1/48; E_break = sqrt(6/pi) m_P = 1.382 m_P | [PDTP Original] | non-GR contact term is Planck-suppressed; GR recovery at first nonlinear order SURVIVES below m_P; ~3.5e-31 at 10 TeV |
+
+Key results: exact quartic vertex (114.4); trace theorem (114.6) makes Sakharov route unique;
+ChPT anchor (114.7) validates the computation against 60 years of pion physics;
+no-go (114.9) + Planck suppression (114.10) resolve 76g as CONSTRUCTIVE NEGATIVE + PRODUCTIVE.
+Unchanged: N_eff = 6*pi gap, 2-DOF deficit, m_cond underdetermined.
+
+---
+
+### Part 113 additions (T9: Two-Phase Tan: Delta_+ and Delta_- Diagnostics):
+
+**Source:** Part 113 (Phase 81, 2026-05-24), `simulations/solver/t9_two_phase_tan.py`;
+`docs/research/two_phase_tan.md`. SymPy 5/5 PASS. Sudoku 12/12 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 113.1 | D+ = psi - phi_+  (gravity gap); D- = phi_- (surface mode phase) | [DEFINED] | alpha_+ = cos(D+); alpha_- = cos(D-); D- = 0 in vacuum, pi/2 near matter |
+| 113.2 | L_coupling = 2g*sin(D+)*sin(D-) | [DERIVED, SymPy S1] | from trig id cos(D+-D-)-cos(D++D-)=2sin(D+)sin(D-); recovers Part 61 product coupling |
+| 113.3 | L_coupling = 2g*alpha_+*alpha_-*tan(D+)*tan(D-) | [DERIVED, SymPy S2] | tan form of product coupling; both alphas appear; limit D-=pi/2: alpha_-*tan(D-)=sin(D-)=1 |
+| 113.4 | tan(D-)/tan(D+) = sin(D-)cos(D+)/(cos(D-)sin(D+)) | [DERIVED, SymPy S3] | ratio diagnostic; 0 in vacuum, inf at equilibrium, 1 for D+=D- |
+| 113.5 | m^2(phi_-) = 2g*sin(D+) = 2g*alpha_+*tan(D+) | [DERIVED, SymPy S4] | reversed Higgs mass (Part 62) in tan language; 0 in vacuum, 2g at horizon |
+| 113.6 | S_two-phase ~ 1/(g*alpha_+) (T6 noise unchanged) | [VERIFIED] | phi_- mass saturates at 2g; does NOT cutoff phi_+ noise divergence; separate sectors |
+| 113.7 | kappa unchanged (T7); m^2(phi_-)=omega_gap^2=2g at horizon | [VERIFIED] | phi_- at equilibrium -> zero gradient on phi_+ -> same kappa; horizon: phi_- = breathing mode |
+| 113.7b | m^2(phi_-)\|_{r_S} = omega_gap^2 = 2g | [PDTP Original] | phi_- and breathing mode are the SAME excitation at event horizon |
+| 113.8 | Full decoupling: BOTH D+->pi/2 AND D-->0 required | [PDTP Original] | two-switch picture; D-->0 needs Phi=0 (no gravity) -- impossible near any mass |
+| 113.9 | L_residual = 2g at D+=pi/2, D-=pi/2 | [PDTP Original] | closing gravity channel OPENS surface channel maximally; NOT decoupled at single-phase Leidenfrost |
+| 113.10 | D-=pi/2 -> L = 2g*cos(D_chi), chi = phi_+ + pi/2 | [VERIFIED, SymPy S5] | single-phase recovery; same as Part 63 chi mapping; g -> 2g absorbed into G_eff |
+
+Key results: product coupling in tan language (Eq 113.3); ratio diagnostic (Eq 113.4); m^2(phi_-)=2g*sin(D+) (Eq 113.5).
+T6/T7 open questions resolved (Eqs 113.6, 113.7). Two PDTP Originals: horizon coincidence and two-switch Leidenfrost.
+Two-phase Leidenfrost is MAXIMUM coupling, not decoupled.
+
+---
+
 ### Part 112 additions (T8: PPN Parameters with Tan Corrections):
 
 **Source:** Part 112 (Phase 80, 2026-05-17), `simulations/solver/t8_ppn_tan.py`;
@@ -1617,6 +1666,8 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-06-10: Added Part 114 (T41: O(eps^4) nonlinear vertex; exact g^(4)=-(eps^4/24)ff chi dchi chi dchi DERIVED upgrading 76g.1; trace theorem L_tree=K eta:g DERIVED -- Sakharov 1-loop forced; SU(2) reduction = Weinberg 1966 ChPT vertex VERIFIED (external anchor); no-go vs EH vertex by derivative grading DERIVED NEGATIVE; lambda_4/(8 pi G)=1/48 Planck suppression PDTP Original; 14/14 Sudoku; closes 76g OPEN item)
+- 2026-05-24: Added Part 113 (T9: two-phase tan; product coupling L=2g*alpha_+*alpha_-*tan(D+)*tan(D-) DERIVED; ratio tan(D-)/tan(D+) DERIVED; m^2(phi_-)=2g*sin(D+) DERIVED; T6 noise unchanged VERIFIED; T7 kappa unchanged VERIFIED; phi_-=breathing mode at horizon PDTP Original; two-switch Leidenfrost PDTP Original; L_res=2g at Leidenfrost PDTP Original; 12/12 Sudoku, 5/5 SymPy)
 - 2026-05-17: Added Part 112 (T8: PPN gamma/beta; gamma=1 from optical metric g_ij=n^2 delta_ij DERIVED; beta=1 from Schwarzschild isotropic DERIVED; tan correction Delta_gamma_2PN=4u negligible vs Cassini; 12/12 Sudoku, 5/5 SymPy)
 - 2026-05-17: Added Part 111 (T7: T_H unchanged by n_PDTP; kappa=c^2/(2r_S) DERIVED; Eq 111.4 kappa=(c^2/2)|d(1/n^2)/dr| PDTP Original; phase vs group velocity argument; breathing mode cutoff negligible; 12/12 Sudoku, 5/5 SymPy)
 - 2026-05-09: Added Part 110 (T6: Leidenfrost critical point; V''(pi/2)=0 DERIVED; (beta,nu,gamma)=(1,1/2,1) DERIVED; classified non-equilibrium crossover = laser-threshold universality; GW noise S~alpha^{-1} diverges near decoupling; Delta_V=g DERIVED; 12/12 Sudoku, 6/6 SymPy)
