@@ -781,6 +781,12 @@ Structure constants introduce self-interaction at GR-nonlinear order.
 **m_cond is underdetermined** -- G = hbar*c/m_cond^2 is exact but m_cond = m_P is not derived.
 This is analogous to Lambda in GR. All perturbative AND SU(3) paths exhausted (Parts 29-35, 77-78).
 
+**UPDATE (Part 115, 2026-06-10):** A1 is now CLOSED-INTERNAL by the scale-invariance
+no-go theorem (Eq. 115.4): every PDTP-internal observable is a pure number times
+m_cond^d (monotonic or constant), so NO internal variational principle can select a
+finite m_cond. The analogy to Lambda in GR is now a PROOF, not an analogy. Only
+external routes remain — primarily: measure omega_gap (breathing mode).
+
 **Free parameters:** m_cond (or equivalently G), and L_H (or equivalently Lambda)
 
 ### Part 77 additions (SU(3) dimensional transmutation FCC):
@@ -791,8 +797,8 @@ This is analogous to Lambda in GR. All perturbative AND SU(3) paths exhausted (P
 | 77.6 | alpha_s(PDTP) = 2/K_NAT = 2.0 (strong coupling) | [DERIVED] | PDTP = strong SU(3) |
 | 77.10 | Lambda/mu = exp(-pi/11) = 0.752 (mild suppression) | [DERIVED] | No hierarchy from SU(3) AF |
 | 77.19 | m_cond_QCD = hbar/(c*sqrt(ln(6/beta_lat)/sigma_QCD)) = 0.236 GeV | [PDTP Original] | Reverse chain |
-| 77.24 | m_cond <= m_P/sqrt(2) (BH consistency bound) | [DERIVED] | Compton >= Schwarzschild |
-| 77.25 | m_cond = m_P saturates BH bound | [OBSERVED] | Extremal condensate hypothesis |
+| 77.24 | m_cond <= m_P/sqrt(2) (BH consistency bound) | [DERIVED] | Compton >= Schwarzschild; fixed-G reading only — under bridge it is identically marginal (Part 115, Eq. 115.2) |
+| 77.25 | m_cond = m_P saturates BH bound | [CLOSED, Part 115] | superseded: m_P exceeds literal bound by sqrt(2) (115.1); saturation automatic for ANY m_cond under bridge (115.2) — cannot select scale |
 
 ### Part 78 additions (Extremal Condensate — 4 remaining A1 paths):
 
@@ -1487,6 +1493,25 @@ corrections at (Z=115, N=184): +9 to +15 MeV extra binding.
 
 ---
 
+### Part 115 additions (T42: Extremal Condensate Closure — A1 no-go theorem):
+
+**Source:** Part 115 (Phase 83, 2026-06-10), `simulations/solver/extremal_condensate_closure.py`;
+`docs/research/extremal_condensate_closure.md`. Sudoku 12/12 PASS. Closes Eq. 77.25; A1 -> CLOSED-INTERNAL.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 115.1 | m_P/m_max = sqrt(2) — m_cond = m_P EXCEEDS Eq. 77.24, does not saturate it | [DERIVED] | corrects Part 77 bookkeeping; 'saturation' was order-of-magnitude only |
+| 115.2 | Bridge reading: r_S = 2*lambda_C, l_P = a_0, m_cond = m_P — IDENTICALLY, any m_cond | [DERIVED] | all bound ratios are pure numbers; m_cond cancels (SymPy); bound selects nothing |
+| 115.3 | alpha_gr = G*m_cond^2/(hbar*c) = 1 — bridge IS the Dvali-Gomez criticality alpha*N=1 (N=1) | [PDTP Original] | each condensate quantum = marginally self-bound critical system (minimal BH); explains why ALL Part 77/78 bounds saturate |
+| 115.4 | No-go theorem: every internal observable X = C*m_cond^d -> monotonic (d!=0) or constant (d=0); no finite extremum | [DERIVED, NEGATIVE] | NO internal variational principle can select m_cond; catalogue 6 monotonic + 4 constant, 0 extrema; m_cond PROVABLY free |
+| 115.5 | Quantum loophole closed: U(1) beta>0 (Part 35), exp(-pi/11)=0.752 (Part 77), lattice needs a_0 (Parts 38-41) | [VERIFIED] | transmutation escape from 115.4 fails at perturbative + lattice level |
+
+Key results: extremal condensate hypothesis (77.25) CLOSED — saturation is automatic for every m_cond,
+selecting none. A1 status: OPEN -> CLOSED-INTERNAL. kappa = c^2/(4*pi*G) is PROVABLY external input
+(like Lambda in GR — now proven, not analogized). Live route: MEASURE omega_gap (breathing mode).
+
+---
+
 ### Part 114 additions (T41: O(eps^4) Nonlinear Vertex vs Einstein-Hilbert):
 
 **Source:** Part 114 (Phase 82, 2026-06-10), `simulations/solver/su3_nonlinear_vertex.py`;
@@ -1666,6 +1691,7 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-06-10: Added Part 115 (T42: extremal condensate closure; 77.25 CLOSED — m_P exceeds literal bound by sqrt(2) DERIVED; bridge makes BH bound identically marginal for any m_cond DERIVED; alpha_gr=1 — bridge = Dvali-Gomez criticality PDTP Original; scale-invariance no-go theorem DERIVED NEGATIVE — A1 CLOSED-INTERNAL, kappa provably external input; 12/12 Sudoku)
 - 2026-06-10: Added Part 114 (T41: O(eps^4) nonlinear vertex; exact g^(4)=-(eps^4/24)ff chi dchi chi dchi DERIVED upgrading 76g.1; trace theorem L_tree=K eta:g DERIVED -- Sakharov 1-loop forced; SU(2) reduction = Weinberg 1966 ChPT vertex VERIFIED (external anchor); no-go vs EH vertex by derivative grading DERIVED NEGATIVE; lambda_4/(8 pi G)=1/48 Planck suppression PDTP Original; 14/14 Sudoku; closes 76g OPEN item)
 - 2026-05-24: Added Part 113 (T9: two-phase tan; product coupling L=2g*alpha_+*alpha_-*tan(D+)*tan(D-) DERIVED; ratio tan(D-)/tan(D+) DERIVED; m^2(phi_-)=2g*sin(D+) DERIVED; T6 noise unchanged VERIFIED; T7 kappa unchanged VERIFIED; phi_-=breathing mode at horizon PDTP Original; two-switch Leidenfrost PDTP Original; L_res=2g at Leidenfrost PDTP Original; 12/12 Sudoku, 5/5 SymPy)
 - 2026-05-17: Added Part 112 (T8: PPN gamma/beta; gamma=1 from optical metric g_ij=n^2 delta_ij DERIVED; beta=1 from Schwarzschild isotropic DERIVED; tan correction Delta_gamma_2PN=4u negligible vs Cassini; 12/12 Sudoku, 5/5 SymPy)

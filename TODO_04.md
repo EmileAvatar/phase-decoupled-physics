@@ -1453,6 +1453,34 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 
 ---
 
+#### [x] T42. Extremal Condensate Closure (Option B for m_cond) — DONE (Part 115, Phase 83, 2026-06-10)
+
+**Part:** 115 (Phase 83) -- `simulations/solver/extremal_condensate_closure.py`
+**Doc:** `docs/research/extremal_condensate_closure.md`
+**Closes:** Eq. 77.25 (extremal condensate hypothesis); problem A1 -> CLOSED-INTERNAL
+**Result:** CONSTRUCTIVE NEGATIVE with no-go theorem. 12/12 Sudoku PASS.
+
+**What was found:**
+1. Bookkeeping correction [DERIVED]: m_cond = m_P EXCEEDS the literal Eq. 77.24
+   bound by sqrt(2) — the Part 77 "saturation" was order-of-magnitude only.
+2. Bridge reading [DERIVED]: with G = hbar*c/m_cond^2, the BH bound is
+   IDENTICALLY marginal for any m_cond (r_S = 2*lambda_C, l_P = a_0,
+   m_cond = m_P all scale-invariant identities). A bound saturated by every
+   value selects none.
+3. Criticality identity [PDTP Original]: alpha_gr = G*m_cond^2/(hbar*c) = 1
+   exactly — the bridge IS the Dvali-Gomez black-hole criticality condition
+   alpha*N = 1 (N=1). Each condensate quantum is a marginal black hole.
+   Explains why ALL Part 77/78 bounds saturate.
+4. No-go theorem [DERIVED, NEGATIVE]: every PDTP-internal observable is
+   C*m_cond^d — monotonic (d != 0) or constant (d = 0); no finite extremum
+   exists, so NO internal variational principle can select m_cond. Quantum
+   transmutation loophole closed by Parts 35/77/38-41.
+5. A1 status: OPEN -> CLOSED-INTERNAL. kappa = c^2/(4*pi*G) is PROVABLY
+   external input (like Lambda in GR — proven, not analogized). Live route:
+   MEASURE omega_gap (breathing mode, Part 29 Strategy A). Stop attempt #13.
+
+---
+
 ## Status Summary
 
 | ID | Investigation | Priority | Status | Part # |
@@ -1502,3 +1530,4 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T39 | WCT effective metric cross-check vs PDTP acoustic / SU(3) metric | SPEC (low) | PENDING | -- |
 | T40 | Nuclear geometry from Y-junction packing (PDTP shell correction; fills pdtp_topology_correction stub) | SPEC (med-high) | PENDING | -- |
 | T41 | O(eps^4) nonlinear vertex vs Einstein-Hilbert (closes 76g OPEN; exact -1/24 vertex; trace theorem; Weinberg ChPT anchor; 1/48 Planck suppression) | high | DONE (CONSTR. NEG. + PRODUCTIVE) | 114 |
+| T42 | Extremal condensate closure (closes 77.25; bridge = Dvali-Gomez criticality; scale-invariance no-go theorem; A1 CLOSED-INTERNAL — kappa provably external) | high | DONE (CONSTR. NEG. + no-go theorem) | 115 |
