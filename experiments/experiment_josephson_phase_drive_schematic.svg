@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#444"/>
+    </marker>
+    <marker id="arrowO" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#e07b00"/>
+    </marker>
+    <marker id="arrowG" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#1a7a3a"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="960" height="46" fill="#1e3a5f"/>
+  <text x="480" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Experiment JPD — Josephson Phase-Drive Decoupling Testbed  [SPECULATIVE]</text>
+  <text x="480" y="39" text-anchor="middle" fill="#bcd2ea" font-size="11">PDTP Goal 2 null-test: drive matter phase psi at f_slip = (2e/h)·V, watch for weight deficit in the coherent fraction</text>
+
+  <!-- ===================== Mass comparator (top) ===================== -->
+  <rect x="330" y="62" width="300" height="58" rx="6" fill="#e8eef5" stroke="#1e3a5f" stroke-width="2"/>
+  <text x="480" y="84" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e3a5f">PRECISION MASS COMPARATOR</text>
+  <text x="480" y="101" text-anchor="middle" font-size="11" fill="#333">1 ug readability · differential beam · vibration-isolated</text>
+  <!-- beam -->
+  <line x1="390" y1="132" x2="570" y2="132" stroke="#1e3a5f" stroke-width="4"/>
+  <polygon points="480,120 472,132 488,132" fill="#1e3a5f"/>
+  <line x1="480" y1="120" x2="480" y2="120" stroke="#1e3a5f"/>
+  <!-- left suspension to test mass -->
+  <line x1="400" y1="132" x2="400" y2="208" stroke="#555" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="392" y="172" text-anchor="end" font-size="10" fill="#555">thermal / vibration</text>
+  <text x="392" y="184" text-anchor="end" font-size="10" fill="#555">decoupling stage</text>
+  <!-- right suspension to dummy -->
+  <line x1="560" y1="132" x2="560" y2="208" stroke="#555" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <!-- ===================== Vacuum chamber ===================== -->
+  <rect x="180" y="208" width="460" height="420" rx="14" fill="#f4f7fa" stroke="#7a8aa0" stroke-width="3"/>
+  <text x="196" y="230" font-size="11" fill="#7a8aa0" font-weight="bold">VACUUM JACKET (no buoyancy / convection)</text>
+
+  <!-- mu-metal + SC shield -->
+  <rect x="205" y="244" width="410" height="360" rx="10" fill="none" stroke="#9a6fb8" stroke-width="3"/>
+  <rect x="216" y="255" width="388" height="338" rx="8" fill="none" stroke="#9a6fb8" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="222" y="272" font-size="11" fill="#9a6fb8" font-weight="bold">MU-METAL + SUPERCONDUCTING SHIELD</text>
+
+  <!-- cryostat -->
+  <rect x="232" y="284" width="356" height="296" rx="8" fill="#eaf3fb" stroke="#3a78b5" stroke-width="2.5"/>
+  <text x="248" y="304" font-size="11" fill="#3a78b5" font-weight="bold">CRYOSTAT  (Tier A: 77 K LN2 / Tier B: 4 K pulse-tube)</text>
+
+  <!-- ============ Superconducting ring (test mass) ============ -->
+  <g>
+    <ellipse cx="350" cy="430" rx="86" ry="86" fill="none" stroke="#2b6cb0" stroke-width="22"/>
+    <ellipse cx="350" cy="430" rx="86" ry="86" fill="none" stroke="#5a9bd5" stroke-width="14"/>
+    <!-- Josephson junction array marks -->
+    <g stroke="#c0392b" stroke-width="4">
+      <line x1="350" y1="333" x2="350" y2="356"/>
+      <line x1="434" y1="418" x2="412" y2="424"/>
+      <line x1="350" y1="504" x2="350" y2="527"/>
+      <line x1="266" y1="418" x2="288" y2="424"/>
+    </g>
+    <text x="350" y="408" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a5f">Nb RING ~100 g</text>
+    <text x="350" y="424" text-anchor="middle" font-size="11" fill="#1e3a5f">(superconducting island)</text>
+    <text x="350" y="446" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="bold">JJ array (red marks)</text>
+    <text x="350" y="462" text-anchor="middle" font-size="11" fill="#333">psi winds at f_slip</text>
+    <!-- phase winding arrows -->
+    <path d="M 350 318 A 112 112 0 0 1 462 430" fill="none" stroke="#e07b00" stroke-width="3" marker-end="url(#arrowO)"/>
+    <path d="M 350 542 A 112 112 0 0 1 238 430" fill="none" stroke="#e07b00" stroke-width="3" marker-end="url(#arrowO)"/>
+    <text x="478" y="368" font-size="12" fill="#e07b00" font-weight="bold">d(psi)/dt = 2eV/hbar</text>
+  </g>
+
+  <!-- ============ Dummy ring (control) ============ -->
+  <g>
+    <ellipse cx="560" cy="430" rx="44" ry="44" fill="none" stroke="#8a8a8a" stroke-width="14"/>
+    <text x="560" y="425" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#555">DUMMY RING</text>
+    <text x="560" y="439" text-anchor="middle" font-size="9.5" fill="#555">normal metal</text>
+    <text x="560" y="452" text-anchor="middle" font-size="9.5" fill="#555">matched heater</text>
+  </g>
+
+  <!-- witness sensors -->
+  <rect x="244" y="540" width="150" height="30" rx="4" fill="#fff" stroke="#1a7a3a" stroke-width="1.5"/>
+  <text x="319" y="559" text-anchor="middle" font-size="10.5" fill="#1a7a3a">fluxgate B-field + tilt + T witness</text>
+
+  <!-- ===================== Bias / drive electronics (left) ===================== -->
+  <rect x="20" y="290" width="140" height="120" rx="8" fill="#fff4e6" stroke="#e07b00" stroke-width="2.5"/>
+  <text x="90" y="312" text-anchor="middle" font-size="12" font-weight="bold" fill="#b35c00">DC BIAS SOURCE</text>
+  <text x="90" y="330" text-anchor="middle" font-size="10.5" fill="#333">1 nV – 1 mV sweep</text>
+  <text x="90" y="346" text-anchor="middle" font-size="10.5" fill="#333">f_slip: 0.5 MHz – 484 GHz</text>
+  <text x="90" y="366" text-anchor="middle" font-size="10.5" fill="#333">ON/OFF modulation</text>
+  <text x="90" y="382" text-anchor="middle" font-size="10.5" fill="#333">at 0.1 Hz (lock-in ref)</text>
+  <!-- bias leads -->
+  <path d="M 160 350 H 264 V 396" fill="none" stroke="#e07b00" stroke-width="2.5" marker-end="url(#arrowO)"/>
+  <text x="205" y="342" font-size="10" fill="#e07b00">twisted pair, filtered</text>
+
+  <!-- ===================== DAQ / lock-in (right) ===================== -->
+  <rect x="700" y="240" width="240" height="170" rx="8" fill="#e9f7ee" stroke="#1a7a3a" stroke-width="2.5"/>
+  <text x="820" y="263" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a7a3a">DAQ + LOCK-IN</text>
+  <text x="712" y="285" font-size="10.5" fill="#333">- comparator readout @ 0.1 Hz ref</text>
+  <text x="712" y="302" font-size="10.5" fill="#333">- log: V_bias, T, B, tilt</text>
+  <text x="712" y="319" font-size="10.5" fill="#333">- 1 h per bias point, 60 points</text>
+  <text x="712" y="343" font-size="11" font-weight="bold" fill="#1a7a3a">SIGNAL = weight deficit</text>
+  <text x="712" y="359" font-size="10.5" fill="#333">synchronous with modulation,</text>
+  <text x="712" y="374" font-size="10.5" fill="#333">below T_c only, polarity-even,</text>
+  <text x="712" y="389" font-size="10.5" fill="#333">scales with condensate fraction</text>
+  <!-- signal path from comparator -->
+  <path d="M 630 91 H 820 V 240" fill="none" stroke="#1a7a3a" stroke-width="2.5" marker-end="url(#arrowG)"/>
+
+  <!-- ===================== Expected signal box (right-bottom) ===================== -->
+  <rect x="700" y="430" width="240" height="174" rx="8" fill="#fdf2f2" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="820" y="453" text-anchor="middle" font-size="13" font-weight="bold" fill="#c0392b">PDTP PREDICTION [SPEC]</text>
+  <text x="712" y="476" font-size="10.5" fill="#333">max effect = e- mass fraction:</text>
+  <text x="712" y="493" font-size="11" font-weight="bold" fill="#333">dm/m = m_e/(92.9 u) = 5.9 ppm</text>
+  <text x="712" y="510" font-size="10.5" fill="#333">on 100 g ring: deficit = 590 ug</text>
+  <text x="712" y="527" font-size="10.5" fill="#333">instrument floor: ~1 ug</text>
+  <text x="712" y="544" font-size="11" font-weight="bold" fill="#1a7a3a">headroom ~600x</text>
+  <text x="712" y="566" font-size="10.5" fill="#333">null at dm/m &lt; 1e-8 kills H1</text>
+  <text x="712" y="582" font-size="10.5" fill="#333">(Cooper phase = PDTP psi)</text>
+  <text x="712" y="598" font-size="10.5" fill="#333">across ~6 decades of f_slip</text>
+
+  <!-- ===================== Theory strip (bottom) ===================== -->
+  <rect x="20" y="644" width="920" height="62" rx="8" fill="#1e3a5f"/>
+  <text x="36" y="668" font-size="12" fill="#ffd27f" font-weight="bold">MECHANISM [SPECULATIVE]:</text>
+  <text x="36" y="686" font-size="11.5" fill="#dce8f5">alpha = cos(psi - phi).  Voltage-biased junction winds psi at f_slip = 2eV/h relative to spacetime phase phi  -&gt;  time-average &lt;alpha&gt; -&gt; 0</text>
+  <text x="36" y="701" font-size="11.5" fill="#dce8f5">for the coherent electrons only  -&gt;  weight deficit up to 5.9 ppm.  Controls: above-T_c run, dummy heater, polarity flip, B-field witness.</text>
+  <text x="690" y="668" font-size="11" fill="#ffd27f">PDTP refs: Part 28b, 29, 115</text>
+
+  <!-- left legend: key labels -->
+  <rect x="20" y="430" width="140" height="174" rx="8" fill="#f4f7fa" stroke="#7a8aa0" stroke-width="1.5"/>
+  <text x="90" y="452" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e3a5f">WHY JOSEPHSON?</text>
+  <text x="30" y="473" font-size="10" fill="#333">Only known tool that</text>
+  <text x="30" y="487" font-size="10" fill="#333">rotates a MATTER phase</text>
+  <text x="30" y="501" font-size="10" fill="#333">at a known, tunable rate.</text>
+  <text x="30" y="521" font-size="10" fill="#333">Copper coils (3Y rig)</text>
+  <text x="30" y="535" font-size="10" fill="#333">drive EM phase only --</text>
+  <text x="30" y="549" font-size="10" fill="#333">no macroscopic psi.</text>
+  <text x="30" y="569" font-size="10" fill="#333">Superconductor = one</text>
+  <text x="30" y="583" font-size="10" fill="#333">shared psi for all pairs.</text>
+</svg>
