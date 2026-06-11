@@ -2024,4 +2024,51 @@ physics. They should not be cited as if they are.
 
 ---
 
+### Paper Sources (added 2026-06-11, Parts 116-117)
+
+#### P106: Garny, Sandora & Sloth (2016) — Planckian Interacting Massive Particles as Dark Matter
+- **Author:** Garny, M., Sandora, M. & Sloth, M.S. (2016)
+- **Citation:** Physical Review Letters 116, 101302 (2016)
+- **URL:** https://arxiv.org/abs/1511.03278 (verified 2026-06-11)
+- **Description:** Gravitational production of Planck-scale dark matter at reheating
+  (PIDM). Key constraint: for the purely gravitational channel, m > 0.01 m_P is
+  already excluded by absence of CMB tensor modes; the scenario expects tensor
+  modes to be observed soon (high tensor-to-scalar ratio r).
+- **Used in:** Part 116 (`dm_winding_selection.md`) — abundance anchor and kill test.
+
+#### P107: Kibble (1976) — Topology of Cosmic Domains and Strings
+- **Author:** Kibble, T.W.B. (1976)
+- **Citation:** Journal of Physics A 9, 1387 (1976)
+- **Description:** Topological defect formation at cosmological phase transitions
+  (one defect per correlation volume; winding from uncorrelated phases).
+- **Used in:** Part 116 — KZ winding statistics for vortex formation.
+
+#### P108: Zurek (1985) — Cosmological Experiments in Superfluid Helium?
+- **Author:** Zurek, W.H. (1985)
+- **Citation:** Nature 317, 505 (1985)
+- **Description:** Defect density estimate from quench rate (Kibble-Zurek mechanism).
+- **Used in:** Part 116 — defect density at the condensate transition.
+
+#### P109: Preskill (1979) — Cosmological Production of Superheavy Magnetic Monopoles
+- **Author:** Preskill, J. (1979)
+- **Citation:** Physical Review Letters 43, 1365 (1979)
+- **Description:** The monopole overabundance problem — relic density of heavy
+  topological defects from a Planck/GUT-era transition.
+- **Used in:** Part 116 — KZ-before-inflation abundance audit (NEGATIVE result logic).
+
+#### P110: Guth (1981) — Inflationary Universe
+- **Author:** Guth, A. (1981)
+- **Citation:** Physical Review D 23, 347 (1981)
+- **Description:** Inflation dilutes pre-inflation relics (solves monopole problem,
+  but thereby removes KZ vortices as a DM abundance source).
+- **Used in:** Part 116 — e-fold dilution computation.
+
+### Wikipedia Sources (added 2026-06-11)
+
+| # | Topic | URL | Used In |
+|---|-------|-----|---------|
+| 318 | Kibble-Zurek mechanism | https://en.wikipedia.org/wiki/Kibble%E2%80%93Zurek_mechanism | Part 116 `dm_winding_selection.md` (verified 2026-06-11) |
+
+---
+
 End of glossary_sources.md

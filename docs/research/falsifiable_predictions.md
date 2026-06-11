@@ -865,6 +865,137 @@ is fully compatible with SM.
 
 ---
 
+## Prediction 13: Planck-Vortex Dark Matter Requires Detectable CMB Tensor Modes
+
+### What PDTP predicts
+
+Part 116 selected the dark matter winding number: n = 1, so
+
+```
+[DERIVED, given the bare-vortex premise of Part 96 D3]
+  m_DM = m_P = 1.22 × 10^19 GeV   ("Planck vortex relic")     (Eq. F.20)
+
+[DERIVED, NEGATIVE] Kibble-Zurek formation at the Planck epoch +
+  ≥ 60 e-folds of inflation under-produces relics by ~50 orders
+  of magnitude (monopole-problem logic).                       (Eq. F.21)
+```
+
+Therefore the observed abundance (Ω_DM ≈ 0.27) must be produced AFTER
+inflation, at reheating. Super-heavy gravitational-only DM production at
+reheating (PIDM class; Garny, Sandora & Sloth 2016, PRL 116 101302)
+requires high-scale inflation — which implies a primordial
+tensor-to-scalar ratio r large enough for next-generation CMB experiments.
+
+**Assumptions:** DM = bare U(1)-only condensate vortex (Part 96 D3);
+production at preheating via defect formation [SPECULATIVE — the
+gravitational particle channel alone already excludes m > 0.01 m_P].
+
+**Source:** Part 116, `dm_winding_selection.py` (12/12 Sudoku);
+`dm_winding_selection.md`; Part 118 corrected σ/m = 4πG²m_DM/v⁴.
+
+### What standard cosmology predicts
+
+No specific link between the DM mass and r. WIMP/axion models are
+compatible with unobservably small r.
+
+### How to test
+
+LiteBIRD and CMB-S4 will reach σ_r ~ 0.001 (2030s). Measure r.
+
+### What confirms PDTP
+
+Detection of primordial tensor modes (r ≳ 0.001-0.01) is CONSISTENT
+with (not proof of) the Planck-vortex scenario. Additional consistency:
+continued null results in all direct-detection experiments (σ/m =
+5.2 × 10^-49 m²/kg is undetectable by design).
+
+### What kills PDTP (this mechanism)
+
+A robust null result for tensor modes (r below ~10^-3) removes
+high-scale inflation and with it the only viable production channel —
+Planck-vortex dark matter would be dead. (The vortex picture of DM
+could survive only with a new, non-inflationary production mechanism.)
+
+### Current status
+
+BICEP/Keck 2021: r < 0.036 (95% CL) — still allows the scenario.
+Open: preheating defect yield (Part 116 O2) not yet computed.
+
+### SM compatibility
+
+The n = 1 vortex is a gauge singlet (no SU(3)×SU(2)×U(1) charges) —
+that is precisely WHY it is dark. No SM modification involved.
+
+---
+
+## Prediction 14: Transient Early Dark Energy from Incomplete Phase Locking
+
+### What PDTP predicts
+
+Part 117: while phase locking is incomplete (ψ − φ_+ = π/2 − β with
+β ≠ 0, the generic early-universe state), integrating out the gravity
+mode φ_+ generates an effective positive quartic for φ_-:
+
+```
+[DERIVED, SymPy-verified]
+  λ₄ = 2 g² sin²(β) / (3 k̄²)  >  0                          (Eq. F.22)
+     = (g/3) sin²(β)   at the gap scale k̄² = 2g
+
+[VERIFIED] λ₄ → 0 identically as β → 0 (full lock, today)    (Eq. F.23)
+```
+
+This is exactly the stiffening term Early Dark Energy needs (Part 88),
+and it switches itself off as locking completes. PDTP therefore predicts:
+
+- IF the Hubble tension is real physics: w(z) deviates from −1 around
+  matter-radiation equality (z ~ 3000), with amplitude ∝ sin²β(z),
+  and returns to w = −1 today WITHOUT tuning.
+- IF the tension is systematics: β(z) was already negligible by z ~ 3000
+  and no deviation will be seen.
+
+**Assumptions:** gradient-dominated stiffness (k̄² >> potential part);
+locking history β(z) not yet derived — amplitude is OPEN, shape is fixed.
+
+**Source:** Part 117, `phi_minus_quartic.py` (10/10 Sudoku);
+`phi_minus_quartic.md`; sharpens Part 88 Eq 88.14 fork.
+
+### What ΛCDM predicts
+
+w = −1 at all redshifts; no EDE component; Hubble tension unexplained
+(or attributed to systematics).
+
+### How to test
+
+DESI DR2 + CMB-S4 joint w(z) constraints; EDE searches in CMB damping
+tail (already constrained by ACT/SPT). The PDTP-specific signature:
+the EDE component must DECAY to zero by low redshift on its own
+(self-switching), unlike axion-EDE models that require a tuned
+oscillation onset.
+
+### What confirms PDTP
+
+An EDE detection whose redshift profile tracks a monotonically
+decreasing β(z) (locking completing over time), with w → −1 at z = 0.
+
+### What kills PDTP (this mechanism)
+
+(a) Hubble tension confirmed real AND EDE excluded as its resolution;
+or (b) an EDE detection whose profile cannot be matched by any
+monotonic β(z) (e.g., late-time EDE recurrence).
+
+### Current status
+
+DESI 2024: 4.2σ hint of evolving w (consistent). Hubble tension ~5σ.
+Open: derive β(z) from the two-phase cosmological equations (Part 117 O1).
+
+### SM compatibility
+
+φ_- is a gauge-singlet gravitational-sector scalar; the induced term is
+an EFFECTIVE potential from the existing two-phase Lagrangian — no new
+fundamental field or SM coupling is introduced.
+
+---
+
 ## Summary: Predictions Ranked by Testability
 
 | # | Prediction | Differs from GR? | Testable now? | Strongest test |
@@ -879,6 +1010,8 @@ is fully compatible with SM.
 | 9 | G_eff = 2 G_bare | Yes (G location-dependent) | **Difficult** | G measurements in different Φ environments |
 | 11 | Biharmonic gravity at long range | Yes (4th-order, not 2nd) | **If L_heal > ℓ_P** | Galaxy rotation curves, lensing |
 | 2 | GW birefringence | Yes | **Not yet** | Requires scalar mode detection first |
+| 14 | Transient EDE from incomplete locking (self-switching w(z)) | Yes | **Yes** | DESI DR2 + CMB-S4 w(z) and EDE searches |
+| 13 | Planck-vortex DM ⇒ detectable CMB tensor modes | Yes (links DM to r) | **Yes (2030s)** | LiteBIRD / CMB-S4 (σ_r ~ 0.001) |
 | 10 | φ_- resonant frequency ∝ √Φ | Yes | **Very difficult** | Resonant detector near massive object |
 | 6 | Planck-scale dispersion | Yes | **Barely** | Gamma-ray burst timing |
 
@@ -901,13 +1034,14 @@ specific parts of the framework must be abandoned or revised.
 
 ### Standard Model compatibility
 
-All 12 predictions have been checked for compatibility with the Standard
+All 14 predictions have been checked for compatibility with the Standard
 Model Lagrangian (SU(3)×SU(2)×U(1) gauge symmetry, Higgs mechanism,
 particle content, conservation laws). None of the predictions contradict
-established particle physics. Predictions 7-11 involve a new gravitational-
-sector scalar (φ_-) that is a gauge singlet and does not couple to SM
-fields directly. Prediction 12 uses the standard Wilson action with a
-specific coupling constant K_NAT = 1/(4π).
+established particle physics. Predictions 7-11 and 14 involve a new
+gravitational-sector scalar (φ_-) that is a gauge singlet and does not
+couple to SM fields directly. Prediction 12 uses the standard Wilson
+action with a specific coupling constant K_NAT = 1/(4π). Prediction 13
+involves a gauge-singlet topological defect (no SM charges).
 
 ---
 

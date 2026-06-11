@@ -2,8 +2,8 @@
 
 **Status:** Living document — update after every Part that produces a DM or DE finding.
 **First compiled:** Part 97 (2026-04-04)
-**Last updated:** Part 97 (2026-04-04)
-**Sources surveyed:** Parts 22, 25, 28b, 28c, 29, 33, 54, 61, 62, 68, 69, 71, 87, 88, 89, 96
+**Last updated:** Parts 116-117 (2026-06-11)
+**Sources surveyed:** Parts 22, 25, 28b, 28c, 29, 33, 54, 61, 62, 68, 69, 71, 87, 88, 89, 96, 116, 117
 
 **Update rule:** Any Part producing a DM or DE finding (positive or negative) must add an
 entry to this file in the same session before commit. See TODO_03.md Category E.
@@ -22,6 +22,9 @@ entry to this file in the same session before commit. See TODO_03.md Category E.
 | DM TIR confinement | Partial | m_DM ~ 200 MeV (sterile neutrino scale) | 89 |
 | DM interference fringes | NEGATIVE | Fringes at fm scale, not kpc scale | 89 |
 | DM vortex spectrum | Derived | m_DM = m_P/n; all Bullet-safe | 96 |
+| DM winding selection | DERIVED | n = 1 (stability + Kibble-Zurek) -> m_DM = m_P | 116 |
+| DM relic abundance | NEGATIVE (KZ) / OPEN | KZ + inflation off by 50 OoM; needs post-inflation production; kill test = CMB tensor modes | 116 |
+| EDE phi_-^4 term | DERIVED (shape) | lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2) > 0 at partial lock; self-switching | 117 |
 | Antimatter as DM | NEGATIVE | Antiparticles = opposite winding; do not explain DM | 22 |
 
 ---
@@ -135,7 +138,8 @@ C2 or C3. Two trapping mechanisms:
 
 **What PDTP does NOT explain about DM:** what specific n nature chose, how DM was
 produced in the early universe, and why there is so much of it (27%). The mass is
-a free parameter. Direct detection cross-section is ~10^35 times below current limits.
+a free parameter. Direct detection cross-section is tens of orders of magnitude
+below current limits (sigma/m = 5.2e-48 cm^2/g after the Part 118 correction).
 
 ---
 
@@ -188,7 +192,7 @@ specific value of w(z) (needs phi_-_vac evolution mechanism).
 |--|----------------|-----------------|--------|
 | DM exists | Gravitational evidence: rotation curves, lensing, CMB | C1-trapped vortex (topology) or sub-gap excitation (energy) | PARTIAL |
 | DM mass | Unknown (10^-22 eV to 10^19 GeV) | m_P/n for winding n | FREE PARAMETER |
-| DM detectability | Not detected despite 30 years | sigma/m ~ 10^-39 cm^2/g (35 orders below limits) | CONSISTENT |
+| DM detectability | Not detected despite 30 years | sigma/m = 5.2e-48 cm^2/g (44 orders below Bullet; Part 118) | CONSISTENT |
 | DE exists | Accelerating expansion since 1998 | phi_-_vac background tilt | PARTIAL |
 | Lambda value | 10^121 mystery | FREE PARAMETER (same as GR) | NO PROGRESS |
 | w(z) evolving? | DESI 4.2σ hint | phi_-_vac(t) evolution | CONSISTENT |
@@ -272,12 +276,13 @@ topological mode mismatch at B1. It cannot create an SU(3) mode in C2 regardless
 energy — like trying to couple a longitudinal sound wave to a transverse EM wave:
 the modes are simply incompatible.
 
-**Derivation of self-interaction:** [DERIVED, Part 89 Eq 89.17]
+**Derivation of self-interaction:** [DERIVED, Eq 89.17 as corrected by Part 118]
 ```
-sigma/m_DM ~ G/c^4 ~ 8.3e-43 m^2/kg = 8.3e-39 cm^2/g
+sigma/m_DM = 4 pi G^2 m_DM / v^4 = 5.2e-49 m^2/kg  (m_DM = m_P, v = 220 km/s)
 ```
+(Original Part 89 form `G/c^4` was dimensionally inconsistent — see Part 118 erratum.)
 Bullet Cluster bound: sigma/m < 1 cm^2/g.
-PDTP value is 10^39 times BELOW the bound. **Automatically satisfied.**
+PDTP value is ~44 orders of magnitude BELOW the bound. **Automatically satisfied.**
 
 **Mass spectrum (Part 96 D3, Eq 96.9):** [DERIVED, PDTP Original]
 From Part 33 vortex winding n = m_cond/m, with m_cond = m_P in C1:
@@ -302,6 +307,8 @@ All winding numbers satisfy Bullet Cluster bound by 48+ orders of magnitude.
 **Verdict: PARTIAL** — strongest DM mechanism in PDTP. Correct behavior on all
 observational tests. Mass is a free parameter (free winding number n). Needs:
 (a) a mechanism selecting a specific n, (b) a production mechanism in the early universe.
+
+**UPDATE (Part 116):** (a) is now CLOSED — n = 1 selected (see §2.7). (b) remains OPEN.
 
 ### 2.3 Mechanism 3 — Interference Dark Zones [NEGATIVE]
 
@@ -356,6 +363,42 @@ as the excitation coherence length is shorter than xi_loc.
 
 **Not a new DM candidate** — it modifies the trapping mechanism near hadronic matter,
 adding an effective ~2 fm boundary thickness. Relevant for nuclear physics context.
+
+### 2.7 Winding Number Selection: n = 1 Planck Vortex [Part 116 — DERIVED]
+
+**Part 116, Phase 84 | Status: PDTP Original, DERIVED (selection); NEGATIVE (KZ abundance)**
+
+Two independent arguments select n = 1 in the m_DM = m_P/n spectrum (§2.2):
+
+1. **Stability [DERIVED]:** vortex line energy E(n) ~ n^2 ln(R/r_c) (SymPy residual 0);
+   splitting an n >= 2 bare vortex into n singly wound vortices releases energy even
+   with the PDTP core condition r_c = n*lambda_cond. Only n = 1 survives.
+2. **Kibble-Zurek statistics [DERIVED, numerical]:** Monte Carlo (2M loops) of random
+   condensate phases at the formation transition: P(|n|>=2)/P(|n|=1) = 0.038.
+   Formation makes (almost) only |n| = 1.
+
+```
+   n = 1  ->  m_DM = m_P = 1.22e19 GeV   ("Planck vortex relic")   [Eq 116.10]
+```
+
+**The DM mass is no longer a free parameter** (given the bare-vortex premise).
+All observational tests pass (12/12 Sudoku): Bullet Cluster margin 44.3 orders
+(sigma/m = 5.2e-49 m^2/kg, Part 118 corrected formula), cold (lambda_dB = 2e-32 m),
+smooth (9e44 vortices per dwarf halo), grav-only flux 0.23 /m^2/yr (undetectable —
+consistent with 30 years of nulls), topologically stable (no super-GZK decay
+products), microlensing unconstrained (26 orders below floor).
+
+**NEGATIVE (abundance):** KZ at the Planck epoch + >= 60 e-folds of inflation
+under-produces by ~50 orders of magnitude (monopole-problem logic, computed).
+Production must be post-inflation. Literature anchor: PIDM (Garny, Sandora & Sloth
+2016) — but the purely gravitational channel already excludes m > 0.01 m_P, so the
+defect-formation channel at preheating must dominate [OPEN, SPECULATIVE].
+
+**Kill test [falsifiable]:** the scenario requires high-scale inflation -> detectable
+tensor-to-scalar ratio r. A LiteBIRD/CMB-S4 null result (sigma_r ~ 0.001) kills
+Planck-vortex dark matter.
+
+**Research doc:** `dm_winding_selection.md`; script `simulations/solver/dm_winding_selection.py`.
 
 ---
 
@@ -468,6 +511,8 @@ condensate physics beyond the current truncation.
 **Why filed:** DESI 2024 data hints at this being needed. If confirmed, provides a route
 to resolving Hubble tension within PDTP. [Filed for future FCC when DESI DR2 is final.]
 
+**UPDATE (Part 117):** the positive quartic has now been FOUND — see §4.6.
+
 ### 4.5 phi_- in Curved Spacetime [PDTP Original]
 
 **Part 96 D2 (Phase 65) | Status: PDTP Original, DERIVED**
@@ -479,6 +524,37 @@ Near neutron star: mass ~ 566 TeV, range ~ 3.5e-7 fm.
 This is NOT a dark energy mechanism, but it is a PDTP-specific modification to
 the cosmological constant reframe (Section 4.1): near dense matter, Lambda_local
 is effectively modified. Small effect on cosmological scales.
+
+### 4.6 Induced Positive Quartic at Partial Lock [Part 117 — PDTP Original]
+
+**Part 117, Phase 85 | Status: algebra DERIVED + SymPy-verified; mechanism SPECULATIVE**
+
+The missing EDE term of §4.4 is GENERATED by the two-phase Lagrangian itself when
+the universe is only partially phase-locked (psi - phi_+ = pi/2 - beta, beta != 0 —
+the generic early-universe state). Integrating out the gravity mode phi_+ at second
+order (exact Gaussian matching):
+
+```
+   V_ind = -(2 g^2 sin^2(beta) / kbar^2) sin^2(phi_-)
+   lambda_4 = + 2 g^2 sin^2(beta) / (3 kbar^2)  > 0       [Eq 117.16]
+            = (g/3) sin^2(beta)   at the gap scale kbar^2 = 2g
+```
+
+- Tree level (-g/12) and zero-point channels: still wrong sign [NEGATIVE, confirms Part 88].
+- The induced channel has the REQUIRED sign and order of magnitude (Part 88 needs ~g).
+- **Self-switching:** the term vanishes IDENTICALLY at full lock (beta = 0) —
+  EDE is transient by construction; w = -1 today is automatic; Parts 61/63/87
+  results are untouched.
+- OPEN: the locking history beta(z) (sets the EDE amplitude); reconciliation of the
+  tachyonic roll with phi_-_vac ~ 1e-70 rad (Part 87).
+
+**Plain English:** while matter and spacetime were still getting in sync (early
+universe), the gravity mode's back-reaction stiffened the phi_- field — exactly the
+ingredient Early Dark Energy needs to address the Hubble tension. Once syncing
+finished, the effect switched itself off, leaving the plain cosmological constant
+we see today. Shape derived; size still open.
+
+**Research doc:** `phi_minus_quartic.md`; script `simulations/solver/phi_minus_quartic.py`.
 
 ---
 
@@ -545,7 +621,8 @@ pion-nucleon or proton-proton collisions. The Bragg condition is angle-specific
 **Status: SPECULATIVE (Part 96 D3)**
 
 U(1)-only vortex DM (m_DM = m_P for n=1, "wimpzilla") interacts only gravitationally.
-Cross-section sigma/m ~ 10^-39 cm^2/g — 35 orders below current direct detection limits.
+Cross-section sigma/m = 5.2e-48 cm^2/g (Part 118 corrected value) — dozens of
+orders below current direct detection limits.
 Essentially undetectable with current technology.
 
 **Possible test:** Ultra-high-energy cosmic ray anomalies above GZK cutoff (~60 EeV)
@@ -559,11 +636,12 @@ if n ~ 1 wimpzilla DM annihilates with matter at extreme energies.
 |---------|-------------|-------------|
 | Lambda numerical value | FREE PARAMETER | Same as GR; no condensate mechanism determines phi_-_vac |
 | Hierarchy rho_Planck/rho_Lambda ~ 10^121 | OPEN | = A1 (m_cond free) at cosmological level |
-| DM mass (specific value) | FREE PARAMETER | Winding number n is undetermined |
-| DM production mechanism | NOT ADDRESSED | No early-universe vortex creation mechanism derived |
-| Hubble tension | NEGATIVE | All three phi_- mechanisms fail; phi_-^4 not in Lagrangian |
+| DM mass (specific value) | RESOLVED (Part 116) | n = 1 selected -> m_DM = m_P (given bare-vortex premise) |
+| DM production mechanism | NEGATIVE (KZ) / OPEN | KZ + inflation off by 50 OoM; preheating defect channel unquantified |
+| Omega_DM = 27% (amount) | NOT PREDICTED | Depends on production mechanism + reheating temperature |
+| Hubble tension | REOPENED (Part 117) | phi_-^4 now generated at partial lock; amplitude needs beta(z) [OPEN] |
 | Biharmonic flat curves | NEGATIVE (scale) | L_heal ~ l_P, 20 orders below galactic scale |
-| DM direct detection | NOT ADDRESSED | sigma/m ~ 10^-39 cm^2/g (35 orders below LZ/XENON) |
+| DM direct detection | NOT ADDRESSED | sigma/m = 5.2e-48 cm^2/g (Part 118; far below LZ/XENON reach) |
 | Axion-like DM | NOT ADDRESSED | phi_- has right spin-0 structure but no QCD coupling |
 
 ---
@@ -575,13 +653,15 @@ if n ~ 1 wimpzilla DM annihilates with matter at extreme energies.
 | Lambda = g * phi_-_vac^2 | Lambda as phi_- phase VEV | PDTP Original | 87 |
 | rho_vac_PDTP = rho_P/(4*ln2)^2 | UV-corrected vacuum energy | PDTP Original | 87 |
 | Omega_beat = 2/3 | Beat mechanism DE fraction | PDTP Original, PARTIAL | 68 |
-| sigma/m_DM ~ G/c^4 | DM self-interaction (gravitational) | DERIVED | 89 |
+| sigma/m_DM = 4 pi G^2 m_DM/v^4 | DM self-interaction (gravitational; corrects Part 89 G/c^4 form) | DERIVED | 89, 118 |
 | m_DM = m_P/n | U(1) vortex DM mass spectrum | PDTP Original, DERIVED | 96 |
 | E_Bragg(C2) = pi * Lambda_QCD ~ 628 MeV | QCD lattice Bragg energy | PDTP Original, DERIVED | 96 |
 | xi_loc ~ 1.8 fm at B1 | Anderson localization length | PDTP Original, DERIVED | 96 |
 | phi_-(Earth) ~ 31.7 GeV | phi_- mass near Earth | PDTP Original, DERIVED | 94, 96 |
 | m^2_phi- = 2*g*Phi_Newton | phi_- environment-dependent mass | PDTP Original | 62 |
 | w(z) = (eps-1)/(eps+1) | Equation of state from phase drift | PDTP Original | 25 |
+| n = 1 (DM winding selection) | Stability + Kibble-Zurek -> m_DM = m_P | PDTP Original, DERIVED | 116 |
+| lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2) | Induced positive phi_-^4 at partial lock | PDTP Original, DERIVED (shape) | 117 |
 
 ---
 
@@ -611,3 +691,6 @@ if n ~ 1 wimpzilla DM annihilates with matter at extreme energies.
 | Date | Part | Change |
 |------|------|--------|
 | 2026-04-04 | 97 | Initial compilation: Parts 22, 25, 28b, 29, 33, 54, 61, 62, 68, 69, 71, 87, 88, 89, 96 surveyed |
+| 2026-06-11 | 116 | DM winding selection: n = 1 (stability + KZ) -> m_DM = m_P; KZ abundance NEGATIVE (50 OoM); kill test = CMB tensor modes; added §2.7 |
+| 2026-06-11 | 117 | Positive phi_-^4 found: induced channel at partial lock, lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2); self-switching transient EDE; added §4.6; Hubble tension row -> REOPENED |
+| 2026-06-11 | 118 | Erratum: Eq 89.17 corrected to sigma/m = 4 pi G^2 m_DM/v^4 = 5.2e-49 m^2/kg (old G/c^4 form dimensionally wrong + factor-100 + unit errors); Bullet margin improves to 44.3 orders; verdicts unchanged |

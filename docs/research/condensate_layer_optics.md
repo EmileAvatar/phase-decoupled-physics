@@ -391,11 +391,22 @@ are simply incompatible.
 **Self-interaction cross-section:**
 
 ```
-sigma/m_DM ~ G/c^4 ~ 8.3×10^-43 m^2/kg = 8.3×10^-39 cm^2/g        ... (89.17)
+sigma/m_DM = 4 pi G^2 m_DM / v^4                                  ... (89.17, corrected Part 118)
+           = 5.2×10^-49 m^2/kg = 5.2×10^-48 cm^2/g   (m_DM = m_P, v = 220 km/s)
 ```
 
+> **ERRATUM (Part 118, 2026-06-11):** the original Eq 89.17 read
+> `sigma/m ~ G/c^4 ~ 8.3e-43 m^2/kg = 8.3e-39 cm^2/g`. This was wrong three
+> ways: (i) G/c^4 does not have sigma/m dimensions (SymPy-verified);
+> (ii) G/c^4 evaluates to 8.3e-45 SI, not 8.3e-43 (factor 100); (iii) the
+> cm^2/g conversion was off by 1000 (1 m^2/kg = 10 cm^2/g). Corrected via
+> gravitational Rutherford scattering, b_90 = 2Gm/v^2, sigma = pi b_90^2
+> (Binney & Tremaine 2008 §3.1). Verification: `simulations/solver/sigma_m_erratum.py`
+> (7/7 Sudoku). The Bullet margin IMPROVES from ~39 to 44.3 orders; verdict unchanged.
+
 Bullet Cluster constraint: sigma/m < 1 cm^2/g.
-PDTP value: ~ 10^-39 cm^2/g << 1 cm^2/g. **Automatically satisfied.** [DERIVED]
+PDTP value: ~ 5×10^-48 cm^2/g << 1 cm^2/g (44.3 orders below).
+**Automatically satisfied.** [DERIVED, corrected Part 118]
 
 **Verdict: PARTIAL** — Correct behavior (gravity-only coupling, Bullet Cluster
 safe), mass is a free parameter. Strongest of the three mechanisms.

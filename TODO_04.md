@@ -12,6 +12,9 @@
 
 New additions go on top. One line per item. Full details below.
 
+- T45 — Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4 replaces G/c^4) + check_urls.py fixes [DONE, Part 118, Phase 86; 7/7 Sudoku; Bullet margin 44.3 OoM; verdicts unchanged]
+- T43 — DM winding selection: n=1 via stability + Kibble-Zurek -> m_DM = m_P [DONE, Part 116, Phase 84; 12/12 Sudoku; KZ relic abundance NEGATIVE (50 OoM); kill test = CMB tensor modes]
+- T44 — Positive phi_-^4 quartic: induced lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2) at partial lock [DONE, Part 117, Phase 85; 10/10 Sudoku; tree + zero-point NEGATIVE; self-switching transient EDE; beta(z) OPEN]
 - T40 — Nuclear geometry from Y-junction packing (PDTP shell correction; fills pdtp_topology_correction(Z,N) stub from T37; target ~10 MeV extra binding at Z=115, N=184) [SPEC, Goal 2, depends on T37]
 - T38 — WCT regularizer Theta[psi] as UV-cure candidate in PDTP (from Wave Confinement Theory review, May 2026) [SPEC, low priority]
 - T39 — WCT effective metric cross-check vs PDTP acoustic metric (Part 73) and SU(3) metric (Part 75-76) [SPEC, low priority]
@@ -1479,6 +1482,73 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
    external input (like Lambda in GR — proven, not analogized). Live route:
    MEASURE omega_gap (breathing mode, Part 29 Strategy A). Stop attempt #13.
 
+#### [x] T43. DM Winding Number Selection — DONE (Part 116, Phase 84, 2026-06-11)
+
+**Part:** 116 (Phase 84) -- `simulations/solver/dm_winding_selection.py`
+**Doc:** `docs/research/dm_winding_selection.md`
+**Closes:** "DM mass = free parameter" gap (Part 96 D3 / dark_matter_energy.md Part 7)
+**Result:** n = 1 SELECTED -> m_DM = m_P. 12/12 Sudoku PASS.
+
+**What was found:**
+1. Vortex energy E(n) ~ n^2 ln(R/r_c) [SymPy residual 0]; splitting of n >= 2
+   bare vortices releases energy even WITH the PDTP core condition
+   r_c = n*lambda_cond [DERIVED] -> only n = 1 survives.
+2. Kibble-Zurek Monte Carlo (2M loops): P(|n|>=2)/P(|n|=1) = 0.038 -> defect
+   formation makes (almost) only |n| = 1 [DERIVED, numerical].
+3. m_DM = m_P = 1.22e19 GeV ("Planck vortex relic") [PDTP Original]. All
+   observational tests pass (Bullet 40 OoM margin, cold, smooth on dwarf
+   scales, grav-only flux 0.23 /m^2/yr, topologically stable -> no super-GZK
+   decays, microlensing unconstrained).
+4. NEGATIVE: KZ-at-Planck-epoch + inflation under-produces by ~50 OoM
+   (monopole-problem logic). Abundance needs post-inflation production
+   (PIDM, Garny+ 2016 PRL 116 101302); pure gravitational channel excludes
+   m > 0.01 m_P -> defect channel at preheating required [OPEN].
+5. Kill test: scenario requires high-scale inflation -> detectable
+   tensor-to-scalar ratio r; LiteBIRD/CMB-S4 null result kills it.
+6. Open: O1 line-energy vs mass-map bookkeeping; O2 preheating defect yield;
+   O3 Part 89 sigma/m factor-100 erratum check; O4 Omega_DM = 27% not predicted.
+
+#### [x] T44. Positive phi_-^4 Quartic Origin — DONE (Part 117, Phase 85, 2026-06-11)
+
+**Part:** 117 (Phase 85) -- `simulations/solver/phi_minus_quartic.py`
+**Doc:** `docs/research/phi_minus_quartic.md`
+**Closes:** Part 88 "missing phi_-^4 term" diagnosis (Eq 88.13 gap)
+**Result:** POSITIVE quartic FOUND in the induced channel. 10/10 Sudoku PASS.
+
+**What was found:**
+1. Channel 1 (tree cosine): quartic = -g/12, wrong sign [NEGATIVE, confirms
+   Part 88 Eq 88.13 exactly].
+2. Channel 2 (zero-point of locked mode): quartic < 0 [NEGATIVE].
+3. Channel 3 [PDTP Original]: integrating out phi_+ at PARTIAL lock
+   (psi - phi_+ = pi/2 - beta) gives
+   V_ind = -(2g^2 sin^2(beta)/kbar^2) sin^2(phi_-)
+   -> lambda_4 = +2g^2 sin^2(beta)/(3 kbar^2) > 0; = (g/3) sin^2(beta) at the
+   gap scale kbar^2 = 2g (Part 88 needs ~g: within factor 3-6). SymPy-verified
+   (Gaussian matching exact, closed form exact, sign via sp.ask).
+4. Self-switching: J, V_ind, lambda_4 all vanish IDENTICALLY at beta = 0 ->
+   w = -1 today automatic; Parts 61/63/87 untouched (two-phase Sudoku rule).
+5. Open: beta(z) locking history (sets EDE amplitude); tachyonic-roll
+   reconciliation with Part 87 phi_-_vac ~ 1e-70 rad.
+
+#### [x] T45. Cleanup: Eq 89.17 Erratum + check_urls.py — DONE (Part 118, Phase 86, 2026-06-11)
+
+**Part:** 118 (Phase 86) -- `simulations/solver/sigma_m_erratum.py`
+**Closes:** Part 116 Open Question O3 (Part 89 sigma/m discrepancy)
+**Result:** Eq 89.17 corrected. 7/7 Sudoku PASS. Verdicts unchanged.
+
+**What was found:**
+1. Eq 89.17 (sigma/m ~ G/c^4 ~ 8.3e-43 m^2/kg = 8.3e-39 cm^2/g) was wrong
+   three ways: dimensionally inconsistent (SymPy units), factor-100 numeric
+   error, factor-1000 internal unit conversion error.
+2. Corrected [DERIVED]: gravitational Rutherford scattering b_90 = 2Gm/v^2,
+   sigma = pi b_90^2 -> sigma/m = 4 pi G^2 m_DM/v^4 = 5.2e-49 m^2/kg at
+   m_DM = m_P, v = 220 km/s. Bullet margin IMPROVES to 44.3 orders.
+3. Updated: condensate_layer_optics.md (erratum block), dark_matter_energy.md,
+   dm_winding_selection.md + .py (re-run, still 12/12), equation_reference.md.
+4. Tooling: check_urls.py fixed (REPO_DIR pointed at non-existent path after
+   the script moved to "github-repo misc/"; non-ASCII print chars crashed
+   on Windows cp1252). Now takes optional repo-path argument.
+
 ---
 
 ## Status Summary
@@ -1531,3 +1601,6 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T40 | Nuclear geometry from Y-junction packing (PDTP shell correction; fills pdtp_topology_correction stub) | SPEC (med-high) | PENDING | -- |
 | T41 | O(eps^4) nonlinear vertex vs Einstein-Hilbert (closes 76g OPEN; exact -1/24 vertex; trace theorem; Weinberg ChPT anchor; 1/48 Planck suppression) | high | DONE (CONSTR. NEG. + PRODUCTIVE) | 114 |
 | T42 | Extremal condensate closure (closes 77.25; bridge = Dvali-Gomez criticality; scale-invariance no-go theorem; A1 CLOSED-INTERNAL — kappa provably external) | high | DONE (CONSTR. NEG. + no-go theorem) | 115 |
+| T43 | DM winding selection (n=1 by stability + KZ; m_DM = m_P; KZ relic abundance NEGATIVE 50 OoM; kill test = CMB tensor modes) | high | DONE (DERIVED + CONSTR. NEG.) | 116 |
+| T44 | Positive phi_-^4 quartic (induced channel at partial lock; lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2); transient self-switching EDE; beta(z) OPEN) | high | DONE (PRODUCTIVE) | 117 |
+| T45 | Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4; Bullet margin 44.3 OoM) + check_urls.py path/Unicode fixes | maintenance | DONE | 118 |
