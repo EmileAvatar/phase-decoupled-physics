@@ -152,7 +152,7 @@ Langevin equation, valid for the background trajectory ignoring noise η(t).
 
 ### 3.1 Slow-Roll Condition
 
-**Source:** [Slow-roll approximation — Wikipedia](https://en.wikipedia.org/wiki/Slow-roll_approximation)
+**Source:** [Slow-roll inflation — Wikipedia (Inflation (cosmology))](https://en.wikipedia.org/wiki/Inflation_(cosmology)#Slow-roll_inflation)
 
 The slow-roll regime holds when Hubble friction dominates over inertia:
 |δφ̈| ≪ |3H δφ̇|. This is equivalent to:
@@ -851,13 +851,13 @@ g_eff from the condensate equation of state) would determine m from first princi
 **Wikipedia:**
 
 214. [Equation of state (cosmology) — Wikipedia](https://en.wikipedia.org/wiki/Equation_of_state_(cosmology))
-215. [Chevallier–Polarski–Linder model — Wikipedia](https://en.wikipedia.org/wiki/Chevallier%E2%80%93Polarski%E2%80%93Linder_model)
-216. [Slow-roll approximation — Wikipedia](https://en.wikipedia.org/wiki/Slow-roll_approximation)
+215. Chevallier & Polarski (2001), "Accelerating Universes with Scaling Dark Matter" — [arXiv:gr-qc/0009008](https://arxiv.org/abs/gr-qc/0009008); Linder (2003), "Exploring the Expansion History of the Universe" — [arXiv:astro-ph/0208512](https://arxiv.org/abs/astro-ph/0208512) (CPL model; no standalone Wikipedia article)
+216. [Slow-roll inflation — Wikipedia (Inflation (cosmology))](https://en.wikipedia.org/wiki/Inflation_(cosmology)#Slow-roll_inflation)
 217. [Friedmann equations — Wikipedia](https://en.wikipedia.org/wiki/Friedmann_equations)
 218. [Klein–Gordon equation — Wikipedia](https://en.wikipedia.org/wiki/Klein%E2%80%93Gordon_equation)
 219. [Cosmological constant — Wikipedia](https://en.wikipedia.org/wiki/Cosmological_constant)
 220. [Phantom dark energy — Wikipedia](https://en.wikipedia.org/wiki/Phantom_dark_energy)
-221. [Quintessence (cosmology) — Wikipedia](https://en.wikipedia.org/wiki/Quintessence_(cosmology))
+221. [Quintessence (physics) — Wikipedia](https://en.wikipedia.org/wiki/Quintessence_(physics))
 222. [Hubble's law — Wikipedia](https://en.wikipedia.org/wiki/Hubble%27s_law)
 
 ### PDTP Original Results (This Document)

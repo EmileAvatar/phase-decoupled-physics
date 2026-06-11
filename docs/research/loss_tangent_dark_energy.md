@@ -598,8 +598,8 @@ Sudoku score: **10 / 10 PASS.**
 - **DESI DR2:** Adame et al. (2024) — w_0 = −0.827, w_a = −0.75
 - **Equation of state (cosmology):**
   [Wikipedia](https://en.wikipedia.org/wiki/Equation_of_state_(cosmology))
-- **Slow-roll approximation:**
-  [Wikipedia](https://en.wikipedia.org/wiki/Slow-roll_approximation)
+- **Slow-roll approximation** (section of Inflation (cosmology)):
+  [Wikipedia](https://en.wikipedia.org/wiki/Inflation_(cosmology)#Slow-roll_inflation)
 
 ---
 

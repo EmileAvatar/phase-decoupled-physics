@@ -843,9 +843,9 @@ Tag: **[DERIVED]** (that D_geom does NOT fix m_cond)
 
 ### Web Sources
 
-13. [Quantum geometric tensor — Wikipedia](https://en.wikipedia.org/wiki/Quantum_geometric_tensor)
+13. [Fubini–Study metric (covers the quantum geometric tensor / quantum metric) — Wikipedia](https://en.wikipedia.org/wiki/Fubini%E2%80%93Study_metric)
 14. [Berry connection and curvature — Wikipedia](https://en.wikipedia.org/wiki/Berry_connection_and_curvature)
-15. [Twisted bilayer graphene — Wikipedia](https://en.wikipedia.org/wiki/Twisted_bilayer_graphene)
+15. [Twisted bilayer graphene (section of Bilayer graphene) — Wikipedia](https://en.wikipedia.org/wiki/Bilayer_graphene#Superconductivity_in_twisted_bilayer_graphene)
 16. [Coupled quantum vortex kinematics and Berry curvature in real space](https://www.nature.com/articles/s42005-023-01305-x) — Comms Physics (2023)
 17. [Quantum geometry in superfluidity and superconductivity](https://arxiv.org/abs/2308.08248) — Torma (2023) review
 18. [From Berry curvature to quantum metric: a new era](https://arxiv.org/html/2512.24553) — 2025 review

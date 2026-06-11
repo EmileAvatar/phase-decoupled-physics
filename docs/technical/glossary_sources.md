@@ -1258,12 +1258,12 @@ physics. They should not be cited as if they are.
 - **URL:** [Equation of state (cosmology) — Wikipedia](https://en.wikipedia.org/wiki/Equation_of_state_(cosmology))
 - **Used in:** wz_dark_energy_pdtp.md §2.2, §4.2
 
-240. **Chevallier–Polarski–Linder model**
-- **URL:** [Chevallier–Polarski–Linder model — Wikipedia](https://en.wikipedia.org/wiki/Chevallier%E2%80%93Polarski%E2%80%93Linder_model)
+240. **Chevallier–Polarski–Linder model** *(no standalone Wikipedia article — replaced with the original papers; fixed 2026-06-11, Part 118 URL sweep)*
+- **URL:** Chevallier & Polarski (2001), "Accelerating Universes with Scaling Dark Matter" — [arXiv:gr-qc/0009008](https://arxiv.org/abs/gr-qc/0009008); Linder (2003), "Exploring the Expansion History of the Universe" — [arXiv:astro-ph/0208512](https://arxiv.org/abs/astro-ph/0208512)
 - **Used in:** wz_dark_energy_pdtp.md §6.1
 
-241. **Slow-roll approximation**
-- **URL:** [Slow-roll approximation — Wikipedia](https://en.wikipedia.org/wiki/Slow-roll_approximation)
+241. **Slow-roll approximation** *(no standalone Wikipedia article — section of Inflation (cosmology); fixed 2026-06-11)*
+- **URL:** [Slow-roll inflation — Wikipedia](https://en.wikipedia.org/wiki/Inflation_(cosmology)#Slow-roll_inflation)
 - **Used in:** wz_dark_energy_pdtp.md §3.1
 
 242. **Friedmann equations** *(extended use — see also general cosmology sources)*
@@ -1282,8 +1282,8 @@ physics. They should not be cited as if they are.
 - **URL:** [Phantom dark energy — Wikipedia](https://en.wikipedia.org/wiki/Phantom_dark_energy)
 - **Used in:** wz_dark_energy_pdtp.md §9.3
 
-246. **Quintessence (cosmology)**
-- **URL:** [Quintessence (cosmology) — Wikipedia](https://en.wikipedia.org/wiki/Quintessence_(cosmology))
+246. **Quintessence (physics)** *(article lives at "Quintessence (physics)", not "(cosmology)"; fixed 2026-06-11)*
+- **URL:** [Quintessence (physics) — Wikipedia](https://en.wikipedia.org/wiki/Quintessence_(physics))
 - **Used in:** wz_dark_energy_pdtp.md §2.1
 
 247. **Hubble's law** *(extended use — see also #118)*
@@ -1983,10 +1983,10 @@ physics. They should not be cited as if they are.
 
 | # | Topic | URL | Used In |
 |---|-------|-----|---------|
-| 309 | Quantum geometric tensor | https://en.wikipedia.org/wiki/Quantum_geometric_tensor | TODO_02.md Part 66 |
+| 309 | Quantum geometric tensor (covered in Fubini–Study metric; fixed 2026-06-11) | https://en.wikipedia.org/wiki/Fubini%E2%80%93Study_metric | TODO_02.md Part 66 |
 | 310 | Berry curvature | https://en.wikipedia.org/wiki/Berry_connection_and_curvature | TODO_02.md Part 66 |
-| 311 | Quantum metric | https://en.wikipedia.org/wiki/Quantum_geometric_tensor | TODO_02.md Part 66 |
-| 312 | Twisted bilayer graphene | https://en.wikipedia.org/wiki/Twisted_bilayer_graphene | TODO_02.md Part 66 |
+| 311 | Quantum metric (covered in Fubini–Study metric; fixed 2026-06-11) | https://en.wikipedia.org/wiki/Fubini%E2%80%93Study_metric | TODO_02.md Part 66 |
+| 312 | Twisted bilayer graphene (section of Bilayer graphene; fixed 2026-06-11) | https://en.wikipedia.org/wiki/Bilayer_graphene#Superconductivity_in_twisted_bilayer_graphene | TODO_02.md Part 66 |
 | 313 | Fractional Chern insulator | https://en.wikipedia.org/wiki/Fractional_Chern_insulator | TODO_02.md Part 66 |
 
 ### Paper Sources (added 2026-03-19)
