@@ -20,7 +20,7 @@ Electric phenomena emerge from **phase gradients**, not particle pushing.
 ## Fundamental Components
 
 - **Charge Carrier** (formerly Electron)
-  - Mobile standing-wave matter unit
+  - Charge-vortex (topological defect) in the EM condensate
   - Weakly bound to composite matter
   - Highly responsive to phase gradients
   - Primary agent of electrical behavior
@@ -167,6 +167,19 @@ Electricity and magnetism are unified phase behaviors.
 Electromagnetism and gravity share the same phase-control mechanics, differing
 only in coupling depth and stiffness.
 
+**Important distinction (Part 36 two-condensate model):**
+EM and gravity are NOT the same condensate field. Gravity lives in the gravitational
+condensate (φ, stiffness set by m_cond = m_P). Electromagnetism lives in a separate,
+softer EM phase field (U(1)_EM / vector potential A_μ). This is why EM is 10³⁶ times
+stronger than gravity — the EM condensate is far less stiff than the gravitational one.
+The phase-control structure is identical; the medium is different.
+
+**Current flow as synchronization (Part T49 Kuramoto connection):**
+When electrons flow under an applied voltage, each charge-vortex is synchronizing
+its internal phase to the imposed EM gradient. Current IS collective phase
+synchronization. Resistance is anything that breaks that synchronization —
+thermal noise, lattice defects, impurities.
+
 EM systems act as **engineering precursors** to spacetime phase control.
 
 ---
@@ -174,5 +187,5 @@ EM systems act as **engineering precursors** to spacetime phase control.
 ## One-Line Summary
 
 Electricity is the controlled redistribution of charge-phase imbalance through
-mobile standing-wave carriers within spacetime, governed by phase gradients
+mobile charge-vortex carriers within the EM phase field, governed by phase gradients
 rather than forces.

@@ -157,6 +157,13 @@ All PDTP equations with status tags in one place:
 `docs/research/equation_reference.md`
 **Update that file whenever a new equation is derived or status changes.**
 
+## Term and Symbol Glossary
+Every symbol, variable, and named concept used in PDTP in one place:
+`docs/technical/term_glossary.md`
+**Update that file whenever a new symbol or named mechanism is introduced to the framework.**
+Companion to `docs/technical/glossary.md` (plain-English concepts) and
+`docs/research/equation_reference.md` (equations with status tags).
+
 ## Citation Format
 ```
 **Source:** [Title](URL)
