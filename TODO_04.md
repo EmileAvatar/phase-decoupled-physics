@@ -15,7 +15,7 @@ New additions go on top. One line per item. Full details below.
 - T49 — Kuramoto connection: PDTP field equation IS relativistic Kuramoto model; Arnold tongues = Leidenfrost boundary; stiffness = m_cond = hierarchy problem; two proposed calculations: (1) winding amplification g_eff ~ g*n closes 43-OoM locking gap, (2) Arnold tongue width vs Part 110 critical exponents [SPECULATIVE, LOW PRIORITY; see docs/research/hierarchy_problem_reframe.md Section 8]
 - T48 — Hierarchy problem reframe: 5 reframings + 5 PDTP candidate paths (C1 ratio derivation, C2 cosmological winding, C3 locking fossil, C4 Dvali-Gomez self-reference, C5 anthropic window); revisit after T46 + two-condensate ratio work [SPECULATIVE, LOW PRIORITY until T46 done; see docs/research/hierarchy_problem_reframe.md]
 - T46 — Lambda as locking fossil: true vacuum phi_- = pi/2 derived; m/H = 3*sqrt(eps) [Eq 119.1]; freeze condition eps < 1/9 [Eq 119.2]; thawing w = -1+2*eps [Eq 119.3]; mechanism consistent; beta(z) OPEN for magnitude [DONE PARTIAL, Part 119, Phase 87; 12/12 Sudoku; see docs/research/lambda_locking_fossil.md]
-- T47 — m_cond consequence scanner: brute force CANNOT find m_cond (Part 115 no-go: no internal scorer exists — any Sudoku referee contains G, hence circular; proven Part 30 Phase 4). Instead BUILD THE LOOKUP TABLE: scan m_cond from ~1 eV to m_P and tabulate omega_gap, G_pred, a_0, rho_cond, xi, m_DM, signal sizes — so every future measurement rules out a band [PENDING; see notes_mcond_lambda.md §1-2 for the equation cascade]
+- T47 — m_cond consequence scanner: 30-row lookup table scans 10^0 to 10^28 eV/c^2 (one decade per row); 10 individual quantity functions (Newtons, BreathingMode, LatticeSpacing, WindingNumber, DarkMatterMass, CondensateDensity, HealingLength, GPInteractionConstant, BiharmonicScreeningScale, GLParameter); kappa_GL=sqrt(2) self-check in every row; reference rows at m_e, m_p, Lambda_QCD, Higgs, m_P [DONE, Part 120, Phase 88; 12/12 Sudoku; see simulations/solver/t47_mcond_scanner.py]
 - T45 — Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4 replaces G/c^4) + check_urls.py fixes [DONE, Part 118, Phase 86; 7/7 Sudoku; Bullet margin 44.3 OoM; verdicts unchanged]
 - T43 — DM winding selection: n=1 via stability + Kibble-Zurek -> m_DM = m_P [DONE, Part 116, Phase 84; 12/12 Sudoku; KZ relic abundance NEGATIVE (50 OoM); kill test = CMB tensor modes]
 - T44 — Positive phi_-^4 quartic: induced lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2) at partial lock [DONE, Part 117, Phase 85; 10/10 Sudoku; tree + zero-point NEGATIVE; self-switching transient EDE; beta(z) OPEN]
@@ -54,8 +54,9 @@ New additions go on top. One line per item. Full details below.
 - T26 — Bob Lazar truth table (decoupling phenomenology, 5 scenarios) [priority 26, low]
 - T27 — Elastic Universe review (shear modes, liquid crystal, visualizations) [priority 27, low]
 
-**Natural next pick:** T47 — m_cond consequence scanner (lookup table); or T10 (SU(3) tan)
-to continue the tan investigation series. T48/T49 unlocked now T46 is done.
+**Natural next pick:** T10 (SU(3) group manifold tan) to continue the tan investigation
+series; or T13/T14 (update falsifiable_predictions + equation_reference with new results).
+T48/T49 remain low priority (speculative).
 
 ---
 

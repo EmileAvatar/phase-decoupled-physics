@@ -13,7 +13,9 @@ bob lazar - how he decripbes the ufo his side. however take note folloing points
 
 
 
-
+2026-07-02
+have claude review fable and gemini visulisation
+D:\#Downloads\phase-decoupled-physics-main\github-repo\docs\fable and gemini visual
 
 
 
