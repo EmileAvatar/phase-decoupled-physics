@@ -39,7 +39,7 @@ New additions go on top. One line per item. Full details below.
 - T8 — PPN parameters with tan corrections (must keep gamma=1, beta=1) [priority 8]
 - T9 — Two-phase tan: Delta_+ and Delta_- diagnostics [DONE, Part 113, Phase 81; 12/12 Sudoku; L_res=2g at Leidenfrost; phi_-=breathing mode at horizon]
 - T10 — SU(3) group manifold tan [DONE, Part 121, Phase 89; 10/10 Sudoku; Z3 critical angle=60deg tan=sqrt(3); C2=1/sin^2(60)=4/3; see docs/research/su3_tan_geometry.md]
-- T11 — Koide angle and tan (theta_0 = 2/9, Z_3 geometry) [priority 11]
+- T11 — Koide angle and tan (theta_0 = 2/9, Z_3 geometry) [DONE, Part 122, Phase 90; 10/10 Sudoku; master formula delta=sqrt(2)*tan(theta_v) PDTP Original; theta_v(leptons)=45deg=U1 critical; quark sqrt(3) NEGATIVE; theta_0 NEGATIVE; see docs/research/koide_tan.md]
 - T12 — N_eff and heat kernel tan (does n_PDTP modify 6*pi factor?) [priority 12]
 - T13 — Update falsifiable_predictions.md with new testable items from T1-T6 [integration]
 - T14 — Update equation_reference.md with all new T-equations [integration]
@@ -54,8 +54,8 @@ New additions go on top. One line per item. Full details below.
 - T26 — Bob Lazar truth table (decoupling phenomenology, 5 scenarios) [priority 26, low]
 - T27 — Elastic Universe review (shear modes, liquid crystal, visualizations) [priority 27, low]
 
-**Natural next pick:** T11 (Koide angle and tan — does theta_0=2/9 connect to the 60 deg Z3
-angle found in T10?) or T13/T14 (update falsifiable_predictions + equation_reference).
+**Natural next pick:** T12 (N_eff and heat kernel tan -- does n_PDTP modify the 6*pi factor?)
+or T13/T14 (update falsifiable_predictions + equation_reference).
 T48/T49 remain low priority (speculative).
 **See also:** TODO_05.md (Lambda-locking deep dive + multi-medium framework; T50-T59).
 
@@ -435,10 +435,24 @@ Full decoupling requires phi_- to be in vacuum (D- = 0), impossible near any gra
 
 **Cross-check:** Part 37 (SU(3) condensate, Casimir 4/3 reproduced exactly)
 
-#### [ ] T11. Koide Angle and Tan — PRIORITY 11
+#### [x] T11. Koide Angle and Tan — DONE (Part 122, Phase 90, 2026-07-06)
+
+**Part:** 122 | **Phase:** 90
+**Script:** `simulations/solver/t11_koide_tan.py`
+**Doc:** `docs/research/koide_tan.md`
+**Sudoku:** 10/10 PASS | **SymPy:** 6/6 PASS
+
+**RESULTS:**
+- Master formula [PDTP Original, DERIVED, SymPy VERIFIED]: delta = sqrt(2)*tan(theta_v)
+  where theta_v = arccos(1/sqrt(3*Q)) is the flavor-vector partition angle.
+- theta_v(leptons) = 45.000 deg -- exact match to U(1) critical angle (T2/Part 99).
+  Connects delta=sqrt(2) [Part 53] to tan=1 [T2] via the master formula. [EXACT]
+- Up quarks: delta_up = 1.759 ~ sqrt(3) = 1.732 (1.54% off pole mass; 1.15% off MS-bar).
+  theta_v(up) = 51.2 deg, NOT 60 deg. NEGATIVE: T10's 60 deg gives delta=sqrt(6)~2.45.
+- theta_0 = 2/9: no T10 angle within 4%. NEGATIVE -- confirms Part 91.
 
 **What:** Koide formula has theta_0 = 2/9. Is tan(2/9) or arctan related to
-Z_3 geometry? The Koide angle lives on the flavor circle — does Brewster's
+Z_3 geometry? The Koide angle lives on the flavor circle -- does Brewster's
 angle appear there?
 **Cross-check with:** Part 53 (Z3-Koide derivation)
 
