@@ -38,7 +38,7 @@ New additions go on top. One line per item. Full details below.
 - T7 — Hawking temperature with n_PDTP = 1/alpha (modify surface gravity kappa?) [priority 7]
 - T8 — PPN parameters with tan corrections (must keep gamma=1, beta=1) [priority 8]
 - T9 — Two-phase tan: Delta_+ and Delta_- diagnostics [DONE, Part 113, Phase 81; 12/12 Sudoku; L_res=2g at Leidenfrost; phi_-=breathing mode at horizon]
-- T10 — SU(3) group manifold tan (Brewster angle on SU(3)? sqrt(3), 1/2 generators) [priority 10]
+- T10 — SU(3) group manifold tan [DONE, Part 121, Phase 89; 10/10 Sudoku; Z3 critical angle=60deg tan=sqrt(3); C2=1/sin^2(60)=4/3; see docs/research/su3_tan_geometry.md]
 - T11 — Koide angle and tan (theta_0 = 2/9, Z_3 geometry) [priority 11]
 - T12 — N_eff and heat kernel tan (does n_PDTP modify 6*pi factor?) [priority 12]
 - T13 — Update falsifiable_predictions.md with new testable items from T1-T6 [integration]
@@ -54,8 +54,8 @@ New additions go on top. One line per item. Full details below.
 - T26 — Bob Lazar truth table (decoupling phenomenology, 5 scenarios) [priority 26, low]
 - T27 — Elastic Universe review (shear modes, liquid crystal, visualizations) [priority 27, low]
 
-**Natural next pick:** T10 (SU(3) group manifold tan) to continue the tan investigation
-series; or T13/T14 (update falsifiable_predictions + equation_reference with new results).
+**Natural next pick:** T11 (Koide angle and tan — does theta_0=2/9 connect to the 60 deg Z3
+angle found in T10?) or T13/T14 (update falsifiable_predictions + equation_reference).
 T48/T49 remain low priority (speculative).
 **See also:** TODO_05.md (Lambda-locking deep dive + multi-medium framework; T50-T59).
 
@@ -409,12 +409,31 @@ Full decoupling requires phi_- to be in vacuum (D- = 0), impossible near any gra
 - Does tan(D-)/tan(D+) ratio appear as GW polarisation asymmetry?
 - Derive horizon coincidence m^2(phi_-)=omega_gap^2 from symmetry argument
 
-#### [ ] T10. SU(3) Tan: Group Manifold Geometry — PRIORITY 10
+#### [x] T10. SU(3) Tan: Group Manifold Geometry — DONE (Part 121, Phase 89, 2026-07-06)
 
-**What:** Does tan appear naturally in SU(3) Wilson action or group manifold?
-The SU(3) generators contain sqrt(3) = tan(60 deg) and 1/2 = tan(~26.6 deg).
-Is there a "Brewster angle" on the SU(3) group manifold?
-**Cross-check with:** Part 37 (SU(3) condensate), Part 38 (lattice MC)
+**Part:** 121
+**Script:** `simulations/solver/t10_su3_tan.py` (Phase 89)
+**Doc:** `docs/research/su3_tan_geometry.md`
+**Sudoku:** 10/10 PASS | **SymPy:** 3/3 PASS (residuals = 0)
+**Verdict:** PRODUCTIVE — Z3 critical angle derived; Casimir identity found.
+
+**RESULTS:**
+- U(1) critical angle (T2): 45 deg, tan = 1  [reproduced]
+- SU(3) Z3 critical angle: 60 deg, tan = sqrt(3)  [PDTP Original, DERIVED, Eq 121.5]
+  Derivation: cos(Delta) = cos(Delta - 2*pi/3) -> Delta = pi/3 (SymPy residual = 0)
+  Physical: quark equidistant between two Z3 vacua; equal opposing forces; no escape direction
+- SU(2) critical angle: 90 deg, tan -> inf  [degenerate: Z2 midpoint = Leidenfrost angle]
+- Generator arctan catalog: unique values {30.0, 45.0, 49.1 deg}  [VERIFIED]
+  30 deg from lam_8 entry 1/sqrt(3); 45 deg from all off-diagonal lam_1..7; 49 deg from lam_8 entry 2/sqrt(3)
+  60 deg appears in root vectors (global), NOT in individual generator entries
+- Casimir identity: C2(fund) = 1/sin^2(60 deg) = 4/3  [PDTP Original numerological, SymPy residual=0]
+  Holds ONLY for N=3; does not generalize to SU(2) or SU(N>=4)
+- String tension: sigma_SU3/sigma_U1 = 1/sin^2(Delta_crit) = 4/3  [Part 37 reproduced]
+- Root system: 6 roots at 60 deg intervals (hexagonal); tan(60)=sqrt(3) in root directions
+- Confinement sketch [SPECULATIVE]: Z3 geometry prevents quark Leidenfrost; every path to Leidenfrost
+  passes through 60 deg equidistance point; quark redirected to next vacuum, not to escape
+
+**Cross-check:** Part 37 (SU(3) condensate, Casimir 4/3 reproduced exactly)
 
 #### [ ] T11. Koide Angle and Tan — PRIORITY 11
 
