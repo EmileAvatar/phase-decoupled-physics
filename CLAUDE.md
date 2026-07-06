@@ -12,7 +12,8 @@ matter-waves and spacetime-waves. Not experimentally validated.
 - `simulations/` — Python emulator
 - `assets/images/` — Diagrams (SVG, GIF)
 - `Elastic_Universe/` — SEPARATE: External elastic-universe.org review (speculative, not PDTP)
-- `TODO_04.md` — Active roadmap (current tasks and open problems)
+- `TODO_04.md` — Active roadmap (tan investigation, Parts 84-120+)
+- `TODO_05.md` — Active roadmap (Lambda-locking deep dive + multi-medium framework, 2026-07-04+)
 - `TODO_03.md` — Previous roadmap (Parts 77–96+, archive)
 - `TODO_02.md` — Previous roadmap (Parts 42–76, archive)
 - `TODO_Summary.md` — Completed work at a glance (< 200 lines)
@@ -386,7 +387,9 @@ why explicitly. No PDTP Original equation may be accepted without either a SymPy
 verification or a written explanation of why SymPy verification is inapplicable.
 
 ## TODO
-Work from TODO_04.md (active). Do it 1 point at a time to avoid the run and token limits of claude sessions.
+Work from TODO_04.md or TODO_05.md (both active). Do it 1 point at a time to avoid the run and token limits of claude sessions.
+- TODO_04.md — tan investigation series (T10-T15 remain; T1-T9 done)
+- TODO_05.md — Lambda-locking deep dive + multi-medium framework (T50-T59; opened 2026-07-04)
 TODO_03.md is now archived (Parts 77–96+). Do not add new items to it.
 TODO_02.md is now archived (Parts 42–76). Do not add new items to it.
 User to approve the new updates before being commited and pushed to github.

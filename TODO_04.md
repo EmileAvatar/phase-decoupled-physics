@@ -57,6 +57,7 @@ New additions go on top. One line per item. Full details below.
 **Natural next pick:** T10 (SU(3) group manifold tan) to continue the tan investigation
 series; or T13/T14 (update falsifiable_predictions + equation_reference with new results).
 T48/T49 remain low priority (speculative).
+**See also:** TODO_05.md (Lambda-locking deep dive + multi-medium framework; T50-T59).
 
 ---
 

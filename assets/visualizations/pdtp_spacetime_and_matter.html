@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDTP: Spacetime & Matter Phase-Locking</title>
+    <style>
+        :root {
+            --bg-color: #05050a;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --panel-bg: rgba(15, 23, 42, 0.85);
+            --accent: #38bdf8;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        #ui-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        .panel {
+            background: var(--panel-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            max-width: 450px;
+            pointer-events: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        p {
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+        .legend-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .icon-spacetime {
+            background: radial-gradient(circle, #4f46e5 0%, transparent 70%);
+            border: 1px dashed #6366f1;
+        }
+        .icon-matter {
+            background: #fbbf24;
+            box-shadow: 0 0 10px #fbbf24;
+        }
+        .icon-lock {
+            background: transparent;
+            border-top: 2px solid #2dd4bf;
+            border-radius: 0;
+            top: 10px;
+        }
+        .controls {
+            margin-top: 1rem;
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+        button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="simCanvas"></canvas>
+    
+    <div id="ui-layer">
+        <div class="panel">
+            <h1>PDTP: Spacetime & Matter</h1>
+            <p>Visualizing the <strong>Multi-Medium Picture</strong> and <strong>Emergent Gravity</strong>. Spacetime is not an empty void, but a fluid of pre-quantized grains. Matter is not a fluid, but localized "clocks" riding the medium.</p>
+            
+            <div class="legend-item">
+                <div class="icon icon-spacetime"></div>
+                <div>
+                    <strong>Gravitational Condensate (Medium Clocks, $\phi$)</strong><br>
+                    <span style="color: var(--text-muted)">The background grid. Each point is a grain of the medium with its own phase (represented by rotating lines/colors).</span>
+                </div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="icon icon-matter"></div>
+                <div>
+                    <strong>Matter (Matter Clocks, $\psi$)</strong><br>
+                    <span style="color: var(--text-muted)">The glowing orbs. Individual wave/clocks traveling through space. e.g., Atoms, quarks, electrons.</span>
+                </div>
+            </div>
+
+            <div class="legend-item">
+                <div class="icon icon-lock"></div>
+                <div>
+                    <strong>Phase-Locking (Gravity)</strong><br>
+                    <span style="color: var(--text-muted)">Lines show $\cos(\psi - \phi)$ coupling. Matter synchronizes with local spacetime grains, creating a "wake" of curved spacetime (gravity).</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="btnAddMatter">Add Atom (Matter)</button>
+                <button id="btnReset">Reset Medium</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let spacetimeGrid = [];
+        let matterParticles = [];
+        
+        // Simulation parameters
+        const GRID_SPACING = 30; // Distance between spacetime grains
+        const SYNC_STRENGTH = 0.05; // How strongly neighboring grains sync
+        const GRAVITY_STRENGTH = 0.15; // How strongly matter locks to local grains
+        const MATTER_RADIUS = 80; // Interaction radius for phase locking
+        const BASE_FREQ = 0.02; // Base rotation speed of phase clocks
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            initGrid();
+        }
+
+        window.addEventListener('resize', resize);
+
+        class SpacetimeGrain {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                // Random initial phase between 0 and 2*PI
+                this.phase = Math.random() * Math.PI * 2;
+                // Natural frequency variation (creates slight turbulence)
+                this.freq = BASE_FREQ + (Math.random() - 0.5) * 0.005;
+            }
+
+            update(neighbors) {
+                // Kuramoto model for neighbor synchronization (creates smooth condensate)
+                let phaseShift = 0;
+                for (let neighbor of neighbors) {
+                    // sin(neighbor_phase - my_phase) pulls them together
+                    phaseShift += Math.sin(neighbor.phase - this.phase) * SYNC_STRENGTH;
+                }
+                this.phase += this.freq + phaseShift;
+                // Keep phase in 0-2PI range
+                if (this.phase > Math.PI * 2) this.phase -= Math.PI * 2;
+                if (this.phase < 0) this.phase += Math.PI * 2;
+            }
+
+            draw(ctx) {
+                // Visualize phase as a small clock hand and color tint
+                const length = 6;
+                const endX = this.x + Math.cos(this.phase) * length;
+                const endY = this.y + Math.sin(this.phase) * length;
+                
+                // Color maps to phase (0 to 2PI -> HSL hue)
+                const hue = (this.phase / (Math.PI * 2)) * 360;
+                
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(endX, endY);
+                ctx.strokeStyle = `hsla(${hue}, 60%, 50%, 0.4)`;
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 1.5, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${hue}, 60%, 60%, 0.6)`;
+                ctx.fill();
+            }
+        }
+
+        class MatterClock {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                this.phase = Math.random() * Math.PI * 2;
+                this.freq = BASE_FREQ; 
+            }
+
+            update(grid) {
+                // Move particle
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off edges smoothly
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                // Phase locking with local spacetime (Emergent Gravity)
+                // Both matter and medium pull on each other
+                let localGrains = 0;
+                let phaseShift = 0;
+
+                for (let grain of grid) {
+                    const dx = grain.x - this.x;
+                    const dy = grain.y - this.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+
+                    if (dist < MATTER_RADIUS) {
+                        // The closer the grain, the stronger the lock
+                        const falloff = 1 - (dist / MATTER_RADIUS);
+                        
+                        // Matter pulls grain (creates the gravitational wake)
+                        grain.phase += Math.sin(this.phase - grain.phase) * GRAVITY_STRENGTH * falloff;
+                        
+                        // Grain slightly influences matter clock
+                        phaseShift += Math.sin(grain.phase - this.phase) * (GRAVITY_STRENGTH * 0.1) * falloff;
+                        localGrains++;
+                    }
+                }
+
+                this.phase += this.freq + (localGrains > 0 ? phaseShift / localGrains : 0);
+                if (this.phase > Math.PI * 2) this.phase -= Math.PI * 2;
+            }
+
+            draw(ctx, grid) {
+                // Draw Phase Locking Links (Gravity/Coupling)
+                for (let grain of grid) {
+                    const dx = grain.x - this.x;
+                    const dy = grain.y - this.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+
+                    if (dist < MATTER_RADIUS) {
+                        // Calculate coupling strength: alpha = cos(psi - phi)
+                        // This exactly matches the PDTP mathematical description
+                        const phaseDiff = this.phase - grain.phase;
+                        const coupling = Math.max(0, Math.cos(phaseDiff)); // Only show positive locking for visual clarity
+                        
+                        if (coupling > 0.1) {
+                            ctx.beginPath();
+                            ctx.moveTo(this.x, this.y);
+                            ctx.lineTo(grain.x, grain.y);
+                            // Brightness based on distance AND phase alignment
+                            const alpha = coupling * (1 - dist/MATTER_RADIUS) * 0.8;
+                            ctx.strokeStyle = `rgba(45, 212, 191, ${alpha})`; // Teal-ish lock links
+                            ctx.lineWidth = coupling * 2;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                // Draw the Matter Clock (Atom)
+                const hue = (this.phase / (Math.PI * 2)) * 360;
+                
+                // Outer glow
+                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, 20);
+                grad.addColorStop(0, `hsla(${hue}, 100%, 70%, 1)`);
+                grad.addColorStop(0.4, `hsla(${hue}, 100%, 50%, 0.5)`);
+                grad.addColorStop(1, 'rgba(0,0,0,0)');
+                
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 20, 0, Math.PI * 2);
+                ctx.fillStyle = grad;
+                ctx.fill();
+
+                // Core Clock hand
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                const endX = this.x + Math.cos(this.phase) * 12;
+                const endY = this.y + Math.sin(this.phase) * 12;
+                ctx.lineTo(endX, endY);
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2.5;
+                ctx.stroke();
+            }
+        }
+
+        let cols, rows;
+
+        function initGrid() {
+            spacetimeGrid = [];
+            cols = Math.floor(width / GRID_SPACING) + 1;
+            rows = Math.floor(height / GRID_SPACING) + 1;
+
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    spacetimeGrid.push(new SpacetimeGrain(i * GRID_SPACING, j * GRID_SPACING));
+                }
+            }
+        }
+
+        function getNeighbors(index) {
+            const neighbors = [];
+            const x = Math.floor(index / rows);
+            const y = index % rows;
+
+            // Simple 4-way Von Neumann neighborhood for grid syncing
+            if (x > 0) neighbors.push(spacetimeGrid[index - rows]);
+            if (x < cols - 1) neighbors.push(spacetimeGrid[index + rows]);
+            if (y > 0) neighbors.push(spacetimeGrid[index - 1]);
+            if (y < rows - 1) neighbors.push(spacetimeGrid[index + 1]);
+
+            return neighbors;
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(5, 5, 10, 0.3)'; // Trailing effect for motion blur
+            ctx.fillRect(0, 0, width, height);
+
+            // 1. Update Spacetime Condensate Grains
+            for (let i = 0; i < spacetimeGrid.length; i++) {
+                const neighbors = getNeighbors(i);
+                spacetimeGrid[i].update(neighbors);
+            }
+
+            // 2. Update Matter Clocks & Phase Locking
+            for (let p of matterParticles) {
+                p.update(spacetimeGrid);
+            }
+
+            // 3. Render Spacetime Grid
+            for (let grain of spacetimeGrid) {
+                grain.draw(ctx);
+            }
+
+            // 4. Render Matter (Drawn last to be on top)
+            for (let p of matterParticles) {
+                p.draw(ctx, spacetimeGrid);
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        document.getElementById('btnAddMatter').addEventListener('click', () => {
+            matterParticles.push(new MatterClock(
+                width / 2 + (Math.random() - 0.5) * 200, 
+                height / 2 + (Math.random() - 0.5) * 200
+            ));
+        });
+
+        document.getElementById('btnReset').addEventListener('click', () => {
+            matterParticles = [];
+            initGrid(); // Resets spacetime to random phases
+        });
+
+        // Start simulation
+        resize();
+        // Add one initial particle to look at
+        matterParticles.push(new MatterClock(width/2, height/2));
+        animate();
+
+    </script>
+</body>
+</html>

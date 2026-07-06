@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planck Vortex Relic (n=1) Visualization</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            margin: 0;
+        }
+        h2 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+        p {
+            max-width: 600px;
+            text-align: center;
+            line-height: 1.5;
+            color: #aaaaaa;
+        }
+        .canvas-container {
+            position: relative;
+            margin-top: 1rem;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        canvas {
+            display: block;
+        }
+        .legend {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .color-bar {
+            width: 100px;
+            height: 12px;
+            background: linear-gradient(to right, red, yellow, lime, cyan, blue, magenta, red);
+            border-radius: 6px;
+        }
+        .density-bar {
+            width: 100px;
+            height: 12px;
+            background: linear-gradient(to right, #000, #888);
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Planck Vortex Relic (Dark Matter)</h2>
+    <p>
+        Visualization of an n=1 topological defect in the gravitational condensate. 
+        Hue represents the phase field (winding 2π), and brightness represents the 
+        condensate density (dropping to zero at the core).
+    </p>
+
+    <div class="canvas-container">
+        <canvas id="vortexCanvas" width="500" height="500"></canvas>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <span>Phase Winding:</span>
+            <div class="color-bar"></div>
+        </div>
+        <div class="legend-item">
+            <span>Condensate Density:</span>
+            <div class="density-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('vortexCanvas');
+        const ctx = canvas.getContext('2d');
+        const width = canvas.width;
+        const height = canvas.height;
+        
+        // Image data for pixel-by-pixel manipulation
+        const imageData = ctx.createImageData(width, height);
+        const data = imageData.data;
+
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const coreRadius = 25; // Healing length where density recovers
+
+        // HSL to RGB helper function
+        function hslToRgb(h, s, l) {
+            let c = (1 - Math.abs(2 * l - 1)) * s;
+            let x = c * (1 - Math.abs((h / 60) % 2 - 1));
+            let m = l - c / 2;
+            let r = 0, g = 0, b = 0;
+            
+            if (0 <= h && h < 60) { r = c; g = x; b = 0; }
+            else if (60 <= h && h < 120) { r = x; g = c; b = 0; }
+            else if (120 <= h && h < 180) { r = 0; g = c; b = x; }
+            else if (180 <= h && h < 240) { r = 0; g = x; b = c; }
+            else if (240 <= h && h < 300) { r = x; g = 0; b = c; }
+            else if (300 <= h && h < 360) { r = c; g = 0; b = x; }
+            
+            return [
+                Math.round((r + m) * 255),
+                Math.round((g + m) * 255),
+                Math.round((b + m) * 255)
+            ];
+        }
+
+        // 1. Generate the Condensate Medium
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                const dx = x - centerX;
+                const dy = y - centerY;
+                const r = Math.sqrt(dx * dx + dy * dy);
+
+                // Phase calculation: atan2 gives the angle (winding)
+                let phase = Math.atan2(dy, dx);
+                if (phase < 0) phase += 2 * Math.PI;
+
+                // Density profile: drops to 0 at the core, asymptotically approaches 1
+                const density = Math.tanh(r / coreRadius);
+
+                // Map phase to hue (0-360) and density to lightness (0-0.5 for vivid colors)
+                const hue = (phase / (2 * Math.PI)) * 360;
+                const saturation = 1.0; 
+                const lightness = density * 0.5;
+
+                const [red, green, blue] = hslToRgb(hue, saturation, lightness);
+
+                // Write to pixel array
+                const index = (y * width + x) * 4;
+                data[index]     = red;
+                data[index + 1] = green;
+                data[index + 2] = blue;
+                data[index + 3] = 255; // Alpha
+            }
+        }
+        
+        ctx.putImageData(imageData, 0, 0);
+
+        // 2. Overlay Phase Gradient Vectors (Velocity Field)
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+        const step = 35; // Spacing of arrows
+        
+        for (let y = step/2; y < height; y += step) {
+            for (let x = step/2; x < width; x += step) {
+                const dx = x - centerX;
+                const dy = y - centerY;
+                const r = Math.sqrt(dx * dx + dy * dy);
+                
+                // Skip the undefined core
+                if (r < coreRadius * 0.8) continue;
+                
+                // The gradient of phase for n=1 points tangentially
+                const vx = -dy / r;
+                const vy = dx / r;
+                
+                // Vector length inversely proportional to distance (optional, fixed length used here for clarity)
+                const arrowLen = 12; 
+                
+                // Draw vector line
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + vx * arrowLen, y + vy * arrowLen);
+                ctx.stroke();
+                
+                // Draw vector tip
+                ctx.beginPath();
+                ctx.arc(x + vx * arrowLen, y + vy * arrowLen, 1.5, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+    </script>
+</body>
+</html>
