@@ -462,7 +462,19 @@ Part 12 needed ONLY for black hole interiors / mergers / extreme curvature.
 **Docs:** `tetrad_resolution.md`; Script: Phase 54 `tetrad_resolution.py`
 **RESULTS:** [PARTIALLY RESOLVED — SU(3) replaces tetrad for linearized gravity]
 
-#### [x] B4. CP violation — PARTIALLY RESOLVED (Part 85)
+#### [x] B4. CP violation — LARGELY RESOLVED (Part 85 + Part 125)
+
+**STATUS UPDATE (Part 125, Phase 93, 2026-07-07):** quantitative revisit at the TRUE
+vacuum phi_- = pi/2 (Parts 62/119; Part 85 had used the superseded phi_- = 0 vacuum).
+Results: delta = eps/g preserved [Eq 125.1]; m^2 = A + O(eps^2) [Eq 125.2];
+CORRECTION — CP-conjugate vacua EXACTLY degenerate (reflection identity, Eq 125.3);
+Sakharov condition 2 acts via O(eps) RATE asymmetry -2*eps*sin(2x) [Eq 125.4], not
+vacuum energetics; required eps/g band [1.1e-8, 6.1e-6], central 3.05e-7 (recovers
+85.11); sign(eta) = sign(eps) (convention, not predicted); strong CP: theta relaxes
+to 0 via dynamical condensate orientation, E = K(1-cos theta), Vafa-Witten [Eq 125.5,
+premise SPECULATIVE]; two-phase psi/phi_+ sector EXACTLY unchanged [Eq 125.6].
+14/14 Sudoku. Script: `cp_violation_quantitative.py`; doc: `cp_violation.md` Sec 11.
+Still open: condition 1 + 3 rates, CKM phase, cross-feed proof (125-O1), theta EOM (125-O2).
 
 **Problem:** PDTP Lagrangian is C, P, T invariant. No CP violation = no baryogenesis.
 **Prior research:**
@@ -511,20 +523,21 @@ Key findings from quick check:
   pick the sign matching observation (matter-dominated universe)
 
 **TODO for full investigation:**
-- [ ] Define CP transformation rules for psi, phi_b, phi_s explicitly
-- [ ] Verify L4 is removable (SymPy: cos + sin = shifted cos)
-- [ ] Derive full potential V(phi_-) with -eps sin(2*phi_-) term
-- [ ] Find shifted vacuum: phi_- = pi/2 - delta, solve for delta(eps)
-- [ ] Check: does shifted vacuum break Sakharov condition 2 (CP)?
-- [ ] Compute matter vs antimatter production rate asymmetry
-- [ ] For SU(3): verify -eps Im[Tr(Psi^dag U)]/3 matches QCD theta-term on lattice
-- [ ] Check experimental constraint: what eps (= theta) gives observed baryon asymmetry?
-- [ ] Sudoku consistency: do L5/L6 still pass all 16 two-phase re-derivation tests?
-- [ ] If theta ~ 0 in SU(3), can PDTP explain WHY? (axion mechanism? topological cancellation?)
-- [ ] Simulate L5 with BOTH +eps and -eps; determine which sign gives matter dominance
-- [ ] Estimate baryon asymmetry: does eps produce observed ratio eta ~ 6x10^-10?
+- [x] Define CP transformation rules for psi, phi_b, phi_s explicitly (Part 85; re-verified Part 125 S1)
+- [x] Verify L4 is removable (SymPy: cos + sin = shifted cos) (Part 85; SymPy residual 0, Part 125 S2)
+- [x] Derive full potential V(phi_-) with -eps sin(2*phi_-) term (Part 125: TRUE-vacuum form V = -A sin(phi_-) - eps sin(2 phi_-))
+- [x] Find shifted vacuum: phi_- = pi/2 - delta, solve for delta(eps) (Part 125: delta = 2*eps/A = eps/g at A=2g, Eq 125.1)
+- [x] Check: does shifted vacuum break Sakharov condition 2 (CP)? (Part 125: YES but via RATE asymmetry Eq 125.4 — vacua exactly degenerate, Eq 125.3; corrects Part 85 energy argument)
+- [x] Compute matter vs antimatter production rate asymmetry (Part 125: DGamma/Gamma ~ 2*eps/g from path difference -2*eps*sin(2x); O(1) coefficient parametric)
+- [ ] For SU(3): verify -eps Im[Tr(Psi^dag U)]/3 matches QCD theta-term on lattice (identification exact at lattice level, Part 85; numerical lattice check still open)
+- [x] Check experimental constraint: what eps (= theta) gives observed baryon asymmetry? (Part 125: eps/g band [1.1e-8, 6.1e-6], central 3.05e-7; between theta_QCD and Jarlskog J)
+- [x] Sudoku consistency: do L5/L6 still pass all 16 two-phase re-derivation tests? (Part 125: psi/phi_+ sector EXACTLY unchanged, Eq 125.6 — Newton 3rd, Jeans, biharmonic exact; phi_- sector O(eps))
+- [x] If theta ~ 0 in SU(3), can PDTP explain WHY? (Part 125: PARTIAL — dynamical condensate orientation relaxes to theta=0, E = K(1-cos theta), Vafa-Witten; premise = theta dynamical, OPEN 125-O2)
+- [x] Simulate L5 with BOTH +eps and -eps; determine which sign gives matter dominance (Part 125: resolved analytically — vacua exactly degenerate, sign(eta) = sign(eps) is a labeling convention, not predicted)
+- [x] Estimate baryon asymmetry: does eps produce observed ratio eta ~ 6x10^-10? (Part 125: yes for eps/g in the band; parametric until condition 1+3 rates computed from PDTP)
 
-**RESULTS:** [ ]
+**RESULTS:** [LARGELY RESOLVED — Part 85 mechanism + Part 125 true-vacuum quantitative pass;
+open: SU(3) lattice theta check, condition 1+3 rates, CKM phase, 125-O1/O2]
 
 #### [x] B5. Three generations — why exactly 3? — KEY DERIVATION — CLOSED (Part 93)
 
@@ -1081,7 +1094,7 @@ Order: most constrained first (most equations to cross-check).
 | 3 | [x] B1 (N_eff = 6pi gap) | PARTIAL: N_eff range 10-34, target 6pi~18.85 between; Casimir near-miss 1%; universal gap | 83 | DONE |
 | 4 | [x] B3 (tetrad from SU(3)) | PARTIALLY RESOLVED: SU(3) replaces tetrad for linearized gravity; 2-DOF deficit for strong-field | 84 | DONE |
 | 5 | [x] A1 FCC (m_cond / hierarchy) | SU(3) AF + BCS + bounds — all negative; m_P saturates BH bound | 77-78 | DONE |
-| 6 | [x] B4 (CP violation) | PARTIALLY RESOLVED: L5 sin(2phi_-) real CP; delta=-eps/g; eta~6e-10 | 85 | DONE |
+| 6 | [x] B4 (CP violation) | LARGELY RESOLVED: L5 sin(2phi_-) real CP; delta=eps/g at TRUE vacuum (125); vacua exactly degenerate, rate-based Sakharov cond.2; eta band 1e-8 to 6e-6 | 85, 125 | DONE |
 | 7 | [x] A2 (alpha_EM) | FCC 5 paths — all negative; confirmed free parameter | 79 | DONE |
 | 8 | [x] B2 (nonlinear Einstein) | PARTIALLY RESOLVED: sigma model NEGATIVE; entropy+Jacobson PARTIAL (a_0=1.665*l_P) | 86 | DONE |
 | 9 | [x] A3 (Lambda) | CONFIRMED FREE PARAM: Lambda=g*phi_-_vac^2; rho_vac=rho_P/7.68; DESI w(z) | 87 | DONE |

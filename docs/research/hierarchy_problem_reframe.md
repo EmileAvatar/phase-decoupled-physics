@@ -205,8 +205,33 @@ set m_cond dynamically.
 | **C1 — Ratio derivation** | Derive m_P/Lambda_QCD from cross-condensate condition in two-condensate PDTP | Part 38-41 (SU(3) lattice MC converging on Lambda_QCD) | SPECULATIVE — requires two-condensate Lagrangian coupling term |
 | **C2 — Cosmological winding** | n = t_H/t_P sets winding number; hierarchy is universe age in Planck units | Part 33 (winding derivation) | SPECULATIVE — Phase 8 open question, not closed |
 | **C3 — Locking transition fossil** | beta(z) evolution outputs m_cond at full lock; hierarchy = T_lock/T_today | T46 (Lambda as fossil) — same beta(z) unknown | SPECULATIVE — highest priority if T46 succeeds |
-| **C4 — Dvali-Gomez self-reference** | m_cond = m_P because at m_P, condensate quantum is marginally its own black hole (r_S = l_P); why does condensate sit at criticality? | Part 115 (no-go + Dvali consolation) | SPECULATIVE — promising reframe; sharpens question without answering it |
+| **C4 — Dvali-Gomez self-reference** | m_cond = m_P because at m_P, condensate quantum is marginally its own black hole (r_S = l_P); why does condensate sit at criticality? | Part 115 (no-go + Dvali consolation) | **PARTIAL — resolved to a one-sided attractor by Part 124 (T55); see update below** |
 | **C5 — Anthropic condensate window** | Compute range of m_cond compatible with stars + atoms; observed value lies in window | Requires mapping condensate stiffness to stellar physics | SPECULATIVE — low priority (not a derivation, a constraint) |
+
+### C4 Update — Part 124 (T55, 2026-07-07): Criticality Is a Ceiling, Not a Valley
+
+Full derivation: `docs/research/dvali_gomez_attractor.md`; script
+`simulations/solver/t55_dvali_gomez_attractor.py`; Sudoku 12/12 PASS.
+
+In the fixed-G frame (ambient G external — no-go-compatible, same logic as T50/H₀):
+
+- **Energy minimization: NEGATIVE [DERIVED].** E(m) = mc²(1 − ξ·α_gr(m)) has its
+  stationary point at α* = 1/(3ξ) = O(1), but d²E/dm² < 0 — a **barrier**, not a minimum
+  (Eq 124.1). Consistent with (and required by) the Part 115 no-go theorem.
+- **Entropy maximization: NEGATIVE [DERIVED].** Total entropy at fixed mass *falls* on the
+  quantum branch and *rises* on the BH branch — criticality is the entropy **minimum**
+  (Eq 124.2).
+- **Dissipative flow: POSITIVE, one-sided [DERIVED].** Grains above criticality have
+  horizons and evaporate in finite time t = 5120π·G²m³/(ħc⁴); grains below have no decay
+  channel (stable). The evaporation cascade terminates at E_final = m_P·c² **exactly**
+  (Part 47 re-verified). So α_gr = 1 is a **stability boundary / evaporation endpoint**:
+  attractor from above, neutral from below (Eqs 124.3–124.4).
+
+**Net effect on the hierarchy problem:** m_cond ≤ m_P·O(1) is now *derived* (dynamical
+ceiling). The residual open step is the equality — why the condensate sits AT the ceiling
+rather than below it (maximal-packing principle, DG arXiv:1207.4059; or Kibble-Zurek
+formation bias feeding the flow). **The hierarchy question is reduced to: "why does the
+condensate saturate its own stability bound?"** [OPEN, filed as Part 124 O1]
 
 ---
 
@@ -218,7 +243,7 @@ set m_cond dynamically.
 
 2. **Cross-condensate ratio (C1).** Once Part 38-41 firmly establish Lambda_QCD from SU(3) lattice, investigate whether a coupling condition between the two condensates fixes their ratio. This is a concrete algebraic target.
 
-3. **Dvali-Gomez sharpening (C4).** Reframe Part 115's consolation prize into a positive question: what physical principle forces the condensate to sit at alpha_gr = 1 criticality? This might be answerable via thermodynamics or stability analysis.
+3. **Dvali-Gomez sharpening (C4).** ~~Reframe Part 115's consolation prize into a positive question~~ **DONE (Part 124, T55):** thermodynamics answered NEGATIVE on both extremum routes (energy barrier, entropy minimum); the stability/flow analysis answered POSITIVE one-sided (evaporation-endpoint ceiling). Remaining: the equality step (maximal packing) — see C4 update above.
 
 4. **Cosmological winding (C2).** Lower priority — requires a mechanism for n to accumulate over cosmological time, which is speculative. Worth revisiting after T46.
 

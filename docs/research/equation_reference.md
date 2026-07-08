@@ -1493,6 +1493,88 @@ corrections at (Z=115, N=184): +9 to +15 MeV extra binding.
 
 ---
 
+### Part 127 additions (T60 Task 2: horizon CP-degeneracy derives Part 86 ln(2)):
+
+**Source:** Part 127 (Phase 95, 2026-07-08), `simulations/solver/t60_task2_horizon_degeneracy.py`;
+`docs/research/nonlinear_einstein.md` Section 11 (extends Part 86). Sudoku 12/12 PASS.
+Rescoped from Part 126's recommendation; upgrades Part 86 Eq 86.7 from [ASSUMED] to
+[DERIVED].
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 127.0 | cos(D+)=0 at horizon (Part 98/T1) has exactly 2 roots per period: D+ = +pi/2, -pi/2 | [DERIVED, SymPy solveset] | both give alpha_+=0 (macroscopically identical); sin(D+)=+-1 (microscopically distinct) |
+| 127.1 | V_A(phi_-) = -2g*sin(phi_-); minimum at phi_-=+pi/2, V_min=-2g | [DERIVED, SymPy] | branch A (D+=+pi/2) effective potential from Part 61 coupling |
+| 127.2 | V_B(phi_-) = +2g*sin(phi_-); minimum at phi_-=-pi/2, V_min=-2g | [DERIVED, SymPy] | branch B (D+=-pi/2) effective potential |
+| 127.3 | V_A,min = V_B,min = -2g EXACTLY | [DERIVED, SymPy residual 0] | two field-theoretically distinct, exactly degenerate horizon ground states; degeneracy CP-protected (Part 125 S1 CP-evenness, re-verified in D+/phi_- variables) |
+| 127.4 | S_cell = k_B*ln(2) (degeneracy=2), EXACTLY matches Part 86 Eq 86.7 (ratio=1.000000) | [DERIVED] | upgrades Part 86's ASSUMED 2-state locked/anti-locked input to DERIVED; does NOT determine a_0 (Part 86 Sec 8.3 still open); CP-violation (Part 125) splits degeneracy by ~(eps/g)^2 ~ 1e-13, negligible [SPECULATIVE magnitude only] |
+
+---
+
+### Part 126 additions (T60 Task 3: relative entropy prerequisite check):
+
+**Source:** Part 126 (Phase 94, 2026-07-08), `simulations/solver/t60_relative_entropy_prereq.py`;
+`docs/research/nonlinear_einstein.md` Section 10 (extends Part 86). Sudoku 9/10 PASS
+(1 honest recorded miss, T10). Checks an external proposal (`docs/fable_notes/fable
+notes to check 02.md`) against the existing S_PDTP entropy (Part 86).
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 126.0 | S_rel := 1 - V/g = 1 - alpha | [ASSUMED] | renaming of existing coupling, not derived from the Lagrangian; monotonic decreasing in alpha (SymPy) |
+| 126.1 | S_rel(horizon) = 1 - alpha_horizon = 1 (using alpha_horizon=0, Part 98/T1) | [COMPUTED from existing result] | S_rel(horizon) != s_cell(Part86)=ln(2); ratio 1.4427, different objects |
+| 126.2 | S_rel(horizon)/s_cell(Part86 Eq 86.7) = 1/ln(2) = 1.4427 | [FINDING] | S_rel is a local continuum scalar; s_cell is a discrete counted quantity; no limit of one reduces to the other |
+| 126.3 | S_rel_area := (k_B/a_0^2) integral_horizon S_rel dA | [NEW ASSUMPTION] | S_rel alone does not derive an area law; this postulate is the same TYPE as Part 86 Eq 86.6-86.7 |
+| 126.4 | a_0 = 2*l_P (matching S_rel_area = S_BH) | [DERIVED given Eq 126.3, SymPy solve] | 20% from Part 86's a_0=1.665*l_P pairwise; 3-way spread (+ Sakharov, Part 83) = 30.3%, WIDER than existing 2-way 18% spread -- honest miss, not a new precision result |
+
+---
+
+### Part 125 additions (B4: quantitative CP violation at the true vacuum):
+
+**Source:** Part 125 (Phase 93, 2026-07-07), `simulations/solver/cp_violation_quantitative.py`;
+`docs/research/cp_violation.md` Section 11. Sudoku 14/14 PASS. Corrects/extends Part 85
+by re-deriving at the TRUE vacuum phi_- = pi/2 (Parts 62/119) instead of the superseded
+phi_- = 0 vacuum.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 125.1 | delta = 2*eps/A (leading order); A = 2g gives delta = eps/g | [DERIVED, SymPy] | true-vacuum shift phi_-* = pi/2 - delta; Part 85 magnitude (Eq 85.7) preserved |
+| 125.2 | m^2 = A + O(eps^2) | [DERIVED] | Part 119 Eq 119.0 (m^2 = 2g) preserved at shifted vacuum |
+| 125.3 | V(pi - x; eps) = V(x; -eps) [reflection identity]; CP-conjugate vacua EXACTLY degenerate | [DERIVED, SymPy residual 0; CORRECTS Part 85 Eq 85.9] | Part 85's energy-splitting argument does not hold at the true vacuum |
+| 125.4 | V(x;eps) - V(pi-x;eps) = -2 eps sin(2x) | [DERIVED, SymPy] | Sakharov condition 2 acts via O(eps) RATE asymmetry, not vacuum energetics |
+| 125.5 | E(theta) = K(1 - cos theta), minimum at theta=0 | [DERIVED given premise; Vafa-Witten 1984] | strong-CP relaxation via dynamical condensate orientation; premise (theta dynamical) SPECULATIVE (125-O2) |
+| 125.6 | dL_eps/dpsi = 0, dL_eps/dphi_+ = 0 exactly; dL_eps/dphi_- = 2 eps cos(2 phi_-) | [DERIVED, SymPy] | two-phase psi/phi_+ sector EXACTLY unchanged (upgrades Part 85 O(eps^2) statement) |
+| 125.7 | required eps/g band [1.1e-8, 6.1e-6], central 3.05e-7 (g_*=100, s=0.1) | [COMPUTED/ESTIMATED] | between theta_QCD < 1e-10 and Jarlskog J = 3.08e-5; parametric, g_* and s not derived from PDTP |
+
+---
+
+### Part 124 additions (T55: Dvali-Gomez criticality as attractor):
+
+**Source:** Part 124 (Phase 92, 2026-07-07), `simulations/solver/t55_dvali_gomez_attractor.py`;
+`docs/research/dvali_gomez_attractor.md`. Sudoku 12/12 PASS. Fixed-G frame (ambient G
+external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_reframe.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 124.1 | E(m) = m c^2 (1 - xi alpha_gr(m)); extremum at alpha* = 1/(3 xi); d2E/dm2 < 0 | [DERIVED, NEGATIVE] | criticality is an energy BARRIER, not a minimum — energy-minimization attractor dead; consistent with no-go 115.4 |
+| 124.2 | S_tot(m) at fixed M_tot: dS/dm < 0 (quantum branch), > 0 (BH branch) — MINIMUM at alpha ~ 1 | [DERIVED, NEGATIVE] | entropy-maximization attractor dead; max entropy at extremes (all radiation / one BH) |
+| 124.3 | t_evap(m) = 5120 pi G^2 m^3/(hbar c^4) finite iff horizon exists; sup(stable m) = m_P O(1) | [DERIVED given PDTP Hawking] | alpha_gr = 1 = stability boundary / one-sided attractor (ceiling); m_cond <= m_P O(1) derived |
+| 124.4 | E_final = k_B T_H(m_P/(8 pi)) = m_P c^2 exactly | [DERIVED, Part 47 re-verified] | evaporation cascade terminates at exactly the critical mass |
+| 124-O1 | m_cond = ceiling (equality step) — maximal packing / KZ formation bias | [SPECULATIVE, OPEN] | hierarchy problem reduced to "why does the condensate saturate its own stability bound?" |
+
+---
+
+### Part 123 additions (T50: Lambda causal-sync numerical check):
+
+**Source:** Part 123 (Phase 91, 2026-07-07), `simulations/solver/t50_lambda_causal_sync.py`;
+`docs/research/lambda_locking_fossil.md` Section 10. Sudoku 11/11 PASS.
+Note: Parts 119-122 equations still pending (TODO_04 T14 integration task).
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 123.1 | Lambda_obs/Lambda_naive = 3 Omega_Lambda (H_0/omega_gap)^2, i.e. C = 3 Omega_Lambda = 2.054 +- 0.022 | [DERIVED, SymPy residual 0] | algebraic identity given omega_gap = 1/t_P; closest candidate = derived Part 61 factor 2 (2.7% off); ansatz phi_-_vac ~ H/omega_gap remains [SPECULATIVE] |
+| 123.2 | C = 2 exactly <=> Omega_Lambda = 2/3 <=> (1+z_lock)^3 = Omega_Lambda/(2 Omega_m), z_lock = 0.028 | [SPECULATIVE] | freeze-out epoch if the coefficient is the derived two-phase factor 2; T52 Kuramoto sim decides |
+
+---
+
 ### Part 118 additions (T45: Cleanup — Eq 89.17 erratum + check_urls.py fix):
 
 **Source:** Part 118 (Phase 86, 2026-06-11), `simulations/solver/sigma_m_erratum.py`;
@@ -1747,6 +1829,11 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-07-08: Added Part 127 (T60 Task 2: horizon CP-degeneracy of phi_- EXACTLY reproduces Part 86's ASSUMED s_cell=ln(2) [Eq 127.4, DERIVED]; two branches of cos(D+)=0 at horizon source CP-conjugate, exactly degenerate phi_- vacua at +-pi/2 [Eqs 127.0-127.3]; mass m^2=2g branch-independent, consistent with Part 113; a_0 still open; 12/12 Sudoku)
+- 2026-07-08: Added Part 126 (T60 Task 3: relative-entropy prerequisite check; S_rel = 1-alpha is NOT the same object as Part 86's S_PDTP, cannot derive area law without the same postulate Part 86 already made Eq 126.3; third a_0=2*l_P candidate Eq 126.4 widens rather than tightens the existing O(1) cluster; RECOMMENDATION: T60 Tasks 1/4 not pursued as literally proposed, Task 2 (phi_- dynamics) remains open; 9/10 Sudoku, 1 honest recorded miss)
+- 2026-07-07: Added Part 125 (B4: quantitative CP violation at TRUE vacuum phi_-=pi/2; delta=eps/g preserved Eq 125.1; CORRECTION — CP-conjugate vacua EXACTLY degenerate Eq 125.3, Sakharov cond.2 is rate-based Eq 125.4 not energy-based (corrects Part 85 Eq 85.9); eps/g band [1.1e-8,6.1e-6] Eq 125.7; strong-CP relaxation Eq 125.5; two-phase psi/phi_+ sector EXACTLY unchanged Eq 125.6; 14/14 Sudoku; B4 upgraded PARTIALLY -> LARGELY RESOLVED)
+- 2026-07-07: Added Part 124 (T55: Dvali-Gomez attractor; energy barrier Eq 124.1 + entropy minimum Eq 124.2 both NEGATIVE for extremum routes; stability-boundary/evaporation-endpoint attractor Eq 124.3; E_final = m_P c^2 exact Eq 124.4; m_cond <= m_P O(1) DERIVED, equality OPEN 124-O1; 12/12 Sudoku)
+- 2026-07-07: Added Part 123 (T50: Lambda causal-sync check; C = 3*Omega_Lambda = 2.054 closed-form coefficient [Eq 123.1, SymPy residual 0]; 2.7% from derived Part 61 factor 2; z_lock = 0.028 if C = 2 [Eq 123.2]; 11/11 Sudoku)
 - 2026-06-11: Added Part 118 (T45 cleanup: Eq 89.17 erratum — sigma/m = 4 pi G^2 m_DM/v^4 = 5.2e-49 m^2/kg replaces dimensionally inconsistent G/c^4 form; Bullet margin 44.3 orders, verdicts unchanged; check_urls.py path + Unicode fixes; 7/7 Sudoku)
 - 2026-06-11: Added Part 117 (T44: positive phi_-^4 quartic; tree -g/12 + zero-point channels NEGATIVE (confirm 88.13); induced channel lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2) > 0 PDTP Original DERIVED; self-switching at beta=0 VERIFIED — transient EDE, w=-1 today automatic; beta(z) amplitude OPEN; 10/10 Sudoku)
 - 2026-06-11: Added Part 116 (T43: DM winding selection; E(n)~n^2 ln(R/r_c) SymPy DERIVED; splitting instability n>=2 DERIVED; KZ MC P(|n|>=2)/P(|n|=1)=0.038; n=1 -> m_DM = m_P PDTP Original; KZ relic abundance NEGATIVE 50 OoM; kill test = CMB tensor modes; 12/12 Sudoku)
