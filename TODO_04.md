@@ -44,6 +44,7 @@ New additions go on top. One line per item. Full details below.
 - T13 — Update falsifiable_predictions.md with new testable items from T1-T6 [integration]
 - T14 — Update equation_reference.md with all new T-equations [integration]
 - T15 — Final verdict and summary (did tan reveal new physics?) [integration]
+- T65 — Backfill mathematical_formalization.md: doc stops before Part 37 (SU(3)) and Part 61 (two-phase); add both as new sections with full step-by-step derivations [integration, LARGE, filed 2026-07-11]
 - M3 — Moire band spacing vs evanescent depth (Part 89 cross-check) [SPEC]
 - M4 — Moire min displacement {s,r} vs vortex winding (quark n=73 Pythagorean?) [SPEC]
 - T17 — n=sqrt(2) observable near compact objects (VLBI/EHT lensing signature) [priority 17]
@@ -482,6 +483,52 @@ any new testable predictions (Brewster angle, transition redshift, etc.).
 **What:** Write up the overall findings. Did tan reveal new physics?
 Which predictions survived the full FCC + Wave check?
 Does any tan result help constrain m_cond or derive G?
+
+#### [ ] T65. Backfill mathematical_formalization.md
+
+**Status:** PENDING. Filed 2026-07-11 alongside a new CLAUDE.md rule requiring this
+doc to be kept current going forward (see CLAUDE.md "Mathematical Formalization"
+section).
+
+**What:** `docs/research/mathematical_formalization.md` is the narrative,
+step-by-step foundations document (distinct from the terse `equation_reference.md`
+log, which has been kept current). It currently covers only the single-phase U(1)
+Lagrangian (Euler-Lagrange for fields, Noether's theorem, sine-Gordon/Kuramoto
+connections, weak-field Newtonian recovery, energy cost of decoupling) — roughly
+Parts 1-20s. It stops **before** two of the framework's largest structural results:
+
+- **Part 37 — SU(3) extension:** matrix field U(x), Z₃ vortices as quarks, 8 gluons
+  from generators, the Wilson-loop coupling Re[Tr(Ψ†U)]/N, U(1) limit recovery.
+- **Part 61 — Two-phase Lagrangian:** φ₊/φ₋ split, product coupling
+  2g·sin(ψ−φ₊)·sin(φ₋), Newton's 3rd law derivation, biharmonic gravity, the
+  reversed-Higgs φ₋ mode.
+
+Both need full step-by-step derivation sections added, matching the existing
+document's standard (every step shown, every established result cited, every new
+result tagged PDTP Original, SymPy verification referenced where applicable —
+per CODING_STANDARDS.md and the "Show Your Work" requirement in CLAUDE.md).
+
+**Scope note:** this is a documentation-currency task, not new physics — the
+derivations already exist (Parts 37, 61, and their many follow-ups) and are already
+correct; this is about making the foundations document narratively complete and
+pedagogically walkable end-to-end, the way Sections 1-9 currently are for the
+single-phase case.
+
+**Suggested approach (plan before starting, per the Problem-Solving Protocol):**
+1. Add Section 12 (SU(3) extension) following the existing document's structure
+   (prerequisites → Lagrangian → field equations → key results), citing Parts
+   37-41.
+2. Add Section 13 (Two-phase Lagrangian) similarly, citing Parts 61-63 and the
+   16/16 re-derivation.
+3. Decide whether later structural results (DM winding Part 116, Lambda-locking
+   Part 119, CP violation Part 85/125) warrant their own sections too, or whether
+   the doc should stay scoped to "foundations" with those left in their own
+   research docs and only cross-linked.
+4. Update the Table of Contents and Summary of Results (Sections 10-11) to match.
+
+**Estimated effort:** LARGE — likely its own multi-session task given the chunking
+rule (~100 lines per Edit/Write call) and the amount of material to backfill.
+Do not start without a plan approved by the user first.
 
 ---
 

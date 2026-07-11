@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 960" font-family="'Segoe UI', Arial, sans-serif">
+  <style>
+    text { font-family: 'Segoe UI', Arial, sans-serif; }
+    .title { font-size:28px; font-weight:700; fill:#111827; text-anchor:middle; }
+    .subtitle { font-size:14px; fill:#6b7280; text-anchor:middle; }
+    .headerL { font-size:18px; font-weight:700; fill:#1e3a8a; text-anchor:middle; }
+    .headerR { font-size:18px; font-weight:700; fill:#78350f; text-anchor:middle; }
+    .rowtitle { font-size:15px; font-weight:600; fill:#4b5563; text-anchor:middle; letter-spacing:0.5px; }
+    .capBoldL { font-size:14px; font-weight:700; fill:#1e3a8a; text-anchor:middle; }
+    .capBoldR { font-size:14px; font-weight:700; fill:#92400e; text-anchor:middle; }
+    .cap { font-size:12.5px; fill:#374151; text-anchor:middle; }
+    .qlabel { font-size:13px; font-weight:600; fill:#1e3a8a; text-anchor:middle; }
+    .qlabelR { font-size:13px; font-weight:600; fill:#78350f; text-anchor:middle; }
+    .ann { font-size:11px; fill:#78350f; text-anchor:start; }
+  </style>
+
+  <defs>
+    <pattern id="twist" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="14" height="14" fill="#fbbf24"/>
+      <rect width="7" height="14" fill="#f59e0b"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#78350f"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="960" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="600" y="42" class="title">Quark Structure: Current Science vs. PDTP</text>
+  <text x="600" y="68" class="subtitle">Wave/particle nature and topology, side by side</text>
+
+  <!-- Column headers -->
+  <rect x="60" y="88" width="480" height="40" rx="8" fill="#dbeafe"/>
+  <text x="300" y="114" class="headerL">CURRENT SCIENCE — Standard Model</text>
+  <rect x="660" y="88" width="480" height="40" rx="8" fill="#fef3c7"/>
+  <text x="900" y="114" class="headerR">PDTP</text>
+
+  <!-- Divider -->
+  <line x1="600" y1="88" x2="600" y2="890" stroke="#d1d5db" stroke-width="2" stroke-dasharray="6,6"/>
+
+  <!-- ============ ROW 1: SINGLE QUARK ============ -->
+  <text x="600" y="155" class="rowtitle">1 · SINGLE QUARK</text>
+
+  <!-- Left: point-particle / wave ripple -->
+  <circle cx="300" cy="245" r="56" fill="none" stroke="#2563eb" stroke-width="2" opacity="0.18"/>
+  <circle cx="300" cy="245" r="38" fill="none" stroke="#2563eb" stroke-width="2" opacity="0.32"/>
+  <circle cx="300" cy="245" r="20" fill="none" stroke="#2563eb" stroke-width="2" opacity="0.5"/>
+  <circle cx="300" cy="245" r="9" fill="#1e3a8a"/>
+  <text x="316" y="228" class="qlabel">q</text>
+
+  <text x="300" y="345" class="capBoldL">Point-like field excitation</text>
+  <text x="300" y="364" class="cap">Dirac field quantum — a wave-packet of the quark field</text>
+  <text x="300" y="382" class="cap">No substructure found (&lt; 10⁻¹⁹ m); not a topological object</text>
+
+  <!-- Right: vortex line segment -->
+  <rect x="888" y="180" width="24" height="120" rx="12" fill="url(#twist)" stroke="#92400e" stroke-width="2"/>
+  <circle cx="900" cy="180" r="5" fill="#78350f"/>
+  <circle cx="900" cy="300" r="5" fill="#78350f"/>
+
+  <path d="M 928,205 A 14,14 0 1 1 926,191" stroke="#78350f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="945" y="202" class="ann">winding = 1/3</text>
+
+  <line x1="912" y1="296" x2="960" y2="296" stroke="#78350f" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="945" y="316" class="ann" text-anchor="middle">cannot end</text>
+  <text x="945" y="330" class="ann" text-anchor="middle">freely</text>
+
+  <text x="900" y="345" class="capBoldR">Z₃ fractional vortex line</text>
+  <text x="900" y="364" class="cap">Topological defect — 1/3 winding of the SU(3) condensate phase</text>
+  <text x="900" y="382" class="cap">Open segment; cannot close alone (confinement is topological)</text>
+
+  <!-- ============ ROW 2: MESON ============ -->
+  <text x="600" y="412" class="rowtitle">2 · MESON (quark + antiquark)</text>
+
+  <!-- Left: q, flux tube (effective), qbar -->
+  <circle cx="220" cy="475" r="9" fill="#1e3a8a"/>
+  <text x="220" y="455" class="qlabel">q</text>
+  <circle cx="380" cy="475" r="9" fill="#ffffff" stroke="#1e3a8a" stroke-width="3"/>
+  <text x="380" y="455" class="qlabel">q̄</text>
+  <path d="M229,475 L245,460 L261,490 L277,460 L293,490 L309,460 L325,490 L341,460 L357,490 L371,475"
+        fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <text x="300" y="545" class="capBoldL">q + q̄ joined by a color flux tube</text>
+  <text x="300" y="564" class="cap">Effective / phenomenological model (the "QCD string")</text>
+  <text x="300" y="582" class="cap">An approximation to gluon-field dynamics, not fundamental</text>
+
+  <!-- Right: one continuous flux tube -->
+  <rect x="800" y="463" width="200" height="24" rx="12" fill="url(#twist)" stroke="#92400e" stroke-width="2"/>
+  <circle cx="800" cy="475" r="9" fill="#1e3a8a"/>
+  <text x="800" y="455" class="qlabel">q</text>
+  <circle cx="1000" cy="475" r="9" fill="#ffffff" stroke="#1e3a8a" stroke-width="3"/>
+  <text x="1000" y="455" class="qlabel">q̄</text>
+
+  <text x="900" y="545" class="capBoldR">Vortex + antivortex, one continuous tube</text>
+  <text x="900" y="564" class="cap">Literal Abrikosov flux tube (Type-II, κ_GL=√2 — derived)</text>
+  <text x="900" y="582" class="cap">Confinement energy = tube length × string tension</text>
+
+  <!-- ============ ROW 3: BARYON ============ -->
+  <text x="600" y="612" class="rowtitle">3 · BARYON (three quarks)</text>
+
+  <!-- Left: triangle of quarks + gluon lines -->
+  <path d="M300,650 L250,760 L350,760 Z" fill="none" stroke="#2563eb" stroke-width="2.5"
+        stroke-dasharray="1,6" stroke-linecap="round"/>
+  <circle cx="300" cy="650" r="10" fill="#dc2626"/>
+  <text x="300" y="634" class="qlabel">u</text>
+  <circle cx="250" cy="760" r="10" fill="#16a34a"/>
+  <text x="228" y="775" class="qlabel">u</text>
+  <circle cx="350" cy="760" r="10" fill="#2563eb"/>
+  <text x="372" y="775" class="qlabel">d</text>
+
+  <text x="300" y="805" class="capBoldL">3 quarks bound by the gluon color field</text>
+  <text x="300" y="823" class="cap">Each pair exchanges gluons; net color-neutral (r+g+b)</text>
+  <text x="300" y="841" class="cap">"Y-string" bag model also exists, but is phenomenological</text>
+
+  <!-- Right: Y-junction of vortices at 120 degrees -->
+  <line x1="900" y1="730" x2="900" y2="640" stroke="#f59e0b" stroke-width="14" stroke-linecap="round"/>
+  <line x1="900" y1="730" x2="822" y2="775" stroke="#f59e0b" stroke-width="14" stroke-linecap="round"/>
+  <line x1="900" y1="730" x2="978" y2="775" stroke="#f59e0b" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="900" cy="730" r="8" fill="#92400e"/>
+
+  <path d="M900,705 A25,25 0 0,1 921.7,742.5" stroke="#78350f" stroke-width="1.5" fill="none"/>
+  <text x="932" y="722" class="ann">120°</text>
+
+  <circle cx="900" cy="640" r="8" fill="#78350f"/>
+  <text x="900" y="624" class="qlabelR">u</text>
+  <circle cx="822" cy="775" r="8" fill="#78350f"/>
+  <text x="798" y="795" class="qlabelR">u</text>
+  <circle cx="978" cy="775" r="8" fill="#78350f"/>
+  <text x="1002" y="795" class="qlabelR">d</text>
+
+  <text x="900" y="805" class="capBoldR">Y-junction of 3 fractional vortices at 120°</text>
+  <text x="900" y="823" class="cap">Derived ground state (Part 37) — NOT a closed loop</text>
+  <text x="900" y="841" class="cap">Closed Hopf-link tested &amp; rejected — costs 2π× more energy</text>
+
+  <!-- ============ FOOTER: CONFINEMENT ============ -->
+  <line x1="60" y1="865" x2="1140" y2="865" stroke="#d1d5db" stroke-width="1"/>
+
+  <text x="300" y="888" class="capBoldL">Why quarks are never seen alone</text>
+  <text x="300" y="908" class="cap">Empirical rule — flux-tube energy grows ~1 GeV/fm with separation</text>
+  <text x="300" y="926" class="cap">(the confinement mechanism itself is still not proven from first principles)</text>
+
+  <text x="900" y="888" class="capBoldR">Why quarks are never seen alone</text>
+  <text x="900" y="908" class="cap">Topological necessity — a 1/3-winding vortex can't end in the vacuum</text>
+  <text x="900" y="926" class="cap">(confinement is a geometric consequence, not a separate postulate)</text>
+</svg>

@@ -165,6 +165,20 @@ Every symbol, variable, and named concept used in PDTP in one place:
 Companion to `docs/technical/glossary.md` (plain-English concepts) and
 `docs/research/equation_reference.md` (equations with status tags).
 
+## Mathematical Formalization
+The narrative, step-by-step mathematical foundations of PDTP — not a terse equation
+list (that's `equation_reference.md` above), but full derivations a reader can follow
+end-to-end — live in:
+`docs/research/mathematical_formalization.md`
+**Update that file whenever a new structural extension is added to the framework**
+(a new symmetry group, a new field, a new coupling mechanism — e.g. the SU(3)
+extension, the two-phase Lagrangian). Do not update it after every individual Part's
+incremental equation — that duplicates `equation_reference.md` with different
+formatting. The trigger is structural, not per-Part.
+**Known gap (flagged 2026-07-11):** the document currently stops before Part 37
+(SU(3) extension) and Part 61 (two-phase Lagrangian) — most of the framework's
+structural results are missing from it. Backfilling this is filed as TODO_04.md T65.
+
 ## Citation Format
 ```
 **Source:** [Title](URL)

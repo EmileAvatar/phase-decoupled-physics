@@ -44,12 +44,29 @@ the horizon, combined with CP symmetry already established in Part 125, EXACTLY
 reproduce the ln(2)-per-cell entropy Part 86 had to assume. Thread C is now closed
 with a net positive (if modest) result. See T60 below for both findings.
 
+**Thread D — Millennium Prize Problem Connections**
+Opened 2026-07-11 after reviewing an external paper that misappropriated the
+Yang-Mills Millennium Problem's name (see `docs/technical/The Seven Millennium Prize
+Problems.md` for the full reference doc). Of the seven problems, three (P vs NP, Hodge
+Conjecture, Birch-Swinnerton-Dyer) have no plausible PDTP connection and are not filed
+as TODO items. Four have at least an indirect link worth a scoping look: Riemann
+Hypothesis (dormant TODO_03 Category H), Yang-Mills mass gap (PDTP's own internal
+"mass gap" language vs. the actual axiomatic QFT problem — needs an explicit
+non-overclaiming statement), Navier-Stokes (superfluid condensate analogy, likely
+negative), and the Poincaré Conjecture's solution METHOD (Ricci flow with surgery) as
+a possible tool, not the theorem itself, for PDTP's topological-defect stability
+questions.
+
 ---
 
 ## Open Items — Quick Reference
 
 New additions go on top. One line per item. Full details below.
 
+- [ ] T64 — Poincaré/geometrization method scoping: could Ricci-flow-with-surgery-style geometric relaxation inform PDTP's own condensate-defect stability analysis (e.g. Hopf-link vs Y-junction energy comparison, Part 106)? Tool, not theorem -- Poincaré itself has no direct PDTP content [PENDING, SPEC, LOW PRIORITY]
+- [ ] T63 — Navier-Stokes / superfluid condensate scoping: does PDTP's Gross-Pitaevskii-style condensate description have any bearing on classical NS existence/smoothness, or is this purely a loose analogy? Expected NEGATIVE (different equations/regime) but must be stated explicitly, not just assumed [PENDING, SPEC, LOW PRIORITY]
+- [ ] T62 — Yang-Mills mass gap non-overclaiming statement: PDTP has internal "mass gap" results (m^2=2g for phi_-, omega_gap) and runs actual lattice SU(3) gauge theory (Parts 37-41) -- write an explicit scoping note distinguishing these from the axiomatic Clay Millennium Problem (rigorous QFT construction + gap proof), so PDTP never overclaims here the way the external paper reviewed 2026-07-11 did [PENDING, MEDIUM -- integrity/scoping task, not new physics]
+- [ ] T61 — Riemann Hypothesis connection revisit: TODO_03 Category H (H1-H4) is dormant SPECULATION with no calculation started; consolidate references with the new Millennium Problems doc; scope whether any PDTP structure (condensate mode density, phase spectrum) could relate to zeta zero statistics (Hilbert-Polya style) -- low priority, no concrete starting point identified yet [PENDING, SPEC, LOW PRIORITY]
 - [x] T60 — Relative entropy from phase mismatch: **DONE (Part 126 + Part 127, Phase 94-95, 2026-07-08).** Task 3 (prereq check): S_rel=1-alpha is NOT the same object as Part 86's S_PDTP; the external proposal cannot derive an area law without Part 86's same postulate (9/10 Sudoku). Task 2 (rescoped): phi_-'s OWN dynamics DO reproduce Part 86's ln(2)-per-cell entropy EXACTLY -- two CP-conjugate horizon branches of D+ (Part 98) source exactly-degenerate phi_- vacua (Part 61 coupling), giving S_cell=k_B*ln(2) matching Part 86 Eq 86.7 to ratio 1.000000 (12/12 Sudoku). Tasks 1/4/5 closed (not needed / not recommended). Net: external proposal literally fails, but the question it raised upgraded one Part 86 input from ASSUMED to DERIVED. [DONE]
 - [ ] T59 — Weak force placement: SU(2) extension vs riding existing condensate; even deferred answer must be tracked per Open Problem Tracking Rule [PENDING, SPEC, LOW PRIORITY]
 - [ ] T58 — EM condensate quantum mass: locate or derive m_cond_EM giving the 1e36 grav/EM ratio; add to term_glossary.md if missing [PENDING, LOW PRIORITY, one-row addition]
@@ -529,6 +546,108 @@ Delta_theta = pi/2 (alpha = 0, full decoupling): S_rel maximal.
   in task 3 finds new content beyond Part 86)
 - Doc: section in `docs/research/nonlinear_einstein.md` (extend Part 86, do not
   duplicate) OR new `docs/research/relative_entropy_bridge.md` if genuinely distinct
+
+---
+
+## Group D — Millennium Prize Problem Connections
+
+**Context:** Opened 2026-07-11 while reviewing an external paper (Klingman, "The Origin
+of Quarks in Quantum Gravity," JMP 2024) that invoked the Yang-Mills Millennium Problem's
+NAME to lend credibility to an unrelated, self-contained derivation. That review prompted
+a full pass over all seven Millennium Prize Problems to check honestly which (if any)
+PDTP actually touches. Reference doc:
+`docs/technical/The Seven Millennium Prize Problems.md` (all seven, with type,
+plain-English description, and an explicit relevance verdict for each).
+
+**Screened out, not filed as TODO items (no plausible PDTP connection):**
+P vs NP, Hodge Conjecture, Birch and Swinnerton-Dyer Conjecture. Filing these anyway
+would be exactly the kind of unearned-connection padding this project's rigor rules
+exist to prevent.
+
+**Filed below (all indirect; none claim to solve or contribute to the actual problem):**
+
+### [ ] T61 — Riemann Hypothesis Connection Revisit — PENDING [SPEC, LOW PRIORITY]
+
+**Status:** PENDING
+**Source:** `docs/technical/The Seven Millennium Prize Problems.md` #3; cross-ref
+TODO_03.md Category H (H1-H4, all SPECULATION, no calculation started)
+
+**What:** TODO_03's Riemann-zeta thread has sat dormant with no concrete starting point.
+Consolidate its references with the new Millennium Problems doc, and scope (not
+attempt) whether any PDTP structure -- condensate mode density, the phase spectrum of
+psi/phi excitations, or the biharmonic dispersion relation -- could plausibly relate to
+zeta zero statistics in a Hilbert-Polya sense (zeros as eigenvalues of a physical
+Hermitian operator). This is a genuinely hard, unsolved problem in pure mathematics;
+the honest expectation is that this stays speculative indefinitely unless a concrete
+operator candidate emerges from PDTP's own equations, not the reverse.
+
+**Deliverable:** short scoping note only (no script) -- either a candidate operator
+worth writing up, or an explicit NEGATIVE ("no candidate identified") filed back to
+TODO_03 Category H.
+
+---
+
+### [ ] T62 — Yang-Mills Mass Gap Non-Overclaiming Statement — PENDING [MEDIUM, integrity/scoping]
+
+**Status:** PENDING
+**Source:** `docs/technical/The Seven Millennium Prize Problems.md` #4; direct trigger
+for opening Thread D
+
+**What:** PDTP already uses "mass gap" language internally (m^2 = 2g for phi_- at full
+lock, Part 62/119; omega_gap = m_P*c^2/hbar throughout) and runs real lattice SU(3)
+gauge theory calculations (Parts 37-41: Wilson action, Metropolis Monte Carlo, string
+tension). Both are genuinely useful PDTP results. Neither is a contribution to the
+axiomatic Clay Millennium Problem (rigorous constructive QFT existence + proof of a
+mass gap satisfying the Wightman/Osterwalder-Schrader axioms). The risk: future
+sessions (or external readers) could conflate the two, exactly as the external paper
+reviewed 2026-07-11 conflated its own private "mass-gap existence theorem" with the
+real, unsolved problem.
+
+**Deliverable:** a short, explicit scoping paragraph -- added to
+`docs/research/equation_reference.md` or a new short note -- stating plainly what
+PDTP's mass-gap results are (effective-theory results internal to the PDTP Lagrangian)
+and are NOT (no claim on the Clay problem). No new derivation required; this is a
+documentation/integrity task.
+
+---
+
+### [ ] T63 — Navier-Stokes / Superfluid Condensate Scoping — PENDING [SPEC, LOW PRIORITY]
+
+**Status:** PENDING
+**Source:** `docs/technical/The Seven Millennium Prize Problems.md` #5
+
+**What:** PDTP's spacetime condensate is described in Gross-Pitaevskii/superfluid terms
+(Part 34: c_s = c exactly; general wave-effects catalog, Part 28c). Classical
+Navier-Stokes governs viscous fluid flow -- a different regime (classical, dissipative,
+3D PDE) from PDTP's quantum phase-field equations (dispersive, non-dissipative at the
+level considered so far). Scope whether there is ANY legitimate bridge, or whether this
+is purely a loose surface-level analogy (superfluid vs. viscous fluid) not worth
+pursuing further.
+
+**Expected outcome:** NEGATIVE -- but must be stated explicitly with reasoning, not
+silently assumed, per the Open Problem Tracking Rule.
+
+**Deliverable:** short scoping note only (no script).
+
+---
+
+### [ ] T64 — Poincaré/Geometrization Method Scoping — PENDING [SPEC, LOW PRIORITY]
+
+**Status:** PENDING
+**Source:** `docs/technical/The Seven Millennium Prize Problems.md` #7
+
+**What:** The Poincaré Conjecture itself is solved and has no direct PDTP content. But
+Perelman's SOLUTION METHOD -- Ricci flow (∂g/∂t = -2*Ric(g), a geometric relaxation
+equation) combined with "surgery" to handle singularities -- is a general mathematical
+TOOL, independent of the specific theorem it was used to prove. PDTP already compares
+competing topological defect configurations by energy (Part 106: Hopf-link vs.
+Y-junction baryon, E_H/E_Y = 2*pi). Scope whether a Ricci-flow-like relaxation dynamic
+could offer a more systematic (rather than case-by-case) way to identify PDTP's
+topological ground states, or whether the existing energy-comparison approach is
+already sufficient and this would add complexity without new results.
+
+**Deliverable:** short scoping note only (no script) -- proceed to a full investigation
+only if a concrete, tractable formulation emerges.
 
 ---
 

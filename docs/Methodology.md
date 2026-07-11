@@ -1,5 +1,16 @@
 # Methodology — How We Work
 
+**Companion documents:** this file is PDTP's own condensed, practical checklist.
+For the general, citable methodology several sections here draw from, see
+`Methodology_Math.md` (Pólya, proof techniques, Lakatos) and
+`Methodology_Science.md` (falsifiability, paradigms, model-building). Added
+2026-07-11 to ground this checklist's techniques in their real sources rather
+than leaving them uncited. See also `Methodology_Human_AI.md` — a different kind
+of companion doc, cataloging the human and AI failure modes (bias, institutional
+self-interest, AI hallucination/sycophancy) that can distort *evaluation* of a
+result independent of whether it's actually correct. Read its caveat before
+using it to explain away a rejected result.
+
 ## What Methodology Are We Using?
 
 ### The Sudoku Consistency Check
@@ -26,7 +37,9 @@ The "Sudoku" framing is our label for the methodology. The logic is universal.
 ### Historical Parallels
 
 These are examples of scientists using the same core strategies we use.
-Each one is a template for a class of problem-solving move.
+Each one is a template for a class of problem-solving move. For the general
+scientific-method framework these examples illustrate (falsifiability, paradigm
+shifts, model-building), see `Methodology_Science.md`.
 
 #### Maxwell's Displacement Current — Scaffolding That Became Real
 
@@ -248,6 +261,11 @@ Check off what you have tried. Untried items are where the answer may be hiding.
 
 ### 5. Handle Negative Results Properly
 
+*See `Methodology_Human_AI.md` for why a documented negative result (exactly
+where and how it failed) resists casual dismissal in a way a spoken "that's
+wrong" does not — and for the human/AI failure modes that can distort evaluation
+of a result independent of whether it's actually correct.*
+
 - [ ] **Document what fails, not just that it fails** — record the exact
   contradiction and what assumption it traces back to
 - [ ] **Find the correction factor** — if all tests fail by the same ratio,
@@ -262,6 +280,10 @@ Check off what you have tried. Untried items are where the answer may be hiding.
 ---
 
 ### 6. Mathematical Strategies
+
+*See `Methodology_Math.md` for the fuller, general-purpose form of these
+techniques (Pólya's four-phase framework, the full proof-technique catalog,
+Lakatos on how negative results refine a theorem rather than just killing it).*
 
 - [ ] **Work backwards** — assume the desired result and derive what inputs
   it requires. Are those inputs physically reasonable?
@@ -289,7 +311,8 @@ Check off what you have tried. Untried items are where the answer may be hiding.
 - [ ] **Ask: what would have to be true for this to work?** — then check
   whether that thing is true
 - [ ] **Ask: what would falsify this?** — if nothing would falsify it, the
-  claim is not physics, it is philosophy
+  claim is not physics, it is philosophy (Popper's falsifiability criterion —
+  see `Methodology_Science.md` Section 2)
 - [ ] **Look for the free parameter** — every framework has something it cannot
   fix internally. Identify it explicitly rather than hiding it.
 - [ ] **Change the question** — sometimes the question is malformed.
