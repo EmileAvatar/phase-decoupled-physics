@@ -44,6 +44,7 @@ New additions go on top. One line per item. Full details below.
 - T13 — Update falsifiable_predictions.md with new testable items from T1-T6 [integration]
 - T14 — Update equation_reference.md with all new T-equations [integration]
 - T15 — Final verdict and summary (did tan reveal new physics?) [integration]
+- T66 — Rotation-field / tetrad promotion (Cosserat-continua analogy): promote scalar phi(x) to local SO(2) rotation R(x); check against Part 84's SU(3)-derived tetrad (not Part 12, which Part 84 already beat 6-4); independently flagged by T27's "Cosserat microrotation" note [SPEC, LOW PRIORITY, filed 2026-08-01; see docs/notes speedoflight/note Greek Cross Orientation Lattice as an Analogy for Spacetime Phase Fields.md]
 - T65 — Backfill mathematical_formalization.md: doc stops before Part 37 (SU(3)) and Part 61 (two-phase); add both as new sections with full step-by-step derivations [integration, LARGE, filed 2026-07-11]
 - M3 — Moire band spacing vs evanescent depth (Part 89 cross-check) [SPEC]
 - M4 — Moire min displacement {s,r} vs vortex winding (quark n=73 Pythagorean?) [SPEC]
@@ -1005,6 +1006,68 @@ for the full investigation plan (16 website pages + JSFiddle code review).
 3. JS visualization code -- adaptable for PDTP wave/vortex simulations
 4. Independent confirmation: their c=sqrt(mu/rho) = PDTP Part 34; their gravity-as-refraction = PDTP Part 98
 **Priority:** Low (external; speculative; visualization value high).
+
+#### [ ] T66. Rotation-Field / Tetrad Promotion (Cosserat-Continua Analogy)
+
+**Part:** TBD
+**Source:** External ChatGPT session note, reviewed 2026-08-01 --
+`docs/notes speedoflight/note Greek Cross Orientation Lattice as an Analogy for
+Spacetime Phase Fields.md` (per CLAUDE.md's External AI Reviews rule -- judged
+on its own merits given the session's limited context; it did not have access
+to Part 84 or Part 116).
+
+**What:** The note visualizes the PDTP lattice as a field of rotating "Greek
+crosses" and suggests promoting the scalar phase field phi(x) to a full local
+rotation field R(x) in SO(2) (matrix form, not just an angle). This is not new
+notation -- U(1) and SO(2) are isomorphic as sets -- but treating each lattice
+site as carrying a full local frame rather than a single angle is a real
+structural step, and connects to established continuum-mechanics formalisms
+(Cosserat continua, E. and F. Cosserat 1909; micropolar media, Eringen 1966).
+**Notably, T27 (Elastic Universe review) independently flagged the same idea**
+("Cosserat microrotation -- rotational DOF in condensate?") from a completely
+different source -- two independent external inputs converging on the same
+suggestion is worth taking seriously even though neither alone is a derivation.
+
+**Key questions:**
+1. Can phi(x) be reformulated as a local rotation field R(x) without breaking
+   any existing single-phase derivation (Newtonian limit, GR recovery via
+   Part 98/101, PPN parameters Part 112)?
+2. How does R(x) relate to PDTP's CURRENT best tetrad candidate -- Part 84's
+   SU(3)-derived tetrad (which already beat the older Part 12 acoustic-analogy
+   tetrad 6-4 with 7 ties) -- rather than Part 12, which the note cites?
+   Is R(x) a re-derivation of Part 84, a genuinely different structure, or
+   incompatible with it?
+3. Does the Cosserat/micropolar formalism supply a ready-made equation of
+   motion for microrotation that PDTP could borrow directly, or does the
+   coupling term (g*cos(psi-phi)) need to be rebuilt from scratch for a
+   matrix-valued field?
+4. Do vortices/domain walls in the R(x) picture reduce to the SAME topological
+   defects already used elsewhere in PDTP (Part 33 vortex winding, Part 37
+   SU(3) Z_3 vortices), or would this introduce new defect types needing
+   separate stability analysis?
+
+**Explicitly NOT adopted from the same note (recorded so it isn't re-proposed
+without this context):** the note's dark-matter mechanism -- gravitational
+coupling ~ |cos(Delta_phi)| with EM coupling ~ (1+cos(Delta_phi))/2, and
+separately, phi_- shifting the equilibrium by 180 degrees for a "hidden
+sector" -- was reviewed and rejected as a next step. Reasons: (a) |cos(theta)|
+has a differentiability kink at theta=pi/2 that is not addressed; (b) it is a
+third, uncoordinated dark-matter mechanism competing with the already-DERIVED
+winding-based mechanism (Part 116, T43: n=1 vortex stability + Kibble-Zurek ->
+m_DM = m_P); (c) the phi_- claim does not match the actual derived vacuum
+structure (true vacuum at phi_- = pi/2, Part 119, not a matter-induced 180
+degree shift from a phi_-=0 baseline, Part 125). If DM-via-phase-structure is
+revisited later, it must be reconciled against Part 116 first, not treated as
+a fresh proposal.
+
+**Expected effort:** Medium-large if pursued (structural extension, comparable
+in scope to the two-phase Lagrangian or SU(3) extension -- needs a Problem-
+Solving Protocol plan-first pass per CLAUDE.md before any code/derivation work).
+**Likely outcome:** Either a genuine unification of Part 84's tetrad with a
+Cosserat-style microrotation field (positive), or a demonstration that R(x)
+reduces to Part 84 in disguise (negative but clarifying).
+**Priority:** Low (speculative, large scope; no immediate gap it closes; revisit
+if T27's Elastic Universe review also independently reaches this point).
 
 ---
 

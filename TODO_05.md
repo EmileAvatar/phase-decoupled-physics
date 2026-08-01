@@ -396,7 +396,22 @@ prevents phi_grav from directly phase-locking to A_mu (the EM condensate field)?
 - S4: condensate-condensate coupling amplitude -- what suppresses phi_grav locking to A_mu?
   (Expected suppression: the coupling constant ratio m_cond_grav/m_cond_EM ~ sqrt(1e36))
 - S5: Lorentz invariance -- EM condensate must not introduce a preferred frame;
-  c_s = c must hold independently (Part 34)
+  c_s = c must hold independently (Part 34) -- **DONE (conversational check,
+  2026-08-01), PASS but TAUTOLOGICAL.** SymPy re-derivation of Part 95 Result 1
+  (Eqs 4a/4d closure ansatz) confirms c_s^2 = c^2 is an exact algebraic identity
+  for ANY m_cond -- residual = 0 even for an independent m_cond_EM. Numeric check
+  using T58's own candidate m_cond_EM = sqrt(4*pi*eps0*hbar*c) ~= 1.876e-18 kg
+  (11.6 billion times lighter than m_P) still gives c_s_EM/c = 1 to machine
+  precision (deviation ~2e-16). Cross-check via standard EM (c = 1/sqrt(mu0*eps0))
+  also exact by 2019 SI definition. GW170817's real bound (Abbott et al. 2017,
+  ApJL 848, L13: -3e-15 <= delta <= +7e-16) was translated into a fractional
+  stiffness-ratio window eps_EM = (Xi_EM/Xi_grav - 1) in [-1.4e-15, +6e-15] --
+  a genuine, sharp number, but ONLY relevant if a future refinement gives the EM
+  condensate an independently-motivated stiffness parameter not cloned from
+  gravity's closure ansatz. As currently formulated, the multi-medium framework
+  has no free parameter GW170817 could have falsified -- same tautological
+  flavor as Result 2's "circular in isolation" note in emergent_c.md. S5 PASSES;
+  S1-S4 remain PENDING (T57 overall status unchanged).
 
 **Doc:** section in new `docs/research/multi_medium_framework.md`
 
