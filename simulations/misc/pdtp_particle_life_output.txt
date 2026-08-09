@@ -1,0 +1,15 @@
+PDTP Particle Life Toy Simulation -- run log
+=======================================================
+N particles: 520  (species: [('light', 250, 1.0), ('medium', 180, 2.2), ('heavy', 90, 4.0)])
+Grid: 128x128, box=100.0, dx=0.7812
+G_GRAV=0.3, KAPPA_SURF=1.2, SURF_STRENGTH=300.0
+FRICTION=0.96, SOFTENING=0.6, DT=0.05, N_STEPS=300
+mean|v| first step: 0.6763
+mean|v| last step:  2.6624
+mean|v| max over run: 4.1264
+NaN in final position: False
+NaN in final velocity: False
+
+NOTE: toy/illustrative model, dimensionless units, not a
+Sudoku-checked PDTP Part. See module docstring for exactly
+which channels are [DERIVED] vs [TOY SIMPLIFICATION].

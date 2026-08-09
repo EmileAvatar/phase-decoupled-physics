@@ -289,6 +289,14 @@ alone cannot set the abundance; that contradiction is the finding.
   See `sigma_m_erratum.py` and the erratum block in `condensate_layer_optics.md`.
 - **O4 — why Omega_DM = 27%?** Still not predicted (depends on O2 + reheating
   temperature).
+- **O5 — does topological (vortex) DM wake differently than collisionless DM?**
+  [OPEN, filed 2026-08-05] Mainstream galactic dynamics (Weinberg & Blitz 2006)
+  models the Milky Way's dark-matter-driven disk warp ("flapping") as a
+  collisionless Vlasov-Poisson wake. Since this Part's DM is a topological
+  vortex, not a free particle, the wake could in principle propagate or
+  dissipate differently (vortex reconnection vs. free-streaming) -- nothing
+  computed yet. See [galactic_disk_dynamics_note.md](galactic_disk_dynamics_note.md)
+  (TODO_05.md T67).
 
 ---
 

@@ -63,6 +63,7 @@ questions.
 
 New additions go on top. One line per item. Full details below.
 
+- [ ] T67 — Galactic disk "flapping" as DM-wake phenomenology: Milky Way warp actively driven by Magellanic Cloud dark-matter wake (Weinberg & Blitz 2006); initial findings written up with a tiered, honestly-scoped PDTP connection (structural compatibility / open question re: Part 116 topological DM / speculative variable-c wake idea stacked on T57) [PENDING, LOW PRIORITY, filed 2026-08-05; see docs/research/galactic_disk_dynamics_note.md]
 - [ ] T64 — Poincaré/geometrization method scoping: could Ricci-flow-with-surgery-style geometric relaxation inform PDTP's own condensate-defect stability analysis (e.g. Hopf-link vs Y-junction energy comparison, Part 106)? Tool, not theorem -- Poincaré itself has no direct PDTP content [PENDING, SPEC, LOW PRIORITY]
 - [ ] T63 — Navier-Stokes / superfluid condensate scoping: does PDTP's Gross-Pitaevskii-style condensate description have any bearing on classical NS existence/smoothness, or is this purely a loose analogy? Expected NEGATIVE (different equations/regime) but must be stated explicitly, not just assumed [PENDING, SPEC, LOW PRIORITY]
 - [ ] T62 — Yang-Mills mass gap non-overclaiming statement: PDTP has internal "mass gap" results (m^2=2g for phi_-, omega_gap) and runs actual lattice SU(3) gauge theory (Parts 37-41) -- write an explicit scoping note distinguishing these from the axiomatic Clay Millennium Problem (rigorous QFT construction + gap proof), so PDTP never overclaims here the way the external paper reviewed 2026-07-11 did [PENDING, MEDIUM -- integrity/scoping task, not new physics]
@@ -435,6 +436,40 @@ m_cond_EM = sqrt(hbar*c*4*pi*eps_0) -- compute and add to term_glossary.md.
 - Is m_cond_EM related to m_e (electron mass) or the fine structure constant?
 
 **Deliverable:** one row in term_glossary.md + one sentence in multi_medium_framework.md
+
+---
+
+### [ ] T67 — Galactic Disk "Flapping" as DM-Wake Phenomenology — PENDING [LOW PRIORITY]
+
+**Status:** PENDING (initial findings only, filed 2026-08-05; deeper pass deferred)
+**Estimated effort:** unknown -- no calculation attempted yet, scoping note only
+**Source:** conversational review, 2026-08-05; see `docs/research/galactic_disk_dynamics_note.md`
+
+**What:**
+The Milky Way's disk is warped and actively driven, not static -- the Large/Small
+Magellanic Clouds orbiting through the dark matter halo excite a gravitational
+wake (Weinberg & Blitz 2006, "A Magellanic Origin for the Warp of the Galaxy",
+ApJ 641, L33) that resonantly couples to and drives the disk's vertical bending
+modes; press coverage at the time called this "flapping." Initial findings
+(mainstream mechanism + a tiered, honestly-scoped PDTP connection) are written
+up in the new doc above. Three tiers, in order of how derived they are:
+1. Structural compatibility only (PDTP's condensate already supports waves and
+   has its own natural modes -- same ontology as any dark-matter-as-medium
+   picture, nothing new)
+2. Genuinely open question: does Part 116's Planck-vortex DM (topological, not
+   collisionless-particle) change the wake's propagation/dissipation compared
+   to standard LCDM? Not computed anywhere.
+3. Speculative, unquantified idea: a wake-driven local condensate density dip
+   could leave a trailing variable-c signature (Part 95 Result 5), IF gravity
+   and EM condensates are coupled -- stacks on T57's still-open, still-
+   tautological multi-medium question, so flagged as an idea, not a prediction.
+
+**Deliverable so far:** `docs/research/galactic_disk_dynamics_note.md` (initial
+findings, explicitly marked preliminary/exploratory, not Sudoku-checked).
+
+**Next steps (not started):** quantify tier 2 (does topological vortex DM wake
+differently than collisionless DM?); quantify tier 3 only after T57 gets an
+actual free stiffness parameter to hang it on.
 
 ---
 
