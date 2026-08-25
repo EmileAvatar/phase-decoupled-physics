@@ -32,26 +32,26 @@ New additions go on top. One line per item. Full details below.
 - T33 — Geometric blueshift via condensate infall flow (analog horizon as frequency pump) [SPEC, Goal 2]
 - T34 — Fractal Z_3 cascade (self-similar vortex subdivision, frequency ladder 3^n) [SPEC, Goal 2]
 - T35 — Analog-horizon Hawking emission test (device should emit T_H phase noise if T33 works) [SPEC, testable]
-- T4 — Gravitational Brewster angle for GWs (breathing vs tensor mode reflection) [priority 4]
-- T5 — Multi-layer phase stacks (air/water/oil decoupling, transfer matrix) [priority 5]
-- T6 — Leidenfrost + tan phase transition (critical exponents, universality class) [priority 6]
-- T7 — Hawking temperature with n_PDTP = 1/alpha (modify surface gravity kappa?) [priority 7]
-- T8 — PPN parameters with tan corrections (must keep gamma=1, beta=1) [priority 8]
+- T4 — Gravitational Brewster angle for GWs (breathing vs tensor mode reflection) [DONE, Part 108, Phase 76, 2026-05-09]
+- T5 — Multi-layer phase stacks (air/water/oil decoupling, transfer matrix) [DONE, Part 109, Phase 77, 2026-05-09]
+- T6 — Leidenfrost + tan phase transition (critical exponents, universality class) [DONE, Part 110, Phase 78, 2026-05-09]
+- T7 — Hawking temperature with n_PDTP = 1/alpha (modify surface gravity kappa?) [DONE, Part 111, Phase 79, 2026-05-17]
+- T8 — PPN parameters with tan corrections (must keep gamma=1, beta=1) [DONE, Part 112, Phase 80, 2026-05-17]
 - T9 — Two-phase tan: Delta_+ and Delta_- diagnostics [DONE, Part 113, Phase 81; 12/12 Sudoku; L_res=2g at Leidenfrost; phi_-=breathing mode at horizon]
 - T10 — SU(3) group manifold tan [DONE, Part 121, Phase 89; 10/10 Sudoku; Z3 critical angle=60deg tan=sqrt(3); C2=1/sin^2(60)=4/3; see docs/research/su3_tan_geometry.md]
 - T11 — Koide angle and tan (theta_0 = 2/9, Z_3 geometry) [DONE, Part 122, Phase 90; 10/10 Sudoku; master formula delta=sqrt(2)*tan(theta_v) PDTP Original; theta_v(leptons)=45deg=U1 critical; quark sqrt(3) NEGATIVE; theta_0 NEGATIVE; see docs/research/koide_tan.md]
-- T12 — N_eff and heat kernel tan (does n_PDTP modify 6*pi factor?) [priority 12]
-- T13 — Update falsifiable_predictions.md with new testable items from T1-T6 [integration]
-- T14 — Update equation_reference.md with all new T-equations [integration]
-- T15 — Final verdict and summary (did tan reveal new physics?) [integration]
+- T12 — N_eff and heat kernel tan (does n_PDTP modify 6*pi factor?) [DONE, Part 129, 2026-08-09; 12/12 Sudoku; NEGATIVE -- n_PDTP is M-sourced, identically 1 in the M=0 vacuum where the Sakharov cutoff lives; N_eff gap (Part 83) unchanged; see docs/research/neff_sakharov.md Section 10]
+- T13 — Update falsifiable_predictions.md with new testable items from T1-T6 [DONE, 2026-08-09; added Prediction 15 (Brewster angle, Part 108) + Prediction 16 (Leidenfrost critical exponents, Part 110) + Prediction 10 horizon refinement (Part 113)]
+- T14 — Update equation_reference.md with all new T-equations [DONE, 2026-08-09; found Parts 121 (T10) and 122 (T11) missing entirely, added both; flagged Parts 119/120 (T46/T47, Lambda thread) as also missing but out of T14's scope]
+- T15 — Final verdict and summary (did tan reveal new physics?) [DONE, 2026-08-09; VERDICT: genuine new structure (U(1)/SU(3) geometric unification, surprising Koide-45deg connection, 2 new falsifiable predictions), but does NOT constrain m_cond/G -- tan investigation CLOSED as productive]
 - T66 — Rotation-field / tetrad promotion (Cosserat-continua analogy): promote scalar phi(x) to local SO(2) rotation R(x); check against Part 84's SU(3)-derived tetrad (not Part 12, which Part 84 already beat 6-4); independently flagged by T27's "Cosserat microrotation" note [SPEC, LOW PRIORITY, filed 2026-08-01; see docs/notes speedoflight/note Greek Cross Orientation Lattice as an Analogy for Spacetime Phase Fields.md]
 - T65 — Backfill mathematical_formalization.md: doc stops before Part 37 (SU(3)) and Part 61 (two-phase); add both as new sections with full step-by-step derivations [integration, LARGE, filed 2026-07-11]
 - M3 — Moire band spacing vs evanescent depth (Part 89 cross-check) [SPEC]
 - M4 — Moire min displacement {s,r} vs vortex winding (quark n=73 Pythagorean?) [SPEC]
-- T17 — n=sqrt(2) observable near compact objects (VLBI/EHT lensing signature) [priority 17]
-- T18 — Two-phase Delta_- crossover inside dense matter (neutron star f/g-modes) [priority 18]
-- T19 — L_4 SymPy verification + b quark check (all L_4 results currently unverified) [priority 19]
-- T20 — L_4 Goldstone mode: what is it? (graviton? phi_-? Higgs eater?) [priority 20]
+- T17 — n=sqrt(2) observable near compact objects (VLBI/EHT lensing signature) [priority 17] [DONE, Part 130, 2026-08-09 -- no isolable signature at n=sqrt2 itself; positive byproduct: EHT shadow radius matches GR exactly even in scalar theory]
+- T18 — Two-phase Delta_- crossover inside dense matter (neutron star f/g-modes) [priority 18] [DONE, Part 131, 2026-08-09 -- NO pi/4 crossover for Delta_- (structurally different from Delta_+); independently re-derives Part 119's phi_-=pi/2 true vacuum; NS mode-frequency sub-question OPEN, filed as TODO_05 T68]
+- T19 — L_4 SymPy verification + b quark check (all L_4 results currently unverified) [priority 19] [DONE, Part 132, 2026-08-09 -- found+fixed a real sign error (FE1-FE3) and a real numerical error (eigenvalues failed trace check); b-quark "4% match" downgraded to open question, doc's own cited analogy actually favors a different rule that does NOT match]
+- T20 — L_4 Goldstone mode: what is it? (graviton? phi_-? Higgs eater?) [priority 20] [DONE, Part 133, 2026-08-09 -- genuine independent massless scalar; NOT graviton (spin), NOT phi_- (field content), not currently eaten (no gauge field)]
 - T25 — String theory and PDTP (Regge slope, graviton, extra dims, landscape) [priority 25, low]
 - T26 — Bob Lazar truth table (decoupling phenomenology, 5 scenarios) [priority 26, low]
 - T27 — Elastic Universe review (shear modes, liquid crystal, visualizations) [priority 27, low]
@@ -458,32 +458,123 @@ Z_3 geometry? The Koide angle lives on the flavor circle -- does Brewster's
 angle appear there?
 **Cross-check with:** Part 53 (Z3-Koide derivation)
 
-#### [ ] T12. N_eff and Heat Kernel Tan — PRIORITY 12
+#### [x] T12. N_eff and Heat Kernel Tan — DONE (Part 129, 2026-08-09)
 
 **What:** The Sakharov formula heat kernel a_1 coefficient involves curvature
 integrals. Does n_PDTP = 1/alpha enter the heat kernel expansion? Could this
 modify the 6*pi factor?
 **Cross-check with:** Part 83 (N_eff = 6pi gap)
 
+**Result [NEGATIVE, 12/12 Sudoku]:** No. n_PDTP = 1/alpha (Part 98) is sourced
+by a gravitating mass M and is identically 1 when M=0. The Sakharov cutoff
+Lambda = m_cond*c/hbar (Part 74b/83) has no M dependence, and the calculation
+that fixes N_eff is conducted entirely in that M=0 vacuum -- there is no term
+for a refractive-index correction to attach to. The N_eff gap (Part 83, range
+[8,34], target 6*pi ~ 18.85) is exactly as open as before. Structurally
+distinct from T7/Part 111's negative result (group vs phase velocity) --
+recorded separately to avoid conflating the two mechanisms.
+**Script:** `simulations/solver/t12_neff_refractive_index.py`
+**Doc:** `docs/research/neff_sakharov.md` Section 10
+
 ---
 
 ### Phase 4 — Integration
 
-#### [ ] T13. Update Falsifiable Predictions
+#### [x] T13. Update Falsifiable Predictions — DONE (2026-08-09)
 
 **What:** After T1-T6, update `docs/research/falsifiable_predictions.md` with
 any new testable predictions (Brewster angle, transition redshift, etc.).
 
-#### [ ] T14. Update Equation Reference
+**Result:** Reviewed all of T1-T12 against the existing 14 predictions (plan
+presented and approved first, per this file's "always plan before updating"
+rule). Two genuinely new, non-redundant predictions added:
+- **Prediction 15 — Gravitational Brewster Angle** (T4/Part 108): polarization-
+  selective total transmission at tan(theta_B)=alpha1/alpha2 for the breathing
+  mode; no analogous angle for tensor modes. Neutron-star-surface deviation
+  ~4.1 deg (large, in-principle resolvable).
+- **Prediction 16 — Leidenfrost Critical Exponents** (T6/Part 110): (beta,nu,
+  gamma)=(1,1/2,1), a non-equilibrium laser-threshold universality class for
+  the decoupling transition; testable via lab BEC/superfluid/Josephson analogs.
+- **Prediction 10 refined** (T9/Part 113): exact horizon result m^2(phi_-)=
+  omega_gap^2=2g -- phi_- and the breathing mode become the SAME excitation
+  at a black hole horizon (not just another weak-field data point).
+
+Everything else from T1-T12 correctly excluded as out-of-scope (internal
+consistency checks / negative results / non-discriminating from GR) --
+T1 (scalar-tensor deflection, resolved by SU(3)), T7 (Hawking T unchanged),
+T8 (PPN matches GR), T2/T10/T11/T12 (geometry/mass-relation/theory results,
+not observational discriminators).
+
+#### [x] T14. Update Equation Reference — DONE (2026-08-09)
 
 **What:** Add all new equations (T.1-T.14 and any derived during Parts) to
 `docs/research/equation_reference.md`.
 
-#### [ ] T15. Final Verdict and Summary
+**Result:** Audited all T1-T12 Parts against equation_reference.md. Found
+Parts 121 (T10, SU(3) group manifold tan) and 122 (T11, Koide angle and tan)
+were missing ENTIRELY -- added both with full equation tables (Eqs 121.1-121.6,
+122.1-122.5). All other tan-series Parts (98-113, 129) were already present
+and correct. Also flagged (but did not fix, out of T14's tan-series scope):
+Parts 119 (T46) and 120 (T47) from the separate Lambda-locking thread are
+ALSO missing from equation_reference.md -- noted in the changelog for a
+future pass.
+
+#### [x] T15. Final Verdict and Summary — DONE (2026-08-09)
 
 **What:** Write up the overall findings. Did tan reveal new physics?
 Which predictions survived the full FCC + Wave check?
 Does any tan result help constrain m_cond or derive G?
+
+**VERDICT: tan revealed genuine new structure, but not a new mechanism or
+a free-parameter resolution.** Specifically:
+
+1. **A coherent geometric language unifying separate sectors.** The U(1)
+   critical angle (45 deg, T2/Part99) and SU(3) critical angle (60 deg,
+   T10/Part121) are the SAME diagnostic (phase mismatch where restoring
+   force balances coupling force) applied to different gauge groups. The
+   SU(3) angle independently reproduces the ALREADY-KNOWN Casimir factor
+   4/3 = 1/sin^2(60deg) (Part 37) -- a nontrivial cross-check the tan lens
+   did not have to pass, but did.
+2. **One genuinely surprising cross-domain connection.** T11/Part122 found
+   the Koide lepton mass formula's partition angle is EXACTLY 45 deg -- the
+   identical U(1) gravitational critical angle from T2, despite Koide's
+   formula living entirely in the particle-mass sector. This was not
+   assumed or fitted; it fell out of the master formula delta=sqrt(2)*
+   tan(theta_v). The quark sector and theta_0 did NOT show a matching
+   connection (confirmed NEGATIVE, Part 122.4-122.5) -- so this is a real,
+   specific, falsifiable-in-hindsight structural fact about leptons, not a
+   general pattern being overfit everywhere.
+3. **Two new falsifiable predictions** (T13, Predictions 15-16): the
+   gravitational Brewster angle (polarization-selective GW transmission at
+   a density interface) and the Leidenfrost critical exponents
+   (beta,nu,gamma)=(1,1/2,1) for the decoupling transition -- both did not
+   exist before this investigation.
+4. **Three honest negative/confirming results** (T7, T8, T12): PPN
+   parameters, Hawking temperature, and the Sakharov N_eff gap are all
+   UNCHANGED by n_PDTP. This is valuable precisely because it was not
+   guaranteed -- a wrong theory could easily have broken one of these
+   well-tested GR results, and none did.
+
+**Does tan constrain m_cond or derive G? NO.** Every tan result operates at
+the level of geometric/critical-angle structure (dimensionless ratios,
+angles, exponents) -- none of T1-T12 touch the m_cond hierarchy problem.
+m_cond remains PDTP's one free parameter (A1, all perturbative paths
+exhausted per Parts 29-35), exactly as before this investigation. T48/T49
+(hierarchy reframe, Kuramoto connection) remain the open threads for that
+separate problem, still low-priority/speculative pending T46 follow-up.
+
+**Which predictions survived the full FCC + Wave check?** All 6 productive
+Parts (T4, T6, T9, T10, T11, plus T13's integration) passed their own
+Sudoku suites (10/10 to 12/12 each) and remain standing. No tan-derived
+result was later found to contradict an established PDTP result.
+
+**Summary table (T1-T12, T15 recomputed from the Status Summary table above):**
+DONE productive: T4, T5, T6, T9(via T113 refinement), T10, T11 (6).
+DONE constructive-negative/confirming: T1, T2, T3, T7, T8 (5).
+DONE negative-but-informative: T12 (1).
+Net: 0 physics reversals, 2 new falsifiable predictions, 1 unexpected
+cross-domain connection (Koide/T2), 1 gap fully characterized (N_eff,
+unaffected by tan). The tan investigation is CLOSED as productive.
 
 #### [ ] T65. Backfill mathematical_formalization.md
 
@@ -667,63 +758,168 @@ moire angle hypothesis survives first contact with numbers. These are
   => lensing factor = 1+gamma = 1 (not 2); measured gamma = 1+/-2e-5 (Cassini 2003)
 - Fix requires SU(3) spatial metric (Part 75): g_ij from Tr(dU_dag dU) [SPECULATIVE]
 
-#### [ ] T17. n = sqrt(2) Observable Signature — PRIORITY 17
+#### [x] T17. n = sqrt(2) Observable Signature — PRIORITY 17 — DONE (Part 130, 2026-08-09)
 **Source:** Part 99 open question 2; tan_critical_point.md Sec 10.2
 **What:** Near a compact object where Delta_+ approaches pi/4, n_PDTP = sqrt(2) = 1.414.
 Is this distinguishable from standard GR lensing at that density?
-**Key questions:**
+
+**RESULT:** The original note's own math above was WRONG -- it used u=1-alpha
+(should be u=(1-alpha^2)/2) and got r=0.293*r_S "inside the Schwarzschild
+radius." The correct, exact answer is **r = 2 r_S** (SymPy solve, Eq 130.1),
+well outside the horizon and inside the EHT-probed range (1.5-6 r_S) as
+originally hoped. BUT: a general GR fact (turning-point b(r0)=r0/sqrt(g_tt(r0)),
+independent of g_rr, Wald 1984) means PDTP's scalar n_PDTP(r)*r is algebraically
+IDENTICAL to the true GR turning-point formula (Eq 130.4) -- so the photon
+sphere (1.5 r_S) and EHT shadow radius (b_crit=3*sqrt(3)GM/c^2) match GR
+EXACTLY, even in the unmodified scalar theory (Eq 130.6-130.7). The n=sqrt(2)
+point itself (r=2 r_S) is not a turning point or shadow boundary -- it carries
+no EHT-isolable signature. Independently re-derived Part 98's known weak-field
+factor-of-2 via orbit-equation perturbation theory (Eq 130.8-130.10), confirming
+it (not new, but now derived by a second method). Neutron stars (typical
+compactness C~0.17-0.19) fall well short of the C=0.25 needed for n=sqrt(2);
+the Buchdahl bound (C=0.444) permits it in principle for unusually compact NS.
+**Verdict: NEGATIVE for T17's original premise (no new signature at n=sqrt2),
+but a genuine new POSITIVE byproduct (EHT shadow-size prediction survives
+exactly in the pure scalar theory).** 16/16 Sudoku PASS.
+**Script:** `simulations/solver/t17_photon_sphere_signature.py`.
+**Doc:** `docs/research/pdtp_refractive_index.md` Section 12.
+**Not touched:** falsifiable_predictions.md -- no NEW falsifiable difference
+from GR was found (the result is "matches GR", not "differs from GR"), so no
+new numbered Prediction was added; the existing factor-of-2 discussion in
+Part 98 Sec 5.3 already covers the weak-field side of this.
+
+**Key questions (original, now answered above):**
 - At what mass density does Delta reach pi/4? Use alpha = 1/sqrt(2) => GM/(rc^2) = 1 - 1/sqrt(2) ~ 0.293.
   => r = GM/(0.293 * c^2) = 0.293 * r_S (inside the Schwarzschild radius!) -- probably not observable.
+  **[CORRECTED, Part 130: this arithmetic was wrong; correct answer is r=2 r_S, see above.]**
 - For neutron stars (r ~ 3 r_S): Delta_+ is small but nonzero. What is n there?
 - Could the n=sqrt(2) signature appear in gravitational lensing of light near black holes?
   VLBI/EHT images of M87* and Sgr A* probe r ~ 1.5-6 r_S.
-**Cross-check with:** Part 98 (TIR table: n=3.3 at r=1.1*r_S), Part 73 (Kerr metric PDTP)
+**Cross-check with:** Part 98 (TIR table: n=3.3 at r=1.1*r_S), Part 73 (Kerr metric PDTP;
+NOT re-derived here -- Kerr spin flagged as future work, Sec 12.11)
 **Effort:** Medium (need to map density to Delta; VLBI data comparison).
 
-#### [ ] T18. Two-Phase Delta_- Crossover Near Dense Matter — PRIORITY 18
+#### [x] T18. Two-Phase Delta_- Crossover Near Dense Matter — PRIORITY 18 — DONE (Part 131, 2026-08-09)
 **Source:** Part 99 open question 3; tan_critical_point.md Sec 10.3
 **What:** The reversed Higgs (Part 62) gives phi_- a mass near matter: m^2 = 2g*Phi.
 Does Delta_- ever reach pi/4 inside a neutron star or white dwarf?
-**Key questions:**
+
+**RESULT:** Re-deriving Part 61's own product-form potential directly
+(V_eff = -2g*sin(Delta_+)*sin(phi_-)) and extremizing it shows the TRUE
+minimum is at phi_- = pi/2 for ANY Delta_+ > 0 -- independently reproducing
+Part 119's cosmological "true vacuum at pi/2" result via a much simpler,
+purely static argument (no beta parametrization or Part 117 quartic needed).
+This also reconciles Part 62's original mass claim: its "V''(0)" was
+evaluated at phi_-=0, which is NOT a stationary point once Delta_+>0 (dV/dphi_-
+there is nonzero) -- that quantity describes the initial tachyonic push
+rate, not a stable particle mass. The correct stable mass is
+m^2(Delta_+)=2g*sin(Delta_+) at phi_-=pi/2. **Delta_- = pi/2 - phi_- has NO
+pi/4 crossover** -- checked directly (dV/dphi_- at phi_-=pi/4 is nonzero for
+Delta_+>0) and explained structurally: Delta_+'s pi/4 crossover (Part 99)
+is a regime boundary within a monotonic "how decoupled" dial; Delta_- is a
+displacement from a single stable equilibrium, a different kind of variable
+in a differently-shaped potential -- no analogous feature exists.
+**Key Questions (a) and (c) answered: NO stable crossover; NOT the same
+kind of state as the pi/2 equilibrium.**
+While scoping Key Question (b) (NS f/g-mode comparison), found Part 62's
+g=omega_gap uses the same units shortcut T51/Part128 already flagged and
+fixed elsewhere (forced [g]=1/s^2, not 1/s); two "corrected" candidates
+(omega_gap^2 vs Part 119's own g_dyn) differ by ~60 orders of magnitude for
+a NS-scale calculation -- reported as OPEN rather than guessed at, and
+**filed as new TODO_05 T68** (a project-wide g-units audit, out of T18's
+scope). 13/13 Sudoku PASS.
+**Script:** `simulations/solver/t18_delta_minus_crossover.py`.
+**Doc:** `docs/research/phi_minus_local_mass_and_crossover.md` (new).
+
+**Key questions (original, now answered above):**
 - Delta_- equation of motion: involves phi_- mass term from Part 62.
   Is there a stable crossover state Delta_- = pi/4 inside dense objects?
+  **[ANSWERED: NO, see above.]**
 - If Delta_- = pi/4 inside a neutron star: n_- = sqrt(2). Would this affect
-  neutron star oscillation modes (f-modes, g-modes)?
+  neutron star oscillation modes (f-modes, g-modes)? **[OPEN, blocked on TODO_05 T68.]**
 - Connection: reversed Higgs at equilibrium phi_- = pi/2 (Part 62) vs crossover pi/4.
-  Are these the same thing or different states?
+  Are these the same thing or different states? **[ANSWERED: different kinds of concept
+  entirely; pi/2 is the potential's genuine minimum, pi/4 is not special at all.]**
 **Cross-check with:** Part 61-62 (two-phase, reversed Higgs), Part 99 (crossover analysis)
 **Effort:** Medium (extend Part 62 to solve for Delta_- profile inside dense star).
 
-#### [ ] T19. L_4 SymPy Verification and b Quark Check — PRIORITY 19
+#### [x] T19. L_4 SymPy Verification and b Quark Check — PRIORITY 19 — DONE (Part 132, 2026-08-09)
 **Source:** pdtp_lagrangian4.md -- all results currently [SPECULATIVE, unverified]
 **What:** L_4 = L_kinetic + L_self + L_cross adds J_{ab} cos(phi_a - phi_b) inter-layer coupling.
 Verify ALL results with SymPy before accepting any as [DERIVED].
-**Tasks (in order):**
+
+**RESULT:** Two independent errors found and corrected in the previously-
+unverified document. (1) FE1-FE3 had a sign error on the J-coupling terms
+(direct SymPy differentiation of L_4 disagrees; validated first against
+FE4, which the doc got right and SymPy reproduces exactly). The doc's
+separately-stated mass matrix was, despite this, already correct -- now
+confirmed independently, and generalized: the mass matrix is exactly a
+weighted graph Laplacian (standard graph theory), proving the "exact zero
+eigenvalue + positive rest" claim in general, for any number of condensate
+layers. (2) The doc's stated full-3x3 eigenvalues (34 TeV/178 TeV) failed a
+basic trace(M^2) sanity check by 10 orders of magnitude -- recomputed
+correctly (~1.35e9 GeV / ~3.13e10 GeV). Also found the doc's own
+"conservation law" claim was a tautology as literally stated; the real,
+stronger, previously-unstated result is FE1+FE2+FE3+FE4=0 identically (the
+Goldstone equation of motion across all 4 fields, not just 3).
+Task 4 (product rule vs geometric mean): the doc's own cited analogy
+(Lorentz-Berthelot) actually supports the geometric mean, sqrt(g_a*g_b)/2,
+not the product rule g_a*g_b/2 it adopted -- using the geometric mean gives
+m_23=2.00 GeV (52% off the b quark) vs the product rule's 4.01 GeV (4% off).
+Since both are equally valid dimensionally, this means the product rule
+looks like it was picked BECAUSE it gives an appealing number, not derived
+independently -- the headline "4% match" is downgraded from finding to open
+question. Task 5 (what is the C2-C3 mode) is now lower priority given this.
+15/18 Sudoku PASS (3 expected fails documenting the sign-error finding).
+**Script:** `simulations/solver/lagrangian4.py`.
+**Doc:** `docs/research/pdtp_lagrangian4.md` (status upgraded to PARTIALLY VERIFIED).
+
+**Tasks (in order, now answered above):**
 1. SymPy: Euler-Lagrange equations for all 4 fields (phi_1, phi_2, phi_3, psi) from L_4.
-   Verify signs, symmetry, conservation law sum_a FE_a.
+   Verify signs, symmetry, conservation law sum_a FE_a. **[DONE -- sign error found+fixed.]**
 2. SymPy: Mass matrix M^2 eigenvalues (3x3 Laplacian). Verify zero eigenvalue (Goldstone) exact.
+   **[DONE -- confirmed exact, generalized to n condensates via graph Laplacian.]**
 3. SymPy: Isolated C2-C3 mode mass = sqrt(g_2 * g_3) with J_{23} = g_2*g_3/2.
    Numerical: sqrt(0.200 GeV * 80.4 GeV) = 4.010 GeV vs m_b = 4.18 GeV (4% off).
+   **[DONE -- confirmed numerically, and self-consistent with the full 3x3 limit.]**
 4. Physical argument: why does J_{ab} = g_a*g_b/2 (product rule) rather than sqrt(g_a*g_b)/2
    (geometric mean rule)? Is there a symmetry or dimensional argument?
+   **[ANSWERED: no such argument found; doc's own analogy favors the OTHER rule. OPEN.]**
 5. What IS the C2-C3 mode physically? It has no colour charge, no spin-1/2.
    Candidates: scalar meson near 4 GeV? Chi_c(1P) charmonium at 3.51 GeV? B meson (5.28 GeV)?
+   **[DEFERRED -- lower priority given (4)'s finding weakens the motivation.]**
 **Cross-check with:** L_1/L_2/L_3; Part 37 (SU(3) condensate); Part 53 (Koide Z3)
 **Effort:** Medium-High (new script needed: lagrangian4.py)
 
-#### [ ] T20. L_4 Goldstone Mode — What Is It? — PRIORITY 20
+#### [x] T20. L_4 Goldstone Mode — What Is It? — PRIORITY 20 — DONE (Part 133, 2026-08-09)
 **Source:** pdtp_lagrangian4.md Sec "Goldstone mode"
 **What:** L_4 has a global U(1) symmetry phi_a -> phi_a + c for all a simultaneously.
 This guarantees one massless Goldstone mode. What is this mode physically?
-**Key questions:**
-- The Goldstone is the overall phase of the combined condensate (gravity + QCD + EW).
-  Is this the graviton? (massless, spin-2 -- but Goldstone is spin-0 scalar)
-- Or is this phi_- from Part 61? (also massless in vacuum, from broken Z_2 symmetry)
-  Connection: L_4 Goldstone + Part 61 phi_- -- are they the same degree of freedom?
-- If the Goldstone is eaten by a gauge field (Higgs mechanism for inter-layer coupling):
-  what gets mass? Could this be the mechanism behind the W/Z mass acquisition?
-- Sudoku check: Goldstone theorem (Weinberg 1995, Sec 19.2) requires massless mode
-  for every broken continuous symmetry. L_4 has one U(1) -- one Goldstone. VERIFY.
+
+**RESULT:** chi = (phi_1+phi_2+phi_3+psi)/2 (extending T19/Part132's exact
+FE1+FE2+FE3+FE4=0 result to the field level) is a genuine, independent,
+freely-propagating massless scalar: canonical kinetic term, no mixing with
+the other 3 shape degrees of freedom, and dV/dchi=0 proven EXACTLY (not
+just linearized/near-vacuum) since every L_4 potential term is a
+cos(DIFFERENCE), so the chi-shift cancels algebraically at all orders.
+**NOT the graviton** -- pure representation theory (Goldstone theorem gives
+spin-0 for scalar fields; graviton is spin-2), no dynamics needed to settle
+this. **NOT Part 61's phi_-** -- different field content (chi spans 4
+fields across 3 condensate layers + matter; phi_- spans only 2 fields
+within C1's bulk/surface split) -- though the SAME underlying mechanism
+(any cos-difference Lagrangian has an automatic center-of-mass zero mode)
+recurs at both levels, a nice structural unification even though the modes
+themselves differ. **Higgs mechanism not applicable** to L_4 as currently
+written -- the symmetry is global (constant c), no gauge field exists in
+L_4 for chi to be eaten by; would need a distinct future gauging extension.
+11/11 Sudoku PASS.
+**Script:** `simulations/solver/t20_goldstone_identification.py`.
+**Doc:** `docs/research/pdtp_lagrangian4.md`, "Physical meaning of the Goldstone mode" section.
+
+**Key questions (original, now answered above):**
+- Is this the graviton? **[NO -- spin-0 vs spin-2, representation theory.]**
+- Is this phi_- from Part 61? **[NO -- different field content, though same recurring mechanism.]**
+- Is the Goldstone eaten by a gauge field? **[NOT APPLICABLE -- L_4 has no gauge field, symmetry is global.]**
 **Cross-check with:** Part 61 (phi_- as surface Goldstone), Part 62 (reversed Higgs mass)
 **Effort:** Low-Medium (mostly conceptual; SymPy eigenvalue check is fast)
 
@@ -1712,22 +1908,22 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T6 | Leidenfrost + phase transition | 6 | DONE (PRODUCTIVE) | 110 |
 | T7 | Hawking + n_PDTP | 7 | DONE (CONSTR. NEG.) | 111 |
 | T8 | PPN corrections | 8 | DONE (PRODUCTIVE) | 112 |
-| T9 | Two-phase tan | 9 | PENDING | TBD |
-| T10 | SU(3) group tan | 10 | PENDING | TBD |
-| T11 | Koide angle | 11 | PENDING | TBD |
-| T12 | Heat kernel tan | 12 | PENDING | TBD |
-| T13 | Update predictions | -- | PENDING | -- |
-| T14 | Update equation ref | -- | PENDING | -- |
+| T9 | Two-phase tan | 9 | DONE | 113 |
+| T10 | SU(3) group tan | 10 | DONE | 121 |
+| T11 | Koide angle | 11 | DONE | 122 |
+| T12 | Heat kernel tan | 12 | DONE (NEGATIVE) | 129 |
+| T13 | Update predictions | -- | DONE | -- (added Predictions 15-16) |
+| T14 | Update equation ref | -- | DONE | -- (added Parts 121, 122) |
 | M1 | Pythagorean lock-in alpha_EM | SPEC | DONE -- QUASIPERIODIC | -- |
 | M2 | tan(theta_W) Pythagorean | SPEC | DONE -- INCONCLUSIVE | -- |
 | M3 | Band spacing vs evanescent depth | SPEC | PENDING | -- |
 | M4 | Min displacement vs vortex winding | SPEC | PENDING | -- |
-| T15 | Final verdict | -- | PENDING | -- |
+| T15 | Final verdict | -- | DONE (CLOSED, productive) | -- |
 | T16 | Two-phase G_eff closes lensing factor-2? | 16 | DONE (NEGATIVE) | 100 |
-| T17 | n=sqrt(2) observable near compact objects | 17 | PENDING | -- |
-| T18 | Two-phase Delta_- crossover in dense matter | 18 | PENDING | -- |
-| T19 | L_4 SymPy verify + b quark check | 19 | PENDING | -- |
-| T20 | L_4 Goldstone mode -- what is it? | 20 | PENDING | -- |
+| T17 | n=sqrt(2) observable near compact objects | 17 | DONE (NEGATIVE + positive byproduct) | Part 130 |
+| T18 | Two-phase Delta_- crossover in dense matter | 18 | DONE (NEGATIVE + true-vacuum re-derivation) | Part 131 |
+| T19 | L_4 SymPy verify + b quark check | 19 | DONE (2 errors found+fixed; b-quark match downgraded) | Part 132 |
+| T20 | L_4 Goldstone mode -- what is it? | 20 | DONE (genuine independent scalar; not graviton/phi_-) | Part 133 |
 | T21 | Condensate compression as spatial curvature (lensing fix?) | 21 | DONE (MIXED) | 101 |
 | T22 | Platonic solids lens (discrete symmetry) | 24 (low) | DONE (PARTIAL) | 105 |
 | T23 | Hilbert space lens (sin^2 / Im^2 missing term) | 22 (high) | DONE (PRODUCTIVE) | 104 |
@@ -1753,5 +1949,7 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T43 | DM winding selection (n=1 by stability + KZ; m_DM = m_P; KZ relic abundance NEGATIVE 50 OoM; kill test = CMB tensor modes) | high | DONE (DERIVED + CONSTR. NEG.) | 116 |
 | T44 | Positive phi_-^4 quartic (induced channel at partial lock; lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2); transient self-switching EDE; beta(z) OPEN) | high | DONE (PRODUCTIVE) | 117 |
 | T45 | Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4; Bullet margin 44.3 OoM) + check_urls.py path/Unicode fixes | maintenance | DONE | 118 |
-| T46 | Lambda as locking relic: phi_-_vac = frozen residue of Part 117 roll; beta(z) -> {EDE, Lambda, w(z)} (3 observables, 1 input) | high (SPEC) | PENDING (plan first) | -- |
-| T47 | m_cond consequence scanner: lookup table of all observables vs candidate m_cond (1 eV..m_P); measurement rules out bands — NOT a brute-force finder (no-go, Part 115) | medium | PENDING | -- |
+| T46 | Lambda as locking relic: phi_-_vac = frozen residue of Part 117 roll; beta(z) -> {EDE, Lambda, w(z)} (3 observables, 1 input) | high (SPEC) | DONE PARTIAL | 119 |
+| T47 | m_cond consequence scanner: lookup table of all observables vs candidate m_cond (1 eV..m_P); measurement rules out bands — NOT a brute-force finder (no-go, Part 115) | medium | DONE | 120 |
+| T65 | Backfill mathematical_formalization.md (SU(3) + two-phase sections missing) | integration (LARGE) | PENDING | -- |
+| T66 | Rotation-field / tetrad promotion (Cosserat-continua analogy) | SPEC (low) | PENDING | -- |

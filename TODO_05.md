@@ -63,6 +63,16 @@ questions.
 
 New additions go on top. One line per item. Full details below.
 
+- [ ] T68 — Resolve g's units project-wide (1/s vs 1/s^2): Parts 33/94 use g as
+  a frequency (t_P=1/g, E_P=hbar*g); T51/Part128 independently derived [g]=1/s^2
+  from the field equation's own structure. Part 62's phi_- mass formula uses the
+  frequency convention directly; applying T51's fix moves its Earth-surface
+  prediction by ~42 orders of magnitude (105 eV -> ~1e14 GeV). Two "correct"
+  candidates (omega_gap^2 vs Part 119's g_dyn) already differ by ~60 OoM for a
+  neutron-star context. Touches Parts 33/61/62/94/96/113/117-119/128 -- bigger
+  than any single T-item, needs its own dedicated pass [PENDING, HIGH -- blocks
+  any numerical phi_- local-mass prediction; filed 2026-08-09 from TODO_04 T18,
+  see docs/research/phi_minus_local_mass_and_crossover.md Sec 7]
 - [ ] T67 — Galactic disk "flapping" as DM-wake phenomenology: Milky Way warp actively driven by Magellanic Cloud dark-matter wake (Weinberg & Blitz 2006); initial findings written up with a tiered, honestly-scoped PDTP connection (structural compatibility / open question re: Part 116 topological DM / speculative variable-c wake idea stacked on T57) [PENDING, LOW PRIORITY, filed 2026-08-05; see docs/research/galactic_disk_dynamics_note.md]
 - [ ] T64 — Poincaré/geometrization method scoping: could Ricci-flow-with-surgery-style geometric relaxation inform PDTP's own condensate-defect stability analysis (e.g. Hopf-link vs Y-junction energy comparison, Part 106)? Tool, not theorem -- Poincaré itself has no direct PDTP content [PENDING, SPEC, LOW PRIORITY]
 - [ ] T63 — Navier-Stokes / superfluid condensate scoping: does PDTP's Gross-Pitaevskii-style condensate description have any bearing on classical NS existence/smoothness, or is this purely a loose analogy? Expected NEGATIVE (different equations/regime) but must be stated explicitly, not just assumed [PENDING, SPEC, LOW PRIORITY]
@@ -77,10 +87,73 @@ New additions go on top. One line per item. Full details below.
 - [ ] T54 — Prior art section: cite Zel'dovich, running vacuum, holographic DE; state what PDTP adds (mechanism + freeze-out); needed to survive peer review [PENDING, MEDIUM; research doc section]
 - [ ] T53 — Phantom crossing derivation: derive effective w(z) of partially-locked phi_minus INCLUDING energy exchange with matter sector; check w < -1 without ghost instability; SymPy + Sudoku [PENDING, HIGH; Task 4b from DESI update]
 - [ ] T52 — Kuramoto expanding-lattice simulation: 2D Kuramoto grid with shrinking coupling range mimicking H(t); measure <phi_minus^2> vs H/K; extract beta(z); triple Sudoku chain (EDE + Lambda + w_0/w_a) [PENDING, HIGH; jackpot sim]
-- [ ] T51 — Dimensional audit: Lambda = g * phi_minus_vac^2 SymPy dimensional check tracking every factor of c and hbar; tag the corrected relation [PENDING, MEDIUM; prerequisite for T52]
+- [x] T51 — Dimensional audit: **DONE (2026-08-05)** — dimensionally-complete formula Lambda = g_Lambda*phi_minus_vac^2/c^2, g_Lambda = 3*Omega_Lambda*omega_gap^2 = 7.067e+86 s^-2 (reproduces Lambda_obs to 1.000000, no hbar needed beyond what's already inside omega_gap); KEY FINDING: g_Lambda != g_dyn (Part 119's dynamical coupling) by 122 orders of magnitude -- two different quantities were sharing the bare symbol "g"; substituting g_dyn directly gives an inconsistent phi_vac > pi/2 (negative-but-useful cross-check); O4 in lambda_locking_fossil.md RESOLVED; Sudoku 12/12 PASS [DONE]
 - [x] T50 — Lambda causal-sync numerical check: **DONE (Part 123, Phase 91, 2026-07-07)** — O(1) coefficient derived in CLOSED FORM: C = 3*Omega_Lambda = 2.054 +- 0.022 (SymPy identity, residual 0); closest candidate = 2 (Part 61 G_eff = 2*G_bare) at 2.7%; C = 2 exactly <=> Omega_Lambda = 2/3 <=> z_lock ~ 0.03; two-phase bare-G gives C_bare = 6*Omega_Lambda = 4.11 ~ 4; Sudoku 11/11 PASS [DONE]
 
 **Natural next picks:** T51 (dimensional audit, prerequisite for T52); T56 (QCD stiffness ratio, highest-priority PENDING item in Thread B, now that T55 is PARTIAL); T60 Task 2 (phi_- dynamics vs Part 86 entropy, if you want to continue Thread C).
+
+---
+
+### [ ] T68 — Resolve g's Units Project-Wide (1/s vs 1/s^2) — PENDING [HIGH]
+
+**Status:** PENDING
+**Estimated effort:** unknown -- likely a multi-Part audit, not a single calculation
+**Source:** discovered while scoping TODO_04 T18, 2026-08-09; see
+`docs/research/phi_minus_local_mass_and_crossover.md` Sec 7.
+
+**What:**
+Two incompatible conventions for the bare Lagrangian coupling "g" (as in
+L = g cos(psi-phi)) are both live in the project, apparently never reconciled:
+
+1. **Frequency convention** (Parts 33, 94, and by extension 61/62/96/113):
+   g is identified directly with omega_gap = m_cond*c^2/hbar (units 1/s).
+   Part 94 Eq 94.6-94.7 builds t_P=1/g, E_P=hbar*g, and "omega_gap=g" on this.
+2. **1/s^2 convention** (Part 128/T51): derived independently from the field
+   equation's own structure -- box(phi) = g sin(psi-phi) with phi dimensionless
+   forces [g] = 1/s^2, one power more than a frequency. T51's own stated fix
+   ("omega_gap^2, not omega_gap, plays g's role") was applied to the Part 87
+   cosmological-constant schematic (giving g_Lambda) but not audited against
+   every other formula using bare "g".
+
+**Concrete impact found so far:** applying convention 2's fix to Part 62's
+phi_- local mass formula (m^2=2g*Phi) moves its Earth-surface prediction from
+~105 eV (as literally coded, convention 1) to ~4.5e14 GeV (convention 2) --
+a ~42 order-of-magnitude swing. Separately, Part 119's own g_dyn (already
+established specifically for phi_-'s present-day cosmological mass,
+correctly dimensioned at 1/s^2) differs from the T51 placeholder omega_gap^2
+by another ~60+ orders of magnitude for a neutron-star-scale comparison
+(T18/Part 131, Sec 6) -- these are not obviously the same "g" either.
+
+**Key questions:**
+- Is "g" in Parts 33/94's derivation (giving G=hbar*c/m_cond^2, l_P=c/g,
+  t_P=1/g) actually a DIFFERENT physical object from the Lagrangian coupling
+  in box(phi)=g*sin(...) -- e.g. is Parts 33/94's "g" really E/hbar for some
+  energy E, with a hidden extra hbar or c factor separating it from the
+  literal Lagrangian-coupling g? Or is one of the two conventions simply
+  wrong and needs correcting throughout?
+- Does G=hbar*c/m_cond^2 (Part 33, THE central circularity-tested result)
+  survive unchanged if g is redefined? (It doesn't explicitly use "g" as an
+  input in its final form, but was originally derived via the frequency
+  convention -- check for hidden dependence.)
+- Which convention (if either, unmodified) is the physically correct one for
+  LOCAL/static formulas (Part 62's phi_- mass, Part 82's Yukawa length) as
+  opposed to the cosmological g_Lambda (Part 128) and g_dyn (Part 119)?
+- Sudoku re-check: does EITHER convention, substituted consistently
+  everywhere "g" appears project-wide, pass 10+ established equations, or do
+  they split into a "these equations need convention 1" / "these need
+  convention 2" pattern that itself points at two genuinely different
+  physical couplings hiding under one symbol?
+
+**Cross-check with:** Part 33 (G derivation), Part 94 (A6 FCC, g identification),
+Part 61-62 (two-phase Lagrangian, phi_- mass), Part 96.7a, Part 113.5 (horizon
+mass formula, also uses "2g"), Part 117 (induced quartic, uses g),
+Part 119 (g_dyn), Part 128/T51 (the 1/s^2 derivation and g_Lambda).
+**Effort:** Unknown, likely HIGH -- this is a project-wide bookkeeping audit,
+not a single new derivation. Recommend starting with a **plan** (per
+CLAUDE.md's Problem-Solving Protocol) before any code: list every Part/formula
+that uses bare "g", classify each by which convention it actually needs
+dimensionally, and only then decide whether this is a uniform fix, a
+"these are two different objects" reframe, or something else.
 
 ---
 
@@ -157,27 +230,48 @@ derivations only). The ansatz ties Lambda to expansion history -- genuinely exte
 
 ---
 
-### [ ] T51 — Dimensional Audit: Lambda = g * phi_minus_vac^2 — PENDING [MEDIUM]
+### [x] T51 — Dimensional Audit: Lambda = g * phi_minus_vac^2 — DONE [2026-08-05]
 
-**Status:** PENDING
-**Estimated effort:** half-day (SymPy dimensional analysis)
+**Status:** DONE
 **Source:** `docs/fable_notes/instruction_lambda_locking.md` Section 6 kill tests
-**Prerequisite:** T50 (need numerical values before auditing the formula)
+**Prerequisite:** T50 (re-checked independently, not just imported -- RECHECK rule)
+**Script:** `simulations/solver/t51_dimensional_audit.py`
+**Log:** `simulations/solver/outputs/t51_dimensional_audit_20260809_193749.txt`
+**Doc:** `docs/research/lambda_locking_fossil.md` Section 11 (new)
+**Sudoku:** 12/12 PASS
 
-**What:**
-The formula Lambda = g * phi_minus_vac^2 was cited from Part 87 in the Fable
-notes. T46 used ratio form to sidestep dimensional issues. A full derivation
-cannot. Track every factor of c and hbar from the Lagrangian coupling g [rad/s]
-to Lambda [m^-2].
+**Result:**
+Field equation box(phi) = g*sin(psi-phi) with phi dimensionless forces
+[g] = 1/s^2 (frequency squared) -- confirming the "g in the natural-unit sense,
+units [mass]^2" flag already present in emergent_c.md Result 7. omega_gap =
+m_P*c^2/hbar (Part 33/94) carries dimension 1/s -- ONE POWER SHORT of what g
+needs, meaning "g = omega_gap" (CLAUDE.md Eq 4e) and "g" in cos(psi-phi) are
+NOT literally the same statement (omega_gap^2, not omega_gap, plays g's role
+wherever it appears squared elsewhere, e.g. Part 95 Eq 95.7 -- no existing
+numerical result is affected).
 
-**Key questions:**
-- Exact SI units of phi_minus_vac in the two-phase Lagrangian (Part 61)?
-- Correct formula: Lambda = g/c^2 * phi_minus_vac^2, or involves hbar?
-- Does biharmonic dispersion (Part 61) contribute additional factors?
+**Dimensionally-complete formula [DERIVED]:**
+```
+Lambda = g_Lambda * phi_minus_vac^2 / c^2
+g_Lambda = 3*Omega_Lambda*omega_gap^2 = 7.067e+86 s^-2
+```
+Reproduces Lambda_obs to 1.000000 using phi_vac_ansatz = H0/omega_gap (the T50
+causal-sync ansatz) -- no separate hbar term needed (already inside omega_gap).
+Answers T51's own posed question: YES to c^2 in the denominator, NO extra hbar.
 
-**Deliverables:**
-- SymPy script with dimensional chain verification
-- Updated section in lambda_locking_fossil.md with corrected relation tagged [DERIVED] or [SPECULATIVE]
+**KEY FINDING [NEGATIVE-BUT-USEFUL]:** g_Lambda != g_dyn (Part 119's dynamical
+coupling, tied to m^2 = 2*g_dyn) -- they differ by 122 orders of magnitude.
+Substituting g_dyn directly into the schematic instead requires phi_vac =
+2.196 rad, EXCEEDING pi/2 itself -- inconsistent with the "small displacement
+from the true vacuum" picture (Part 119/T46). These are two genuinely distinct
+PDTP quantities that were sharing the bare symbol "g" across Parts 87/94 vs 119;
+both remain valid for their own purposes, but must not be substituted for each
+other. lambda_locking_fossil.md's Open Question O4 (unit reconciliation) is
+RESOLVED.
+
+**T52 dependency:** T52's triple-Sudoku chain must use g_Lambda explicitly
+(not the bare Part 87 schematic) when feeding measured phi_vac into the Lambda
+prediction step.
 
 ---
 

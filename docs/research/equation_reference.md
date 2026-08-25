@@ -1562,6 +1562,94 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 
 ---
 
+### Part 133 additions (T20: L_4 Goldstone mode identification):
+
+**Source:** Part 133 (2026-08-09), `simulations/solver/t20_goldstone_identification.py`;
+`docs/research/pdtp_lagrangian4.md` Sec "Physical meaning of the Goldstone mode". Sudoku 11/11 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 133.1 | chi = (phi_1+phi_2+phi_3+psi)/2, canonical kinetic term, no mixing with the 3 independent shape d.o.f. | [DERIVED, PDTP Original] | extends T19/Part132's Eq 132.2 (FE1+FE2+FE3+FE4=0) to the exact field identity |
+| 133.2 | dV/dchi = 0 identically for ANY field configuration (not just linearized) | [DERIVED, PDTP Original] | non-perturbative: every L_4 potential term is a cos(DIFFERENCE), so the chi shift cancels algebraically before any expansion |
+| 133-O1 | Goldstone is NOT the graviton (spin-0 vs spin-2, Goldstone theorem representation content) | [NEGATIVE, established physics applied] | representation-theoretic, not dynamical -- cites Weinberg 1996 Sec 19.2 |
+| 133-O2 | Goldstone is NOT Part 61's phi_- (different field content: 4 fields across 3 layers+matter vs 2 fields within C1) | [NEGATIVE, PDTP Original] | same underlying MECHANISM (cos-difference Lagrangians always have a center-of-mass zero mode) recurs at two different levels of the theory, but are different physical d.o.f. |
+| 133-O3 | Higgs mechanism not applicable to L_4 as written (no gauge field; symmetry is global not local) | [N/A, established physics applied] | would require a distinct future gauging extension |
+
+---
+
+### Part 132 additions (T19: L_4 SymPy verification and b-quark re-examination):
+
+**Source:** Part 132 (2026-08-09), `simulations/solver/lagrangian4.py`;
+`docs/research/pdtp_lagrangian4.md` Sec "SymPy Verification Results". Sudoku
+15/18 PASS (3 expected fails documenting a genuine, corrected sign error).
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 132.1 | FE1-FE3 sign correction: Box phi_a = g_a sin(psi-phi_a) MINUS (not plus) the J-coupling terms | [CORRECTED] | direct SymPy differentiation of L_4 disagreed with the original doc; validated first against FE4 (psi's eqn), which the original doc got right and SymPy reproduces exactly |
+| 132.2 | FE1+FE2+FE3+FE4 = 0 identically (full 4-field conservation) | [DERIVED, PDTP Original] | stronger than the doc's original "Newton's 3rd law" claim (which was a tautology as literally stated); the real content -- equation of motion for the exact overall Goldstone direction |
+| 132.3 | Mass matrix M^2_aa=sum J_ab, M^2_ab=-J_ab is a weighted graph Laplacian | [DERIVED, PDTP Original identification] | proves "one exact zero eigenvalue, rest positive for J>0" in GENERAL (any n condensates), not just n=3; standard graph-theory result (Wikipedia, Laplacian matrix) |
+| 132.4 | Full-3x3 eigenvalues recomputed: lambda_1~1.831e18, lambda_2~9.819e20 GeV^2 | [CORRECTED] | original doc's stated 1.16e9/3.17e10 GeV^2 failed a basic trace(M^2) sanity check by 10 orders of magnitude -- a computational error independent of the sign issue |
+| 132-O1 | Product rule J_ab=g_a*g_b/2 vs geometric mean sqrt(g_a*g_b)/2: doc's own cited Lorentz-Berthelot analogy supports the LATTER, not the rule it adopted | [NEGATIVE, re-examination] | geometric-mean rule gives m_23=2.00 GeV (52% off b quark) vs product rule's 4.01 GeV (4% off); substantially weakens the "4% match" as independent evidence -- looks reverse-engineered from the desired answer |
+
+---
+
+### Part 131 additions (T18: Delta_- crossover and phi_- true minimum):
+
+**Source:** Part 131 (2026-08-09), `simulations/solver/t18_delta_minus_crossover.py`;
+`docs/research/phi_minus_local_mass_and_crossover.md`. Sudoku 13/13 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 131.1 | V_eff(phi_-;Delta_+) = -2g*sin(Delta_+)*sin(phi_-) | [DERIVED] (from established Part 61 identity) | re-derived directly from the product-form coupling, not hand-typed |
+| 131.3 | phi_-_vac = pi/2, for any Delta_+ > 0 | [DERIVED, PDTP Original] | independently reproduces Part 119's true-vacuum result via direct static extremization, no cosmological beta or Part 117 quartic needed |
+| 131.4 | m^2(Delta_+) = 2g*sin(Delta_+) at the TRUE minimum (phi_-=pi/2) | [DERIVED, PDTP Original] | corrects Part 62's V''(0)-at-wrong-point formula; phi_-=0 is not even a stationary point for Delta_+>0 (residual check vs Part 62's claim is nonzero) |
+| 131-O1 | Delta_- = pi/2-phi_- has NO analogous pi/4 crossover (structurally different potential from Delta_+'s) | [NEGATIVE, PDTP Original] | answers T18 Key Questions (a) and (c); Delta_+'s pi/4 (Part 99, tan=1) is a regime boundary in a monotonic dial, Delta_- is a displacement from a single stable minimum |
+| 131-O2 | NS mode-frequency comparison: two candidate g values ~60 orders of magnitude apart | [OPEN, flagged] | discovered a units inconsistency (Part 62's g=omega_gap vs T51/Part128's forced [g]=1/s^2) not resolved here; filed as TODO_05 T68 |
+
+---
+
+### Part 130 additions (T17: n=sqrt(2)/photon-sphere signature near compact objects):
+
+**Source:** Part 130 (2026-08-09), `simulations/solver/t17_photon_sphere_signature.py`;
+`docs/research/pdtp_refractive_index.md` Section 12. Sudoku 16/16 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 130.1 | r(Delta_+=pi/4) = 2*r_S | [DERIVED, PDTP Original] | corrects TODO_04 T17's own note, which used u=1-alpha (wrong) and got r=0.293*r_S "inside the horizon"; correct relation is u=(1-alpha^2)/2, giving r=2*r_S, well outside |
+| 130.2-130.3 | b(r0) = r0/sqrt(A(r0)), independent of B(r), for any static spherical metric | [ESTABLISHED, Wald 1984 Sec 6.3] | photon turning-point-vs-impact-parameter relation depends only on g_tt; g_rr term vanishes identically at the turning point (rdot=0) for any B(r) |
+| 130.4 | n_PDTP(r)*r == b_GR(r) identically (SymPy residual 0) | [DERIVED, PDTP Original] | PDTP's scalar acoustic-metric n(r)=1/alpha(r), built from g_tt alone, is algebraically the SAME function as the true GR turning-point formula |
+| 130.6-130.7 | r_photon_sphere = 1.5*r_S, b_crit = 3*sqrt(3)*GM/c^2, from extremizing PDTP's own n(r) | [DERIVED] | matches established GR photon-sphere/shadow-radius result exactly; EHT shadow-boundary prediction unaffected by the scalar-vs-tensor gap |
+| 130.8-130.10 | delta_Schw=2*r_S/b, delta_PDTP-optical=r_S/b, ratio=2 (orbit-equation perturbation theory) | [DERIVED, PDTP Original method; GR result ESTABLISHED] | independent re-derivation of Part 98's factor-of-2 (Eq 98.5-98.7) via a different method (u=1/r orbit equation instead of the acoustic-metric argument); confirms it, does not change it |
+| 130-O1 | n=sqrt(2) locus (r=2*r_S) has no EHT-isolable observable signature | [NEGATIVE, T17 verdict] | original T17 premise not confirmed; positive byproduct: shadow-size prediction survives exactly in the unmodified scalar theory, sharpening where the known factor-of-2 problem does (weak lensing) and does not (EHT shadow) bite |
+
+---
+
+### Part 129 additions (T12: Does n_PDTP modify the Sakharov N_eff factor?):
+
+**Source:** Part 129 (2026-08-09), `simulations/solver/t12_neff_refractive_index.py`;
+`docs/research/neff_sakharov.md` Section 10. Sudoku 12/12 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 129.1 | alpha(M=0) = sqrt(1-0) = 1 | [DERIVED, SymPy residual 0] | n_PDTP = 1/alpha is sourced by a gravitating mass M (Part 98) and is identically 1 in flat vacuum |
+| 129.2 | d(Lambda)/dM = 0, Lambda = m_cond*c/hbar | [DERIVED, SymPy] | Sakharov cutoff (Part 74b/83) has no M dependence at all |
+| 129.3 | N_eff gap (Part 83, range [8,34], target 6*pi) UNCHANGED by n_PDTP | [DERIVED, NEGATIVE-BUT-INFORMATIVE] | the calculation fixing N_eff never leaves the M=0 domain where n_PDTP is trivial; structurally distinct from T7/Part 111's group-vs-phase-velocity negative result -- do not conflate |
+
+---
+
+### Part 128 additions (T51: Dimensional audit, Lambda = g*phi_minus_vac^2):
+
+**Source:** Part 128 (2026-08-05), `simulations/solver/t51_dimensional_audit.py`;
+`docs/research/lambda_locking_fossil.md` Section 11. Sudoku 12/12 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 128.1 | [g] = 1/s^2 from box(phi) = g*sin(psi-phi), phi dimensionless | [DERIVED, SymPy] | resolves the "[mass]^2 units" flag in emergent_c.md Result 7; omega_gap = m_P*c^2/hbar carries [T]^-1, one power short -- omega_gap^2, not omega_gap, plays g's role wherever squared elsewhere (no existing result affected) |
+| 128.2 | Lambda = g_Lambda*phi_minus_vac^2/c^2, g_Lambda = 3*Omega_Lambda*omega_gap^2 = 7.067e+86 s^-2 | [DERIVED, PDTP Original] | dimensionally-complete form of the Part 87 schematic; reproduces Lambda_obs to 1.000000 with phi_vac = H0/omega_gap (T50 ansatz); no separate hbar term needed |
+| 128.3 | g_Lambda / g_dyn = 3.48e+122 (g_dyn = Part 119's dynamical coupling, m^2=2*g_dyn) | [DERIVED, NEGATIVE-BUT-USEFUL] | g_Lambda and g_dyn are NOT the same object despite sharing the bare symbol "g" across Parts 87/94 vs 119; substituting g_dyn into Eq 128.2 requires phi_vac = 2.196 rad > pi/2, inconsistent with the true-vacuum picture -- confirms they must not be substituted for each other |
+
+---
+
 ### Part 123 additions (T50: Lambda causal-sync numerical check):
 
 **Source:** Part 123 (Phase 91, 2026-07-07), `simulations/solver/t50_lambda_causal_sync.py`;
@@ -1572,6 +1660,48 @@ Note: Parts 119-122 equations still pending (TODO_04 T14 integration task).
 |------|-------------------|-----|-------|
 | 123.1 | Lambda_obs/Lambda_naive = 3 Omega_Lambda (H_0/omega_gap)^2, i.e. C = 3 Omega_Lambda = 2.054 +- 0.022 | [DERIVED, SymPy residual 0] | algebraic identity given omega_gap = 1/t_P; closest candidate = derived Part 61 factor 2 (2.7% off); ansatz phi_-_vac ~ H/omega_gap remains [SPECULATIVE] |
 | 123.2 | C = 2 exactly <=> Omega_Lambda = 2/3 <=> (1+z_lock)^3 = Omega_Lambda/(2 Omega_m), z_lock = 0.028 | [SPECULATIVE] | freeze-out epoch if the coefficient is the derived two-phase factor 2; T52 Kuramoto sim decides |
+
+---
+
+### Part 122 additions (T11: Koide Angle and Tan):
+
+**Source:** Part 122 (Phase 90, 2026-07-06), `simulations/solver/t11_koide_tan.py`;
+`docs/research/koide_tan.md`. SymPy 6/6 PASS. Sudoku 10/10 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 122.1 | delta = sqrt(2)*tan(theta_v) [master formula] | [PDTP Original, DERIVED, SymPy VERIFIED] | flavor-vector partition angle theta_v sets the Koide delta parameter |
+| 122.2 | theta_v(leptons) = 45.000 deg, exact match to U(1) critical angle (T2/Part 99) | [EXACT, VERIFIED] | connects Koide delta=sqrt(2) geometrically to the tan critical-point series |
+| 122.3 | delta_up ~ sqrt(3) (1.54% off pole mass, 1.15% off MS-bar) | [NUMERICAL OBSERVATION] | near-miss, not exact |
+| 122.4 | T10's 60 deg SU(3) partition gives delta=sqrt(6), NOT sqrt(3) | [NEGATIVE, SymPy VERIFIED] | rules out a naive SU(3)-angle explanation for the up-quark delta |
+| 122.5 | theta_0 = 2/9: no T10 angle within 4% | [NEGATIVE] | confirms Part 91 -- theta_0 remains an independent free parameter |
+
+**Conclusion (Part 122):** Master formula delta=sqrt(2)*tan(theta_v) is PDTP Original
+and SymPy verified; the lepton sector's theta_v is EXACTLY the U(1) critical angle
+(45 deg, T2/Part 99) -- a genuine, unexpected geometric connection. Quark-sector and
+theta_0 attempts to match T10's SU(3) angles are NEGATIVE (near-misses only). 10/10 Sudoku.
+
+---
+
+### Part 121 additions (T10: SU(3) Group Manifold Tan):
+
+**Source:** Part 121 (Phase 89, 2026-07-06), `simulations/solver/t10_su3_tan.py`;
+`docs/research/su3_tan_geometry.md`. Sudoku 10/10 PASS.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 121.1 | SU(3) Z_3 critical angle = 60 deg, tan = sqrt(3) | [DERIVED, SymPy VERIFIED] | analog of U(1)'s 45 deg critical angle (T2), shifted by Z_3 three-fold symmetry |
+| 121.2 | C_2(fund) = 4/3 = 1/sin^2(60 deg) | [VERIFIED numerically] | exact coincidence -- SU(3) Casimir factor reproduced geometrically |
+| 121.3 | sigma_SU3/sigma_U1 = 1/sin^2(theta_crit) | [VERIFIED, matches Part 37] | reproduces the Part 37 (4/3) string-tension Casimir factor |
+| 121.4 | Generator arctan catalog: {30, 45, ~49} deg from Gell-Mann entries | [VERIFIED] | 64/64 diagonal + off-diagonal checks pass, residual < 1e-10 |
+| 121.5 | Root vectors at 60 deg intervals (hexagonal) | [EXACT, standard result] | textbook SU(3) root-lattice geometry |
+| 121.6 | SU(2) Z_2 critical angle = 90 deg, tan -> infinity | [DERIVED] | pattern check; U(1) 45 deg recovered as the N=1 special case |
+
+**Conclusion (Part 121):** In U(1) PDTP the critical phase offset is 45 deg (T2); in
+SU(3) PDTP (QCD condensate) the equivalent offset is 60 deg -- the angle at which a
+quark sits exactly halfway between two adjacent color vacua, forced by Z_3 symmetry.
+The same 60 deg exactly reproduces the SU(3) Casimir factor 4/3 = 1/sin^2(60 deg).
+10/10 Sudoku.
 
 ---
 
@@ -1829,6 +1959,68 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-08-09: Added Part 133 (T20: what physically IS L_4's Goldstone mode?
+  Extended T19's exact conservation law to the field identity chi=(phi1+phi2+phi3+psi)/2
+  [Eq 133.1], with dV/dchi=0 proven non-perturbatively (all orders, not just linearized)
+  [Eq 133.2]. NOT the graviton (spin-0 vs spin-2, representation theory) [Eq 133-O1].
+  NOT Part 61's phi_- (different field content -- 4 fields across 3 layers+matter vs 2
+  fields within C1 -- though the SAME underlying mechanism, a cos-difference Lagrangian's
+  automatic center-of-mass zero mode, recurs at both levels) [Eq 133-O2]. Higgs mechanism
+  not applicable to L_4 as written (no gauge field) [Eq 133-O3]. 11/11 Sudoku.)
+- 2026-08-09: Added Part 132 (T19: first SymPy verification of L_4, self-flagged
+  since 2026-04-06 as "not yet SymPy verified." Found and corrected a genuine sign
+  error in FE1-FE3 [Eq 132.1] (FE4 and the mass matrix were already correct,
+  validating the derivation method); found the doc's real "conservation law" is
+  the stronger, previously-unstated FE1+FE2+FE3+FE4=0 [Eq 132.2]; identified the
+  mass matrix as a weighted graph Laplacian, proving the Goldstone/positivity
+  claims in general [Eq 132.3]; found and corrected a second, independent error
+  -- the original full-3x3 eigenvalues failed a basic trace sanity check by 10
+  orders of magnitude [Eq 132.4]. Re-examined the product coupling rule behind
+  the headline b-quark "4% match": the doc's own cited analogy actually supports
+  a geometric mean, not the product rule adopted, and using the geometric mean
+  instead gives a much worse match -- downgrades the match from "finding" to
+  "open question, reverse-engineering suspected" [Eq 132-O1, NEGATIVE]. Doc
+  status upgraded to PARTIALLY VERIFIED. 15/18 Sudoku, 3 expected fails.)
+- 2026-08-09: Added Part 131 (T18: does Delta_- have a pi/4 crossover analogous to
+  T17's Delta_+? Re-deriving Part 61's own product potential directly shows phi_-'s
+  TRUE minimum is at pi/2 for any Delta_+>0 [Eq 131.3], independently reproducing
+  Part 119's cosmological result via a simpler static argument; corrects Part 62's
+  V''(0) mass formula, which evaluated curvature at phi_-=0, not even a stationary
+  point once Delta_+>0 [Eq 131.4]. Delta_-=pi/4 has NO crossover -- structurally a
+  different kind of variable from Delta_+ [Eq 131-O1, NEGATIVE]. While scoping the
+  NS mode-frequency sub-question, found Part 62's g=omega_gap uses the same units
+  shortcut T51/Part128 already flagged elsewhere; two candidate fixes differ by
+  ~60 orders of magnitude, reported OPEN rather than guessed at, filed as new
+  TODO_05 T68 [Eq 131-O2]. 13/13 Sudoku.)
+- 2026-08-09: Added Part 130 (T17: n=sqrt(2)/photon-sphere signature near compact
+  objects. Corrects TODO_04 T17's own algebra error -- Delta_+=pi/4 is at r=2*r_S,
+  not 0.293*r_S "inside the horizon" [Eq 130.1]. General GR fact: turning-point
+  b(r0)=r0/sqrt(A(r0)) is B(r)-independent [Eq 130.2-130.3], so PDTP's scalar
+  n_PDTP(r)*r is algebraically IDENTICAL to the true GR formula [Eq 130.4] --
+  photon sphere (1.5 r_S) and EHT shadow radius (b_crit=3*sqrt(3)GM/c^2) match GR
+  EXACTLY even in the unmodified scalar theory [Eq 130.6-130.7], while the
+  already-known weak-field factor-of-2 (Part 98) is independently re-derived via
+  orbit-equation perturbation theory [Eq 130.8-130.10]. Verdict: no new EHT
+  signature at n=sqrt(2) itself [Eq 130-O1, NEGATIVE], but the shadow-size result
+  is a genuine new positive finding. 16/16 Sudoku.)
+- 2026-08-09: T14 audit (tan investigation, TODO_04.md) found Parts 121 (T10, SU(3)
+  group manifold tan) and 122 (T11, Koide angle and tan) were missing from this file
+  entirely -- added both (Eqs 121.1-121.6, 122.1-122.5). Note: Parts 119 (T46, Lambda
+  locking fossil) and 120 (T47, m_cond scanner) are ALSO missing but are outside T14's
+  scope (TODO_05/Lambda thread, not the T1-T14 tan series) -- flagged for a future pass,
+  not fixed here.
+- 2026-08-09: Added Part 129 (T12: does n_PDTP modify the Sakharov N_eff factor?
+  NEGATIVE -- n_PDTP is M-sourced (Part 98) and identically 1 at M=0 [Eq 129.1];
+  the Sakharov cutoff has no M dependence [Eq 129.2]; N_eff gap (Part 83) is
+  UNCHANGED, structurally distinct from T7/Part 111's negative result [Eq 129.3];
+  12/12 Sudoku)
+- 2026-08-05: Added Part 128 (T51: dimensional audit of Lambda = g*phi_minus_vac^2;
+  field eq forces [g]=1/s^2, one power more than omega_gap's [T]^-1 -- resolves the
+  emergent_c.md Result 7 units flag [Eq 128.1]; dimensionally-complete formula
+  Lambda = g_Lambda*phi_minus_vac^2/c^2, g_Lambda=3*Omega_Lambda*omega_gap^2, matches
+  Lambda_obs to 1.000000 [Eq 128.2, DERIVED]; g_Lambda != g_dyn by 122 orders of
+  magnitude -- two quantities were sharing the bare symbol "g" [Eq 128.3, NEGATIVE-
+  BUT-USEFUL]; O4 in lambda_locking_fossil.md RESOLVED; 12/12 Sudoku)
 - 2026-07-08: Added Part 127 (T60 Task 2: horizon CP-degeneracy of phi_- EXACTLY reproduces Part 86's ASSUMED s_cell=ln(2) [Eq 127.4, DERIVED]; two branches of cos(D+)=0 at horizon source CP-conjugate, exactly degenerate phi_- vacua at +-pi/2 [Eqs 127.0-127.3]; mass m^2=2g branch-independent, consistent with Part 113; a_0 still open; 12/12 Sudoku)
 - 2026-07-08: Added Part 126 (T60 Task 3: relative-entropy prerequisite check; S_rel = 1-alpha is NOT the same object as Part 86's S_PDTP, cannot derive area law without the same postulate Part 86 already made Eq 126.3; third a_0=2*l_P candidate Eq 126.4 widens rather than tightens the existing O(1) cluster; RECOMMENDATION: T60 Tasks 1/4 not pursued as literally proposed, Task 2 (phi_- dynamics) remains open; 9/10 Sudoku, 1 honest recorded miss)
 - 2026-07-07: Added Part 125 (B4: quantitative CP violation at TRUE vacuum phi_-=pi/2; delta=eps/g preserved Eq 125.1; CORRECTION — CP-conjugate vacua EXACTLY degenerate Eq 125.3, Sakharov cond.2 is rate-based Eq 125.4 not energy-based (corrects Part 85 Eq 85.9); eps/g band [1.1e-8,6.1e-6] Eq 125.7; strong-CP relaxation Eq 125.5; two-phase psi/phi_+ sector EXACTLY unchanged Eq 125.6; 14/14 Sudoku; B4 upgraded PARTIALLY -> LARGELY RESOLVED)

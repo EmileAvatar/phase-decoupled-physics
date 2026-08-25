@@ -715,6 +715,15 @@ to be retuned depending on its distance from a massive object.
 | Earth surface | 7 × 10⁻¹⁰ | ~10¹⁶ rad/s | ~10¹⁶ Hz |
 | Solar orbit | 10⁻⁸ | ~10¹⁷ rad/s | ~10¹⁷ Hz |
 | Neutron star | 0.2 | ~10²² rad/s | ~10²² Hz |
+| Black hole horizon (exact, not weak-field) | -- | ω_gap = √(2g) | see below |
+
+**Horizon special case [Part 113, Eq 113.7b, PDTP Original]:** the weak-field
+formula ω = √(2gΦ) breaks down at the horizon (Φ is not small there). The
+exact strong-field result is m²(φ_-)|_{r_S} = ω_gap² = 2g — **φ_- and the
+tensor breathing mode become the same excitation at the horizon.** This
+sharpens the test: a resonant detector tuned to ω_gap near a black hole
+horizon would be probing φ_- and the breathing mode simultaneously, not two
+independent signals.
 
 ### How to test
 
@@ -996,6 +1005,136 @@ fundamental field or SM coupling is introduced.
 
 ---
 
+## Prediction 15: Gravitational Brewster Angle (Polarization-Dependent Reflection)
+
+### What PDTP predicts
+
+At a density interface (e.g. a neutron star surface, or an accretion disk
+boundary), an incident GW's breathing-mode ("x", TM-equivalent) polarization
+has a specific angle of **total transmission, zero reflection**:
+
+```
+[DERIVED, SymPy VERIFIED]
+  tan(theta_B) = n2/n1 = alpha1/alpha2                       (Eq. F.24)
+```
+
+The tensor ("+", TE-equivalent) polarization has **no such angle** — it always
+partially reflects at a real interface (r_+ = 0 would require n1 = n2, i.e.
+no interface at all). This creates a **polarization-dependent split**:
+
+```
+[PDTP Original]
+  delta_theta_B = theta_B,tensor - theta_B,breathing          (Eq. F.25)
+```
+
+**Numerical results** (Part 108):
+- Galaxy cluster (Φ/c² ~ 10⁻⁵): θ_B = 45.0003°, deviation ~1 arcsec
+- Neutron star surface (α = √0.75): θ_B = 49.1°, **deviation 4.1°** — large
+  and in principle resolvable
+- Near ω_gap (hypothetical, mode-splitting maximal): deviation ~12.4°
+
+**Source:** Part 108, `t4_brewster_gw.py` (5/5 SymPy, 12/12 Sudoku);
+`brewster_gw.md`.
+
+### What GR predicts
+
+No scalar/breathing mode exists in GR, so there is no polarization-selective
+transmission angle at all — any GW crossing a density interface reflects by
+the same (generally nonzero) amount regardless of incidence angle.
+
+### How to test
+
+Multi-detector GW polarization analysis for a source whose wave path is known
+to cross a density interface (e.g. a signal grazing a neutron star, or exiting
+through a stellar surface during core collapse) — look for an angle-dependent,
+polarization-selective transmission/reflection asymmetry matching Eq. F.24.
+
+### What confirms PDTP
+
+Detection of a polarization-selective transmission angle matching
+tan(θ_B) = α1/α2 for the relevant density contrast.
+
+### What kills PDTP
+
+GW polarizations transmit/reflect identically at all interface angles (no
+discriminating angle found) — would indicate no breathing mode exists, or
+the acoustic-metric refractive-index picture (Part 98) is wrong.
+
+### Current status
+
+Requires first detecting the breathing/scalar mode (Prediction 1) and a
+suitable natural interface. No dedicated experiment yet; the theory is
+complete (5/5 SymPy, 12/12 Sudoku, Part 108).
+
+### SM compatibility
+
+Purely gravitational-sector wave-optics result (Fresnel equations applied to
+the PDTP acoustic metric); no SM coupling.
+
+---
+
+## Prediction 16: Leidenfrost Critical Exponents for Phase Decoupling
+
+### What PDTP predicts
+
+As the phase mismatch Δ = ψ − φ approaches π/2 — the point where the phase
+stiffness V''(Δ) = g·cos(Δ) vanishes (the "Leidenfrost point" of decoupling,
+Part 99/110) — the system shows power-law critical behavior with specific,
+computed exponents (ε = distance from the critical point):
+
+```
+[DERIVED, SymPy VERIFIED]
+  order parameter:  alpha = cos(Delta) ~ eps^beta,   beta = 1        (Eq. F.26)
+  correlation length: xi_phi ~ eps^(-nu),             nu = 1/2        (Eq. F.27)
+  susceptibility (GW noise): S ~ eps^(-gamma),         gamma = 1      (Eq. F.28)
+```
+
+**(β, ν, γ) = (1, 1/2, 1)** — a NON-equilibrium, laser-threshold-like
+universality class, not standard equilibrium Ising/XY (there is no
+spontaneous symmetry breaking here; it is a driven-system crossover).
+
+**Source:** Part 110, `t6_leidenfrost_tan.py` (6/6 SymPy, 12/12 Sudoku);
+`leidenfrost_tan.md`.
+
+### What GR predicts
+
+No decoupling transition exists in GR — gravity has no "off" state, so there
+is no critical point and no exponents to compare.
+
+### How to test
+
+This specific exponent triple is the PDTP-distinctive signature. A lab analog
+system engineered to approach a phase-locking/decoupling critical point (BEC,
+superfluid, or Josephson-junction-array phase-locking experiment) could
+measure (β, ν, γ) directly and compare against PDTP's predicted values versus
+alternative universality classes (e.g. mean-field Ising gives different
+exponents).
+
+### What confirms PDTP
+
+Measured critical exponents matching (1, 1/2, 1) in an analog decoupling
+experiment.
+
+### What kills PDTP
+
+Measured exponents matching a different known universality class (e.g.
+mean-field Ising) — would indicate the decoupling transition is not the
+laser-threshold-like driven crossover PDTP predicts, undermining the Part
+29/71 decoupling-energy mechanism as currently modeled.
+
+### Current status
+
+No experiment yet; theoretical result only (6/6 SymPy, 12/12 Sudoku, Part
+110). Connects directly to Goal 2 (decoupling engineering) — these exponents
+describe HOW the decoupling transition behaves as ΔV = g is approached.
+
+### SM compatibility
+
+Purely gravitational-sector critical phenomenon (the "condensate" being
+probed is the spacetime phase field itself); no direct SM coupling.
+
+---
+
 ## Summary: Predictions Ranked by Testability
 
 | # | Prediction | Differs from GR? | Testable now? | Strongest test |
@@ -1014,6 +1153,8 @@ fundamental field or SM coupling is introduced.
 | 13 | Planck-vortex DM ⇒ detectable CMB tensor modes | Yes (links DM to r) | **Yes (2030s)** | LiteBIRD / CMB-S4 (σ_r ~ 0.001) |
 | 10 | φ_- resonant frequency ∝ √Φ | Yes | **Very difficult** | Resonant detector near massive object |
 | 6 | Planck-scale dispersion | Yes | **Barely** | Gamma-ray burst timing |
+| 15 | Gravitational Brewster angle (polarization split at interface) | Yes | **Partially** | Requires scalar mode + natural density interface |
+| 16 | Leidenfrost critical exponents (β,ν,γ)=(1,1/2,1) | Yes | **In principle** | Lab BEC/superfluid/Josephson analog experiment |
 
 ### The critical path
 
@@ -1034,14 +1175,17 @@ specific parts of the framework must be abandoned or revised.
 
 ### Standard Model compatibility
 
-All 14 predictions have been checked for compatibility with the Standard
+All 16 predictions have been checked for compatibility with the Standard
 Model Lagrangian (SU(3)×SU(2)×U(1) gauge symmetry, Higgs mechanism,
 particle content, conservation laws). None of the predictions contradict
 established particle physics. Predictions 7-11 and 14 involve a new
 gravitational-sector scalar (φ_-) that is a gauge singlet and does not
 couple to SM fields directly. Prediction 12 uses the standard Wilson
 action with a specific coupling constant K_NAT = 1/(4π). Prediction 13
-involves a gauge-singlet topological defect (no SM charges).
+involves a gauge-singlet topological defect (no SM charges). Predictions
+15-16 are pure gravitational-sector wave-optics/critical-phenomena results
+(Fresnel equations and critical exponents applied to the PDTP acoustic
+metric); neither introduces any new SM coupling.
 
 ---
 
@@ -1083,6 +1227,10 @@ half-lives against the PDTP-corrected SEMF prediction.
 *This document is a living document — updated whenever new testable predictions
 are found. Always plan before updating (see CODING_STANDARDS.md section 5).*
 
-*Last updated: 2026-04-29 (Part 107 SEMF baseline added; Z=115 gap quantified at ~10 MeV; pending Prediction 13 deferred until T40 supplies pdtp_topology_correction)*
+*Last updated: 2026-08-09 (T13: Predictions 15-16 added from the tan investigation
+-- Gravitational Brewster angle, Part 108; Leidenfrost critical exponents, Part 110;
+Prediction 10 refined with the exact horizon result, Part 113 Eq 113.7b. Previous:
+2026-04-29, Part 107 SEMF baseline added; Z=115 gap quantified at ~10 MeV; pending
+Prediction 13 deferred until T40 supplies pdtp_topology_correction)*
 
 **Conceptual framework — not experimentally validated.**

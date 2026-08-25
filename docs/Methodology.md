@@ -9,7 +9,12 @@ than leaving them uncited. See also `Methodology_Human_AI.md` — a different ki
 of companion doc, cataloging the human and AI failure modes (bias, institutional
 self-interest, AI hallucination/sycophancy) that can distort *evaluation* of a
 result independent of whether it's actually correct. Read its caveat before
-using it to explain away a rejected result.
+using it to explain away a rejected result. See also `Methodology_Teaching.md`
+(added 2026-08-25) — a fifth companion, different in kind again: a leveled
+curriculum (no science background through university research-methods level)
+for teaching this project's *process* to students, using PDTP episodes as
+worked examples. Built so the methodology stays useful to teach even if
+PDTP's physics claims themselves are eventually shown to be wrong.
 
 ## What Methodology Are We Using?
 
