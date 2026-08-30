@@ -46,15 +46,15 @@ New additions go on top. One line per item. Full details below.
 - T15 — Final verdict and summary (did tan reveal new physics?) [DONE, 2026-08-09; VERDICT: genuine new structure (U(1)/SU(3) geometric unification, surprising Koide-45deg connection, 2 new falsifiable predictions), but does NOT constrain m_cond/G -- tan investigation CLOSED as productive]
 - T66 — Rotation-field / tetrad promotion (Cosserat-continua analogy): promote scalar phi(x) to local SO(2) rotation R(x); check against Part 84's SU(3)-derived tetrad (not Part 12, which Part 84 already beat 6-4); independently flagged by T27's "Cosserat microrotation" note [SPEC, LOW PRIORITY, filed 2026-08-01; see docs/notes speedoflight/note Greek Cross Orientation Lattice as an Analogy for Spacetime Phase Fields.md]
 - T65 — Backfill mathematical_formalization.md: doc stops before Part 37 (SU(3)) and Part 61 (two-phase); add both as new sections with full step-by-step derivations [integration, LARGE, filed 2026-07-11]
-- M3 — Moire band spacing vs evanescent depth (Part 89 cross-check) [SPEC]
-- M4 — Moire min displacement {s,r} vs vortex winding (quark n=73 Pythagorean?) [SPEC]
+- M3 — Moire band spacing vs evanescent depth (Part 89 cross-check) [SPEC] [DONE, 2026-08-30 -- DEGENERATE as posed: a=lambda_evan is forced by definition (same Compton-wavelength formula), so theta=60 deg drops out independent of which boundary/scale is checked; not a genuine physics cross-check, though 60 deg does coincide with Part 121's independently-derived SU(3) angle]
+- M4 — Moire min displacement {s,r} vs vortex winding (quark n=73 Pythagorean?) [SPEC] [DONE, 2026-08-30 -- NEGATIVE: the (37,36) pair is a mathematical inevitability for ANY odd number (SymPy-proved for general odd N) and, since 73 is prime, is also the UNIQUE possible pair -- not small, not special, no evidence either way]
 - T17 — n=sqrt(2) observable near compact objects (VLBI/EHT lensing signature) [priority 17] [DONE, Part 130, 2026-08-09 -- no isolable signature at n=sqrt2 itself; positive byproduct: EHT shadow radius matches GR exactly even in scalar theory]
 - T18 — Two-phase Delta_- crossover inside dense matter (neutron star f/g-modes) [priority 18] [DONE, Part 131, 2026-08-09 -- NO pi/4 crossover for Delta_- (structurally different from Delta_+); independently re-derives Part 119's phi_-=pi/2 true vacuum; NS mode-frequency sub-question OPEN, filed as TODO_05 T68]
 - T19 — L_4 SymPy verification + b quark check (all L_4 results currently unverified) [priority 19] [DONE, Part 132, 2026-08-09 -- found+fixed a real sign error (FE1-FE3) and a real numerical error (eigenvalues failed trace check); b-quark "4% match" downgraded to open question, doc's own cited analogy actually favors a different rule that does NOT match]
 - T20 — L_4 Goldstone mode: what is it? (graviton? phi_-? Higgs eater?) [priority 20] [DONE, Part 133, 2026-08-09 -- genuine independent massless scalar; NOT graviton (spin), NOT phi_- (field content), not currently eaten (no gauge field)]
-- T25 — String theory and PDTP (Regge slope, graviton, extra dims, landscape) [priority 25, low]
-- T26 — Bob Lazar truth table (decoupling phenomenology, 5 scenarios) [priority 26, low]
-- T27 — Elastic Universe review (shear modes, liquid crystal, visualizations) [priority 27, low]
+- T25 — String theory and PDTP (Regge slope, graviton, extra dims, landscape) [priority 25, low] [DONE, Part 134, 2026-08-30 -- graviton/landscape structurally analogous only; Regge slope CANNOT constrain m_cond (different condensate layers, NEGATIVE for a structural reason); T/S-duality vs phi+/phi- NEGATIVE (superficial resemblance only); no PDTP moduli]
+- T26 — Bob Lazar truth table (decoupling phenomenology, 5 scenarios) [priority 26, low] [DONE, Part 135, 2026-08-30 -- "amplifier" claim structurally impossible (cos bounded, alpha<=1); 3-emitter geometry EXACTLY matches Part 71's Z3 cancellation (re-verified, coincidence not evidence); energy budget NEGATIVE by ~7 OoM beyond universe mass-energy (boundary-layer) / dozens of OoM (practical device); payoff = T35 Hawking test, independent of Lazar]
+- T27 — Elastic Universe review (shear modes, liquid crystal, visualizations) [priority 27, low] [DONE, 2026-08-30 -- all 3 phases complete (E1-E16, J1-J3); site DOES have a Lagrangian now (updates earlier "no Lagrangian" finding), still no EFE/Schwarzschild/charge-quantization; JSFiddle library ~150-220 unique demos, 6-fiddle shortlist extracted (Hopf, FCC+tensor, Liquid Crystal = good rendering candidates; "Cosserat Charge" = NEGATIVE, does not implement Cosserat theory despite name -- relevant to T66); author = Chantal Roth (PhD Sci. Computing, not physics)]
 
 **Natural next pick:** T12 (N_eff and heat kernel tan -- does n_PDTP modify the 6*pi factor?)
 or T13/T14 (update falsifiable_predictions + equation_reference).
@@ -703,7 +703,7 @@ PHYSICAL MEANING to the tan investigation:
 - Moire framing adds no predictive power beyond group theory result
 - Script output: `simulations/solver/outputs/moire_quick_checks.txt`
 
-#### [ ] M3. Band spacing formula and PDTP condensate layers [SPECULATION]
+#### [x] M3. Band spacing formula and PDTP condensate layers [SPECULATION] -- DONE (2026-08-30)
 
 **Formula:** lambda_moire = (1/2) * csc(theta/2) * a  (a = lattice spacing)
   For C1/C2 boundary: theta = angle between gravitational and QCD condensate lattices
@@ -711,10 +711,36 @@ PHYSICAL MEANING to the tan investigation:
   would be a non-trivial cross-check.
   Part 89: lambda_evan(C2) = 0.00245 fm; lambda_evan(C1) = 0.987 fm
   Can these be expressed as moire band spacings of two misaligned condensates?
+
+**RESULT: DEGENERATE as posed, not a genuine cross-check.** Part 96's own
+condensate lattice-spacing table (`condensate_layer_optics.md` Eq 96.1)
+states its own starting point plainly: "Condensate lattice spacing = Compton
+wavelength of gap mass" -- i.e. a = hbar*c/E_gap. Part 89's evanescent depth
+(Eq 89.13) is lambda_evan = hbar/(m_gap*c), the SAME formula. So a = lambda_evan
+**by construction**, at every boundary, not as a result to be tested -- they
+are one formula wearing two names in two different sections of the project.
+Given that, setting lambda_moire = (1/2)*csc(theta/2)*a equal to a and solving
+for theta gives theta = 60 deg **exactly**, and (SymPy-verified) this solution
+does not depend on the numeric value of a at all -- it would come out the
+same at ANY boundary, any mass scale, because a cancels algebraically out of
+the equation before theta is solved for. So this "check" cannot discriminate
+between different physics; it was never capable of confirming or refuting
+anything about QCD vs EW scales specifically.
+
+**One genuinely separate observation, held to the same skepticism:** the
+forced theta=60 deg happens to match Part 121/T10's INDEPENDENTLY-derived
+SU(3) critical angle (tan(theta)=sqrt(3), reproducing the already-known 4/3
+Casimir factor from Part 37 -- a completely different calculation, sharing no
+formula with this one). Whether that is meaningful or coincidental is not
+resolved here -- flagged for anyone revisiting this, but NOT claimed as a
+finding, since the M3 side of the "coincidence" was mathematically forced
+and therefore carries no evidential weight on its own.
+**Script:** `simulations/solver/moire_quick_checks_m3_m4.py`. Log:
+`simulations/solver/outputs/moire_quick_checks_m3_m4.txt`. 9/9 sanity checks PASS.
 **Connection:** T5 (multi-layer stacks) -- each layer boundary has a moire
   angle; the evanescent depth may equal the moire band spacing.
 
-#### [ ] M4. Minimum displacement {s,r} and vortex winding [SPECULATION]
+#### [x] M4. Minimum displacement {s,r} and vortex winding [SPECULATION] -- DONE (2026-08-30)
 
 **Wolfram:** Minimum displacement = {s, r} where u=r^2-s^2, v=2rs (Pythagorean generator)
   This {s,r} pair is the smallest lattice vector that leaves the moire unchanged.
@@ -725,6 +751,22 @@ PHYSICAL MEANING to the tan investigation:
   Check: is 73 = r^2 - s^2 for small integers? 73 = 37^2 - 36^2 = (37-36)(37+36) = 1*73.
   Primitive pair: (r,s) = (37,36), u=73, v=2*37*36=2664. GCD(73,2664) = 1. YES.
   This means quark winding n=73 MAY correspond to a primitive Pythagorean moire.
+
+**RESULT: NEGATIVE.** The (37,36) pair is not a hit, it is a mathematical
+inevitability. SymPy-proved for GENERAL odd N (not just checked at 73): the
+pair (r,s) = ((N+1)/2, (N-1)/2) always satisfies r^2-s^2=N, and since r-s=1
+identically, gcd(r,s)=1 always too -- ANY odd number produces a "primitive
+Pythagorean pair" this way, automatically, with zero physics content. Worse
+for the hypothesis: since 73 is prime (confirmed, not assumed), u=r^2-s^2=
+(r-s)(r+s)=73 has only ONE integer factorization (1x73), so (37,36) is not
+just an inevitable pair, it is the UNIQUE possible pair (brute-force search
+confirmed no other pair exists for r up to 200) -- and by M1/M2's own
+established standard for what counts as "small" (their smallest confirmed
+hits used pairs with values in the 2-30 range), (37,36) is not small. No
+evidence either way survives this check; consistent with M1/M2's own
+already-negative pattern.
+**Script:** `simulations/solver/moire_quick_checks_m3_m4.py`. Log:
+`simulations/solver/outputs/moire_quick_checks_m3_m4.txt`. 9/9 sanity checks PASS.
 
 **NOTE:** M1-M4 are all SPECULATIVE. Before investigating as full Parts,
 run the simple numerical checks (marked **Compute:** above) to see if the
@@ -1111,9 +1153,36 @@ extra dimensions, Koide-generalisation, or anomaly-cancellation UV completion).
 
 ### Phase 6 — Cross-Framework Investigations (2026-04-11)
 
-#### [ ] T25. String Theory and PDTP — Graviton Comparison
+#### [x] T25. String Theory and PDTP — Graviton Comparison — DONE (Part 134, 2026-08-30)
 
-**Part:** TBD
+**RESULT:** Comparison doc written (`docs/research/string_theory_comparison.md`).
+Key Question 1 (graviton): structurally analogous (both force spin-2 from an
+internal-consistency requirement on a more fundamental object -- string
+worldsheet Weyl-anomaly cancellation vs. SU(3) condensate fluctuations,
+Part 75) but not mechanistically transferable; PDTP's own path to full
+nonlinear GR recovery (Part 86) has to be walked on its own terms.
+Key Question 2 (Regge slope constraining m_cond): computed cleanly,
+**NEGATIVE for a structural reason, not a numerical one** -- PDTP's own
+sigma_SU(3)=0.173 GeV^2 (Part 38) and the resulting alpha'=0.920 GeV^-2 both
+belong entirely to the QCD condensate layer (tied to m_cond_QCD=367 MeV,
+Part 37), which has NO established relationship anywhere in the framework to
+the gravity layer's m_cond=m_Planck (ratio 3.3e19) -- the Regge slope relation
+was never wired to the quantity in question, regardless of what number comes
+out. Key Question 3 (extra dims/moduli): no meaningful parallel -- PDTP has
+no compactification geometry behind m_cond/Lambda. Key Question 4 (landscape):
+same philosophical shape (internal consistency doesn't guarantee uniqueness)
+but PDTP's "landscape" is 2 free parameters, not ~10^500+ -- string theory's
+scale comes specifically from flux combinatorics PDTP has no analogue of.
+Key Question 5 (T/S-duality vs phi_+/phi_-): **NEGATIVE** -- T/S-duality are
+exact equivalences BETWEEN two distinct theory descriptions; phi_+/phi_- is
+a linear change of variables WITHIN one Lagrangian (Part 61) -- superficial
+resemblance only, does not hold up.
+**Script:** `simulations/solver/t25_string_theory_comparison.py` (the one
+quantitative piece, Key Question 2; rest is sourced literature comparison
+per the task's own "Medium effort, mostly literature review" scope).
+**Doc:** `docs/research/string_theory_comparison.md`.
+
+**Part:** 134
 **What:** Investigate how string theory derives general relativity (graviton as
 massless spin-2 closed string excitation; Weyl anomaly cancellation forces
 Einstein equations). Compare the mechanism to PDTP's SU(3) graviton (Part 75-76).
@@ -1144,9 +1213,44 @@ string theory and PDTP solve the same problem (derive GR) via different
 routes, with the same unsolved landscape issue.
 **Priority:** Low (depends on T24 completing first; no immediate gap it closes).
 
-#### [ ] T26. Bob Lazar Truth Table — Decoupling Phenomenology
+#### [x] T26. Bob Lazar Truth Table — Decoupling Phenomenology — DONE (Part 135, 2026-08-30)
 
-**Part:** TBD
+**RESULT:** Full truth-table doc: `docs/research/lazar_truth_table.md`.
+Script: `simulations/solver/t26_lazar_truth_table.py`. Key findings:
+(1) "Gravity amplification" (C3) has no home in the current Lagrangian —
+alpha=cos(psi-phi) is bounded to <=1, so literal amplification beyond
+normal coupling is structurally impossible; the closer-fitting mechanism
+is local phase-gradient steering + decoupling (matches Lazar's own "not
+propulsion, geometry" description, C5). (2) The "three emitters at the
+base" claim (C4) has an EXACT, independently re-verified structural
+match: Part 71 Sec 5.1-5.2's Z3 three-source cancellation gives phi-
+independent zero coupling at the centre of three 120-degree-spaced
+sources -- re-checked numerically here across 12 phi values (max
+|<alpha>| = 1.0e-16) -- flagged explicitly as a topological coincidence,
+not evidence, since 3-fold symmetry is also the mundane engineering
+default. (3) Energy budget (Key Q3) is NEGATIVE, decisively: the stale
+10 kW/ton (Part 28b) figure is superseded; Part 71's boundary-layer
+mechanism costs E_layer = 9.04e76 J for a 1 kg object (computed here for
+the first time as an explicit number) -- ~7 orders of magnitude beyond
+the ENTIRE OBSERVABLE UNIVERSE's mass-energy, and dozens of orders of
+magnitude beyond any practical device budget; bulk decoupling alone
+costs ~35% of rest-mass energy. Frequency gap re-derived independently:
+f_gap = 2.95e42 Hz vs current tech ~1e15 Hz -> ratio 2.95e27 (confirms
+Phase 7's rounded "~10^27" figure). (4) Element 115 gap (Key Q2/4):
+confirmed 29 OoM half-life gap / 9-15 MeV binding needed (Part 107,
+unchanged, not re-derived, cited only) -- remains open, belongs to
+T28/T40. (5) Structural ranking of "most likely distortion" (Key Q4):
+energy/power claims least consistent; geometric/"falls into distortion"
+description most structurally natural. (6) S1-vs-S2 distinguishing
+observable identified (Key Q5): craft's own gravitational pull on nearby
+test masses during operation (increases under literal amplification,
+bounded/reduced under decoupling+steering). (7) Independent testable
+predictions (Key Q6, "the T26 payoff" per the note at line ~1669): T35
+(analog-horizon Hawking test) and Goal 1's breathing-mode/birefringence
+predictions, both independent of Lazar entirely. No claim treated as
+evidence for or against PDTP or Lazar, per the constraints below.
+
+**Part:** 135
 **What:** Systematic analysis of Bob Lazar's claims using a truth table framework.
 The goal is NOT to judge credibility but to extract any testable physics from
 the claims and map them to PDTP's decoupling predictions (Goal 2).
@@ -1189,7 +1293,61 @@ under each truth table scenario. Main value: identifies which PDTP predictions
 are independently testable (valuable regardless of Lazar's credibility).
 **Priority:** Low (Goal 2; depends on Goal 1 validation).
 
-#### [ ] T27. Elastic Universe Review — Shear Modes and Visualizations
+#### [x] T27. Elastic Universe Review — Shear Modes and Visualizations — DONE (2026-08-30)
+
+**RESULT:** All three phases complete. Full writeups:
+`Elastic_Universe/E2-E8_phase1_core_physics_review.md` (Phase 1, core
+physics, E1-E9), `Elastic_Universe/E10-E16_phase2_interpretive_review.md`
+(Phase 2, interpretive/meta, E10-E16), `Elastic_Universe/
+J1-J3_jsfiddle_code_review.md` (Phase 3, JSFiddle code).
+
+**Phase 1 headline:** the site's Technical Summary page (E2) now has an
+actual Lagrangian (`L = (1/2)*rho*du^2 - mu*eps_dev:eps_dev + p*(div(u)-chi)
++ L_core`, a displacement-field continuum-mechanics Lagrangian) plus a
+Gauss-law-style eigenstrain-charge closure and an EM potential mapping
+(A = solenoidal transport covector/pseudomomentum, explicitly NOT raw
+velocity) -- corrects the project's earlier (E9, 2026-04-11) "no
+Lagrangian" finding, though the two Lagrangians are structurally unrelated
+(theirs is vector-displacement, PDTP's is a phase angle). Confirmed still
+true: no stress-energy tensor, no Einstein field equations, no
+Schwarzschild derivation, no charge-quantization mechanism, no finished
+Dirac/Pauli electron model -- site repeatedly self-labels as provisional.
+
+**Phase 2 headline:** author = Chantal Roth (PhD Scientific Computing, ETH
+Zurich; no physics PhD or peer-reviewed physics record -- calibrates the
+whole site's epistemic status). Two new real-academic citation trails
+found beyond the already-known Close/Kleinert: Marek Danielewski (Wroclaw
+Univ. of Sci. and Tech., elastic-solid/Cauchy-crystal papers) and Jarek
+Duda (Jagiellonian Univ., topological charge models). Quantum-eraser and
+entanglement pages both restate standard mainstream physics (post-
+selection; Eberhard eta_min~=0.828 detection-loophole bound) in the site's
+own wave-ontology language -- not new physics, and outside PDTP's Goal-1
+scope regardless.
+
+**Phase 3 headline:** ~310 listings across 9/10 JSFiddle collections
+(~150-220 unique demos after de-duplication; EM Waves collection could not
+be fetched -- persistent HTTP 500 from jsfiddle.net, 3 attempts, an open
+gap not a scope choice). 6-fiddle shortlist source-reviewed: Hopf
+(fibration, Three.js, genuinely reusable), FCC Grid+tensor (metric-from-
+lattice-distortion demo, cosmetic "frame dragging" not GR-derived), Liquid
+Crystal (correctly implements real nematic order parameter S and a
+biaxiality metric B -- matches E9's flagged idea), Smoke Rings and Knots
+(prescribed kinematic animation of vortex rings/Hopf links/knots, NOT a
+dynamical solution -- do not cite as physics), **Cosserat Charge
+(NEGATIVE finding: despite the name, does NOT implement Cosserat
+microrotation theory -- plain Coulomb-field visualizer; directly relevant
+to T66, which should not assume this collection provides ready-made
+Cosserat code)**, and 3D Lattice (mislabeled -- actually an SR clock demo).
+
+**Three candidate ideas flagged (NOT adopted, per CLAUDE.md's Elastic
+Universe rule) for possible future PDTP T-items:** (1) transport-covector
+framing for a PDTP EM/U(1) vector potential, which PDTP currently has no
+construction for at all; (2) a high-k lattice dispersion correction
+analogous to their `omega^2=c^2k^2(1+eta(kl)^2+...)`, distinct from PDTP's
+existing low-k mass-gap dispersion (Eq 89.1); (3) Eshelby eigenstrain
+formalism as a general computational tool for PDTP's own vortex defects.
+None recommended as immediate action -- Low priority throughout, per T27's
+own tag.
 
 **Part:** N/A (external review, kept separate)
 **What:** Review elastic-universe.org and Inductica YouTube for insights on shear
@@ -1223,6 +1381,14 @@ structural step, and connects to established continuum-mechanics formalisms
 ("Cosserat microrotation -- rotational DOF in condensate?") from a completely
 different source -- two independent external inputs converging on the same
 suggestion is worth taking seriously even though neither alone is a derivation.
+**Caution (T27 Phase 3, 2026-08-30):** elastic-universe.org's own "Cosserat
+Charge" JSFiddle demos (3 fiddles, titles include "Cosserat") were checked
+at the source-code level and do NOT actually implement Cosserat microrotation
+theory -- no couple-stress tensor, no independent rotational DOF, plain
+Coulomb-field code with a misleading name. Do not treat that site as a
+source of ready-made Cosserat-mechanics code or worked examples; the
+convergence noted above is only that both sources independently suggest the
+idea is worth trying, not that either has done it.
 
 **Key questions:**
 1. Can phi(x) be reformulated as a local rotation field R(x) without breaking
@@ -1916,8 +2082,8 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T14 | Update equation ref | -- | DONE | -- (added Parts 121, 122) |
 | M1 | Pythagorean lock-in alpha_EM | SPEC | DONE -- QUASIPERIODIC | -- |
 | M2 | tan(theta_W) Pythagorean | SPEC | DONE -- INCONCLUSIVE | -- |
-| M3 | Band spacing vs evanescent depth | SPEC | PENDING | -- |
-| M4 | Min displacement vs vortex winding | SPEC | PENDING | -- |
+| M3 | Band spacing vs evanescent depth | SPEC | DONE -- DEGENERATE (a=lambda_evan forced) | -- |
+| M4 | Min displacement vs vortex winding | SPEC | DONE -- NEGATIVE (pair is forced+unique, not small) | -- |
 | T15 | Final verdict | -- | DONE (CLOSED, productive) | -- |
 | T16 | Two-phase G_eff closes lensing factor-2? | 16 | DONE (NEGATIVE) | 100 |
 | T17 | n=sqrt(2) observable near compact objects | 17 | DONE (NEGATIVE + positive byproduct) | Part 130 |
@@ -1928,9 +2094,9 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T22 | Platonic solids lens (discrete symmetry) | 24 (low) | DONE (PARTIAL) | 105 |
 | T23 | Hilbert space lens (sin^2 / Im^2 missing term) | 22 (high) | DONE (PRODUCTIVE) | 104 |
 | T24 | Backward GR -> PDTP Lagrangian (missing tensor term) | 23 (high) | DONE (CONSTR. NEG.) | 103 |
-| T25 | String theory and PDTP (Regge slope, graviton, extra dims) | 25 (low) | PENDING | -- |
-| T26 | Bob Lazar truth table (decoupling phenomenology) | 26 (low) | PENDING | -- |
-| T27 | Elastic Universe review (shear modes, visualizations) | 27 (low) | PENDING | -- |
+| T25 | String theory and PDTP (Regge slope, graviton, extra dims) | 25 (low) | DONE (Regge slope NEGATIVE, structural) | 134 |
+| T26 | Bob Lazar truth table (decoupling phenomenology) | 26 (low) | DONE (energy budget NEGATIVE ~7 OoM beyond universe mass-energy; 3-emitter/Z3 match = coincidence not evidence) | 135 |
+| T27 | Elastic Universe review (shear modes, visualizations) | 27 (low) | DONE -- all 3 phases (E1-E16, J1-J3); site now HAS a Lagrangian (updates prior finding); "Cosserat Charge" fiddle NEGATIVE (no actual Cosserat theory, relevant to T66) | -- |
 | T28 | Mc-299 / Element 115 topological closure lens | SPEC | PENDING | -- |
 | T29 | Phase self-locking mechanism (internal vs external) | SPEC | PENDING | -- |
 | T30 | Hopf-link topology protection for phase coherence | SPEC | PENDING | -- |

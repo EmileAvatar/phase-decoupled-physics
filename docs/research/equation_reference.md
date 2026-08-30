@@ -1577,6 +1577,33 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 
 ---
 
+### Part 135 additions (T26: Bob Lazar truth table / decoupling phenomenology):
+
+**Source:** Part 135 (2026-08-30), `simulations/solver/t26_lazar_truth_table.py`;
+`docs/research/lazar_truth_table.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 135.1 | alpha=cos(psi-phi) is bounded, -1<=alpha<=1; no theta gives alpha>1 | [NEGATIVE, elementary] | literal "gravity amplification" (Lazar claim C3) has no mechanism in the single-phase Lagrangian; closest fit is gradient-steering + decoupling, not amplification |
+| 135.2 | Three 120-deg-spaced sources: <alpha>=0 exactly, for ALL phi (re-verified numerically, 12 phi values, max residual 1.0e-16) | [DERIVED, re-verification of Part 71 Eq 18-19] | exact structural match to Lazar's "three emitters" claim (C4); flagged as topological coincidence, not evidence |
+| 135-O1 | E_layer (1 kg boundary-layer decoupling, Part 71 mechanism) = 9.04e76 J | [DERIVED, PDTP Original -- first explicit numeric evaluation of Part 71's own formula chain] | ~7 orders of magnitude beyond observable universe's total mass-energy (~1e70 J); energy-budget check on Lazar's implied compact power source is NEGATIVE, decisively |
+| 135-O2 | f_gap = omega_gap/(2*pi) = 2.95e42 Hz (re-derived from c,hbar,G independently); ratio to current tech (1e15 Hz) = 2.95e27 | [DERIVED] | confirms Phase 7 motivation text's rounded "~10^27" frequency-gap figure with an exact value |
+
+---
+
+### Part 134 additions (T25: string theory / PDTP structural comparison):
+
+**Source:** Part 134 (2026-08-30), `simulations/solver/t25_string_theory_comparison.py`;
+`docs/research/string_theory_comparison.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 134.1 | alpha'=1/(2*pi*sigma_SU3)=0.920 GeV^-2, ell_s=0.189 fm from Part 38's sigma_SU(3)=0.173 GeV^2 | [DERIVED] (standard string-theory relation, cited) | applied to PDTP's own already-established QCD-layer number; not new physics content |
+| 134-O1 | Regge slope relation CANNOT constrain m_cond=m_Planck (gravity layer); ratio m_cond/m_cond_QCD=3.3e19 | [NEGATIVE, structural, PDTP Original] | sigma_SU(3)/alpha' belong entirely to the QCD condensate layer (m_cond_QCD=367 MeV, Part 37); no established relationship anywhere in the framework to the gravity layer's m_cond -- the relation was never wired to the quantity in question |
+| 134-O2 | T-duality/S-duality vs phi_+/phi_- (Part 61): superficial resemblance only | [NEGATIVE] | dualities are equivalences BETWEEN distinct theories; phi_+/phi_- is a change of variables WITHIN one Lagrangian |
+
+---
+
 ### Part 132 additions (T19: L_4 SymPy verification and b-quark re-examination):
 
 **Source:** Part 132 (2026-08-09), `simulations/solver/lagrangian4.py`;
@@ -1959,6 +1986,34 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-08-30: Added Part 135 (T26: Bob Lazar truth table / decoupling
+  phenomenology. "Gravity amplification" (Lazar claim C3) has no mechanism
+  in the single-phase Lagrangian -- alpha=cos(psi-phi) is bounded to <=1
+  [Eq 135.1, NEGATIVE, elementary]; closest fit is gradient-steering +
+  decoupling, matching Lazar's own "not propulsion, geometry" description.
+  "Three emitters" (claim C4) has an EXACT structural match to Part 71's
+  Z3 three-source cancellation, re-verified numerically across 12 phi
+  values [Eq 135.2, DERIVED] -- flagged as topological coincidence, not
+  evidence. Energy budget (Key Q3) NEGATIVE, decisively: E_layer = 9.04e76 J
+  for 1 kg boundary-layer decoupling [Eq 135-O1, first explicit numeric
+  evaluation of Part 71's own formula chain] -- ~7 orders of magnitude
+  beyond the observable universe's total mass-energy. Frequency gap
+  re-derived independently, f_gap=2.95e42 Hz, ratio to current tech
+  2.95e27 [Eq 135-O2], confirming Phase 7's rounded figure. Element 115
+  gap (29 OoM / 9-15 MeV, Part 107) cited, not re-derived, remains open
+  under T28/T40. Closes T26 as scoped, Low priority; payoff is T35
+  (Hawking analog test) and Goal 1's falsifiable predictions, both
+  independent of Lazar entirely, per the doc's own Key Question 6.)
+- 2026-08-30: Added Part 134 (T25: string theory/PDTP structural comparison.
+  Graviton and landscape comparisons are structurally analogous only, not
+  mechanistically transferable. Regge slope relation checked quantitatively
+  against PDTP's own sigma_SU(3)=0.173 GeV^2 [Eq 134.1] -- CANNOT constrain
+  m_cond=m_Planck because sigma_SU(3)/alpha' belong entirely to the separate
+  QCD condensate layer (m_cond_QCD=367 MeV, Part 37), with no established
+  bridge to the gravity layer anywhere in the framework [Eq 134-O1, NEGATIVE,
+  structural not numerical]. T/S-duality vs phi_+/phi_- also NEGATIVE --
+  superficial resemblance only [Eq 134-O2]. No new equation_reference gap;
+  closes T25 as scoped, Low priority, no follow-on proposed.)
 - 2026-08-09: Added Part 133 (T20: what physically IS L_4's Goldstone mode?
   Extended T19's exact conservation law to the field identity chi=(phi1+phi2+phi3+psi)/2
   [Eq 133.1], with dV/dchi=0 proven non-perturbatively (all orders, not just linearized)
