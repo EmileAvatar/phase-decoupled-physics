@@ -1577,6 +1577,43 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 
 ---
 
+### Part 137 additions (T28+T40: magic numbers vs Z_3 topology):
+
+**Source:** Part 137 (2026-08-30), `simulations/solver/t28_magic_number_topology.py`;
+`docs/research/magic_number_topology.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 137.1 | Real magic numbers (2,8,20,28,50,82,126) vs 3D-HO/cuboctahedral-FCC/tetrahedral candidate sequences: 3/7, 0/7, 1/7 matches respectively | [NEGATIVE, computed] | no closed-network counting rule reproduces the sequence beyond the first 2-3 terms (already explained by standard pre-spin-orbit shell model, not Z_3 structure) |
+| 137.2 | Consecutive magic-number differences (6,12,8,22,32,44): divisible by 3 for first 2 gaps only, fails from 3rd gap onward | [NEGATIVE, computed] | direct disproof of "Z_3-generated sequence" hypothesis (T28 KQ3) |
+| 137-O1 | E_Y=2.74 GeV, E_H=17.2 GeV (Part 37/106 formulas) vs ~1-2 MeV shell gap / ~11 MeV T40 target: overshoot by 1800-11000x / 249-1566x | [NEGATIVE, PDTP Original -- scale-mismatch analysis] | PDTP's only established vortex-baryon energy scale cannot supply nuclear shell binding even hypothetically; no suppression mechanism exists (contrast Part 118's derived v^4 DM suppression) |
+
+**Conclusion (Part 137):** T28 and T40 close together as a coordinated
+NEGATIVE (both TODO items' own "Likely outcome" fields anticipated this
+as informative). Nuclear shell structure is independent of PDTP's Z_3/
+SU(3) condensate topology by all three tests run. T40's implementation
+steps 4-8 not executed -- no formula survived to implement. The
+underlying T37 gap (~9-15 MeV to Lazar's stable-Z=115 claim) remains open,
+unaddressed by standard shell-correction theory (Strutinsky/FRDM/Moller-
+Nix), which is a separate, unexamined path.
+
+---
+
+### Part 136 additions (T66: rotation-field gate check):
+
+**Source:** Part 136 (2026-08-30), `simulations/solver/t66_rotation_field_tetrad.py`;
+`docs/research/rotation_field_gate_check.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 136.1 | R(a)*R(b)=R(a+b), R^T*R=I, det(R)=1, trace(R)=2*cos(theta) -> eigenvalues=exp(+-i*theta) via Vieta | [DERIVED, VERIFIED] | SO(2) is a faithful representation of U(1); all four properties SymPy-exact |
+| 136.2 | dim(so(n)) = n(n-1)/2, re-derived from antisymmetry constraint (not quoted): dim(so(2))=1, dim(so(3))=3 | [DERIVED, standard Lie theory applied] | SO(2) carries exactly 1 DOF -- same as the scalar phi(x) it was proposed to replace |
+| 136-O1 | phi(x) <-> R(phi(x)) is a lossless bijection (round-trip verified, 200 samples, max error 1.11e-16); Lagrangian g*cos(psi-phi) symbolically IDENTICAL under the substitution (residual=0) | [DERIVED, PDTP Original] | the literal "promote phi to R(x)" proposal is an information-free relabeling -- answers T66 Key Question 1 directly |
+| 136-O2 | R(x) sits at U(1)'s 1-DOF level, strictly below Part 84's 8-DOF SU(3) tetrad; NOT a re-derivation of Part 84, NOT incompatible with it | [DERIVED, PDTP Original] | answers T66 Key Question 2 |
+| 136-O3 | Cosserat/micropolar independence requirement (microrotation independent of translation field) is violated by construction, since theta(x):=phi(x) | [NEGATIVE, informative, PDTP Original] | answers T66 Key Question 3; also explains T27's independent "Cosserat Charge" negative finding from the opposite direction |
+
+---
+
 ### Part 135 additions (T26: Bob Lazar truth table / decoupling phenomenology):
 
 **Source:** Part 135 (2026-08-30), `simulations/solver/t26_lazar_truth_table.py`;
@@ -1986,6 +2023,42 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-08-30: Added Part 137 (T28+T40: magic numbers vs Z_3 topology.
+  Tested whether nuclear magic numbers 2,8,20,28,50,82,126(,184) derive
+  from PDTP closed Z_3 vortex-network counting, resolving T28 and T40
+  together since both test the identical hypothesis. Three candidate
+  counting sequences (3D harmonic oscillator, cuboctahedral/FCC shells --
+  Part 54's own lattice type, tetrahedral numbers) tested against the real
+  sequence: 3/7, 0/7, 1/7 matches respectively, none reproducing beyond
+  the first 2-3 terms already explained by the standard pre-spin-orbit
+  shell model (Mayer 1949; Haxel/Jensen/Suess 1949) [Eq 137.1, NEGATIVE].
+  Consecutive differences fail divisibility by 3 from the 3rd gap onward
+  [Eq 137.2, NEGATIVE] -- direct answer to T28 KQ3. Energy-scale check:
+  PDTP's established E_Y=2.74 GeV / E_H=17.2 GeV vortex-baryon energies
+  (Part 37/106) overshoot the nuclear shell-gap target by 1800-11000x
+  [Eq 137-O1], with no suppression mechanism derived anywhere in the
+  framework. Closes T28 fully; resolves T40's conceptual Key Questions
+  1/2/4 -- T40's implementation steps 4-8 explicitly NOT executed, no
+  surviving formula to wire into t37_isotope_stability.py. T37's own gap
+  (~9-15 MeV to Lazar's stable-Z=115 claim) remains open and unaddressed
+  by this result -- standard shell-correction theory is the unexamined
+  path forward, not PDTP topology.)
+- 2026-08-30: Added Part 136 (T66: rotation-field gate check. Tested
+  whether promoting phi(x) to R(x) in SO(2), as literally proposed by an
+  external note, adds new structure. Found NO -- dim(SO(2))=1 [Eq 136.2,
+  re-derived from the antisymmetry constraint, not quoted], exactly the
+  same DOF as the scalar phi(x) it replaces. Since the note's own
+  construction sets theta(x):=phi(x), the map is a SymPy-verified
+  information-free bijection [Eq 136-O1]: the Lagrangian is symbolically
+  IDENTICAL after substitution, so every downstream single-phase result
+  carries over unchanged. R(x) sits at U(1)'s 1-DOF level, strictly below
+  Part 84's 8-DOF SU(3) tetrad -- not a re-derivation, not incompatible,
+  just weaker by construction [Eq 136-O2]. Cosserat theory's independence
+  requirement is violated by construction [Eq 136-O3, informative
+  contradiction] -- explains, from the opposite direction, why T27's
+  independent "Cosserat Charge" code also failed to implement real
+  Cosserat theory. 11/12 Sudoku PASS. Closes T66 as filed; a genuinely
+  independent SO(3)/decoupled-field extension is flagged but NOT adopted.)
 - 2026-08-30: Added Part 135 (T26: Bob Lazar truth table / decoupling
   phenomenology. "Gravity amplification" (Lazar claim C3) has no mechanism
   in the single-phase Lagrangian -- alpha=cos(psi-phi) is bounded to <=1

@@ -19,12 +19,12 @@ New additions go on top. One line per item. Full details below.
 - T45 — Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4 replaces G/c^4) + check_urls.py fixes [DONE, Part 118, Phase 86; 7/7 Sudoku; Bullet margin 44.3 OoM; verdicts unchanged]
 - T43 — DM winding selection: n=1 via stability + Kibble-Zurek -> m_DM = m_P [DONE, Part 116, Phase 84; 12/12 Sudoku; KZ relic abundance NEGATIVE (50 OoM); kill test = CMB tensor modes]
 - T44 — Positive phi_-^4 quartic: induced lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2) at partial lock [DONE, Part 117, Phase 85; 10/10 Sudoku; tree + zero-point NEGATIVE; self-switching transient EDE; beta(z) OPEN]
-- T40 — Nuclear geometry from Y-junction packing (PDTP shell correction; fills pdtp_topology_correction(Z,N) stub from T37; target ~10 MeV extra binding at Z=115, N=184) [SPEC, Goal 2, depends on T37]
+- T40 — Nuclear geometry from Y-junction packing [DONE (conceptual), Part 137, 2026-08-30 -- NEGATIVE, resolved together with T28: no Z_3-network counting rule reproduces the magic numbers; E_Y/E_H (Part 37/106) overshoot the ~11 MeV target by 249x/1566x; implementation steps 4-8 (pdtp_topology_correction, Sudoku re-run) not executed -- no surviving formula to wire in]
 - T38 — WCT regularizer Theta[psi] as UV-cure candidate in PDTP (from Wave Confinement Theory review, May 2026) [SPEC, low priority]
 - T39 — WCT effective metric cross-check vs PDTP acoustic metric (Part 73) and SU(3) metric (Part 75-76) [SPEC, low priority]
 - T36 — Three-component Hopf link as baryon structure (3 interlinked quark loops instead of Y-junction flux tube) [DONE, Part 106, Phase 74; E_H/E_Y=2pi; 20/20 Sudoku]
 - T37 — Isotope stability mini-project (SEMF baseline + decay rates; validate vs known isotopes; scan Z=115 for Lazar gap) [DONE PARTIAL, Part 107, Phase 75; 6/15 Sudoku; Z=115 longest=11s; Lazar gap ~29 OoM ~ 10 MeV; baseline for T28/T40]
-- T28 — Mc-299 / Element 115 topological closure lens (magic numbers as closed Z_3 vortex networks) [SPEC, Goal 2]
+- T28 — Mc-299 / Element 115 topological closure lens [DONE, Part 137, 2026-08-30 -- NEGATIVE: magic numbers 2,8,20,28,50,82,126 NOT Z_3-generated (differences fail divisibility by 3 from 3rd gap); FCC/cuboctahedral shells (Part 54's own lattice type) give ZERO matches; PDTP vortex energy (E_Y/E_H) 1800-11000x too large for shell-gap scale; resolved together with T40; see docs/research/magic_number_topology.md]
 - T29 — Phase self-locking mechanism (when does psi lock to internal omega_nuc instead of phi?) [SPEC, Goal 2]
 - T30 — Hopf-link topology protection for phase coherence (interlinked vortex loops, decoherence immunity) [SPEC, Goal 2]
 - T31 — Nonlinear converging horn / amplitude concentration -> high-harmonic generation in cos coupling [SPEC, Goal 2]
@@ -44,7 +44,7 @@ New additions go on top. One line per item. Full details below.
 - T13 — Update falsifiable_predictions.md with new testable items from T1-T6 [DONE, 2026-08-09; added Prediction 15 (Brewster angle, Part 108) + Prediction 16 (Leidenfrost critical exponents, Part 110) + Prediction 10 horizon refinement (Part 113)]
 - T14 — Update equation_reference.md with all new T-equations [DONE, 2026-08-09; found Parts 121 (T10) and 122 (T11) missing entirely, added both; flagged Parts 119/120 (T46/T47, Lambda thread) as also missing but out of T14's scope]
 - T15 — Final verdict and summary (did tan reveal new physics?) [DONE, 2026-08-09; VERDICT: genuine new structure (U(1)/SU(3) geometric unification, surprising Koide-45deg connection, 2 new falsifiable predictions), but does NOT constrain m_cond/G -- tan investigation CLOSED as productive]
-- T66 — Rotation-field / tetrad promotion (Cosserat-continua analogy): promote scalar phi(x) to local SO(2) rotation R(x); check against Part 84's SU(3)-derived tetrad (not Part 12, which Part 84 already beat 6-4); independently flagged by T27's "Cosserat microrotation" note [SPEC, LOW PRIORITY, filed 2026-08-01; see docs/notes speedoflight/note Greek Cross Orientation Lattice as an Analogy for Spacetime Phase Fields.md]
+- T66 — Rotation-field / tetrad promotion (Cosserat-continua analogy) [DONE, Part 136, 2026-08-30 -- literal SO(2) proposal is an information-free relabeling of phi(x) (dim SO(2)=1, same as U(1)); all 4 Key Questions resolved; 11/12 Sudoku (1 informative contradiction: violates Cosserat's independence requirement by construction); genuine SO(3)/decoupled-field extension flagged, NOT adopted; see docs/research/rotation_field_gate_check.md]
 - T65 — Backfill mathematical_formalization.md: doc stops before Part 37 (SU(3)) and Part 61 (two-phase); add both as new sections with full step-by-step derivations [integration, LARGE, filed 2026-07-11]
 - M3 — Moire band spacing vs evanescent depth (Part 89 cross-check) [SPEC] [DONE, 2026-08-30 -- DEGENERATE as posed: a=lambda_evan is forced by definition (same Compton-wavelength formula), so theta=60 deg drops out independent of which boundary/scale is checked; not a genuine physics cross-check, though 60 deg does coincide with Part 121's independently-derived SU(3) angle]
 - M4 — Moire min displacement {s,r} vs vortex winding (quark n=73 Pythagorean?) [SPEC] [DONE, 2026-08-30 -- NEGATIVE: the (37,36) pair is a mathematical inevitability for ANY odd number (SymPy-proved for general odd N) and, since 73 is prime, is also the UNIQUE possible pair -- not small, not special, no evidence either way]
@@ -1361,11 +1361,41 @@ for the full investigation plan (16 website pages + JSFiddle code review).
 4. Independent confirmation: their c=sqrt(mu/rho) = PDTP Part 34; their gravity-as-refraction = PDTP Part 98
 **Priority:** Low (external; speculative; visualization value high).
 
-#### [ ] T66. Rotation-Field / Tetrad Promotion (Cosserat-Continua Analogy)
+#### [x] T66. Rotation-Field / Tetrad Promotion (Cosserat-Continua Analogy) — DONE (Part 136, 2026-08-30)
 
-**Part:** TBD
+**RESULT:** Full writeup `docs/research/rotation_field_gate_check.md`.
+Step 1 of the approved plan (a representation-theoretic gate check) turned
+out to resolve all four Key Questions directly, so Steps 2-4 (toy-model
+EOM construction, Cosserat-EOM comparison, defect reclassification) were
+not needed. Core finding: SO(2) is a 1-dimensional Lie group (dim SO(n) =
+n(n-1)/2, re-derived here from the antisymmetry constraint, not just
+quoted) -- exactly the same information content as the scalar phi(x) it
+was meant to replace. Since the note's own construction sets theta(x) :=
+phi(x), the map phi(x) -> R(x) is a SymPy-verified, information-free
+bijection: the Lagrangian g*cos(psi-phi) is symbolically IDENTICAL after
+the substitution (residual = 0), so every downstream result (Newtonian
+limit, GR recovery Part 98/101, PPN Part 112, vortex winding Part 33)
+carries over unchanged, not approximately -- because nothing about the
+field content changed. KQ2: R(x) sits exactly at U(1)'s 1-DOF level,
+strictly below Part 84's 8-DOF SU(3) tetrad -- not a re-derivation of it,
+not incompatible with it, just structurally weaker by construction. KQ3:
+Cosserat theory's defining feature (microrotation INDEPENDENT of the
+translational field) is violated by construction, since R(x) is built
+FROM phi(x) -- there is no independent DOF for a couple-stress EOM to
+act on. KQ4: topological defects identical to Part 33 (same target space,
+same pi_1). 11/12 Sudoku (1 informative contradiction = the KQ3 finding
+itself, correctly flagged as the finding not a failure). Cross-checked
+against T27's independent "Cosserat Charge" negative finding (Elastic
+Universe's own code also doesn't implement real Cosserat theory) -- two
+unrelated external sources both reached for "Cosserat" without the
+underlying math matching, worth recording as a pattern. A genuinely new
+extension (independent SO(3) or decoupled-SO(2) field) is flagged but
+explicitly NOT adopted -- would need its own plan-first pass, and even
+the maximal SO(3) case still falls 5 DOF short of Part 84's structure.
+
+**Part:** 136
 **Source:** External ChatGPT session note, reviewed 2026-08-01 --
-`docs/notes speedoflight/note Greek Cross Orientation Lattice as an Analogy for
+`docs/misc/notes speedoflight/note Greek Cross Orientation Lattice as an Analogy for
 Spacetime Phase Fields.md` (per CLAUDE.md's External AI Reviews rule -- judged
 on its own merits given the session's limited context; it did not have access
 to Part 84 or Part 116).
@@ -1453,7 +1483,29 @@ might fall out of the math when treated rigorously — a brainstorm channel.
 - Outer + inner loops = Hopf-linked topology
 - Radial injector protruding into the main tube (mode driver)
 
-#### [ ] T28. Element 115 / Mc-299 Topological Closure Lens [SPEC]
+#### [x] T28. Element 115 / Mc-299 Topological Closure Lens — DONE (Part 137, 2026-08-30)
+
+**RESULT:** Full writeup `docs/research/magic_number_topology.md`, resolved
+together with T40 (near-identical hypothesis, see that entry's RESULT for
+the shared verdict). Three independent tests, all NEGATIVE: (1) no
+candidate closed-network counting sequence (3D harmonic oscillator,
+cuboctahedral/FCC shells -- Part 54's own lattice type, tetrahedral
+numbers) reproduces the real magic numbers 2,8,20,28,50,82,126 beyond
+the first 2-3 terms, which are already explained by the standard
+pre-spin-orbit shell model (Mayer 1949; Haxel/Jensen/Suess 1949) -- not
+evidence of Z_3 structure. (2) Consecutive differences of the real magic
+numbers are NOT uniformly divisible by 3 (fails at the 3rd gap: 8 is not
+a multiple of 3) -- directly answers KQ3, no. (3) Even hypothetically,
+PDTP's own established vortex-baryon energies (E_Y=2.74 GeV, E_H=17.2
+GeV, Part 37/106) overshoot the ~1-2 MeV target shell gap by 1800-11000x,
+with no established suppression mechanism (contrast Part 118's derived
+v^4 DM suppression). KQ1 (derive shell gap from topology): no. KQ2 (is
+Mc-299 topologically special): no principled basis, since no Z_3-network
+structure exists to make it special within. The underlying T37 gap
+(~9-15 MeV to Lazar's stable-115 claim) is NOT closed by this negative --
+it only rules out the PDTP-topological explanation specifically;
+standard shell-correction theory (Strutinsky, FRDM, Moller-Nix) remains
+the unexamined path.
 
 **What:** Apply PDTP Z_3 / baryon-triangulation view to nuclear magic numbers.
 Does shell closure at N=184, Z=114/120/126 correspond to closed vortex-network
@@ -1829,9 +1881,28 @@ is the candidate mechanism for the gap.
 
 ### Phase 8 — Nuclear Topology and WCT Cross-checks (2026-05-09)
 
-#### [ ] T40. Nuclear Geometry from Y-Junction Packing [SPEC, depends on T37]
+#### [x] T40. Nuclear Geometry from Y-Junction Packing — DONE (conceptual, Part 137, 2026-08-30)
 
-**Part:** TBD
+**RESULT:** Full writeup `docs/research/magic_number_topology.md`, run
+together with T28 since both test the identical core hypothesis (verbatim
+overlap confirmed before starting: T40 KQ1 = T28 KQ3; T40's own text
+lists T28 as a cross-check partner). Conceptual Key Questions 1, 2, 4
+resolved NEGATIVE -- see T28's RESULT above for the shared numeric
+findings (no surviving closed-network counting rule; E_Y/E_H overshoot
+the ~11 MeV target by 249x/1566x). KQ3 (is Mc-299 one proton from a
+closed network at Z=114) not assessable -- no established closed-network
+definition exists at the nuclear scale to test proximity to. KQ5
+(implementable as `pdtp_topology_correction(Z,N)`): no principled formula
+survived to implement. **Implementation steps 4-8 (build the correction
+function, wire into t37_isotope_stability.py, re-run Sudoku/Z=115 scan,
+update falsifiable_predictions.md Prediction 13) were explicitly NOT
+executed** -- there is no formula to wire in, and implementing a null/
+zero correction would only reproduce T37's already-on-record baseline
+(6/15 Sudoku, Mc-315 longest-lived ~11s), adding no new information.
+This is the "clean NEGATIVE... rules out this mechanism" outcome T40's
+own "Likely outcome" field anticipated as valid.
+
+**Part:** 137
 **What:** Apply PDTP Y-junction / Z_3 vortex-network geometry (Part 37) to
 nuclear magic numbers. The goal is to fill `pdtp_topology_correction(Z, N)`
 in `t37_isotope_stability.py` with a PDTP-derived correction rather than
@@ -1857,14 +1928,14 @@ from topological protection, not mean-field.
    that can be dropped into T37's SEMF predictor without restructuring?
 
 **Steps (checklist):**
-- [ ] 1. Review magic-number sequence vs Z_3 closed-network counting rule.
-- [ ] 2. Derive topological binding delta_B_topo(Z, N) from Y-junction geometry.
-- [ ] 3. SymPy verify; Sudoku 10+ tests reading from computed values.
-- [ ] 4. Implement `pdtp_topology_correction(Z, N)` and drop into t37_isotope_stability.py.
-- [ ] 5. Re-run Sudoku; target >= 15/19 (was 10/19 with delta_B = 0).
-- [ ] 6. Re-run Z=115 scan; report new longest-lived and Mc-299 half-life.
-- [ ] 7. Research doc (full derivation + plain English); update equation_reference.md.
-- [ ] 8. Update falsifiable_predictions.md Prediction 13 placeholder.
+- [x] 1. Review magic-number sequence vs Z_3 closed-network counting rule. -- DONE, NEGATIVE (Sec 3-4, magic_number_topology.md)
+- [x] 2. Derive topological binding delta_B_topo(Z, N) from Y-junction geometry. -- ATTEMPTED: no closed network survived step 1 to derive a binding formula FROM; energy-scale check (Sec 5) shows E_Y/E_H are 1800-11000x too large regardless
+- [x] 3. SymPy verify; Sudoku 10+ tests reading from computed values. -- N/A, no formula produced by steps 1-2 to verify (all comparisons in Sec 3-5 are direct numeric computation, RECHECK-compliant, no hand-waved returns)
+- [ ] 4. Implement `pdtp_topology_correction(Z, N)` and drop into t37_isotope_stability.py. -- NOT EXECUTED, no surviving formula to implement (would just be a null/zero stub, no new information)
+- [ ] 5. Re-run Sudoku; target >= 15/19 (was 10/19 with delta_B = 0). -- NOT EXECUTED, moot (step 4 not done)
+- [ ] 6. Re-run Z=115 scan; report new longest-lived and Mc-299 half-life. -- NOT EXECUTED, moot (step 4 not done)
+- [x] 7. Research doc (full derivation + plain English); update equation_reference.md. -- DONE, `docs/research/magic_number_topology.md`
+- [ ] 8. Update falsifiable_predictions.md Prediction 13 placeholder. -- NOT EXECUTED; Prediction 13 remains an open target for standard shell-correction theory (Sec 9), not PDTP topology -- no update needed from this result
 
 **Cross-check with:** T37 (SEMF baseline), T28 (Mc-299 topological closure),
 Part 37 (SU(3) Y-junction), Part 106 (Hopf-link baryon)
@@ -2097,7 +2168,7 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T25 | String theory and PDTP (Regge slope, graviton, extra dims) | 25 (low) | DONE (Regge slope NEGATIVE, structural) | 134 |
 | T26 | Bob Lazar truth table (decoupling phenomenology) | 26 (low) | DONE (energy budget NEGATIVE ~7 OoM beyond universe mass-energy; 3-emitter/Z3 match = coincidence not evidence) | 135 |
 | T27 | Elastic Universe review (shear modes, visualizations) | 27 (low) | DONE -- all 3 phases (E1-E16, J1-J3); site now HAS a Lagrangian (updates prior finding); "Cosserat Charge" fiddle NEGATIVE (no actual Cosserat theory, relevant to T66) | -- |
-| T28 | Mc-299 / Element 115 topological closure lens | SPEC | PENDING | -- |
+| T28 | Mc-299 / Element 115 topological closure lens | SPEC | DONE -- NEGATIVE, not Z_3-generated, FCC shells give 0 matches, energy scale 1800-11000x too large | 137 |
 | T29 | Phase self-locking mechanism (internal vs external) | SPEC | PENDING | -- |
 | T30 | Hopf-link topology protection for phase coherence | SPEC | PENDING | -- |
 | T31 | Nonlinear converging horn -> high-harmonic generation | SPEC | PENDING | -- |
@@ -2109,7 +2180,7 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T37 | Isotope stability mini-project (SEMF baseline + decay rates; baseline for T28/T40 + Lazar Z=115 gap quantification) | SPEC (med) | DONE PARTIAL (Part 107, Phase 75, 2026-04-29) | 10/19 Sudoku (Wapstra coeffs + 4 extra isotopes); Z=115 longest=1067s; Mc-299(N=184)~9ns; Lazar gap ~27 OoM ~ 8-14 MeV |
 | T38 | WCT regularizer Theta[psi] as UV-cure candidate in PDTP | SPEC (low) | PENDING | -- |
 | T39 | WCT effective metric cross-check vs PDTP acoustic / SU(3) metric | SPEC (low) | PENDING | -- |
-| T40 | Nuclear geometry from Y-junction packing (PDTP shell correction; fills pdtp_topology_correction stub) | SPEC (med-high) | PENDING | -- |
+| T40 | Nuclear geometry from Y-junction packing (PDTP shell correction; fills pdtp_topology_correction stub) | SPEC (med-high) | DONE (conceptual) -- resolved with T28, NEGATIVE; implementation steps 4-8 not executed, no formula survived | 137 |
 | T41 | O(eps^4) nonlinear vertex vs Einstein-Hilbert (closes 76g OPEN; exact -1/24 vertex; trace theorem; Weinberg ChPT anchor; 1/48 Planck suppression) | high | DONE (CONSTR. NEG. + PRODUCTIVE) | 114 |
 | T42 | Extremal condensate closure (closes 77.25; bridge = Dvali-Gomez criticality; scale-invariance no-go theorem; A1 CLOSED-INTERNAL — kappa provably external) | high | DONE (CONSTR. NEG. + no-go theorem) | 115 |
 | T43 | DM winding selection (n=1 by stability + KZ; m_DM = m_P; KZ relic abundance NEGATIVE 50 OoM; kill test = CMB tensor modes) | high | DONE (DERIVED + CONSTR. NEG.) | 116 |
@@ -2118,4 +2189,4 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T46 | Lambda as locking relic: phi_-_vac = frozen residue of Part 117 roll; beta(z) -> {EDE, Lambda, w(z)} (3 observables, 1 input) | high (SPEC) | DONE PARTIAL | 119 |
 | T47 | m_cond consequence scanner: lookup table of all observables vs candidate m_cond (1 eV..m_P); measurement rules out bands — NOT a brute-force finder (no-go, Part 115) | medium | DONE | 120 |
 | T65 | Backfill mathematical_formalization.md (SU(3) + two-phase sections missing) | integration (LARGE) | PENDING | -- |
-| T66 | Rotation-field / tetrad promotion (Cosserat-continua analogy) | SPEC (low) | PENDING | -- |
+| T66 | Rotation-field / tetrad promotion (Cosserat-continua analogy) | SPEC (low) | DONE -- info-free relabeling of phi(x) (dim SO(2)=1); sits below Part 84 (1 vs 8 DOF); Cosserat independence violated by construction | 136 |
