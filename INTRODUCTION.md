@@ -55,7 +55,8 @@ The framework is called "Phase-Decoupled" because the interesting physics happen
 
 | Document | Description |
 |----------|-------------|
-| [glossary.md](docs/technical/glossary.md) | Definitions of all specialized terms |
+| [glossary.md](docs/technical/glossary.md) | Definitions of all specialized terms (plain English) |
+| [term_glossary.md](docs/term_glossary.md) | Every symbol/variable with its SI units — check before using any symbol |
 | [einstein_comparison.md](docs/technical/einstein_comparison.md) | Comparison: Einstein Field Equations vs phase-coupling gravity |
 | [renamed_physics_terms.md](docs/technical/renamed_physics_terms.md) | Standard physics terms → functional names |
 

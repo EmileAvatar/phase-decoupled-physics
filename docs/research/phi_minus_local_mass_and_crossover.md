@@ -268,7 +268,7 @@ possibly-wrong number as fact.
 
 ---
 
-## 7. A Discovered (Not Fixed Here) Units Inconsistency [FLAGGED]
+## 7. A Units Inconsistency, Flagged Here and RESOLVED in TODO_05 T68
 
 While scoping Sec 6, this note found that Part 62's coupling g is used as
 g = omega_gap = m_P c^2/hbar directly (units 1/s, a frequency) -- consistent
@@ -277,17 +277,32 @@ g as a frequency). But T51 (Part 128) separately established, from the
 field equation's own structure (box(phi) = g sin(psi-phi), phi dimensionless),
 that g must carry units 1/s^2 -- ONE POWER MORE than a frequency. Applying
 T51's own stated fix ("omega_gap^2, not omega_gap, plays g's role") to Part
-62's formula moves its predicted phi_- mass at Earth's surface from ~105 eV
-(Part 62's original number) to ~4.5e14 GeV -- a ~42 order-of-magnitude swing.
+62's formula was estimated here to move its predicted phi_- mass at Earth's
+surface from ~105 eV (Part 62's original number) to ~4.5e14 GeV -- stated
+at the time as "a ~42 order-of-magnitude swing."
 
-This is a genuine, previously-unflagged inconsistency in how "g" has been
-dimensioned across the project's history (at minimum touching Parts 33, 61,
-62, 94, 96, 113, 117-119, 128), bigger than T18's original scope and NOT
-resolved here. **Filed as TODO_05 T68** for dedicated, unhurried
-investigation. T18's own core conclusions (Sec 2, 4, 5 -- existence and
-location of the true minimum, absence of a Delta_- = pi/4 crossover) do not
-depend on resolving this, since they only require g > 0, not a specific
-numerical value or units convention.
+**UPDATE (T68, 2026-09-06, `docs/research/g_units_audit_scoping.md` Sec
+7a-7b):** this was investigated fully. Both endpoint numbers above (105 eV,
+4.5e14 GeV) were confirmed correct -- but the swing between them is
+**21.6 orders of magnitude, not ~42** (SymPy-verified:
+`E_correct/E_code = sqrt(omega_gap)` exactly, `simulations/solver/
+t68_g_units_phi_minus_mass.py`). T68 traced this to the same root-cause
+bug across three independent chains (Part 62's local mass here, Part
+128's Lambda, Part 99/119's g_dyn): reducing the covariant field equation
+`box(phi)=g*sin(psi-phi)` to a pure-time equation while dropping the
+1/c^2 that `box` requires. The correct SI dimension is `[g]=1/length^2`
+(not 1/s or 1/s^2 as either convention informally assumed), and
+`g_bare = omega_gap^2/c^2`. T68's audit is essentially complete; see the
+scoping doc for the full trace across Parts 33/61/62/94/95/99/117/119/128.
+
+This was, at the time, a genuine, previously-unflagged inconsistency in
+how "g" had been dimensioned across the project's history (at minimum
+touching Parts 33, 61, 62, 94, 96, 113, 117-119, 128) -- bigger than T18's
+original scope and correctly deferred rather than resolved here. T18's own
+core conclusions (Sec 2, 4, 5 -- existence and location of the true
+minimum, absence of a Delta_- = pi/4 crossover) never depended on
+resolving this, since they only require g > 0, not a specific numerical
+value or units convention -- confirmed unaffected by T68's resolution.
 
 ---
 

@@ -159,11 +159,19 @@ All PDTP equations with status tags in one place:
 **Update that file whenever a new equation is derived or status changes.**
 
 ## Term and Symbol Glossary
-Every symbol, variable, and named concept used in PDTP in one place:
-`docs/technical/term_glossary.md`
-**Update that file whenever a new symbol or named mechanism is introduced to the framework.**
-Companion to `docs/technical/glossary.md` (plain-English concepts) and
-`docs/research/equation_reference.md` (equations with status tags).
+Every symbol, variable, and named concept used in PDTP — including its SI
+units — in one place: `docs/term_glossary.md` (moved 2026-09-06 to sit next
+to `Methodology.md` and its companions, since it is consulted as constantly
+as they are, not filed as a topic-specific technical doc).
+**Check this file BEFORE using any symbol in a new derivation** — reusing a
+letter for a quantity that already means something else in the framework is
+exactly how TODO_05 T68's g-units bug happened (three unrelated "g"s, each
+self-consistent alone, silently conflated across Parts 62/94/99/128).
+**Update that file whenever a new symbol or named mechanism is introduced to
+the framework, including its SI units.**
+Companion to `docs/technical/glossary.md` (plain-English concepts, verified
+2026-09-06 to still be accurate) and `docs/research/equation_reference.md`
+(equations with status tags).
 
 ## Mathematical Formalization
 The narrative, step-by-step mathematical foundations of PDTP — not a terse equation

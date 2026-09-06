@@ -63,16 +63,60 @@ questions.
 
 New additions go on top. One line per item. Full details below.
 
-- [ ] T68 — Resolve g's units project-wide (1/s vs 1/s^2): Parts 33/94 use g as
+- [ ] T72 — Reconcile Part 94's g=omega_gap (linear, from Part 34's
+  condensate self-consistency) against Part 99's pendulum equation, which
+  implies g=omega_gap^2/2 (quadratic, from linearizing d^2Delta/dt^2=
+  -2g*sin(Delta) near Delta=0 and calling the result "omega_gap", Part
+  113 lines 46/228/234/237). These cannot both hold generally for the
+  same g and omega_gap -- surfaced while auditing Part 113 for T68, but
+  a SEPARATE question from T68's own SI-dimension scope (this is about
+  whether two same-named quantities are the same NUMBER, not about units).
+  Needs Part 34 (`condensate_selfconsist.py`) read directly to see if its
+  self-consistency argument independently forces the two frequencies
+  equal, or whether they are actually different physical frequencies that
+  happen to share a name [PENDING, filed 2026-09-06; see docs/research/
+  g_units_audit_scoping.md Sec 7e]
+- [x] T68 — Resolve g's units project-wide (1/s vs 1/s^2): Parts 33/94 use g as
   a frequency (t_P=1/g, E_P=hbar*g); T51/Part128 independently derived [g]=1/s^2
   from the field equation's own structure. Part 62's phi_- mass formula uses the
   frequency convention directly; applying T51's fix moves its Earth-surface
-  prediction by ~42 orders of magnitude (105 eV -> ~1e14 GeV). Two "correct"
-  candidates (omega_gap^2 vs Part 119's g_dyn) already differ by ~60 OoM for a
-  neutron-star context. Touches Parts 33/61/62/94/96/113/117-119/128 -- bigger
-  than any single T-item, needs its own dedicated pass [PENDING, HIGH -- blocks
-  any numerical phi_- local-mass prediction; filed 2026-08-09 from TODO_04 T18,
-  see docs/research/phi_minus_local_mass_and_crossover.md Sec 7]
+  prediction by ~42 orders of magnitude (105 eV -> ~1e14 GeV) -- THIS SPECIFIC
+  NUMBER FLAGGED, does not reproduce on a first-pass hand check (~21-22 OoM
+  found instead; see scoping doc Sec 5). Two "correct" candidates (omega_gap^2
+  vs Part 119's g_dyn) already differ by ~60 OoM for a neutron-star context.
+  Touches Parts 33/61/62/94/96/113/117-119/128 -- bigger than any single
+  T-item, needs its own dedicated pass [IN PROGRESS, HIGH -- blocks any
+  numerical phi_- local-mass prediction; filed 2026-08-09 from TODO_04 T18;
+  Step 1 (enumeration) done 2026-09-06, found a 3rd candidate hypothesis
+  (natural-units-vs-SI conversion slip, not necessarily two distinct physical
+  couplings) plus a Sudoku blind-spot (internal-consistency checks can PASS
+  even with the wrong absolute units). CONFIRMED same day: SymPy re-derivation
+  of the field equation's dimension (full SI, both terms of box(phi) verified
+  independently) shows [g] = 1/length^2, NOT 1/time^2 as Part 128 stated --
+  g = omega_gap^2/c^2, not omega_gap^2 alone. Part 128's own Lambda_obs match
+  (1.000000, 12/12 Sudoku) is UNAFFECTED -- its working formula already
+  carries the missing /c^2 elsewhere in its structure. Parts 33/94/95/128
+  checked off. SAME bug found+fixed in Part 61/62 (reversed_higgs.py):
+  corrected phi_- local mass E_rest=hbar*omega_gap*sqrt(2*Phi), exactly
+  sqrt(omega_gap)~4.3e21 above the code's original ~105 eV, giving
+  ~4.5e14 GeV at Earth's surface -- BOTH endpoint numbers already on
+  record were right, only the "~42 orders" swing label was wrong (actual:
+  21.6 orders). Downstream consequence flagged: falsifiable_predictions.md
+  Eq F.12 (hollow-shell test) needs updating once the checklist closes
+  (own plan-first pass required, not done yet). Part 117 CLEAR (no bug,
+  independently confirms [g]=1/length^2). Part 119/128's g_dyn RESOLVED:
+  traces to the SAME missing-c^2 bug at its root in Part 99's Eq 99.1
+  (SymPy-verified); g_dyn = c^2 x bare coupling; its own number and Part
+  119's results UNCHANGED; T51's g_Lambda != g_dyn finding UNAFFECTED
+  (shared mislabeling cancels in the ratio). **CENTRAL AUDIT QUESTION
+  RESOLVED: one global units bug (Hypothesis 1), not two distinct
+  physical couplings, confirmed across 3 independent chains (Part 62
+  local mass, Part 128 Lambda, Part 99/119 g_dyn).** Parts 96/113/131
+  closed (confirmatory, as expected -- Part 131's "~42 orders" corrected
+  to 21.6 at the source). CHECKLIST COMPLETE 9/9. One new, narrower,
+  separate question surfaced (Part 94's g=omega_gap vs Part 99's implied
+  g=omega_gap^2/2) -- filed separately as T72. See docs/research/
+  g_units_audit_scoping.md Sec 7a-7e]
 - [ ] T67 — Galactic disk "flapping" as DM-wake phenomenology: Milky Way warp actively driven by Magellanic Cloud dark-matter wake (Weinberg & Blitz 2006); initial findings written up with a tiered, honestly-scoped PDTP connection (structural compatibility / open question re: Part 116 topological DM / speculative variable-c wake idea stacked on T57) [PENDING, LOW PRIORITY, filed 2026-08-05; see docs/research/galactic_disk_dynamics_note.md]
 - [ ] T64 — Poincaré/geometrization method scoping: could Ricci-flow-with-surgery-style geometric relaxation inform PDTP's own condensate-defect stability analysis (e.g. Hopf-link vs Y-junction energy comparison, Part 106)? Tool, not theorem -- Poincaré itself has no direct PDTP content [PENDING, SPEC, LOW PRIORITY]
 - [ ] T63 — Navier-Stokes / superfluid condensate scoping: does PDTP's Gross-Pitaevskii-style condensate description have any bearing on classical NS existence/smoothness, or is this purely a loose analogy? Expected NEGATIVE (different equations/regime) but must be stated explicitly, not just assumed [PENDING, SPEC, LOW PRIORITY]
@@ -94,12 +138,106 @@ New additions go on top. One line per item. Full details below.
 
 ---
 
-### [ ] T68 — Resolve g's Units Project-Wide (1/s vs 1/s^2) — PENDING [HIGH]
+### [x] T68 — Resolve g's Units Project-Wide (1/s vs 1/s^2) — DONE [HIGH]
 
-**Status:** PENDING
+**Status:** DONE (2026-09-06). Full per-Part audit (`docs/research/
+g_units_audit_scoping.md`, Sections 7a-7e) resolved the central question:
+neither "1/s" nor "1/s^2" was exactly right -- the correct SI dimension of
+the bare Lagrangian coupling g is **1/length^2**, and one single
+project-wide units-conversion slip (dropping the 1/c^2 when reducing the
+covariant field equation to a pure-time equation) explains every instance
+found, confirmed independently across three separate derivation chains
+(Part 62's local phi_- mass, Part 128's Lambda, Part 99/119's g_dyn) --
+not two genuinely distinct physical couplings as originally framed. One
+numerical result corrected (phi_- local mass swing: 21.6 orders of
+magnitude, not the ~42 originally stated; both endpoint numbers, 105 eV
+and 4.5e14 GeV, were already right and are unchanged). No other numerical
+result in the project changes -- g_Lambda and g_dyn's own established
+uses are unaffected because the shared mislabeling cancels in any ratio
+between quantities built the same way. One downstream consequence
+flagged but deliberately not fixed here: `falsifiable_predictions.md`
+Eq F.12 (hollow-shell test) needs its own plan-first update, since its
+predicted force range collapses once the corrected mass is used. One new,
+narrower, separate question surfaced during the audit (Part 94's
+g=omega_gap vs Part 99's implied g=omega_gap^2/2) and is filed separately
+as **T72**, not folded into T68.
 **Estimated effort:** unknown -- likely a multi-Part audit, not a single calculation
 **Source:** discovered while scoping TODO_04 T18, 2026-08-09; see
 `docs/research/phi_minus_local_mass_and_crossover.md` Sec 7.
+
+**Step 1 findings (2026-09-06, `g_units_audit_scoping.md`) -- read before
+continuing:**
+1. A blind repo-wide grep for "g" returns 73 files, almost all noise
+   (gravitational acceleration, Gell-Mann index g_i, metric g_mu_nu). Do
+   NOT repeat this -- work through the per-Part checklist below instead.
+2. **Third candidate hypothesis found**, not in the original framing:
+   `emergent_c.md` Result 7 already flags that its formula "uses g in the
+   natural-unit sense (units [mass]^2)" vs Part 94's SI value (1/s). This
+   raises the possibility that Convention A and B are not two distinct
+   physical couplings at all, but one coupling inconsistently converted
+   between natural units and SI -- which would change the fix from "split
+   the symbol" to "apply one consistent conversion everywhere." Not yet
+   verified either way.
+3. **Sudoku blind spot found:** Part 131's S9 (`m^2=2g*sin(Delta_+)`,
+   PASS) checks internal algebraic consistency (does the formula match an
+   independently re-derived series expansion?), not absolute dimensional
+   correctness -- it would PASS even with the wrong units for g. Every
+   existing "PASS" cited for a g-dependent formula needs re-reading to
+   check which kind of consistency it actually verifies before being used
+   as evidence.
+4. **The "~42 orders of magnitude" figure itself doesn't reproduce** on a
+   first-pass hand check (a ~21-22 order swing was found instead, from
+   `sqrt(omega_gap^2/omega_gap) = sqrt(omega_gap)`). Flagged, not resolved
+   -- redo this calculation from scratch, with every substitution shown,
+   once the per-Part checklist below has settled what g should actually be.
+
+**Per-Part checklist (work through IN ORDER, one at a time; for each:
+write the exact equation with every symbol's units, solve for what [g] it
+requires, note whether the Part declares SI or natural units explicitly,
+and classify against the 3 hypotheses in the scoping doc Sec 6):**
+
+- [x] Part 33 (`vortex_winding_derivation.md`) -- CLEAR: no bare g used;
+  G = hbar*c/m_cond^2 has zero dependence on g
+- [x] Part 94 (`coupling_constant_g.md`) -- internally consistent given its
+  own premise (g=omega_gap); premise superseded by Part 95/128 finding
+- [x] Part 95/128 (`emergent_c.md` Result 7; `lambda_locking_fossil.md` Sec
+  11) -- **CORRECTED**: [g] = 1/length^2 (SI), not 1/time^2; g =
+  omega_gap^2/c^2, not omega_gap^2 alone. Lambda_obs match UNAFFECTED
+  (already had a compensating /c^2 elsewhere). SymPy: `t68_g_units_field_
+  equation.py`. Full writeup: g_units_audit_scoping.md Sec 7a.
+- [x] Part 61/62 (`reversed_higgs.py`) -- **RESOLVED, same bug as Part
+  128**: corrected E_rest = hbar*omega_gap*sqrt(2*Phi), exactly
+  sqrt(omega_gap)~4.3e21 above the code's original, giving ~4.5e14 GeV at
+  Earth's surface (matches the number already on record; swing corrected
+  from "~42 orders" to 21.6). SymPy: `t68_g_units_phi_minus_mass.py`.
+  Downstream consequence flagged, NOT fixed: falsifiable_predictions.md
+  Eq F.12 (hollow-shell test) needs its own plan-first update once the
+  full checklist closes. Full writeup: g_units_audit_scoping.md Sec 7b.
+- [x] Part 117 (`phi_minus_quartic.md`) -- **CLEAR**: stays symbolic
+  throughout, never plugs in numeric g; independently confirms
+  [g]=1/length^2 via kbar^2=2g (kbar a genuine wavenumber). No fix needed.
+- [x] Part 119/128 (`lambda_locking_fossil.md` Sec 11, T51) -- g_dyn.
+  **RESOLVED**: traces to the SAME field equation and the SAME missing-c^2
+  reduction bug, found at its root in Part 99's Eq 99.1
+  (`d^2Delta/dt^2=-2g*sin(Delta)` drops the c^2 that box(Delta)'s (1/c^2)
+  d^2/dt^2 term requires -- SymPy-verified). g_dyn = c^2 x (bare coupling
+  for phi_-'s present-epoch dynamics). g_dyn's own number and Part 119's
+  EOS/freeze results UNCHANGED (self-consistently calibrated against real
+  DESI data). T51's g_Lambda != g_dyn finding UNAFFECTED (shared
+  mislabeling cancels in the ratio). **Central audit question now
+  RESOLVED: one global bug (Hypothesis 1), not two distinct couplings.**
+  See g_units_audit_scoping.md Sec 7d.
+- [x] Part 96 (`condensate_layer_optics.md`) -- **CLEAR**: standard Part 94
+  dispersion identity; speculative local-mass formula reuses Part 62's,
+  same fix, no new mechanism
+- [x] Part 113 (`two_phase_tan.md`) -- **CLEAR for T68's own question**
+  (reuses Part 99's g, already-resolved bug); surfaced the separate T72
+  question (g=omega_gap vs g=omega_gap^2/2), not part of T68's scope
+- [x] Part 131 (`phi_minus_local_mass_and_crossover.md` Sec 6-9) --
+  **DONE**: "~42 orders" corrected to 21.6 at the source; endpoint
+  numbers unchanged
+
+**CHECKLIST COMPLETE: 9/9.**
 
 **What:**
 Two incompatible conventions for the bare Lagrangian coupling "g" (as in
@@ -154,6 +292,53 @@ CLAUDE.md's Problem-Solving Protocol) before any code: list every Part/formula
 that uses bare "g", classify each by which convention it actually needs
 dimensionally, and only then decide whether this is a uniform fix, a
 "these are two different objects" reframe, or something else.
+
+---
+
+### [ ] T72 — Reconcile Part 94's g=omega_gap vs Part 99's Implied g=omega_gap^2/2
+
+**Status:** PENDING. Filed 2026-09-06, surfaced while auditing Part 113
+for T68 (`docs/research/g_units_audit_scoping.md` Sec 7e).
+
+**What:** Two claimed relationships between the same symbols cannot both
+be generally true:
+
+1. **Part 94** (`coupling_constant_g.md`, Eq 94.1, citing Part 34's
+   condensate self-consistency): `g = omega_gap = m_cond*c^2/hbar` --
+   LINEAR relationship, derived independently of the pendulum equation.
+2. **Part 99** (`tan_critical_point.md`, Eq 99.1): the pendulum equation
+   `d^2Delta/dt^2 = -2g*sin(Delta)`, linearized near Delta=0, gives small-
+   oscillation angular frequency `omega = sqrt(2g)`, i.e. `omega^2 = 2g`
+   -- QUADRATIC. Part 113 (`two_phase_tan.md`, lines 46, 228, 234, 237)
+   explicitly calls this pendulum frequency "omega_gap" and states
+   `2g = omega_gap^2`.
+
+If both `g = omega_gap` and `g = omega_gap^2/2` held for the same g and
+omega_gap, it would force `omega_gap = 2` in whatever units -- not
+generically true. Either Part 94's omega_gap (a quasiparticle energy-gap
+frequency) and Part 99/113's "omega_gap" (the pendulum's own natural
+oscillation frequency) are two DIFFERENT physical frequencies that happen
+to share a name, or Part 34's original self-consistency argument
+independently forces them equal for a reason not yet checked.
+
+**This is explicitly NOT the same question as T68** (which was about SI
+dimensions, 1/s vs 1/length^2, and is now resolved) -- this is about
+whether two same-named, same-dimensioned quantities are actually the same
+NUMBER.
+
+**Proposed step:** read Part 34 (`condensate_selfconsist.py` and its
+underlying derivation) directly to see whether it derives g=omega_gap
+from the SAME field equation Part 99 uses (in which case the two claims
+should already be reconcilable and the discrepancy is a real error to
+fix) or from an independent physical argument (in which case they may
+simply be two different, correctly-coexisting frequencies that should be
+renamed to avoid the collision).
+
+**Effort:** Low-Medium -- reading one Part's original derivation and
+checking one algebraic consistency condition.
+**Priority:** Medium -- doesn't block anything currently active, but is
+exactly the kind of unresolved symbol collision T68 was filed to catch,
+now found one level deeper.
 
 ---
 
