@@ -1577,6 +1577,48 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 
 ---
 
+### Part 140 additions (T70: N_eff Seeley-DeWitt applicability check):
+
+**Source:** Part 140 (2026-09-06), `simulations/solver/t70_neff_seeley_dewitt.py`,
+`docs/research/neff_seeley_dewitt_applicability.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 140.1 | N_eff = N_v + (11/2)*N_f + (1/6)*N_s (externally suggested spin-weighted heat-kernel DOF formula) | [UNVERIFIED — no source located after 2 targeted literature searches] | shown for reference only; not adopted as an established formula per CODING_STANDARDS' citation requirement |
+| 140.2 | N_v = 0, N_f = 0 identically across every version of PDTP's own Lagrangian (U(1), SU(3), two-phase) | [DERIVED, inspection + cross-confirmed via Part 114] | PDTP's "gluons"/"quarks" are nonlinear-sigma-model scalar fields (Tr[(dU-dag)(dU)] kinetic term), not gauge bosons/spinors; decisive independent of Eq 140.1's sourcing |
+
+**Conclusion (Part 140):** external suggestion to replace Part 83's
+scalar-only N_eff tool with a spin-weighted one fails on two independent
+grounds — the formula itself is unsourced, and PDTP's own field content has
+no vector or fermion fields for its extra terms to act on regardless. Part
+83's N_eff = 6π gap characterization (range [8,34], target 18.85, 1%-off
+Casimir near-miss) is unchanged. See
+`docs/research/neff_seeley_dewitt_applicability.md` for the full trace.
+
+---
+
+### Part 138 additions (T69: Bullet Cluster bound unit-conversion erratum):
+
+**Source:** Part 138 (2026-09-02), `simulations/solver/sigma_m_erratum.py`
+(BULLET_BOUND_M2KG constant), `docs/research/dm_bullet_bound_erratum.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 138.1 | 1 cm^2/g = 1e-1 m^2/kg (SymPy-verified via sympy.physics.units.convert_to), NOT 1e-4 m^2/kg as coded in sigma_m_erratum.py since Part 118 and in condensate_layer_optics.py/condensate_layer_fcc.py since Part 89/96 | [ESTABLISHED, unit conversion; erratum] | 1000x error, found during T69's consistency audit; corrected margin 47.3 orders (was 44.3) for the Part 118 sigma/m result; no PASS/FAIL verdict anywhere changes (all affected Sudoku suites rerun, still 100% PASS) since PDTP's predicted sigma/m is tens of orders below either the wrong or the correct bound |
+| 138.2 | KM3-230213A E/m_W = 220 PeV/80.4 GeV = 2.7e6, NOT 2737 as stated in condensate_layer_optics.py's Eq 89.21/energy-ladder table; same bug affects the Glashow-resonance (78 -> 7.8e4) and previous-record (75 -> 7.5e4) rows | [VERIFIED, computed; erratum] | separate 1000x PeV-to-GeV conversion error (peta confused with tera), found in the same T69 audit pass; no backing script existed (doc-only table); "propagating"/"resonance" verdicts unaffected -- all ratios remain enormously >>1 either way |
+
+**Conclusion (Part 138):** two genuine, previously-uncaught bugs, both
+found while auditing Part 89/96/118's dark-matter and neutrino material --
+one via an independent SymPy units check (Eq 138.1), one via direct
+recomputation of a cited table (Eq 138.2) -- during T69's routine
+consistency audit of `dark_matter_energy.md`, not from any new physics
+investigation. All three affected scripts fixed and rerun
+(`sigma_m_erratum.py` 7/7, `condensate_layer_fcc.py` 12/12 combined 24/24,
+`condensate_layer_optics.py` 12/12); every citing .md doc updated. See
+`docs/research/dm_bullet_bound_erratum.md` for the full trace.
+
+---
+
 ### Part 137 additions (T28+T40: magic numbers vs Z_3 topology):
 
 **Source:** Part 137 (2026-08-30), `simulations/solver/t28_magic_number_topology.py`;
@@ -1778,7 +1820,7 @@ erratum block in `docs/research/condensate_layer_optics.md`. Sudoku 7/7 PASS.
 |------|-------------------|-----|-------|
 | 118.1 | dim(G/c^4) = L^3 M^-1 T^2 / L^4 != L^2 M^-1 | [VERIFIED, SymPy units] | Eq 89.17 as originally written was dimensionally inconsistent |
 | 118.2 | b_90 = 2 G m / v^2; sigma = pi b_90^2 | [TEXTBOOK, Binney & Tremaine S3.1] | gravitational Rutherford 90-deg deflection |
-| 118.3 | sigma/m_DM = 4 pi G^2 m_DM / v^4 = 5.2e-49 m^2/kg (m_P, 220 km/s) | [DERIVED, replaces 89.17] | Bullet margin 44.3 orders; verdicts of Parts 89/116 unchanged |
+| 118.3 | sigma/m_DM = 4 pi G^2 m_DM / v^4 = 5.2e-49 m^2/kg (m_P, 220 km/s) | [DERIVED, replaces 89.17] | Bullet margin 47.3 orders (corrected T69, 2026-09-02; was misstated 44.3, see Eq 138.1); verdicts of Parts 89/116 unchanged |
 
 Also fixed: `check_urls.py` REPO_DIR path (script moved to "github-repo misc/")
 and non-ASCII print characters (cp1252 crash).
@@ -2023,6 +2065,39 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-09-06: Added Part 140 (T70: external AI (qwen3.7) suggested closing
+  Part 83's N_eff = 6*pi gap with a spin-weighted Seeley-DeWitt formula,
+  N_eff = N_v + (11/2)*N_f + (1/6)*N_s [Eq 140.1]. Killed on two independent
+  grounds: (1) the formula could not be attributed to any source after 2
+  targeted literature searches; (2) decisive regardless -- re-read every
+  version of PDTP's own Lagrangian (U(1), SU(3), two-phase) and confirmed
+  N_v = 0, N_f = 0 identically [Eq 140.2]: PDTP's "8 gluons"/"quarks" are
+  nonlinear-sigma-model scalar fields (Tr[(dU-dag)(dU)] kinetic term, no
+  gauge connection, no field-strength tensor), independently confirmed by
+  Part 114's own "8 real massless scalars" classification and its exact
+  match to Weinberg's (scalar/pseudoscalar) pion vertex. Part 40's Wilson
+  fermions are a borrowed lattice-QCD numerical scaffold, not a redefinition
+  of PDTP's own matter field. Computed anyway for completeness: neither the
+  QCD-analogy reading (G_ind/G = 0.13-0.18) nor the structurally-honest
+  scalar-only reading (G_ind/G = 3.3-14.1) improves on Part 83's existing
+  [0.554, 2.356] range. Part 83's gap characterization is UNCHANGED. 10/10
+  Sudoku. See `neff_seeley_dewitt_applicability.md`.
+- 2026-09-02: Added Part 138 (T69: two unit-conversion erratums found
+  during T69's routine consistency audit of dark_matter_energy.md. (1)
+  1 cm^2/g = 1e-1 m^2/kg exactly (SymPy-verified), NOT 1e-4 m^2/kg as coded
+  since Part 89/96/118 [Eq 138.1] -- a 1000x error baked into the actual
+  Python constant (BULLET_BOUND_M2KG), not just prose. Corrected Bullet
+  margin for Part 118's DM self-interaction result: 47.3 orders, was
+  misstated 44.3 orders everywhere it was cited (Eq 118.3, TODO_04.md T45,
+  dark_matter_energy.md, condensate_layer_optics.md, dm_winding_selection.md,
+  notes_mcond_lambda.md -- all updated). (2) KM3-230213A E/m_W = 2.7e6, NOT
+  2737 as stated in condensate_layer_optics.py's energy-ladder table [Eq
+  138.2] -- a separate 1000x PeV-to-GeV conversion error, also affecting
+  the Glashow-resonance and previous-record rows in the same table. No
+  PASS/FAIL verdict anywhere changes for either finding; PDTP's own
+  predicted values were always correct and unaffected -- only the
+  comparison constants were wrong. All three affected scripts fixed and
+  rerun, all Sudoku suites still 100% PASS.)
 - 2026-08-30: Added Part 137 (T28+T40: magic numbers vs Z_3 topology.
   Tested whether nuclear magic numbers 2,8,20,28,50,82,126(,184) derive
   from PDTP closed Z_3 vortex-network counting, resolving T28 and T40

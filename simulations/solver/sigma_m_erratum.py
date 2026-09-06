@@ -58,7 +58,11 @@ from sudoku_engine import HBAR, C, G, M_P
 from print_utils import ReportWriter
 
 V_HALO = 220e3                  # m/s
-BULLET_BOUND_M2KG = 1.0e-4      # m^2/kg  (= 1 cm^2/g)
+# 1 cm^2/g = (1e-2 m)^2 / (1e-3 kg) = 1e-4 m^2 / 1e-3 kg = 1e-1 m^2/kg = 0.1 m^2/kg
+# (SymPy-verified via sympy.physics.units.convert_to, T69 audit, 2026-09-02 --
+# this constant was WRONG as 1.0e-4 in every version of this file since Part 118;
+# it understated the Bullet margin by exactly 3 orders of magnitude, log10(1000).)
+BULLET_BOUND_M2KG = 1.0e-1      # m^2/kg  (= 1 cm^2/g, corrected T69)
 PART89_QUOTED_M2KG = 8.3e-43    # value printed in Eq 89.17
 PART89_QUOTED_CM2G = 8.3e-39    # cm^2/g value printed in Eq 89.17
 

@@ -340,14 +340,18 @@ def dark_matter_spectrum():
       sigma ~ G^2 * m_DM^2 / v_rel^4  [gravitational Rutherford]
       sigma/m_DM ~ G^2 * m_DM / v_rel^4
 
-    Bullet Cluster constraint: sigma/m < 1 cm^2/g = 1e-4 m^2/kg
+    Bullet Cluster constraint: sigma/m < 1 cm^2/g = 1e-1 m^2/kg
+    (1 cm^2/g = (1e-2 m)^2/(1e-3 kg) = 1e-1 m^2/kg -- corrected T69 audit,
+    2026-09-02; was wrongly 1e-4 m^2/kg here since this file's creation,
+    same latent bug as sigma_m_erratum.py, doesn't flip any bullet_ok
+    verdict since sigma/m is ~50+ orders below either value)
 
     Note: Part 89 computed sigma/m_DM ~ G/c^4 = 8.3e-43 m^2/kg for the
     gravitational scattering cross-section. Here we also check the
     gravitational Rutherford formula for completeness.
     """
     v_rel   = 1.0e6    # m/s  (galaxy cluster collision ~ 1000 km/s)
-    Bullet  = 1.0e-4   # m^2/kg  (Bullet Cluster 1 cm^2/g bound)
+    Bullet  = 1.0e-1   # m^2/kg  (Bullet Cluster 1 cm^2/g bound, corrected T69)
 
     candidates = []
     for n in [1, 2, 10, 100, int(M_P_KG * C**2 / LAMBDA_QCD_J)]:
@@ -498,7 +502,7 @@ def run_sudoku_b7_fcc(rw, bragg, anderson, fiber, d2, dm, tpc):
 
     # S22: DM n=1 (m=m_P): sigma/m << Bullet Cluster bound
     dm_n1 = dm["candidates"][0]
-    check_bool("S22: DM n=1 (m_P): sigma/m << 1e-4 m^2/kg (Bullet safe)",
+    check_bool("S22: DM n=1 (m_P): sigma/m << 1e-1 m^2/kg (Bullet safe)",
                dm_n1["bullet_ok"])
 
     # S23: DM winding n_max ~ m_P/Lambda_QCD ~ 6.1e10
@@ -661,7 +665,7 @@ def run_condensate_layer_fcc(rw, _engine):
     rw.print("")
     rw.print("  n_max = m_P/Lambda_QCD ~ {:.3e} (at QCD scale, m_DM ~ 200 MeV)".format(
         float(dm["n_max_at_QCD"])))
-    rw.print("  All winding numbers: sigma/m << 1e-4 m^2/kg (Bullet safe). [DERIVED]")
+    rw.print("  All winding numbers: sigma/m << 1e-1 m^2/kg (Bullet safe). [DERIVED]")
     rw.print("  Part 89 gravitational sigma/m = {:.2e} m^2/kg.".format(dm["sigma_grav"]))
     rw.print("")
     rw.print("  Plain English: DM can have any winding number n=1,2,3,...")

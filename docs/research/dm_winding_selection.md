@@ -233,7 +233,7 @@ modes -> no Planck-vortex dark matter.**
 
 | Quantity | Computed value | Bound / scale | Verdict |
 |----------|---------------|---------------|---------|
-| sigma/m = 4 pi G^2 m_DM/v^4 (Part 118) | 5.2e-49 m^2/kg | < 1e-4 m^2/kg (Bullet) | PASS, 44.3 orders margin |
+| sigma/m = 4 pi G^2 m_DM/v^4 (Part 118) | 5.2e-49 m^2/kg | < 1e-1 m^2/kg (Bullet, corrected T69) | PASS, 47.3 orders margin |
 | de Broglie wavelength @ 220 km/s | 2.2e-32 m | << kpc | utterly cold PASS |
 | local number density | 3.3e-14 /m^3 (1 per ~31 m cube) | — | sparse |
 | flux through 1 m^2 detector | 0.23 /yr, grav-only | LZ/XENON nulls | CONSISTENT |
@@ -246,7 +246,9 @@ which Part 118 showed to be dimensionally inconsistent (plus factor-100 and unit
 errors). The table above uses the corrected formula sigma/m = 4 pi G^2 m_DM/v^4
 (gravitational Rutherford scattering, b_90 = 2Gm/v^2); see
 `simulations/solver/sigma_m_erratum.py` (7/7 Sudoku). The conclusion is unchanged
-and the Bullet margin improves to 44.3 orders.
+and the Bullet margin improves to 47.3 orders (corrected T69, 2026-09-02 --
+the Bullet bound constant itself had a separate 1000x unit-conversion error;
+see `dm_bullet_bound_erratum.md`).
 
 ---
 

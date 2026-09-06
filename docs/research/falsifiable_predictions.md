@@ -404,7 +404,7 @@ Cosmological constant: w = −1 exactly, at all redshifts. w_a = 0.
 | DESI (Dark Energy Spectroscopic Instrument) | w₀, w_a from BAO | DR2 released — hints w₀ > −1 |
 | Euclid | w(z) from weak lensing + BAO | Operating, first results 2025 |
 | Rubin Observatory (LSST) | w(z) from Type Ia supernovae | First light 2025 |
-| Roman Space Telescope | w(z) from multiple probes | Launch ~2027 |
+| Roman Space Telescope | w(z) from multiple probes | Launched 2026-08-30; first images/data expected early 2027 |
 
 ### What confirms PDTP
 

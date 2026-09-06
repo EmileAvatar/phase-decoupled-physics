@@ -65,7 +65,9 @@ The DM self-interaction formula sigma/m ~ G/c^4 was dimensionally wrong (SymPy
 units check), numerically off by x100, and its cm^2/g conversion was off by x1000.
 Correct formula (gravitational Rutherford scattering):
   `sigma/m = 4*pi*G^2*m_DM/v^4 = 5.2e-49 m^2/kg`
-Bullet Cluster margin actually improves (39 -> 44 orders of magnitude). Sudoku: 7/7.
+Bullet Cluster margin actually improves (39 -> 47 orders of magnitude;
+corrected T69, 2026-09-02 -- the Bullet bound constant had its own separate
+1000x unit error, was showing 44). Sudoku: 7/7.
 Script: `simulations/solver/sigma_m_erratum.py`
 
 ### Two open tasks (T46, T47 in TODO_04.md)

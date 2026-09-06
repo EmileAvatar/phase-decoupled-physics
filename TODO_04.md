@@ -12,11 +12,14 @@
 
 New additions go on top. One line per item. Full details below.
 
+- T71 — Audit the CKN "factor 12" formula discrepancy (Part 54): cosmological_constant_fcc.md gives rho_CKN = hbar*c/(l_P^2*L_H^2), TODO_02.md/equation_reference.md give rho_CKN = c^2/(G*L_H^2) -- these did not look dimensionally equivalent on a quick check (2026-09-06, found while searching the repo for qwen's "factor 12" claim); need to determine which is correct, reconcile the "factor 12" number, and only then judge whether qwen's Suggestion 4 (GHY boundary term / Padmanabhan bulk-surface equipartition) is worth pursuing [PENDING]
+- T70 — N_eff via spin-weighted Seeley-DeWitt a_2 heat-kernel coefficient [DONE, Part 140, 2026-09-06 -- CONSTRUCTIVE NEGATIVE: formula unverifiable (2 targeted lit searches found no source for N_v + 11/2*N_f + 1/6*N_s); more decisive, PDTP's own Lagrangian (U(1), SU(3), two-phase) has N_v=0, N_f=0 identically -- "gluons"/"quarks" are nonlinear-sigma-model scalars (confirmed via Part 114's independent classification + Weinberg ChPT anchor), not real gauge bosons/spinors; Part 40's Wilson fermions are a borrowed lattice-QCD scaffold, not PDTP's own matter field; computed anyway for completeness -- QCD-analogy reading gives G_ind/G=0.13-0.18 (worse than Part 83's existing range), scalar-only 1/6-weighted reading gives 3.3-14.1 (also worse); Part 83's characterization stands unchanged; 10/10 Sudoku]
+- T69 — Dark matter doc audit + two current external events [DONE, Parts 138-139, 2026-09-02 -- audit found+fixed TWO real 1000x unit-conversion bugs (Bullet Cluster bound: 44.3->47.3 OoM margin; KM3 neutrino E/m_W: 2737->2.7e6), both baked into code not just prose, neither changing any verdict; LZ 2.6-sigma event matches NEITHER PDTP DM candidate (16-17 OoM too heavy for n=1 wimpzilla, 1000x too light for ~200 MeV candidate) -- honest fork flagged for future data, not resolved; Roman's lensing/substructure capability tests NOTHING PDTP-specific (biharmonic-gravity route already dead by 20 OoM, DM test needs CMB not optical); Roman's real PDTP connection is the already-on-record w(z) Prediction 5, whose stale "Launch ~2027" note was corrected]
 - T49 — Kuramoto connection: PDTP field equation IS relativistic Kuramoto model; Arnold tongues = Leidenfrost boundary; stiffness = m_cond = hierarchy problem; two proposed calculations: (1) winding amplification g_eff ~ g*n closes 43-OoM locking gap, (2) Arnold tongue width vs Part 110 critical exponents [SPECULATIVE, LOW PRIORITY; see docs/research/hierarchy_problem_reframe.md Section 8]
 - T48 — Hierarchy problem reframe: 5 reframings + 5 PDTP candidate paths (C1 ratio derivation, C2 cosmological winding, C3 locking fossil, C4 Dvali-Gomez self-reference, C5 anthropic window); revisit after T46 + two-condensate ratio work [SPECULATIVE, LOW PRIORITY until T46 done; see docs/research/hierarchy_problem_reframe.md]
 - T46 — Lambda as locking fossil: true vacuum phi_- = pi/2 derived; m/H = 3*sqrt(eps) [Eq 119.1]; freeze condition eps < 1/9 [Eq 119.2]; thawing w = -1+2*eps [Eq 119.3]; mechanism consistent; beta(z) OPEN for magnitude [DONE PARTIAL, Part 119, Phase 87; 12/12 Sudoku; see docs/research/lambda_locking_fossil.md]
 - T47 — m_cond consequence scanner: 30-row lookup table scans 10^0 to 10^28 eV/c^2 (one decade per row); 10 individual quantity functions (Newtons, BreathingMode, LatticeSpacing, WindingNumber, DarkMatterMass, CondensateDensity, HealingLength, GPInteractionConstant, BiharmonicScreeningScale, GLParameter); kappa_GL=sqrt(2) self-check in every row; reference rows at m_e, m_p, Lambda_QCD, Higgs, m_P [DONE, Part 120, Phase 88; 12/12 Sudoku; see simulations/solver/t47_mcond_scanner.py]
-- T45 — Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4 replaces G/c^4) + check_urls.py fixes [DONE, Part 118, Phase 86; 7/7 Sudoku; Bullet margin 44.3 OoM; verdicts unchanged]
+- T45 — Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4 replaces G/c^4) + check_urls.py fixes [DONE, Part 118, Phase 86; 7/7 Sudoku; Bullet margin 47.3 OoM (corrected T69/Part 138, was misstated 44.3 -- separate 1000x Bullet-bound unit error); verdicts unchanged]
 - T43 — DM winding selection: n=1 via stability + Kibble-Zurek -> m_DM = m_P [DONE, Part 116, Phase 84; 12/12 Sudoku; KZ relic abundance NEGATIVE (50 OoM); kill test = CMB tensor modes]
 - T44 — Positive phi_-^4 quartic: induced lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2) at partial lock [DONE, Part 117, Phase 85; 10/10 Sudoku; tree + zero-point NEGATIVE; self-switching transient EDE; beta(z) OPEN]
 - T40 — Nuclear geometry from Y-junction packing [DONE (conceptual), Part 137, 2026-08-30 -- NEGATIVE, resolved together with T28: no Z_3-network counting rule reproduces the magic numbers; E_Y/E_H (Part 37/106) overshoot the ~11 MeV target by 249x/1566x; implementation steps 4-8 (pdtp_topology_correction, Sudoku re-run) not executed -- no surviving formula to wire in]
@@ -1463,6 +1466,246 @@ if T27's Elastic Universe review also independently reaches this point).
 
 ---
 
+#### [x] T69. Dark Matter Doc Audit + Two Current External Events — DONE (Parts 138-139, 2026-09-02)
+
+**RESULT:**
+
+**Sub-point 1 (consistency audit) found and fixed TWO real bugs**, not
+zero as originally expected -- full writeup `docs/research/
+dm_bullet_bound_erratum.md` (Part 138). (a) The "44.3 orders of magnitude"
+Bullet Cluster safety margin, cited everywhere Part 118's DM self-
+interaction result appears, used a WRONG bound constant: 1 cm^2/g was
+coded as 1e-4 m^2/kg when it is actually 1e-1 m^2/kg (SymPy-verified via
+sympy.physics.units.convert_to) -- a 1000x error baked into the actual
+Python constant (`BULLET_BOUND_M2KG` in `sigma_m_erratum.py`) since Part
+118, and into two other scripts (`condensate_layer_fcc.py`,
+`condensate_layer_optics.py`) since Part 89/96. Corrected margin: **47.3
+orders**. (b) A SEPARATE bug in the same neutrino-detectability material:
+KM3-230213A's E/m_W ratio was stated as 2737, correct value is **2.7e6**
+(220 PeV/80.4 GeV) -- a 1000x PeV-to-GeV conversion slip, also affecting
+the Glashow-resonance and previous-record rows of the same table in
+`condensate_layer_optics.md`. **Neither bug changes any PASS/FAIL verdict
+anywhere** -- PDTP's own predicted values were always correct; only the
+comparison constants were wrong. All three affected scripts fixed and
+rerun (Sudoku unchanged: 7/7, 12/12, 12/12); every citing .md doc updated
+(`dark_matter_energy.md`, `condensate_layer_optics.md`,
+`dm_winding_selection.md`, `notes_mcond_lambda.md`, `equation_reference.md`,
+this file).
+
+**Sub-points 2-3** -- full writeup `docs/research/t69_dm_current_events.md`
+(Part 139). LZ's 2.6-sigma event (if real, implies a WIMP >= 200 GeV)
+matches NEITHER of PDTP's own DM candidates: 16-17 orders too heavy for
+Part 116's preferred n=1 Planck-vortex relic, ~1000x too light for Part
+89's ~200 MeV C1-trap candidate. [Correction, 2026-09-06: this RESULT
+text had the two directions swapped; fixed to match the source doc and
+the quick-reference line above.] Honest fork flagged for future LZ data,
+not resolved from one sub-threshold event: a null result is consistent
+with PDTP's own undetectability prediction; a confirmed ~200 GeV signal
+would be in real tension with Part 116's n=1 selection specifically.
+Roman's flagship lensing/substructure-mapping capability tests NOTHING
+PDTP-specific -- the one route that would have (biharmonic gravity,
+Prediction 11) already failed by 20 orders of magnitude (dark_matter_
+energy.md Sec 2.5), and PDTP's live DM falsifiable test (Prediction 13)
+needs a CMB polarimeter, not an optical/IR telescope. Roman's actual PDTP
+connection is the already-on-record dark-energy w(z) test (Prediction 5);
+`falsifiable_predictions.md`'s stale "Launch ~2027" note corrected to the
+actual 2026-08-30 launch date.
+
+**Part:** 138 (sub-point 1), 139 (sub-points 2-3)
+**Source:** User request, 2026-09-02. `docs/research/dark_matter_energy.md` was
+last updated for Part 118 (2026-06-11) -- confirmed stale relative to two
+external events from the past few days that the file cannot yet reflect.
+
+**What:** Three bounded sub-checks on PDTP's dark matter picture, run together
+since they all touch the same living document.
+
+1. **Consistency audit of `dark_matter_energy.md`.** Read start to finish;
+   verify every computed number in the Quick Reference table and the
+   Consolidated Equation Reference (Part 8) still traces correctly to its
+   cited Part; cross-check against `equation_reference.md` for drift; flag
+   anything stale (in the style of the `TODO_Elastic.md` staleness note
+   found during T27). No new physics expected -- this is bookkeeping.
+2. **LZ (LUX-ZEPLIN) 2.6-sigma event, announced 2026-09-01.** Single
+   anomalous event in a 10-tonne liquid xenon WIMP search (220 live days,
+   TeV Particle Astrophysics conference, Japan) -- explicitly not a
+   confirmed discovery per the collaboration itself. Summarize what was
+   actually reported, then map it against PDTP's existing DM candidates
+   (Part 116's n=1 "Planck vortex relic"/wimpzilla, Part 89's ~200 MeV
+   C1-confined candidate): does a WIMP-mass-range signal sit comfortably
+   with either, or in tension? Scoped to one bounded point, no new
+   derivation -- a mapping exercise, not an investigation.
+3. **Nancy Grace Roman Space Telescope, launched 2026-08-30.** No data yet
+   (first images expected early 2027), so scoped as: does Roman's actual
+   survey design (weak-lensing / dark-matter-substructure mapping) test
+   any PDTP prediction already on record (e.g. the vortex-DM smoothness
+   claim, or the microlensing-unconstrained note in dark_matter_energy.md
+   Sec 6.4)? If yes, flag as a future falsifiable-prediction test to watch
+   for once 2027 data arrives -- not something to analyze today.
+
+**Cross-check with:** Part 89, Part 96, Part 116, Part 118 (DM candidates
+and self-interaction cross-section), `equation_reference.md`,
+`falsifiable_predictions.md` (any new/updated prediction from sub-point 3
+goes through that file's own separate "plan first" rule before being
+added, per CLAUDE.md).
+**Effort:** Low-Medium. Audit + two literature-comparison mappings, no new
+derivation expected -- comparable in kind to T27's Elastic Universe review,
+not a new-physics investigation like T28/T66.
+**Priority:** Medium (higher than typical Low-priority filed items --
+both external events are current enough that the comparison is time-
+sensitive; letting the doc go further stale defeats its own purpose as a
+"living reference").
+
+---
+
+#### [x] T70. N_eff via Spin-Weighted Seeley-DeWitt Heat-Kernel Coefficient — DONE (Part 140, 2026-09-06)
+
+**RESULT:** Full writeup `docs/research/neff_seeley_dewitt_applicability.md`.
+CONSTRUCTIVE NEGATIVE, decided by the plan's own Step 1 and Step 2 before
+Steps 4-6 (recompute/write-up) were needed as originally scoped -- they were
+still run, but only as a completeness check on an already-closed question.
+Step 1: the suggested formula (Eq 140.1 below) could not be attributed to
+any source after two targeted literature searches -- fails CODING_STANDARDS'
+citation bar on its own. Step 2 (decisive regardless of Step 1): re-read
+every version of PDTP's own continuum Lagrangian (U(1) Eq 140.2, SU(3) Eq
+140.3, two-phase Eq 140.4) line by line -- N_v (vector fields) and N_f
+(Dirac fermions) are BOTH zero identically throughout. PDTP's "8 gluons"
+are nonlinear-sigma-model scalar fluctuations (Tr[(dU-dag)(dU)] kinetic
+term, no gauge connection, no field-strength tensor anywhere), independently
+confirmed by Part 114's own classification ("8 real massless scalars") and
+its SU(2) reduction matching Weinberg's pion (scalar/pseudoscalar) vertex
+exactly. The one place real Dirac fermions appear in the project (Part 40's
+Wilson-fermion lattice calculation) is explicitly borrowed standard-QCD
+machinery used as a numerical scaffold for one string-tension side-check,
+not a redefinition of PDTP's own matter field Psi_i(x) (also matrix-valued
+and scalar per Eq 140.3). Computed anyway for completeness
+(`t70_neff_seeley_dewitt.py`): the QCD-analogy reading (treating gluons as
+literal vectors, matter as literal Dirac fermions) gives G_ind/G = 0.13-0.18
+-- worse than Part 83's existing [0.554, 2.356] range; the structurally-
+honest reading (N_v=N_f=0, only the formula's 1/6 scalar weight applied)
+gives G_ind/G = 3.3-14.1 -- also worse than Part 83's own unweighted scalar
+count. Neither reading helps. Part 83's own N_eff gap characterization
+(range [8,34], target 6*pi=18.85, 1%-off Casimir near-miss) is UNCHANGED --
+its scalar-only tool was already the right category of tool, confirmed
+rather than merely assumed. Cross-checked against T12/Part 129 (M=0
+refractive-index negative): structurally independent, non-overlapping,
+no contradiction. 10/10 Sudoku (structural/citation-verification style,
+consistent with the project's non-numerical Sudoku precedent e.g. Part 114).
+
+**Part:** 140
+**Source:** External AI review (qwen3.7), given the actual GitHub repo URL
+to read directly (not just pasted text) -- `docs/misc/qwen3.7. pdtp. suggest.md`.
+Reviewed per CLAUDE.md's External AI Reviews rule: judged on its own merits:
+it did not have access to Part 114's Trace Theorem (see below), and its
+companion "CKN bound factor 12" claim (its Suggestion 4) could not be
+located anywhere in the project after a full-repo search -- treated as
+unverified, not acted on here.
+
+**What:** Part 83 (`neff_sakharov.md`) characterizes the N_eff = 6*pi gap
+in Sakharov induced gravity (8 SU(3) gluons alone give G_ind/G = 3*pi/4 =
+2.356; need N_eff = 6*pi = 18.85 for an exact match) using two admittedly
+crude tools: the Visser scalar-only heat-kernel formula, and a naive
+signed helicity sum (N_eff = sum_i eps_i*nu_i) that the doc itself flags
+as inadequate (it gives N_eff(SM) = -62, implying repulsive gravity --
+obviously wrong). The external suggestion: use the actual spin-weighted
+Seeley-DeWitt a_2 coefficient formula instead,
+
+```
+N_eff = N_v + (11/2)*N_f + (1/6)*N_s
+```
+
+(N_v = vector bosons, N_f = Dirac fermions, N_s = real scalars, with
+gauge-fixing + Faddeev-Popov ghost contributions accounted for), applied
+to PDTP's actual field content: 8 gluons (N_v), phi_+ and phi_- (N_s),
+and matter vortices as fermionic content (N_f) if 3 generations x 3
+colors x 2 chiralities = 18 quark fields (plus leptons, per Part 83's own
+24-species matter count) are included.
+
+**Why this matters more than the external reviewer knew:** Part 114
+(`su3_nonlinear_vertex.md`) proved a Trace Theorem -- the tree-level
+condensate action carries no graviton dynamics at all; the Sakharov
+1-loop mechanism is not one route among several, it is PDTP's *only*
+source of gravity. That makes N_eff's exact value more central than
+Suggestion 1's framing assumed, not less.
+
+**Proposed steps (plan before starting, per the Problem-Solving Protocol):**
+1. Derive/cite the spin-weighted a_2 formula from a proper source (e.g.
+   Vassilevich (2003), "Heat kernel expansion: user's manual", Phys. Rept.
+   388, 279) rather than taking the external suggestion's formula on faith.
+2. Pin down PDTP's actual field content precisely -- in particular whether
+   PDTP's matter vortices are naturally Dirac-like fermions or something
+   else (check Parts 33/37's own vortex construction; this is not yet
+   established and the spin-weighted formula depends on it).
+3. Recompute N_eff for the same three scenarios Part 83 already tabulated
+   (minimal/two-phase/+matter) using the new weights, and see whether the
+   crossover shifts toward or away from 6*pi and the existing 18.67
+   Casimir near-miss.
+4. Cross-check against T12/Part 129 (n_PDTP cannot modify the Sakharov
+   cutoff -- established negative) to confirm this does not re-open a
+   closed question, only refines the DOF-counting side of Part 83.
+5. Sudoku consistency check (10+), per standard.
+6. Write up as a new section in `neff_sakharov.md` (same investigation,
+   better tool) rather than a separate research doc.
+
+**Expected outcome:** either a tighter, more principled characterization
+of the gap than the existing 1%-off Casimir guess, a different but still
+open characterization, or a finding that naive and spin-weighted counting
+agree closely (meaning Part 83's existing bound already captures the
+right physics).
+
+**Effort:** Medium (well-scoped calculation, existing Part 83 scaffolding
+to build on).
+**Priority:** Medium -- same class as T12 (heat-kernel refinement of an
+already-PARTIAL, non-blocking result), not urgent, but concrete and
+actionable, unlike most of the SPEC/low-priority backlog around it.
+
+---
+
+#### [ ] T71. Audit the CKN "Factor 12" Formula Discrepancy (Part 54)
+
+**Status:** PENDING. Filed 2026-09-06.
+**Source:** Found as a side effect of a repo-wide search for the phrase
+"factor 12", run to check whether qwen's Suggestion 4 (`docs/misc/
+qwen3.7. pdtp. suggest.md`) had a real basis in the project. It did --
+Part 54 (`cosmological_constant_fcc.md`) states rho_CKN = 7.1e-26 kg/m^3
+vs rho_Lambda = 5.8e-27 kg/m^3, ratio ~12.2, cited as "factor 12" in both
+`TODO_02.md` and `equation_reference.md`.
+
+**What:** Two citations of the same CKN (Cohen-Kaplan-Nelson) bound formula
+do not obviously match:
+
+```
+cosmological_constant_fcc.md (Part 54, CC-L5): rho_CKN = hbar*c / (l_P^2 * L_H^2)
+TODO_02.md / equation_reference.md:            rho_CKN = c^2 / (G * L_H^2)
+```
+
+A quick unit check (l_P^2 = hbar*G/c^3, substituted into the first form)
+did not reduce to the second form cleanly -- worth a proper SymPy
+dimensional check before trusting either number further. This was not
+chased down when found (out of scope for the search task that surfaced
+it); filing here so it is not lost.
+
+**Proposed steps:**
+1. Re-derive both forms symbolically (SymPy, `sympy.physics.units`) and
+   check whether they are actually equivalent (e.g. via a substitution or
+   convention I'm missing) or genuinely inconsistent.
+2. If inconsistent, determine which is correct, recompute rho_CKN, and
+   check whether "factor 12" survives, changes, or disappears.
+3. Update whichever of Part 54's doc / TODO_02.md / equation_reference.md
+   is wrong, propagating the correction the same way T69/Part 138 did for
+   the Bullet Cluster bound (trace every citation, fix at the source,
+   re-verify, no silent drift).
+4. Only after the number is confirmed: decide whether qwen's Suggestion 4
+   (GHY boundary term + Padmanabhan bulk-surface DOF equipartition on the
+   Hubble horizon, applied to PDTP's SU(3) condensate) is worth planning
+   as its own task to explain the (possibly revised) factor.
+
+**Effort:** Low for steps 1-3 (a focused dimensional-consistency check);
+step 4 would be its own scoped task if reached.
+**Priority:** Low-Medium -- a loose end worth closing before it's forgotten,
+not blocking anything currently in progress.
+
+---
+
 ### Phase 7 — Decoupling Device Speculation / Frequency-Ladder Brainstorm (2026-04-16)
 
 **Source:** User conversation 2026-04-16 on Element 115, Lazar device geometry,
@@ -2124,7 +2367,10 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
    error, factor-1000 internal unit conversion error.
 2. Corrected [DERIVED]: gravitational Rutherford scattering b_90 = 2Gm/v^2,
    sigma = pi b_90^2 -> sigma/m = 4 pi G^2 m_DM/v^4 = 5.2e-49 m^2/kg at
-   m_DM = m_P, v = 220 km/s. Bullet margin IMPROVES to 44.3 orders.
+   m_DM = m_P, v = 220 km/s. Bullet margin IMPROVES to 47.3 orders (T69/
+   Part 138 correction, 2026-09-02: the Bullet bound constant itself had a
+   separate 1000x unit error, 1e-4 vs the correct 1e-1 m^2/kg; original
+   Part 118 figure of 44.3 was computed with the wrong constant -- see T69).
 3. Updated: condensate_layer_optics.md (erratum block), dark_matter_energy.md,
    dm_winding_selection.md + .py (re-run, still 12/12), equation_reference.md.
 4. Tooling: check_urls.py fixed (REPO_DIR pointed at non-existent path after
@@ -2185,8 +2431,11 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T42 | Extremal condensate closure (closes 77.25; bridge = Dvali-Gomez criticality; scale-invariance no-go theorem; A1 CLOSED-INTERNAL — kappa provably external) | high | DONE (CONSTR. NEG. + no-go theorem) | 115 |
 | T43 | DM winding selection (n=1 by stability + KZ; m_DM = m_P; KZ relic abundance NEGATIVE 50 OoM; kill test = CMB tensor modes) | high | DONE (DERIVED + CONSTR. NEG.) | 116 |
 | T44 | Positive phi_-^4 quartic (induced channel at partial lock; lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2); transient self-switching EDE; beta(z) OPEN) | high | DONE (PRODUCTIVE) | 117 |
-| T45 | Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4; Bullet margin 44.3 OoM) + check_urls.py path/Unicode fixes | maintenance | DONE | 118 |
+| T45 | Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4; Bullet margin 47.3 OoM, corrected T69/Part 138 from misstated 44.3) + check_urls.py path/Unicode fixes | maintenance | DONE | 118 |
 | T46 | Lambda as locking relic: phi_-_vac = frozen residue of Part 117 roll; beta(z) -> {EDE, Lambda, w(z)} (3 observables, 1 input) | high (SPEC) | DONE PARTIAL | 119 |
 | T47 | m_cond consequence scanner: lookup table of all observables vs candidate m_cond (1 eV..m_P); measurement rules out bands — NOT a brute-force finder (no-go, Part 115) | medium | DONE | 120 |
 | T65 | Backfill mathematical_formalization.md (SU(3) + two-phase sections missing) | integration (LARGE) | PENDING | -- |
 | T66 | Rotation-field / tetrad promotion (Cosserat-continua analogy) | SPEC (low) | DONE -- info-free relabeling of phi(x) (dim SO(2)=1); sits below Part 84 (1 vs 8 DOF); Cosserat independence violated by construction | 136 |
+| T69 | Dark matter doc audit + two current external events (LZ 2.6-sigma event, Roman Space Telescope launch) | audit + lit. review (medium) | DONE -- found+fixed 2 real 1000x unit-conversion bugs (Bullet margin, KM3 ratio); LZ/Roman map to neither PDTP candidate / no PDTP-specific test | 138, 139 |
+| T70 | N_eff via spin-weighted Seeley-DeWitt a_2 heat-kernel coefficient (replaces Part 83's naive DOF counting) | medium | DONE -- CONSTR. NEG.: formula unsourced + PDTP has N_v=N_f=0 identically (sigma-model, not gauge theory); Part 83's gap unchanged | 140 |
+| T71 | Audit CKN "factor 12" formula discrepancy (Part 54) -- two cited rho_CKN forms don't obviously match | low-medium | PENDING | -- |

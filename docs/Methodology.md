@@ -248,6 +248,16 @@ Check off what you have tried. Untried items are where the answer may be hiding.
   naturally produces irrational ones. Conversely, if the theory predicts an
   irrational count where physics expects an integer (like particle species),
   that tension is itself a finding.
+- [ ] **Bounds/invariant check** — test a new formula like a unit-test
+  assertion across its *entire* domain, not just at one reference point.
+  Does it stay positive where physics demands positivity? Does it respect
+  c as a speed limit everywhere, not only at the value you happened to plug
+  in? Does a probability stay ≤ 1 across the whole parameter range? The
+  Sudoku check (above) verifies point values against known equations; this
+  checks the *shape* of the result — its behavior at the edges of its
+  domain, not just at one measured point. Borrowed from software testing:
+  a Sudoku check is one test case; a bounds check is the boundary-value and
+  invariant tests a real test suite would also run.
 
 ---
 
@@ -353,6 +363,23 @@ Lakatos on how negative results refine a theorem rather than just killing it).*
   to determine the free parameter. This Lagrangian must be self-contained (no
   PDTP/GR/QED coupling constants as input). If it exists, it constrains the
   parameter from outside the framework.
+- [ ] **Bound before you constrain** — if Expand, Contract, and Reframe all
+  fail to pin an exact value, ask a weaker question first: can the parameter
+  at least be *bounded* (an upper and/or lower limit), even if not fixed? A
+  proven bound is real progress even when an exact value is not derivable —
+  and establishing that *no* internal bound is possible is itself a result
+  (a no-go theorem), not a non-result. Distinguish the three outcomes
+  explicitly: **unconstrained** (proven — no internal principle can bound it
+  at all; Part 115's scale-invariance no-go theorem for m_cond is the worked
+  example — every ratio under the bridge G = ħc/m_cond² is m_cond-independent,
+  so no extremum principle can select a value), **bounded** (a ceiling or
+  floor is derived, but the exact value within that range stays open; Part
+  124's m_cond ≤ m_P·O(1) from Hawking-evaporation dynamics, using
+  externally-fixed G to legally escape the no-go, is the worked example),
+  and **constrained** (an exact value is pinned — the goal, when reachable).
+  A bound is not a downgrade from a full derivation; it is frequently the
+  most rigorous result actually available, and it narrows what any future
+  exact derivation would have to reproduce.
 
 ---
 
@@ -376,3 +403,5 @@ Lakatos on how negative results refine a theorem rather than just killing it).*
 | Re-examine negatives | Revisit old failures after new symmetry/fields found | D1-D4 in TODO_03 |
 | Two-phase extension | Add opposing +cos/-cos term; probe boundary physics | Parts 61-63 phi_- |
 | Emergent quantity | Derive metric/tetrad as composite of lower fields | Part 75 g_mu_nu from SU(3) |
+| Bounds/invariant check | Test a result across its whole domain, not one point | Software test-suite boundary testing |
+| Bound before constrain | Derive upper/lower limits when an exact value resists derivation | Part 115 no-go + Part 124 ceiling (m_cond) |

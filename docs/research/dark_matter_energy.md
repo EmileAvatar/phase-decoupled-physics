@@ -192,7 +192,7 @@ specific value of w(z) (needs phi_-_vac evolution mechanism).
 |--|----------------|-----------------|--------|
 | DM exists | Gravitational evidence: rotation curves, lensing, CMB | C1-trapped vortex (topology) or sub-gap excitation (energy) | PARTIAL |
 | DM mass | Unknown (10^-22 eV to 10^19 GeV) | m_P/n for winding n | FREE PARAMETER |
-| DM detectability | Not detected despite 30 years | sigma/m = 5.2e-48 cm^2/g (44 orders below Bullet; Part 118) | CONSISTENT |
+| DM detectability | Not detected despite 30 years | sigma/m = 5.2e-48 cm^2/g (47 orders below Bullet; Part 118, corrected T69) | CONSISTENT |
 | DE exists | Accelerating expansion since 1998 | phi_-_vac background tilt | PARTIAL |
 | Lambda value | 10^121 mystery | FREE PARAMETER (same as GR) | NO PROGRESS |
 | w(z) evolving? | DESI 4.2σ hint | phi_-_vac(t) evolution | CONSISTENT |
@@ -216,7 +216,13 @@ not predict the specific numbers (DM mass, Lambda magnitude) from first principl
   not correlated with luminous matter (Bullet Cluster, Abell 1689)
 - **Bullet Cluster (Clowe 2006):** two galaxy clusters that collided; DM passed through
   without interaction while gas (EM) slowed down. Key constraint:
-  **sigma/m_DM < 1 cm^2/g = 10^-4 m^2/kg** (self-interaction upper bound)
+  **sigma/m_DM < 1 cm^2/g = 10^-1 m^2/kg** (self-interaction upper bound;
+  corrected T69, 2026-09-02 -- was wrongly stated as 10^-4 m^2/kg since
+  this doc's creation, a 1000x unit-conversion error; SymPy-verified via
+  sympy.physics.units.convert_to. Did not change any pass/fail verdict --
+  PDTP's predicted value is tens of orders of magnitude below either
+  figure -- but understated the safety margin by exactly 3 orders of
+  magnitude everywhere it was quoted. See Part 8/Update Log below.)
 - **CMB acoustic peaks:** DM does not interact with photons before recombination;
   sets baryon acoustic oscillation scale (BAO ~ 150 Mpc)
 - **Large-scale structure:** DM seeds structure formation; halos from dwarf galaxies
@@ -281,8 +287,9 @@ the modes are simply incompatible.
 sigma/m_DM = 4 pi G^2 m_DM / v^4 = 5.2e-49 m^2/kg  (m_DM = m_P, v = 220 km/s)
 ```
 (Original Part 89 form `G/c^4` was dimensionally inconsistent — see Part 118 erratum.)
-Bullet Cluster bound: sigma/m < 1 cm^2/g.
-PDTP value is ~44 orders of magnitude BELOW the bound. **Automatically satisfied.**
+Bullet Cluster bound: sigma/m < 1 cm^2/g = 0.1 m^2/kg.
+PDTP value is ~47 orders of magnitude BELOW the bound (corrected T69,
+2026-09-02; was ~44, see Part 8/Update Log). **Automatically satisfied.**
 
 **Mass spectrum (Part 96 D3, Eq 96.9):** [DERIVED, PDTP Original]
 From Part 33 vortex winding n = m_cond/m, with m_cond = m_P in C1:
@@ -382,8 +389,10 @@ Two independent arguments select n = 1 in the m_DM = m_P/n spectrum (§2.2):
 ```
 
 **The DM mass is no longer a free parameter** (given the bare-vortex premise).
-All observational tests pass (12/12 Sudoku): Bullet Cluster margin 44.3 orders
-(sigma/m = 5.2e-49 m^2/kg, Part 118 corrected formula), cold (lambda_dB = 2e-32 m),
+All observational tests pass (12/12 Sudoku): Bullet Cluster margin 47.3 orders
+(sigma/m = 5.2e-49 m^2/kg, Part 118 corrected formula; margin corrected T69
+from 44.3 -- the Bullet bound constant had a 1000x unit error, see Part 8),
+cold (lambda_dB = 2e-32 m),
 smooth (9e44 vortices per dwarf halo), grav-only flux 0.23 /m^2/yr (undetectable —
 consistent with 30 years of nulls), topologically stable (no super-GZK decay
 products), microlensing unconstrained (26 orders below floor).
@@ -574,7 +583,11 @@ Above E = m_W*c^2 = 80.4 GeV: neutrino transitions to **propagating in C3**,
 full weak interaction coupling. This is the same threshold as SM (W propagator pole)
 but from a different physical picture (C3 condensate gap energy).
 
-**KM3-230213A (220 PeV, 2025):** E/m_W = 2737 → n_C3 ~ 1 → fully propagating. [CONSISTENT]
+**KM3-230213A (220 PeV, 2025):** E/m_W = 2.7×10^6 → n_C3 ~ 1 → fully
+propagating. [CONSISTENT] (ratio corrected T69, 2026-09-02; was misstated
+2737, a 1000x PeV-to-GeV conversion error found alongside the Bullet-bound
+erratum during the same audit -- see Part 8/Update Log and
+`condensate_layer_optics.md`'s energy-ladder table. Verdict unaffected.)
 
 ---
 
@@ -694,3 +707,4 @@ if n ~ 1 wimpzilla DM annihilates with matter at extreme energies.
 | 2026-06-11 | 116 | DM winding selection: n = 1 (stability + KZ) -> m_DM = m_P; KZ abundance NEGATIVE (50 OoM); kill test = CMB tensor modes; added §2.7 |
 | 2026-06-11 | 117 | Positive phi_-^4 found: induced channel at partial lock, lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2); self-switching transient EDE; added §4.6; Hubble tension row -> REOPENED |
 | 2026-06-11 | 118 | Erratum: Eq 89.17 corrected to sigma/m = 4 pi G^2 m_DM/v^4 = 5.2e-49 m^2/kg (old G/c^4 form dimensionally wrong + factor-100 + unit errors); Bullet margin improves to 44.3 orders; verdicts unchanged |
+| 2026-09-02 | 138 (T69 audit) | Two unit-conversion erratums found during T69's routine consistency audit: (1) the "44.3 orders" Bullet margin from Part 118 itself used a WRONG Bullet-Cluster-bound constant (1e-4 m^2/kg instead of the correct 1e-1 m^2/kg = 1 cm^2/g -- a 1000x error, SymPy-verified). Corrected margin: **47.3 orders**. (2) The KM3-230213A neutrino E/m_W ratio (Part 5, Part 89 Eq 89.21) was misstated as 2737; correct value is **2.7e6** (a separate 1000x PeV-to-GeV conversion error, also affecting the Glashow-resonance and previous-record rows in `condensate_layer_optics.md`'s energy-ladder table). Neither PDTP prediction itself was wrong -- only the comparison constants -- and no pass/fail verdict changes anywhere. Fixed in `sigma_m_erratum.py`, `condensate_layer_fcc.py`, `condensate_layer_optics.py` (all rerun, all Sudoku suites still 100% PASS) and every citing doc. See `docs/research/dm_bullet_bound_erratum.md`. |

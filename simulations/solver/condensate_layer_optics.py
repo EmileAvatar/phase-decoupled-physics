@@ -483,14 +483,19 @@ def run_condensate_layer_optics(rw, engine):
                   lam_B1, lambda_compton_QCD))
 
     # S12: Dark matter Bullet Cluster -- log10(sigma/m_DM / Bullet_constraint)
-    # sigma/m_DM = G/c^4  [gravitational cross section per unit mass]
-    # Bullet Cluster constraint: sigma/m < 1 cm^2/g = 1e-4 m^2/kg
-    # Test: log10 of the ratio matches the analytical expectation
+    # sigma/m_DM = G/c^4  [gravitational cross section per unit mass; this is
+    # Part 89's ORIGINAL formula, since superseded by Part 118's corrected
+    # sigma/m = 4*pi*G^2*m_DM/v^4 -- kept here only as an internal-consistency
+    # check (both sides below use the identical formula/constant, so this
+    # test validates computational consistency, not the literature bound)]
+    # Bullet Cluster constraint: sigma/m < 1 cm^2/g = 1e-1 m^2/kg (corrected
+    # T69 audit, 2026-09-02; was wrongly 1e-4 m^2/kg -- 1000x error, does not
+    # change this test's PASS/FAIL since both sides use the same constant)
     sigma_per_m_DM      = G / C**4       # m^2/kg
-    sigma_per_m_bullet  = 1.0e-4         # m^2/kg  (1 cm^2/g)
+    sigma_per_m_bullet  = 1.0e-1         # m^2/kg  (1 cm^2/g)
     log10_ratio_DM      = np.log10(sigma_per_m_DM / sigma_per_m_bullet)
     log10_ratio_theory  = np.log10(G / (C**4 * sigma_per_m_bullet))  # same expression
-    tests.append(("S12", "log10(sigma_DM/Bullet) = log10(G/c^4 / 1e-4) ~ -38 [safe]",
+    tests.append(("S12", "log10(sigma_DM/Bullet) = log10(G/c^4 / 1e-1) ~ -43.1 [safe]",
                   log10_ratio_DM, log10_ratio_theory))
 
     # Print results

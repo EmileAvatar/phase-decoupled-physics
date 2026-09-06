@@ -294,9 +294,14 @@ At 220 PeV the neutrino is **2,737× above** the C3 gap energy. n_C3 ~ 1 exactly
 | Solar | ~10 MeV | 1.2×10^-4 | imaginary | Evanescent — barely couples |
 | Atmospheric | ~1 GeV | 0.012 | imaginary | Evanescent |
 | LHC (FASERnu) | ~1 TeV | 12.4 | 0.9967 | Propagating — detectable |
-| Glashow resonance | 6.3 PeV | 78 | ~1 | Resonance (e^- antinu on e^-) |
-| Previous record | 6.05 PeV | 75 | ~1 | Propagating |
-| **KM3-230213A** | **220 PeV** | **2737** | **~1** | **Fully propagating** |
+| Glashow resonance | 6.3 PeV | 7.8×10^4 | ~1 | Resonance (e^- antinu on e^-) |
+| Previous record | 6.05 PeV | 7.5×10^4 | ~1 | Propagating |
+| **KM3-230213A** | **220 PeV** | **2.7×10^6** | **~1** | **Fully propagating** |
+
+*(E/m_W corrected T69, 2026-09-02 -- the three PeV rows had a 1000x PeV-to-GeV
+conversion error (1 PeV treated as 10^3 GeV instead of the correct 10^6 GeV);
+the GeV/TeV rows were already correct. Does not change the "propagating" /
+"resonance" verdicts -- all three ratios remain enormously >> 1 either way.)*
 
 ### PDTP interpretation of the energy threshold [PDTP Original, DERIVED]
 
@@ -402,11 +407,14 @@ sigma/m_DM = 4 pi G^2 m_DM / v^4                                  ... (89.17, co
 > cm^2/g conversion was off by 1000 (1 m^2/kg = 10 cm^2/g). Corrected via
 > gravitational Rutherford scattering, b_90 = 2Gm/v^2, sigma = pi b_90^2
 > (Binney & Tremaine 2008 §3.1). Verification: `simulations/solver/sigma_m_erratum.py`
-> (7/7 Sudoku). The Bullet margin IMPROVES from ~39 to 44.3 orders; verdict unchanged.
+> (7/7 Sudoku). The Bullet margin IMPROVES from ~39 to 47.3 orders (corrected
+> T69, 2026-09-02 -- the Bullet bound constant itself had a separate 1000x
+> unit error, "44.3" was the bugged figure; see `dm_bullet_bound_erratum.md`);
+> verdict unchanged.
 
-Bullet Cluster constraint: sigma/m < 1 cm^2/g.
-PDTP value: ~ 5×10^-48 cm^2/g << 1 cm^2/g (44.3 orders below).
-**Automatically satisfied.** [DERIVED, corrected Part 118]
+Bullet Cluster constraint: sigma/m < 1 cm^2/g = 0.1 m^2/kg.
+PDTP value: ~ 5×10^-48 cm^2/g << 1 cm^2/g (47.3 orders below, corrected T69).
+**Automatically satisfied.** [DERIVED, corrected Part 118, T69]
 
 **Verdict: PARTIAL** — Correct behavior (gravity-only coupling, Bullet Cluster
 safe), mass is a free parameter. Strongest of the three mechanisms.
@@ -494,7 +502,10 @@ cosmological dark matter.
    Neutrinos are evanescent in C3 for E < m_W*c^2 = 80.4 GeV (ghost wave, barely couples).
    Above threshold: fully propagating in C3 (detectable).
    Solar neutrinos (~10 MeV): n_C3 imaginary → evanescent → explains km^3 detector need.
-   KM3-230213A (220 PeV, 2025): E/m_W = 2737 → n_C3 ~ 1 → fully propagating → detected.
+   KM3-230213A (220 PeV, 2025): E/m_W = 2.7e6 → n_C3 ~ 1 → fully propagating → detected.
+   (ratio corrected T69, 2026-09-02; was misstated 2737, a 1000x PeV-to-GeV
+   conversion error -- see the energy-ladder table above and the same-day
+   entry in dark_matter_energy.md Part 5)
    Same threshold as SM (W propagator pole), different physical picture (C3 condensate gap).
 
 7. **Glashow resonance as C3 condensate resonance** [PDTP Original, SPECULATIVE, Eq 89.22]
