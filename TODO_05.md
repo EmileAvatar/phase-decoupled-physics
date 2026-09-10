@@ -119,7 +119,7 @@ New additions go on top. One line per item. Full details below.
   g_units_audit_scoping.md Sec 7a-7e]
 - [ ] T67 — Galactic disk "flapping" as DM-wake phenomenology: Milky Way warp actively driven by Magellanic Cloud dark-matter wake (Weinberg & Blitz 2006); initial findings written up with a tiered, honestly-scoped PDTP connection (structural compatibility / open question re: Part 116 topological DM / speculative variable-c wake idea stacked on T57) [PENDING, LOW PRIORITY, filed 2026-08-05; see docs/research/galactic_disk_dynamics_note.md]
 - [ ] T64 — Poincaré/geometrization method scoping: could Ricci-flow-with-surgery-style geometric relaxation inform PDTP's own condensate-defect stability analysis (e.g. Hopf-link vs Y-junction energy comparison, Part 106)? Tool, not theorem -- Poincaré itself has no direct PDTP content [PENDING, SPEC, LOW PRIORITY]
-- [ ] T63 — Navier-Stokes / superfluid condensate scoping: does PDTP's Gross-Pitaevskii-style condensate description have any bearing on classical NS existence/smoothness, or is this purely a loose analogy? Expected NEGATIVE (different equations/regime) but must be stated explicitly, not just assumed [PENDING, SPEC, LOW PRIORITY]
+- [ ] T63 — Navier-Stokes / superfluid condensate scoping: does PDTP's Gross-Pitaevskii-style condensate description have any bearing on classical NS existence/smoothness, or is this purely a loose analogy? Expected NEGATIVE (different equations/regime) but must be stated explicitly, not just assumed. UPDATE 2026-09-10: user flagged a Sabine Hossenfelder video on OpenAI's claimed Navier-Stokes progress reportedly using "a value 0 or a vortex" to address the singularity issue -- when picked up, check this specific claim (source video/paper TBD) against both standard NS math and PDTP's vortex-core treatment (Part 33 winding, healing length xi) as a concrete first test case [PENDING, SPEC, LOW PRIORITY]
 - [ ] T62 — Yang-Mills mass gap non-overclaiming statement: PDTP has internal "mass gap" results (m^2=2g for phi_-, omega_gap) and runs actual lattice SU(3) gauge theory (Parts 37-41) -- write an explicit scoping note distinguishing these from the axiomatic Clay Millennium Problem (rigorous QFT construction + gap proof), so PDTP never overclaims here the way the external paper reviewed 2026-07-11 did [PENDING, MEDIUM -- integrity/scoping task, not new physics]
 - [ ] T61 — Riemann Hypothesis connection revisit: TODO_03 Category H (H1-H4) is dormant SPECULATION with no calculation started; consolidate references with the new Millennium Problems doc; scope whether any PDTP structure (condensate mode density, phase spectrum) could relate to zeta zero statistics (Hilbert-Polya style) -- low priority, no concrete starting point identified yet [PENDING, SPEC, LOW PRIORITY]
 - [x] T60 — Relative entropy from phase mismatch: **DONE (Part 126 + Part 127, Phase 94-95, 2026-07-08).** Task 3 (prereq check): S_rel=1-alpha is NOT the same object as Part 86's S_PDTP; the external proposal cannot derive an area law without Part 86's same postulate (9/10 Sudoku). Task 2 (rescoped): phi_-'s OWN dynamics DO reproduce Part 86's ln(2)-per-cell entropy EXACTLY -- two CP-conjugate horizon branches of D+ (Part 98) source exactly-degenerate phi_- vacua (Part 61 coupling), giving S_cell=k_B*ln(2) matching Part 86 Eq 86.7 to ratio 1.000000 (12/12 Sudoku). Tasks 1/4/5 closed (not needed / not recommended). Net: external proposal literally fails, but the question it raised upgraded one Part 86 input from ASSUMED to DERIVED. [DONE]
@@ -957,6 +957,18 @@ pursuing further.
 silently assumed, per the Open Problem Tracking Rule.
 
 **Deliverable:** short scoping note only (no script).
+
+**UPDATE 2026-09-10 (user note, `docs/misc/notes 2026-09-10.txt`):** Sabine
+Hossenfelder YouTube video discussing OpenAI's claimed progress on the NS
+Millennium Problem, reportedly using "a value 0 or a vortex" to handle the
+singularity/blow-up issue. Source video/underlying paper not yet identified
+or verified -- when this item is picked up, first locate and verify the
+actual claim (per URL Rules -- do not cite unverified), then check it two
+ways: (a) against standard NS mathematics as usually stated, and (b) against
+PDTP's own vortex-core treatment (Part 33 winding number, healing length
+xi = a_0/sqrt(2), Part 34) to see whether either bears on PDTP's existing
+GP-condensate description. Treat as a concrete entry point for this item
+rather than a reason to change its LOW priority.
 
 ---
 

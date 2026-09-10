@@ -1577,6 +1577,56 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 
 ---
 
+### Part 142 additions (T74: GW170817 constraint on PDTP's GW structure):
+
+**Source:** Part 142 (2026-09-10), `simulations/solver/t74_gw170817_dispersion.py`,
+`docs/research/gw170817_dispersion_check.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 142.1-142.4 | GW170817 speed bound \|dv\|/c ~ dt/(d/c) = 4.13e-16, computed from the downloaded paper's own d=40 Mpc, dt=1.7s (not quoted from memory); PDTP tensor-sector (c_s=c) deviation = 0 exactly | [PDTP Original, numeric; established c_s=c identity reused] | c_s=c was a PPN-gamma=1 design requirement (Constraint 3, condensate_microphysics.md), predating GW170817 -- trivial PASS by construction |
+| 142.5-142.8 | omega_local(Phi) = omega_gap_Planck*sqrt(2*Phi) (two independent SymPy-verified routes, residual 0); at Earth's Phi, omega_local=6.92e38 rad/s, E_local=4.555e14 GeV (matches T68's published figure <1%); decay length = 2.68e4 x l_Planck | [DERIVED, PDTP Original; SymPy residual 0, dimensional check verified] | reapplies T68's corrected g_bare=omega_gap^2/c^2 inside Part 63's own dispersion relation (Eq S7.5-S7.6) |
+| 142.9-142.10 | Propagation threshold Phi/c^2 = 3.3e-83 to 1.4e-80 (24-500 Hz) vs Sachs-Wolfe LSS scale ~1e-5 -- 77 orders of magnitude short; phi_- evanescent at LIGO frequencies for every physically realized potential | [DERIVED, NEGATIVE] | no possible phi_- signal existed for GW170817 to constrain -- question dissolved, not merely answered |
+
+**Conclusion (Part 142):** PDTP's two GW-carrying modes pass this real,
+historically theory-killing constraint on both fronts, neither requiring
+a new assumption. Byproduct: found and fixed a ~22-orders-of-magnitude
+numerical erratum in `two_phase_rederivation.md` (Part 63) Section S7
+(its "g_coupling ~ G*m_P^2/hbar" formula reduces identically to c, not a
+frequency at all -- SymPy-confirmed) -- a distinct erratum from T68's bug,
+not previously caught since Part 63 S7 was outside T68's audited checklist;
+no PASS/FAIL verdict changes. See
+`docs/research/gw170817_dispersion_check.md` for the full trace.
+
+---
+
+### Part 141 additions (T73: glueball mass test vs X(2370)):
+
+**Source:** Part 141 (2026-09-10), `simulations/solver/t73_glueball_x2370.py`,
+`docs/research/glueball_x2370_test.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 141.1-141.2 | M_loop(R) = sigma * 2*pi*R / (hbar*c) — closed flux-tube-loop mass, using only already-published sigma_SU3/sigma_measured (Part 37) and xi_QCD | [DERIVED, PDTP Original application; SymPy dimensional residual 0] | Mechanism A; reuses Part 33/37's flux-tube energy machinery for a closed loop instead of an open quark-ending line |
+| 141.3 | At R=xi_QCD, M_loop brackets X(2370)'s 2376 MeV (1.18-4.01 GeV across the two sigma inputs); all R=1-3*xi_QCD combinations land within a factor of 5 except one corner | [PDTP Original, numeric; 10/12 Sudoku] | R itself is an OPEN parameter, not independently derived -- bracketing at minimal R is the robust reading, not the closer R=2*xi_QCD match |
+| 141.4-141.6 | E_break_QCD = sqrt(6/pi)*m_cond_QCD = 507 MeV (Part 114 Eq 114.10's formula reapplied at the QCD condensate layer); X(2370)/E_break_QCD = 4.69 | [DERIVED, PDTP Original] | Mechanism B; clean negative -- the chi^a contact-vertex EFT cannot reach X(2370)'s mass, unlike Mechanism A |
+| 141.7 | PDTP's SU(3) sector has no field content able to predict/accommodate X(2370)'s measured J^PC=0-+ (chi^a are NLSM scalars per T70/Part 140, no vector-gluon content) | [DERIVED, NEGATIVE] | decisive limitation on the whole result: mass-scale plausibility only, no quantum-number derivation |
+
+**Conclusion (Part 141):** a genuinely non-hand-waved mass-scale
+consistency result — PDTP's own confinement machinery (built for quark
+binding, Parts 36-37) lands within a factor of ~5 of a real measured
+hadron (X(2370)) it was never built to predict, using only already-
+published PDTP numbers and no new free parameters. The alternative
+chi^a contact-vertex mechanism (Part 114, reapplied at the QCD layer)
+falls 4.7x short and cannot reach X(2370) at all. Neither mechanism can
+account for X(2370)'s measured J^PC=0-+ quantum numbers, since PDTP's
+"gluon" fields (chi^a) are already established (T70/Part 140) as scalars,
+not vectors. Reported as a mass-scale coincidence worth noting, not a
+derivation of the particle. See `docs/research/glueball_x2370_test.md`
+for the full trace.
+
+---
+
 ### Part 140 additions (T70: N_eff Seeley-DeWitt applicability check):
 
 **Source:** Part 140 (2026-09-06), `simulations/solver/t70_neff_seeley_dewitt.py`,
@@ -2065,6 +2115,37 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-09-10: Added Part 142 (T74: GW170817 constraint on PDTP's GW
+  structure, arXiv:1710.06168 -- real 2018 paper). Two structurally
+  distinct PDTP modes tested separately: tensor sector (phi_+/SU(3), the
+  actual LIGO signal) [Eq 142.1-142.4] has c_s=c EXACT (a pre-existing
+  PPN-gamma=1 design requirement) -- trivially inside the GW170817 speed
+  bound (4.13e-16, computed here from the paper's own source numbers, not
+  quoted from memory). Scalar/breathing sector (phi_-) [Eq 142.5-142.10]
+  is NOT what GW170817's timing measures at all -- shown EVANESCENT at
+  LIGO-band frequencies for every physically realized gravitational
+  potential (77 orders of margin vs. the Sachs-Wolfe large-scale-structure
+  potential scale) -- no possible phi_- signal existed to constrain.
+  PASS (tensor) + CONSTRUCTIVE NEGATIVE (scalar); 11/12 Sudoku. Byproduct:
+  found and fixed a ~22-orders-of-magnitude numerical erratum in
+  two_phase_rederivation.md (Part 63) Section S7 (unrelated to but same
+  genre as T68's bug) -- its stated "g_coupling ~ G*m_P^2/hbar" reduces
+  identically to c, not a frequency at all (SymPy-confirmed); no verdict
+  changes.
+- 2026-09-10: Added Part 141 (T73: glueball mass test vs X(2370), BESIII
+  arXiv:2607.20366 -- real hep-ex measurement, mass 2376.3+-8.7 MeV, width
+  83+-17 MeV, J^PC=0-+, flavor-singlet. Two independent PDTP mechanisms
+  tested with no new free parameters: Mechanism A (closed flux-tube loop,
+  Parts 36-37's own sigma/xi_QCD) [Eq 141.1-141.3] brackets X(2370) at
+  minimal radius and stays within a factor of 5 across R=1-3*xi_QCD;
+  Mechanism B (Part 114's chi^a contact vertex reapplied at the QCD
+  condensate layer) [Eq 141.4-141.6] is 4.7x too weak, E_break_QCD=507
+  MeV -- clean negative. Neither mechanism can account for the measured
+  J^PC=0-+ [Eq 141.7, NEGATIVE] -- chi^a are NLSM scalars (T70/Part 140),
+  no vector-gluon content to build it from. CONSTRUCTIVE (mass scale) +
+  NEGATIVE (quantum numbers); 10/12 Sudoku; framed per user correction as
+  a pure math/QCD-structure validation, explicitly NOT a dark-matter
+  claim.
 - 2026-09-06: Added Part 140 (T70: external AI (qwen3.7) suggested closing
   Part 83's N_eff = 6*pi gap with a spin-weighted Seeley-DeWitt formula,
   N_eff = N_v + (11/2)*N_f + (1/6)*N_s [Eq 140.1]. Killed on two independent

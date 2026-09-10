@@ -1,0 +1,251 @@
+random notes and checks
+{} added brackets to some of the text to group them as best i could if i copied large part of the body.
+
+---
+
+gluball
+youtube first mentioned where i see about a gluball: https://www.youtube.com/watch?v=4JaRoFKxzag
+thhe pdf https://arxiv.org/pdf/2607.20366
+downloaded it locally as 2607.20366v1.pdf in the pdfs folder
+
+---
+
+youtube: sabine vid mentioned openAi solved a problem
+https://www.youtube.com/watch?v=eR2q8s4VB1w
+Some thoughts on OpenAI's proof of the Navier Stokes Clay Millenium Problem
+check the open ai claim on the above
+on the vid it mentioned for the Navier Stokes they used a value 0 or a vortex to solve the issue. 
+check with regular math and with pdfp
+
+---
+
+The new frontier of gravitational waves
+https://www.nature.com/articles/s41586-019-1129-z
+
+---
+
+GW170817 Falsifies Dark Matter Emulators
+https://arxiv.org/abs/1710.06168
+PDF: 1710.06168v2.pdf
+
+---
+
+TeVaS: Tensor–vector–scalar gravity
+https://en.wikipedia.org/wiki/Tensor%E2%80%93vector%E2%80%93scalar_gravity
+note wiki has lots of images that are equations, they look like svg.
+
+---
+
+youtube: Abigail James
+https://www.youtube.com/watch?v=Hz2vbH9l_z8
+on description: {
+Dark Matter is one of the biggest mysteries in our Universe, but is a particle the answer? Maybe we need to look at Gravity differently? 
+
+While there are many different ideas about how we could modify gravity or even look at gravity as an emergent phenomenon instead of fundamental, no current hypothesis has all the answers or can even match the solutions dark matter particles could provide. 
+
+But how do you like your gravity? Fundamental or emergent? Newtonian or Milgrom? Is your dark matter a particle? 
+
+Let me know what topic you'd like next! And if you want bonus content then join the nerd club on Patreon or through YouTube memberships. 
+}
+the comments on the vid is wild.
+
+
+frozen in flux condition
+what does it mean, can it also explain maybe how space time twists
+
+---
+
+new image:
+rubiks-cube-and-graph-theory-v0-MnI5YmU4bDJ4OW9oMVSEgGJpDVl3qurc7Vq8eo65p2U-MGpDwHVGnALrW0rs.webp
+A Rubik's Cube can be modeled as a massive Cayley graph where every possible scrambled state is a node and each valid twist is a directed edge connecting two states
+the way it is animayged. can it be used to maybe model dark matter??
+
+---
+
+not sure what to call it. where you have a chain 2 lines down U at the bottom. 
+yet if you drop a ring over the 2 lines along the chain the ring can get looped and tangled with it.
+i think its called the Ring on a chain trick.
+the reason i mentioned it. could the similar princlple happend with dark matter to cause it to be twisted.
+so we don't end up needing the exotic amount of energy to cause it. maybe it just a topology that caused it some how in a certain way.
+
+---
+
+another topology
+Roving Bridges: Spiral Crossings That Keep Canal Tow Ropes Attached 
+https://www.reddit.com/r/STEW_ScTecEngWorld/comments/1w8cgyw/roving_bridges_spiral_crossings_that_keep_canal/
+
+---
+
+A Unified Perspective on Quantum Physics: Harmonizing the Three Interpretations into One Logical Reality
+https://medium.com/@truth.of.life36/a-unified-perspective-on-quantum-physics-harmonizing-the-three-interpretations-into-one-logical-89a90b767e38
+
+---
+
+Revisiting de Broglie's Double-Solution Pilot-Wave Theory with a Lorentz-Covariant Lagrangian Framework
+https://arxiv.org/abs/2408.06972
+downloaded pdf: 2408.06972v1.pdf
+{
+Key Aspects of the FrameworkVariational Foundation: The system is local, Lorentz-invariant, and derived directly from a variational principle in classical field theory. [1] (https://www.researchgate.net/publication/377791361_Revisiting_de_Broglie's_Double-Solution_Pilot-Wave_Theory_with_a_Lorentz-Covariant_Lagrangian_Framework), [2] (https://arxiv.org/abs/2408.06972)Two-Way Coupling: Unlike traditional Bohmian mechanics—which features a one-way influence from the wave to the particle—this framework allows the particle and wave to mutually influence each other over time. [1] (https://d-nb.info/1365272168/34), [2] (https://dspace.mit.edu/bitstream/handle/1721.1/158274/10701_2025_Article_826.pdf?sequence=1&isAllowed=y), [3] (https://arxiv.org/abs/2408.06972), [4] (https://www.researchgate.net/publication/377791361_Revisiting_de_Broglie's_Double-Solution_Pilot-Wave_Theory_with_a_Lorentz-Covariant_Lagrangian_Framework)Compton-Scale Oscillations: When the particle is driven by the local gradient of its wave, de Broglie’s predicted Compton-scale oscillations arise naturally as vibrations that match the Compton frequency in the particle's rest frame. [1] (https://www.researchgate.net/publication/377791361_Revisiting_de_Broglie's_Double-Solution_Pilot-Wave_Theory_with_a_Lorentz-Covariant_Lagrangian_Framework)Harmony of Phases: The underlying field dynamically adjusts its radiation patterns to satisfy the de Broglie relation (\(p=\hbar k\)) at the particle's location during both steady and unsteady motion. [1] (https://dspace.mit.edu/entities/publication/c1d35536-6125-43ec-8a58-bed399ea8935), [2] (https://www.researchgate.net/publication/383090613_Revisiting_de_Broglie's_Double-Solution_Pilot-Wave_Theory_with_a_Lorentz-Covariant_Lagrangian_Framework)Mass and Uncertainty: The particle is "dressed" in a Yukawa wavepacket that adds a constant contribution to its inertial mass and inherently yields a classical version of the Heisenberg uncertainty principle. [1] (https://www.researchgate.net/publication/383090613_Revisiting_de_Broglie's_Double-Solution_Pilot-Wave_Theory_with_a_Lorentz-Covariant_Lagrangian_Framework), [2] (https://dspace.mit.edu/entities/publication/c1d35536-6125-43ec-8a58-bed399ea8935)
+}
+downloaded the google ai summary. so we need to double check
+
+---
+
+consensus AI review of partial snippets from pdtp. i could not paste the full so it i gave it bit of the introdunction.md and the 3 langarians.
+https://consensus.app/search/what-can-you-do-than-other-i/LLsv2t4TT-2wMMXi6h0hBg/
+{
+# Yes—there is **relevant research**, but it mostly supports **analogies and test strategies**, not your full propulsion claim.
+
+Some literature does map onto pieces of your Phase-Decoupled Physics framework: pilot-wave and soliton models treat matter as wave-like localized structures, synchronization papers give rigorous mathematics for phase-locking, and modified-gravity or condensate papers show that wave-like spacetime media can be written consistently at least as speculative field theories  (Darrow & Bush, 2024; Drezet, 2022; Hsiao et al., 2025; Agüí Salcedo et al., 2025; Mondal & Ghosh, 2025). The evidence is much weaker for **gravity control, inertial reduction, or propellantless thrust**: those papers are exploratory, contested, or based on unreplicated anomalous results rather than accepted experimental proof  (Millis, 2017; Mahood, 2008; Brito et al., 2020).
+
+## Phase-Decoupled Physics
+
+| Evidence Strength | Claim |
+|---|---|
+| Evidence strength: Moderate (7/10) | **Phase-locking mathematics** is a real, rigorous framework in second-order oscillator systems with inertia, including conditions for phase and frequency synchronization  (Cho et al., 2025; Cho et al., 2023; Kang & Rehmeier, 2022; Hsiao et al., 2025; Ha et al., 2016). |
+| Evidence strength: Moderate (6/10) | **Wave-based matter models** exist in the literature: pilot-wave, double-solution, and soliton theories explicitly model particles as localized wave structures with phase harmony or wave guidance  (Darrow & Bush, 2024; Drezet, 2022; D’Errico, 2023; Winterberg, 2015). |
+| Evidence strength: Weak (3/10) | **Propellantless propulsion or gravity-decoupling** remains weakly supported; the available papers frame it as speculative hypothesis-building or report anomalous thrust findings without broad replication or consensus  (Millis, 2017; Woodward, 2021; Mahood, 2008; Brito et al., 2020; Solomon, 2009). |
+
+**Figure 1:** Strength of evidence across the framework’s main claims
+
+## Strongest Supports
+
+Your **best-supported bridge** is the phase-locking analogy, not the propulsion claim. Inertial Kuramoto and Winfree models show that second-order systems with inertia can converge to phase-locked states, and recent work makes several synchronization notions mathematically equivalent, which is useful if you want a precise definition of “coupling,” “locking,” and “decoupling” in your U(1) toy model  (Cho et al., 2025; Cho et al., 2023; Kang & Rehmeier, 2022; Hsiao et al., 2025). That does not show gravity is synchronization, but it does give you formal tools for stability analysis, order parameters, bifurcation thresholds, and decoupling criteria  (Cho et al., 2025; Cho et al., 2023; Hsiao et al., 2025).
+
+The **next strongest bridge** is wave-based ontology. A Lorentz-invariant pilot-wave framework can produce two-way particle-wave coupling, trajectory-dependent wave adjustment, and a constant wave-induced increase in inertial mass, while de Broglie-inspired soliton models explicitly rely on local phase harmony between a particle core and guiding wave  (Darrow & Bush, 2024; Drezet, 2022). But those papers stay at the level of alternative quantum interpretation or model-building, and one explicitly says extension to many-body nonlocal behavior is difficult  (Drezet, 2022).
+
+## How to Test It
+
+| Test Target | Prediction From Your Framework | Readout |
+|---|---|---|
+| **Weak-field limit** | Recover Newtonian/GR behavior when coupling is “normal” | Solar-system or laboratory residuals versus GR  (Agüí Salcedo et al., 2025; Mondal & Ghosh, 2025)|
+| **Phase decoupling** | A tunable parameter should reduce effective inertia or gravity | Null torsion-balance or accelerometer test if no force change appears  (Millis, 2017; Trofimov, 2026)|
+| **Wave propagation** | Modified gravity medium should alter GW propagation, damping, or birefringence | Compare with GW polarization or dispersion constraints  (Agüí Salcedo et al., 2025; Mondal & Ghosh, 2025)|
+| **State dependence** | Internal phase order of matter changes gravitational response | Look for gravity residuals correlated with coherence or entropy proxies  (Trofimov, 2026)|
+| **Propulsion claim** | Closed system shows net external thrust without expelled momentum carrier | Vacuum thrust stand with calorimetry, EMI controls, and blind reversals  (Millis, 2017; Brito et al., 2020)|
+
+**Figure 2:** Falsifiable tests for phase-coupled gravity and propulsion
+
+## Research Roadmap
+
+- **First**, turn the framework into a covariant EFT with explicit symmetries, conserved quantities, and a GR limit, because current gravity-medium papers treat this as the baseline for serious theory comparison  (Agüí Salcedo et al., 2025; Trofimov, 2026).
+- **Second**, derive one unique low-energy signature, such as dispersion, birefringence, a fourth-order Poisson correction, or a state-dependent equivalence-principle violation  (Agüí Salcedo et al., 2025; Mondal & Ghosh, 2025; Trofimov, 2026).
+- **Third**, try to falsify the easiest prediction first in a null experiment, because propulsion literature is dominated by underconstrained anomalies rather than decisive proof  (Millis, 2017; Mahood, 2008; Brito et al., 2020).
+- **Fourth**, separate “wave-inspired interpretation” from “engineering claim,” because condensate and pilot-wave papers support the former much more than the latter  (Darrow & Bush, 2024; Mondal & Ghosh, 2025; Dorlis et al., 2024).
+
+Right now, research can help your project most by **tightening the theory and defining kill tests**. The literature gives partial support for wave-based matter, phase-locking dynamics, and spacetime-medium models, but it does not currently provide strong evidence that phase decoupling enables hover, inertial reduction, or non-thrust propulsion  (Darrow & Bush, 2024; Agüí Salcedo et al., 2025; D’Errico, 2023; Brito et al., 2020).
+ 
+_These search results were found and analyzed using Consensus, an AI-powered search engine for research. Try it at https://consensus.app. © 2026 Consensus NLP, Inc. Personal, non-commercial use only; redistribution requires copyright holders’ consent._
+ 
+## References
+ 
+Agüí Salcedo, S., Colas, T., Dufner, L., & Pajer, E. (2025). An open system approach to gravity. *Journal of High Energy Physics, 2026*. https://doi.org/10.1007/jhep02(2026)241
+ 
+Brito, H., Brito, C., & Brito, M. A. (2020). Correction: RAMA Experiments Anomalous Thrusts Consistent with a Brans-Dicke Gravitation Model. *AIAA Propulsion and Energy 2020 Forum*. https://doi.org/10.2514/6.2020-3839
+ 
+Cho, H.-H., Dong, J.-G., Ha, S.-Y., & Ryoo, S.-Y. (2025). Inertia Perturbation Theory for the Inertial Kuramoto Model. *SIAM Journal on Mathematical Analysis*. https://doi.org/10.1137/25m1788567
+ 
+Cho, H.-H., Dong, J., & Ha, S.-Y. (2023). Interplay of inertia and adaptive couplings in the emergent dynamics of Kuramoto ensemble. *Journal of Differential Equations*. https://doi.org/10.1016/j.jde.2023.03.047
+ 
+D’Errico, L. (2023). A numerical study of the de Broglie gravitational wave of the electron. *Zeitschrift für angewandte Mathematik und Physik, 74*, 1-19. https://doi.org/10.1007/s00033-023-02091-w
+ 
+Darrow, D., & Bush, J. W. M. (2024). Revisiting de Broglie's Double-Solution Pilot-Wave Theory with a Lorentz-Covariant Lagrangian Framework. *Symmetry, 16*, 149. https://doi.org/10.3390/sym16020149
+ 
+Dorlis, P., Mavromatos, N., & Vlachos, S.-N. (2024). Condensate-induced inflation from primordial gravitational waves in string-inspired Chern-Simons gravity. *Physical Review D*. https://doi.org/10.1103/physrevd.110.063512
+ 
+Drezet, A. (2022). Quantum Solitodynamics: Non-linear Wave Mechanics and Pilot-Wave Theory. *Foundations of Physics, 53*, 1-45. https://doi.org/10.1007/s10701-023-00671-4
+ 
+Ha, S.-Y., Kim, H. K., & Ryoo, S. (2016). Emergence of phase-locked states for the Kuramoto model in a large coupling regime. *Communications in Mathematical Sciences, 14*, 1073-1091. https://doi.org/10.4310/cms.2016.v14.n4.a10
+ 
+Hsiao, T.-Y., Lo, Y.-F., & Zhu, C. (2025). Equivalence of synchronization states in the Kuramoto flow: a unified framework. *Journal of Physics: Complexity, 7*. https://doi.org/10.1088/2632-072x/ae6be3
+ 
+Kang, M., & Rehmeier, M. (2022). Emergence of phase-locked states for a deterministic and stochastic Winfree model with inertia. *Communications in Mathematical Sciences*. https://doi.org/10.4310/cms.2023.v21.n7.a6
+ 
+Mahood, T. L. (2008). Propellantless propulsion: Recent experimental results exploiting transient mass modification. 1014-1020. https://doi.org/10.1063/1.57494
+ 
+Millis, M. G. (2017). Inertial frames and breakthrough propulsion physics. *Acta Astronautica, 138*, 85-94. https://doi.org/10.1016/j.actaastro.2017.05.028
+ 
+Mondal, A., & Ghosh, S. (2025). Gravitational wave propagation in a geometric condensate in Starobinsky cosmology. *The European Physical Journal C, 85*. https://doi.org/10.1140/epjc/s10052-025-14403-7
+ 
+Solomon, B. (2009). An Approach to Gravity Modification as a Propulsion Technology. 317-325. https://doi.org/10.1063/1.3115512
+ 
+Trofimov, M. (2026). Timeflow Gravity: a thermodynamic theory of spacetime. *Classical and Quantum Gravity, 43*. https://doi.org/10.1088/1361-6382/ae811d
+ 
+Winterberg, F. (2015). Quantum Gravity Explanation of the de Broglie Pilot Wave. *viXra*.
+ 
+Woodward, J. (2021). Keeping the Dream Alive: Is Propellant-less Propulsion Possible?. *Propulsion - New Perspectives and Applications [Working Title]*. https://doi.org/10.5772/intechopen.95603
+}
+
+second part 
+{
+    # No—phase-locking is a **speculative reinterpretation**, not an accepted explanation of gravity.
+
+
+
+The literature confirms that matter-waves accumulate measurable quantum phase shifts in curved spacetime, but it treats these phases as consequences of gravity, not its cause  (Overstreet et al., 2022; Wanwieng & Watcharangkool, 2026; Asenbaum et al., 2017).
+
+## Matter-Wave Phase Shifts in Curved Spacetime
+
+Matter-wave interferometers detect gravitational phase shifts by measuring proper-time differences along geodesics, an effect described by general relativity rather than alternative coupling theories  (Overstreet et al., 2022; Stodolsky, 1979). These phases separate into dynamical, spin, and Aharonov-Bohm contributions, each probing distinct curvature sectors but all driven by the same tidal scale  (Wanwieng & Watcharangkool, 2026). Matter-waves act as clocks ticking at the Compton frequency, accumulating phase proportional to the gravitational potential even in force-free regions  (Hohensee et al., 2011). The gravitational Aharonov-Bohm effect has now been observed experimentally, confirming that gravity creates phase shifts analogous to electromagnetic interactions  (Overstreet et al., 2022; Li & Reyimuaji, 2025).
+
+## Speculative Phase-Gravity Frameworks
+
+One recent theoretical framework, Timeflow Gravity, explicitly proposes that gravity emerges from **phase-locking** between baryonic matter and a U(1) spacetime medium, deriving MOND-like dynamics and dark energy from coherent versus decoherent phase states  (Trofimov, 2026). This model links gravitational amplification to a phase coherence angle, predicting an anti-correlation between radial acceleration residuals and local kinematic entropy as a falsifiability test  (Bombacigno et al., 2025). However, this remains an untested hypothesis without experimental validation.
+
+## Experimental Evidence and Open Questions
+
+| Finding | Evidence Type | Citation |
+|---|---|---|
+| Gravity induces quantum phase shifts in matter-waves | Experimentally observed |  (Overstreet et al., 2022; Asenbaum et al., 2017; Dobkowski et al., 2025)|
+| Phase evolution can entangle masses via gravity | Theoretical proposal |  (Bose et al., 2017; Pl'avala, 2025)|
+| Wave-function collapse may trigger spacetime dynamics | Speculative model |  (Wang, 2025)|
+| Gravity-induced decoherence causes phase diffusion | Theoretical framework |  (Cang & Wang, 2025)|
+| Non-minimal geometry-matter coupling modifies GW propagation | Theoretical derivation |  (Bombacigno et al., 2025)|
+
+**Figure 1:** Evidence types for matter-wave phase and gravity coupling
+
+Proposed tabletop experiments aim to test whether gravity is a quantum mediator by observing entanglement between masses in adjacent interferometers  (Bose et al., 2017; Carney et al., 2018; Pl'avala, 2025). A Sagnac interferometer variant could test the quantum nature of gravity using a single particle in superposed angular frequencies  (Marletto & Vedral, 2020). Current matter-wave interferometers may already suffice to indirectly verify that gravity creates entanglement  (Pl'avala, 2025). However, weak-field gravity experiments may not access true gravitational degrees of freedom, limiting what proposed tests can prove  (Anastopoulos et al., 2021).
+
+The literature demonstrates that matter-wave phases encode spacetime geometry  (Wanwieng & Watcharangkool, 2026), but no experiment confirms that phase-locking causes gravitational attraction.
+ 
+_These search results were found and analyzed using Consensus, an AI-powered search engine for research. Try it at https://consensus.app. © 2026 Consensus NLP, Inc. Personal, non-commercial use only; redistribution requires copyright holders’ consent._
+ 
+## References
+ 
+Anastopoulos, C., Lagouvardos, M., & Savvidou, K. (2021). Gravitational effects in macroscopic quantum systems: a first-principles analysis. *Classical and Quantum Gravity, 38*. https://doi.org/10.1088/1361-6382/ac0bf9
+ 
+Asenbaum, P., Overstreet, C., Kovachy, T., Brown, D. D., Hogan, J., & Kasevich, M. (2017). Phase Shift in an Atom Interferometer due to Spacetime Curvature across its Wave Function.. *Physical review letters, 118 18*, 183602. https://doi.org/10.1103/physrevlett.118.183602
+ 
+Bombacigno, F., Moretti, F., & Olmo, G. J. (2025). Gravitational waves in Palatini gravity for a non-minimal geometry-matter coupling. *Journal of Cosmology and Astroparticle Physics, 2025*. https://doi.org/10.1088/1475-7516/2025/12/030
+ 
+Bose, S., Mazumdar, A., Morley, G. W., Ulbricht, H., Toroš, M., Paternostro, M., Geraci, A., Barker, P., Kim, M., & Milburn, G. (2017). Spin Entanglement Witness for Quantum Gravity.. *Physical review letters, 119 24*, 240401. https://doi.org/10.1103/physrevlett.119.240401
+ 
+Cang, H., & Wang, Y.-Z. (2025). Universality and Falsifiability of Quantum Spacetime Decoherence: A Gauge-Invariant Framework for Gravitational-Wave Phase Diffusion. https://doi.org/10.48550/arxiv.2512.02782
+ 
+Carney, D., Stamp, P., & Taylor, J. M. (2018). Tabletop experiments for quantum gravity: a user’s manual. *Classical and Quantum Gravity, 36*. https://doi.org/10.1088/1361-6382/aaf9ca
+ 
+Dobkowski, O., Trok, B., Skakunenko, P., Japha, Y., Groswasser, D., Efremov, M., Marletto, C., Fuentes, I., Penrose, R., Vedral, V., Schleich, W., & Folman, R. (2025). Observation of quantum free fall and the consistency with the equivalence principle. https://doi.org/10.48550/arxiv.2502.14535
+ 
+Hohensee, M., Estey, B., Hamilton, P., Zeilinger, A., & Mȕller, H. (2011). Force-free gravitational redshift: proposed gravitational Aharonov-Bohm experiment.. *Physical review letters, 108 23*, 230404. https://doi.org/10.1103/physrevlett.108.230404
+ 
+Li, Y., & Reyimuaji, Y. (2025). Aharonov-Bohm Effects for Electromagnetism and Gravity in Four-Dimensional Spacetime. https://doi.org/10.48550/arxiv.2508.01538
+ 
+Marletto, C., & Vedral, V. (2020). Sagnac interferometer and the quantum nature of gravity. *Journal of Physics Communications, 5*. https://doi.org/10.1088/2399-6528/abfd43
+ 
+Overstreet, C., Asenbaum, P., Curti, J., Kim, M., & Kasevich, M. (2022). Observation of a gravitational Aharonov-Bohm effect. *Science, 375*, 226 - 229. https://doi.org/10.1126/science.abl7152
+ 
+Pl'avala, M. (2025). Existing experiments suffice to indirectly verify the quantum essence of gravity. *Physical Review D*. https://doi.org/10.1103/87dc-qt73
+ 
+Stodolsky, L. (1979). Matter and light wave interferometry in gravitational fields. *General Relativity and Gravitation, 11*, 391-405. https://doi.org/10.1007/bf00759302
+ 
+Trofimov, M. (2026). Timeflow Gravity: a thermodynamic theory of spacetime. *Classical and Quantum Gravity, 43*. https://doi.org/10.1088/1361-6382/ae811d
+ 
+Wang, X. (2025). Wave Function Collapse Triggering Spacetime Dynamics in Semiclassical Gravity. https://doi.org/10.48550/arxiv.2508.01573
+ 
+Wanwieng, N., & Watcharangkool, A. (2026). Semiclassical phases of charged spin-1/2 matter-wave interferometers in gravitational-wave backgrounds. *Classical and Quantum Gravity*. https://doi.org/10.1088/1361-6382/ae9a25
+ 
+}
+
+---
+
+

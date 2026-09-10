@@ -502,13 +502,35 @@ In the two-phase framework, phi_- IS the breathing mode.
    phi_- is heavy → short range. In vacuum (Phi → 0), phi_- is massless → long
    range. This is the "reversed Higgs" mechanism (Part 62).
 
-**Numerical estimate on Earth's surface:**
+**Numerical estimate on Earth's surface — CORRECTED 2026-09-10 (T74/Part 142):**
+
+The original version of this block stated `g_coupling ~ G*m_P^2/hbar ~
+2.95e42 rad/s` and `omega_gap ~ 6.4e16 rad/s`. Both are wrong: the
+formula `G*m_P^2/hbar` reduces algebraically, via the definition
+`G = hbar*c/m_cond^2` (m_cond=m_P), identically to `c` — it is not a
+frequency at all, regardless of the quoted value. Recomputed correctly
+using T68's corrected bare coupling (`g_bare = omega_gap^2/c^2`, NOT
+`g = omega_gap` directly) with `omega_gap` = the Planck-layer breathing
+frequency (Part 33/94, m_cond=m_P):
+
 ```
-g_coupling ~ G*m_P^2/hbar ~ 2.95e42 rad/s
-Phi_Earth = G*M_Earth/(R_Earth*c^2) ~ 6.95e-10
-omega_gap = sqrt(2 * g * Phi) ~ 6.4e16 rad/s
-f_gap ~ 1.0e16 Hz  (UV, far above LISA/ET bands)
+omega_gap (Planck layer) = m_P*c^2/hbar ~ 1.855e43 rad/s   [Part 33/94]
+Phi_Earth = G*M_Earth/(R_Earth*c^2) ~ 6.96e-10             [dimensionless]
+omega_local(Earth) = omega_gap * sqrt(2*Phi_Earth) ~ 6.92e38 rad/s
+f_local(Earth) ~ 1.1e38 Hz  (~22 orders above the value stated here
+  previously; ~36 orders above LIGO's ~100 Hz band, ~30+ orders above LISA)
+E_local(Earth) = hbar*omega_local ~ 4.56e14 GeV  (matches T68's
+  independently-corrected reversed_higgs.py result, g_units_audit_
+  scoping.md Sec 7b, to <1%)
 ```
+
+See `docs/research/gw170817_dispersion_check.md` (T74/Part 142) for the
+full re-derivation (two independent symbolic routes, SymPy-verified
+residual 0) and its consequence: phi_- is evanescent (non-propagating)
+at any LIGO-band frequency for every physically realized gravitational
+potential, including the emptiest cosmic voids — an even stronger
+"far above any detector band" conclusion than this corrected block's
+own numbers already suggest.
 
 **Result:** [DERIVED] Breathing mode = phi_- with omega^2 = c^2*k^2 + 2*g*Phi.
 Same structure as single-phase; environment-dependent mass is new. ✓ PASS

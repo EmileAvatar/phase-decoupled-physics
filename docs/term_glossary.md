@@ -187,6 +187,7 @@ audit untangling.
 | **No-go theorem (Part 115)** | Algebraic proof that m_cond cannot be derived from inside PDTP. Every internally constructible observable scales as a pure power of m_cond — changing m_cond just rescales everything uniformly. The answer MUST come from outside (measurement or external theory). |
 | **Dvali-Gomez criticality** | The condition α_gr = 1: each condensate quantum is marginally its own black hole (Schwarzschild radius ≈ Compton wavelength). This is WHY all Part 77/78 bounds on m_cond kept saturating — they all encode the same condition. Consolation prize from Part 115. |
 | **JPD testbed** | Josephson Phase-Drive experiment concept. A Nb superconducting ring + Josephson junction array tuned near ω_gap harmonics. Designed to give a ~6 ppm signal if PDTP is correct — provides an indirect window on ω_gap without needing Planck-frequency hardware. |
+| **Glueball loop (T73/Part 141)** | Real hadron X(2370) (BESIII, 0⁻⁺ flavor-singlet, mass 2376 MeV) modeled as a closed loop of PDTP's own confining flux tube (no quark ends) — M_loop(R) = σ·2πR/(ħc). Brackets X(2370) at minimal radius R=ξ_QCD; radius itself unconstrained. Separately, the χᵃ contact vertex (Part 114) reapplied at the QCD layer falls 4.7× short — cannot reach X(2370) at all. Mass-scale plausibility only; PDTP has no mechanism for the measured J^PC=0⁻⁺ (χᵃ are scalars, not vectors, per T70). NOT a dark-matter item — pure SU(3)-structure validation. |
 
 ---
 
@@ -214,7 +215,8 @@ audit untangling.
 
 ---
 
-*Last updated: 2026-09-06. Update this file whenever a new symbol or mechanism
+*Last updated: 2026-09-10 (added Glueball loop / T73 / Part 141 mechanism entry,
+Section 9). Update this file whenever a new symbol or mechanism
 is introduced — including its SI units.*
 
 **Changelog:**
