@@ -36,11 +36,11 @@ This document investigates that question rigorously — separating real
 mathematical connections from superficial visual resemblances.
 
 **Reference images:**
-- ![Circular polarization](../../assets/images/waves%20polorization/licensed-image%20Circular%20polarization%20of%20n%20electromagnetic%20wave.jpg)
+- ![Circular polarization](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/waves%20polorization/licensed-image%20Circular%20polarization%20of%20n%20electromagnetic%20wave.jpg)
   *E-vector rotating counterclockwise; head-on view traces a circle*
-- ![EM wave components](../../assets/images/waves%20polorization/licensed-image%20electromatnetic%20waves.jpg)
+- ![EM wave components](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/waves%20polorization/licensed-image%20electromatnetic%20waves.jpg)
   *E and H fields perpendicular to each other and to propagation direction*
-- ![Polarization filters](../../assets/images/waves%20polorization/licensed-image%20polrization.jpg)
+- ![Polarization filters](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/waves%20polorization/licensed-image%20polrization.jpg)
   *Vertical filter passes aligned light; crossed filters block all light*
 
 ---
@@ -274,6 +274,17 @@ field. The PDTP coupling involves a **global** phase difference, not a
 gauge-covariant quantity. This distinction matters: gauge theories have
 local symmetry (the phase can vary point by point), while PDTP's phase
 difference ψ − φ is currently a global quantity.
+
+**Update (T80/Part 147, 2026-09-14):** this global-vs-local gap was
+tested directly, not just noted. Gauging PDTP's actual global symmetry
+(the *combined* shift φ→φ+α, ψ→ψ+α — the phase *difference* ψ−φ is
+already gauge invariant by construction, so it cannot be the thing being
+promoted to local) forces a real connection field A into existence with
+the correct QED-like transformation law — but minimal coupling gives A
+no kinetic term, so it is non-dynamical and carries zero net physical
+effect once solved out. See `docs/research/em_from_geometry_gauging.md`
+for the full derivation. Section 8.2 Item 2 below is answered by this
+result.
 
 ### 3.5 Verdict
 
@@ -714,7 +725,16 @@ symmetry needed for gauge structure.
 2. **Connect to gauge theory:** can the lattice's internal modes
    (torsion/rotation) provide local U(1) gauge symmetry? This would
    elevate the polarization analogy from metaphor to mathematical
-   equivalence.
+   equivalence. **ANSWERED (T80/Part 147, 2026-09-14):** the lattice's
+   internal torsion/rotation modes are not needed at all — PDTP's
+   *existing* matter-spacetime coupling already admits an exact local
+   U(1) gauging of its own combined phase-shift symmetry (T66/Part 136's
+   torsion/rotation route, tested separately, was independently found
+   NEGATIVE). This elevates the analogy only *partway* "from metaphor to
+   mathematical equivalence": the gauging is mathematically exact, but
+   the resulting connection field is non-dynamical (no kinetic term
+   under minimal coupling) and carries zero net physical effect — see
+   `docs/research/em_from_geometry_gauging.md`.
 
 3. **Derive string tension:** can the phase-string energy between
    separated quarks be shown to give the QCD string tension

@@ -12,7 +12,7 @@ Part 28c ([wave_effects_pdtp.md](wave_effects_pdtp.md) — full catalog with equ
 
 ## Image 1: The Two Fundamental Wave Types
 
-![Longitudinal and Transverse Waves](../../assets/images/difference-between-longitudinal-and-transverse-wave-Updated.png)
+![Longitudinal and Transverse Waves](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/difference-between-longitudinal-and-transverse-wave-Updated.png)
 
 **What the image shows:**
 
@@ -58,7 +58,7 @@ but because the detector geometry is the wrong shape.
 
 ## Image 2: Both Modes at Once — The Circular Orbit
 
-![Water particle circular path](../../assets/images/waves%20long%20and%20trans%20images.png)
+![Water particle circular path](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/waves%20long%20and%20trans%20images.png)
 
 **What the image shows:**
 
@@ -105,7 +105,7 @@ the circle — it drifts free of the wave.
 
 ## Image 3: One Full Orbit — Phase-Locking in Action
 
-![Buoy completing circular orbit](../../assets/images/waves%20long%20and%20trans%204Pfee.jpg)
+![Buoy completing circular orbit](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/waves%20long%20and%20trans%204Pfee.jpg)
 
 **What the image shows:**
 
@@ -148,7 +148,7 @@ give a particle enough energy to break its orbit from the condensate wave.
 
 ## Image 4: Depth Dependence — Vacuum, Coupling Zone, and Horizon
 
-![Surface wave depth profile and wave breaking](../../assets/images/waves%20long%20and%20trans%20image072.png)
+![Surface wave depth profile and wave breaking](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/waves%20long%20and%20trans%20image072.png)
 
 **What the image shows:**
 

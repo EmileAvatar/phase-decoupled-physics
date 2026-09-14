@@ -3,7 +3,7 @@
 This document explains the hydrogen atom wavefunction visualization, first
 using standard quantum mechanics, then through the PDTP phase framework lens.
 
-![Hydrogen Wavefunction](../../assets/images/Hydrogen%20wavefunction%20existing%20physics%20.jpeg)
+![Hydrogen Wavefunction](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/Hydrogen%20wavefunction%20existing%20physics%20.jpeg)
 
 ---
 
@@ -136,7 +136,7 @@ The image above shows **|ψ|²** — the probability density, always positive.
 This second image shows something different: **ψ itself**, with a signed
 color scale (− to +). This reveals the actual phase of the wave.
 
-![Hydrogen Wave Function — phase signed](../../assets/images/hydrogen%20wave%20function%200_kGoy-0UmjweaqEZB.png)
+![Hydrogen Wave Function — phase signed](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/hydrogen%20wave%20function%200_kGoy-0UmjweaqEZB.png)
 
 The color scale runs from **dark (negative)** through white (zero) to
 **bright (positive)**. White boundaries — where the color crosses zero — are

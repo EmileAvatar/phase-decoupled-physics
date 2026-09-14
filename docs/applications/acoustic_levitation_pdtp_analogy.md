@@ -17,12 +17,12 @@ A small object placed near a pressure node experiences:
 - Downward acoustic radiation pressure from above
 - Net force: zero at the node → object is trapped
 
-![How acoustic levitation works — transducer, reflector, node/antinode diagram](../../assets/images/acoustic%20standing%20waves%20levitation%20H19fQ==.jpg)
+![How acoustic levitation works — transducer, reflector, node/antinode diagram](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/acoustic%20standing%20waves%20levitation%20H19fQ%3D%3D.jpg)
 
 The object does **not** need to touch anything. It floats in mid-air, held purely by
 the wave pattern. No propellant. No contact force. No exhaust.
 
-![Real acoustic levitation — multiple objects trapped at nodes along the standing wave column](../../assets/images/acoustic%20standing%20waves%20levitation%20472926_1_En_2_Fig1_HTML.png)
+![Real acoustic levitation — multiple objects trapped at nodes along the standing wave column](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/acoustic%20standing%20waves%20levitation%20472926_1_En_2_Fig1_HTML.png)
 
 Key parameters:
 - Wave frequency: typically 20–100 kHz (ultrasound)
@@ -67,18 +67,18 @@ Three-phase electrical current (120° spacing) is the simplest way to create a
 rotating phase gradient in space. Each phase pushes the field pattern around in a
 smooth, continuous rotation — no dead spots.
 
-![Three-phase sequence (3-2-1 rotating field)](../../assets/images/phase%20sequesnce%2002182.png)
+![Three-phase sequence (3-2-1 rotating field)](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/phase%20sequesnce%2002182.png)
 
 The PDTP analog: a ring of coils, each driven at a different phase offset, creates
 a **traveling phase wave** that propagates through and around the ring. This is the
 mechanism that would drive oscillation in the φ field.
 
-![Phase gradient coil array — toroidal ring, independently phase-controlled](../../assets/images/phase_gradient_coil_schematic.png)
+![Phase gradient coil array — toroidal ring, independently phase-controlled](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/phase_gradient_coil_schematic.png)
 
 The three-amplifier 120° geometry matches the claimed configuration of the Lazar craft.
 The toroidal coil array is the transducer. The craft body is the "object at the node."
 
-![PDTP analog simulation concepts — EM levitation, eddy current inertia reduction, contained field](../../assets/images/pdtp_analog_simulation.png)
+![PDTP analog simulation concepts — EM levitation, eddy current inertia reduction, contained field](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/pdtp_analog_simulation.png)
 
 ---
 

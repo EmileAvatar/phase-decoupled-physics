@@ -13,7 +13,7 @@
 New additions go on top. One line per item. Full details below.
 
 - T81 — Kinematic phase-coherence decomposition of PDTP's own coupling (TFG-inspired MOND retry) [DONE, Part 146, 2026-09-14 -- CONSTRUCTIVE PARTIAL: (1) DERIVED a real, exact PDTP analog of TFG's cos(theta) -- ensemble-averaging psi_i over N particles with von Mises-distributed phase scatter gives EXACTLY <sum sin(psi_i-phi)> = N*R(kappa)*sin(psi_bar-phi), R(kappa)=I_1(kappa)/I_0(kappa) the circular mean resultant length, bounded [0,1], matching TFG's cos(theta) structurally; (2) substituted into PDTP's weak-field reduction gives a genuine new PDTP-Original result, G_eff=G*R(kappa) (coherence-dependent effective Newton's constant); (3) DERIVED NEGATIVE for the actual MOND goal: G_eff=G*R(kappa) is a CONSTANT-coefficient rescaling (R depends only on the source's kinematic spread, not on Phi or its gradient) -- constant-coefficient Poisson equations ALWAYS give inverse-square force law (SymPy-verified for a point mass), never MOND's inverse-linear regime, which in TFG's own mechanism comes specifically from mu depending SELF-REFERENTIALLY on the local acceleration a=|grad(Phi)| (TFG's actual Eq 79, already verified T77) -- R(kappa) as derived has no such feedback; 10/10 Sudoku PASS after RECHECK caught + fixed 2 real bugs (Bessel-function overflow at large kappa; an N/coherence conflation in the G_eff derivation); a structural caveat flagged up front (PDTP's psi is a phase VALUE / internal clock, not a phase GRADIENT / velocity, unlike TFG's construction) -- see docs/research/kinematic_coherence_mond_retry.md]
-- T80 — Electromagnetism-from-geometry (U(1) connection/curvature) as a blueprint for PDTP's EM gap: YouTube video "Electromagnetism Derived From Geometry!" (transcript `docs/misc/note 2026-09-14.txt`) lays out the standard, well-established gauge-theory recipe (local U(1) phase invariance -> forced covariant derivative -> connection field A_mu -> curvature F_mu_nu -> Maxwell's equations, plus a Kaluza-Klein extra-dimension reading) -- NOT speculative, textbook physics presented accessibly. PDTP's lack of any such field has now been flagged independently 4 times (Part 27b origin, T66/Part 136's closed torsion/rotation attempt, T70/Part 140's NLSM-scalar classification, T75/Part 143 + polarization_analogy.md Sec 3.5/8.2's "global not local" finding) -- this video gives an explicit standard-physics construction recipe to actually attempt promoting PDTP's phase field from global to local U(1) symmetry, distinct from T66's already-closed route (torsion/rotation reinterpretation) -- must not be conflated with it [PENDING, HIGH]
+- T80 — Electromagnetism-from-geometry (U(1) connection/curvature) as a blueprint for PDTP's EM gap: DONE (Part 147). Gauging the corrected combined-shift symmetry (phi,psi->phi+alpha,psi+alpha together -- the filed "psi alone" wording was not a symmetry, corrected first) forces a real field A into existence with the exact QED-like transformation law, full Lagrangian exactly locally invariant -- Key Question 1 (corrected): YES. But minimal coupling gives A no kinetic term; solving out its resulting non-dynamical constraint reproduces PDTP's ORIGINAL ungauged theta equation exactly (two independent routes agree) -- minimal coupling alone is physically vacuous for PDTP, Key Question 2 answered precisely NO. A postulated Maxwell kinetic term is well-formed but not forced by PDTP's own structure; KK reading inherits the same gap. 13/13 Sudoku PASS. Sharpens (does not overturn) T79 Item 2 and polarization_analogy.md Sec 3.5's open item. [DONE, HIGH]
 - T79 — "Theory of Everything" master equation (GR + Standard Model combined path integral) term-by-term audit vs PDTP: Quora-circulated equation image (`assets/images/main-qimg-54f863a4dcc66a6be61caf1d89691959-lq.jpg`) combines the Einstein-Hilbert action + full SM Lagrangian (gravity/R, gauge fields/F^2, Dirac matter, Yukawa-Higgs coupling, Higgs kinetic+potential) in one functional integral -- every individual piece is 100% established physics, though the popular "one equation" framing overstates what symbolically combining them achieves (does not solve quantum-gravity renormalization or unify couplings; best read as a checklist, not a solved theory). Go through each of the 6 labeled pieces and map what PDTP already has (gravity via SU(3) metric + Sakharov, Part 114; own reversed-Higgs mechanism, Part 62), already found absent (gauge vector fields, T70/T75; native Dirac fermions, Part 40's Wilson fermions are borrowed scaffolding not PDTP's own field), or hasn't compared (Yukawa/mass-generation vs PDTP's own vortex-winding/Koide mass story) [PENDING, MEDIUM-HIGH]
 - T78 — De Broglie double-solution pilot-wave comparison (Darrow & Bush 2024, *Symmetry*, arXiv:2408.06972 -- real, open-access, peer-reviewed): Lorentz-covariant two-way-coupled pilot-wave framework with Compton-scale oscillations satisfying the de Broglie relation; compare against PDTP's own matter-wave (psi) treatment, same spirit as the Elastic Universe review (T27) [PENDING, MEDIUM]
 - T77 — Timeflow Gravity comparison (Trofimov 2026, Class. Quantum Grav. 43) [DONE, Part 145, 2026-09-14 -- MIXED verdict, full paper read + TFG's own key equations independently SymPy-verified (all confirmed): (1) convergent validation -- both frameworks use a U(1) phase field, both anchor on Jacobson's entropic-gravity argument (via genuinely different technical routes), both fix a normalization constant via Newtonian-limit recovery; (2) a GENUINE GAP, not just thematic echo -- TFG's MOND-limit derivation checks out and lands exactly on Milgrom's function, while PDTP's own biharmonic MOND attempt (dark_matter_energy.md Sec 2.5) is an ALREADY-DOCUMENTED, twice-confirmed ~54-orders-of-magnitude failure (corrected from a stale "20 orders" figure caught while writing this comparison; corroborated again by T74's independent screening-length re-derivation, ~50 orders short); TFG's parameter-free w0=-0.844 sits 0.12sigma from DESI vs PDTP's own canonical Prediction 5 (w0=-0.92, ~1.5sigma away); (3) real structural differences -- TFG has ONE field (order/chaos decomposition of itself, no separate matter field, unlike PDTP's two-field psi-phi coupling), NO Lagrangian yet (authors' own admission), and a NEW global entropy-conservation postulate PDTP lacks -- this is NOT "PDTP in different words"; Bullet Cluster explanations are complementary not competing (spatial offset vs self-interaction bound); see docs/research/timeflow_gravity_comparison.md]
@@ -2321,6 +2321,15 @@ Lagrangian psi field definition.
 
 #### [ ] T79. "Theory of Everything" Master Equation — Term-by-Term Audit vs PDTP
 
+**PROGRESS (2026-09-14):** split into two explicit phases per user
+request ("extra carefully"). **Phase 1 DONE (Part 148):** pure
+explainer of the equation and every term in it, no PDTP content at all
+-- `docs/research/theory_of_everything_master_equation.md`. Awaiting
+user review before Phase 2 begins. **Phase 2 NOT STARTED:** the actual
+term-by-term audit against PDTP described below (and the question of
+whether PDTP's own version of any term should update the framework).
+Status stays PENDING until Phase 2 completes.
+
 **Status:** PENDING. Filed 2026-09-14.
 **Source:** `docs/misc/note 2026-09-14.txt` (user note); equation image
 saved at `assets/images/main-qimg-54f863a4dcc66a6be61caf1d89691959-lq.jpg`
@@ -2368,9 +2377,19 @@ rather than new derivation:
    (chi^a) are already classified as nonlinear-sigma-model SCALARS, not
    real gauge bosons -- no field-strength tensor F_mu_nu exists anywhere
    in PDTP's Lagrangian (T70/Part 140), and PDTP has no vector field at
-   all (T75/Part 143). This term is currently entirely UNBUILT in PDTP --
-   state this plainly, cross-reference T80 (this session's companion
-   item, which proposes an actual construction route).
+   all (T75/Part 143). **Sharpened by T80/Part 147 (2026-09-14):** the
+   gap is NOT "no route to a connection field exists" -- gauging PDTP's
+   own combined phase-shift symmetry DOES force a real field A into
+   existence with the correct QED-like transformation law (T80 Key
+   Question 1: YES). The sharper, correctly-located gap is that minimal
+   coupling gives this A no independent kinetic term, so it is
+   non-dynamical and carries zero net physical effect (solving out its
+   constraint exactly reproduces PDTP's original, ungauged theory) --
+   PDTP has no mechanism that GENERATES a propagating gauge sector, not
+   "no route to a connection field at all." This term remains entirely
+   UNBUILT in the sense that matters (nothing propagates), but for a
+   more precise reason than previously stated. See
+   `docs/research/em_from_geometry_gauging.md`.
 3. **Matter / Dirac kinetic term (i*psibar*gamma^mu*D_mu*psi):** PDTP's
    matter fields psi_i are phase fields (real scalars/angles), not Dirac
    spinors. Part 40's Wilson fermions are a borrowed lattice-QCD scaffold
@@ -2411,7 +2430,88 @@ still valuable as a single reference point instead of scattered findings.
 
 ---
 
-#### [ ] T80. Electromagnetism-from-Geometry (U(1) Connection) as a Blueprint for PDTP's EM Gap
+#### [x] T80. Electromagnetism-from-Geometry (U(1) Connection) as a Blueprint for PDTP's EM Gap — DONE (Part 147, 2026-09-14)
+
+**RESULT:**
+
+**Real construction succeeds structurally; minimal coupling alone is
+physically vacuous for PDTP.** Full writeup
+`docs/research/em_from_geometry_gauging.md`; script
+`simulations/solver/t80_em_gauging.py`; 13/13 Sudoku PASS (no bugs found
+-- RECHECK ran clean on first execution).
+
+**Correction made before any derivation:** this item's own Key Question
+1, as filed below, asks about invariance under "psi_i(x) -> psi_i(x) +
+alpha(x)" with phi held fixed. Checked directly: this is NOT a symmetry
+of the Lagrangian at all, not even for constant alpha -- cos(psi-phi)
+shifts to cos(psi+alpha-phi), unequal unless alpha=0. The actual (and
+only) global symmetry is the COMBINED shift phi->phi+alpha, psi->psi+alpha
+(every field, same alpha) -- verified exactly. This is the symmetry
+gauged below; flagged and fixed via RECHECK before proceeding, not
+silently worked around.
+
+**What was found:**
+1. [DERIVED] Gauging the corrected combined-shift symmetry (charge 1 for
+   every field) via minimal coupling D(field)=d(field)/dx-A,
+   A->A+d(alpha)/dx makes the FULL Lagrangian exactly locally invariant
+   -- Key Question 1 (corrected): YES. The coupling term g*cos(psi-phi)
+   needs NO modification at all (it already depends only on the
+   gauge-invariant psi-phi); only the kinetic terms need covariantizing.
+2. [DERIVED, PDTP Original] Center/relative variables Sigma=(phi+psi)/2
+   (charged), theta=psi-phi (gauge invariant, carries all of PDTP's
+   coupling physics) diagonalize the kinetic term exactly. A couples
+   ONLY to Sigma in the Lagrangian, never directly to theta.
+3. [DERIVED, PDTP Original, the central finding] Minimal coupling alone
+   gives A NO independent kinetic term (no A_dot anywhere in L_gauged),
+   so its own Euler-Lagrange equation degenerates into an algebraic
+   CONSTRAINT: A = Sigma_dot. Substituting this constraint back into
+   phi's own gauged field equation exactly reproduces the ORIGINAL,
+   UNGAUGED theta equation of motion (theta_ddot=-2*g*sin(theta)) with A
+   completely cancelled out -- verified via two independent derivation
+   routes that agree exactly (residual 0). **Minimal coupling alone is
+   physically vacuous for PDTP** -- a precise, quantitative answer to
+   Key Question 2, not a vague one: it introduces a field with correct
+   formal transformation properties but zero net effect on any PDTP
+   prediction, because it has nothing to propagate it.
+4. [VERIFIED, standard physics] IF a Maxwell-like -1/4*F^2 term is
+   separately POSTULATED (the same kind of move as Maxwell's own
+   historical displacement-current scaffolding, Methodology.md's own
+   worked example -- NOT forced by matter-sector invariance alone), its
+   curvature is gauge invariant with the healthy (non-ghost) sign. But
+   nothing in PDTP's own structure currently supplies or motivates this
+   term.
+5. [DERIVED] Generalizes cleanly to the full multi-matter-phase (N=2
+   tested explicitly, independence argument given for general N) case
+   and is compatible with the two-phase Lagrangian's (Part 61) symmetry
+   structure (Sudoku item 4).
+6. Key Question 3 (Kaluza-Klein): NOT a different escape route -- it
+   would need the same missing kinetic term from a different (5D
+   curvature) source, which PDTP's own gravity mechanism (SU(3) emergent
+   metric + Sakharov induced gravity) does not supply either.
+7. **Key Question 4 (impact on T79/polarization_analogy.md):** both
+   verdicts are SHARPENED, not overturned. T79 Item 2's "entirely UNBUILT"
+   framing was locating the gap in the wrong place -- a local-symmetry
+   route to a connection field DOES exist. The real, sharper gap: PDTP
+   has no mechanism that generates an independent kinetic term for a
+   gauge field, not "no route to a connection field at all."
+   `polarization_analogy.md` Sec 3.5/8.2's open item ("can the lattice
+   provide local U(1) gauge symmetry?") is answered -- yes, PDTP's
+   EXISTING coupling already admits exact local U(1) gauging, no lattice
+   torsion/rotation modes needed -- but the resulting field is inert.
+
+**Verdict:** neither of the two outcomes flagged as valuable at filing
+time is quite what landed (not a working EM sector; not simply "closed,
+no route exists" either) -- a precise, correctly-located negative: the
+gap isn't "PDTP can't be gauged," it's "PDTP's gauge field has nothing
+to make it move." See `docs/research/em_from_geometry_gauging.md`
+Section 5 for the full trace. T79 Item 2's wording and
+`polarization_analogy.md` Sec 3.5/8.2 have been updated in this same
+sync pass to reflect the sharpened diagnosis.
+
+**What remains open (not filed as a new item):** whether a PDTP-intrinsic
+mechanism (e.g. a Sakharov-style induced kinetic term, paralleling Part
+114's induced-gravity playbook) could supply the missing kinetic term
+without an external postulate.
 
 **Status:** PENDING. Filed 2026-09-14.
 **Source:** YouTube video "Electromagnetism Derived From Geometry!"
@@ -3403,5 +3503,5 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T77 | Timeflow Gravity comparison (Trofimov 2026, Class. Quantum Grav. 43) -- TFG's verified MOND derivation succeeds where PDTP's own biharmonic attempt fails by ~54 OoM (corrected from stale "20 OoM" figure caught during this comparison); TFG w0=-0.844 (0.12sigma DESI) vs PDTP's -0.92 (~1.5sigma); real structural differences (1 field vs 2, no Lagrangian yet, new entropy postulate) | high | DONE -- MIXED (convergent validation + genuine gap + structural differences) | 145 |
 | T78 | De Broglie pilot-wave comparison (Darrow & Bush 2024, Symmetry, arXiv:2408.06972) -- compare Compton-scale pilot-wave oscillation to PDTP's psi field | medium | PENDING | -- |
 | T79 | "Theory of Everything" master equation (GR+SM combined path integral, Quora image) -- term-by-term audit of gravity/gauge-fields/matter/Yukawa/Higgs/QM pieces vs PDTP's own status on each | medium-high | PENDING | -- |
-| T80 | Electromagnetism-from-geometry (U(1) connection/curvature) as a blueprint for PDTP's EM gap -- standard gauge-theory construction recipe (YouTube video), distinct from T66's closed torsion/rotation route; closes a gap flagged 4 independent ways | high | PENDING | -- |
+| T80 | Electromagnetism-from-geometry (U(1) gauging): corrected combined-shift symmetry gauges exactly (A forced into existence, Lagrangian exactly locally invariant) but minimal coupling gives A no kinetic term -- solving out its constraint reproduces PDTP's original ungauged theory exactly, zero net effect | high | DONE (real construction + precise negative) | 147 |
 | T81 | Kinematic phase-coherence decomposition of PDTP's own coupling (TFG-inspired MOND retry) -- exact von Mises R(kappa) analog to TFG's cos(theta) DERIVED, gives new G_eff=G*R(kappa); but constant-coefficient rescaling CANNOT reproduce MOND (needs acceleration self-reference TFG has via mu(a), R(kappa) doesn't) | high | DONE -- CONSTRUCTIVE PARTIAL (real structural result + precise negative diagnosis) | 146 |

@@ -12,8 +12,10 @@ matter-waves and spacetime-waves. Not experimentally validated.
 - `simulations/` — Python emulator
 - `assets/images/` — Diagrams (SVG, GIF)
 - `Elastic_Universe/` — SEPARATE: External elastic-universe.org review (speculative, not PDTP)
-- `TODO_04.md` — Active roadmap (tan investigation, Parts 84-120+)
-- `TODO_05.md` — Active roadmap (Lambda-locking deep dive + multi-medium framework, 2026-07-04+)
+- `TODO_04.md` — Active roadmap (current tasks and open problems)
+- `TODO_05.md` — Extended investigation roadmap (Lambda-locking deep dive +
+  multi-medium framework, opened 2026-07-04); DEPRIORITIZED behind TODO_04.md
+  — see TODO section below
 - `TODO_03.md` — Previous roadmap (Parts 77–96+, archive)
 - `TODO_02.md` — Previous roadmap (Parts 42–76, archive)
 - `TODO_Summary.md` — Completed work at a glance (< 200 lines)
@@ -24,6 +26,11 @@ matter-waves and spacetime-waves. Not experimentally validated.
 
 ### U(1) Lagrangian — current form (gravitational condensate)
 - Lagrangian: L = ½(∂μφ)(∂^μφ) + Σᵢ ½(∂μψᵢ)(∂^μψᵢ) + Σᵢ gᵢ cos(ψᵢ − φ)
+
+$$
+\mathcal{L} = \frac{1}{2}(\partial_\mu \phi)(\partial^\mu \phi) + \sum_i \frac{1}{2}(\partial_\mu \psi_i)(\partial^\mu \psi_i) + \sum_i g_i \cos(\psi_i - \phi)
+$$
+
 - Field equation: □φ = Σᵢ gᵢ sin(ψᵢ − φ)
 - Coupling: α = cos(ψ − φ), where α=1 is normal gravity, α→0 is decoupled
 - φ ∈ ℝ (single phase angle; U(1) symmetry)
@@ -31,6 +38,11 @@ matter-waves and spacetime-waves. Not experimentally validated.
 ### Two-Phase Lagrangian — Part 61 (TESTED: 16/16 PASS, Part 63)
 **PDTP Original.** Adding surface tension (-cos) alongside gravity (+cos):
 - Lagrangian: L = +g cos(ψ − φ_b) − g cos(ψ − φ_s)
+
+$$
+\mathcal{L} = g\cos(\psi - \phi_b) - g\cos(\psi - \phi_s)
+$$
+
 - φ_b = bulk phase (+cos, gravity); φ_s = surface phase (−cos, surface tension)
 - Change of variables: φ_+ = (φ_b + φ_s)/2 (gravity mode); φ_- = (φ_b − φ_s)/2 (surface mode)
 - Product coupling: cos(ψ−φ_b) − cos(ψ−φ_s) = 2 sin(ψ−φ_+) sin(φ_-)
@@ -54,6 +66,11 @@ matter-waves and spacetime-waves. Not experimentally validated.
 **PDTP Original.** Replacing φ with a 3×3 SU(3) matrix field U(x) generalises the
 Lagrangian to produce Z₃ fractional vortices (quarks) and 8 gluons:
 - Lagrangian: L = K Tr[(∂μU†)(∂^μU)] + Σᵢ Kᵢ Tr[(∂μΨᵢ†)(∂^μΨᵢ)] + Σᵢ gᵢ Re[Tr(Ψᵢ†U)] / 3
+
+$$
+\mathcal{L} = K\,\mathrm{Tr}\!\left[(\partial_\mu U^\dagger)(\partial^\mu U)\right] + \sum_i K_i\,\mathrm{Tr}\!\left[(\partial_\mu \Psi_i^\dagger)(\partial^\mu \Psi_i)\right] + \sum_i \frac{g_i}{3}\,\mathrm{Re}\!\left[\mathrm{Tr}(\Psi_i^\dagger U)\right]
+$$
+
 - U(x) ∈ SU(3) — spacetime condensate field (3×3 unitary, det=1)
 - Ψᵢ(x) ∈ SU(3) — matter field for particle i
 - The coupling Re[Tr(Ψ†U)]/N is the Wilson loop action (Wilson 1974)
@@ -288,6 +305,41 @@ All URLs in documents must be real, working links. Users will click them.
 - Update both the source document AND the glossary_sources.md entry
 - Update the link text if it no longer matches the target article
 
+## Image Rules — CRITICAL
+Every image embedded in a `.md` document must display correctly both in
+a local Markdown viewer (VS Code preview, a standalone Markdown app,
+etc.) **and** on GitHub's web view. Both are required — one working and
+not the other is not acceptable.
+
+**Confirmed 2026-09-14:** local relative paths (e.g.
+`../../assets/images/foo.png`) do NOT reliably render in every local
+Markdown viewer, even though they resolve correctly on disk and on
+GitHub — verified broken in VS Code's built-in Markdown preview and a
+separate standalone Markdown viewer app, on images that had been
+embedded this way for months without anyone actually checking they
+rendered.
+
+**Required format for every embedded image, going forward:**
+```
+![alt text](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/<filename>)
+```
+- The image file itself still lives in, and is committed to,
+  `assets/images/` exactly as before — this only changes how it is
+  *referenced* from inside a `.md` file, not where it is stored.
+- URL-encode spaces and special characters in the filename (`%20` for a
+  space, `%3D` for `=`, etc.) — never leave them literal in the URL.
+- **Verify the URL actually resolves before adding it**
+  (`curl -sI <url>` must return `HTTP/1.1 200 OK`). A
+  `raw.githubusercontent.com` URL only serves a file that has already
+  been committed **and pushed** to the branch named in the URL (`main`)
+  — a brand-new image must be committed and pushed before its raw URL
+  will work. If the image isn't pushed yet, say so explicitly rather
+  than leaving a link that will 404 until the next push.
+- Tradeoff, stated honestly: this requires network access to view the
+  image (not fully offline-safe), unlike a local relative path. Accepted
+  anyway, since reliable display in every viewer is the deciding
+  requirement.
+
 ## User and glossary_sources.md
 Claude to ask user to download wiki sources if claude can't download it.
 make a list of required sources and keep it updated.
@@ -409,12 +461,17 @@ why explicitly. No PDTP Original equation may be accepted without either a SymPy
 verification or a written explanation of why SymPy verification is inapplicable.
 
 ## TODO
-Work from TODO_04.md or TODO_05.md (both active). Do it 1 point at a time to avoid the run and token limits of claude sessions.
-- TODO_04.md — tan investigation series (T10-T15 remain; T1-T9 done)
-- TODO_05.md — Lambda-locking deep dive + multi-medium framework (T50-T59; opened 2026-07-04)
+Work from TODO_04.md (active). Do it 1 point at a time to avoid the run and token limits of claude sessions.
+TODO_05.md (Lambda-locking deep dive + multi-medium framework, opened
+2026-07-04) is a second active roadmap but is DEPRIORITIZED — work it only
+after TODO_04.md is fully cleared, unless strong new evidence justifies
+jumping the queue.
 TODO_03.md is now archived (Parts 77–96+). Do not add new items to it.
 TODO_02.md is now archived (Parts 42–76). Do not add new items to it.
 User to approve the new updates before being commited and pushed to github.
+CLAUDE.md itself is updated only once the TODO item that motivates the
+change is DONE, not mid-task — and the root copy and the github-repo copy
+must be kept identical (edit both, in the same pass).
 
 ### Elastic Universe (SEPARATE from PDTP)
 The `Elastic_Universe/` folder contains a speculative investigation of the

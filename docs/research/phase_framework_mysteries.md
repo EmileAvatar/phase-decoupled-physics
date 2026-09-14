@@ -546,7 +546,7 @@ equally-spaced phases on a circle:
 - The ratio of the sum of squares to the square of sums is geometrically constrained
   to 2/3
 
-![Koide Formula Phase Circle](../../assets/images/koide_phase_circle.svg)
+![Koide Formula Phase Circle](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/koide_phase_circle.svg)
 
 This is not a coincidence — it is a structural requirement. Three harmonics of the
 same wave system, equally spaced in phase, must satisfy this relation.

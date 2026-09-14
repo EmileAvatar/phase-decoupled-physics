@@ -161,6 +161,44 @@ Never use a trig identity without stating it:
 # Result: cos(psi-phi_b) - cos(psi-phi_s) = 2*sin(psi-phi_+)*sin(phi_-)
 ```
 
+### 2.6 Equation Display Format in Research Docs (Markdown)
+
+**Going forward (2026-09-14), every standalone/displayed equation in a
+`.md` research doc** — a genuine block-level equation (a numbered
+result, a Lagrangian, a key derived formula), not every inline symbol
+mentioned in prose — **must be shown in two forms, the LaTeX version
+directly beneath the plain-text version:**
+
+1. **Plain-text / ASCII version**, in a fenced code block — works in
+   any viewer with zero rendering support (a terminal, `cat`, `grep`, a
+   viewer with no math engine). This remains the authoritative,
+   always-readable base form and is what the rest of this document's
+   rules (tagging, step-by-step derivation, sign conventions) apply to.
+2. **LaTeX-typeset version**, in a `$$ ... $$` block directly beneath
+   it — renders as a properly formatted equation in GitHub's web view,
+   VS Code's built-in Markdown preview, and any other KaTeX/MathJax-
+   aware viewer.
+
+**Example:**
+
+```
+box(phi) = g * sin(psi - phi)
+```
+
+$$
+\Box \phi = g \sin(\psi - \phi)
+$$
+
+**This is a display-format rule, not a substitute for anything else in
+this document.** The equation must still be tagged
+[ASSUMED]/[DERIVED]/[VERIFIED]/[SPECULATIVE] (Section 2.1), SymPy-
+verified where applicable (Section 3), and have its full step-by-step
+derivation shown (Section 2.2) — this rule only governs how the final
+equation is *presented* to a human reader, on top of all of that.
+
+**Not retroactive:** existing documents are not required to be migrated.
+Apply this to new equations and new documents going forward.
+
 ---
 
 ## 3. Independent Verification
@@ -395,3 +433,5 @@ Before any script or document is committed, verify:
 - [ ] New predictions added to `falsifiable_predictions.md` (with plan approval)
 - [ ] No non-ASCII characters in `.py` files
 - [ ] All URLs verified to be real, working links
+- [ ] Every displayed equation has both a plain-text and a LaTeX (`$$...$$`) rendering (Section 2.6)
+- [ ] Every embedded image uses a raw GitHub URL, verified to resolve (HTTP 200 via `curl -sI`) before adding — not a local relative path (CLAUDE.md Image Rules)

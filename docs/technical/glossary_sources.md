@@ -3,7 +3,7 @@
 All cited sources used in the PDTP mathematical formalization and framework
 documents, collected in one place for reference and verification.
 
-Last updated: 2026-02-25
+Last updated: 2026-09-14
 
 ---
 
@@ -2068,6 +2068,38 @@ physics. They should not be cited as if they are.
 | # | Topic | URL | Used In |
 |---|-------|-----|---------|
 | 318 | Kibble-Zurek mechanism | https://en.wikipedia.org/wiki/Kibble%E2%80%93Zurek_mechanism | Part 116 `dm_winding_selection.md` (verified 2026-06-11) |
+
+### Wikipedia Sources (added 2026-09-14, Part 148 / T79 Phase 1)
+
+All verified to resolve via WebSearch before citing (no `check_urls.py`
+found in the repo to run automatically -- verification done manually,
+per CLAUDE.md URL Rules item 1-3).
+
+| # | Topic | URL | Used In |
+|---|-------|-----|---------|
+| 319 | Path integral formulation | https://en.wikipedia.org/wiki/Path_integral_formulation | theory_of_everything_master_equation.md §4.1 |
+| 320 | Effective field theory | https://en.wikipedia.org/wiki/Effective_field_theory | theory_of_everything_master_equation.md §4.1 |
+| 321 | Renormalization group | https://en.wikipedia.org/wiki/Renormalization_group | theory_of_everything_master_equation.md §4.1 |
+| 322 | Einstein-Hilbert action | https://en.wikipedia.org/wiki/Einstein%E2%80%93Hilbert_action | theory_of_everything_master_equation.md §4.2-4.3 |
+| 323 | Scalar curvature | https://en.wikipedia.org/wiki/Scalar_curvature | theory_of_everything_master_equation.md §4.3 |
+| 324 | Planck mass | https://en.wikipedia.org/wiki/Planck_mass | theory_of_everything_master_equation.md §4.3 |
+| 325 | Yang-Mills theory | https://en.wikipedia.org/wiki/Yang%E2%80%93Mills_theory | theory_of_everything_master_equation.md §4.4 |
+| 326 | Dirac equation | https://en.wikipedia.org/wiki/Dirac_equation | theory_of_everything_master_equation.md §4.5a |
+| 327 | Gamma matrices | https://en.wikipedia.org/wiki/Gamma_matrices | theory_of_everything_master_equation.md §4.5a |
+| 328 | Gauge covariant derivative | https://en.wikipedia.org/wiki/Gauge_covariant_derivative | theory_of_everything_master_equation.md §4.5a, §4.6 |
+| 329 | Yukawa interaction | https://en.wikipedia.org/wiki/Yukawa_interaction | theory_of_everything_master_equation.md §4.5b |
+| 330 | Chirality (physics) | https://en.wikipedia.org/wiki/Chirality_(physics) | theory_of_everything_master_equation.md §4.5b |
+| 331 | Cabibbo-Kobayashi-Maskawa matrix | https://en.wikipedia.org/wiki/Cabibbo%E2%80%93Kobayashi%E2%80%93Maskawa_matrix | theory_of_everything_master_equation.md §4.5b |
+| 332 | Higgs mechanism | https://en.wikipedia.org/wiki/Higgs_mechanism | theory_of_everything_master_equation.md §4.6 |
+| 333 | Mathematical formulation of the Standard Model | https://en.wikipedia.org/wiki/Mathematical_formulation_of_the_Standard_Model | theory_of_everything_master_equation.md §7 |
+| 334 | Standard Model | https://en.wikipedia.org/wiki/Standard_Model | theory_of_everything_master_equation.md §7 (already #25/#44 above, re-cited here) |
+
+**Note (2026-09-14):** this file had not been updated since Part 116
+(2026-06-11) despite many Parts and TODO items (T69-T81, T80) citing new
+sources in between -- those citations exist in their own research docs'
+"Sources" sections but were not backfilled here. Flagged, not silently
+fixed: backfilling them is a real, separate maintenance task, out of
+scope for T79.
 
 ---
 

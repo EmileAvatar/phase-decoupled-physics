@@ -1577,6 +1577,40 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 
 ---
 
+### Part 147 additions (T80: electromagnetism-from-geometry gauging attempt):
+
+**Source:** Part 147 (2026-09-14), `simulations/solver/t80_em_gauging.py`,
+`docs/research/em_from_geometry_gauging.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 147.1 | The exact (and only) global symmetry of L0=(1/2)phi_dot^2+(1/2)psi_dot^2+g*cos(psi-phi) is the COMBINED shift phi->phi+alpha, psi->psi+alpha -- corrects T80's filed wording ("psi alone shifts"), which is NOT a symmetry (SymPy-confirmed nonzero residual) | [DERIVED, correction] | RECHECK caught before any gauging was attempted |
+| 147.2 | Noether current j=phi_dot+psi_dot exactly conserved on-shell (both EOMs independently re-derived) | [DERIVED] | standard Noether's theorem, concretely confirmed for this Lagrangian |
+| 147.3 | Gauging the combined shift (charge 1, both fields): D(field)=d(field)/dx-A, A->A+d(alpha)/dx makes the FULL Lagrangian exactly locally invariant; the coupling term needs NO modification (already depends only on the gauge-invariant psi-phi) | [DERIVED, PDTP Original] | Key Question 1 (corrected): YES |
+| 147.4 | Center/relative diagonalization: (1/2)phi_dot^2+(1/2)psi_dot^2 = Sigma_dot^2+(1/4)theta_dot^2, Sigma=(phi+psi)/2, theta=psi-phi; A appears in L_gauged only via Sigma_dot-A, never touching theta | [DERIVED, PDTP Original] | direct structural parallel to Part 61's phi_+/phi_- split |
+| 147.5-147.6 | A has no independent kinetic term under minimal coupling (no A_dot in L_gauged) -- its EOM degenerates to the constraint A=Sigma_dot; substituting this constraint into phi's gauged EOM reproduces the ORIGINAL ungauged theta_ddot=-2*g*sin(theta) exactly (two independent derivation routes agree, residual 0) | [DERIVED, PDTP Original, the central finding] | minimal coupling alone is physically vacuous for PDTP -- Key Question 2 answered precisely NO, for a specific, quantitative reason |
+| 147.7 | IF a Maxwell-like -1/4*F^2 term is separately postulated: F01 gauge invariant, kinetic term has the healthy (non-ghost) positive sign under standard (+,-) signature | [VERIFIED, standard physics] | postulate, not a forced consequence -- same footing as Maxwell's own displacement-current scaffolding |
+| 147.8 | N=2-matter-phase generalization: A-dependent kinetic piece = (3/2)*A^2-3*A*Sigma3_dot, Sigma3=(phi+psi1+psi2)/3, with NO dependence on either relative mode theta1_dot, theta2_dot | [DERIVED, PDTP Original] | confirms N=1 result is not a special case; independence argument given for general N |
+
+**Conclusion (Part 147):** the gauging construction WORKS exactly -- a
+real field A is forced into existence with the correct QED-like
+transformation law, and the full Lagrangian is exactly locally invariant
+(Eq 147.1-147.3) -- but under minimal coupling alone, A is proven
+non-dynamical and carries ZERO net physical effect on any PDTP prediction:
+solving out its constraint exactly reproduces PDTP's original, ungauged
+theory (Eq 147.5-147.6). A genuine EM-like sector would require an
+independently-postulated kinetic term PDTP's own structure does not
+currently supply or force (Eq 147.7); the Kaluza-Klein reading does not
+escape this (Section 3.9, `em_from_geometry_gauging.md`) since it would
+need the same missing ingredient from a different (5D curvature) source.
+13/13 Sudoku PASS, no bugs found (RECHECK ran clean on first execution).
+Sharpens (does not overturn) T79 Item 2's "entirely UNBUILT" verdict and
+`polarization_analogy.md` Section 3.5's open item -- see
+`docs/research/em_from_geometry_gauging.md` Section 5 for the full
+recommended-edit trace.
+
+---
+
 ### Part 146 additions (T81: kinematic phase-coherence decomposition, TFG-inspired MOND retry):
 
 **Source:** Part 146 (2026-09-14), `simulations/solver/t81_kinematic_coherence.py`,
@@ -2165,6 +2199,39 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-09-14: Added Part 148 (T79 Phase 1: "Theory of Everything" master
+  equation term-by-term explainer -- pure exposition, no PDTP comparison,
+  no new equations, per user request to review the equation itself
+  before any PDTP audit). Corrected the commonly-dropped Wilsonian
+  cutoff subscript (Int_{k<Lambda}) back into the transcription; every
+  term (path integral measure, Einstein-Hilbert R, Yang-Mills F^2, Dirac
+  kinetic term, Yukawa coupling incl. why a bare SM fermion mass term is
+  gauge-forbidden, Higgs kinetic+potential) explained with a verified
+  Wikipedia citation each (16 new sources logged in glossary_sources.md
+  #319-334; noted that file had gone unmaintained since Part 116). See
+  `docs/research/theory_of_everything_master_equation.md`. T79 Phase 2
+  (the actual PDTP audit) awaits user review of this document first.
+- 2026-09-14: Added Part 147 (T80: electromagnetism-from-geometry gauging
+  attempt -- testing whether demanding LOCAL invariance of PDTP's own
+  coupling forces a connection field A into existence, the way local
+  U(1) phase invariance forces QED's A_mu). First corrected T80's own
+  filed wording: "psi alone shifts" is NOT a symmetry [Eq 147.1] -- the
+  real (and only) global symmetry is the COMBINED shift of phi and psi
+  together. Gauging THAT symmetry works exactly: a real field A is
+  forced into existence with the correct transformation law, and the
+  full Lagrangian is exactly locally invariant [Eq 147.2-147.3] -- Key
+  Question 1 (corrected) answered YES. But minimal coupling alone gives
+  A no kinetic term [Eq 147.5]; solving out its resulting non-dynamical
+  constraint reproduces PDTP's ORIGINAL ungauged theta equation of
+  motion exactly, via two independent routes [Eq 147.6] -- minimal
+  coupling is physically vacuous for PDTP, a precise quantitative answer
+  to Key Question 2. A postulated Maxwell kinetic term is well-formed if
+  added [Eq 147.7, VERIFIED] but not forced by anything in PDTP's own
+  structure; the Kaluza-Klein reading does not escape this either
+  (Section 3.9). Generalizes cleanly to N=2 matter phases [Eq 147.8] and
+  is compatible with the two-phase Lagrangian. 13/13 Sudoku PASS, no
+  bugs found. Sharpens T79 Item 2 and polarization_analogy.md Section
+  3.5's open item -- see `docs/research/em_from_geometry_gauging.md`.
 - 2026-09-14: Added Part 146 (T81: kinematic phase-coherence decomposition
   of PDTP's own coupling -- direct follow-up from T77, testing whether
   Timeflow Gravity's verified MOND mechanism transplants onto PDTP's

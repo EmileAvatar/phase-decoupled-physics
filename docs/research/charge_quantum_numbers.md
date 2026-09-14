@@ -40,7 +40,7 @@ established PDTP.
 
 ### The Standard Model of Elementary Particles
 
-![Standard Model of Elementary Particles](../../assets/images/Standard_Model_of_Elementary_Particles.svg)
+![Standard Model of Elementary Particles](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/Standard_Model_of_Elementary_Particles.svg)
 
 *The Standard Model: 6 quarks (purple), 6 leptons (green), 4 gauge bosons
 (red), 1 scalar boson (yellow). Three columns = three generations of matter.
@@ -190,7 +190,7 @@ decay in ~26 ns, the neutral pion in ~84 attoseconds.
 
 ### §3.4: Hadron Illustration
 
-![Quarks, protons, neutrons, hadrons, pions, gluons](../../assets/images/illustrations-quarks-protons-neutrons-hadrons-pions-gluons.webp)
+![Quarks, protons, neutrons, hadrons, pions, gluons](https://raw.githubusercontent.com/EmileAvatar/phase-decoupled-physics/main/assets/images/illustrations-quarks-protons-neutrons-hadrons-pions-gluons.webp)
 
 *Proton (uud, Q=+1), neutron (udd, Q=0), neutral pion (uū, Q=0), and
 positively charged pion (ud̄, Q=+1). The zigzag shapes represent gluons
