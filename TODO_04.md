@@ -12,15 +12,18 @@
 
 New additions go on top. One line per item. Full details below.
 
+- T81 — Kinematic phase-coherence decomposition of PDTP's own coupling (TFG-inspired MOND retry) [DONE, Part 146, 2026-09-14 -- CONSTRUCTIVE PARTIAL: (1) DERIVED a real, exact PDTP analog of TFG's cos(theta) -- ensemble-averaging psi_i over N particles with von Mises-distributed phase scatter gives EXACTLY <sum sin(psi_i-phi)> = N*R(kappa)*sin(psi_bar-phi), R(kappa)=I_1(kappa)/I_0(kappa) the circular mean resultant length, bounded [0,1], matching TFG's cos(theta) structurally; (2) substituted into PDTP's weak-field reduction gives a genuine new PDTP-Original result, G_eff=G*R(kappa) (coherence-dependent effective Newton's constant); (3) DERIVED NEGATIVE for the actual MOND goal: G_eff=G*R(kappa) is a CONSTANT-coefficient rescaling (R depends only on the source's kinematic spread, not on Phi or its gradient) -- constant-coefficient Poisson equations ALWAYS give inverse-square force law (SymPy-verified for a point mass), never MOND's inverse-linear regime, which in TFG's own mechanism comes specifically from mu depending SELF-REFERENTIALLY on the local acceleration a=|grad(Phi)| (TFG's actual Eq 79, already verified T77) -- R(kappa) as derived has no such feedback; 10/10 Sudoku PASS after RECHECK caught + fixed 2 real bugs (Bessel-function overflow at large kappa; an N/coherence conflation in the G_eff derivation); a structural caveat flagged up front (PDTP's psi is a phase VALUE / internal clock, not a phase GRADIENT / velocity, unlike TFG's construction) -- see docs/research/kinematic_coherence_mond_retry.md]
+- T80 — Electromagnetism-from-geometry (U(1) connection/curvature) as a blueprint for PDTP's EM gap: YouTube video "Electromagnetism Derived From Geometry!" (transcript `docs/misc/note 2026-09-14.txt`) lays out the standard, well-established gauge-theory recipe (local U(1) phase invariance -> forced covariant derivative -> connection field A_mu -> curvature F_mu_nu -> Maxwell's equations, plus a Kaluza-Klein extra-dimension reading) -- NOT speculative, textbook physics presented accessibly. PDTP's lack of any such field has now been flagged independently 4 times (Part 27b origin, T66/Part 136's closed torsion/rotation attempt, T70/Part 140's NLSM-scalar classification, T75/Part 143 + polarization_analogy.md Sec 3.5/8.2's "global not local" finding) -- this video gives an explicit standard-physics construction recipe to actually attempt promoting PDTP's phase field from global to local U(1) symmetry, distinct from T66's already-closed route (torsion/rotation reinterpretation) -- must not be conflated with it [PENDING, HIGH]
+- T79 — "Theory of Everything" master equation (GR + Standard Model combined path integral) term-by-term audit vs PDTP: Quora-circulated equation image (`assets/images/main-qimg-54f863a4dcc66a6be61caf1d89691959-lq.jpg`) combines the Einstein-Hilbert action + full SM Lagrangian (gravity/R, gauge fields/F^2, Dirac matter, Yukawa-Higgs coupling, Higgs kinetic+potential) in one functional integral -- every individual piece is 100% established physics, though the popular "one equation" framing overstates what symbolically combining them achieves (does not solve quantum-gravity renormalization or unify couplings; best read as a checklist, not a solved theory). Go through each of the 6 labeled pieces and map what PDTP already has (gravity via SU(3) metric + Sakharov, Part 114; own reversed-Higgs mechanism, Part 62), already found absent (gauge vector fields, T70/T75; native Dirac fermions, Part 40's Wilson fermions are borrowed scaffolding not PDTP's own field), or hasn't compared (Yukawa/mass-generation vs PDTP's own vortex-winding/Koide mass story) [PENDING, MEDIUM-HIGH]
 - T78 — De Broglie double-solution pilot-wave comparison (Darrow & Bush 2024, *Symmetry*, arXiv:2408.06972 -- real, open-access, peer-reviewed): Lorentz-covariant two-way-coupled pilot-wave framework with Compton-scale oscillations satisfying the de Broglie relation; compare against PDTP's own matter-wave (psi) treatment, same spirit as the Elastic Universe review (T27) [PENDING, MEDIUM]
-- T77 — Timeflow Gravity comparison (Trofimov 2026, *Class. Quantum Grav.* 43, DOI 10.1088/1361-6382/ae811d -- real, peer-reviewed, PDF now in hand at assets/pdfs/Trofimov_2026_Class._Quantum_Grav._43_135020.pdf): strikingly close core thesis (1D circle/U(1) state space, entropic gravity via the SAME Jacobson Clausius-relation argument as PDTP's Part 86, MOND-like dynamics from phase coherence, DM/DE as phase-space projections) -- needs a careful, honest side-by-side now that the paper is available [PENDING, HIGH]
-- T76 — Topological dark-matter candidate: ring-on-chain linking [SPECULATIVE, user-original idea, NOT a citable paper]: could a "gets tangled without extra energy cost" topological mechanism (ring-dropped-over-a-2-line-chain trick; canal tow-rope "roving bridge" analogy) be a genuine additional DM candidate -- matter acquiring DM-like behavior via topology alone rather than needing exotic energy? Must be checked against the already-mature candidate roster in dark_matter_energy.md Part 2 (esp. Mechanism 2 / winding-number n=1, Part 116) and cross-referenced with T30 (Hopf-link coherence protection) before being treated as new. Rubik's-cube/Cayley-graph state-space idea folded in as a second, weaker topological analogy, also SPECULATIVE [PENDING, LOW-MEDIUM]
-- T75 — TeVeS structural comparison [scoping]: TeVeS (Bekenstein's tensor-vector-scalar relativistic completion of MOND) is one of GW170817's casualties (arXiv:1710.06168); PDTP has no true vector field anywhere in its Lagrangian (confirmed T70/Part 140) -- worth understanding what TeVeS's vector field buys it, both for the DM/MOND question and the still-open "no U(1) EM vector field" gap flagged in docs/research/polarization_analogy.md [PENDING, MEDIUM]
+- T77 — Timeflow Gravity comparison (Trofimov 2026, Class. Quantum Grav. 43) [DONE, Part 145, 2026-09-14 -- MIXED verdict, full paper read + TFG's own key equations independently SymPy-verified (all confirmed): (1) convergent validation -- both frameworks use a U(1) phase field, both anchor on Jacobson's entropic-gravity argument (via genuinely different technical routes), both fix a normalization constant via Newtonian-limit recovery; (2) a GENUINE GAP, not just thematic echo -- TFG's MOND-limit derivation checks out and lands exactly on Milgrom's function, while PDTP's own biharmonic MOND attempt (dark_matter_energy.md Sec 2.5) is an ALREADY-DOCUMENTED, twice-confirmed ~54-orders-of-magnitude failure (corrected from a stale "20 orders" figure caught while writing this comparison; corroborated again by T74's independent screening-length re-derivation, ~50 orders short); TFG's parameter-free w0=-0.844 sits 0.12sigma from DESI vs PDTP's own canonical Prediction 5 (w0=-0.92, ~1.5sigma away); (3) real structural differences -- TFG has ONE field (order/chaos decomposition of itself, no separate matter field, unlike PDTP's two-field psi-phi coupling), NO Lagrangian yet (authors' own admission), and a NEW global entropy-conservation postulate PDTP lacks -- this is NOT "PDTP in different words"; Bullet Cluster explanations are complementary not competing (spatial offset vs self-interaction bound); see docs/research/timeflow_gravity_comparison.md]
+- T76 — Topological dark-matter candidate: ring-on-chain linking [SPECULATIVE] [DONE, Part 144, 2026-09-10 -- NEGATIVE: the "linking is free" mechanical intuition relies on idealized, infinitely-thin, non-interacting curves; real (PDTP-modeled) vortices have finite cores and real energy, so they can RECONNECT -- cited directly against Kleckner & Irvine (2013, Nature Physics, "Creation and dynamics of knotted vortices") + quantum-turbulence numerics: linked vortex configurations actively UNLINK via reconnection cascades, releasing energy, not storing it "for free"; forming the linked state costs MORE than Part 116/T43's simplest n=1 vortex, and is LESS stable (not a restatement of T43 as originally hypothesized -- fails for its own, more decisive reason); Rubik's-cube/Cayley-graph idea correctly left unexplored (conditional trigger not met); productive side effect: flags a real caution for T30 (reconnection as a competing decay channel its "vastly longer" coherence claim doesn't yet address); see docs/research/ring_on_chain_topology.md]
+- T75 — TeVeS structural comparison [scoping] [DONE, Part 143, 2026-09-10 -- TeVeS's vector field fixes lensing (disformal transformation) + enhances structure growth (Lorentz-breaking preferred frame), Bekenstein 2004 -- two jobs PDTP's all-scalar content structurally cannot do (3rd independent confirmation alongside T70/polarization_analogy.md); PDTP's own MOND-analogue already on record (Prediction 9, dark_matter_energy.md 2.5) fails by ~54 OoM (corrected from a stale "20 OoM" figure, T77/2026-09-14), now corroborated by T74's independent re-derivation of the same screening scale; TeVeS's post-GW170817 status corrected from this item's own original filing text -- "generalized" variants are NOT a clean survival, backed into a narrow strong-coupling-constrained corner (arXiv:1801.03382) -- makes PDTP's parameter-free tensor-sector pass (T74) structurally stronger than TeVeS ever was; literature comparison only, no new derivation; see docs/research/teves_structural_comparison.md]
 - T74 — GW170817 constraint on PDTP's own GW structure [DONE, Part 142, 2026-09-10 -- PASS (tensor sector) + CONSTRUCTIVE NEGATIVE (scalar sector): tensor sector (phi_+/SU(3), the actual LIGO signal) has c_s=c EXACT (Part 3/63 S8), trivially inside the computed GW170817 speed bound (4.13e-16, computed here from the paper's own Delta t=1.7s/d=40Mpc, not quoted from memory) -- PASS by pre-existing PPN-gamma=1 design requirement, not coincidence; phi_- (scalar/breathing mode) is NOT what GW170817's timing measures -- shown evanescent (non-propagating) at LIGO-band frequencies for EVERY physically realized potential incl. emptiest cosmic voids (77 orders of margin, Sachs-Wolfe LSS scale vs. propagation threshold) -- no possible phi_- signal existed for GW170817 to constrain; 11/12 Sudoku; byproduct: found+fixed a 22-orders-of-magnitude numerical erratum in two_phase_rederivation.md (Part 63) Section S7, unrelated to T68's bug but same genre; see docs/research/gw170817_dispersion_check.md]
 - T73 — Glueball mass test vs X(2370) (BESIII arXiv:2607.20366) [DONE, Part 141, 2026-09-10 -- CONSTRUCTIVE (mass scale) + NEGATIVE (quantum numbers): Mechanism A (closed flux-tube loop, Parts 36-37's own sigma/xi_QCD) brackets X(2370)'s 2376 MeV at minimal radius (1.18-4.01 GeV) and stays within x5 across R=1-3*xi_QCD (10/12 Sudoku); Mechanism B (Part 114's chi^a contact vertex reapplied at QCD layer) is 4.7x too weak, E_break_QCD=507 MeV -- clean negative, distinguishes the two mechanisms; J^PC=0-+ quantum numbers NOT derivable by either (chi^a are NLSM scalars per T70/Part 140, no vector-gluon content to build 0-+ from) -- mass-scale coincidence, not a derivation; see docs/research/glueball_x2370_test.md]
 - T71 — Audit the CKN "factor 12" formula discrepancy (Part 54): cosmological_constant_fcc.md gives rho_CKN = hbar*c/(l_P^2*L_H^2), TODO_02.md/equation_reference.md give rho_CKN = c^2/(G*L_H^2) -- these did not look dimensionally equivalent on a quick check (2026-09-06, found while searching the repo for qwen's "factor 12" claim); need to determine which is correct, reconcile the "factor 12" number, and only then judge whether qwen's Suggestion 4 (GHY boundary term / Padmanabhan bulk-surface equipartition) is worth pursuing [PENDING]
 - T70 — N_eff via spin-weighted Seeley-DeWitt a_2 heat-kernel coefficient [DONE, Part 140, 2026-09-06 -- CONSTRUCTIVE NEGATIVE: formula unverifiable (2 targeted lit searches found no source for N_v + 11/2*N_f + 1/6*N_s); more decisive, PDTP's own Lagrangian (U(1), SU(3), two-phase) has N_v=0, N_f=0 identically -- "gluons"/"quarks" are nonlinear-sigma-model scalars (confirmed via Part 114's independent classification + Weinberg ChPT anchor), not real gauge bosons/spinors; Part 40's Wilson fermions are a borrowed lattice-QCD scaffold, not PDTP's own matter field; computed anyway for completeness -- QCD-analogy reading gives G_ind/G=0.13-0.18 (worse than Part 83's existing range), scalar-only 1/6-weighted reading gives 3.3-14.1 (also worse); Part 83's characterization stands unchanged; 10/10 Sudoku]
-- T69 — Dark matter doc audit + two current external events [DONE, Parts 138-139, 2026-09-02 -- audit found+fixed TWO real 1000x unit-conversion bugs (Bullet Cluster bound: 44.3->47.3 OoM margin; KM3 neutrino E/m_W: 2737->2.7e6), both baked into code not just prose, neither changing any verdict; LZ 2.6-sigma event matches NEITHER PDTP DM candidate (16-17 OoM too heavy for n=1 wimpzilla, 1000x too light for ~200 MeV candidate) -- honest fork flagged for future data, not resolved; Roman's lensing/substructure capability tests NOTHING PDTP-specific (biharmonic-gravity route already dead by 20 OoM, DM test needs CMB not optical); Roman's real PDTP connection is the already-on-record w(z) Prediction 5, whose stale "Launch ~2027" note was corrected]
+- T69 — Dark matter doc audit + two current external events [DONE, Parts 138-139, 2026-09-02 -- audit found+fixed TWO real 1000x unit-conversion bugs (Bullet Cluster bound: 44.3->47.3 OoM margin; KM3 neutrino E/m_W: 2737->2.7e6), both baked into code not just prose, neither changing any verdict; LZ 2.6-sigma event matches NEITHER PDTP DM candidate (16-17 OoM too heavy for n=1 wimpzilla, 1000x too light for ~200 MeV candidate) -- honest fork flagged for future data, not resolved; Roman's lensing/substructure capability tests NOTHING PDTP-specific (biharmonic-gravity route already dead by ~54 OoM, corrected from a stale "20 OoM" figure caught 2026-09-14/T77, DM test needs CMB not optical); Roman's real PDTP connection is the already-on-record w(z) Prediction 5, whose stale "Launch ~2027" note was corrected]
 - T49 — Kuramoto connection: PDTP field equation IS relativistic Kuramoto model; Arnold tongues = Leidenfrost boundary; stiffness = m_cond = hierarchy problem; two proposed calculations: (1) winding amplification g_eff ~ g*n closes 43-OoM locking gap, (2) Arnold tongue width vs Part 110 critical exponents [SPECULATIVE, LOW PRIORITY; see docs/research/hierarchy_problem_reframe.md Section 8]
 - T48 — Hierarchy problem reframe: 5 reframings + 5 PDTP candidate paths (C1 ratio derivation, C2 cosmological winding, C3 locking fossil, C4 Dvali-Gomez self-reference, C5 anthropic window); revisit after T46 + two-condensate ratio work [SPECULATIVE, LOW PRIORITY until T46 done; see docs/research/hierarchy_problem_reframe.md]
 - T46 — Lambda as locking fossil: true vacuum phi_- = pi/2 derived; m/H = 3*sqrt(eps) [Eq 119.1]; freeze condition eps < 1/9 [Eq 119.2]; thawing w = -1+2*eps [Eq 119.3]; mechanism consistent; beta(z) OPEN for magnitude [DONE PARTIAL, Part 119, Phase 87; 12/12 Sudoku; see docs/research/lambda_locking_fossil.md]
@@ -1510,8 +1513,11 @@ with PDTP's own undetectability prediction; a confirmed ~200 GeV signal
 would be in real tension with Part 116's n=1 selection specifically.
 Roman's flagship lensing/substructure-mapping capability tests NOTHING
 PDTP-specific -- the one route that would have (biharmonic gravity,
-Prediction 11) already failed by 20 orders of magnitude (dark_matter_
-energy.md Sec 2.5), and PDTP's live DM falsifiable test (Prediction 13)
+Prediction 11) already failed by ~54 orders of magnitude (dark_matter_
+energy.md Sec 2.5; figure corrected 2026-09-14, T77 -- was stated as
+"20 orders" here, a stale figure caught and fixed while using this
+result as a comparison point for T77), and PDTP's live DM falsifiable
+test (Prediction 13)
 needs a CMB polarimeter, not an optical/IR telescope. Roman's actual PDTP
 connection is the already-on-record dark-energy w(z) test (Prediction 5);
 `falsifiable_predictions.md`'s stale "Launch ~2027" note corrected to the
@@ -1928,9 +1934,53 @@ worth knowing about now rather than later.
 
 ---
 
-#### [ ] T75. TeVeS Structural Comparison [Scoping]
+#### [x] T75. TeVeS Structural Comparison [Scoping] — DONE (Part 143, 2026-09-10)
 
-**Status:** PENDING. Filed 2026-09-10.
+**RESULT:**
+
+Scoping comparison complete, all three filed questions answered. Full
+writeup `docs/research/teves_structural_comparison.md`. No script/Sudoku
+check (literature/structural comparison, no new PDTP Original equations
+— matches this item's own "Low effort, not new math" scope).
+
+**What was found:**
+1. TeVeS's vector field (Bekenstein 2004, WebSearch-verified) does two
+   specific jobs: fixes gravitational lensing via a disformal
+   transformation between the "Einstein" and "physical" metrics
+   (traces to Sanders' earlier work), and enhances early-universe
+   structure growth via a Lorentz-symmetry-breaking preferred frame.
+   PDTP's all-scalar field content (chi^a = NLSM scalars, T70/Part 140)
+   structurally cannot do either -- the SAME gap independently confirmed
+   a third way, alongside T70's classification and
+   polarization_analogy.md's EM-construction gap.
+2. PDTP already has its own MOND-analogue on record, not newly
+   discovered here: Falsifiable Prediction 9 (dark_matter_energy.md
+   Section 2.5) -- biharmonic screening length L_heal ~ l_Planck, 20
+   orders of magnitude too small for galactic rotation curves,
+   SPECULATIVE/failing. T74/Part 142 (same day) independently
+   re-derived the same Planck-scale screening conclusion via a
+   completely different route (dispersion relation vs. static
+   biharmonic equation) -- now corroborated twice.
+3. TeVeS's post-GW170817 status corrected from this item's own original
+   filing text: "generalized" variants are NOT a clean survival (per
+   arXiv:1801.03382) -- the speed bound forces one propagating mode
+   superluminal, excluded outright where no strong-coupling problem
+   exists, survival (if any) confined to an awkward parameter corner.
+   This makes PDTP's clean, parameter-free tensor-sector pass (T74's
+   exact c_s=c, no tuning) structurally STRONGER than TeVeS's position
+   ever was, even before GW170817 -- not merely "also survived."
+
+**Overall verdict:** confirms and consolidates (via a third independent
+angle) an already-known structural gap (no PDTP vector field) and an
+already-known negative (PDTP's own MOND-analogue fails by ~54 OoM,
+corrected from a stale "20 OoM" figure, T77/2026-09-14);
+sharpens T74's framing by showing PDTP never had TeVeS's fine-tuning
+problem to begin with.
+
+---
+
+**Part:** 143 (literature comparison, no script)
+**Filed:** 2026-09-10.
 **Source:** `docs/misc/notes 2026-09-10.txt` (Wikipedia link, TeVeS /
 Tensor-Vector-Scalar gravity). **User confirmed dark-matter-related**
 (2026-09-10 correction), grouped with T74/GW170817 and the two topology
@@ -1967,9 +2017,63 @@ derivation; useful mainly as a companion to T74.
 
 ---
 
-#### [ ] T76. Topological Dark-Matter Candidate: Ring-on-Chain Linking [SPECULATIVE]
+#### [x] T76. Topological Dark-Matter Candidate: Ring-on-Chain Linking [SPECULATIVE] — DONE (Part 144, 2026-09-10)
 
-**Status:** PENDING. Filed 2026-09-10.
+**RESULT:**
+
+**NEGATIVE**, with a genuine caution flagged for T30. Full writeup
+`docs/research/ring_on_chain_topology.md`. Per user instruction, this
+entire item stays tagged [SPECULATIVE] as the idea under test; the
+physics used to test it (vortex reconnection) is real, cited, established
+science, not speculative.
+
+**What was found:**
+1. The "linking is free" mechanical intuition (ring dropped over a
+   2-line chain, no energy cost) depends on treating the ring/chain as
+   idealized, infinitely thin, non-interacting curves. Real vortices --
+   in a superfluid, and in PDTP's own condensate -- have a finite core
+   (healing length xi, Part 34) and real energy (E/L ~ 2*pi*K*ln(R/xi),
+   Part 33), so unlike idealized curves they CAN reconnect. This is
+   where the analogy breaks (Methodology.md Section 4).
+2. Cited directly against real physics, not argued qualitatively: Kleckner
+   & Irvine (2013, Nature Physics 9, 253) experimentally created linked
+   vortex ring pairs and trefoil knots in water and observed them
+   self-untie via reconnection, driven by their OWN energy. Quantum-
+   turbulence numerics (WebSearch-verified) confirm the same for
+   QUANTIZED vortices: linked/knotted configurations decay in a cascade
+   (Whitehead link -> Hopf link pairs -> trefoil -> Hopf link ->
+   unlinked) releasing energy throughout.
+3. Answers to the filed key questions: PDTP's condensate DOES admit the
+   configuration (vortex rings/loops already used elsewhere, e.g. T73);
+   it is TRANSIENTLY entangled, not topologically stable; forming it
+   costs MORE energy than Part 116/T43's simplest n=1 vortex, not less,
+   and it doesn't even persist once formed.
+4. NOT a restatement of T43 (this item's own pre-registered "likely
+   outcome" when filed was wrong) -- fails for its own, independent, more
+   decisive reason (an active decay channel), not by being secretly the
+   same formula in different language.
+5. Rubik's-cube/Cayley-graph idea (key question 4): its own conditional
+   trigger ("if T76 finds state-space topology determines mass/abundance")
+   is not met -- correctly left unexplored, no PDTP-specific mapping
+   attempted.
+6. Productive side effect: T30 (Hopf-link decoherence protection,
+   PENDING) implicitly assumes no physical channel exists to change
+   topology -- exactly the assumption this Part shows fails for real
+   quantized vortices. Flagged as a caution T30 needs to address
+   (reconnection as a competing decay channel), not a resolution of T30
+   -- cross-reference added to T30's own entry below.
+
+**Overall verdict:** a good-faith, rigorous test of the user's own idea
+against real, cited vortex-dynamics physics, not a dismissal -- the
+mechanical intuition fails for a specific, well-documented physical
+reason (finite-core reconnection), and the investigation's most useful
+output is a concrete caution for T30 rather than a new DM candidate.
+
+---
+
+**Part:** 144 (structural/physical-mechanism analysis, no script --
+no new PDTP-Original numeric claim to SymPy-verify)
+**Filed:** 2026-09-10.
 **Source:** `docs/misc/notes 2026-09-10.txt` -- **user's own original
 idea, not a citable paper.** Per explicit user instruction (2026-09-10):
 "remember all are speculation except the scientific papers that we might
@@ -2050,12 +2154,78 @@ collapsing into an existing result; worth a scoping pass but not urgent.
 
 ---
 
-#### [ ] T77. Timeflow Gravity Comparison (Trofimov 2026, *Class. Quantum Grav.* 43)
+#### [x] T77. Timeflow Gravity Comparison (Trofimov 2026, *Class. Quantum Grav.* 43) — DONE (Part 145, 2026-09-14)
 
-**Status:** PENDING. Filed 2026-09-10. PDF now in hand:
-`assets/pdfs/Trofimov_2026_Class._Quantum_Grav._43_135020.pdf` (saved by
-user 2026-09-10 -- full text available, no longer blocked on paywall
-access).
+**RESULT:**
+
+**MIXED verdict.** Full writeup `docs/research/timeflow_gravity_comparison.md`;
+script `simulations/solver/t77_timeflow_gravity_check.py`. Full paper
+text read directly (not just the earlier WebSearch abstract-level
+summary); every TFG equation used as a comparison point was independently
+re-derived with SymPy before being relied on, per this project's own
+standing rule for external claims.
+
+**What was found:**
+1. All checked TFG derivation steps hold up under independent
+   verification (MOND-limit reduction Eq 86-88, deep-MOND scaling Eq
+   89-90, dark-energy w(a) derivation Eq 133-138) -- residual 0 at every
+   step. This is not a paper with hidden algebra errors.
+2. **Convergent validation:** both frameworks use a compact U(1) phase
+   field, both anchor on Jacobson's (1995) entropic-gravity argument
+   (via genuinely different technical routes -- PDTP's Sakharov-induced-
+   gravity/SU(3)-octet route, Part 86/114, vs TFG's modified-heat-flux/mu
+   route), and both fix a normalization constant by demanding Newtonian-
+   limit (Poisson equation) recovery -- a real methodological parallel,
+   not just superficial.
+3. **A genuine, concrete gap (the main finding) -- not just a thematic
+   echo:** TFG's MOND-limit derivation checks out and lands EXACTLY on
+   Milgrom's interpolating function. PDTP's own structural MOND attempt
+   (dark_matter_energy.md Sec 2.5, biharmonic screening) is an ALREADY-
+   DOCUMENTED, now twice-confirmed ~54-orders-of-magnitude failure
+   (L_heal ~ l_Planck vs ~1 kpc, computed directly; corrects a stale
+   "20 orders" figure previously stated in dark_matter_energy.md and
+   caught while writing this comparison -- re-confirmed independently
+   by T74/Part 142's dispersion-relation route, ~50 orders short by the
+   same comparison). Separately, TFG's parameter-free w0=-0.8444 sits
+   0.12sigma from DESI (w0=-0.838+-0.055) vs PDTP's own canonical
+   Prediction 5 (falsifiable_predictions.md, w0~=-0.92), which sits
+   ~1.5sigma away. Stated plainly: TFG currently reaches two places
+   PDTP's own attempts have not.
+4. **Real structural differences mean this is NOT "PDTP in different
+   words":** TFG has ONE field (statistically decomposed into order/
+   chaos parts of itself), no separate matter field -- unlike PDTP's
+   two-field psi-phi coupling. TFG has NO Lagrangian yet (the authors'
+   own stated future work, Section 12) -- PDTP is Lagrangian-first
+   throughout. TFG introduces a NEW global "Law of Entropy Equilibrium"
+   postulate (strict dS_chaos+dI_structure=0) that PDTP has no analogue
+   of.
+5. Bullet Cluster: TFG's decoherence-based spatial-offset explanation
+   and PDTP's T69/Part 138 self-interaction cross-section bound are
+   COMPLEMENTARY, not competing -- they answer different questions.
+6. Methodological note (fair, not a "gotcha"): TFG's assumption-tagging
+   is less consistently separated from its derivations than PDTP's own
+   [ASSUMED]/[DERIVED] discipline requires (e.g. Eq 33's cos(theta)>=0
+   restriction is argued by plausibility, not derived).
+
+**Overall verdict:** a real mix -- modest convergent-validation signal
+for the general "gravity from phase coherence" idea family, a concrete
+and honestly-stated gap (MOND, w0) where TFG currently outperforms
+PDTP's own attempts, and structural differences significant enough that
+TFG's successes should not be assumed to transfer to PDTP by analogy
+alone.
+
+**Open items:** whether PDTP's field content could be restructured to
+reach TFG's MOND result (large, separate undertaking, not attempted);
+a minor "Falsifiable Prediction 9" numbering collision between
+falsifiable_predictions.md and dark_matter_energy.md, worth reconciling
+sometime; whether T44/T46's newer PDTP threads could sharpen w0 beyond
+Prediction 5's original -0.92.
+
+---
+
+**Part:** 145 (`simulations/solver/t77_timeflow_gravity_check.py`)
+**Filed:** 2026-09-10. PDF saved by user 2026-09-10:
+`assets/pdfs/Trofimov_2026_Class._Quantum_Grav._43_135020.pdf`.
 **Source:** Reference list of a Consensus.app AI literature-search review
 of PDTP (using Introduction.md + the 3 Lagrangians as input snippets),
 which cited: "One recent theoretical framework, Timeflow Gravity,
@@ -2146,6 +2316,330 @@ either framework validates the other.
 Lagrangian psi field definition.
 **Effort:** Low-Medium -- comparison doc, not new derivation.
 **Priority:** MEDIUM.
+
+---
+
+#### [ ] T79. "Theory of Everything" Master Equation — Term-by-Term Audit vs PDTP
+
+**Status:** PENDING. Filed 2026-09-14.
+**Source:** `docs/misc/note 2026-09-14.txt` (user note); equation image
+saved at `assets/images/main-qimg-54f863a4dcc66a6be61caf1d89691959-lq.jpg`
+(from a Quora answer to "Do we have the theory of everything?"). User
+request: "lets do a task to go through the equation."
+
+**What the equation actually is:** a widely-circulated combination of the
+Einstein-Hilbert action for gravity and the full Standard Model Lagrangian,
+written as one functional (path) integral:
+
+```
+W = Int [Dg][DA][Dpsi][DPhi] exp{ i Int d^4x sqrt(-g) [
+      (m_p^2/2) R                                    <- gravity
+      - (1/4) F^a_mu_nu F^a_mu_nu                     <- other forces (gauge fields)
+      + i*psibar^i*gamma^mu*D_mu*psi^i                <- matter (Dirac fermions)
+      + (psibar_L^i * V_ij * Phi * psi_R^j + h.c.)     <- Yukawa (fermion masses)
+      - |D_mu*Phi|^2 - V(Phi)                          <- Higgs kinetic + potential
+   ] }
+```
+
+**Important honest caveat (must be stated, not glossed over):** every
+individual piece here is 100% established, textbook physics (Einstein-
+Hilbert action, Yang-Mills F^2 term, Dirac kinetic term, Yukawa coupling,
+Higgs kinetic+potential term). But symbolically writing them inside one
+functional integral does NOT itself solve quantum gravity -- the R term's
+path integral is not renormalizable this way, the couplings are not
+unified, and this is best understood as a compact CHECKLIST/mnemonic of
+"everything a complete fundamental theory must contain," not a solved
+unified theory. Treat it that way when reviewing -- as a structured list
+to audit PDTP against, term by term, not as a rival "answer" to compare
+PDTP's own status against.
+
+**What (per CLAUDE.md's own Sudoku Consistency Check Step 3 -- "Standard
+Model compatibility check... PDTP must EXPLAIN the SM, not contradict
+it"):** go through each of the 6 labeled pieces and map PDTP's current
+status against it, mostly by compiling already-established findings
+rather than new derivation:
+
+1. **Gravity (m_p^2/2 * R):** PDTP's route is the SU(3) emergent metric
+   (Parts 75-76) + Sakharov 1-loop induced gravity, with Part 114's Trace
+   Theorem proving the tree-level condensate action carries NO graviton
+   dynamics at all -- Sakharov is the UNIQUE source, not one route among
+   several. Compare structurally to the R term's role here.
+2. **Other forces / gauge fields (-1/4 F^a F^a):** PDTP's SU(3) "gluons"
+   (chi^a) are already classified as nonlinear-sigma-model SCALARS, not
+   real gauge bosons -- no field-strength tensor F_mu_nu exists anywhere
+   in PDTP's Lagrangian (T70/Part 140), and PDTP has no vector field at
+   all (T75/Part 143). This term is currently entirely UNBUILT in PDTP --
+   state this plainly, cross-reference T80 (this session's companion
+   item, which proposes an actual construction route).
+3. **Matter / Dirac kinetic term (i*psibar*gamma^mu*D_mu*psi):** PDTP's
+   matter fields psi_i are phase fields (real scalars/angles), not Dirac
+   spinors. Part 40's Wilson fermions are a borrowed lattice-QCD scaffold
+   for one string-tension side-calculation, explicitly NOT PDTP's own
+   matter field (confirmed T70/Part 140). PDTP currently has no native
+   fermionic matter field -- state this plainly too.
+4. **Yukawa coupling (psibar_L*V_ij*Phi*psi_R + h.c.):** generates SM
+   fermion masses and mixing (V_ij, CKM-like). Compare to PDTP's own,
+   structurally very different mass-generation story: vortex winding
+   n = m_cond/m (Part 33) and the Koide mass relations (Part 53/122).
+   Not yet explicitly compared side by side anywhere in the project.
+5. **Higgs kinetic + potential (-|D_mu*Phi|^2 - V(Phi)):** PDTP's own
+   "reversed Higgs" (Part 62, phi_-) is already documented as explicitly
+   OPPOSITE in structure to the SM Higgs (massless in vacuum, massive
+   near matter -- vs. the SM Higgs, massive everywhere, "massless" only
+   at the symmetric point). Already flagged in term_glossary.md; worth
+   stating the comparison explicitly here too.
+6. **Quantum mechanics (the path integral [Dg][DA][Dpsi][DPhi] itself):**
+   compare to PDTP's own quantization status -- a classical Lagrangian
+   throughout, with Sakharov 1-loop (Part 74/114) as the only place
+   quantum fluctuations are actually used. Is PDTP a "quantized" theory
+   in the same sense this expression implies at all? State honestly.
+
+**Cross-check with:** T70/Part 140 (gauge-field absence), T75/Part 143
+(vector-field absence, TeVeS comparison), T80 (this session's companion
+item -- proposed EM construction route), Part 62 (reversed Higgs), Part
+114 (Trace Theorem), Part 40 (Wilson fermions), Part 33/53/122 (vortex
+winding + Koide mass mechanisms).
+**Effort:** Medium-High -- comprehensive structured audit across 6 pieces;
+mostly compiling and cross-referencing already-scattered PDTP findings
+into one place rather than new derivation, but thorough.
+**Priority:** MEDIUM-HIGH -- directly serves the project's own standing
+Sudoku Consistency Check requirement (SM compatibility) and Goal 1; likely
+outcome is a clear, useful consolidated map (PDTP already has an honest,
+if partial, story for gravity and Higgs; a clear, already-documented
+absence for gauge fields and Dirac matter) rather than new physics --
+still valuable as a single reference point instead of scattered findings.
+
+---
+
+#### [ ] T80. Electromagnetism-from-Geometry (U(1) Connection) as a Blueprint for PDTP's EM Gap
+
+**Status:** PENDING. Filed 2026-09-14.
+**Source:** YouTube video "Electromagnetism Derived From Geometry!"
+(transcript in `docs/misc/note 2026-09-14.txt`). User: "intersing where
+Electromagnetism Derived From Geometry... we need to create a task to
+review and check." **Not speculative** -- this is standard, well-
+established gauge-theory physics (U(1) principal-bundle/connection
+derivation of Maxwell's equations), presented accessibly, not a new or
+contested claim.
+
+**What the video lays out (real physics, for reference):** local U(1)
+phase invariance of a matter field's Lagrangian forces the introduction
+of a covariant derivative D_mu = partial_mu - i*e*A_mu; the new field
+A_mu (the "connection") transforms to cancel the phase's local variation;
+its curvature F_mu_nu = partial_mu*A_nu - partial_nu*A_mu is gauge
+invariant and, varying the resulting action, gives exactly two of
+Maxwell's four equations (Gauss's law and Ampere's law) with the other
+two (no magnetic monopoles, Faraday's law) following identically from
+F's antisymmetric definition. Also covers the Kaluza-Klein reading:
+treating the U(1) phase as a literal small compact extra dimension.
+
+**Why this matters for PDTP specifically:** PDTP's absence of any such
+field has now been flagged independently, from four different angles,
+across this project:
+1. `docs/research/polarization_analogy.md` Section 3.5 -- PDTP's
+   coupling is a GLOBAL phase difference (psi - phi), not a local gauge
+   symmetry; Section 8.2 explicitly lists as open item #2: "can the
+   lattice's internal modes (torsion/rotation) provide local U(1) gauge
+   symmetry? This would elevate the polarization analogy from metaphor
+   to mathematical equivalence."
+2. T66/Part 136 tested exactly ONE candidate route to answer that open
+   item -- promoting lattice torsion/rotation (Cosserat-continua
+   analogy) to a local symmetry -- and found it NEGATIVE (info-free
+   relabeling of phi(x), Cosserat independence violated by construction).
+3. T70/Part 140 independently classified PDTP's SU(3) octet as
+   nonlinear-sigma-model scalars, confirming no gauge connection or
+   field-strength tensor exists anywhere in PDTP's Lagrangian.
+4. T75/Part 143 (this session) confirmed, via the TeVeS comparison, that
+   PDTP has no vector (spin-1) field anywhere.
+
+**This video proposes a DIFFERENT route than T66's (already-closed) one
+-- must not be conflated with it when picked up:** not reinterpreting
+PDTP's EXISTING rotational/torsional degrees of freedom, but literally
+introducing a NEW, independent connection field A_mu by demanding local
+(not global) U(1) invariance of PDTP's own existing coupling term, the
+same way ordinary QED's Dirac Lagrangian forces A_mu into existence.
+
+**Key questions:**
+1. Does demanding LOCAL invariance of PDTP's own cos(psi_i - phi) [or
+   sin, in the field equation] coupling under psi_i(x) -> psi_i(x) +
+   alpha(x) force the introduction of a new field the same way the
+   video's derivation forces A_mu? Concrete, checkable calculation --
+   not yet attempted anywhere in the project as filed.
+2. If such a field emerges, does its own kinetic term naturally take the
+   Maxwell-like -1/4 F^2 form with a physically sensible (stable) sign --
+   same rigor standard as the original +cos coupling's own stability
+   requirement (CLAUDE.md: "the +cos coupling is required for stability")?
+3. Kaluza-Klein angle: PDTP already has a natural circular/phase
+   structure (the U(1) phase itself, and Z_3 vortex winding, Part 33) --
+   does the video's "phase as literal compact extra dimension" reading
+   suggest a DIFFERENT (non-gauge-connection) route worth comparing to
+   the direct local-symmetry route in Key Question 1?
+4. If this succeeds even partially, how does it change T79's Item 2
+   (currently: gauge fields "entirely UNBUILT in PDTP") and
+   `polarization_analogy.md` Section 3.5's verdict?
+**Cross-check with:** `docs/research/polarization_analogy.md` (Sections
+3.5, 8.2 -- the standing open item this addresses), T66/Part 136 (closed
+torsion/rotation route -- do NOT conflate), T70/Part 140, T75/Part 143.
+**Effort:** Medium-High -- a genuine structural-extension attempt,
+comparable in scope to the two-phase or SU(3) extensions (per
+Methodology.md's own classification of such moves); requires a full
+Problem-Solving Protocol plan-first pass per CLAUDE.md before any
+derivation work, given the scope.
+**Priority:** HIGH -- closes a gap flagged independently at least four
+times across this project (Part 27b's origin, T66, T70, T75/
+polarization_analogy.md); a real, standard-physics construction recipe
+now exists to actually attempt it, rather than continue treating it as
+an untested "next steps" bullet point. Either outcome is valuable: if it
+works, this is a major structural milestone (a real EM sector, Goal 1);
+if it fails cleanly, it converts a long-standing open question into a
+documented, well-understood negative.
+
+---
+
+#### [x] T81. Kinematic Phase-Coherence Decomposition of PDTP's Own Coupling (TFG-Inspired MOND Retry) — DONE (Part 146, 2026-09-14)
+
+**RESULT:**
+
+**CONSTRUCTIVE PARTIAL.** Full writeup
+`docs/research/kinematic_coherence_mond_retry.md`; script
+`simulations/solver/t81_kinematic_coherence.py`; 10/10 Sudoku PASS
+(after RECHECK caught and fixed 2 real bugs).
+
+**What was found:**
+1. [DERIVED] A real, exact PDTP analog of TFG's cos(theta): ensemble-
+   averaging psi_i over N particles with von Mises-distributed phase
+   scatter (the correct circular-statistics analog of a Gaussian for a
+   periodic phase -- not hand-waved) gives EXACTLY
+   <sum_i sin(psi_i-phi)> = N*R(kappa)*sin(psi_bar-phi), with
+   R(kappa)=I_1(kappa)/I_0(kappa) the circular mean resultant length --
+   bounded [0,1], R(0)=0 (decoherence), R(infinity)->1 (coherence),
+   structurally matching TFG's cos(theta).
+2. [DERIVED, PDTP Original] Substituted into PDTP's own weak-field
+   reduction (Part 21/98's linearization), this gives a genuine NEW
+   result: G_eff = G*R(kappa), a coherence-dependent effective Newton's
+   constant, correctly reducing to standard G at full coherence
+   (Sudoku rule 4/5 -- Newton's laws untouched in the single-body limit).
+3. [DERIVED, NEGATIVE for the actual MOND goal] G_eff=G*R(kappa) is a
+   CONSTANT-coefficient rescaling -- R depends only on the source's own
+   kinematic spread, not on Phi or its gradient anywhere. SymPy-verified:
+   a constant-coefficient Poisson equation gives inverse-square
+   acceleration for a point mass REGARDLESS of the constant's value --
+   it cannot produce MOND's inverse-square-to-inverse-linear transition.
+   TFG's own mechanism (Eq 79, already verified T77) works specifically
+   because mu depends SELF-REFERENTIALLY on the local acceleration
+   a=|grad(Phi)| -- a nonlinear feedback R(kappa) as derived here does
+   not have.
+4. Structural caveat (flagged up front, not buried): PDTP's psi is a
+   phase VALUE (internal clock-phase-like), not a phase GRADIENT
+   (velocity-like) the way TFG's construction uses -- connecting this
+   to real astrophysical V_rot/sigma_v kinematics would need a further,
+   currently-unestablished argument (e.g. velocity-dependent time
+   dilation accumulating phase differences over some timescale T --
+   itself a new assumption TFG's own construction never needed).
+5. RECHECK caught 2 real bugs, both documented not hidden: (a)
+   scipy.special.iv overflows to NaN for kappa>~700 -- fixed via the
+   exponentially-scaled ive (same ratio, numerically stable); (b) the
+   first G_eff derivation conflated particle count N with the coherence
+   factor R, failing the R=1 sanity check -- fixed by correctly
+   separating density (N) from coherence (R).
+
+**Overall verdict:** not the clean win hoped for, but a genuine, non-
+hand-waved result -- PDTP's coupling CAN formally support a coherence-
+dependent effective gravity, and the SPECIFIC reason this doesn't
+automatically give MOND is now identified precisely (missing
+acceleration self-reference), not left as an untested hope. More
+informative than Prediction 9's biharmonic failure -- pinpoints the
+exact missing ingredient rather than just a wrong length scale.
+
+**Open items:** whether a genuinely self-referential (acceleration-
+dependent) coherence mechanism could be built from PDTP's own structure
+-- flagged as a possible larger follow-up, not attempted here (would
+require new structure PDTP doesn't currently have, at which point it
+stops being a "no new postulate" retry); the psi-value-vs-psi-gradient
+kinematic-connection question from item 4.
+
+---
+
+**Part:** 146 (`simulations/solver/t81_kinematic_coherence.py`)
+**Filed:** 2026-09-14.
+**Source:** Direct follow-up from T77/Part 145 (Timeflow Gravity
+comparison, this session). Not a new external claim -- a structural idea
+motivated by seeing an analogous mechanism actually work in a real,
+independently-verified paper, applied to PDTP's own already-existing
+machinery.
+
+**What:** T77 found that Timeflow Gravity's MOND-limit derivation
+(independently SymPy-verified, `t77_timeflow_gravity_check.py`) succeeds
+by decomposing its single field's kinematics into a coherent, phase-
+locked component and an incoherent, thermally-fluctuating component, then
+using the coherence ratio between them (mapped to `cosθ = V²_rot/(V²_rot
++ 3σ²_v)` -- a matter system's own bulk-rotation vs. velocity-dispersion
+split, Eq. 139 of the TFG paper) to throttle an "equilibrium function" µ
+that scales the effective gravitational coupling. In the coherent limit
+(rotationally-supported spiral galaxies), µ reduces exactly to Milgrom's
+MOND interpolating function.
+
+PDTP already has a coupling built to vary the same general way:
+`α = cos(ψᵢ − φ)` (the phase-mismatch coupling at the heart of every PDTP
+Lagrangian). **This has never been decomposed the way TFG decomposes its
+field** -- PDTP's existing MOND attempt (`dark_matter_energy.md` Section
+2.5, now corrected to ~54 orders of magnitude too small, T77) used a
+completely different mechanism: a fixed, static biharmonic screening
+LENGTH (∇⁴Φ + 4g²Φ = source), tied to m_cond and therefore stuck at the
+Planck scale regardless of the astrophysical system being described. It
+never involved decomposing the MATTER field ψᵢ's own kinematics at all.
+
+**Key questions:**
+1. For a real astrophysical system (e.g. a galaxy with known V_rot and
+   σ_v, using SPARC data, Lelli et al. 2016 -- the same dataset TFG's own
+   falsifiability test uses), does decomposing PDTP's ψᵢ into a coherent
+   bulk-rotation component and an incoherent dispersion component produce
+   a natural, KINEMATIC (not static-length) coherence measure analogous
+   to TFG's cosθ?
+2. If such a decomposition exists, does substituting it into PDTP's
+   EXISTING coupling α = cos(ψ−φ) (or the field equation □φ = g·sin(ψ−φ))
+   produce a state-dependent effective coupling -- i.e., does gravity
+   naturally weaken in low-coherence (high-dispersion) systems the way
+   TFG's µ does, WITHOUT introducing any new field, length scale, or
+   postulate?
+3. If a coherence-dependent coupling emerges, does it reduce to Milgrom's
+   interpolating function (or something testably different) in the
+   appropriate limit -- checked the same rigorous way T77 checked TFG's
+   own derivation (SymPy, not hand-waved)?
+4. Does this conflict with, or require revisiting, any already-DERIVED
+   PDTP result built on the assumption that α is spatially uniform/
+   constant for a given system (e.g. Newton's laws derivation, Jeans
+   instability, G_eff = 2·G_bare)? Sudoku rule 4/5 compliance required.
+5. If this fails (a real possibility -- Prediction 9's biharmonic route
+   already failed once), document PRECISELY where and why, per Methodology
+   Section 5 ("document what fails, not just that it fails") -- this is
+   a genuinely different mechanism from the already-failed one, so a
+   second failure would still be new, useful information, not a repeat.
+
+**Explicitly NOT proposed:** importing TFG's own field content (single
+field, no Lagrangian, new entropy postulate) -- T77 found those pieces
+structurally incompatible with / redundant to PDTP's own two-field,
+Lagrangian-first, Sakharov-gravity-recovery construction (Part 114's
+Trace Theorem). This item borrows the MECHANISM (kinematic coherence
+throttling a coupling), not the MACHINERY.
+
+**Cross-check with:** T77/Part 145 (source of the idea, TFG's verified
+µ-function), `dark_matter_energy.md` Section 2.5 (the already-failed
+static-length attempt, for contrast), Part 61 (α = cos(ψ−φ) coupling
+definition), T74/Part 142 (φ₋ dispersion relation -- check this new
+decomposition doesn't reintroduce the same Planck-scale-screening
+problem through a different door).
+**Effort:** Medium-High -- a genuine new structural attempt (decomposing
+an existing field's kinematics is new territory for PDTP), requires a
+full Problem-Solving Protocol plan-first pass per CLAUDE.md before any
+derivation work, comparable in care to T80.
+**Priority:** HIGH -- directly motivated by seeing the analogous mechanism
+verified to work in T77; if it succeeds, this closes PDTP's own most
+consequential documented negative (the MOND/rotation-curve gap); if it
+fails cleanly, it is a well-motivated, informative second data point on
+why PDTP's coupling structure doesn't produce MOND-like behavior,
+distinct from and not redundant with the already-failed biharmonic
+attempt.
 
 ---
 
@@ -2260,6 +2754,20 @@ mechanism (ring-on-chain idea, [SPECULATIVE]), vs. this item's DECOHERENCE
 PROTECTION question. Both concern interlinked-loop topology in the PDTP
 condensate; check T76 for overlap before extending either investigation,
 so they don't duplicate work on the same underlying structure.
+**Caution from T76 (Part 144, 2026-09-10, DONE):** this item's own "What"
+premise above ("cannot be separated without cutting") needs re-examining
+before proceeding -- T76 found, citing Kleckner & Irvine (2013, Nature
+Physics 9, 253) plus quantum-turbulence numerics, that REAL (and quantized)
+linked vortex configurations self-unlink via RECONNECTION, a smooth
+physical process available to any finite-core vortex (not a topological
+violation, and not "cutting" in the sense the premise implies) -- driven
+by their own energy, releasing it as they untie. Key question 1's standard
+"topological protection ~ exp(E_barrier/kT)" formula implicitly assumes NO
+such channel exists; T76's finding suggests this needs to be checked
+against an explicit reconnection-rate estimate for PDTP's own condensate
+parameters before assuming "vastly longer" coherence, not merely cited as
+a generic barrier argument. Not a resolution of T30 -- an input any future
+work on it should address directly.
 
 #### [ ] T31. Nonlinear Converging Horn / High-Harmonic Generation [SPEC]
 
@@ -2890,7 +3398,10 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T71 | Audit CKN "factor 12" formula discrepancy (Part 54) -- two cited rho_CKN forms don't obviously match | low-medium | PENDING | -- |
 | T73 | Glueball mass test vs X(2370) (BESIII, arXiv:2607.20366) -- closed flux-tube loop (Mechanism A) brackets X(2370)'s mass within x5; chi^a contact vertex (Mechanism B) 4.7x too weak; J^PC=0-+ not derivable by either (chi^a are NLSM scalars, T70) | high | DONE -- CONSTRUCTIVE (mass scale) + NEGATIVE (quantum numbers) | 141 |
 | T74 | GW170817 constraint on PDTP's GW structure (arXiv:1710.06168) -- tensor sector c_s=c EXACT, trivially passes (4.13e-16 bound computed from source); phi_- scalar sector evanescent at LIGO frequencies for any realized Phi (77 OoM margin) -- no signal existed to constrain; byproduct: fixed 22-OoM erratum in Part 63 S7 | high-medium | DONE -- PASS (tensor) + CONSTRUCTIVE NEGATIVE (scalar) | 142 |
-| T75 | TeVeS structural comparison [scoping] -- what does TeVeS's vector field buy it that PDTP's all-scalar field content lacks? | medium | PENDING | -- |
-| T76 | Topological DM candidate: ring-on-chain linking [SPECULATIVE, user-original] -- could linking topology alone produce DM-like behavior without exotic energy cost? Must be checked against Part 116 winding-number mechanism first; Rubik's-cube/Cayley-graph idea folded in as secondary analogy | low-medium | PENDING | -- |
-| T77 | Timeflow Gravity comparison (Trofimov 2026, Class. Quantum Grav. 43) -- U(1)/circle state space, Jacobson entropic gravity (same tool as Part 86), MOND from phase coherence; PDF now in hand | high | PENDING | -- |
+| T75 | TeVeS structural comparison [scoping] -- vector field fixes lensing+structure growth (jobs PDTP's all-scalar content can't do, 3rd confirmation); PDTP's own MOND-analogue (Prediction 9) fails ~54 OoM (corrected from stale "20 OoM", T77), corroborated by T74; TeVeS post-GW170817 status corrected (not a clean survival) | medium | DONE -- literature comparison, no new derivation | 143 |
+| T76 | Topological DM candidate: ring-on-chain linking [SPECULATIVE, user-original] -- "linking is free" fails: real vortices reconnect (Kleckner & Irvine 2013 + quantum-turbulence numerics), linked states self-untie releasing energy, cost MORE than Part 116's simplest vortex; not a T43 restatement; flags reconnection as a caution for T30 | low-medium | DONE -- NEGATIVE (+ caution flagged for T30) | 144 |
+| T77 | Timeflow Gravity comparison (Trofimov 2026, Class. Quantum Grav. 43) -- TFG's verified MOND derivation succeeds where PDTP's own biharmonic attempt fails by ~54 OoM (corrected from stale "20 OoM" figure caught during this comparison); TFG w0=-0.844 (0.12sigma DESI) vs PDTP's -0.92 (~1.5sigma); real structural differences (1 field vs 2, no Lagrangian yet, new entropy postulate) | high | DONE -- MIXED (convergent validation + genuine gap + structural differences) | 145 |
 | T78 | De Broglie pilot-wave comparison (Darrow & Bush 2024, Symmetry, arXiv:2408.06972) -- compare Compton-scale pilot-wave oscillation to PDTP's psi field | medium | PENDING | -- |
+| T79 | "Theory of Everything" master equation (GR+SM combined path integral, Quora image) -- term-by-term audit of gravity/gauge-fields/matter/Yukawa/Higgs/QM pieces vs PDTP's own status on each | medium-high | PENDING | -- |
+| T80 | Electromagnetism-from-geometry (U(1) connection/curvature) as a blueprint for PDTP's EM gap -- standard gauge-theory construction recipe (YouTube video), distinct from T66's closed torsion/rotation route; closes a gap flagged 4 independent ways | high | PENDING | -- |
+| T81 | Kinematic phase-coherence decomposition of PDTP's own coupling (TFG-inspired MOND retry) -- exact von Mises R(kappa) analog to TFG's cos(theta) DERIVED, gives new G_eff=G*R(kappa); but constant-coefficient rescaling CANNOT reproduce MOND (needs acceleration self-reference TFG has via mu(a), R(kappa) doesn't) | high | DONE -- CONSTRUCTIVE PARTIAL (real structural result + precise negative diagnosis) | 146 |

@@ -1577,6 +1577,56 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 
 ---
 
+### Part 146 additions (T81: kinematic phase-coherence decomposition, TFG-inspired MOND retry):
+
+**Source:** Part 146 (2026-09-14), `simulations/solver/t81_kinematic_coherence.py`,
+`docs/research/kinematic_coherence_mond_retry.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 146.1-146.2 | <sum_i sin(psi_i-phi)> = N*R(kappa)*sin(psi_bar-phi), R(kappa)=I_1(kappa)/I_0(kappa) (von Mises mean resultant length) -- exact analog of TFG's cos(theta) | [DERIVED, PDTP Original application of standard circular statistics] | bounded [0,1]; R(0)=0, R(infinity)->1; numerically verified via scipy Bessel functions |
+| 146.3 | G_eff = G*R(kappa) -- coherence-dependent effective Newton's constant from PDTP's own weak-field reduction | [DERIVED, PDTP Original] | new structural result; reduces exactly to G at R=1 (Sudoku rule 4/5, Newton's laws untouched) |
+| 146.4 | Constant-coefficient G_eff gives inverse-square force law for a point mass REGARDLESS of the constant's value -- SymPy-verified; cannot reproduce MOND's inverse-linear transition, which needs mu to depend self-referentially on a=\|grad(Phi)\| (TFG's actual mechanism, Eq 79, already verified T77) | [DERIVED, NEGATIVE for the MOND-reproduction goal] | precisely diagnoses the missing ingredient rather than a wrong scale (contrast Prediction 9's biharmonic failure) |
+
+**Conclusion (Part 146):** CONSTRUCTIVE PARTIAL. A real, exact PDTP
+analog of TFG's coherence mechanism exists (Eq 146.1-146.2) and produces
+a genuine new PDTP-Original result (Eq 146.3, G_eff=G*R(kappa)) -- but
+this specific, naive construction cannot reproduce MOND (Eq 146.4)
+because it lacks the acceleration self-reference that makes TFG's own
+mechanism work. 10/10 Sudoku PASS after RECHECK caught and fixed two
+real bugs (a Bessel-function numerical overflow; an N/coherence
+conflation in the original G_eff derivation) -- both documented, not
+hidden. A structural caveat (PDTP's psi is a phase VALUE, not a phase
+GRADIENT, unlike TFG's construction) is flagged as open, not resolved.
+See `docs/research/kinematic_coherence_mond_retry.md` for the full trace.
+
+---
+
+### Part 145 additions (T77: Timeflow Gravity comparison):
+
+**Source:** Part 145 (2026-09-14), `simulations/solver/t77_timeflow_gravity_check.py`,
+`docs/research/timeflow_gravity_comparison.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 145.1 | TFG's own MOND-limit reduction (their Eq 86-90: mu(a,a0,theta) -> Milgrom's a/(a+a0) in the coherent limit, then a=sqrt(gN*a0) deep-MOND scaling) independently re-derived, residual 0 at every step | [VERIFIED, external paper's own claim, re-checked not re-derived] | confirms TFG's math holds up; NOT a PDTP result |
+| 145.2 | TFG's own dark-energy w(a) derivation (their Eq 133-138) independently re-derived from the continuity equation through to w(1)=-0.8444, residual 0 at every step | [VERIFIED, external paper's own claim, re-checked not re-derived] | matches DESI w0=-0.838+-0.055 to 0.12sigma |
+| 145.3 | PDTP's own biharmonic MOND attempt (dark_matter_energy.md Sec 2.5) vs TFG's verified MOND derivation: PDTP fails by ~54 OoM (L_heal~l_Planck vs ~1 kpc; corrects a stale "20 OoM" figure caught during this comparison), TFG succeeds cleanly | [NEGATIVE for PDTP's own attempt, comparison] | corroborates T74/Part 142's independent screening-length finding, ~50 OoM short |
+| 145.4 | PDTP's canonical w0~=-0.92 (falsifiable_predictions.md Prediction 5) vs DESI: ~1.5sigma away, vs TFG's 0.12sigma | [comparison, computed] | honest asymmetry -- TFG's number currently sits closer to the data |
+
+**Conclusion (Part 145):** MIXED verdict -- modest convergent-validation
+signal (shared U(1) phase field, shared Jacobson anchor via different
+routes, shared Newtonian-limit bootstrapping methodology) + a genuine,
+concrete gap where TFG's (independently verified) MOND and w0 results
+currently outperform PDTP's own attempts + real structural differences
+(TFG: one field, no Lagrangian yet, a new global entropy-conservation
+postulate PDTP lacks) meaning this is not "PDTP in different words."
+Bullet Cluster explanations on both sides are complementary, not
+competing. See `docs/research/timeflow_gravity_comparison.md` for the
+full trace.
+
+---
+
 ### Part 142 additions (T74: GW170817 constraint on PDTP's GW structure):
 
 **Source:** Part 142 (2026-09-10), `simulations/solver/t74_gw170817_dispersion.py`,
@@ -2115,6 +2165,82 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-09-14: Added Part 146 (T81: kinematic phase-coherence decomposition
+  of PDTP's own coupling -- direct follow-up from T77, testing whether
+  Timeflow Gravity's verified MOND mechanism transplants onto PDTP's
+  existing alpha=cos(psi-phi) coupling with no new postulate). CONSTRUCTIVE
+  PARTIAL: derived an exact circular-statistics analog of TFG's cos(theta)
+  [Eq 146.1-146.2, von Mises mean resultant length R(kappa)], substituted
+  into PDTP's own weak-field reduction to get a genuine new result
+  [Eq 146.3, G_eff=G*R(kappa)] -- but SymPy-verified that a constant-
+  coefficient rescaling of Poisson's equation always gives an inverse-
+  square force law and CANNOT reproduce MOND [Eq 146.4, NEGATIVE], because
+  it lacks the acceleration self-reference (mu depending on a=|grad(Phi)|)
+  that makes TFG's own mechanism work. 10/10 Sudoku PASS after RECHECK
+  caught and fixed two real bugs (Bessel-function overflow at large
+  kappa; an N-vs-coherence conflation in the first G_eff attempt) --
+  both documented, not hidden. A structural caveat (PDTP's psi is a
+  phase VALUE, not TFG's phase GRADIENT) flagged as open.
+- 2026-09-14: Added Part 145 (T77: Timeflow Gravity comparison, Trofimov
+  2026, Class. Quantum Grav. 43 135020 -- real, peer-reviewed; full text
+  read directly, not just an earlier WebSearch abstract-level summary).
+  Every TFG equation used as a comparison point independently SymPy-
+  re-derived first [Eq 145.1-145.2], not accepted on the paper's
+  authority alone -- all confirmed, residual 0. MIXED verdict: (1)
+  convergent validation -- shared U(1) phase field, shared Jacobson
+  entropic-gravity anchor (via different technical routes), shared
+  Newtonian-limit-recovery bootstrapping methodology; (2) a GENUINE GAP
+  [Eq 145.3-145.4] -- TFG's verified MOND-limit derivation lands exactly
+  on Milgrom's function where PDTP's own biharmonic MOND attempt
+  (dark_matter_energy.md Sec 2.5) is an already-documented, twice-
+  confirmed ~54-orders-of-magnitude failure (corrects a stale "20 orders"
+  figure caught during this comparison, `dark_matter_energy.md` updated
+  2026-09-14; corroborating T74/Part 142, ~50 orders short by the same
+  comparison);
+  TFG's w0=-0.844 sits 0.12sigma from DESI vs PDTP's own canonical
+  Prediction 5 (w0~=-0.92, ~1.5sigma away); (3) real structural
+  differences -- TFG has ONE field (order/chaos decomposition of itself,
+  no separate matter field), NO Lagrangian yet (authors' own stated
+  future work), and a NEW global entropy-conservation postulate PDTP
+  lacks -- NOT "PDTP in different words." Bullet Cluster explanations
+  complementary, not competing (spatial offset vs self-interaction
+  bound).
+- 2026-09-10: Part 144 (T76: topological dark-matter candidate,
+  ring-on-chain linking [SPECULATIVE, user-original idea]) -- structural/
+  physical-mechanism analysis, NO new PDTP Original equations (same
+  reason as Part 143: no numeric claim to SymPy-verify). NEGATIVE: the
+  "linking is free" mechanical intuition relies on idealized, infinitely
+  thin, non-interacting curves; real (and PDTP-modeled) vortices have
+  finite cores and real energy, so they can RECONNECT -- cited directly
+  against Kleckner & Irvine (2013, Nature Physics 9, 253, "Creation and
+  dynamics of knotted vortices") plus quantum-turbulence numerics: linked
+  vortex configurations actively self-unlink via reconnection cascades,
+  releasing energy rather than storing it "for free." Forming the linked
+  state costs MORE than Part 116/T43's simplest n=1 vortex and is LESS
+  stable -- not a restatement of T43 (this item's own pre-registered
+  hypothesis when filed), fails for its own, more decisive reason.
+  Rubik's-cube/Cayley-graph idea correctly left unexplored (conditional
+  trigger not met). Productive side effect: flags vortex reconnection as
+  a real caution T30 (Hopf-link decoherence protection, still PENDING)
+  needs to address before assuming "vastly longer" coherence lifetimes.
+  See docs/research/ring_on_chain_topology.md.
+- 2026-09-10: Part 143 (T75: TeVeS structural comparison [scoping]) --
+  literature/structural comparison only, NO new PDTP Original equations
+  (matches this item's own "Low effort, not new math" scope; no table
+  entry added here for that reason). TeVeS's vector field (Bekenstein
+  2004) fixes lensing (disformal transformation) and enhances structure
+  growth (Lorentz-breaking preferred frame) -- jobs PDTP's all-scalar
+  content structurally cannot do, a 3rd independent confirmation
+  alongside T70 and polarization_analogy.md. PDTP's own MOND-analogue
+  (Prediction 9, dark_matter_energy.md Sec 2.5) already fails by ~54 OoM
+  (corrected 2026-09-14 by T77 from a stale "20 OoM" figure), now
+  corroborated by T74's independent re-derivation of the same
+  Planck-scale screening length via a different route. TeVeS's post-
+  GW170817 status corrected from this item's own filing text --
+  "generalized" variants are not a clean survival (arXiv:1801.03382),
+  making PDTP's parameter-free tensor-sector pass (T74) structurally
+  stronger than TeVeS's position ever was. See
+  docs/research/teves_structural_comparison.md.
 - 2026-09-10: Added Part 142 (T74: GW170817 constraint on PDTP's GW
   structure, arXiv:1710.06168 -- real 2018 paper). Two structurally
   distinct PDTP modes tested separately: tensor sector (phi_+/SU(3), the

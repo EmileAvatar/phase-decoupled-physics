@@ -353,11 +353,19 @@ differs from Poisson's equation at length scales r ~ 1/(2g) ~ l_P. In principle,
 if the healing length L_heal were galaxy-scale, flat rotation curves would follow
 WITHOUT dark matter.
 
-**Current status:** L_heal ~ l_P (Planck scale) — 20 orders of magnitude too small
-for galactic rotation curves. Requires either m_cond << m_P or a new mechanism.
+**Current status (corrected 2026-09-14, T77/Part 145):** L_heal ~ l_P (Planck
+scale) — **~54 orders of magnitude** too small for galactic rotation curves
+(l_P ~ 1.616e-35 m vs. a representative galactic scale of 1 kpc ~ 3.086e19 m;
+computed directly, `simulations/solver/outputs/t77_timeflow_gravity_check_20260914.txt`
+cross-reference). The "20 orders of magnitude" figure previously stated here
+was stale/imprecise and did not match a direct comparison of the two length
+scales — caught while using this result as a comparison point for T77
+(Timeflow Gravity). Requires either m_cond << m_P or a new mechanism.
 
 **Verdict: SPECULATIVE** — interesting if L_heal could be enhanced; currently fails
-by 20 orders of magnitude.
+by roughly 54 orders of magnitude, independently corroborated via a different
+derivation route (T74/Part 142's phi_- dispersion-relation screening length,
+~50 orders short of galactic scale by the same comparison).
 
 ### 2.6 Anderson-Localized DM at B1 [PDTP Original, SPECULATIVE — Part 96]
 
@@ -653,7 +661,7 @@ if n ~ 1 wimpzilla DM annihilates with matter at extreme energies.
 | DM production mechanism | NEGATIVE (KZ) / OPEN | KZ + inflation off by 50 OoM; preheating defect channel unquantified |
 | Omega_DM = 27% (amount) | NOT PREDICTED | Depends on production mechanism + reheating temperature |
 | Hubble tension | REOPENED (Part 117) | phi_-^4 now generated at partial lock; amplitude needs beta(z) [OPEN] |
-| Biharmonic flat curves | NEGATIVE (scale) | L_heal ~ l_P, 20 orders below galactic scale |
+| Biharmonic flat curves | NEGATIVE (scale) | L_heal ~ l_P, ~54 orders below galactic scale (corrected 2026-09-14, T77) |
 | DM direct detection | NOT ADDRESSED | sigma/m = 5.2e-48 cm^2/g (Part 118; far below LZ/XENON reach) |
 | Axion-like DM | NOT ADDRESSED | phi_- has right spin-0 structure but no QCD coupling |
 

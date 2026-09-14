@@ -26,7 +26,8 @@ matter than PDTP currently favors. Roman's headline capability — mapping
 dark matter's fine structure via gravitational lensing — doesn't test
 anything PDTP-specific either, because PDTP's own attempt to make a
 distinctive lensing prediction (Part 61's biharmonic gravity) already
-failed by 20 orders of magnitude at galactic scale. Roman's real
+failed by roughly 54 orders of magnitude at galactic scale (corrected
+2026-09-14, T77, from a stale "20 orders" figure). Roman's real
 connection to PDTP is a different, quieter one: it's one of the surveys
 already on record (`falsifiable_predictions.md` Prediction 5) that will
 help test PDTP's dark *energy* prediction, once its data start arriving.
@@ -103,7 +104,7 @@ touches lensing, dark matter, or dark energy** (`falsifiable_predictions.md`):
 | Prediction | What it needs | Does Roman test it? |
 |---|---|---|
 | 5 — w(z) ≠ -1 (dark energy) | Weak lensing + BAO + SNe over cosmic time | **Yes — already listed** in `falsifiable_predictions.md`'s own survey table, alongside DESI/Euclid/Rubin. Table's "Launch ~2027" note is now stale (already launched 2026-08-30) — corrected below. |
-| 11 — Biharmonic gravity at galactic scale (would show up as a distinctive lensing signature) | Requires L_heal > l_Planck | **No** — `dark_matter_energy.md` §2.5 already found L_heal ~ l_Planck, 20 orders of magnitude too small for any galactic-scale effect. This route is already dead; Roman's substructure maps cannot resurrect it. |
+| 11 — Biharmonic gravity at galactic scale (would show up as a distinctive lensing signature) | Requires L_heal > l_Planck | **No** — `dark_matter_energy.md` §2.5 already found L_heal ~ l_Planck, roughly 54 orders of magnitude too small for any galactic-scale effect (corrected 2026-09-14, T77, from a stale "20 orders" figure). This route is already dead; Roman's substructure maps cannot resurrect it. |
 | 13 — Planck-vortex DM ⇒ detectable CMB tensor modes | CMB polarization instrument (LiteBIRD, CMB-S4) | **No** — Roman is an optical/near-IR imaging telescope, not a CMB polarimeter. Wrong instrument class entirely. |
 
 **Verdict:** Roman's headline capability — precision dark-matter
@@ -112,7 +113,8 @@ PDTP-specific prediction, not because Roman lacks the power, but because
 PDTP itself currently makes no distinctive prediction at the scales Roman
 probes: the one mechanism that would have produced a PDTP-specific
 lensing signature (biharmonic gravity, Prediction 11) already failed by
-20 orders of magnitude on its own precondition, and PDTP's live DM test
+roughly 54 orders of magnitude on its own precondition (corrected
+2026-09-14, T77, from a stale "20 orders" figure), and PDTP's live DM test
 (Prediction 13) needs an entirely different kind of instrument. Roman's
 real, useful connection to PDTP is the quieter one already on record —
 Prediction 5's dark energy w(z) test — where it joins DESI, Euclid, and
