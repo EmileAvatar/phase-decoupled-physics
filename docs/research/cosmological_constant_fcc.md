@@ -495,10 +495,32 @@ parameter. Both are free parameters of the framework.
 All three paths converge on the same formula:
 
 ```
-rho_Lambda ~ rho_Planck x (l_P / L_H)^2     ... (54.1)
-           ~ hbar c / (l_P^2 x L_H^2)
+rho_Lambda ~ rho_Planck x (l_P / L_H)^2     ... (54.1, MASS density form)
+           = c^2 / (G * L_H^2)              [rho_Planck = c^5/(hbar*G^2), a mass density]
            ~ 10^-122 x rho_Planck
 ```
+
+**Erratum (2026-09-27, T71/Part 152):** an earlier version of this
+equation also chained "~ hbar*c/(l_P^2*L_H^2)" onto the line above, as
+though it were the same quantity. It is not: that expression is an
+**energy** density (J/m^3), not the mass density (kg/m^3) this section
+computes and compares to the observed rho_Lambda -- they differ by
+exactly a factor of c^2 (`rho_mass = rho_energy/c^2`), confirmed by an
+independent `sympy.physics.units` dimensional check
+(`docs/research/ckn_factor12_audit.md`). The correct relationship is:
+
+```
+hbar*c / (l_P^2 * L_H^2)   = rho_Planck_ENERGY x (l_P/L_H)^2    [ENERGY density, J/m^3]
+                            = c^4 / (G * L_H^2)
+                            = c^2 x [c^2/(G*L_H^2)]
+                            = c^2 x rho_Lambda  (the mass-density form above)
+```
+
+The MASS-density form `c^2/(G*L_H^2)` (Eq. 54.1, top line) is what was
+always actually computed in `cosmo_constant.py` and cited in
+`equation_reference.md` -- those were correct throughout. Only this
+prose chain conflated the two; "factor 12" (precisely 12.24) survives
+unchanged. See `ckn_factor12_audit.md` for the full verification.
 
 **Path A:** BEC quantum depletion with f_dep ~ l_P/L_H
 **Path B:** Topological sector energy difference ~ hbar c / (l_P^2 L_H^2)

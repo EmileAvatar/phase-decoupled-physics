@@ -4,6 +4,16 @@ This document contains the rigorous mathematical foundations of the Phase-Decoup
 Transport Physics (PDTP) framework. Every established result is cited. Every new
 result is marked as PDTP Original. Every derivation is shown step by step.
 
+**Companion documents:** this file covers the single-phase U(1) foundations
+(§§1–9 below) end-to-end. The two largest structural extensions — the
+SU(3) extension (Part 37: quarks, gluons, Z₃ vortices) and the two-phase
+Lagrangian (Part 61: φ₊/φ₋ split, Newton's 3rd law, biharmonic gravity,
+the reversed-Higgs φ₋ mode) — are shown at the same step-by-step depth in
+`mathematical_formalization_extensions.md`, kept in its own file per the
+project's convention that large additions (>500-1000 lines) get a
+companion file rather than bloating this one. Added 2026-09-26 (Part
+150), closing TODO_04.md T65.
+
 ---
 
 ## Table of Contents
@@ -19,6 +29,8 @@ result is marked as PDTP Original. Every derivation is shown step by step.
 9. [Numerical Predictions](#9-numerical-predictions)
 10. [Summary of Results](#10-summary-of-results)
 11. [References](#11-references)
+12. **Structural extensions (SU(3), two-phase Lagrangian)** — see
+    [`mathematical_formalization_extensions.md`](mathematical_formalization_extensions.md)
 
 ---
 
@@ -168,6 +180,45 @@ Lyapunov function with dH/dt = 0, proving Lyapunov stability (but not asymptotic
 stability).
 
 **Source:** [Lyapunov stability — Wikipedia](https://en.wikipedia.org/wiki/Lyapunov_stability)
+
+### 1.7 The SU(N) Lie Group and Algebra
+
+SU(N) ("Special Unitary group of N×N matrices") is the group of N×N
+complex matrices U satisfying U†U=1 (unitary — preserves lengths) and
+det(U)=1 (special — preserves volume/orientation). It has N²−1
+independent generators Tᵃ (Hermitian, traceless matrices), satisfying a
+Lie algebra `[Tᵃ,Tᵇ] = i·f^{abc}Tᶜ` with structure constants `f^{abc}`.
+
+**Key invariants used in this document's structural-extensions
+companion:** the **center** of SU(N) is the discrete subgroup of scalar
+multiples of the identity commuting with every group element — Z_N for
+SU(N) (Z₃ for SU(3): the cube roots of unity times the identity). The
+**fundamental Casimir invariant** `C₂(fund) = (N²−1)/(2N)` characterizes
+how strongly a fundamental-representation source couples to the group's
+gauge structure.
+
+**Source:** Georgi, H. (1999), *Lie Algebras in Particle Physics*, 2nd
+ed., Perseus — standard reference for SU(N) generators and Casimir values.
+
+**Source:** Ramond, P. (2010), *Group Theory*, Cambridge, Ch. 10 — SU(N)
+center structure.
+
+### 1.8 The Wilson Loop Action
+
+In lattice gauge theory, the fundamental gauge-invariant action built
+from a matrix-valued field U is the **Wilson plaquette action**:
+
+```
+S_W = Re[Tr(U)] / N
+```
+
+— the real part of the trace of U, normalized by the matrix dimension
+N. This is not one choice among many; it is the simplest gauge-invariant
+scalar that can be built from a single group element, and it underlies
+all of lattice QCD.
+
+**Source:** Wilson, K.G. (1974), "Confinement of quarks," *Physical
+Review D* 10, 2445, Eq. (2.10).
 
 ---
 

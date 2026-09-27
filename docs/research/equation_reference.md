@@ -261,11 +261,17 @@ Omega_beat = 2/3
 
 ### 7b. CKN Bound [DERIVED]
 ```
-rho_CKN = c^2 / (G * L_H^2) = 7.1e-26 kg/m^3
+rho_CKN = c^2 / (G * L_H^2) = 7.1466e-26 kg/m^3
 ```
-- Factor 12 above rho_Lambda; consistent with geometric mean
+- Factor 12.2354 above rho_Lambda (refined 2026-09-27, T71/Part 152 --
+  was previously cited only as unrefined "~12"; this formula (mass
+  density) was always correct, independently confirmed via
+  sympy.physics.units against a dimensionally-different "hbar*c/
+  (l_P^2*L_H^2)" (energy density) form that appeared, mislabeled,
+  in Part 54's own prose -- see `ckn_factor12_audit.md`); consistent
+  with geometric mean
 - L_H is NOT a PDTP parameter (cosmological input)
-- **Source:** Part 54
+- **Source:** Part 54, verified Part 152
 
 ### 7c. Planck Energy Density [VERIFIED]
 ```
@@ -1577,6 +1583,34 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 
 ---
 
+### Part 149 additions (T79 Phase 2: ToE master equation -- PDTP additions audit):
+
+**Source:** Part 149 (2026-09-16), `simulations/solver/t79_toe_pdtp_audit.py`,
+`docs/research/theory_of_everything_pdtp_audit.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 149.1 | Q(c*y_e,c*y_mu,c*y_tau) = Q(y_e,y_mu,y_tau) -- the Koide ratio is exactly scale-invariant under a common rescaling m_i=c*y_i | [VERIFIED] | licenses translating Part 53's mass-space Q=2/3 result into a statement about Yukawa eigenvalues, with no reinterpretation |
+| 149.2 | Q(V_ee,V_mumu,V_tautau) = (V_ee+V_mumu+V_tautau)/(sqrt(V_ee)+sqrt(V_mumu)+sqrt(V_tautau))^2 = 2/3 | [DERIVED, PDTP Original in this notation] | Part 53's Z_3-center-derived Koide relation, restated for the first time as a constraint on the master equation's own Yukawa matrix; charged leptons ONLY, reduces 3 free params to 2; quark sector explicitly out of scope (Part 122) |
+
+**Conclusion (Part 149):** term-by-term audit of the combined GR+SM
+"theory of everything" equation (Part 148) for whether PDTP changes or
+adds to it. Five of six terms have nothing to add (gravity: Sakharov
+provenance note only; gauge fields: already closed negative via
+T80/Part 147; matter/Dirac: genuine gap, Part 40's Wilson fermions
+confirmed borrowed scaffold; Higgs: no addition, and phi_- "reversed
+Higgs" explicitly must not be conflated with the equation's actual
+Higgs field -- different sector; quantum mechanics: no addition, Part 66
+and T23/Part 104's Hilbert-space-flavored results cited precisely, not
+overclaimed). ONE genuine, narrowly-scoped addition found: Eq 149.2,
+reusing Part 53/122's already-derived Koide physics, translated for the
+first time into the master equation's own V_ij notation. 9/9 Sudoku
+PASS (1 bug caught by RECHECK -- a fresh-vs-assumed SymPy symbol
+mismatch -- fixed and documented, not hidden). Closes TODO_04.md T79
+(both phases).
+
+---
+
 ### Part 147 additions (T80: electromagnetism-from-geometry gauging attempt):
 
 **Source:** Part 147 (2026-09-14), `simulations/solver/t80_em_gauging.py`,
@@ -2199,6 +2233,84 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-09-27: Added Part 152 (T71: CKN "factor 12" formula discrepancy
+  audit, Part 54). Two cited rho_CKN formulas (`hbar*c/(l_P^2*L_H^2)`
+  vs `c^2/(G*L_H^2)`) traced, via an independent `sympy.physics.units`
+  dimensional check, to being genuinely different physical quantities
+  -- ENERGY density vs MASS density respectively, differing by exactly
+  a factor of c^2 (confirmed both dimensionally and algebraically,
+  residual 0 both ways). The code (`cosmo_constant.py`,
+  `cosmo_constant_a3.py`, `cosmo_constant_v2.py`) and this file's own
+  prior citation were already correct throughout; the bug was isolated
+  to `cosmological_constant_fcc.md`'s own prose (Eq 54.1), which chained
+  the two forms together with "~" as if interchangeable, omitting the
+  energy-to-mass conversion. Fixed there, with the missing step made
+  explicit rather than silently patched. "Factor 12" survives, refined
+  from an unrefined "~12" citation to precisely 12.2354, cross-checked
+  two independent ways to 1 part in 10^16. Closes TODO_04.md T71. See
+  `docs/research/ckn_factor12_audit.md`.
+- 2026-09-27: Added Part 151 (T78: De Broglie double-solution pilot-wave
+  comparison, Darrow & Bush 2024, *Symmetry* 16, 149 -- real,
+  peer-reviewed, read directly in full, not from the notes file's AI
+  summary). No new equation table -- pure structural comparison, per
+  this item's own scope. Confirmed a real shared feature (both reject
+  one-way Bohmian coupling for genuine two-way particle-field
+  backreaction) and found two honest gaps: PDTP currently IMPORTS the
+  matter-wave oscillation as a prerequisite (`mathematical_formalization.md`
+  Sec 1.5) rather than deriving it dynamically the way D&B's coupling
+  does; and PDTP's matter sector has not been shown to stay correctly
+  on-shell under a full relativistic treatment the way D&B's mass-
+  modifying coupling does by construction. Also distinguished the two
+  couplings' functional forms precisely (D&B: linear-in-field, constant
+  source strength, Yukawa-like; PDTP: periodic in the phase difference,
+  self-quenching at lock, Josephson-like) so they are not conflated
+  despite both being genuinely two-way. Closes TODO_04.md T78. See
+  `docs/research/de_broglie_pilot_wave_comparison.md`.
+- 2026-09-26: Added Part 150 (T65: backfill `mathematical_formalization.md`
+  with the SU(3) extension (Part 37) and two-phase Lagrangian (Part 61)
+  structural sections, at the same step-by-step narrative depth as that
+  document's existing single-phase sections). No new equation TABLE here
+  -- this is a documentation-compilation task reusing already-registered
+  equations (this file's own SS1b/1c, 2d/2e, 6b/6c entries), not new
+  physics; equations 150.1-150.19 are the new companion document's own
+  internal numbering for its step-by-step presentation, not a duplicate
+  registry. Per the user's new standing rule (large additions get a
+  companion file, not inline bloat of an existing doc), the new material
+  lives in `docs/research/mathematical_formalization_extensions.md`, with
+  `mathematical_formalization.md` itself updated with a real pointer (a
+  "Companion documents" note + TOC entry, mirroring `Methodology.md`'s
+  own companion-doc pattern) rather than left untouched. Scoped to Parts
+  37/61-63 only, per the item's own filing -- Parts 75-76 (SU(3) emergent
+  metric) and later derivative work (DM winding, Lambda-locking, Koide-
+  Z3/tan, T80, T23) cross-referenced, not re-derived. Closes TODO_04.md T65.
+- 2026-09-16: Added Part 149 (T79 Phase 2: does PDTP change or add to
+  the combined GR+SM "theory of everything" equation from Part 148?).
+  Audited all 6 labeled terms; classified each as (a) genuine derivable
+  addition, (b) provenance/interpretive note only, or (c) no addition.
+  Five terms are (c) or (b) -- gravity gets a Sakharov-induced-gravity
+  provenance note (Part 114's Trace Theorem) but no equation change;
+  gauge fields were already closed negative two days prior (T80/Part 147);
+  matter/Dirac is a genuine gap (Part 40's Wilson fermions re-confirmed
+  as borrowed lattice-QCD scaffold, not PDTP's own field); Higgs gets an
+  explicit caveat that phi_- ("reversed Higgs", Part 62) is a gravity-
+  sector mode tied to the Newtonian potential, NOT a competing claim
+  about the equation's actual electroweak Higgs field, despite the name;
+  quantum mechanics gets no addition, with Part 66's quantum-metric
+  identification and T23/Part 104's shelved sin^2 Hilbert term cited
+  precisely rather than overclaimed. ONE genuine addition found: Part
+  53's already-derived Koide relation (Q=2/3 for charged leptons, from
+  SU(3)'s Z_3 center) translates exactly, via a proven scale-invariance
+  [Eq 149.1], into a constraint on the master equation's own V_ij matrix
+  [Eq 149.2] -- reducing the charged-lepton Yukawa sector's free
+  parameters from 3 to 2. Explicitly NOT extended to quarks (Part 122's
+  own negative result re-confirmed: the SU(3) 60-degree angle predicts
+  delta=sqrt(6) for the analogous quark quantity, not the observed
+  delta_up~sqrt(3) coincidence, which has no identified PDTP origin).
+  9/9 Sudoku PASS after RECHECK caught and fixed a real bug (comparing
+  SymPy symbols built with different assumption sets, which are not
+  equal even when same-named) -- documented in the script, not hidden.
+  Closes TODO_04.md T79 (both phases). See
+  `docs/research/theory_of_everything_pdtp_audit.md`.
 - 2026-09-14: Added Part 148 (T79 Phase 1: "Theory of Everything" master
   equation term-by-term explainer -- pure exposition, no PDTP comparison,
   no new equations, per user request to review the equation itself

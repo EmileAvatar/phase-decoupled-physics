@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Spiral & Field Dynamics Viewer</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Three.js and OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* Custom scrollbar for control panel */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(51, 65, 85, 0.8);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(71, 85, 105, 1);
+    }
+    /* Glassmorphism effects */
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    /* Custom range slider styling */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: transparent;
+    }
+    input[type=range]:focus {
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 6px;
+      cursor: pointer;
+      background: #334155;
+      border-radius: 3px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: #38bdf8;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -5px;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+      transition: transform 0.1s ease, background-color 0.1s ease;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      background: #7dd3fc;
+    }
+  </style>
+</head>
+<body class="h-full w-full overflow-hidden select-none font-sans bg-slate-950 text-slate-100 flex flex-col md:flex-row">
+
+  <!-- Main 3D Canvas Viewport -->
+  <div class="relative flex-1 h-full w-full overflow-hidden">
+    <!-- WebGL Canvas Container -->
+    <div id="canvas-container" class="w-full h-full cursor-grab active:cursor-grabbing"></div>
+
+    <!-- Floating Top Info Overlay -->
+    <div class="absolute top-4 left-4 z-10 flex flex-col gap-2 max-w-sm pointer-events-none">
+      <div class="glass-panel p-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <div class="p-2 rounded-lg bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-sm font-bold tracking-wide text-white uppercase" id="mode-title-display">Spiral & Field Generator</h1>
+          <p class="text-xs text-slate-400 font-mono" id="mode-subtitle-display">Phase Shift: <span id="phase-deg-display" class="text-cyan-400">90° (Circular Helix)</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Mathematical Formula Banner -->
+    <div class="absolute top-4 right-4 z-10 hidden sm:block pointer-events-none">
+      <div class="glass-panel px-4 py-2.5 rounded-xl text-xs font-mono text-slate-300 space-y-1 shadow-2xl border border-slate-700/50">
+        <div class="text-slate-400 font-sans text-[10px] uppercase font-bold tracking-wider mb-1">Field Displacement Vector</div>
+        <div class="text-cyan-400" id="math-ex">E_x = A_x · cos(k·z - ω·t)</div>
+        <div class="text-pink-400" id="math-ey">E_y = A_y · cos(k·z - ω·t + δ)</div>
+        <div class="text-amber-400" id="math-ez">E_z = A_z · sin(k·z - ω·t)</div>
+      </div>
+    </div>
+
+    <!-- Bottom Controls Bar (Viewport overlays) -->
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2 glass-panel p-2 rounded-full shadow-2xl">
+      <button id="btn-play-pause" class="p-2.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition flex items-center justify-center">
+        <svg id="icon-pause" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>
+        <svg id="icon-play" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+
+      <div class="h-6 w-px bg-slate-700/60 mx-1"></div>
+
+      <button id="btn-reset-cam" title="Reset Camera View" class="p-2.5 rounded-full hover:bg-slate-800 text-slate-300 hover:text-white transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 00-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+        </svg>
+      </button>
+
+      <button id="btn-reverse-spin" title="Reverse Rotation Direction" class="p-2.5 rounded-full hover:bg-slate-800 text-slate-300 hover:text-white transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+        </svg>
+      </button>
+
+      <button id="btn-toggle-vectors" title="Toggle Vector Arrows" class="px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-xs font-medium text-cyan-300 transition border border-cyan-500/30">
+        Vectors: ON
+      </button>
+    </div>
+  </div>
+
+  <!-- Control Sidebar -->
+  <div class="w-full md:w-96 h-1/2 md:h-full glass-panel border-t md:border-t-0 md:border-l border-slate-800 flex flex-col z-20 overflow-hidden shadow-2xl">
+    
+    <!-- Sidebar Header -->
+    <div class="p-4 border-b border-slate-800/80 flex justify-between items-center bg-slate-900/50">
+      <div class="flex items-center gap-2">
+        <div class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></div>
+        <h2 class="font-bold text-sm tracking-wide text-white">FIELD & SPIRAL CONTROLS</h2>
+      </div>
+      <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">3D Interactive</span>
+    </div>
+
+    <!-- Scrollable Settings Body -->
+    <div class="flex-1 overflow-y-auto p-4 space-y-6">
+
+      <!-- Physical Phenomenon Presets -->
+      <div class="space-y-2">
+        <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Phenomenon Preset</label>
+        <div class="grid grid-cols-2 gap-2">
+          <button data-preset="em-wave" class="preset-btn active px-3 py-2 rounded-lg text-xs font-medium text-left transition border bg-indigo-600/30 border-indigo-500/60 text-indigo-200 hover:bg-indigo-600/40">
+            ⚡ EM Field Wave
+            <span class="block text-[10px] opacity-70">Transverse E & B vectors</span>
+          </button>
+          <button data-preset="photon" class="preset-btn px-3 py-2 rounded-lg text-xs font-medium text-left transition border bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-700/50">
+            ✨ Spin Photon
+            <span class="block text-[10px] opacity-70">Helicity & Circular mode</span>
+          </button>
+          <button data-preset="phonon" class="preset-btn px-3 py-2 rounded-lg text-xs font-medium text-left transition border bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-700/50">
+            ⚛️ Chiral Phonon
+            <span class="block text-[10px] opacity-70">Material lattice wave</span>
+          </button>
+          <button data-preset="geometric" class="preset-btn px-3 py-2 rounded-lg text-xs font-medium text-left transition border bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-700/50">
+            🌀 Pure Geometry
+            <span class="block text-[10px] opacity-70">Custom helical spiral</span>
+          </button>
+        </div>
+      </div>
+
+      <hr class="border-slate-800">
+
+      <!-- KEY SLIDER: Mode Transition (Linear Planar -> Circular Helical Spiral) -->
+      <div class="p-3.5 rounded-xl bg-gradient-to-br from-cyan-950/40 to-slate-900 border border-cyan-500/30 space-y-2">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-bold text-cyan-300 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+            </svg>
+            Field Mode Transition (Phase Shift δ)
+          </span>
+          <span id="val-phase" class="text-xs font-mono text-cyan-400 font-bold">90° (Helical Spiral)</span>
+        </div>
+        <p class="text-[11px] text-slate-400 leading-snug">
+          Morphs continuous field from <strong class="text-cyan-200">Linear (Up/Sideways)</strong> through <strong class="text-cyan-200">Elliptical</strong> to <strong class="text-cyan-200">Helical Spinning Spiral (Up/Sideways/Forward)</strong>.
+        </p>
+        <input id="slider-phase" type="range" min="0" max="180" step="1" value="90" class="w-full mt-1">
+        <div class="flex justify-between text-[10px] font-mono text-slate-500 pt-1">
+          <span>0° Planar Wave</span>
+          <span>45° Elliptical</span>
+          <span>90° Circular Helix</span>
+        </div>
+      </div>
+
+      <!-- General Sliders -->
+      <div class="space-y-4">
+        
+        <!-- Speed / Rotation Rate -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs">
+            <span class="font-medium text-slate-300">Spin / Propagation Speed (ω)</span>
+            <span id="val-speed" class="font-mono text-slate-400">1.50 rad/s</span>
+          </div>
+          <input id="slider-speed" type="range" min="0" max="5" step="0.05" value="1.5" class="w-full">
+        </div>
+
+        <!-- Amplitude / Spiral Size -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs">
+            <span class="font-medium text-slate-300">Amplitude / Radius (A)</span>
+            <span id="val-amplitude" class="font-mono text-slate-400">2.20</span>
+          </div>
+          <input id="slider-amplitude" type="range" min="0.2" max="5.0" step="0.1" value="2.2" class="w-full">
+        </div>
+
+        <!-- Longitudinal / Forward Component -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs">
+            <span class="font-medium text-slate-300">Forward / Longitudinal Tilt (A_z)</span>
+            <span id="val-longitudinal" class="font-mono text-slate-400">0.00</span>
+          </div>
+          <input id="slider-longitudinal" type="range" min="0.0" max="2.0" step="0.05" value="0.0" class="w-full">
+          <span class="text-[10px] text-slate-500 block">Adds forward compression/twist component (acoustic phonons/longitudinal modes).</span>
+        </div>
+
+        <!-- Pitch / Wavelength -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs">
+            <span class="font-medium text-slate-300">Spiral Pitch / Wavelength (λ)</span>
+            <span id="val-wavelength" class="font-mono text-slate-400">6.00</span>
+          </div>
+          <input id="slider-wavelength" type="range" min="2.0" max="15.0" step="0.2" value="6.0" class="w-full">
+        </div>
+
+        <!-- Wave Turns / Axial Length -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs">
+            <span class="font-medium text-slate-300">Total Spiral Length / Cycles</span>
+            <span id="val-length" class="font-mono text-slate-400">4.0 turns</span>
+          </div>
+          <input id="slider-length" type="range" min="1.0" max="10.0" step="0.5" value="4.0" class="w-full">
+        </div>
+
+      </div>
+
+      <hr class="border-slate-800">
+
+      <!-- Visual Customizations & Toggles -->
+      <div class="space-y-3">
+        <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Visual Layer Settings</label>
+        
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer hover:bg-slate-800/80">
+            <input type="checkbox" id="chk-show-trail" checked class="rounded accent-cyan-500">
+            <span class="text-slate-300">Glow Envelope</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer hover:bg-slate-800/80">
+            <input type="checkbox" id="chk-show-particles" checked class="rounded accent-cyan-500">
+            <span class="text-slate-300">Photons / Particles</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer hover:bg-slate-800/80">
+            <input type="checkbox" id="chk-show-lattice" class="rounded accent-cyan-500">
+            <span class="text-slate-300">Phonon Lattice</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer hover:bg-slate-800/80">
+            <input type="checkbox" id="chk-show-ortho" checked class="rounded accent-cyan-500">
+            <span class="text-slate-300">B-Field / Sideways</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Educational Explanation Panel -->
+      <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-400 space-y-1.5 leading-relaxed">
+        <div class="font-bold text-slate-200 flex items-center gap-1">
+          <span>💡 Physical Meaning</span>
+        </div>
+        <p id="phenomenon-description">
+          In circular polarization, two orthogonal electric vector components ($E_x, E_y$) have a 90° phase difference, creating a 3D spinning helix progression in space along the propagation axis.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Footer Info -->
+    <div class="p-3 border-t border-slate-800 text-center text-[11px] text-slate-500 font-mono">
+      Interactive 3D Spiral Dynamics Engine • WebGL
+    </div>
+
+  </div>
+
+  <script>
+    // --- Application State ---
+    const state = {
+      preset: 'em-wave',
+      speed: 1.5,
+      direction: 1.0, // 1 for forward, -1 for reverse
+      isPlaying: true,
+      amplitude: 2.2,
+      longitudinal: 0.0,
+      phaseDeg: 90, // 0 = linear, 90 = circular helix, 180 = inverted
+      wavelength: 6.0,
+      turns: 4.0,
+      showVectors: true,
+      showEnvelope: true,
+      showParticles: true,
+      showLattice: false,
+      showOrthogonalField: true,
+      arrowCount: 40,
+      latticeRows: 5,
+      latticeCols: 5
+    };
+
+    // --- DOM Elements ---
+    const canvasContainer = document.getElementById('canvas-container');
+    const sliderPhase = document.getElementById('slider-phase');
+    const valPhase = document.getElementById('val-phase');
+    const sliderSpeed = document.getElementById('slider-speed');
+    const valSpeed = document.getElementById('val-speed');
+    const sliderAmplitude = document.getElementById('slider-amplitude');
+    const valAmplitude = document.getElementById('val-amplitude');
+    const sliderLongitudinal = document.getElementById('slider-longitudinal');
+    const valLongitudinal = document.getElementById('val-longitudinal');
+    const sliderWavelength = document.getElementById('slider-wavelength');
+    const valWavelength = document.getElementById('val-wavelength');
+    const sliderLength = document.getElementById('slider-length');
+    const valLength = document.getElementById('val-length');
+
+    const btnPlayPause = document.getElementById('btn-play-pause');
+    const iconPause = document.getElementById('icon-pause');
+    const iconPlay = document.getElementById('icon-play');
+    const btnResetCam = document.getElementById('btn-reset-cam');
+    const btnReverseSpin = document.getElementById('btn-reverse-spin');
+    const btnToggleVectors = document.getElementById('btn-toggle-vectors');
+
+    const chkShowTrail = document.getElementById('chk-show-trail');
+    const chkShowParticles = document.getElementById('chk-show-particles');
+    const chkShowLattice = document.getElementById('chk-show-lattice');
+    const chkShowOrtho = document.getElementById('chk-show-ortho');
+
+    const modeTitleDisplay = document.getElementById('mode-title-display');
+    const modeSubtitleDisplay = document.getElementById('mode-subtitle-display');
+    const phaseDegDisplay = document.getElementById('phase-deg-display');
+    const phenomenonDescription = document.getElementById('phenomenon-description');
+
+    const mathEx = document.getElementById('math-ex');
+    const mathEy = document.getElementById('math-ey');
+    const mathEz = document.getElementById('math-ez');
+
+    // --- Three.js Setup ---
+    let scene, camera, renderer, controls;
+    let mainCurveLine, orthoCurveLine, resultSpiralLine;
+    let vectorArrowsGroup, orthoVectorArrowsGroup;
+    let particleSystem, particleGeometry;
+    let latticeGroup = null;
+    let axisGridGroup;
+    let clock = new THREE.Clock();
+    let time = 0;
+
+    function initThree() {
+      // Scene
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x030712); // Deep dark space background
+      scene.fog = new THREE.FogExp2(0x030712, 0.02);
+
+      // Camera
+      camera = new THREE.PerspectiveCamera(
+        45,
+        canvasContainer.clientWidth / canvasContainer.clientHeight,
+        0.1,
+        1000
+      );
+      camera.position.set(18, 12, 22);
+
+      // Renderer
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+      renderer.setSize(canvasContainer.clientWidth, canvasContainer.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.shadowMap.enabled = true;
+      canvasContainer.appendChild(renderer.domElement);
+
+      // OrbitControls
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.maxDistance = 80;
+      controls.minDistance = 3;
+      controls.target.set(0, 0, 0);
+
+      // Lights
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambientLight);
+
+      const dirLight1 = new THREE.DirectionalLight(0x38bdf8, 1.2);
+      dirLight1.position.set(10, 20, 15);
+      scene.add(dirLight1);
+
+      const dirLight2 = new THREE.DirectionalLight(0xf43f5e, 0.8);
+      dirLight2.position.set(-10, -10, -15);
+      scene.add(dirLight2);
+
+      // Axis and Grid Helper
+      createAxisGrid();
+
+      // Line Geometries for Fields
+      createFieldCurves();
+
+      // Particles for Photon visualization
+      createParticleSystem();
+
+      // Lattice Grid for Phonon visualization
+      createLatticeGrid();
+
+      // Resize Listener
+      window.addEventListener('resize', onWindowResize);
+    }
+
+    function createAxisGrid() {
+      axisGridGroup = new THREE.Group();
+
+      // Z-axis propagation line (Main Beam Axis)
+      const axisGeo = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(0, 0, -25),
+        new THREE.Vector3(0, 0, 25)
+      ]);
+      const axisMat = new THREE.LineDashedMaterial({
+        color: 0x475569,
+        dashSize: 0.5,
+        gapSize: 0.3,
+      });
+      const axisLine = new THREE.Line(axisGeo, axisMat);
+      axisLine.computeLineDistances();
+      axisGridGroup.add(axisLine);
+
+      // Center Origin Indicator
+      const originSphere = new THREE.Mesh(
+        new THREE.SphereGeometry(0.15, 16, 16),
+        new THREE.MeshStandardMaterial({ color: 0x38bdf8, emissive: 0x0284c7 })
+      );
+      axisGridGroup.add(originSphere);
+
+      // Light Spatial Grid
+      const gridHelper = new THREE.GridHelper(30, 30, 0x1e293b, 0x0f172a);
+      gridHelper.rotation.x = Math.PI / 2;
+      gridHelper.position.z = 0;
+      axisGridGroup.add(gridHelper);
+
+      scene.add(axisGridGroup);
+    }
+
+    function createFieldCurves() {
+      const samplePoints = 300;
+
+      // 1. Main Field / Spiral Line (E-Field)
+      const geo1 = new THREE.BufferGeometry();
+      const pos1 = new Float32Array(samplePoints * 3);
+      geo1.setAttribute('position', new THREE.BufferAttribute(pos1, 3));
+      const mat1 = new THREE.LineBasicMaterial({ color: 0x38bdf8, linewidth: 2 });
+      mainCurveLine = new THREE.Line(geo1, mat1);
+      scene.add(mainCurveLine);
+
+      // 2. Orthogonal Field Line (B-Field)
+      const geo2 = new THREE.BufferGeometry();
+      const pos2 = new Float32Array(samplePoints * 3);
+      geo2.setAttribute('position', new THREE.BufferAttribute(pos2, 3));
+      const mat2 = new THREE.LineBasicMaterial({ color: 0xf43f5e, linewidth: 2 });
+      orthoCurveLine = new THREE.Line(geo2, mat2);
+      scene.add(orthoCurveLine);
+
+      // Groups for Vector Arrows
+      vectorArrowsGroup = new THREE.Group();
+      scene.add(vectorArrowsGroup);
+
+      orthoVectorArrowsGroup = new THREE.Group();
+      scene.add(orthoVectorArrowsGroup);
+    }
+
+    function createParticleSystem() {
+      const pCount = 200;
+      particleGeometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(pCount * 3);
+      const colors = new Float32Array(pCount * 3);
+
+      for (let i = 0; i < pCount; i++) {
+        positions[i * 3] = 0;
+        positions[i * 3 + 1] = 0;
+        positions[i * 3 + 2] = 0;
+
+        colors[i * 3] = 0.2 + Math.random() * 0.8;
+        colors[i * 3 + 1] = 0.8 + Math.random() * 0.2;
+        colors[i * 3 + 2] = 1.0;
+      }
+
+      particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+      const particleMat = new THREE.PointsMaterial({
+        size: 0.35,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.85,
+        blending: THREE.AdditiveBlending
+      });
+
+      particleSystem = new THREE.Points(particleGeometry, particleMat);
+      scene.add(particleSystem);
+    }
+
+    function createLatticeGrid() {
+      latticeGroup = new THREE.Group();
+      const rows = state.latticeRows;
+      const cols = state.latticeCols;
+      const spacing = 1.5;
+
+      const atomGeo = new THREE.SphereGeometry(0.18, 12, 12);
+      const atomMat = new THREE.MeshStandardMaterial({
+        color: 0xa855f7,
+        roughness: 0.3,
+        metalness: 0.6,
+        emissive: 0x3b0764
+      });
+
+      for (let r = -Math.floor(rows / 2); r <= Math.floor(rows / 2); r++) {
+        for (let c = -Math.floor(cols / 2); c <= Math.floor(cols / 2); c++) {
+          // Exclude center line to keep view clear
+          if (r === 0 && c === 0) continue;
+
+          const atom = new THREE.Mesh(atomGeo, atomMat);
+          atom.userData = { baseR: r * spacing, baseC: c * spacing };
+          latticeGroup.add(atom);
+        }
+      }
+
+      latticeGroup.visible = state.showLattice;
+      scene.add(latticeGroup);
+    }
+
+    // --- Dynamic Physics / Wave Calculation ---
+    function updateWaveAndSpiral() {
+      const N = 300;
+      const positionsE = mainCurveLine.geometry.attributes.position.array;
+      const positionsB = orthoCurveLine.geometry.attributes.position.array;
+
+      const totalLength = state.turns * state.wavelength;
+      const startZ = -totalLength / 2;
+      const dz = totalLength / (N - 1);
+
+      const k = (2 * Math.PI) / state.wavelength; // Wave number
+      const w = state.speed * state.direction; // Angular frequency
+      const delta = (state.phaseDeg * Math.PI) / 180; // Phase shift in radians
+
+      const Ax = state.amplitude;
+      const Ay = state.amplitude;
+      const Az = state.longitudinal;
+
+      // 1. Calculate Continuous Waveform Lines
+      for (let i = 0; i < N; i++) {
+        const z = startZ + i * dz;
+        const phase = k * z - w * time;
+
+        // Wave displacements
+        // Ex = Up/Vertical component
+        // Ey = Sideways/Horizontal component with phase delta
+        // Ez = Forward/Longitudinal component
+        const Ex = Ax * Math.cos(phase);
+        const Ey = Ay * Math.cos(phase + delta);
+        const Ez = Az * Math.sin(phase);
+
+        // Position on 3D Spiral / Field
+        positionsE[i * 3] = Ey;        // X axis (Sideways)
+        positionsE[i * 3 + 1] = Ex;    // Y axis (Up)
+        positionsE[i * 3 + 2] = z + Ez; // Z axis (Forward)
+
+        // Orthogonal B-Field (for EM mode: B is perpendicular to E)
+        // Bx = -Ex, By = Ey
+        const Bx = -Ey * 0.8;
+        const By = Ex * 0.8;
+
+        positionsB[i * 3] = Bx;
+        positionsB[i * 3 + 1] = By;
+        positionsB[i * 3 + 2] = z;
+      }
+
+      mainCurveLine.geometry.attributes.position.needsUpdate = true;
+      orthoCurveLine.geometry.attributes.position.needsUpdate = true;
+
+      // 2. Update Vector Field Arrows along Z
+      updateVectorArrows(startZ, totalLength, k, w, delta, Ax, Ay, Az);
+
+      // 3. Update Photon Particles
+      if (state.showParticles) {
+        updateParticles(startZ, totalLength, k, w, delta, Ax, Ay);
+      }
+
+      // 4. Update Chiral Phonon Lattice Nodes
+      if (state.showLattice && latticeGroup) {
+        updateLatticeNodes(k, w, delta);
+      }
+    }
+
+    function updateVectorArrows(startZ, totalLength, k, w, delta, Ax, Ay, Az) {
+      // Clear previous arrows
+      while (vectorArrowsGroup.children.length > 0) {
+        const obj = vectorArrowsGroup.children.pop();
+        if (obj.geometry) obj.geometry.dispose();
+      }
+      while (orthoVectorArrowsGroup.children.length > 0) {
+        const obj = orthoVectorArrowsGroup.children.pop();
+        if (obj.geometry) obj.geometry.dispose();
+      }
+
+      if (!state.showVectors) return;
+
+      const numArrows = state.arrowCount;
+      const stepZ = totalLength / numArrows;
+
+      for (let i = 0; i <= numArrows; i++) {
+        const z = startZ + i * stepZ;
+        const phase = k * z - w * time;
+
+        const Ex = Ax * Math.cos(phase);
+        const Ey = Ay * Math.cos(phase + delta);
+        const Ez = Az * Math.sin(phase);
+
+        const origin = new THREE.Vector3(0, 0, z);
+        const dirE = new THREE.Vector3(Ey, Ex, Ez);
+        const lenE = dirE.length();
+
+        if (lenE > 0.05) {
+          dirE.normalize();
+          // E Vector Arrow (Cyan)
+          const arrowE = new THREE.ArrowHelper(
+            dirE,
+            origin,
+            lenE,
+            0x38bdf8,
+            0.25 * Math.min(lenE, 1),
+            0.15 * Math.min(lenE, 1)
+          );
+          vectorArrowsGroup.add(arrowE);
+        }
+
+        // B Field Vector Arrow (Pink) - shown if orthogonal field toggle is active
+        if (state.showOrthogonalField && state.preset === 'em-wave') {
+          const Bx = -Ey * 0.8;
+          const By = Ex * 0.8;
+          const dirB = new THREE.Vector3(Bx, By, 0);
+          const lenB = dirB.length();
+
+          if (lenB > 0.05) {
+            dirB.normalize();
+            const arrowB = new THREE.ArrowHelper(
+              dirB,
+              origin,
+              lenB,
+              0xf43f5e,
+              0.2 * Math.min(lenB, 1),
+              0.12 * Math.min(lenB, 1)
+            );
+            orthoVectorArrowsGroup.add(arrowB);
+          }
+        }
+      }
+    }
+
+    function updateParticles(startZ, totalLength, k, w, delta, Ax, Ay) {
+      const positions = particleGeometry.attributes.position.array;
+      const count = positions.length / 3;
+
+      for (let i = 0; i < count; i++) {
+        // Distribute particles along spiral curve
+        const progress = (i / count + (time * 0.1 * state.speed) % 1) % 1;
+        const z = startZ + progress * totalLength;
+        const phase = k * z - w * time;
+
+        const jitterX = (Math.random() - 0.5) * 0.2;
+        const jitterY = (Math.random() - 0.5) * 0.2;
+
+        positions[i * 3] = Ay * Math.cos(phase + delta) + jitterX;
+        positions[i * 3 + 1] = Ax * Math.cos(phase) + jitterY;
+        positions[i * 3 + 2] = z;
+      }
+
+      particleGeometry.attributes.position.needsUpdate = true;
+    }
+
+    function updateLatticeNodes(k, w, delta) {
+      latticeGroup.children.forEach((atom) => {
+        const baseR = atom.userData.baseR;
+        const baseC = atom.userData.baseC;
+        const z = 0; // Lattice slice or propagating wave along Z
+
+        const phase = k * (baseR + baseC) - w * time;
+        const dx = state.amplitude * 0.3 * Math.cos(phase + delta);
+        const dy = state.amplitude * 0.3 * Math.sin(phase);
+        const dz = state.longitudinal * 0.4 * Math.sin(phase);
+
+        atom.position.set(baseR + dx, baseC + dy, z + dz);
+      });
+    }
+
+    // --- UI Event Handlers & Sync ---
+    function setupEventListeners() {
+      // Phase Shift (Linear -> Spiral transition) Slider
+      sliderPhase.addEventListener('input', (e) => {
+        state.phaseDeg = parseFloat(e.target.value);
+        updatePhaseUI();
+      });
+
+      // Speed Slider
+      sliderSpeed.addEventListener('input', (e) => {
+        state.speed = parseFloat(e.target.value);
+        valSpeed.textContent = `${state.speed.toFixed(2)} rad/s`;
+      });
+
+      // Amplitude Slider
+      sliderAmplitude.addEventListener('input', (e) => {
+        state.amplitude = parseFloat(e.target.value);
+        valAmplitude.textContent = state.amplitude.toFixed(2);
+      });
+
+      // Longitudinal Component Slider
+      sliderLongitudinal.addEventListener('input', (e) => {
+        state.longitudinal = parseFloat(e.target.value);
+        valLongitudinal.textContent = state.longitudinal.toFixed(2);
+      });
+
+      // Wavelength Slider
+      sliderWavelength.addEventListener('input', (e) => {
+        state.wavelength = parseFloat(e.target.value);
+        valWavelength.textContent = state.wavelength.toFixed(2);
+      });
+
+      // Total Length Slider
+      sliderLength.addEventListener('input', (e) => {
+        state.turns = parseFloat(e.target.value);
+        valLength.textContent = `${state.turns.toFixed(1)} turns`;
+      });
+
+      // Preset Buttons
+      document.querySelectorAll('.preset-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.preset-btn').forEach((b) => {
+            b.classList.remove('active', 'bg-indigo-600/30', 'border-indigo-500/60', 'text-indigo-200');
+            b.classList.add('bg-slate-800/80', 'border-slate-700', 'text-slate-300');
+          });
+
+          btn.classList.add('active', 'bg-indigo-600/30', 'border-indigo-500/60', 'text-indigo-200');
+          btn.classList.remove('bg-slate-800/80', 'border-slate-700', 'text-slate-300');
+
+          applyPreset(btn.dataset.preset);
+        });
+      });
+
+      // Play / Pause
+      btnPlayPause.addEventListener('click', () => {
+        state.isPlaying = !state.isPlaying;
+        iconPause.classList.toggle('hidden', !state.isPlaying);
+        iconPlay.classList.toggle('hidden', state.isPlaying);
+      });
+
+      // Reset Camera
+      btnResetCam.addEventListener('click', () => {
+        camera.position.set(18, 12, 22);
+        controls.target.set(0, 0, 0);
+        controls.update();
+      });
+
+      // Reverse Spin
+      btnReverseSpin.addEventListener('click', () => {
+        state.direction *= -1;
+      });
+
+      // Toggle Vector Arrows
+      btnToggleVectors.addEventListener('click', () => {
+        state.showVectors = !state.showVectors;
+        btnToggleVectors.textContent = `Vectors: ${state.showVectors ? 'ON' : 'OFF'}`;
+        btnToggleVectors.classList.toggle('bg-slate-800', !state.showVectors);
+        btnToggleVectors.classList.toggle('bg-cyan-600/30', state.showVectors);
+      });
+
+      // Checkboxes
+      chkShowTrail.addEventListener('change', (e) => {
+        mainCurveLine.visible = e.target.checked;
+      });
+
+      chkShowParticles.addEventListener('change', (e) => {
+        state.showParticles = e.target.checked;
+        particleSystem.visible = e.target.checked;
+      });
+
+      chkShowLattice.addEventListener('change', (e) => {
+        state.showLattice = e.target.checked;
+        if (latticeGroup) latticeGroup.visible = e.target.checked;
+      });
+
+      chkShowOrtho.addEventListener('change', (e) => {
+        state.showOrthogonalField = e.target.checked;
+        orthoCurveLine.visible = e.target.checked;
+      });
+    }
+
+    function updatePhaseUI() {
+      const deg = state.phaseDeg;
+      let label = `${deg}° `;
+
+      if (deg === 0) {
+        label += '(Linear Orthogonal Wave)';
+      } else if (deg === 90) {
+        label += '(Perfect Helical Spiral)';
+      } else if (deg === 180) {
+        label += '(Inverted Linear)';
+      } else {
+        label += '(Elliptical Spiral)';
+      }
+
+      valPhase.textContent = label;
+      phaseDegDisplay.textContent = label;
+
+      // Update Math Display formulas
+      mathEx.textContent = `E_x = ${state.amplitude.toFixed(1)} · cos(k·z - ω·t)`;
+      mathEy.textContent = `E_y = ${state.amplitude.toFixed(1)} · cos(k·z - ω·t + ${deg}°)`;
+      if (state.longitudinal > 0) {
+        mathEz.textContent = `E_z = ${state.longitudinal.toFixed(1)} · sin(k·z - ω·t)`;
+        mathEz.style.display = 'block';
+      } else {
+        mathEz.style.display = 'none';
+      }
+    }
+
+    function applyPreset(presetKey) {
+      state.preset = presetKey;
+
+      switch (presetKey) {
+        case 'em-wave':
+          modeTitleDisplay.textContent = 'Electromagnetic Wave Field';
+          modeSubtitleDisplay.textContent = 'Orthogonal Electric & Magnetic Field Vector Propagation';
+          phenomenonDescription.innerHTML =
+            'Visualizes classical <strong>Electromagnetic Field Vectors</strong> ($\vec{E}$ and $\vec{B}$). Adjust the Phase Shift slider to morph from planar transverse waves to circularly polarized EM radiation.';
+          state.phaseDeg = 0; // Linear start for standard EM
+          state.longitudinal = 0.0;
+          state.showOrthogonalField = true;
+          chkShowOrtho.checked = true;
+          chkShowLattice.checked = false;
+          state.showLattice = false;
+          break;
+
+        case 'photon':
+          modeTitleDisplay.textContent = 'Single Photon Helicity';
+          modeSubtitleDisplay.textContent = 'Quantum Spin Angular Momentum / Helical Mode';
+          phenomenonDescription.innerHTML =
+            'A single photon with <strong>Spin Angular Momentum</strong> ($\hbar$) corresponds to right/left circular polarization where field vectors trace a continuous 3D corkscrew spiral through spacetime.';
+          state.phaseDeg = 90; // Circular spin
+          state.longitudinal = 0.0;
+          state.showOrthogonalField = false;
+          chkShowOrtho.checked = false;
+          chkShowLattice.checked = false;
+          state.showLattice = false;
+          break;
+
+        case 'phonon':
+          modeTitleDisplay.textContent = 'Chiral Lattice Phonon';
+          modeSubtitleDisplay.textContent = 'Rotational Lattice Displacement Wave in Condensed Matter';
+          phenomenonDescription.innerHTML =
+            'In chiral materials, <strong>Phonons</strong> cause crystal lattice ions to rotate in circular or helical orbits, carrying non-zero pseudoangular momentum.';
+          state.phaseDeg = 90;
+          state.longitudinal = 0.8; // Acoustic longitudinal twist
+          state.showLattice = true;
+          chkShowLattice.checked = true;
+          state.showOrthogonalField = false;
+          chkShowOrtho.checked = false;
+          break;
+
+        case 'geometric':
+          modeTitleDisplay.textContent = '3D Pure Geometrical Spiral';
+          modeSubtitleDisplay.textContent = 'Customizable 3D Helical Curve Engine';
+          phenomenonDescription.innerHTML =
+            'Explore pure parametric 3D <strong>Helical Spirals</strong> with customizable pitch, speed, amplitude, and forward tilt progression.';
+          state.phaseDeg = 90;
+          state.longitudinal = 0.0;
+          state.showOrthogonalField = false;
+          chkShowOrtho.checked = false;
+          break;
+      }
+
+      // Sync sliders UI
+      sliderPhase.value = state.phaseDeg;
+      sliderLongitudinal.value = state.longitudinal;
+      valLongitudinal.textContent = state.longitudinal.toFixed(2);
+      if (latticeGroup) latticeGroup.visible = state.showLattice;
+      orthoCurveLine.visible = state.showOrthogonalField;
+
+      updatePhaseUI();
+    }
+
+    function onWindowResize() {
+      camera.aspect = canvasContainer.clientWidth / canvasContainer.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(canvasContainer.clientWidth, canvasContainer.clientHeight);
+    }
+
+    // --- Render Loop ---
+    function animate() {
+      requestAnimationFrame(animate);
+
+      if (state.isPlaying) {
+        const delta = clock.getDelta();
+        time += delta;
+        updateWaveAndSpiral();
+      }
+
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    // --- Initialization ---
+    window.onload = () => {
+      initThree();
+      setupEventListeners();
+      updatePhaseUI();
+      animate();
+    };
+  </script>
+</body>
+</html>

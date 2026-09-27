@@ -14,18 +14,19 @@ New additions go on top. One line per item. Full details below.
 
 - T81 — Kinematic phase-coherence decomposition of PDTP's own coupling (TFG-inspired MOND retry) [DONE, Part 146, 2026-09-14 -- CONSTRUCTIVE PARTIAL: (1) DERIVED a real, exact PDTP analog of TFG's cos(theta) -- ensemble-averaging psi_i over N particles with von Mises-distributed phase scatter gives EXACTLY <sum sin(psi_i-phi)> = N*R(kappa)*sin(psi_bar-phi), R(kappa)=I_1(kappa)/I_0(kappa) the circular mean resultant length, bounded [0,1], matching TFG's cos(theta) structurally; (2) substituted into PDTP's weak-field reduction gives a genuine new PDTP-Original result, G_eff=G*R(kappa) (coherence-dependent effective Newton's constant); (3) DERIVED NEGATIVE for the actual MOND goal: G_eff=G*R(kappa) is a CONSTANT-coefficient rescaling (R depends only on the source's kinematic spread, not on Phi or its gradient) -- constant-coefficient Poisson equations ALWAYS give inverse-square force law (SymPy-verified for a point mass), never MOND's inverse-linear regime, which in TFG's own mechanism comes specifically from mu depending SELF-REFERENTIALLY on the local acceleration a=|grad(Phi)| (TFG's actual Eq 79, already verified T77) -- R(kappa) as derived has no such feedback; 10/10 Sudoku PASS after RECHECK caught + fixed 2 real bugs (Bessel-function overflow at large kappa; an N/coherence conflation in the G_eff derivation); a structural caveat flagged up front (PDTP's psi is a phase VALUE / internal clock, not a phase GRADIENT / velocity, unlike TFG's construction) -- see docs/research/kinematic_coherence_mond_retry.md]
 - T80 — Electromagnetism-from-geometry (U(1) connection/curvature) as a blueprint for PDTP's EM gap: DONE (Part 147). Gauging the corrected combined-shift symmetry (phi,psi->phi+alpha,psi+alpha together -- the filed "psi alone" wording was not a symmetry, corrected first) forces a real field A into existence with the exact QED-like transformation law, full Lagrangian exactly locally invariant -- Key Question 1 (corrected): YES. But minimal coupling gives A no kinetic term; solving out its resulting non-dynamical constraint reproduces PDTP's ORIGINAL ungauged theta equation exactly (two independent routes agree) -- minimal coupling alone is physically vacuous for PDTP, Key Question 2 answered precisely NO. A postulated Maxwell kinetic term is well-formed but not forced by PDTP's own structure; KK reading inherits the same gap. 13/13 Sudoku PASS. Sharpens (does not overturn) T79 Item 2 and polarization_analogy.md Sec 3.5's open item. [DONE, HIGH]
-- T79 — "Theory of Everything" master equation (GR + Standard Model combined path integral) term-by-term audit vs PDTP: Quora-circulated equation image (`assets/images/main-qimg-54f863a4dcc66a6be61caf1d89691959-lq.jpg`) combines the Einstein-Hilbert action + full SM Lagrangian (gravity/R, gauge fields/F^2, Dirac matter, Yukawa-Higgs coupling, Higgs kinetic+potential) in one functional integral -- every individual piece is 100% established physics, though the popular "one equation" framing overstates what symbolically combining them achieves (does not solve quantum-gravity renormalization or unify couplings; best read as a checklist, not a solved theory). Go through each of the 6 labeled pieces and map what PDTP already has (gravity via SU(3) metric + Sakharov, Part 114; own reversed-Higgs mechanism, Part 62), already found absent (gauge vector fields, T70/T75; native Dirac fermions, Part 40's Wilson fermions are borrowed scaffolding not PDTP's own field), or hasn't compared (Yukawa/mass-generation vs PDTP's own vortex-winding/Koide mass story) [PENDING, MEDIUM-HIGH]
-- T78 — De Broglie double-solution pilot-wave comparison (Darrow & Bush 2024, *Symmetry*, arXiv:2408.06972 -- real, open-access, peer-reviewed): Lorentz-covariant two-way-coupled pilot-wave framework with Compton-scale oscillations satisfying the de Broglie relation; compare against PDTP's own matter-wave (psi) treatment, same spirit as the Elastic Universe review (T27) [PENDING, MEDIUM]
+- T79 — "Theory of Everything" master equation term-by-term audit vs PDTP: DONE (Parts 148-149). Phase 1: pure explainer, no PDTP content (Part 148). Phase 2: audited all 6 labeled pieces for whether PDTP can change/add to them -- 5/6 have nothing to add (gravity: provenance note only, Sakharov/Trace Theorem, Part 114; gauge fields: already closed negative via T80/Part147; matter/Dirac: genuine gap, Wilson fermions confirmed borrowed scaffold, Part 40; Higgs: no addition + explicit caveat that phi_- "reversed Higgs" must not be conflated with the equation's actual Higgs field, different sector entirely; QM: no addition, cited Part 66's quantum-metric identification + T23's shelved sin^2 term precisely). ONE genuine addition found: Part 53's Koide relation translates exactly into Q(V_ee,V_mumu,V_tautau)=2/3 [DERIVED, Eq 149.2], a real constraint on the Yukawa matrix's charged-lepton eigenvalues (3 free params -> 2), explicitly scoped to leptons only (quark sector confirmed out of scope, Part 122). 9/9 Sudoku PASS (1 RECHECK-caught bug fixed, documented). [DONE, MEDIUM-HIGH]
+- T78 — De Broglie double-solution pilot-wave comparison (Darrow & Bush 2024): DONE (Part 151). Full 31-page paper read directly. Shared spirit confirmed (both reject one-way Bohmian coupling for genuine two-way backreaction) but two real gaps found: (1) D&B's Compton oscillation EMERGES from a non-oscillating linear coupling, PDTP's own matter-wave oscillation is currently IMPORTED as a prerequisite (math_formalization.md Sec 1.5), not derived from g*cos(psi-phi); (2) D&B's coupling is relativistic by construction (on-shell E^2=m^2+p^2 preserved at all velocities), PDTP's own treatment stays largely weak-field-first -- open question surfaced, not resolved. Coupling FORMS differ (D&B: linear/constant-strength/Yukawa-like; PDTP: periodic/self-quenching-at-lock/Josephson-like) despite both being genuinely two-way. [DONE, MEDIUM]
 - T77 — Timeflow Gravity comparison (Trofimov 2026, Class. Quantum Grav. 43) [DONE, Part 145, 2026-09-14 -- MIXED verdict, full paper read + TFG's own key equations independently SymPy-verified (all confirmed): (1) convergent validation -- both frameworks use a U(1) phase field, both anchor on Jacobson's entropic-gravity argument (via genuinely different technical routes), both fix a normalization constant via Newtonian-limit recovery; (2) a GENUINE GAP, not just thematic echo -- TFG's MOND-limit derivation checks out and lands exactly on Milgrom's function, while PDTP's own biharmonic MOND attempt (dark_matter_energy.md Sec 2.5) is an ALREADY-DOCUMENTED, twice-confirmed ~54-orders-of-magnitude failure (corrected from a stale "20 orders" figure caught while writing this comparison; corroborated again by T74's independent screening-length re-derivation, ~50 orders short); TFG's parameter-free w0=-0.844 sits 0.12sigma from DESI vs PDTP's own canonical Prediction 5 (w0=-0.92, ~1.5sigma away); (3) real structural differences -- TFG has ONE field (order/chaos decomposition of itself, no separate matter field, unlike PDTP's two-field psi-phi coupling), NO Lagrangian yet (authors' own admission), and a NEW global entropy-conservation postulate PDTP lacks -- this is NOT "PDTP in different words"; Bullet Cluster explanations are complementary not competing (spatial offset vs self-interaction bound); see docs/research/timeflow_gravity_comparison.md]
 - T76 — Topological dark-matter candidate: ring-on-chain linking [SPECULATIVE] [DONE, Part 144, 2026-09-10 -- NEGATIVE: the "linking is free" mechanical intuition relies on idealized, infinitely-thin, non-interacting curves; real (PDTP-modeled) vortices have finite cores and real energy, so they can RECONNECT -- cited directly against Kleckner & Irvine (2013, Nature Physics, "Creation and dynamics of knotted vortices") + quantum-turbulence numerics: linked vortex configurations actively UNLINK via reconnection cascades, releasing energy, not storing it "for free"; forming the linked state costs MORE than Part 116/T43's simplest n=1 vortex, and is LESS stable (not a restatement of T43 as originally hypothesized -- fails for its own, more decisive reason); Rubik's-cube/Cayley-graph idea correctly left unexplored (conditional trigger not met); productive side effect: flags a real caution for T30 (reconnection as a competing decay channel its "vastly longer" coherence claim doesn't yet address); see docs/research/ring_on_chain_topology.md]
 - T75 — TeVeS structural comparison [scoping] [DONE, Part 143, 2026-09-10 -- TeVeS's vector field fixes lensing (disformal transformation) + enhances structure growth (Lorentz-breaking preferred frame), Bekenstein 2004 -- two jobs PDTP's all-scalar content structurally cannot do (3rd independent confirmation alongside T70/polarization_analogy.md); PDTP's own MOND-analogue already on record (Prediction 9, dark_matter_energy.md 2.5) fails by ~54 OoM (corrected from a stale "20 OoM" figure, T77/2026-09-14), now corroborated by T74's independent re-derivation of the same screening scale; TeVeS's post-GW170817 status corrected from this item's own original filing text -- "generalized" variants are NOT a clean survival, backed into a narrow strong-coupling-constrained corner (arXiv:1801.03382) -- makes PDTP's parameter-free tensor-sector pass (T74) structurally stronger than TeVeS ever was; literature comparison only, no new derivation; see docs/research/teves_structural_comparison.md]
 - T74 — GW170817 constraint on PDTP's own GW structure [DONE, Part 142, 2026-09-10 -- PASS (tensor sector) + CONSTRUCTIVE NEGATIVE (scalar sector): tensor sector (phi_+/SU(3), the actual LIGO signal) has c_s=c EXACT (Part 3/63 S8), trivially inside the computed GW170817 speed bound (4.13e-16, computed here from the paper's own Delta t=1.7s/d=40Mpc, not quoted from memory) -- PASS by pre-existing PPN-gamma=1 design requirement, not coincidence; phi_- (scalar/breathing mode) is NOT what GW170817's timing measures -- shown evanescent (non-propagating) at LIGO-band frequencies for EVERY physically realized potential incl. emptiest cosmic voids (77 orders of margin, Sachs-Wolfe LSS scale vs. propagation threshold) -- no possible phi_- signal existed for GW170817 to constrain; 11/12 Sudoku; byproduct: found+fixed a 22-orders-of-magnitude numerical erratum in two_phase_rederivation.md (Part 63) Section S7, unrelated to T68's bug but same genre; see docs/research/gw170817_dispersion_check.md]
 - T73 — Glueball mass test vs X(2370) (BESIII arXiv:2607.20366) [DONE, Part 141, 2026-09-10 -- CONSTRUCTIVE (mass scale) + NEGATIVE (quantum numbers): Mechanism A (closed flux-tube loop, Parts 36-37's own sigma/xi_QCD) brackets X(2370)'s 2376 MeV at minimal radius (1.18-4.01 GeV) and stays within x5 across R=1-3*xi_QCD (10/12 Sudoku); Mechanism B (Part 114's chi^a contact vertex reapplied at QCD layer) is 4.7x too weak, E_break_QCD=507 MeV -- clean negative, distinguishes the two mechanisms; J^PC=0-+ quantum numbers NOT derivable by either (chi^a are NLSM scalars per T70/Part 140, no vector-gluon content to build 0-+ from) -- mass-scale coincidence, not a derivation; see docs/research/glueball_x2370_test.md]
-- T71 — Audit the CKN "factor 12" formula discrepancy (Part 54): cosmological_constant_fcc.md gives rho_CKN = hbar*c/(l_P^2*L_H^2), TODO_02.md/equation_reference.md give rho_CKN = c^2/(G*L_H^2) -- these did not look dimensionally equivalent on a quick check (2026-09-06, found while searching the repo for qwen's "factor 12" claim); need to determine which is correct, reconcile the "factor 12" number, and only then judge whether qwen's Suggestion 4 (GHY boundary term / Padmanabhan bulk-surface equipartition) is worth pursuing [PENDING]
+- T71 — Audit the CKN "factor 12" formula discrepancy (Part 54): DONE (Part 152). The two formulas are genuinely different physical quantities (hbar*c/(l_P^2*L_H^2) = ENERGY density; c^2/(G*L_H^2) = MASS density, sympy.physics.units-confirmed, differ by exactly c^2) related by the standard energy->mass conversion Part 54's prose never stated -- that omission was the bug, not the code (cosmo_constant.py etc. and equation_reference.md were already correct throughout). Fixed the prose (Eq 54.1), not the numbers. "Factor 12" survives, refined to 12.2354 precisely, cross-checked 2 ways to 1e-16. qwen's Suggestion 4 still deferred, not started. [DONE]
 - T70 — N_eff via spin-weighted Seeley-DeWitt a_2 heat-kernel coefficient [DONE, Part 140, 2026-09-06 -- CONSTRUCTIVE NEGATIVE: formula unverifiable (2 targeted lit searches found no source for N_v + 11/2*N_f + 1/6*N_s); more decisive, PDTP's own Lagrangian (U(1), SU(3), two-phase) has N_v=0, N_f=0 identically -- "gluons"/"quarks" are nonlinear-sigma-model scalars (confirmed via Part 114's independent classification + Weinberg ChPT anchor), not real gauge bosons/spinors; Part 40's Wilson fermions are a borrowed lattice-QCD scaffold, not PDTP's own matter field; computed anyway for completeness -- QCD-analogy reading gives G_ind/G=0.13-0.18 (worse than Part 83's existing range), scalar-only 1/6-weighted reading gives 3.3-14.1 (also worse); Part 83's characterization stands unchanged; 10/10 Sudoku]
 - T69 — Dark matter doc audit + two current external events [DONE, Parts 138-139, 2026-09-02 -- audit found+fixed TWO real 1000x unit-conversion bugs (Bullet Cluster bound: 44.3->47.3 OoM margin; KM3 neutrino E/m_W: 2737->2.7e6), both baked into code not just prose, neither changing any verdict; LZ 2.6-sigma event matches NEITHER PDTP DM candidate (16-17 OoM too heavy for n=1 wimpzilla, 1000x too light for ~200 MeV candidate) -- honest fork flagged for future data, not resolved; Roman's lensing/substructure capability tests NOTHING PDTP-specific (biharmonic-gravity route already dead by ~54 OoM, corrected from a stale "20 OoM" figure caught 2026-09-14/T77, DM test needs CMB not optical); Roman's real PDTP connection is the already-on-record w(z) Prediction 5, whose stale "Launch ~2027" note was corrected]
 - T49 — Kuramoto connection: PDTP field equation IS relativistic Kuramoto model; Arnold tongues = Leidenfrost boundary; stiffness = m_cond = hierarchy problem; two proposed calculations: (1) winding amplification g_eff ~ g*n closes 43-OoM locking gap, (2) Arnold tongue width vs Part 110 critical exponents [SPECULATIVE, LOW PRIORITY; see docs/research/hierarchy_problem_reframe.md Section 8]
 - T48 — Hierarchy problem reframe: 5 reframings + 5 PDTP candidate paths (C1 ratio derivation, C2 cosmological winding, C3 locking fossil, C4 Dvali-Gomez self-reference, C5 anthropic window); revisit after T46 + two-condensate ratio work [SPECULATIVE, LOW PRIORITY until T46 done; see docs/research/hierarchy_problem_reframe.md]
+- T82 — Warped/exponential SU(3) condensate geometry (Randall-Sundrum-style hierarchy mechanism): sharpens T48's own already-flagged-but-unexplored "could the SU(3) condensate's internal group geometry warp?" open row; a logarithmic-spiral-type exponential mechanism (same math as RS's e^(-k*r_c*pi) warp factor, ~10^16 hierarchy from k*r_c~12, non-fine-tuned) is the one kind of "spiral" that could plausibly attack the hierarchy problem, unlike a constant-pitch helix which just relocates the fine-tuning; must respect Part 115's no-go theorem (plain U(1) condensate provably cannot do this internally) [SPECULATIVE, LOW PRIORITY, same queue position as T48/T49; see TODO_04.md T82 detail + docs/research/hierarchy_problem_reframe.md Sec 4]
 - T46 — Lambda as locking fossil: true vacuum phi_- = pi/2 derived; m/H = 3*sqrt(eps) [Eq 119.1]; freeze condition eps < 1/9 [Eq 119.2]; thawing w = -1+2*eps [Eq 119.3]; mechanism consistent; beta(z) OPEN for magnitude [DONE PARTIAL, Part 119, Phase 87; 12/12 Sudoku; see docs/research/lambda_locking_fossil.md]
 - T47 — m_cond consequence scanner: 30-row lookup table scans 10^0 to 10^28 eV/c^2 (one decade per row); 10 individual quantity functions (Newtons, BreathingMode, LatticeSpacing, WindingNumber, DarkMatterMass, CondensateDensity, HealingLength, GPInteractionConstant, BiharmonicScreeningScale, GLParameter); kappa_GL=sqrt(2) self-check in every row; reference rows at m_e, m_p, Lambda_QCD, Higgs, m_P [DONE, Part 120, Phase 88; 12/12 Sudoku; see simulations/solver/t47_mcond_scanner.py]
 - T45 — Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4 replaces G/c^4) + check_urls.py fixes [DONE, Part 118, Phase 86; 7/7 Sudoku; Bullet margin 47.3 OoM (corrected T69/Part 138, was misstated 44.3 -- separate 1000x Bullet-bound unit error); verdicts unchanged]
@@ -57,7 +58,7 @@ New additions go on top. One line per item. Full details below.
 - T14 — Update equation_reference.md with all new T-equations [DONE, 2026-08-09; found Parts 121 (T10) and 122 (T11) missing entirely, added both; flagged Parts 119/120 (T46/T47, Lambda thread) as also missing but out of T14's scope]
 - T15 — Final verdict and summary (did tan reveal new physics?) [DONE, 2026-08-09; VERDICT: genuine new structure (U(1)/SU(3) geometric unification, surprising Koide-45deg connection, 2 new falsifiable predictions), but does NOT constrain m_cond/G -- tan investigation CLOSED as productive]
 - T66 — Rotation-field / tetrad promotion (Cosserat-continua analogy) [DONE, Part 136, 2026-08-30 -- literal SO(2) proposal is an information-free relabeling of phi(x) (dim SO(2)=1, same as U(1)); all 4 Key Questions resolved; 11/12 Sudoku (1 informative contradiction: violates Cosserat's independence requirement by construction); genuine SO(3)/decoupled-field extension flagged, NOT adopted; see docs/research/rotation_field_gate_check.md]
-- T65 — Backfill mathematical_formalization.md: doc stops before Part 37 (SU(3)) and Part 61 (two-phase); add both as new sections with full step-by-step derivations [integration, LARGE, filed 2026-07-11]
+- T65 — Backfill mathematical_formalization.md: DONE (Part 150). Both missing structural extensions (SU(3)/Part 37, two-phase/Part 61) backfilled at full step-by-step depth, but in a new companion file (`mathematical_formalization_extensions.md`, ~350 lines) per the user's standing "large additions get a new file" rule, not inline -- main doc updated with a companion-doc pointer + TOC entry + 2 short prerequisite primers (SU(N) Lie algebra, Wilson loop). Scoped to core Parts 37/61-63 only; later derivative work (DM winding, Lambda-locking, Koide-Z3/tan, T80, T23, SU(3) emergent metric) cross-linked not re-derived. [DONE, integration, LARGE]
 - M3 — Moire band spacing vs evanescent depth (Part 89 cross-check) [SPEC] [DONE, 2026-08-30 -- DEGENERATE as posed: a=lambda_evan is forced by definition (same Compton-wavelength formula), so theta=60 deg drops out independent of which boundary/scale is checked; not a genuine physics cross-check, though 60 deg does coincide with Part 121's independently-derived SU(3) angle]
 - M4 — Moire min displacement {s,r} vs vortex winding (quark n=73 Pythagorean?) [SPEC] [DONE, 2026-08-30 -- NEGATIVE: the (37,36) pair is a mathematical inevitability for ANY odd number (SymPy-proved for general odd N) and, since 73 is prime, is also the UNIQUE possible pair -- not small, not special, no evidence either way]
 - T17 — n=sqrt(2) observable near compact objects (VLBI/EHT lensing signature) [priority 17] [DONE, Part 130, 2026-08-09 -- no isolable signature at n=sqrt2 itself; positive byproduct: EHT shadow radius matches GR exactly even in scalar theory]
@@ -588,9 +589,53 @@ Net: 0 physics reversals, 2 new falsifiable predictions, 1 unexpected
 cross-domain connection (Koide/T2), 1 gap fully characterized (N_eff,
 unaffected by tan). The tan investigation is CLOSED as productive.
 
-#### [ ] T65. Backfill mathematical_formalization.md
+#### [x] T65. Backfill mathematical_formalization.md — DONE (Part 150, 2026-09-26)
 
-**Status:** PENDING. Filed 2026-07-11 alongside a new CLAUDE.md rule requiring this
+**RESULT:**
+
+Backfilled both missing structural extensions (SU(3), Part 37; two-phase
+Lagrangian, Part 61) at the same step-by-step depth as the existing §§1-9
+-- but in a **new companion file**, `docs/research/mathematical_formalization_extensions.md`,
+not inline into the main document. Per the user's own explicit instruction
+during replanning: large additions (this one is ~350 new lines in the
+companion file alone, on top of what inlining both full sections would
+have added) go in a new file with a link back, keeping core reference
+docs simple -- saved as a standing rule, not a one-off for this item.
+
+**What was done:**
+1. [DOCUMENTATION] New companion file with full prerequisites->Lagrangian->
+   field-equations->key-results treatment of both extensions: SU(3) (U(1)
+   limit recovery, Z_3 vortex energy, 8 gluons from linearization, string
+   tension + Casimir factor, Y-junction 120-degree force balance) and
+   two-phase (phi_+/phi_- change of variables, the product-coupling trig
+   identity derived step by step, Newton's 3rd law's factor-2 correction,
+   the Jeans-eigenvalue coupled system, biharmonic gravity, phi_-'s
+   reversed-Higgs mass formula, the 16/16 re-derivation). New equations
+   labeled 150.1-150.19.
+2. [SCOPE DECISION, per the item's own step 3] Parts 75-76 (SU(3) emergent
+   metric) and all later derivative work (DM winding, Lambda-locking, CP
+   violation, EDE quartic, Koide-Z3/tan, T80's gauging attempt, T23's sin^2
+   term) are cross-referenced at the end of each section, NOT re-derived
+   inline -- matches CLAUDE.md's own rule that this doc family's update
+   trigger is structural, not per-Part, and avoids duplicating
+   equation_reference.md with different formatting.
+3. [SYNC] `mathematical_formalization.md` itself updated with a real edit
+   (not left untouched): a "Companion documents" note mirroring
+   `docs/Methodology.md`'s own precedent, a new TOC entry, and two short
+   prerequisite primers kept inline (SS1.7 SU(N) Lie group/algebra, S1.8
+   Wilson loop action) since later sections of the MAIN doc build on them
+   directly.
+4. **One honest limitation, stated rather than papered over:** the
+   biharmonic gravity equation (Eq 150.17) is presented with its
+   supporting coupled-system structure (the Jeans-eigenvalue matrix,
+   Eq 150.15-150.16, and the consistent dispersion relation) reproduced
+   and verifiable, but the full field-elimination algebra from the coupled
+   PDE system is NOT re-typed here -- cited to `two_phase_lagrangian.py`
+   and `equation_reference.md` Sec 2e instead, rather than risk presenting
+   fabricated-under-time-pressure intermediate steps for an already-
+   established result.
+
+**Status:** DONE. Filed 2026-07-11 alongside a new CLAUDE.md rule requiring this
 doc to be kept current going forward (see CLAUDE.md "Mathematical Formalization"
 section).
 
@@ -1672,7 +1717,47 @@ actionable, unlike most of the SPEC/low-priority backlog around it.
 
 ---
 
-#### [ ] T71. Audit the CKN "Factor 12" Formula Discrepancy (Part 54)
+#### [x] T71. Audit the CKN "Factor 12" Formula Discrepancy (Part 54) — DONE (Part 152, 2026-09-27)
+
+**RESULT:**
+
+Discrepancy traced to its exact source and resolved. Full writeup
+`docs/research/ckn_factor12_audit.md`, script
+`simulations/solver/t71_ckn_factor12_audit.py`, 10/10 Sudoku PASS.
+
+**What was found:**
+1. [VERIFIED, sympy.physics.units] The two cited formulas are NOT the
+   same physical quantity: `hbar*c/(l_P^2*L_H^2)` has ENERGY-density
+   dimensions (J/m^3); `c^2/(G*L_H^2)` has MASS-density dimensions
+   (kg/m^3) -- they differ by exactly a factor of c^2, not a random
+   inconsistency.
+2. [VERIFIED, algebraic, residual 0] Substituting l_P^2=hbar*G/c^3 into
+   the energy-density form gives EXACTLY c^4/(G*L_H^2); dividing by c^2
+   (the standard energy->mass conversion) gives EXACTLY c^2/(G*L_H^2) --
+   the two forms are consistent, related by a well-defined conversion
+   Part 54's prose never stated explicitly. That omission, not a
+   numerical error, was the actual bug.
+3. [VERIFIED] The CODE (`cosmo_constant.py`, `cosmo_constant_a3.py`,
+   `cosmo_constant_v2.py`) and `equation_reference.md`'s own citation
+   were ALREADY CORRECT throughout -- all three independently compute
+   `c^2/(G*L_H^2)` and agree on 7.1e-26 kg/m^3. The bug was isolated to
+   `cosmological_constant_fcc.md`'s own prose (Eq 54.1), which chained
+   the energy-density and mass-density forms together with "~" as if
+   interchangeable. Fixed there, with the missing conversion step made
+   explicit, not silently patched.
+4. [RECOMPUTED, precise] rho_CKN=7.1466e-26 kg/m^3, rho_Lambda_obs=
+   5.8409e-27 kg/m^3, ratio=12.2354 -- "factor 12" SURVIVES, refined
+   from the previously-unrefined "~12" citation to 12.24 precisely,
+   cross-checked two independent ways to 1 part in 10^16.
+5. [COMPUTED, for the record] The literal misreading (taking Part 54's
+   old prose formula at face value, no c^2 conversion) would give a
+   ratio of ~1.1e18, not ~12 -- confirms the confusion is exactly c^2 in
+   size, matching the discrepancy found, not a smaller or separate error.
+
+**Step 4 of this item's own filing (qwen Suggestion 4 -- GHY boundary
+term + Padmanabhan equipartition) is deferred, not started** -- this
+item's own scope was the dimensional-consistency check only; a decision
+on Suggestion 4 would be its own separate, planned task if pursued.
 
 **Status:** PENDING. Filed 2026-09-06.
 **Source:** Found as a side effect of a repo-wide search for the phrase
@@ -2289,7 +2374,52 @@ unblocked since the PDF is in hand.
 
 ---
 
-#### [ ] T78. De Broglie Double-Solution Pilot-Wave Comparison (Darrow & Bush 2024)
+#### [x] T78. De Broglie Double-Solution Pilot-Wave Comparison (Darrow & Bush 2024) — DONE (Part 151, 2026-09-27)
+
+**RESULT:**
+
+Full paper (31 pages) read directly, not from the notes file's AI
+summary (which was independently checked and found accurate as far as
+it went, but too thin for a real structural comparison). Full writeup
+`docs/research/de_broglie_pilot_wave_comparison.md`. No new PDTP-Original
+equations -- pure structural comparison, per this item's own scope.
+
+**Verdict: shared spirit, genuinely different mechanism, two honest gaps identified.**
+
+1. [Real, confirmed parallel] Both frameworks reject the standard
+   one-way Bohmian coupling for genuine two-way backreaction (particle
+   sources field, field pushes particle) -- the same foundational move
+   de Broglie's own double-solution program called for.
+2. [Key Question 1 -- gap identified] D&B's Compton-scale oscillation
+   (Zitterbewegung) EMERGES from a non-oscillating linear coupling --
+   genuinely derived, not imposed. PDTP's own matter-wave oscillation
+   is currently IMPORTED as a prerequisite
+   (`mathematical_formalization.md` Sec 1.5's de Broglie relation),
+   not derived from PDTP's own g*cos(psi-phi) coupling starting from a
+   non-oscillating psi_i. Real asymmetry, not previously stated this
+   precisely.
+3. [Key Question 2 -- different mechanism, correctly distinguished]
+   D&B's coupling sigma is LINEAR in the field with a CONSTANT source
+   strength (structurally a relativistic Yukawa coupling). PDTP's
+   g*cos(psi_i-phi) is PERIODIC in the phase difference with a source
+   strength that vanishes exactly at lock (~sin(psi_i-phi)) --
+   structurally a Josephson-junction-type coupling, not Yukawa. Both
+   are genuinely two-way; the functional FORM is genuinely different.
+   One real shared feature: both couplings modulate the particle's
+   effective inertial response (D&B's sigma multiplies m in the
+   action; PDTP's alpha=cos(psi-phi) is explicitly "1=normal gravity,
+   0=decoupled" per CLAUDE.md) -- same spirit, different form.
+4. [Key Question 3 -- gap identified] D&B's coupling keeps the particle
+   exactly on-shell (E^2=m^2+p^2) at all velocities by construction --
+   a genuine relativistic consistency result. PDTP's own derivations
+   are largely weak-field/non-relativistic-limit-first; whether PDTP's
+   matter sector stays correctly on-shell under a full relativistic
+   treatment is an open, well-posed question this comparison surfaces
+   but does not resolve (comparison-only scope, not filed as a new item).
+
+**What this does NOT claim:** that either framework validates the
+other. Same historical target (de Broglie's "harmony of phases"),
+different starting assumptions, genuinely different mathematics.
 
 **Status:** PENDING. Filed 2026-09-10.
 **Source:** `docs/misc/notes 2026-09-10.txt`; PDF at
@@ -2319,16 +2449,58 @@ Lagrangian psi field definition.
 
 ---
 
-#### [ ] T79. "Theory of Everything" Master Equation — Term-by-Term Audit vs PDTP
+#### [x] T79. "Theory of Everything" Master Equation — Term-by-Term Audit vs PDTP — DONE (Parts 148-149, 2026-09-16)
 
-**PROGRESS (2026-09-14):** split into two explicit phases per user
-request ("extra carefully"). **Phase 1 DONE (Part 148):** pure
-explainer of the equation and every term in it, no PDTP content at all
--- `docs/research/theory_of_everything_master_equation.md`. Awaiting
-user review before Phase 2 begins. **Phase 2 NOT STARTED:** the actual
-term-by-term audit against PDTP described below (and the question of
-whether PDTP's own version of any term should update the framework).
-Status stays PENDING until Phase 2 completes.
+**RESULT:**
+
+Split into two explicit phases per user request ("extra carefully").
+**Phase 1 (Part 148):** pure explainer of the equation and every term in
+it, no PDTP content -- `docs/research/theory_of_everything_master_equation.md`.
+**Phase 2 (Part 149):** term-by-term audit of PDTP's status against each
+of the 6 labeled pieces, and whether PDTP can change or add to any of
+them -- `docs/research/theory_of_everything_pdtp_audit.md`, script
+`simulations/solver/t79_toe_pdtp_audit.py`, 9/9 Sudoku PASS (1 bug
+caught by RECHECK and fixed, documented not hidden).
+
+**Verdict: five of six terms have nothing to add; one genuine, narrowly-
+scoped addition found (Yukawa/lepton sector).**
+
+1. [Category (b), provenance note] **Gravity (m_p^2/2*R):** Sakharov
+   induced gravity (Part 114's Trace Theorem: tree-level condensate
+   carries NO graviton dynamics, Sakharov 1-loop is the UNIQUE source) --
+   explains WHY the term has this form, does not change the term itself.
+2. [Category (c), already checked and closed] **Gauge fields (-1/4*F^2):**
+   T80/Part 147 (2 days prior) tested this exact question directly --
+   gauging PDTP's own symmetry forces a real A_mu into existence but
+   minimal coupling gives it no kinetic term, solved out with zero net
+   effect. Already a closed negative, not re-litigated here.
+3. [Category (c), genuine gap] **Matter/Dirac:** PDTP's psi_i are phase
+   fields, not spinors (confirmed via T70/Part140's NLSM classification);
+   Part 40's Wilson fermions are confirmed (re-read directly) to be an
+   explicitly borrowed lattice-QCD scaffold, not PDTP's own matter field.
+4. [Category (a), THE ADDITION] **Yukawa coupling (V_ij):** Part 53's
+   already-derived Koide relation (Q=2/3 for charged leptons, from SU(3)'s
+   Z_3 center symmetry) translates EXACTLY into a constraint on V_ij's
+   three charged-lepton diagonal eigenvalues:
+   `Q(V_ee,V_mumu,V_tautau) = 2/3` [DERIVED, Eq 149.2] -- reduces that
+   sector's free parameters from 3 to 2. Explicitly scoped to LEPTONS
+   ONLY (Part 122's own result: the analogous SU(3) 60-deg angle does
+   NOT explain the up-quark value; quark sector confirmed out of scope,
+   not silently extended).
+5. [Category (c), no addition + caveat] **Higgs:** PDTP's phi_- ("reversed
+   Higgs", Part 62) is a mode of the GRAVITY condensate (tied to the
+   Newtonian potential), NOT a candidate for the equation's actual
+   electroweak Higgs field -- the shared name is a structural analogy
+   only. Stated explicitly to foreclose a natural misreading.
+6. [Category (c), no addition] **Quantum mechanics:** PDTP stays classical
+   throughout (Sakharov 1-loop is the only quantum piece). Two existing,
+   legitimate partial results cited precisely rather than overclaimed:
+   Part 66 (PDTP's kinetic term IS the quantum metric at zeroth order,
+   SymPy-verified) and T23/Part 104 (a Hilbert-space-inspired sin^2 term
+   is allowed but was explicitly shelved by its own authors, not added).
+
+See `docs/research/theory_of_everything_pdtp_audit.md` Section 6 for the
+full verdict and Section 4 for the Yukawa derivation in full.
 
 **Status:** PENDING. Filed 2026-09-14.
 **Source:** `docs/misc/note 2026-09-14.txt` (user note); equation image
@@ -2802,6 +2974,69 @@ topology in the SU(3) condensate?
 **Likely outcome:** Either a topological re-derivation of magic numbers (huge) or
 a NEGATIVE showing the sequence is not Z_3-generated (confirms nuclear shells
 are independent of PDTP condensate). Both informative.
+
+---
+
+#### [ ] T82. Warped/Exponential SU(3) Condensate Geometry — Randall-Sundrum-Style Hierarchy Mechanism [SPECULATIVE]
+
+**Status:** PENDING. Filed 2026-09-26.
+**Source:** This session's discussion, triggered by a user question about
+whether a "spiral" topology could explain the hierarchy problem (m_P ~
+10^19 times m_cond_QCD). Not a random idea -- it sharpens a row already
+sitting OPEN, unexplored, in T48's own brainstorm doc.
+
+**What T48 already flagged (`hierarchy_problem_reframe.md` Sec 4, table
+row "Warped extra dimensions (Randall-Sundrum)"):** "Exponential warp
+factor generates hierarchy from geometry -- SU(3) condensate has internal
+group geometry. Could it warp? **Not investigated. [OPEN]**." This item
+is the concrete, scoped follow-up to that specific row, not a duplicate
+of T48's general brainstorm.
+
+**Why a generic spiral doesn't work, but this specific version might:** a
+constant-pitch helix (`E ~ 1/cos(theta)`) cannot explain a ~10^19-10^45
+hierarchy -- it would need theta tuned to an absurd precision, which just
+relocates the fine-tuning rather than solving it. A **logarithmic
+(equiangular) spiral**, `r = a*e^(b*theta)`, is different in kind: radius
+scales EXPONENTIALLY with winding angle, the same mathematical structure
+as Randall-Sundrum's warp factor `e^(-k*r_c*pi)`, which reproduces a
+~10^16 hierarchy from an ordinary, non-fine-tuned input (`k*r_c ~ 12`).
+**Source:** Randall, L. and Sundrum, R. (1999), "A Large Mass Hierarchy
+from a Small Extra Dimension," *Phys. Rev. Lett.* 83, 3370.
+
+**Key questions:**
+1. Does SU(3)'s group manifold, or the Z_3-center structure already used
+   for vortices/quarks (Part 37) and generations (Part 93), have any
+   natural candidate "warp coordinate" -- an internal direction along
+   which some physical quantity varies exponentially?
+2. Can such a mechanism be built WITHOUT violating Part 115's no-go
+   theorem (which proved the plain U(1) gravitational condensate cannot
+   internally generate the hierarchy via any algebraic rescaling -- "the
+   whole photograph zooms," Sec 3.1 of `hierarchy_problem_reframe.md`)?
+   I.e. does it require genuinely new structure (matching Randall-
+   Sundrum's own extra 5th dimension), not a relabeling of existing SU(3)
+   degrees of freedom?
+3. If a viable mechanism exists, does it reproduce not just the right
+   ORDER of magnitude but the specific ratio m_P/Lambda_QCD ~ 6e19?
+4. Is this a genuinely distinct 6th candidate path, or does it collapse
+   into T48's existing C1 (cross-condensate ratio) or C3 (locking
+   fossil) candidates once worked out?
+
+**Cross-check with:** T48 (`hierarchy_problem_reframe.md`, especially
+Sec 4's standard-approaches table and the C1/C3 candidate paths), Part
+115 (no-go theorem -- must not be silently violated), Part 37/93 (SU(3)
+Z_3 structure -- the existing internal-geometry machinery this would
+need to build on, not duplicate).
+**Effort:** Medium-High if pursued seriously -- constructing an actual
+candidate warped-geometry addition to the SU(3) Lagrangian and checking
+it against the no-go theorem plus the full Sudoku protocol. Given the
+hierarchy problem is one of CLAUDE.md's named "fundamental" problems, a
+full Problem-Solving Protocol plan-first pass is required before any
+derivation work, same as any other item at this level.
+**Priority:** SPECULATIVE, LOW -- same standing as T48/T49 (revisit
+after T46/T47/T48's own candidates make progress). This adds a new
+candidate path to that existing queue; it does not jump ahead of it.
+
+---
 
 #### [ ] T29. Phase Self-Locking Mechanism [SPEC]
 
@@ -3491,17 +3726,17 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T45 | Cleanup: Eq 89.17 erratum (sigma/m = 4 pi G^2 m_DM/v^4; Bullet margin 47.3 OoM, corrected T69/Part 138 from misstated 44.3) + check_urls.py path/Unicode fixes | maintenance | DONE | 118 |
 | T46 | Lambda as locking relic: phi_-_vac = frozen residue of Part 117 roll; beta(z) -> {EDE, Lambda, w(z)} (3 observables, 1 input) | high (SPEC) | DONE PARTIAL | 119 |
 | T47 | m_cond consequence scanner: lookup table of all observables vs candidate m_cond (1 eV..m_P); measurement rules out bands — NOT a brute-force finder (no-go, Part 115) | medium | DONE | 120 |
-| T65 | Backfill mathematical_formalization.md (SU(3) + two-phase sections missing) | integration (LARGE) | PENDING | -- |
+| T65 | Backfill mathematical_formalization.md (SU(3) + two-phase sections) -- done via new companion file `mathematical_formalization_extensions.md`, not inline, per new file-size standing rule | integration (LARGE) | DONE | 150 |
 | T66 | Rotation-field / tetrad promotion (Cosserat-continua analogy) | SPEC (low) | DONE -- info-free relabeling of phi(x) (dim SO(2)=1); sits below Part 84 (1 vs 8 DOF); Cosserat independence violated by construction | 136 |
 | T69 | Dark matter doc audit + two current external events (LZ 2.6-sigma event, Roman Space Telescope launch) | audit + lit. review (medium) | DONE -- found+fixed 2 real 1000x unit-conversion bugs (Bullet margin, KM3 ratio); LZ/Roman map to neither PDTP candidate / no PDTP-specific test | 138, 139 |
 | T70 | N_eff via spin-weighted Seeley-DeWitt a_2 heat-kernel coefficient (replaces Part 83's naive DOF counting) | medium | DONE -- CONSTR. NEG.: formula unsourced + PDTP has N_v=N_f=0 identically (sigma-model, not gauge theory); Part 83's gap unchanged | 140 |
-| T71 | Audit CKN "factor 12" formula discrepancy (Part 54) -- two cited rho_CKN forms don't obviously match | low-medium | PENDING | -- |
+| T71 | Audit CKN "factor 12" formula discrepancy (Part 54) -- traced to an energy-vs-mass-density units conflation in the prose (code was already correct); factor 12 survives, refined to 12.2354 | low-medium | DONE | 152 |
 | T73 | Glueball mass test vs X(2370) (BESIII, arXiv:2607.20366) -- closed flux-tube loop (Mechanism A) brackets X(2370)'s mass within x5; chi^a contact vertex (Mechanism B) 4.7x too weak; J^PC=0-+ not derivable by either (chi^a are NLSM scalars, T70) | high | DONE -- CONSTRUCTIVE (mass scale) + NEGATIVE (quantum numbers) | 141 |
 | T74 | GW170817 constraint on PDTP's GW structure (arXiv:1710.06168) -- tensor sector c_s=c EXACT, trivially passes (4.13e-16 bound computed from source); phi_- scalar sector evanescent at LIGO frequencies for any realized Phi (77 OoM margin) -- no signal existed to constrain; byproduct: fixed 22-OoM erratum in Part 63 S7 | high-medium | DONE -- PASS (tensor) + CONSTRUCTIVE NEGATIVE (scalar) | 142 |
 | T75 | TeVeS structural comparison [scoping] -- vector field fixes lensing+structure growth (jobs PDTP's all-scalar content can't do, 3rd confirmation); PDTP's own MOND-analogue (Prediction 9) fails ~54 OoM (corrected from stale "20 OoM", T77), corroborated by T74; TeVeS post-GW170817 status corrected (not a clean survival) | medium | DONE -- literature comparison, no new derivation | 143 |
 | T76 | Topological DM candidate: ring-on-chain linking [SPECULATIVE, user-original] -- "linking is free" fails: real vortices reconnect (Kleckner & Irvine 2013 + quantum-turbulence numerics), linked states self-untie releasing energy, cost MORE than Part 116's simplest vortex; not a T43 restatement; flags reconnection as a caution for T30 | low-medium | DONE -- NEGATIVE (+ caution flagged for T30) | 144 |
 | T77 | Timeflow Gravity comparison (Trofimov 2026, Class. Quantum Grav. 43) -- TFG's verified MOND derivation succeeds where PDTP's own biharmonic attempt fails by ~54 OoM (corrected from stale "20 OoM" figure caught during this comparison); TFG w0=-0.844 (0.12sigma DESI) vs PDTP's -0.92 (~1.5sigma); real structural differences (1 field vs 2, no Lagrangian yet, new entropy postulate) | high | DONE -- MIXED (convergent validation + genuine gap + structural differences) | 145 |
-| T78 | De Broglie pilot-wave comparison (Darrow & Bush 2024, Symmetry, arXiv:2408.06972) -- compare Compton-scale pilot-wave oscillation to PDTP's psi field | medium | PENDING | -- |
-| T79 | "Theory of Everything" master equation (GR+SM combined path integral, Quora image) -- term-by-term audit of gravity/gauge-fields/matter/Yukawa/Higgs/QM pieces vs PDTP's own status on each | medium-high | PENDING | -- |
+| T78 | De Broglie pilot-wave comparison (Darrow & Bush 2024) -- shared spirit (two-way coupling) confirmed; 2 real gaps found (Compton oscillation emergent vs imported; relativistic on-shell consistency vs weak-field-first); coupling forms differ (linear/Yukawa vs periodic/Josephson) | medium | DONE | 151 |
+| T79 | "Theory of Everything" master equation audit: 5/6 terms have nothing to add (gravity=provenance note; gauge fields=already closed via T80; matter=gap; Higgs=no addition+naming caveat; QM=no addition); ONE addition found -- Yukawa charged-lepton constraint Q(V_ee,V_mumu,V_tautau)=2/3, scoped to leptons only | medium-high | DONE | 148-149 |
 | T80 | Electromagnetism-from-geometry (U(1) gauging): corrected combined-shift symmetry gauges exactly (A forced into existence, Lagrangian exactly locally invariant) but minimal coupling gives A no kinetic term -- solving out its constraint reproduces PDTP's original ungauged theory exactly, zero net effect | high | DONE (real construction + precise negative) | 147 |
 | T81 | Kinematic phase-coherence decomposition of PDTP's own coupling (TFG-inspired MOND retry) -- exact von Mises R(kappa) analog to TFG's cos(theta) DERIVED, gives new G_eff=G*R(kappa); but constant-coefficient rescaling CANNOT reproduce MOND (needs acceleration self-reference TFG has via mu(a), R(kappa) doesn't) | high | DONE -- CONSTRUCTIVE PARTIAL (real structural result + precise negative diagnosis) | 146 |

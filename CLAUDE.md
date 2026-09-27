@@ -340,6 +340,26 @@ rendered.
   anyway, since reliable display in every viewer is the deciding
   requirement.
 
+## Large Additions — New File Convention
+Keep core reference/foundations docs (`equation_reference.md`,
+`mathematical_formalization.md`, etc.) simple. When a planned addition
+to an existing doc would add more than roughly **500-1000 lines**,
+create a **new companion file** for it instead of editing the existing
+file inline.
+
+**The existing file still gets a real edit** — never leave it untouched:
+add a short **"Companion documents"** note right after the title
+(mirroring `docs/Methodology.md`'s own pattern: *"For X, see
+`Y_extra.md`..."*) plus a Table-of-Contents entry linking to the new
+file. Worked example: `mathematical_formalization.md` /
+`mathematical_formalization_extensions.md` (T65, Part 150, 2026-09-26).
+
+Short prerequisite material the rest of the original doc genuinely
+depends on can stay inline even when the bulk of new content moves out
+— the rule is about not bloating the core doc, not a ban on ever
+touching it again. Decide the file split *before* writing the addition,
+not after drafting it inline.
+
 ## User and glossary_sources.md
 Claude to ask user to download wiki sources if claude can't download it.
 make a list of required sources and keep it updated.
