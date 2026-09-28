@@ -107,7 +107,7 @@ eigenvalues — reducing that sector's free-parameter count from 3 to 2.
 
 **PDTP's φ₋ ("reversed Higgs", Part 62) must NOT be presented as
 competing with, or modifying, this term** — despite the name. Re-checking
-directly: `m²_φ₋ = 2gΦ` near matter, `m²_φ₋ = 0` in vacuum, where `Φ`
+directly: `m²_φ₋ = g·Φ` near matter, `m²_φ₋ = 0` in vacuum, where `Φ`
 here is the **Newtonian gravitational potential**, not the electroweak
 Higgs vev. φ₋ is a mode of PDTP's **two-phase gravity condensate**
 (Part 61's `φ_b`/`φ_s` split), unrelated in field content, sector, and

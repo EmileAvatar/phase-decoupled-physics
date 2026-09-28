@@ -125,7 +125,7 @@ This IS the Brannen harmonic modulation. [PDTP Original]
 From Part 62 (reversed Higgs):
 
 ```
-m(phi_-)^2 = 2 * g * Phi [DERIVED, Part 62]
+m(phi_-)^2 = g*Phi [DERIVED, Part 62]
 ```
 
 where g = m_cond * c^2 / hbar and Phi = gravitational potential (dimensionless).
@@ -150,7 +150,14 @@ length varies with the local gravitational potential.
    nabla^2 Phi = -2g * eta         (phi_+ equation)       [DERIVED, Part 61]
    nabla^2 eta = -2g*(psi - Phi) - m^2 * eta   (phi_- equation)  [DERIVED, Part 62]
    ```
-   where eta = phi_-, m^2 = 2*g*Phi (reversed Higgs mass)
+   where eta = phi_-, m^2 = g*Phi (reversed Higgs mass)
+
+> **CORRECTED 2026-09-28 (Part 155, TODO_04 T83c — CLAUDE OPUS 5.5):** the Part 61
+> biharmonic equation this section builds on is **∇⁴φ₊ − g²φ₊ = −g²ψ**, not
+> ∇⁴Φ + 4g²Φ (inertia and algebra-sign slips); it has no 1/r regime at any range.
+> The derivation below is retained for the record; the 4g² and 2g coefficients below inherit the inertia-1 slip
+> (true: g², g) and the m² = g·Φ input is under audit in T83 sub-task 83j.
+> See [biharmonic_rederivation.md](biharmonic_rederivation.md).
 
 2. **Eliminate eta:** From equation 1: eta = -nabla^2(Phi) / (2g)
 
@@ -164,7 +171,7 @@ length varies with the local gravitational potential.
    nabla^4(Phi) = 4g^2*(psi-Phi) - m^2*nabla^2(Phi)
    ```
 
-5. **With m^2 = 2g*Phi (reversed Higgs) and psi identified as source:**
+5. **With m^2 = g*Phi (reversed Higgs) and psi identified as source:**
    ```
    nabla^4(Phi) + m^2*nabla^2(Phi) + 4g^2*Phi = 4g^2*psi
    ```

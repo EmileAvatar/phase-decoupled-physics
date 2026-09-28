@@ -293,7 +293,7 @@ between matter and gravity modes). [CONSISTENT]
 
 ### Q4: Jeans instability eigenvalue still positive?
 
-**YES.** The Jeans instability eigenvalue (+2√2 g > 0, Part 61) comes from the
+**YES.** The Jeans instability eigenvalue (+√3 g (corrected from 2√2 g, Part 154) > 0, Part 61) comes from the
 +cos coupling sign, not from the metric structure. SU(3) preserves this. [CONSISTENT]
 
 **Two-phase verdict:** All four checks PASS. The SU(3) emergent metric is

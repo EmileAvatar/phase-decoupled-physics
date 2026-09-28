@@ -438,7 +438,7 @@ cosmological dark matter.
 ## 7. Open Questions (for B7 FCC)
 
 1. **n_eff in curved spacetime:** The phi_- reversed Higgs (Part 62) has
-   mass m^2 ~ 2g*Phi near matter. This modifies omega_gap near massive objects:
+   mass m^2 ~ g*Phi near matter. This modifies omega_gap near massive objects:
    ```
    omega_gap_C2(r) = sqrt(omega_gap_C2^2 + 2g*Phi(r)/hbar^2)      [SPECULATIVE]
    ```
@@ -648,12 +648,12 @@ where Φ_Newton = GM/R [m²/s²] is the Newtonian gravitational potential.
 This does NOT exist in the Standard Model (no condensate-level gravity coupling). **[PDTP Original]**
 
 **Plain English:** The φ_− field gets heavier where gravity is stronger.
-Near Earth: mass ~31.7 GeV, range ~0.006 fm (between strong and weak force ranges).
-Near neutron star: mass ~566 TeV, range ~3.5×10⁻⁷ fm.
+Near Earth: mass ~22.4 GeV (corrected Part 157; was 31.7), range ~0.0085 fm (corrected Part 157; was 0.006) (between strong and weak force ranges).
+Near neutron star: mass ~400 TeV (corrected Part 157; was 566), range ~3.5×10⁻⁷ fm.
 Near a single proton (r=1 fm): mass ~42 µeV, range ~4.7 mm (macroscopic — irrelevant for nuclear physics).
 
 **Falsifiable prediction [SPECULATIVE]:** GW signals near a neutron star should show
-φ_− dispersion above ~566 TeV — distinguishing PDTP from GR. Currently above all
+φ_− dispersion above ~400 TeV (corrected Part 157; was 566) — distinguishing PDTP from GR. Currently above all
 GW detector energy ranges.
 
 ### D3: Dark Matter Vortex Mass Spectrum [PDTP Original, DERIVED]
@@ -684,9 +684,9 @@ Two-phase Lagrangian checks (CLAUDE.md requirement):
 
 | Check | Result |
 |-------|--------|
-| Jeans instability eigenvalue 2√2 g > 0 | PASS |
+| Jeans instability eigenvalue √3 g (corrected from 2√2 g, Part 154) > 0 | PASS |
 | Newton 3rd law ψ̈ = −2φ̈₊ | PASS |
-| Biharmonic equation ∇⁴ + 4g² unchanged | PASS |
+| Biharmonic equation ∇⁴ − g² (corrected Part 155) unchanged | PASS |
 | λ_B2 < λ_φ−(Earth) < λ_B1 ordering | PASS |
 | φ_− is a new 4th layer | NO (NEGATIVE) |
 
@@ -702,7 +702,7 @@ Two-phase Lagrangian checks (CLAUDE.md requirement):
 | S18 | ξ_loc ∈ [1, 4] fm (nuclear scale) | PASS |
 | S19 | NA = 1 for C1 fiber (maximum acceptance) | PASS |
 | S20 | λ_B2 < λ_φ−(Earth) < λ_B1 ordering | PASS |
-| S21 | φ_−(Earth) ~ 31.7 GeV [Part 94 Eq 6c] | PASS |
+| S21 | φ_−(Earth) ~ 22.4 GeV (corrected Part 157; was 31.7) [Part 94 Eq 6c] | PASS |
 | S22 | DM n=1 (m_P): σ/m << Bullet bound | PASS |
 | S23 | n_max = m_P/Λ_QCD ~ 6.1×10¹⁹ | PASS |
 | S24 | φ_− NOT a 4th boundary | PASS |
@@ -715,7 +715,7 @@ Two-phase Lagrangian checks (CLAUDE.md requirement):
 2. **E_Bragg(C3) = π × m_W ≈ 252 GeV** [DERIVED, Eq 96.2] — LHC-scale Bragg resonance
 3. **Anderson ξ_loc ≈ 1.8 fm at B1** [DERIVED, Eq 96.5] — B1 boundary ~2 fm thick
 4. **C1 optical fiber NA = 1** [DERIVED, Eq 96.6] — all sub-gap modes guided
-5. **φ_−(Earth) ~ 31.7 GeV, λ ~ 0.006 fm** [DERIVED, Eq 96.8] — gravity-dependent scale
+5. **φ_−(Earth) ~ 22.4 GeV (corrected Part 157; was 31.7), λ ~ 0.0085 fm (was 0.006)** [DERIVED, Eq 96.8] — gravity-dependent scale
 6. **DM mass spectrum m_P/n** [DERIVED, Eq 96.9] — all Bullet Cluster safe
 7. **φ_− NOT a 4th boundary** [DERIVED] — passes all two-phase checks
 

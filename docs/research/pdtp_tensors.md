@@ -205,7 +205,7 @@ C3      W+, W-            1.221e+26           80.4  GeV        1.432e-25
 C3      Z                 1.386e+26           91.2  GeV        1.625e-25
 C3      Higgs             1.899e+26           125.0 GeV        2.228e-25
 C3      Photon            0  (massless)        0               0
-phi_-   Surface mode      0 (vac) / sqrt(2gPhi) (near matter)  0 / variable
+phi_-   Surface mode      0 (vac) / sqrt(g*Phi) (near matter)  0 / variable
 ```
 
 ---

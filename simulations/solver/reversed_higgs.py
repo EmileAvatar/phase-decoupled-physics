@@ -78,6 +78,11 @@ RHO_INTERGALACTIC = 1e-26 # kg/m^3
 
 # Planck coupling
 OMEGA_P = M_P * C**2 / HBAR  # Planck angular frequency ~ 2.95e42 rad/s
+# phi_- mass coefficient: m^2 = PHI_MINUS_M2_COEFF * g * Phi.
+# CORRECTED T83j / Part 157 (2026-09-28): was 2 (V''(pi/2) = 2 g Phi taken as
+# the mass). phi_-'s kinetic term is phi_-_dot^2 (inertia 2), so the physical
+# mass is V''/2 = g Phi. Potential V = -2 g Phi sin(phi_-) itself unchanged.
+PHI_MINUS_M2_COEFF = 1.0
 
 
 # ===========================================================================
@@ -148,7 +153,7 @@ def chameleon_comparison():
         # m_phi_minus = hbar * sqrt(2 * omega_P * Phi_grav) / c^2 (in kg)
         # m_phi_minus_eV = m_phi_minus * c^2 / eV
         if Phi_grav > 0:
-            omega_eff = np.sqrt(2.0 * OMEGA_P * Phi_grav)
+            omega_eff = np.sqrt(PHI_MINUS_M2_COEFF * OMEGA_P * Phi_grav)
             m_phi_minus_eV = HBAR * omega_eff / EV_J
         else:
             m_phi_minus_eV = 0.0
@@ -258,7 +263,7 @@ def hollow_shell_test():
     results["Phi_inside"] = Phi_inside
 
     # phi_- mass inside shell
-    omega_eff_inside = np.sqrt(2.0 * OMEGA_P * Phi_inside)
+    omega_eff_inside = np.sqrt(PHI_MINUS_M2_COEFF * OMEGA_P * Phi_inside)
     m_phi_inside_eV = HBAR * omega_eff_inside / EV_J
     lambda_phi_inside = HBAR * C / (m_phi_inside_eV * EV_J) if m_phi_inside_eV > 0 else float('inf')
 
@@ -316,7 +321,7 @@ def astrophysical_signatures():
     R_NS = 1.0e4  # m (10 km)
     Phi_NS = G * M_NS / (R_NS * C**2)
 
-    omega_NS = np.sqrt(2.0 * OMEGA_P * Phi_NS)
+    omega_NS = np.sqrt(PHI_MINUS_M2_COEFF * OMEGA_P * Phi_NS)
     m_phi_NS_eV = HBAR * omega_NS / EV_J
     lambda_phi_NS = HBAR * C / (m_phi_NS_eV * EV_J) if m_phi_NS_eV > 0 else float('inf')
 
@@ -334,7 +339,7 @@ def astrophysical_signatures():
     Phi_cluster = 1e-5
     rho_cluster = 1e-25  # kg/m^3 (hot gas, diffuse)
 
-    omega_cl = np.sqrt(2.0 * OMEGA_P * Phi_cluster)
+    omega_cl = np.sqrt(PHI_MINUS_M2_COEFF * OMEGA_P * Phi_cluster)
     m_phi_cl_eV = HBAR * omega_cl / EV_J
     lambda_phi_cl = HBAR * C / (m_phi_cl_eV * EV_J) if m_phi_cl_eV > 0 else float('inf')
 
@@ -359,7 +364,7 @@ def astrophysical_signatures():
 
     # Scenario 4: Solar system at Earth orbit
     Phi_sun_earth = G * M_SUN / (1.496e11 * C**2)
-    omega_se = np.sqrt(2.0 * OMEGA_P * Phi_sun_earth)
+    omega_se = np.sqrt(PHI_MINUS_M2_COEFF * OMEGA_P * Phi_sun_earth)
     m_phi_se_eV = HBAR * omega_se / EV_J
     lambda_phi_se = HBAR * C / (m_phi_se_eV * EV_J) if m_phi_se_eV > 0 else float('inf')
 
@@ -487,23 +492,24 @@ def verify_mass_formula():
     #
     # Near matter (Phi > 0): V = -2g*Phi*sin(phi_-)
     # Equilibrium shifts to phi_- = pi/2 (maximum locking between layers).
-    # Mass at new equilibrium: m^2 = V''(pi/2)/hbar^2 = 2g*Phi (in freq units)
+    # Mass at new equilibrium: m^2 = V''(pi/2)/I_- = 2g*Phi/2 = g*Phi (freq units;
+    # I_- = 2 from phi_-_dot^2 -- corrected T83j, was 2g*Phi)
     #
     # This means: NEAR MATTER, phi_- rolls to pi/2 and oscillates there
-    # with frequency omega = sqrt(2g*Phi). This IS the environment-dependent
+    # with frequency omega = sqrt(g*Phi). This IS the environment-dependent
     # mass, but the equilibrium VALUE also shifts!
 
     results["vacuum"] = "V = 0 everywhere; phi_- is flat Goldstone-like direction"
-    results["near_matter"] = "phi_- rolls to pi/2; m^2 = 2g*Phi at new equilibrium"
+    results["near_matter"] = "phi_- rolls to pi/2; m^2 = g*Phi at new equilibrium (V''=2g*Phi, inertia 2)"
     results["correction"] = ("Part 61 said 'm = 0 in vacuum'. "
                              "More precisely: phi_- is a FLAT DIRECTION "
                              "in vacuum (Goldstone mode), and phi_- = pi/2 "
                              "is the stable equilibrium near matter.")
 
     # The effective mass at the TRUE equilibrium (phi_- = pi/2):
-    # omega^2 = 2 * g * Phi_grav
+    # omega^2 = g * Phi_grav   (corrected T83j; was 2 g Phi)
     # For g = omega_P (Planck frequency) and Phi = G*M/(r*c^2):
-    # omega^2 = 2 * omega_P * Phi
+    # omega^2 = omega_P * Phi
     # m_eff = hbar * omega / c^2
 
     mass_table = []
@@ -517,7 +523,7 @@ def verify_mass_formula():
     ]
     for name, Phi in envs:
         if Phi > 0:
-            omega = np.sqrt(2.0 * OMEGA_P * Phi)
+            omega = np.sqrt(PHI_MINUS_M2_COEFF * OMEGA_P * Phi)
             m_eV = HBAR * omega / EV_J
             lam = HBAR * C / (m_eV * EV_J) if m_eV > 0 else float('inf')
         else:
@@ -568,17 +574,17 @@ def gravity_implications():
     # In weak field: phi_- is small (starting from 0 in vacuum)
     # The ROLL TIME to reach pi/2 depends on the local Phi
     # From phi_-_ddot = 2g*sin(psi-phi_+)*cos(phi_-)
-    # At phi_- = 0: phi_-_ddot = 2g*Phi (acceleration)
+    # At phi_- = 0: force 2g*Phi, inertia 2 -> phi_-_ddot = g*Phi (corrected T83j)
     # Time to roll to pi/2: t_roll ~ sqrt(pi/(2*2g*Phi)) = sqrt(pi/(4g*Phi))
 
     # On Earth: Phi ~ 7e-10, g ~ omega_P ~ 3e42
     Phi_earth = G * M_EARTH / (R_EARTH * C**2)
-    t_roll_earth = np.sqrt(np.pi / (4.0 * OMEGA_P * Phi_earth))
+    t_roll_earth = np.sqrt(np.pi / (2.0 * PHI_MINUS_M2_COEFF * OMEGA_P * Phi_earth))
     results["t_roll_earth_s"] = t_roll_earth
 
     # Near neutron star: Phi ~ 0.2
     Phi_NS = 0.2
-    t_roll_NS = np.sqrt(np.pi / (4.0 * OMEGA_P * Phi_NS))
+    t_roll_NS = np.sqrt(np.pi / (2.0 * PHI_MINUS_M2_COEFF * OMEGA_P * Phi_NS))
     results["t_roll_NS_s"] = t_roll_NS
 
     # Planck time for reference
@@ -586,6 +592,8 @@ def gravity_implications():
     results["t_Planck_s"] = T_Planck
 
     # G_eff enhancement factor: g_eff = 2g*sin(phi_-)
+    # (T83d / Part 156: G itself scales as g_eff^2 / stiffness, i.e.
+    #  G_eff/G_single = 2*sin^2(phi_-), not 2*sin(phi_-).)
     # If phi_- has had time to reach equilibrium (pi/2): g_eff = 2g
     # -> G_eff = 2 * G_Newton (?!)
     # This would be RULED OUT by precision tests... unless:
@@ -683,11 +691,18 @@ def run_sudoku_checks(rw):
                     s7_val if s7_val > 1 else 1.0 / s7_val, s7_pass))
 
     # S8: G_eff = 2*G_bare at equilibrium (factor of 2)
-    s8_pass = True  # sin(pi/2) = 1, g_eff = 2g*1 = 2g
-    checks.append(("S8", "G_eff = 2*G_bare at phi_- = pi/2",
-                    "factor 2",
-                    "factor 2",
-                    1.0, s8_pass))
+    # CORRECTED T83d / Part 156 (2026-09-28): was hardcoded True (RECHECK
+    # violation). Now computed: G ~ (source coupling)*(test coupling)/stiffness.
+    # Two-phase at phi_-: couplings 2g*sin(phi_-) each, phi_+ stiffness 2;
+    # single phase: couplings g, stiffness 1.
+    phi_m_eq = np.pi / 2
+    a2 = 2.0 * np.sin(phi_m_eq)              # in units of g
+    s8_val = (a2 * a2 / 2.0) / (1.0 * 1.0 / 1.0)
+    s8_pass = abs(s8_val - 2.0) < 1e-12
+    checks.append(("S8", "G_eff = 2*G_bare at phi_- = pi/2 (computed, Part 156)",
+                    "{:.6f}".format(s8_val),
+                    "2.000000",
+                    s8_val / 2.0, s8_pass))
 
     # S9: phi_- heavier near neutron star than Earth
     ns_entry = [e for e in vm["mass_table"] if "Neutron" in e[0]][0]
@@ -760,7 +775,7 @@ def run_reversed_higgs(rw, engine):
     rw.print("    Vacuum (Phi=0): V = 0 everywhere -> phi_- is a FLAT")
     rw.print("      Goldstone-like direction (truly massless)")
     rw.print("    Near matter (Phi>0): phi_- rolls to pi/2 and oscillates")
-    rw.print("      with m^2 = 2g*Phi at the new equilibrium")
+    rw.print("      with m^2 = g*Phi at the new equilibrium")
     rw.print("")
 
     for v in vm["verifications"]:
@@ -932,7 +947,7 @@ def run_reversed_higgs(rw, engine):
     rw.subsection("Part 62 Summary")
     rw.print("  The REVERSED HIGGS mechanism (phi_- field from Part 61):")
     rw.print("  - Goldstone-like flat direction in vacuum (truly massless)")
-    rw.print("  - Rolls to phi_- = pi/2 near matter (m^2 = 2g*Phi)")
+    rw.print("  - Rolls to phi_- = pi/2 near matter (m^2 = g*Phi)")
     rw.print("  - NOT a chameleon: couples to potential, not density")
     rw.print("  - Hollow shell test DISTINGUISHES phi_- from chameleon")
     rw.print("  - G_eff = 2*G_bare (hidden factor, always at equilibrium)")

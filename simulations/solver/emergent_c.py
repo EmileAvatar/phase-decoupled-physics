@@ -305,15 +305,15 @@ def hau_analog():
 def two_phase_velocities(k_over_kP, g=None):
     """
     Two-phase dispersion [Eq 6b]:
-      omega^2 = c^2*k^2 + 2*sqrt(2)*g   (branch A: phi_+ gravity mode, gapped)
-      omega^2 = c^2*k^2 - 2*sqrt(2)*g   (branch B: phi_- surface mode, Jeans unstable)
+      omega^2 = c^2*k^2 + sqrt(3)*g   (branch A: phi_+ gravity mode, gapped)
+      omega^2 = c^2*k^2 - sqrt(3)*g   (branch B: phi_- surface mode, Jeans unstable)
 
     Group velocity: v_g = d(omega)/dk = c^2*k / omega
 
-    At large k (k >> k_gap where k_gap = sqrt(2*sqrt(2)*g)/c):
+    At large k (k >> k_gap where k_gap = sqrt(sqrt(3)*g)/c):
       Both branches: v_g -> c  (relativistic limit)
     At small k:
-      Branch A: omega ~ sqrt(2*sqrt(2)*g) = const  =>  v_g = c^2*k/omega -> 0
+      Branch A: omega ~ sqrt(sqrt(3)*g) = const  =>  v_g = c^2*k/omega -> 0
       Branch B: Jeans unstable (omega imaginary for k < k_J)
 
     For k_over_kP in Planck units and g = omega_P:
@@ -321,7 +321,7 @@ def two_phase_velocities(k_over_kP, g=None):
     if g is None:
         g = M_P * C**2 / HBAR              # Planck frequency = omega_P
     k        = k_over_kP / L_P
-    gap_sq   = 2.0 * math.sqrt(2.0) * g    # NOTE: in Part 61 natural units;
+    gap_sq   = math.sqrt(3.0) * g          # sqrt(3) corrected T83b (was 2*sqrt(2)); Part 61 natural units;
                                             # using g in rad/s here for order-of-magnitude
 
     # Branch A (phi_+ gravity mode): omega^2 = c^2 k^2 + gap
@@ -413,8 +413,8 @@ def run_sudoku_a7(_engine, cs_res, lattice, bessel_zero, hau, two_ph_hi, two_ph_
           two_ph_hi["v_g_A_over_c"], 1.0, tol=0.01)
 
     # S11: Jeans wavenumber k_J << k_Planck -- gap is cosmological, not Planck scale
-    # k_J = sqrt(2*sqrt(2)*g) / c; k_Planck = 1/l_P = g/c
-    # k_J / k_Planck = sqrt(2*sqrt(2)*g) / g = sqrt(2*sqrt(2)/g) << 1 for large g
+    # k_J = sqrt(sqrt(3)*g) / c; k_Planck = 1/l_P = g/c
+    # k_J / k_Planck = sqrt(sqrt(3)*g) / g = sqrt(sqrt(3)/g) << 1 for large g
     k_J_over_kP = two_ph_hi["k_J"] * L_P
     check_bool("S11: k_J << k_Planck [Jeans at cosmological scale, not Planck] [Eq 6b]",
                k_J_over_kP < 1e-20, k_J_over_kP)

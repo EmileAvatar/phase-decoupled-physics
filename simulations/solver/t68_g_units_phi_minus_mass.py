@@ -32,7 +32,7 @@ def symbolic_derivation():
     # CODE's actual formula (reversed_higgs.py lines 505-507, 520-521):
     #   omega_code = sqrt(2 * omega_gap * Phi)      [OMEGA_P used directly as "g"]
     #   E_code = hbar * omega_code
-    omega_code = sp.sqrt(2 * omega_gap * Phi)
+    omega_code = sp.sqrt(1 * omega_gap * Phi)   # T83j: coefficient 1 (was 2)
     E_code = hbar * omega_code
 
     # CORRECTED formula, following Part 128's field-equation result
@@ -43,7 +43,7 @@ def symbolic_derivation():
     #                                   the E=hbar*omega shortcut does NOT
     #                                   apply directly to kappa)
     g_correct = omega_gap**2 / c**2
-    kappa_sq = 2 * g_correct * Phi
+    kappa_sq = 1 * g_correct * Phi              # T83j: coefficient 1 (was 2)
     kappa = sp.sqrt(kappa_sq)
     E_correct = hbar * c * kappa
 

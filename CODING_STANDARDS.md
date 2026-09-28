@@ -81,7 +81,7 @@ The reporting layer (`print_utils.py`, `ReportWriter`) handles formatting
 output to log files. Scripts call `rw.print()`, `rw.key_value()`, `rw.table()`
 to output data — not to explain what the data means physically.
 
-**Allowed in scripts:** "Eigenvalue lambda_1 = 2*sqrt(2)*g > 0 (unstable mode)"
+**Allowed in scripts:** "Eigenvalue lambda_1 = sqrt(3)*g > 0 (unstable mode)"
 **Not allowed in scripts:** "This unstable mode represents gravitational collapse,
 suggesting that gravity emerges from..."
 
@@ -264,11 +264,15 @@ If a PDTP result contradicts any of the above, this must be:
 Where possible, verify symbolic results numerically:
 
 ```python
-# Symbolic result: eigenvalue = 2*sqrt(2)*g
+# Symbolic result: eigenvalue = sqrt(3)*g   (two-phase Jeans, Part 154)
 # Numerical check at g = 1.0:
-#   lambda = 2*sqrt(2)*1.0 = 2.8284...
-#   Direct matrix eigenvalue: numpy.linalg.eigvals([[0,4],[2,0]])
-#   = [+2.8284, -2.8284]   CHECK
+#   lambda = sqrt(3)*1.0 = 1.7320...
+#   Direct matrix eigenvalue: numpy.linalg.eigvals([[0,3],[1,0]])
+#   = [+1.7320, -1.7320]   CHECK
+# (This example previously showed 2*sqrt(2) from [[0,4],[2,0]] -- a matrix
+#  built with the wrong inertias. A numerical check of a hand-typed matrix
+#  only confirms the matrix, not that the matrix is right: derive M from
+#  the Lagrangian too. T83b, 2026-09-28.)
 ```
 
 ### 3.3 No Hardcoded Assumptions Without Proof

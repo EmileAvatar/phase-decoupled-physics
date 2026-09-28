@@ -300,7 +300,7 @@ def numeric_ns_mass_and_modes():
         sin_Delta_p = np.sin(Delta_p)
 
         # Candidate A: g = omega_gap^2
-        m2_A = 2 * OMEGA_GAP**2 * sin_Delta_p     # s^-2
+        m2_A = 1 * OMEGA_GAP**2 * sin_Delta_p     # s^-2  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
         m_A_Hz = np.sqrt(m2_A) / (2 * np.pi)       # convert angular freq -> Hz
 
         rows.append({

@@ -160,36 +160,43 @@ The two-phase structure alone does NOT solve the CC problem.
 
 ### 4.1 Linearised Two-Phase Dispersion
 
+> **CORRECTED 2026-09-28 (Part 154, TODO_04 T83b — CLAUDE OPUS 5.5):** the Jeans
+> eigenvalue is **±√3·g**, not ±2√2·g. The old value used forces as
+> accelerations for φ₊/φ₋, whose inertia is 2 (kinetic term φ̇₊² + φ̇₋²);
+> consistent inertias give M = [[0, 3g], [g, 0]]. Sign (instability) unchanged;
+> magnitude × √6/4 ≈ 0.612, k_J × 0.7825. Values below are the corrected ones.
+> Full derivation: [jeans_eigenvalue_correction.md](jeans_eigenvalue_correction.md).
+
 Starting from Part 61 linearised equations (with spatial gradients added):
 ```
-delta_tt - c^2*delta_xx = 4*g*epsilon      (Phi = psi - phi_+)
-epsilon_tt - c^2*epsilon_xx = 2*g*delta     (phi_-)                 (12)
+delta_tt - c^2*delta_xx = 3*g*epsilon      (Phi = psi - phi_+)
+epsilon_tt - c^2*epsilon_xx = g*delta     (phi_-)                 (12)
 ```
 
 Plane wave ansatz: delta, epsilon ~ exp(i(kx - omega*t)):
 ```
-(c^2*k^2 - omega^2)*delta = 4*g*epsilon
-(c^2*k^2 - omega^2)*epsilon = 2*g*delta
+(c^2*k^2 - omega^2)*delta = 3*g*epsilon
+(c^2*k^2 - omega^2)*epsilon = g*delta
 ```
 
 Eliminate to get:
 ```
-(c^2*k^2 - omega^2)^2 = 8*g^2
-c^2*k^2 - omega^2 = +/- 2*sqrt(2)*g                               (13)
+(c^2*k^2 - omega^2)^2 = 3*g^2
+c^2*k^2 - omega^2 = +/- sqrt(3)*g                               (13)
 ```
 
 **Two dispersion branches** [DERIVED]:
 ```
-Branch A (Jeans):     omega^2 = c^2*k^2 - 2*sqrt(2)*g              (14a)
-Branch B (breathing): omega^2 = c^2*k^2 + 2*sqrt(2)*g              (14b)
+Branch A (Jeans):     omega^2 = c^2*k^2 - sqrt(3)*g              (14a)
+Branch B (breathing): omega^2 = c^2*k^2 + sqrt(3)*g              (14b)
 ```
 
 - Branch A: unstable at k < k_J (Jeans instability = gravitational collapse)
-- Branch B: gapped, always stable, omega_gap = sqrt(2*sqrt(2)*g)
+- Branch B: gapped, always stable, omega_gap = sqrt(sqrt(3)*g)
 
 Jeans wavenumber [DERIVED]:
 ```
-k_J = sqrt(2*sqrt(2)*g) / c = omega_gap / c                        (15)
+k_J = sqrt(sqrt(3)*g) / c = omega_gap / c                        (15)
 lambda_J = 2*pi/k_J = 2*pi*l_P ~ 1.02e-34 m
 ```
 
@@ -199,7 +206,7 @@ For k >> k_J (short wavelengths):
 ```
 omega_+ ~ c*k + sqrt(2)*g/(c*k)
 omega_- ~ c*k - sqrt(2)*g/(c*k)
-omega_beat = omega_+ - omega_- = 2*sqrt(2)*g/(c*k)                 (16)
+omega_beat = omega_+ - omega_- = sqrt(3)*g/(c*k)                 (16)
 ```
 
 [DERIVED] The beat frequency is k-dependent: lower k = larger beat.
@@ -215,7 +222,7 @@ rho_beat = hbar * omega_beat(k_H) * k_H^3 / (16*pi^3)             (17)
 
 Step 1: omega_beat at k_H = 2*pi/L_H:
 ```
-omega_beat = 2*sqrt(2)*g / (c*k_H) = omega_gap^2*L_H/(2*pi*c)     (18)
+omega_beat = sqrt(3)*g / (c*k_H) = omega_gap^2*L_H/(2*pi*c)     (18)
 ```
 (using g = omega_gap^2/(2*sqrt(2)))
 
@@ -284,7 +291,7 @@ phi_- (boundary/interface): omega_-^2 = c^2*k^2 + 2*kappa          (26b)
 
 where the effective coupling is:
 ```
-kappa_PDTP = 2*sqrt(2)*g = omega_gap^2                              (27)
+kappa_PDTP = sqrt(3)*g = omega_gap^2                              (27)
 ```
 
 [DERIVED] **kappa is NOT a free parameter** -- it is omega_gap^2, fully determined by
@@ -357,7 +364,7 @@ rho(L_eff) ~ 12 * rho_Lambda                                       (25)
 1. Two-phase T_mu_nu = T_kin - V (SymPy verified)
 2. U(1) shift preserves (psi - phi_+) but NOT phi_-
 3. phi_- is Goldstone-like at equilibrium (flat direction, massless in vacuum)
-4. Two dispersion branches: omega^2 = c^2*k^2 +/- 2*sqrt(2)*g
+4. Two dispersion branches: omega^2 = c^2*k^2 +/- sqrt(3)*g
 5. Jeans wavelength = 2*pi*l_P
 6. Mode splitting kappa = omega_gap^2 [derived from Lagrangian, NOT free]
 7. Density scaling rho ~ c^2/(4*pi*G*L_H^2) = (2/3)*rho_crit

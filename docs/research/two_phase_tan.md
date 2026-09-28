@@ -4,6 +4,13 @@
 **Part:** 113 | **Phase:** 81 | **Date:** 2026-05-24
 **Script:** `simulations/solver/t9_two_phase_tan.py`
 **Log:** `simulations/solver/outputs/t9_two_phase_tan_<ts>.txt`
+
+> **CORRECTED 2026-09-28 (Part 157, TODO_04 T83j — CLAUDE OPUS 5.5):** the φ₋ mass is m² = g·sin Δ₊
+> (V″ = 2g sin Δ₊ divided by φ₋'s inertia 2), not 2g sin Δ₊. **Eq 113.7b's
+> "exact match" m²(φ₋)|_{r_S} = ω_gap² = 2g no longer holds** (g vs 2g; ratio
+> 1/√2 in frequency). ω_gap² = 2g is the single-phase relative-mode gap and is
+> itself correct. Script S07 now reports this honestly (11/12).
+> See [phi_minus_mass_correction.md](phi_minus_mass_correction.md).
 **SymPy:** 5/5 PASS | **Sudoku:** 12/12 PASS
 **Verdict:** Product coupling expressed in tan language; ratio diagnostic Δ₋/Δ₊
 defined; reversed Higgs mass m² = 2g·sin(Δ₊) connects to tan framework; T7 resolved;

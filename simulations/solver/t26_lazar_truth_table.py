@@ -70,22 +70,22 @@ def compute_boundary_layer_energy(mass_kg=1.0, radius_m=0.062):
     from scratch, for a sphere of given mass/radius, and carry it through
     to a final Joule number (Part 71 stops at N_layer, never states E_layer).
     Formulas [DERIVED, Part 71]:
-      Delta_E   = m_Planck*c^2 / (2*sqrt(2))            (Eq 4, per-oscillator)
+      Delta_E   = m_Planck*c^2 / sqrt(3)            (Eq 4, per-oscillator)
       xi        = l_Planck / sqrt(2)                     (healing length, Part 34)
       a_0       = l_Planck                                (lattice spacing, Part 34, n=1/l_P^3)
       N_layer   = (4*pi*r^2 * xi) / a_0^3
       E_layer   = N_layer * Delta_E
-      E_bulk    = M*c^2 / (2*sqrt(2))                     (Eq 8, whole-object bulk decoupling)
+      E_bulk    = M*c^2 / sqrt(3)                     (Eq 8, whole-object bulk decoupling)
     """
     l_planck = math.sqrt(HBAR * G / C**3)
-    delta_E = M_PLANCK_KG * C**2 / (2 * math.sqrt(2))   # J, per oscillator
+    delta_E = M_PLANCK_KG * C**2 / math.sqrt(3)   # J, per oscillator
     xi = l_planck / math.sqrt(2)
     a0 = l_planck
     surface_area = 4 * math.pi * radius_m**2
     v_layer = surface_area * xi
     n_layer = v_layer / a0**3
     e_layer = n_layer * delta_E
-    e_bulk = mass_kg * C**2 / (2 * math.sqrt(2))
+    e_bulk = mass_kg * C**2 / math.sqrt(3)
     return {
         'l_planck_m': l_planck, 'delta_E_J': delta_E, 'xi_m': xi, 'a0_m': a0,
         'surface_area_m2': surface_area, 'v_layer_m3': v_layer,

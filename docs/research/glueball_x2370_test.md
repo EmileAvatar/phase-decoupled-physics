@@ -286,7 +286,7 @@ therefore cannot affect:
 
 - The U(1) single-phase sector (Part 21–35): untouched, no shared symbols.
 - The two-phase Lagrangian (Part 61–63): untouched — Newton's 3rd law
-  (ψ̈ = −2φ̈₊), the biharmonic equation (∇⁴+4g²), and the Jeans eigenvalue
+  (ψ̈ = −2φ̈₊), the biharmonic equation (∇⁴ − g², corrected Part 155), and the Jeans eigenvalue
   are unaffected (verified by construction, Sudoku check S11 above).
 - Part 114's own gravity-layer results (E_break ≈ 1.382 m_P, λ₄/8πG =
   1/48): unaffected — this Part reuses Part 114's *formula*, not its

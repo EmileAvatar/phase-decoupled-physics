@@ -88,7 +88,7 @@ phi_-_ddot + 3*H(z)*phi_-_dot + m_phi_-^2(z)*phi_- = 0           ... (88.1)
 From Part 62 (reversed Higgs):
 ```
 m_phi_-^2 = 0   in vacuum (massless)                              ... (88.2a)
-m_phi_-^2 = 2*g*Phi   near matter (small in radiation era)        ... (88.2b)
+m_phi_-^2 = g*Phi   near matter (small in radiation era)        ... (88.2b)
 ```
 
 ### Slow-roll analysis [DERIVED]
@@ -177,6 +177,12 @@ negligible.
 ## 4. Approach C — Biharmonic GR Correction to Sound Horizon
 
 ### Biharmonic field equation [DERIVED from Part 61]
+
+> **CORRECTED 2026-09-28 (Part 155, TODO_04 T83c — CLAUDE OPUS 5.5):** the Part 61
+> biharmonic equation this section builds on is **∇⁴φ₊ − g²φ₊ = −g²ψ**, not
+> ∇⁴Φ + 4g²Φ (inertia and algebra-sign slips); it has no 1/r regime at any range.
+> The derivation below is retained for the record; its order-of-magnitude conclusion ((l_P/r_s)² suppression) is unchanged by the √2 scale shift.
+> See [biharmonic_rederivation.md](biharmonic_rederivation.md).
 
 ```
 nabla^4*Phi + 4*g^2*Phi = 4*pi*G*rho   (biharmonic gravity)      ... (88.9)

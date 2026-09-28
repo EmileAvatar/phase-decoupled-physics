@@ -134,7 +134,7 @@ P = E_layer * gamma                                                            (
 where gamma is the dissipation rate. At phi_- resonance:
 
 ```
-omega(phi_-) = sqrt(2*g*Phi)                                                   (11)
+omega(phi_-) = sqrt(g*Phi)                                                   (11)
 ```
 
 where Phi = GM/(rc^2) is the dimensionless gravitational potential.
@@ -143,7 +143,7 @@ At Earth's surface: Phi = 6.95e-10.
 
 ```
 omega(phi_-) = 4.12e38 rad/s                                                  (12)
-f(phi_-) = 6.55e37 Hz  (gamma-ray range)                                      (13)
+f(phi_-) = 4.63e37 Hz  (gamma-ray range; corrected Part 157, was 6.55e37)                                      (13)
 ```
 
 [DERIVED] The phi_- resonant frequency at Earth's surface is in the gamma-ray range.
@@ -421,7 +421,7 @@ is for smaller droplets. This is a scaling dependence, not an error.
    If g2/g1 > 0.5, decoupled state is the GLOBAL minimum (self-sustaining).
 
 5. **phi_- resonant frequency** [DERIVED]:
-   f(phi_-) = 6.55e37 Hz at Earth's surface (gamma-ray range).
+   f(phi_-) = 4.63e37 Hz at Earth's surface (corrected Part 157; was 6.55e37) (gamma-ray range).
 
 ### Status tags:
 - [DERIVED] phi_- screening: <sin(A*sin(omega*t))> = 0 for all A

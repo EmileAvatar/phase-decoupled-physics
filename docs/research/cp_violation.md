@@ -410,7 +410,7 @@ All core two-phase results (16/16 from Part 63) are preserved under L5:
 |---|---|---|
 | Newton's 3rd law (psi_ddot = -2*phi_+_ddot) | UNCHANGED | sin(2*phi_-) couples only phi_- equation |
 | Jeans instability eigenvalue > 0 | UNCHANGED | From phi_+ sector; O(eps^2) correction only |
-| Biharmonic gravity (nabla^4 + 4g^2) | UNCHANGED | From phi_+ sector; eps term not involved |
+| Biharmonic (nabla^4 - g^2; corrected Part 155) | UNCHANGED | From phi_+ sector; eps term not involved |
 | phi_- reversed Higgs mass | O(eps^2) shift | delta_m^2 = 8*eps^2/g at shifted vacuum |
 | U(1) limit | RECOVERED | sin(2*phi_-)|_{phi_-=0} = 0 exactly |
 
@@ -634,7 +634,7 @@ The ε term depends only on φ₋, so (SymPy functional derivatives):
    ∂L_ε/∂φ₋ = 2ε·cos(2φ₋)  (new source, φ₋ EOM only)            (125.6)
 ```
 
-Newton's 3rd law (ψ̈ = −2φ̈₊), the Jeans eigenvalue (+2√2·g), and biharmonic gravity are
+Newton's 3rd law (ψ̈ = −2φ̈₊), the Jeans eigenvalue (+√3·g), and biharmonic gravity are
 **EXACTLY** unchanged — stronger than Section 8's O(ε²) statement, which applied to the
 φ₋-sector observables (reversed-Higgs mass etc., where O(ε²) remains correct).
 

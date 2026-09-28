@@ -21,7 +21,7 @@ CASCADE FORMULAS (all DERIVED in Parts 33/34 -- no new results here):
   rho     = m_cond^4*c^3 / hbar^3          [Parts 21/34]
   xi      = a_0 / sqrt(2)                  [Part 34]
   g_GP    = hbar^3 / (m_cond^2*c)          [Part 34, PDTP Original]
-  L_bih   = a_0 / 2  (biharmonic scale)    [Part 61]
+  L_bih   = a_0      (biharmonic scale)    [Part 61; corrected T83c]
   kappa_GL = sqrt(2)  (Type II -- CHECK)   [Part 36/37]
 
 SUDOKU at m_cond = m_P (12 tests, all PASS expected):
@@ -167,15 +167,16 @@ def GPInteractionConstant(m_cond):
 
 def BiharmonicScreeningScale(m_cond):
     """
-    L_bih = a_0 / 2 = hbar / (2 * m_cond * c)   [Part 61, approx]
-    Screening scale from nabla^4 Phi + 4g^2 Phi = source.
-    Crossover wavenumber k_screen satisfies k^4 = 4g^2 where
-    g ~ omega_gap/c = m_cond*c/hbar, giving k_screen = 2*m_cond*c/hbar.
-    Below L_bih: 4th-order biharmonic gravity.
-    Above L_bih: standard Newtonian 1/r^2 gravity.
+    L_bih = a_0 = hbar / (m_cond * c)   [CORRECTED T83c / Part 155]
+    Scale from nabla^4 phi_+ - g^2 phi_+ = -g^2 psi with bare
+    g = omega_gap^2/c^2 = 1/a_0^2 (term_glossary Sec 4): kappa^4 = g^2,
+    kappa = sqrt(g) = 1/a_0. (Old value a_0/2 came from the uncorrected
+    "4g^2" with g mis-dimensioned as 1/length.) The equation has no 1/r
+    regime on either side of L_bih (constant - r/(8 pi) inside,
+    cos(r/a_0)/r outside); L_bih is a crossover scale only.
     Returns L_bih in metres.
     """
-    return LatticeSpacing(m_cond) / 2.0
+    return LatticeSpacing(m_cond)
 
 
 def GLParameter(m_cond):

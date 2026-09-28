@@ -293,7 +293,7 @@ def change_of_variables():
                         force_p_expected),
     ]
     verifications.append(VerificationResult(
-        "EL for phi_+: phi_+_ddot = -2g*cos(psi-phi_+)*sin(phi_-)",
+        "EL for phi_+: 2*phi_+_ddot = -2g*cos(psi-phi_+)*sin(phi_-)  [pi_+ = 2*phi_+_dot; corrected T83b]",
         ok_fp, msg_fp, steps_fp))
     results["force_p"] = force_p
 
@@ -312,7 +312,7 @@ def change_of_variables():
                         force_m_expected),
     ]
     verifications.append(VerificationResult(
-        "EL for phi_-: phi_-_ddot = 2g*sin(psi-phi_+)*cos(phi_-)",
+        "EL for phi_-: 2*phi_-_ddot = 2g*sin(psi-phi_+)*cos(phi_-)  [pi_- = 2*phi_-_dot; corrected T83b]",
         ok_fm, msg_fm, steps_fm))
     results["force_m"] = force_m
 
@@ -328,7 +328,7 @@ def change_of_variables():
         derivation_step("dL/d(psi)", force_psi),
         derivation_step("Expected: 2g*cos(psi-phi_+)*sin(phi_-)",
                         force_psi_expected),
-        derivation_step("Note: psi_ddot = -phi_+_ddot (Newton's 3rd law!)",
+        derivation_step("Note: psi_ddot = -2*phi_+_ddot (Newton's 3rd law; inertia of phi_+ is 2)",
                         "action-reaction pair"),
     ]
     verifications.append(VerificationResult(
@@ -368,20 +368,22 @@ def weak_field_limit():
     verifications = []
 
     # Full equations (from Step 2):
-    # phi_+_ddot = -2g * cos(psi - phi_+) * sin(phi_-)
-    # phi_-_ddot =  2g * sin(psi - phi_+) * cos(phi_-)
-    # psi_ddot   =  2g * cos(psi - phi_+) * sin(phi_-)
+    # (CORRECTED T83b, 2026-09-28: these are FORCES dL/dq; the kinetic term
+    #  phi_+_dot^2 + phi_-_dot^2 gives inertia 2, so accelerations are half)
+    # 2*phi_+_ddot = -2g * cos(psi - phi_+) * sin(phi_-)
+    # 2*phi_-_ddot =  2g * sin(psi - phi_+) * cos(phi_-)
+    # psi_ddot     =  2g * cos(psi - phi_+) * sin(phi_-)
 
     # Linearise: sin(phi_-) ~ phi_-, cos(phi_-) ~ 1
     #            sin(psi-phi_+) ~ (psi-phi_+), cos(psi-phi_+) ~ 1
 
-    # phi_+_ddot ~ -2g * 1 * phi_-  =  -2g * phi_-
-    # phi_-_ddot ~  2g * (psi - phi_+) * 1  =  2g * (psi - phi_+)
-    # psi_ddot   ~  2g * 1 * phi_-  =  2g * phi_-
+    # force on phi_+ ~ -2g * phi_-          -> phi_+_ddot = -g * phi_-
+    # force on phi_- ~  2g * (psi - phi_+)  -> phi_-_ddot =  g * (psi - phi_+)
+    # force on psi   ~  2g * phi_-          -> psi_ddot   =  2g * phi_-
 
-    # KEY OBSERVATION: phi_+_ddot = -psi_ddot  (Newton's 3rd law, exact)
-    # This means: d^2/dt^2 (phi_+ + psi) = 0
-    # => phi_+ + psi = const + v*t (free streaming of centre-of-mass)
+    # KEY OBSERVATION: force_psi = -force_phi_+ (exact) => psi_ddot = -2*phi_+_ddot
+    # This means: d^2/dt^2 (psi + 2*phi_+) = 0
+    # => psi + 2*phi_+ = const + v*t (free streaming of centre-of-mass)
 
     results["linear_phi_p"] = "-2g * phi_-"
     results["linear_phi_m"] = "2g * (psi - phi_+)"
@@ -402,7 +404,7 @@ def weak_field_limit():
         derivation_step("Expected: -2g*epsilon", expected_linear_p),
     ]
     verifications.append(VerificationResult(
-        "Linearised phi_+: phi_+_ddot = -2g*phi_-",
+        "Linearised force on phi_+: -2g*phi_- (phi_+_ddot = -g*phi_-)",
         ok_lp, msg_lp, steps_lp))
 
     # Full: 2g*sin(delta)*cos(epsilon)
@@ -419,7 +421,7 @@ def weak_field_limit():
         derivation_step("Expected: 2g*delta", expected_linear_m),
     ]
     verifications.append(VerificationResult(
-        "Linearised phi_-: phi_-_ddot = 2g*(psi-phi_+)",
+        "Linearised force on phi_-: 2g*(psi-phi_+) (phi_-_ddot = g*(psi-phi_+))",
         ok_lm, msg_lm, steps_lm))
 
     # Verify Newton's 3rd law: force_psi = -force_phi_+
@@ -434,51 +436,42 @@ def weak_field_limit():
         derivation_step("Sum: force_psi + force_phi_+", diff_3rd),
     ]
     verifications.append(VerificationResult(
-        "Newton's 3rd law: psi_ddot = -phi_+_ddot (exact, not just linear)",
+        "Newton's 3rd law: force_psi = -force_phi_+ => psi_ddot = -2*phi_+_ddot (exact)",
         ok_3rd,
         "PASS: action-reaction pair confirmed" if ok_3rd else "FAIL",
         steps_3rd))
 
     results["verifications_step3"] = verifications
 
-    # PHYSICAL INTERPRETATION (in text, no SymPy needed):
-    # Define Phi = psi - phi_+ (gravitational potential analogue)
-    # Then from linearised equations:
-    #   Phi_ddot = psi_ddot - phi_+_ddot = 2g*phi_- - (-2g*phi_-) = 4g*phi_-
-    #   phi_-_ddot = 2g*Phi
-    # These are TWO coupled 2nd-order ODEs:
-    #   d^2/dt^2 [Phi, phi_-] = M [Phi, phi_-]
-    #   where M = [[0, 4g], [2g, 0]]
-    #
-    # EIGENVALUE ANALYSIS (careful about lambda vs omega^2):
-    # The system is d^2x/dt^2 = Mx, so eigenvalues of M are lambda
-    # where lambda plays the role of omega^2 in the trial x ~ exp(i*omega*t).
-    # Specifically: omega^2 = -lambda (since x_ddot = -omega^2 * x for oscillation)
-    # Wait -- no. x_ddot = M*x means x ~ exp(sigma*t) where sigma^2 = lambda.
-    # So: sigma = +/- sqrt(lambda).
-    #   lambda > 0 -> sigma real -> exponential growth/decay (UNSTABLE)
-    #   lambda < 0 -> sigma imaginary -> oscillation with omega = sqrt(-lambda)
-    #
-    # Eigenvalues of M = [[0,4g],[2g,0]]:
-    # det(M - lambda*I) = lambda^2 - 8g^2 = 0
-    # lambda = +/- 2*sqrt(2)*g
-    #
-    # lambda_1 = +2*sqrt(2)*g > 0 -> sigma = +/-(8g^2)^(1/4) -> UNSTABLE
-    # lambda_2 = -2*sqrt(2)*g < 0 -> omega = (2*sqrt(2)*g)^(1/2) -> OSCILLATION
-    #
-    # INTERPRETATION (PDTP speculative, not proven to be gravity):
-    # The unstable mode (lambda > 0) resembles gravitational collapse
-    # (Jeans instability). This is a PDTP interpretation, not a proof
-    # that it IS gravity. The oscillating mode resembles the breathing
-    # mode from Part 7. Both interpretations are within the PDTP framework.
+    # COUPLED LINEAR SYSTEM (CORRECTED T83b / Part 154, 2026-09-28).
+    # Original Part 61 version set acceleration = force for every field,
+    # i.e. inertia 1, giving M = [[0,4g],[2g,0]], lambda = +/- 2*sqrt(2)*g.
+    # But L_new has phi_+_dot^2 + phi_-_dot^2 (inertia 2) and 1/2 psi_dot^2
+    # (inertia 1) -- the same inertias that give psi_ddot = -2*phi_+_ddot.
+    # Consistent accelerations (Phi = psi - phi_+):
+    #   Phi_ddot   = psi_ddot - phi_+_ddot = 2g*phi_- + g*phi_- = 3g*phi_-
+    #   phi_-_ddot = g*Phi
+    #   M = [[0, 3g], [g, 0]],  det(M - lambda I) = lambda^2 - 3g^2
+    #   lambda = +/- sqrt(3)*g
+    # x_ddot = M x -> x ~ exp(sigma t), sigma^2 = lambda:
+    #   lambda > 0 -> growth (UNSTABLE); lambda < 0 -> omega = sqrt(-lambda)
+    # Computed below from the linearised forces divided by the inertias.
+    inertia_psi, inertia_p, inertia_m = 1, 2, 2
+    linear_force_psi = sp.series(sp.series(full_force_psi, epsilon, 0, 2)
+                                 .removeO(), delta_sym, 0, 2).removeO()
+    acc_psi = linear_force_psi / inertia_psi
+    acc_p = linear_force_p / inertia_p
+    acc_m = linear_force_m / inertia_m
+    acc_Phi = sp.expand(acc_psi - acc_p)
+    M = sp.Matrix([[acc_Phi.coeff(delta_sym), acc_Phi.coeff(epsilon)],
+                   [sp.expand(acc_m).coeff(delta_sym),
+                    sp.expand(acc_m).coeff(epsilon)]])
+    eigs = sorted(M.eigenvals().keys(), key=lambda e: float(e.subs(g_sym, 1)))
 
-    results["coupled_matrix"] = "M = [[0, 4g], [2g, 0]]"
-    results["eigenvalues"] = "+/- 2*sqrt(2)*g"
-    results["stable_mode_omega2"] = "2*sqrt(2)*g"
-    results["unstable_mode"] = ("One eigenvalue positive -> runaway growth. "
-                                "This is phi_- growing = bulk-surface "
-                                "separation increasing = gravitational "
-                                "collapse! The instability IS gravity.")
+    results["coupled_matrix"] = M
+    results["eigenvalues"] = eigs
+    results["stable_mode_omega2"] = -eigs[0]
+    results["unstable_mode"] = eigs[-1]
 
     return results
 
@@ -664,6 +657,11 @@ def symmetry_analysis():
 
 def phi_minus_analysis():
     """
+    NOTE (T83b, 2026-09-28): the linearised coefficients below use
+    inertia-1 accelerations (2g, 4g, 8g^2). With the correct inertia 2 for
+    phi_+/phi_- they become g, 3g, 3g^2. Re-derivation of the biharmonic /
+    phi_- results is TODO_04 T83 sub-task 83c -- not yet corrected here.
+
     Properties of the NEW scalar field phi_-.
 
     From the linearised equations:
@@ -757,6 +755,16 @@ def phi_minus_analysis():
 
 def einstein_comparison():
     """
+    CORRECTED (T83c / Part 155, 2026-09-28): the original derivation below
+    (kept as comments for the record) had three slips -- inertia 1 instead
+    of 2 for phi_+/phi_-, static sign nabla^2 q = +F instead of -F/I, and
+    an algebra sign error in the last step. Correct result (fixed psi):
+        nabla^4 phi_+ - g^2 phi_+ = -g^2 psi
+    Green's function (cos(k r) - exp(-k r))/(8 pi k^2 r), k = sqrt(g):
+    no 1/r term at any range (constant - r/(8 pi) at small r; oscillating
+    cos(k r)/r at large r). It does NOT reduce to Poisson. See
+    docs/research/biharmonic_rederivation.md.
+
     Does the phi_+ sector reproduce Einstein gravity in the weak-field limit?
 
     From linearised equations:
@@ -781,6 +789,7 @@ def einstein_comparison():
     **PDTP Original:** Recovery of Newtonian gravity from two-phase system.
     """
     results = {}
+    g_bih = sp.Symbol("g", positive=True)
 
     # The key question: can we get Poisson's equation?
     # In single-phase PDTP: box(phi) = g*sin(psi-phi) ~ g*(psi-phi)
@@ -809,13 +818,26 @@ def einstein_comparison():
     # which reduces to Poisson on short scales (L << healing length)
     # and becomes DIFFERENT on large scales.
 
-    results["equation_type"] = "Biharmonic: nabla^4(Phi) + 4g^2*Phi = 4g^2*psi"
-    results["short_range"] = "L << 1/sqrt(2g): recovers Poisson (Newton)"
-    results["long_range"] = "L >> 1/sqrt(2g): fourth-derivative corrections"
-    results["healing_length"] = "L_heal = 1/sqrt(2g) = a_0/sqrt(2) ~ l_P"
+    # CORRECTED T83c: computed by exact elimination with inertias (2, 2)
+    # and static nabla^2 q = -F/I (t83c_biharmonic.py):
+    D_op = sp.Symbol('D')
+    pp_s, pm_s, ps_s = sp.symbols('pp pm ps')
+    sol = sp.solve([sp.Eq(D_op * pp_s, -(-2 * g_bih * pm_s) / 2),
+                    sp.Eq(D_op * pm_s, -(2 * g_bih * (ps_s - pp_s)) / 2)],
+                   [pp_s, pm_s], dict=True)[0]
+    num_, den_ = sp.fraction(sp.together(sol[pp_s] / ps_s))
+    lead_ = sp.Poly(den_, D_op).LC()
+    P_op = sp.expand(den_ / lead_)
+    Q_op = sp.expand(num_ / lead_)
+    results["equation_type"] = "nabla^4 phi_+ + ({}) phi_+ = ({}) psi".format(
+        P_op.subs(D_op, 0), Q_op)
+    results["short_range"] = ("r << 1/sqrt(g): G ~ 1/(8 pi sqrt(g)) - r/(8 pi)"
+                              " (constant + linear; no 1/r)")
+    results["long_range"] = "r >> 1/sqrt(g): G ~ cos(sqrt(g) r)/(8 pi g r)"
+    results["healing_length"] = "L_bih = 1/sqrt(g) = a_0 (g = 1/a_0^2)"
 
-    # Healing length in metres
-    L_heal = L_P / np.sqrt(2.0)
+    # Biharmonic scale in metres (m_cond = m_P: a_0 = l_P)
+    L_heal = L_P
     results["L_heal_m"] = L_heal
 
     # At what scale do corrections appear?
@@ -835,7 +857,7 @@ def einstein_comparison():
     heal_table = []
     for m_eV in m_cond_eV_list:
         m_kg = m_eV * 1.602176634e-19 / C**2
-        L_h = HBAR / (m_kg * C * np.sqrt(2.0))
+        L_h = HBAR / (m_kg * C)          # a_0 (corrected T83c; was a_0/sqrt(2))
         heal_table.append((m_eV, L_h))
     results["heal_table"] = heal_table
 
@@ -867,11 +889,11 @@ def run_sudoku_checks(rw):
                     "{}/{}".format(n_pass_cov, n_total_cov),
                     1.0 if s2_pass else 0.0, s2_pass))
 
-    # S3: Newton's 3rd law: psi_ddot = -phi_+_ddot (exact)
+    # S3: Newton's 3rd law: psi_ddot = -2*phi_+_ddot (exact; corrected T83b)
     wf = weak_field_limit()
     s3_pass = any("3rd law" in v.label and v.passed
                   for v in wf["verifications_step3"])
-    checks.append(("S3", "Newton's 3rd law: psi_ddot = -phi_+_ddot",
+    checks.append(("S3", "Newton's 3rd law: psi_ddot = -2*phi_+_ddot",
                     "exact", "exact" if s3_pass else "FAIL",
                     1.0, s3_pass))
 
@@ -917,7 +939,7 @@ def run_sudoku_checks(rw):
     L_heal = ec["L_heal_m"]
     s9_ratio = L_heal / L_P
     s9_pass = 0.5 < s9_ratio < 1.5  # within factor 1.5 of l_P
-    checks.append(("S9", "Healing length ~ l_P (m_cond = m_P)",
+    checks.append(("S9", "Biharmonic scale L_bih ~ l_P (m_cond = m_P)",
                     "{:.2e}".format(L_P),
                     "{:.2e}".format(L_heal),
                     s9_ratio, s9_pass))
@@ -1006,13 +1028,15 @@ def run_two_phase_lagrangian(rw, engine):
     rw.print("  Neither mode exists independently!")
     rw.print("")
     rw.print("  FIELD EQUATIONS (new variables):")
-    rw.print("  (1') phi_+_ddot = -2g * cos(psi-phi_+) * sin(phi_-)")
-    rw.print("  (2') phi_-_ddot =  2g * sin(psi-phi_+) * cos(phi_-)")
-    rw.print("  (3') psi_ddot   =  2g * cos(psi-phi_+) * sin(phi_-)")
+    rw.print("  (1') 2*phi_+_ddot = -2g * cos(psi-phi_+) * sin(phi_-)")
+    rw.print("  (2') 2*phi_-_ddot =  2g * sin(psi-phi_+) * cos(phi_-)")
+    rw.print("  (3')   psi_ddot   =  2g * cos(psi-phi_+) * sin(phi_-)")
+    rw.print("  (inertia 2 for phi_+/phi_- from T = phi_+_dot^2 + phi_-_dot^2;")
+    rw.print("   corrected T83b / Part 154)")
     rw.print("")
-    rw.print("  KEY: equation (3') = -equation (1')  [Newton's 3rd law]")
-    rw.print("  -> psi_ddot + phi_+_ddot = 0  (EXACT, not approximate)")
-    rw.print("  -> d^2/dt^2(psi + phi_+) = 0  (conserved 'momentum')")
+    rw.print("  KEY: RHS(3') = -RHS(1')  [Newton's 3rd law]")
+    rw.print("  -> psi_ddot + 2*phi_+_ddot = 0  (EXACT, not approximate)")
+    rw.print("  -> d^2/dt^2(psi + 2*phi_+) = 0  (conserved 'momentum')")
     rw.print("")
 
     for v in cov["verifications_step2"]:
@@ -1028,17 +1052,22 @@ def run_two_phase_lagrangian(rw, engine):
     rw.print("    phi_- ~ 0  (bulk and surface in phase)")
     rw.print("    Phi = psi - phi_+  (gravitational potential analogue)")
     rw.print("")
-    rw.print("  LINEARISED EQUATIONS:")
-    rw.print("    phi_+_ddot = -2g * phi_-")
-    rw.print("    phi_-_ddot =  2g * Phi")
-    rw.print("    Phi_ddot   =  4g * phi_-  (from psi_ddot - phi_+_ddot)")
+    rw.print("  LINEARISED EQUATIONS (accelerations = force / inertia):")
+    rw.print("    phi_+_ddot = -g * phi_-")
+    rw.print("    phi_-_ddot =  g * Phi")
+    rw.print("    Phi_ddot   =  3g * phi_-  (from psi_ddot - phi_+_ddot)")
     rw.print("")
-    rw.print("  COUPLED OSCILLATOR SYSTEM:")
-    rw.print("    d^2/dt^2 [Phi, phi_-] = [[0, 4g], [2g, 0]] [Phi, phi_-]")
+    rw.print("  COUPLED OSCILLATOR SYSTEM (computed):")
+    rw.print("    d^2/dt^2 [Phi, phi_-] = M [Phi, phi_-],  M = {}".format(
+        wf["coupled_matrix"]))
     rw.print("")
-    rw.print("  EIGENVALUES: lambda = +/- 2*sqrt(2)*g")
-    rw.print("    lambda = +2*sqrt(2)*g > 0  -->  UNSTABLE (growing mode)")
-    rw.print("    lambda = -2*sqrt(2)*g < 0  -->  oscillation")
+    rw.print("  EIGENVALUES (computed): {}".format(wf["eigenvalues"]))
+    rw.print("    lambda = {} > 0  -->  UNSTABLE (growing mode)".format(
+        wf["unstable_mode"]))
+    rw.print("    lambda = {} < 0  -->  oscillation, omega^2 = {}".format(
+        wf["eigenvalues"][0], wf["stable_mode_omega2"]))
+    rw.print("  (Part 61 originally printed +/- 2*sqrt(2)*g from inertia-1")
+    rw.print("   accelerations; corrected T83b / Part 154)")
     rw.print("")
     rw.print("  *** CRITICAL INSIGHT ***")
     rw.print("  The UNSTABLE mode IS GRAVITY!")
@@ -1146,17 +1175,18 @@ def run_two_phase_lagrangian(rw, engine):
     rw.print("  NOT the Poisson equation (2nd derivative)!")
     rw.print("")
     rw.print("  SCALE DEPENDENCE:")
-    rw.print("    Short range (L << L_heal): Poisson recovered (Newton)")
-    rw.print("    Long range  (L >> L_heal): 4th-derivative corrections")
+    rw.print("    Short range: {}".format(ec["short_range"]))
+    rw.print("    Long range:  {}".format(ec["long_range"]))
+    rw.print("    (corrected T83c / Part 155: no Poisson/1-over-r limit at any range)")
     rw.print("")
-    rw.print("  HEALING LENGTH: L_heal = {}".format(ec["correction_scale"]))
+    rw.print("  BIHARMONIC SCALE: L_bih = {}".format(ec["correction_scale"]))
     rw.print("")
     rw.print("  For m_cond = m_P: corrections at Planck scale only")
     rw.print("  -> two-phase = single-phase for all practical purposes")
     rw.print("")
     rw.print("  BUT if m_cond is LIGHTER:")
     rw.print("")
-    headers = ["m_cond (eV)", "L_heal (m)", "Accessible?"]
+    headers = ["m_cond (eV)", "L_bih = a_0 (m)", "Accessible?"]
     rows = []
     for m_eV, L_h in ec["heal_table"]:
         if L_h > 1e-3:
@@ -1182,9 +1212,9 @@ def run_two_phase_lagrangian(rw, engine):
     rw.print("  The -cos term (anti-locking) predicts:")
     rw.print("")
     rw.print("  1. BIHARMONIC GRAVITY")
-    rw.print("     nabla^4(Phi) + 4g^2*Phi = source")
-    rw.print("     Reduces to Newton at short range;")
-    rw.print("     4th-derivative corrections at L > L_heal")
+    rw.print("     {}".format(ec["equation_type"]))
+    rw.print("     (corrected T83c / Part 155; was 'nabla^4 Phi + 4g^2 Phi',")
+    rw.print("      which does not follow from the Lagrangian)")
     rw.print("")
     rw.print("  2. GRAVITATIONALLY INDUCED SCALAR FIELD (phi_-)")
     rw.print("     Massless in vacuum, massive near matter")
@@ -1220,7 +1250,7 @@ def run_two_phase_lagrangian(rw, engine):
     rw.print("  Change of variables phi_+/phi_- decouples into:")
     rw.print("    phi_+: gravity mode (recovers Newton at short range)")
     rw.print("    phi_-: NEW surface mode (massless in vacuum)")
-    rw.print("  Biharmonic gravity equation (nabla^4 + 4g^2)")
+    rw.print("  Biharmonic equation (nabla^4 - g^2), corrected T83c")
     rw.print("  Jeans instability derived from Lagrangian")
     rw.print("  Complex scalar structure: Phi = phi_+ + i*phi_-")
     rw.print("  Sudoku: {}/10 PASS".format(n_pass))

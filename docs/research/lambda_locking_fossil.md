@@ -6,6 +6,15 @@ undetermined input. The Lambda fine-tuning problem is reframed, not solved.
 (Eq 119.1); freeze condition eps < 1/9 (Eq 119.2); thawing EOS w = -1+2*eps (Eq 119.3).
 **Date:** 2026-07-02 (Phase 87, Part 119)
 **Script:** `simulations/solver/t46_lambda_fossil.py`
+
+> **CORRECTED 2026-09-28 (Part 157, TODO_04 T83j — CLAUDE OPUS 5.5):** the φ₋ mass is m² = V″/I₋ with
+> I₋ = 2 (kinetic φ̇₋²): **m²_vac = g**, not 2g. Because slow roll gives ε = m²/(9H²)
+> independent of inertia, **Eq 119.1 m/H = 3√ε, Eq 119.2 (ε < 1/9) and Eq 119.3 are
+> exactly unchanged**, and m_φ₋ = 2.02×10⁻¹⁸ s⁻¹ is unchanged. Only the inferred
+> coupling moves: g_dyn = 9H₀²ε₀ = 4.07×10⁻³⁶ s⁻² (was 9H₀²ε₀/2 = 2.03×10⁻³⁶). T51
+> consequence: φ_vac,required = 1.5525 rad (was 2.1956) — no longer > π/2, but still
+> O(1), so §11.7's conclusion (g_dyn ≠ Λ coupling) stands. Text below is original.
+> See [phi_minus_mass_correction.md](phi_minus_mass_correction.md).
 **Log:** `simulations/solver/outputs/t46_lambda_fossil_20260702_182533.txt`
 **Sudoku:** 12/12 PASS
 **Prerequisites:** Parts 25, 61, 62, 87, 99, 113, 117
@@ -793,7 +802,7 @@ The two-phase Lagrangian (Part 61) uses the identical functional form,
 +g·cos(ψ−φ_b) − g·cos(ψ−φ_s), with φ_b, φ_s equally dimensionless phase angles.
 Re-running Section 11.2's derivation on this term gives the same [g] = s⁻² result —
 unchanged by the two-phase extension. [VERIFIED] The biharmonic field equation
-∇⁴Φ + 4g²Φ = source carries g² with the same implicit c² conversion already tracked
+∇⁴Φ + 4g²Φ = source (corrected to ∇⁴φ₊ − g²φ₊ = −g²ψ, Part 155) carries g² with the same implicit c² conversion already tracked
 in Section 11.5; no new dimensional factor enters.
 
 ### 11.9 Sudoku Scorecard (T51)

@@ -26,7 +26,7 @@ EQUATIONS USED:
            Source: PDTP Part 1 (mathematical_formalization.md)
     Eq 4: G = hbar*c/m_cond^2  [vortex derivation]
            Source: PDTP Part 33 (vortex_winding.py)
-    Eq 5: m_phi_minus^2 = 2*g*Phi  [reversed Higgs]
+    Eq 5: m_phi_minus^2 = g*Phi  [reversed Higgs]
            Source: PDTP Part 62 (reversed_higgs.py)
     Eq 6: XY model partition function: Z = Integral Prod_i d(theta_i) exp(-H/k_BT)
            Source: Chaikin & Lubensky, "Principles of Condensed Matter Physics" ch. 6
@@ -375,21 +375,21 @@ def derive_alpha_of_T(rw, J):
 
 def derive_phi_minus_thermal(rw, J):
     """
-    From Part 62: m_phi_minus^2 = 2*g*Phi (reversed Higgs).
+    From Part 62: m_phi_minus^2 = g*Phi (reversed Higgs).
     The coupling g appears inside the cosine, so at finite T:
 
     g_eff(T) = g * <cos(delta theta)> = g * alpha(T)
 
     => m_phi_minus^2(T) = 2 * g_eff(T) * Phi = 2*g*Phi * alpha(T)
 
-    At T = 0: m_phi_minus^2 = 2*g*Phi (standard Part 62)
+    At T = 0: m_phi_minus^2 = g*Phi (standard Part 62)
     At T = T_c: alpha -> 0, m_phi_minus -> 0 (massless at transition)
 
     [DERIVED] m_phi_minus(T) = m_phi_minus(0) * sqrt(alpha(T))
     """
     rw.subsection("Step 6: phi_- Mass at Finite Temperature")
 
-    rw.print("  From Part 62: m_phi_minus^2 = 2*g*Phi [reversed Higgs]")
+    rw.print("  From Part 62: m_phi_minus^2 = g*Phi [reversed Higgs]")
     rw.print("")
     rw.print("  At finite T, the effective coupling is reduced by thermal fluctuations:")
     rw.print("    g_eff(T) = g * alpha(T)")

@@ -300,6 +300,18 @@ The convergence suggests the O(1) uncertainty in microstate counting is the **sa
 
 ### 6.1 The Biharmonic Equation
 
+> **CORRECTED 2026-09-28 (Part 155, TODO_04 T83c — CLAUDE OPUS 5.5):** the
+> two-phase static equation is **∇⁴φ₊ − g²φ₊ = −g²ψ**, not ∇⁴Φ + 4g²Φ = source
+> (three slips: inertia 1 instead of 2 for φ₊/φ₋, static sign, and an algebra
+> sign error in the final rearrangement). Its Green's function
+> (cos(κr) − e^{−κr})/(8πκ²r), κ = √g = 1/a₀, has **no 1/r term at any range**
+> (constant − r/8π inside a₀; cos(r/a₀)/r ripple outside). It does not reduce to
+> Poisson/Newton at short range. Scale a₀/√2 → a₀. Full derivation:
+> [biharmonic_rederivation.md](biharmonic_rederivation.md).
+
+> The rest of Section 6 (including the short-range "1/r" claim) is retained
+> for the record only; its conclusion is withdrawn.
+
 The two-phase PDTP Lagrangian (Part 61) gives:
 
 ```

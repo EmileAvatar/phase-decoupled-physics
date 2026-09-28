@@ -186,7 +186,7 @@ which is at a frequency 10²² times below the peak emission frequency.
 
 **Eq 111.9** [VERIFIED against Part 61]:
 
-Part 61 derived G_eff = 2G_bare (Newton's 3rd law factor). Since laboratory
+Part 61 derived G_eff = 2G_bare (at equal g; its origin is the coherent 2g coupling, not the Newton's-3rd-law factor — Part 156). Since laboratory
 measurements of Newton's constant give G_N = G_eff (the effective value):
 
 ```
@@ -262,7 +262,7 @@ T_H(+) = T_H(×) = 6.17×10⁻⁸ K (1 M_sun).
 - [ ] Does the PDTP breathing mode have a modified greybody factor (transmission
   probability) even though T_H is unchanged? This would affect the luminosity
   (total power) of the Hawking emission but not its temperature.
-- [ ] Two-phase (T9): the reversed Higgs phi_- mass m² = 2gΦ diverges near matter.
+- [ ] Two-phase (T9): the reversed Higgs phi_- mass m² = g·Φ diverges near matter.
   Does this add a correction to κ that was missed here?
 
 ---

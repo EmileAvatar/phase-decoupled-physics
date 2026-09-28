@@ -87,8 +87,11 @@ w0_DESI     = -0.827       # DESI 2024
 
 # Derived -- all COMPUTED from the above constants
 eps0      = (1.0 + w0_DESI) / (1.0 - w0_DESI)    # from Part 25: eps=(1+w)/(1-w)
-g_cosmo   = 9.0 * H0_SI**2 * eps0 / 2.0           # s^-2  [Part 25: eps=2g/(9H^2)]
-m_phi_min = math.sqrt(2.0 * g_cosmo)               # s^-1  [from S1: m^2_vac=2g]
+# CORRECTED T83j / Part 157: eps = m^2/(9H^2) (slow roll, inertia-free) and the
+# physical phi_- mass is m^2 = g (V''=2g, inertia 2). m is fixed by the data
+# (unchanged); the inferred g doubles (was 9 H^2 eps / 2 with m^2 = 2g).
+g_cosmo   = 9.0 * H0_SI**2 * eps0                 # s^-2  [eps = g/(9H^2)]
+m_phi_min = math.sqrt(1.0 * g_cosmo)               # s^-1  [m^2_vac = g]
 m_over_H0 = 3.0 * math.sqrt(eps0)                  # dimensionless [PDTP Eq 119.1]
 eps_crit  = 1.0 / 9.0                              # freeze threshold [PDTP Eq 119.2]
 
@@ -391,9 +394,9 @@ def sudoku_checks(rw, s1_res, s2_res, s3_res):
     chk("T2: eps_0 < 1/9 -> phi_- frozen today [Eq 119.2]",
         s2_res['freeze_ok'], True, is_bool=True)
 
-    # T3: m^2 = 2*g_cosmo self-consistent
-    chk("T3: m_phi_min^2 = 2*g_cosmo",
-        m_phi_min**2, 2.0 * g_cosmo)
+    # T3: m^2 = g_cosmo self-consistent (T83j: was 2*g_cosmo)
+    chk("T3: m_phi_min^2 = g_cosmo (T83j)",
+        m_phi_min**2, 1.0 * g_cosmo)
 
     # T4: thawing w vs DESI at ~2% (O(eps^2) residual expected)
     chk("T4: thawing w_pred vs DESI w_0 (2% O(eps^2) tolerance)",
@@ -404,14 +407,15 @@ def sudoku_checks(rw, s1_res, s2_res, s3_res):
         s3_res['w_exact'], w0_DESI, tol=0.005)
 
     # T6: Part 62 cross-check -- m^2(phi_-) = 2g sin(Delta_+)
-    # At full lock Delta_+ = pi/2: m^2 = 2g*sin(pi/2) = 2g. Must equal m^2_vac.
-    m2_part62 = 2.0 * g_cosmo * math.sin(math.pi / 2)
-    chk("T6: Part 62 m^2 = 2g*sin(pi/2) = 2g = m^2_vac",
-        m2_part62, 2.0 * g_cosmo)
+    # At full lock Delta_+ = pi/2: m^2 = g*sin(pi/2) = 2g. Must equal m^2_vac.
+    # (corrected T83j: m^2 = V''/I_- = 2g sin / 2)
+    m2_part62 = (2.0 * g_cosmo * math.sin(math.pi / 2)) / 2.0
+    chk("T6: Part 62 m^2 = V''/2 = g*sin(pi/2) = m^2_vac (T83j)",
+        m2_part62, m_phi_min**2)
 
     # T7: Part 113 -- phi_- mass at horizon = 2g (horizon has Delta_+ = pi/2)
-    chk("T7: Part 113 phi_- horizon mass m^2 = 2g (same form)",
-        m2_part62, 2.0 * g_cosmo)
+    chk("T7: Part 113 phi_- horizon mass m^2 = g (same form; T83j)",
+        m2_part62, g_cosmo)
 
     # T8: 9*eps_0 < 1 (compact freeze condition)
     chk("T8: 9*eps_0 < 1 (freeze condition equivalent)",
@@ -438,7 +442,7 @@ def sudoku_checks(rw, s1_res, s2_res, s3_res):
 
     # T12: g_cosmo derived from eps_0 = (1+w0)/(1-w0) is self-consistent
     eps_recomp = (1.0 + w0_DESI) / (1.0 - w0_DESI)
-    g_recomp   = 9.0 * H0_SI**2 * eps_recomp / 2.0
+    g_recomp   = 9.0 * H0_SI**2 * eps_recomp        # T83j: eps = g/(9H^2)
     chk("T12: g_cosmo self-consistent via eps_0 = (1+w)/(1-w)",
         g_recomp, g_cosmo)
 

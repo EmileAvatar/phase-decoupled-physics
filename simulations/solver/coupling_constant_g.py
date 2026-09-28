@@ -25,7 +25,7 @@ Sources:
   Part 33 (vortex_winding_derivation.md) -- G = hbar*c/m_cond^2 [Eq 2a]
   Part 34 (condensate_selfconsist.py) -- g = m_cond*c^2/hbar [Eq 4e]
   Part 61 (two_phase_lagrangian.py) -- 4g^2 biharmonic coefficient [Eq 2e]
-  Part 62 (reversed_higgs.py) -- m_phi^2 = 2g*Phi [Eq 6c]
+  Part 62 (reversed_higgs.py) -- m_phi^2 = g*Phi [Eq 6c]
 """
 
 import math
@@ -143,8 +143,11 @@ def breathing_mode_gap(g):
 
 
 def biharmonic_coefficient(g):
-    """4g^2 appears in nabla^4 Phi + 4g^2 Phi = source [Eq 2e, Part 61]."""
-    return 4.0 * g**2
+    """Biharmonic coefficient. CORRECTED T83c / Part 155 (2026-09-28): the
+    equation is nabla^4 phi_+ - g^2 phi_+ = -g^2 psi (was stated as
+    nabla^4 Phi + 4g^2 Phi, Part 61 Eq 2e, which does not follow from L).
+    Returns the magnitude g^2 (sign is minus)."""
+    return g**2
 
 
 def condensate_number_density(g):
@@ -154,7 +157,7 @@ def condensate_number_density(g):
     Cross-check: n = 1/l_P^3 = (g/c)^3 [Planck density, same result]
 
     NOTE on Jeans eigenvalue (Eq 2f, Part 61):
-      lambda = +/- 2*sqrt(2)*g where lambda is eigenvalue of d^2x/dt^2 = M*x.
+      lambda = +/- sqrt(3)*g where lambda is eigenvalue of d^2x/dt^2 = M*x.
       In the two_phase_lagrangian.py, the Lagrangian is in natural units (hbar=c=1)
       where g has units [mass^2]. Eq 4e uses SI units where g has units [rad/s].
       These are DIFFERENT normalizations of g; cross-unit Jeans timescale is undefined.
@@ -170,13 +173,13 @@ def condensate_number_density(g):
 def phi_minus_freq_earth(g):
     """
     phi_- reversed-Higgs mode frequency near Earth's surface.
-    From Eq 6c: m_phi^2 = 2*g*Phi  (in PDTP units, where m means angular frequency)
+    From Eq 6c: m_phi^2 = g*Phi  (in PDTP units, where m means angular frequency)
     Phi = G*M_E/R_E = Newtonian potential at surface (m^2/s^2)
-    omega_phi = sqrt(2 * g * Phi)  [rad/s]
+    omega_phi = sqrt(g*Phi)  [rad/s]
     mass equivalent: m_phi_eV = hbar * omega_phi / e_charge (in eV)
     """
     Phi   = G_NEWT * M_EARTH / R_EARTH   # 6.25e7 m^2/s^2
-    omega = math.sqrt(2.0 * g * Phi)
+    omega = math.sqrt(1.0 * g * Phi)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
     E_J   = HBAR * omega                 # energy in J
     E_eV  = E_J / 1.602176634e-19        # energy in eV
     E_MeV = E_eV / 1e6
@@ -236,10 +239,12 @@ def run_sudoku_a6(_engine, g_pred, planck, n_dens, phi_minus, bec):
     ratio_gap = omega_gap / g_pred
     results.append(("S6: omega_gap = g [Eq 6a]", abs(ratio_gap - 1.0) < 1e-14, ratio_gap))
 
-    # S7: Biharmonic coefficient = 4g^2 (Eq 2e, Part 61)
+    # S7: Biharmonic coefficient = g^2 (Eq 155.3; corrected from 4g^2, T83c).
+    # NOTE: circular (checks the helper against its own formula); the
+    # independent derivation is in t83c_biharmonic.py.
     bih = biharmonic_coefficient(g_pred)
-    bih_exact = 4.0 * g_pred**2
-    check("S7: 4g^2 biharmonic coeff [Eq 2e]", bih, bih_exact)
+    bih_exact = g_pred**2
+    check("S7: g^2 biharmonic coeff [Eq 155.3]", bih, bih_exact)
 
     # S8: Condensate number density n = (g/c)^3 = 1/l_P^3 [Eq 4d]
     check("S8: n = (g/c)^3 = 1/l_P^3 [Eq 4d]", n_dens["n_pred"], n_dens["n_planck"])
@@ -315,7 +320,7 @@ def run_coupling_g_fcc(rw, engine):
     rw.print("")
     rw.print("CONNECTIONS TO KNOWN PDTP EQUATIONS:")
     rw.print("  Breathing mode gap: omega_gap = g = {:.4e} rad/s [Eq 6a]".format(g))
-    rw.print("  Biharmonic coeff:   4g^2 = {:.4e} rad^2/s^2 [Eq 2e]".format(
+    rw.print("  Biharmonic coeff:   g^2 = {:.4e} rad^2/s^2 [Eq 155.3, corrected T83c]".format(
         biharmonic_coefficient(g)))
     rw.print("  Number density:     n = (g/c)^3 = {:.4e} m^-3 [Eq 4d]".format(
         n_dens["n_pred"]))

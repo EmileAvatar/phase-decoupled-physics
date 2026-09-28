@@ -214,7 +214,7 @@ both free parameters. Even the ratio is not derivable.
 | DOF (massless) | 2 (transverse) | 1 |
 | Gauge symmetry | U(1)_EM | None (global) |
 | Mass in vacuum | 0 (exact) | 0 |
-| Mass near matter | 0 (exact) | m^2 = 2gPhi |
+| Mass near matter | 0 (exact) | m^2 = g*Phi |
 
 phi_- is scalar (spin-0), not a vector boson (spin-1). It cannot be the photon.
 Both channels share the same K_NAT = 1/(4*pi). No new dimensionless number emerges.

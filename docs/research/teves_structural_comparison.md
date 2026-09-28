@@ -77,7 +77,7 @@ a place PDTP currently has nothing).
 `docs/research/dark_matter_energy.md` Section 2.5, **Falsifiable
 Prediction 9**:
 
-> The two-phase biharmonic field equation ∇⁴Φ + 4g²Φ = source (Part 61)
+> The two-phase biharmonic field equation ∇⁴Φ + 4g²Φ = source (Part 61; corrected to ∇⁴φ₊ − g²φ₊ = −g²ψ in Part 155, verdict unchanged)
 > differs from Poisson's equation at length scales r ~ 1/(2g) ~ l_P. In
 > principle, if the healing length L_heal were galaxy-scale, flat rotation
 > curves would follow WITHOUT dark matter.

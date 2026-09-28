@@ -325,7 +325,7 @@ def _step3_yukawa_screening(rw):
 
     rw.subsection("3a. The Derivation")
     rw.print("  From Part 62 (reversed Higgs): phi_- mass near matter is")
-    rw.print("    m_phi_minus^2 = 2 * g * Phi   [DERIVED, Part 62]")
+    rw.print("    m_phi_minus^2 = g*Phi   [DERIVED, Part 62]")
     rw.print("")
     rw.print("  Where:")
     rw.print("    g = m_cond * c^2 / hbar  (PDTP coupling, rad/s)")
@@ -336,7 +336,7 @@ def _step3_yukawa_screening(rw):
     rw.print("  with screening wavenumber mu^2 = 4*g/Phi (after substitution).")
     rw.print("")
     rw.print("  HOWEVER: the ChatGPT derivation used a CONSTANT mass term (ad hoc).")
-    rw.print("  The actual PDTP mass is FIELD-DEPENDENT: m^2 = 2*g*Phi.")
+    rw.print("  The actual PDTP mass is FIELD-DEPENDENT: m^2 = g*Phi.")
     rw.print("  This means the screening length VARIES with position:")
     rw.print("    r_Yukawa(x) = 1/mu(x) = sqrt(Phi(x) / (4*g))")
     rw.print("")
@@ -365,7 +365,7 @@ def _step3_yukawa_screening(rw):
             continue
 
         # m_phi_minus^2 = 2 * g * phi  (in rad^2/s^2)
-        m_sq = 2.0 * g * phi_val
+        m_sq = 1.0 * g * phi_val  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
         m_phi = math.sqrt(m_sq) if m_sq > 0 else 0.0
 
         # Convert to mass in kg: m_kg = hbar * m_phi / c^2
@@ -374,7 +374,7 @@ def _step3_yukawa_screening(rw):
         # Screening wavenumber: mu^2 = 4*g/phi ... wait, let me redo this carefully
         # The screened Poisson: nabla^2 Phi - mu^2 Phi = source
         # From eliminating phi_-: mu^2 = 8*g^2/m_phi^2 (ChatGPT eq)
-        # But m_phi^2 = 2*g*Phi, so mu^2 = 8*g^2/(2*g*Phi) = 4*g/Phi
+        # But m_phi^2 = g*Phi, so mu^2 = 8*g^2/(2*g*Phi) = 4*g/Phi
         #
         # Actually we need to be careful with units. The screening is in 1/m^2.
         # g has units rad/s. Phi is dimensionless.

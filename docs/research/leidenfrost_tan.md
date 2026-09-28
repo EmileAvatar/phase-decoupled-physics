@@ -267,7 +267,7 @@ accounting.
 - [ ] Fluctuation corrections beyond mean-field: do higher-dimensional fluctuations
   shift (β, ν, γ) away from (1, 1/2, 1)? This requires a field-theory RG calculation.
 - [ ] Two-phase extension (T9): does the reversed Higgs (phi_-, Part 62) modify the
-  critical exponents near Δ = π/2? The phi_- mass m² = 2g Φ diverges in dense
+  critical exponents near Δ = π/2? The phi_- mass m² = g·Φ diverges in dense
   matter — does it provide a cutoff for the phase-noise divergence?
 - [ ] Hysteresis: since this is a non-equilibrium transition, does the approach
   from Δ < π/2 differ from Δ > π/2 (inverted coupling)? This links to T9 (two-phase tan).

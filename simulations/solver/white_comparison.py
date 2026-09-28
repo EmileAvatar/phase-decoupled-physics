@@ -218,7 +218,7 @@ def compute_biharmonic_parameters():
     White (Eq. A17): d^2 rho/dt^2 = c_L^2 nabla^2 rho - D^2 nabla^4 rho
       where D^2 = hbar^2/(4*mu^2)
 
-    PDTP (Part 61, static): nabla^4 Phi + 4g^2 Phi = source
+    PDTP (Part 61, static; corrected T83c): nabla^4 phi_+ - g^2 phi_+ = -g^2 psi
       where g = m_cond*c^2/hbar  (PDTP coupling in rad/s)
 
     Returns: dict with coefficients
@@ -229,7 +229,7 @@ def compute_biharmonic_parameters():
 
     # PDTP
     g_pdtp = M_P * C**2 / HBAR     # rad/s
-    coeff_pdtp = 4 * g_pdtp**2      # coefficient of Phi in nabla^4 Phi + coeff*Phi = source
+    coeff_pdtp = g_pdtp**2          # |coefficient| in nabla^4 phi_+ - coeff*phi_+ (corrected T83c; was 4g^2)
 
     # PDTP healing length (sets scale where nabla^4 matters)
     a0_pdtp = HBAR / (M_P * C)       # Planck length
@@ -252,18 +252,18 @@ def verify_two_phase_nr_limit():
     """
     SymPy: Verify that the NR limit works for the two-phase breathing mode.
 
-    Breathing mode dispersion: omega^2 = c^2*k^2 + 2*g*Phi
-    NR limit should give omega ~ sqrt(2*g*Phi) + D*k^2 with D = hbar/(2*m_cond)
+    Breathing mode dispersion: omega^2 = c^2*k^2 + g*Phi
+    NR limit should give omega ~ sqrt(g*Phi) + D*k^2 with D = hbar/(2*m_cond)
 
     Returns: (passed, message)
     """
     c, k, g_s, Phi_s, hbar_s, m = sp.symbols('c k g Phi hbar m', positive=True)
 
     # Breathing mode gap
-    omega_gap_breathing = sp.sqrt(2 * g_s * Phi_s)
+    omega_gap_breathing = sp.sqrt(1 * g_s * Phi_s)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
 
     # Full dispersion
-    omega_full = sp.sqrt(c**2 * k**2 + 2 * g_s * Phi_s)
+    omega_full = sp.sqrt(c**2 * k**2 + 1 * g_s * Phi_s)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
 
     # NR expansion
     omega_taylor = sp.series(omega_full, k, 0, n=3)
@@ -274,7 +274,7 @@ def verify_two_phase_nr_limit():
     diff = sp.simplify(coeff_k2 - expected_k2)
 
     passed = (diff == 0)
-    msg = 'Breathing mode NR limit: D = c^2/(2*sqrt(2*g*Phi))' if passed else 'FAIL'
+    msg = 'Breathing mode NR limit: D = c^2/(2*sqrt(g*Phi))' if passed else 'FAIL'
     return passed, msg
 
 
@@ -314,34 +314,31 @@ def verify_newton_third_law():
 
 def verify_jeans_eigenvalue():
     """
-    SymPy: Verify the Jeans instability eigenvalue = +2*sqrt(2)*g.
+    SymPy: Verify the Jeans instability eigenvalue = +sqrt(3)*g.
 
-    Linearized coupled system:
-      Phi_tt = 4g * phi_-
-      phi_-_tt = 2g * Phi
-
-    Eigenvalue equation: det(M - lambda*I) = 0
-      M = [[0, 4g], [2g, 0]]
-      lambda^2 - 8g^2 = 0
-      lambda = +/- 2*sqrt(2)*g
+    CORRECTED T83b / Part 154 (2026-09-28): the previous version typed in
+    M = [[0,4g],[2g,0]] and confirmed its own eigenvalue (circular), and
+    that M used inertia-1 accelerations. Now re-derived independently from
+    the original two-phase Lagrangian in (psi, phi_b, phi_s), where every
+    field has unit inertia:
+      V = -g cos(psi - phi_b) + g cos(psi - phi_s)
+      x_tt = -Hess(V) x at psi = phi_b = phi_s = 0
+      eigenvalues {0, +sqrt(3)*g, -sqrt(3)*g}
 
     Returns: (passed, message)
     """
     g_s = sp.Symbol('g', positive=True)
-
-    M = sp.Matrix([[0, 4*g_s], [2*g_s, 0]])
+    q = sp.symbols('psi phi_b phi_s', real=True)
+    V = -g_s * sp.cos(q[0] - q[1]) + g_s * sp.cos(q[0] - q[2])
+    M = -sp.hessian(V, q).subs({v: 0 for v in q})
     eigenvals = M.eigenvals()
 
-    # The positive eigenvalue should be 2*sqrt(2)*g
-    expected = 2 * sp.sqrt(2) * g_s
-    found_positive = False
-    for ev in eigenvals:
-        if sp.simplify(ev - expected) == 0:
-            found_positive = True
-            break
+    expected = sp.sqrt(3) * g_s
+    found_positive = any(sp.simplify(ev - expected) == 0 for ev in eigenvals)
 
     passed = found_positive
-    msg = 'Jeans eigenvalue = +2*sqrt(2)*g (confirmed)' if passed else 'FAIL'
+    msg = ('Jeans eigenvalue = +sqrt(3)*g (re-derived from Lagrangian)'
+           if passed else 'FAIL: eigenvalues {}'.format(list(eigenvals)))
     return passed, msg
 
 
@@ -363,7 +360,7 @@ def run_sudoku_checks():
     WH8:  Biharmonic: PDTP healing length ~ l_P/sqrt(2)
     WH9:  Two-phase: breathing mode NR limit [SymPy]
     WH10: Two-phase: Newton's 3rd law preserved [SymPy]
-    WH11: Two-phase: Jeans eigenvalue = +2*sqrt(2)*g [SymPy]
+    WH11: Two-phase: Jeans eigenvalue = +sqrt(3)*g [SymPy] (corrected T83b)
     WH12: D_White numerical vs Rydberg (cross-check)
 
     Returns: list of (tag, description, passed, detail) tuples
@@ -467,10 +464,10 @@ def run_sudoku_checks():
                     wh10_pass, wh10_msg))
 
     # ------------------------------------------------------------------
-    # WH11: Jeans eigenvalue = +2*sqrt(2)*g [SymPy]
+    # WH11: Jeans eigenvalue = +sqrt(3)*g [SymPy] (corrected T83b, Part 154)
     # ------------------------------------------------------------------
     wh11_pass, wh11_msg = verify_jeans_eigenvalue()
-    results.append(('WH11', 'Jeans eigenvalue = +2*sqrt(2)*g [SymPy]',
+    results.append(('WH11', 'Jeans eigenvalue = +sqrt(3)*g [SymPy]',
                     wh11_pass, wh11_msg))
 
     # ------------------------------------------------------------------
@@ -591,8 +588,8 @@ def run_white_comparison_phase(rw, engine):
     rw.print("    Origin: Madelung quantum potential")
     rw.print("")
     rw.print("  PDTP (Part 61):")
-    rw.print("    nabla^4 Phi + 4g^2 Phi = source")
-    rw.print("    4g^2 = {:.4e} rad^2/s^2".format(biharm['coeff_pdtp']))
+    rw.print("    nabla^4 phi_+ - g^2 phi_+ = -g^2 psi  (corrected T83c)")
+    rw.print("    g^2 = {:.4e} rad^2/s^2".format(biharm['coeff_pdtp']))
     rw.print("    Type: STATIC field equation (0th order in time)")
     rw.print("    Origin: Two-phase Lagrangian (eliminate phi_-)")
     rw.print("    Healing length: xi = {:.4e} m ~ l_P/sqrt(2)".format(
@@ -676,7 +673,7 @@ def run_white_comparison_phase(rw, engine):
     rw.print("  Two-phase cross-check: ALL PRESERVED")
     rw.print("    - NR limit works for breathing mode")
     rw.print("    - Newton's 3rd law (psi_tt = -2*phi_+_tt) unchanged")
-    rw.print("    - Jeans eigenvalue (+2*sqrt(2)*g) unchanged")
+    rw.print("    - Jeans eigenvalue (+sqrt(3)*g, corrected T83b) unchanged")
     rw.print("")
     rw.print("  What PDTP adds beyond White:")
     rw.print("    1. Lagrangian foundation (derives what White assumes)")

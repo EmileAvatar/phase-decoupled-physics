@@ -223,7 +223,7 @@ def main():
     # Dispersion relation
     rw.print("  Dispersion relation (condensate excitations):")
     rw.print("    omega^2 = c^2*k^2 + omega_gap^2")
-    rw.print("    where omega_gap^2 = 2*g*Phi_0 (from linearization around background)")
+    rw.print("    where omega_gap^2 = g*Phi_0 (from linearization around background)")
     rw.print("")
 
     # Key frequency properties
@@ -311,7 +311,7 @@ def main():
     # phi_- frequency
     rw.print("  phi_- (surface mode) -- the REVERSED HIGGS (Part 62):")
     rw.print("    In vacuum: MASSLESS (m^2 = 0) -> frequency can be ARBITRARILY LOW")
-    rw.print("    Near matter: MASSIVE (m^2 = 2*g*Phi) -> frequency rises")
+    rw.print("    Near matter: MASSIVE (m^2 = g*Phi) -> frequency rises")
     rw.print("    This is the opposite of the Higgs: Higgs is massive in vacuum,")
     rw.print("    massless near the symmetry-breaking field.")
     rw.print("")
@@ -335,7 +335,7 @@ def main():
     rw.print("")
 
     # Jeans eigenvalue check
-    rw.print("  Jeans eigenvalue (Part 61): +2*sqrt(2)*g > 0  (gravitational collapse)")
+    rw.print("  Jeans eigenvalue (Part 61): +sqrt(3)*g > 0  (gravitational collapse)")
     rw.print("  This is the phi_+ mode -- HIGH frequency, attractive.")
     rw.print("  The phi_- mode has NEGATIVE eigenvalue (repulsive -- surface tension).")
     rw.print("  Two modes, two frequencies, two forces: gravity + dark energy.")

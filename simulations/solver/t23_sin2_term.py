@@ -939,7 +939,7 @@ def step5_interpretation(rw):
       lambda_eff ~ g * <(delta phi_-)^2>
 
     In vacuum (phi_- massless, Part 62): fluctuations are IR-divergent (need cutoff).
-    Near matter (phi_- massive, m^2 = 2g*Phi): fluctuations are finite:
+    Near matter (phi_- massive, m^2 = g*Phi): fluctuations are finite:
       <(delta phi_-)^2> ~ 1/(m_-^2 * V) where V is the integration volume.
 
     This means lambda_eff is SMALL in vacuum and LARGER near matter -- the opposite
@@ -970,7 +970,7 @@ def step5_interpretation(rw):
     rw.print("    Effective: lambda_eff ~ g * <(delta phi_-)^2>")
     rw.print("")
     rw.print("    In vacuum: phi_- is massless -> large fluctuations -> lambda_eff large?")
-    rw.print("    Near matter: phi_- has mass m^2 = 2g*Phi -> smaller fluctuations.")
+    rw.print("    Near matter: phi_- has mass m^2 = g*Phi -> smaller fluctuations.")
     rw.print("")
     rw.print("    BUT: vacuum fluctuations need UV cutoff; result depends on")
     rw.print("    regularization scheme. Not predictive without more structure.")

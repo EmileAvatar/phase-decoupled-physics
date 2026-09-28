@@ -276,6 +276,13 @@ d^2 rho_1/dt^2 = c_L^2 * nabla^2 rho_1 - (hbar^2/(4*mu^2)) * nabla^4 rho_1    [E
 
 ### 5.2 PDTP's Biharmonic (Part 61)
 
+> **CORRECTED 2026-09-28 (Part 155, TODO_04 T83c — CLAUDE OPUS 5.5):** the Part 61
+> biharmonic equation this section builds on is **∇⁴φ₊ − g²φ₊ = −g²ψ**, not
+> ∇⁴Φ + 4g²Φ (inertia and algebra-sign slips); it has no 1/r regime at any range.
+> The derivation below is retained for the record; the structural parallel with White's A17 now involves ∇⁴ − g² (opposite sign), so the
+> "same form" comparison needs re-checking before it is cited.
+> See [biharmonic_rederivation.md](biharmonic_rederivation.md).
+
 ```
 nabla^4 Phi + 4*g^2 * Phi = source    [Part 61, DERIVED from two-phase Lagrangian]
 ```
@@ -399,14 +406,14 @@ Per CODING_STANDARDS.md, all new results must be checked against the two-phase s
 
 Yes. The NR limit (Section 4) applies to the PDTP Klein-Gordon dispersion
 omega^2 = c^2*k^2 + omega_gap^2. In the two-phase system, EACH field (phi_b, phi_s, psi)
-independently satisfies a massive Klein-Gordon equation with gap omega_gap = sqrt(2*g*Phi).
+independently satisfies a massive Klein-Gordon equation with gap omega_gap = sqrt(g*Phi).
 The NR expansion works for each field separately, giving D = hbar/(2*m_cond) for each. [VERIFIED]
 
 The breathing mode phi_- has its own Klein-Gordon equation:
 ```
 phi_-_tt - c^2*nabla^2 phi_- + 2*g*Phi*phi_- = 0
 ```
-NR limit: omega ~ omega_gap_- + D*k^2 with omega_gap_- = sqrt(2*g*Phi). [DERIVED]
+NR limit: omega ~ omega_gap_- + D*k^2 with omega_gap_- = sqrt(g*Phi). [DERIVED]
 
 ### 6.2 Does the biharmonic connect to White's nabla^4?
 
@@ -423,7 +430,7 @@ regardless of the dispersion regime. [VERIFIED, Part 63]
 
 ### 6.4 Does the Jeans instability eigenvalue remain positive?
 
-Yes. The Jeans eigenvalue +2*sqrt(2)*g comes from the linearized coupling matrix
+Yes. The Jeans eigenvalue +sqrt(3)*g comes from the linearized coupling matrix
 and is independent of the dispersion relation. The NR limit changes HOW perturbations
 propagate but not WHETHER they grow. The instability condition lambda > 0 is preserved. [VERIFIED]
 
@@ -576,4 +583,4 @@ naturally from the PDTP acoustic framework. [STANDARD PHYSICS]
 | nabla^4 Phi + 4g^2 Phi = source | [DERIVED] | Part 61 two-phase elimination |
 | d^2rho/dt^2 = c_L^2 nabla^2 rho - D^2 nabla^4 rho | [White] | White et al. Eq. A17 |
 | psi_ddot = -2*phi_+_ddot | [VERIFIED] | Part 61/63, unchanged by NR limit |
-| Jeans eigenvalue = +2*sqrt(2)*g | [VERIFIED] | Part 61/63, unchanged by NR limit |
+| Jeans eigenvalue = +sqrt(3)*g | [VERIFIED] | Part 61/63, unchanged by NR limit |

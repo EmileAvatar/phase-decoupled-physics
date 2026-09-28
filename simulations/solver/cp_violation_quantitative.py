@@ -458,8 +458,8 @@ def verify_two_phase_exact(rw):
     rw.print("")
     rw.print("  => psi and phi_+ EOMs are EXACTLY those of Part 61:")
     rw.print("     Newton's 3rd law psi_ddot = -2*phi_+_ddot   EXACT")
-    rw.print("     Jeans eigenvalue +2*sqrt(2)*g               EXACT")
-    rw.print("     Biharmonic nabla^4 + 4g^2 (phi_+ sector)    EXACT")
+    rw.print("     Jeans eigenvalue +sqrt(3)*g               EXACT")
+    rw.print("     Biharmonic nabla^4 - g^2 (phi_+, T83c)      EXACT")
     rw.print("  Only the phi_- EOM gains the source 2*eps*cos(2*phi_-).")
     rw.print("  [Eq 125.6 -- upgrades Part 85's O(eps^2) statement]")
 

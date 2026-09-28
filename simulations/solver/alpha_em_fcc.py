@@ -744,7 +744,7 @@ def _path5_two_phase_em(rw):
     rw.print("")
     rw.print("  phi_- properties (reversed Higgs):")
     rw.print("  - Massless in vacuum -> long range -> candidate for EM?")
-    rw.print("  - Massive near matter: m^2 = 2*g*Phi -> screening?")
+    rw.print("  - Massive near matter: m^2 = g*Phi -> screening?")
     rw.print("  - Scalar (spin-0), not vector (spin-1) -> NOT a photon")
     rw.print("")
 
@@ -762,7 +762,7 @@ def _path5_two_phase_em(rw):
     rw.print("  | Gauge symmetry | U(1)_EM | None (global) |")
     rw.print("  | Coupling | e*A_mu*j^mu | sin(phi_-)*sin(psi-phi_+) |")
     rw.print("  | Mass in vacuum | 0 (exact) | 0 (from Part 61) |")
-    rw.print("  | Mass near matter | 0 (exact) | m^2 = 2gPhi (screening) |")
+    rw.print("  | Mass near matter | 0 (exact) | m^2 = g*Phi (screening) |")
     rw.print("")
 
     # --- Step 5c: Could phi_- CONTRIBUTE to alpha_EM? ---

@@ -556,7 +556,7 @@ def derive_breathing_dispersion():
 
     In the two-phase system, phi_- IS the breathing mode.
     At phi_- = pi/2 equilibrium, the effective mass is:
-        m_phi_minus^2 = 2*g*Phi  (Part 62, environment-dependent)
+        m_phi_minus^2 = g*Phi  (Part 62, environment-dependent)
 
     The dispersion relation follows from the wave equation:
         phi_-_tt - c^2*nabla^2(phi_-) + m^2*phi_- = 0
@@ -566,7 +566,7 @@ def derive_breathing_dispersion():
         omega^2 = c^2*k^2 + omega_gap^2 (Part 3)
 
     The two-phase system IDENTIFIES omega_gap with the phi_- mass:
-        omega_gap = sqrt(2*g*Phi)
+        omega_gap = sqrt(g*Phi)
 
     Returns: VerificationResult
 
@@ -593,34 +593,37 @@ def derive_breathing_dispersion():
 
     # Step 3: Verify mass is positive (stable equilibrium)
     # V_at_eq should be 2*g*Phi > 0
-    mass_sq_expected = 2 * g_sym * Phi_grav
+    # T83j/Part 157: V''(pi/2) = 2 g Phi is the curvature; the mass is V''/I_-,
+    # I_- = 2 (phi_-_dot^2 kinetic term) -> m^2 = g Phi
+    mass_sq_expected = 2 * g_sym * Phi_grav   # expected CURVATURE V''
     diff = sp.simplify(V_at_eq - mass_sq_expected)
+    mass_sq_phys = V_at_eq / 2
     steps.append(derivation_step(
-        "Expected m^2 = 2*g*Phi (Part 62)", mass_sq_expected))
+        "Expected V''(pi/2) = 2*g*Phi; physical m^2 = V''/2 = g*Phi (T83j)", mass_sq_expected))
     steps.append(derivation_step("Residual", diff))
 
     # Step 4: Dispersion relation
     omega, k, c_sp = sp.symbols('omega k c', positive=True)
-    disp_2phase = omega**2 - c_sp**2 * k**2 - mass_sq_expected
+    disp_2phase = omega**2 - c_sp**2 * k**2 - mass_sq_phys
     disp_single = omega**2 - c_sp**2 * k**2 - sp.Symbol('omega_gap')**2
     steps.append(derivation_step(
-        "[DERIVED] Two-phase dispersion: omega^2 = c^2*k^2 + 2*g*Phi",
+        "[DERIVED] Two-phase dispersion: omega^2 = c^2*k^2 + g*Phi (T83j)",
         "omega^2 = c^2*k^2 + m_phi_minus^2"))
     steps.append(derivation_step(
         "Single-phase dispersion: omega^2 = c^2*k^2 + omega_gap^2",
-        "SAME STRUCTURE with omega_gap^2 = 2*g*Phi"))
+        "SAME STRUCTURE with omega_gap^2 = g*Phi (T83j)"))
 
     # Step 5: Numerical estimate on Earth surface
     g_earth = G * M_P**2 / HBAR  # g coupling in rad/s^2
     Phi_earth = G * 5.972e24 / (6.371e6 * C**2)  # GM/(Rc^2), dimensionless
-    omega_gap_earth = np.sqrt(2 * g_earth * Phi_earth)
+    omega_gap_earth = np.sqrt(1 * g_earth * Phi_earth)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
     f_gap_earth = omega_gap_earth / (2 * np.pi)
     steps.append(derivation_step(
         "Numerical: omega_gap on Earth surface",
         "f_gap ~ {:.2e} Hz".format(f_gap_earth)))
 
     passed = (diff == 0)
-    msg = ("PASS: breathing mode = phi_- with omega^2 = c^2*k^2 + 2*g*Phi "
+    msg = ("PASS: breathing mode = phi_- with omega^2 = c^2*k^2 + g*Phi "
            "(massive Klein-Gordon, same structure as single-phase)"
            if passed else
            "FAIL: mass residual = {}".format(diff))
@@ -1183,7 +1186,7 @@ def verify_dark_energy_wz():
     # Step 4: phi_- contribution
     steps.append(derivation_step(
         "phi_- contribution to dark energy",
-        "phi_- oscillates around pi/2 with frequency omega ~ sqrt(2*g*Phi). "
+        "phi_- oscillates around pi/2 with frequency omega ~ sqrt(g*Phi). "
         "Time-averaged: <sin^2(pi/2 + oscillation)> ~ 1 - O(amplitude^2). "
         "Deviation from 1 is negligible --> no new w(z) contribution."))
 

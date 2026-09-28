@@ -531,7 +531,7 @@ These questions require proper FCC + Wave check treatment:
 7. **PPN parameters:** Do gamma and beta pick up tan-dependent corrections?
 8. **Two-phase tan:** In the two-phase Lagrangian (Part 61), there are TWO
    phase differences (Delta_+ and Delta_-). What does tan(Delta_-) mean?
-   The reversed Higgs (Part 62) has mass m^2 = 2g*Phi — does this create
+   The reversed Higgs (Part 62) has mass m^2 = g*Phi — does this create
    a local Brewster angle?
 9. **Koide angle:** The Koide formula has theta_0 = 2/9. Is tan(2/9) or
    arctan(2/9) meaningful? Does it connect to Z_3 geometry?

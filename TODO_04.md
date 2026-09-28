@@ -12,6 +12,7 @@
 
 New additions go on top. One line per item. Full details below.
 
+- T83 — Three-Lagrangian audit fixes (CLAUDE.md review) [CLAUDE OPUS 5.5] [IN PROGRESS 5/10, HIGH, filed 2026-09-28 -- 83j DONE (Part 157): phi_- mass m^2 = g*Phi (was 2g*Phi), masses x1/sqrt2, Part 119 observables unchanged, Eq 113.7b coincidence withdrawn, falsifiable_predictions updated (user-approved); 83d DONE (Part 156): G_eff=2G_bare real at equal g but unobservable, link to Newton 3rd-law factor withdrawn (basis convention), G_eff(phi_-)=2sin^2(phi_-); 83c DONE (Part 155): biharmonic corrected to nabla^4 phi_+ - g^2 phi_+ = -g^2 psi, no 1/r at any range, Part 86 short-range-Newton claim withdrawn, Prediction 11 updated (user-approved); 83b DONE (Part 154): Jeans eigenvalue corrected to sqrt(3)*g (inertia-1 slip; instability survives, vacuum stable), same slip found in Part 62 m^2=2g*Phi -> new 83j; 83a DONE (Part 153): S4 Poisson step invalid (erratum), 1/r shape OK from g=0 exterior, but source strength vanishes for confined/locked matter (Eq 153.12) -- new 83i filed to find the offset-maintaining ingredient; U(1) algebra correct; two-phase: Jeans eigenvalue should be sqrt(3)*g not 2*sqrt(2)*g (inertia-2 normalisation inconsistency), "Poisson -> 1/r" step in Part 63 S4 invalid (grad^2 Phi ~ Phi is Yukawa/oscillatory, not Poisson), biharmonic coefficient suspect, G_eff=2G_bare possibly a normalisation artifact; SU(3): Tr(Psi^dag U) not Z_3-invariant so Z_3 vortices not supported as written, "gluons"/"Wilson action" wording lags T70; CLAUDE.md housekeeping; sub-tasks 83a-83h]
 - T81 — Kinematic phase-coherence decomposition of PDTP's own coupling (TFG-inspired MOND retry) [DONE, Part 146, 2026-09-14 -- CONSTRUCTIVE PARTIAL: (1) DERIVED a real, exact PDTP analog of TFG's cos(theta) -- ensemble-averaging psi_i over N particles with von Mises-distributed phase scatter gives EXACTLY <sum sin(psi_i-phi)> = N*R(kappa)*sin(psi_bar-phi), R(kappa)=I_1(kappa)/I_0(kappa) the circular mean resultant length, bounded [0,1], matching TFG's cos(theta) structurally; (2) substituted into PDTP's weak-field reduction gives a genuine new PDTP-Original result, G_eff=G*R(kappa) (coherence-dependent effective Newton's constant); (3) DERIVED NEGATIVE for the actual MOND goal: G_eff=G*R(kappa) is a CONSTANT-coefficient rescaling (R depends only on the source's kinematic spread, not on Phi or its gradient) -- constant-coefficient Poisson equations ALWAYS give inverse-square force law (SymPy-verified for a point mass), never MOND's inverse-linear regime, which in TFG's own mechanism comes specifically from mu depending SELF-REFERENTIALLY on the local acceleration a=|grad(Phi)| (TFG's actual Eq 79, already verified T77) -- R(kappa) as derived has no such feedback; 10/10 Sudoku PASS after RECHECK caught + fixed 2 real bugs (Bessel-function overflow at large kappa; an N/coherence conflation in the G_eff derivation); a structural caveat flagged up front (PDTP's psi is a phase VALUE / internal clock, not a phase GRADIENT / velocity, unlike TFG's construction) -- see docs/research/kinematic_coherence_mond_retry.md]
 - T80 — Electromagnetism-from-geometry (U(1) connection/curvature) as a blueprint for PDTP's EM gap: DONE (Part 147). Gauging the corrected combined-shift symmetry (phi,psi->phi+alpha,psi+alpha together -- the filed "psi alone" wording was not a symmetry, corrected first) forces a real field A into existence with the exact QED-like transformation law, full Lagrangian exactly locally invariant -- Key Question 1 (corrected): YES. But minimal coupling gives A no kinetic term; solving out its resulting non-dynamical constraint reproduces PDTP's ORIGINAL ungauged theta equation exactly (two independent routes agree) -- minimal coupling alone is physically vacuous for PDTP, Key Question 2 answered precisely NO. A postulated Maxwell kinetic term is well-formed but not forced by PDTP's own structure; KK reading inherits the same gap. 13/13 Sudoku PASS. Sharpens (does not overturn) T79 Item 2 and polarization_analogy.md Sec 3.5's open item. [DONE, HIGH]
 - T79 — "Theory of Everything" master equation term-by-term audit vs PDTP: DONE (Parts 148-149). Phase 1: pure explainer, no PDTP content (Part 148). Phase 2: audited all 6 labeled pieces for whether PDTP can change/add to them -- 5/6 have nothing to add (gravity: provenance note only, Sakharov/Trace Theorem, Part 114; gauge fields: already closed negative via T80/Part147; matter/Dirac: genuine gap, Wilson fermions confirmed borrowed scaffold, Part 40; Higgs: no addition + explicit caveat that phi_- "reversed Higgs" must not be conflated with the equation's actual Higgs field, different sector entirely; QM: no addition, cited Part 66's quantum-metric identification + T23's shelved sin^2 term precisely). ONE genuine addition found: Part 53's Koide relation translates exactly into Q(V_ee,V_mumu,V_tautau)=2/3 [DERIVED, Eq 149.2], a real constraint on the Yukawa matrix's charged-lepton eigenvalues (3 free params -> 2), explicitly scoped to leptons only (quark sector confirmed out of scope, Part 122). 9/9 Sudoku PASS (1 RECHECK-caught bug fixed, documented). [DONE, MEDIUM-HIGH]
@@ -3038,6 +3039,167 @@ candidate path to that existing queue; it does not jump ahead of it.
 
 ---
 
+#### [ ] T83. Three-Lagrangian Audit Fixes (CLAUDE.md review) — [CLAUDE OPUS 5.5]
+
+**Status:** PENDING. Filed 2026-09-28 by **CLAUDE OPUS 5.5** (model ID
+`claude-opus-5-5`), from a review of CLAUDE.md's three Lagrangians
+(U(1), two-phase Part 61, SU(3) Part 37). Every sub-task below should be
+worked by, and marked with, the model that does it.
+**Source:** Session review 2026-09-28. Independent SymPy check script
+(re-derived from the Lagrangian, not from stored results) kept in the
+session scratchpad; move it into `simulations/solver/` as part of 83b.
+**Priority:** HIGH. 83a goes to the core of Goal 1 (the Newtonian limit).
+
+**Findings (summary):**
+
+1. **U(1) Lagrangian: algebra CORRECT.** Field equations
+   □φ = Σ gᵢ sin(ψᵢ − φ), □ψ = −g sin(ψ − φ) follow from L; +cos sign
+   gives stable locking. Minor: ½(∂φ)² with dimensionless φ lacks a
+   stiffness prefactor (units); the SU(3) form already has K.
+2. **Two-phase: product identity and ψ̈ = −2φ̈₊ CORRECT** (SymPy residual 0).
+3. **Two-phase: Jeans eigenvalue WRONG — √3·g, not 2√2·g.** Diagonalising
+   ½φ̇_b² + ½φ̇_s² gives φ̇₊² + φ̇₋² (inertia 2 for φ₊ and φ₋). The Newton's
+   3rd law step uses that inertia; the eigenvalue step in
+   `two_phase_lagrangian.py` (~L445-464) sets acceleration = force
+   (inertia 1). Consistent treatment: M = [[0, 3g], [g, 0]],
+   eigenvalues ±√3·g. Instability (sign) survives; magnitude does not.
+4. **Two-phase: "Poisson → 1/r" step INVALID.**
+   `two_phase_rederivation.md` S4 (~L305-318) takes ∇²Φ ∝ Φ as Poisson.
+   It is not: ∇²(e^{−mr}/r) = +m²(·) (Yukawa), ∇²(cos(mr)/r) = −m²(·)
+   (oscillatory); only ∇²(1/r) = 0 away from a source. Poisson needs an
+   independent matter source ∇²Φ = 4πGρ. The biharmonic ∇⁴ + 4g² has a
+   Green's function finite as k → 0 (no 1/r tail); ∇⁴ alone gives ~r.
+5. **Biharmonic coefficient suspect.** Linearising at the same point with
+   the correct inertias gives ∇⁴Φ − 3g²Φ, not ∇⁴Φ + 4g²Φ (sign changes
+   the Green's-function character).
+6. **G_eff = 2G_bare suspect:** the factor 2 is a variable-normalisation
+   choice (φ₊ = average). With φ₊ = φ_b + φ_s it disappears.
+7. **SU(3): Z₃ vortices need target SU(3)/Z₃, but Tr(Ψ†U) → ω·Tr(Ψ†U)
+   under U → ωU** (ω = e^{2πi/3}), so the Lagrangian as written does not
+   live on SU(3)/Z₃ (π₁(SU(3)) = 0; the homotopy script correctly uses
+   SU(3)/Z₃).
+8. **SU(3) labels:** global symmetry only → 8 spin-0 modes, not gauge
+   gluons (already established by T70/Part 140); "Wilson loop action" is
+   really a site-field (principal chiral model) coupling, not a plaquette;
+   κ_GL needs a gauge field. CLAUDE.md wording not yet updated to match T70.
+9. **Scalar-only gravity** (Nordström light-bending problem): acknowledged
+   in `einstein_from_pdtp.md` (tensor modes rely on Part 12 tetrad). Check
+   whether PPN γ = 1 is derived or assumed. Overlaps T24/T75.
+10. **CLAUDE.md housekeeping:** Sudoku step 4 still says ψ̈ = −φ̈₊
+    (contradicts −2φ̈₊); two-phase L shown without kinetic terms (the very
+    normalisation that caused finding 3).
+
+**Sub-tasks (do in order, one per session; mark each with the model that did it):**
+
+- [x] **83a** — Fix the Newtonian-limit derivation (finding 4). **DONE
+  (Part 153, 2026-09-28) — CLAUDE OPUS 5.5. CONSTRUCTIVE NEGATIVE,
+  9/14 Sudoku.** (1) Part 63 S4 step INVALID (∇²Φ ∝ Φ is screened, not
+  Poisson) — erratum added; 1/r SHAPE re-derived correctly from the g = 0
+  exterior, where the joint-shift Goldstone mode ψ + 2φ₊ (same zero mode
+  as Part 133) is free. (2) STRENGTH not produced by the Lagrangian:
+  exact theorem — confined ψ ⇒ net source ∫g sin(ψ−φ) = 0 ⇒ C = 0 for
+  any static body (Eq 153.12); extended-ψ model gives C ∝ imposed offset
+  Δ_∞ (volume-scaling when weak, radius-scaling when strong); two-phase
+  vacuum is a sourceless minimum. math_formalization §7.5 caveat added
+  (offset was held fixed by assumption). Nonlinear BVP confirms linear
+  result (ratio 1.00008). See `docs/research/newtonian_source_audit.md`,
+  `simulations/solver/t83a_newtonian_source.py`.
+- [ ] **83i** — (NEW, filed by 83a — CLAUDE OPUS 5.5) Choose and test
+  the ingredient that maintains a ψ−φ offset proportional to mass.
+  Candidates (newtonian_source_audit.md §7.2): (1) intrinsic matter
+  frequency / explicit ψ shift-breaking term, Adler-type locking
+  sin Δ = Δω/g — ties to T78 (Compton oscillation imported) and T49
+  (Kuramoto); (2) cosmological Δ_∞ boundary condition (Part 119);
+  (3) the φ₋ channel (only direction not protected by the joint shift).
+  Also re-audit Part 33's G = ħc/m_cond² chain against Eq 153.12.
+  Adds a new term → plan-first + user approval required. Goal-1 critical;
+  suggest doing right after 83b-83c.
+- [x] **83j** — (NEW, filed by 83b — CLAUDE OPUS 5.5) Same inertia slip
+  in Part 62's reversed-Higgs mass: `reversed_higgs.py` takes
+  m² = V″(φ₋) = 2gΦ without dividing by φ₋'s inertia 2 ⇒ true m² = gΦ
+  (m smaller by √2). This is a CLAUDE.md key equation. Audit and propagate:
+  Part 80 E_gap = ħ√(2gΦ), Part 89/94 ω_φ(Earth) = √(2gΦ_E) (Eq 94.10),
+  condensate_layer_fcc.py (neutron-star φ₋ mass 566 TeV), T74 evanescence
+  thresholds, Part 119 m/H = 3√ε, Part 117 k̄² = 2g, cosmo_constant_v2
+  CC2-S13. Do together with 83c (same slip, same φ₋ sector).
+  **DONE (Part 157, 2026-09-28) — CLAUDE OPUS 5.5. 10/11 Sudoku** (1
+  contradiction = the old value). m²(φ₋) = gΦ confirmed 3 ways (V″/I₋,
+  canonical field, Part 154 vacuum eigenvalue). All φ₋ masses/gaps × 1/√2
+  (Earth 31.7 → 22.4 GeV; NS 566 → 400 TeV; ranges × √2). Part 119:
+  m/H = 3√ε, ε < 1/9, w = −1+2ε and m_φ₋ EXACTLY unchanged (slow-roll
+  ε = m²/9H² is inertia-free); g_dyn doubles to 4.07e-36. Part 117: same
+  slip in φ₊ stiffness → λ₄ = g² sin²β/(3k̄²), but λ₄/g at the (halved) gap
+  unchanged. Part 113 Eq 113.7b "φ₋ horizon mass = ω_gap²" coincidence
+  WITHDRAWN (g vs 2g); t9 S07 now honestly fails (11/12). T51: φ_vac,req
+  = 1.5525 rad (was 2.1956) — no longer > π/2 but still O(1); T51
+  conclusion stands; t51 T11 fails (flagged, 11/12). Also fixed 83b
+  leftovers: g = ω_gap²/(2√2) calibrations in scale_selection,
+  leidenfrost_decoupling, t26_lazar_truth_table (OoM verdicts unchanged).
+  RECHECK: t9 S07 was circular → now computed. ~25 scripts + ~25 docs +
+  glossary + equation_reference. falsifiable_predictions.md updated WITH
+  USER APPROVAL (2026-09-28): F.12 and hollow-shell lines (m² = gΦ), range
+  ħc/√(gΦ), horizon ω = √(gΦ) + note withdrawing the 113.7b "same
+  excitation" sharpening, Eq F.22 (λ₄ = g²sin²β/(3k̄²), gap k̄² = g).
+  CLAUDE.md → 83h. See `docs/research/phi_minus_mass_correction.md`.
+- [x] **83b** — Correct the Jeans eigenvalue 2√2·g → √3·g (finding 3).
+  **DONE (Part 154, 2026-09-28) — CLAUDE OPUS 5.5. 10/12 Sudoku** (2
+  contradictions = the old value + its inertia-1 assumption). Confirmed 3
+  ways: original-field Hessian (no change of variables) gives {0, ±√3·g};
+  mode basis with inertias (1,2,2) gives M = [[0,3g],[g,0]]; setting all
+  inertias to 1 reproduces Part 61's [[0,4g],[2g,0]] exactly and breaks
+  its own ψ̈ = −2φ̈₊. Instability survives; Part 119 vacuum is stable
+  (diag(−3g,−g)). Fixed: `two_phase_lagrangian.py` (eigenvalue now
+  computed, force/acceleration labels fixed; 10/10), `white_comparison.py`
+  WH11 (was circular; 12/12), `condensate_layer_fcc.py` (3 hardcoded
+  `True` flags → computed; biharmonic "NOT CHECKED (83c)"),
+  `cosmo_constant_v2.py` (named JEANS_COEFF; observables unchanged since g
+  is calibrated from ω_gap; 15/15), `emergent_c.py` (k_J 2.4e13 → 1.9e13
+  m⁻¹; 12/12), 7 print-only scripts, 15 docs + CODING_STANDARDS examples.
+  CLAUDE.md left for 83h. See `docs/research/jeans_eigenvalue_correction.md`.
+- [x] **83c** — Re-derive the biharmonic equation (finding 5). **DONE
+  (Part 155, 2026-09-28) — CLAUDE OPUS 5.5. 9/12 Sudoku** (3
+  contradictions = the corrected claims). Correct equation:
+  ∇⁴φ₊ − g²φ₊ = −g²ψ. Part 61 had THREE slips: inertia 1 (→ factor 4),
+  static sign (cancels), and an algebra sign error in the last line (no
+  convention gives "+4g²"). Green's function (cos κr − e^{−κr})/(8πκ²r),
+  κ = √g = 1/a₀: NO 1/r term at any range (const − r/8π inside a₀,
+  Planck-wavelength ripple outside) — Part 61's "Poisson at short range"
+  and Part 86's "source/(8πr)" withdrawn; Part 86 Strategy 3 verdict
+  CONSISTENT → NEGATIVE. L_bih = a₀ (T47 had a₀/2). All OoM verdicts
+  (MOND ~54 OoM, Hubble (l_P/r)²) unchanged. Scripts fixed + re-run:
+  two_phase_lagrangian (10/10), nonlinear_einstein (12/12), t47 (12/12),
+  coupling_constant_g (12/12), white_comparison (12/12),
+  condensate_layer_fcc (biharmonic flag now computed, PASS); 4 print-only
+  scripts; ~20 docs + glossary. falsifiable_predictions.md Prediction 11
+  updated WITH USER APPROVAL (2026-09-28): F.16 corrected, F.17 withdrawn,
+  L_heal → L_bih = a₀, status → not currently viable. See
+  `docs/research/biharmonic_rederivation.md`.
+- [x] **83d** — Audit G_eff = 2G_bare (finding 6). **DONE (Part 156,
+  2026-09-28) — CLAUDE OPUS 5.5. 8/11 Sudoku** (3 contradictions = rejected
+  readings). Verdict: the factor 2 is REAL at equal g (coherent 2g
+  coupling; φ₊ stiffness 2 → source→field ×1, field→test ×2) but
+  unobservable (absorbed into G_N). Its stated link to ψ̈ = −2φ̈₊ is
+  WITHDRAWN — that factor is a basis convention (k = 1 for Σ = φ_b+φ_s).
+  Two-phase ≠ single-phase with g→2g (mode ω² ratio 3/2). Away from vacuum
+  G_eff/G = 2 sin²φ₋ (Part 62 implied 2 sin φ₋). reversed_higgs.py S8
+  hardcoded True → computed (10/10). Part 100 lensing verdict unchanged
+  (route corrected). Wording fixed in 8 docs + glossary; CLAUDE.md → 83h.
+  See `docs/research/geff_factor_audit.md`.
+- [ ] **83e** — SU(3) Z₃ target-space problem (finding 7): either
+  reformulate (adjoint/gauge field, or Ψ co-rotating) or downgrade the
+  Z₃-vortex claim in su3_condensate_extension.md.
+- [ ] **83f** — Align SU(3) wording with T70 (finding 8): "8 gluons",
+  "Wilson loop action", κ_GL in CLAUDE.md + su3 doc.
+- [ ] **83g** — Scalar-gravity / PPN γ = 1 provenance check (finding 9);
+  cross-reference T24/T75, Part 12, Part 112.
+- [ ] **83h** — CLAUDE.md housekeeping (finding 10 + U(1) stiffness
+  units, finding 1). Per CLAUDE.md rules: edit only once T83 is DONE,
+  root and github-repo copies in the same pass.
+
+**Cross-check with:** Parts 61-63, 100, 112, 140 (T70), T24, T75, T77.
+
+---
+
 #### [ ] T29. Phase Self-Locking Mechanism [SPEC]
 
 **What:** Derive the conditions under which a matter phase psi locks to an
@@ -3739,4 +3901,5 @@ metric components); m_cond underdetermined (kappa = c^2/(4*pi*G) still free).
 | T78 | De Broglie pilot-wave comparison (Darrow & Bush 2024) -- shared spirit (two-way coupling) confirmed; 2 real gaps found (Compton oscillation emergent vs imported; relativistic on-shell consistency vs weak-field-first); coupling forms differ (linear/Yukawa vs periodic/Josephson) | medium | DONE | 151 |
 | T79 | "Theory of Everything" master equation audit: 5/6 terms have nothing to add (gravity=provenance note; gauge fields=already closed via T80; matter=gap; Higgs=no addition+naming caveat; QM=no addition); ONE addition found -- Yukawa charged-lepton constraint Q(V_ee,V_mumu,V_tautau)=2/3, scoped to leptons only | medium-high | DONE | 148-149 |
 | T80 | Electromagnetism-from-geometry (U(1) gauging): corrected combined-shift symmetry gauges exactly (A forced into existence, Lagrangian exactly locally invariant) but minimal coupling gives A no kinetic term -- solving out its constraint reproduces PDTP's original ungauged theory exactly, zero net effect | high | DONE (real construction + precise negative) | 147 |
+| T83 | Three-Lagrangian audit fixes (CLAUDE.md review) [CLAUDE OPUS 5.5] -- Jeans sqrt(3)g vs 2sqrt(2)g; Part 63 S4 Poisson step invalid; biharmonic coeff; G_eff=2G_bare; SU(3) Z_3 invariance + wording; CLAUDE.md housekeeping (sub-tasks 83a-83j) | high | IN PROGRESS (5/10: 83j DONE -- phi_- m^2 = g*Phi, Part 119 unchanged, 113.7b withdrawn; 83d DONE -- G_eff=2 real at equal g, unobservable, not tied to Newton factor; 83a DONE -- S4 invalid, 1/r shape OK, source strength vanishes for locked matter, 83i filed; 83b DONE -- Jeans sqrt(3)*g, 83j filed; 83c DONE -- biharmonic nabla^4 - g^2, no 1/r at any range) | 153-157 |
 | T81 | Kinematic phase-coherence decomposition of PDTP's own coupling (TFG-inspired MOND retry) -- exact von Mises R(kappa) analog to TFG's cos(theta) DERIVED, gives new G_eff=G*R(kappa); but constant-coefficient rescaling CANNOT reproduce MOND (needs acceleration self-reference TFG has via mu(a), R(kappa) doesn't) | high | DONE -- CONSTRUCTIVE PARTIAL (real structural result + precise negative diagnosis) | 146 |

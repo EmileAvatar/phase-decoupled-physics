@@ -346,6 +346,18 @@ as photons. CPT is conserved; g_anti/g = 1 exactly (consistent with ALPHA-g 2023
 
 ### 2.5 Biharmonic Rotation Curves [SPECULATIVE]
 
+> **CORRECTED 2026-09-28 (Part 155, TODO_04 T83c — CLAUDE OPUS 5.5):** the
+> two-phase static equation is **∇⁴φ₊ − g²φ₊ = −g²ψ**, not ∇⁴Φ + 4g²Φ = source
+> (three slips: inertia 1 instead of 2 for φ₊/φ₋, static sign, and an algebra
+> sign error in the final rearrangement). Its Green's function
+> (cos(κr) − e^{−κr})/(8πκ²r), κ = √g = 1/a₀, has **no 1/r term at any range**
+> (constant − r/8π inside a₀; cos(r/a₀)/r ripple outside). It does not reduce to
+> Poisson/Newton at short range. Scale a₀/√2 → a₀. Full derivation:
+> [biharmonic_rederivation.md](biharmonic_rederivation.md).
+> The ~54-orders-of-magnitude negative verdict below is unchanged (scale moves
+> only by √2); the corrected tail oscillates at Planck wavelength, which makes
+> a rotation-curve reading even less viable.
+
 **Falsifiable Prediction 9 | Status: SPECULATIVE**
 
 The two-phase biharmonic field equation nabla^4 Phi + 4g^2 Phi = source (Part 61)
@@ -534,9 +546,9 @@ to resolving Hubble tension within PDTP. [Filed for future FCC when DESI DR2 is 
 
 **Part 96 D2 (Phase 65) | Status: PDTP Original, DERIVED**
 
-phi_- gains mass near matter: m^2_phi- = 2*g*Phi_Newton (Part 62).
-Near Earth: mass ~ 31.7 GeV, range ~ 0.006 fm.
-Near neutron star: mass ~ 566 TeV, range ~ 3.5e-7 fm.
+phi_- gains mass near matter: m^2_phi- = g*Phi_Newton (Part 62).
+Near Earth: mass ~ 22.4 GeV (corrected Part 157; was 31.7), range ~ 0.0085 fm (was 0.006).
+Near neutron star: mass ~ 400 TeV (corrected Part 157; was 566), range ~ 4.9e-7 fm (was 3.5e-7).
 
 This is NOT a dark energy mechanism, but it is a PDTP-specific modification to
 the cosmological constant reframe (Section 4.1): near dense matter, Lambda_local
@@ -678,8 +690,8 @@ if n ~ 1 wimpzilla DM annihilates with matter at extreme energies.
 | m_DM = m_P/n | U(1) vortex DM mass spectrum | PDTP Original, DERIVED | 96 |
 | E_Bragg(C2) = pi * Lambda_QCD ~ 628 MeV | QCD lattice Bragg energy | PDTP Original, DERIVED | 96 |
 | xi_loc ~ 1.8 fm at B1 | Anderson localization length | PDTP Original, DERIVED | 96 |
-| phi_-(Earth) ~ 31.7 GeV | phi_- mass near Earth | PDTP Original, DERIVED | 94, 96 |
-| m^2_phi- = 2*g*Phi_Newton | phi_- environment-dependent mass | PDTP Original | 62 |
+| phi_-(Earth) ~ 22.4 GeV (corrected Part 157; was 31.7) | phi_- mass near Earth | PDTP Original, DERIVED | 94, 96 |
+| m^2_phi- = g*Phi_Newton | phi_- environment-dependent mass | PDTP Original | 62 |
 | w(z) = (eps-1)/(eps+1) | Equation of state from phase drift | PDTP Original | 25 |
 | n = 1 (DM winding selection) | Stability + Kibble-Zurek -> m_DM = m_P | PDTP Original, DERIVED | 116 |
 | lambda_4 = 2g^2 sin^2(beta)/(3 kbar^2) | Induced positive phi_-^4 at partial lock | PDTP Original, DERIVED (shape) | 117 |

@@ -69,33 +69,49 @@ G_pred = c^3 * a_0^2 / hbar
 ```
 psi_ddot = -2 * phi_+_ddot
 ```
-- Factor 2 exact (not 1); consistent with G_eff = 2*G_bare
+- Factor 2 exact (not 1) in the phi_+ = (phi_b+phi_s)/2 basis; it is 1 in the Sigma = phi_b+phi_s basis (convention). NOT the origin of G_eff = 2*G_bare (Part 156)
 - From two-phase Lagrangian symmetry
 - **Source:** Part 61, verified Part 63
 
 ### 2e. Biharmonic Gravity [PDTP Original, DERIVED] (Part 61)
+> **CORRECTED 2026-09-28 (Part 155, TODO_04 T83c — CLAUDE OPUS 5.5):** the
+> two-phase static equation is **∇⁴φ₊ − g²φ₊ = −g²ψ**, not ∇⁴Φ + 4g²Φ = source
+> (three slips: inertia 1 instead of 2 for φ₊/φ₋, static sign, and an algebra
+> sign error in the final rearrangement). Its Green's function
+> (cos(κr) − e^{−κr})/(8πκ²r), κ = √g = 1/a₀, has **no 1/r term at any range**
+> (constant − r/8π inside a₀; cos(r/a₀)/r ripple outside). It does not reduce to
+> Poisson/Newton at short range. Scale a₀/√2 → a₀. Full derivation:
+> [biharmonic_rederivation.md](biharmonic_rederivation.md).
+
 ```
-nabla^4 Phi + 4g^2 Phi = source
+nabla^4 phi_+ - g^2 phi_+ = -g^2 psi        [corrected, Eq 155.3]
 ```
 - 4th order (not Poisson); from eliminating phi_- in two-phase system
-- 4g^2 = 1.376e+87 rad^2/s^2
+- |coefficient| g^2 = 1.376e+87/4 = 3.44e+86 (old 4g^2 value 1.376e+87, same units as before)
 - **Source:** Part 61
 
 ### 2f. Jeans Instability Eigenvalue [PDTP Original, DERIVED]
+
+> **CORRECTED 2026-09-28 (Part 154, TODO_04 T83b — CLAUDE OPUS 5.5):** the Jeans
+> eigenvalue is **±√3·g**, not ±2√2·g. The old value used forces as
+> accelerations for φ₊/φ₋, whose inertia is 2 (kinetic term φ̇₊² + φ̇₋²);
+> consistent inertias give M = [[0, 3g], [g, 0]]. Sign (instability) unchanged;
+> magnitude × √6/4 ≈ 0.612, k_J × 0.7825. Values below are the corrected ones.
+> Full derivation: [jeans_eigenvalue_correction.md](jeans_eigenvalue_correction.md).
 ```
 Coupled ODE system [A1: spatially uniform, k=0 limit]:
   d^2/dt^2 [Phi, phi_-] = M [Phi, phi_-]
-Matrix: M = [[0, 4g], [2g, 0]]
-Characteristic equation: lambda^2 - 8g^2 = 0
-Eigenvalues: lambda = +/- 2*sqrt(2)*g
+Matrix: M = [[0, 3g], [g, 0]]
+Characteristic equation: lambda^2 - 3g^2 = 0
+Eigenvalues: lambda = +/- sqrt(3)*g
 ```
 - **lambda is a growth-rate parameter, NOT a frequency (omega^2).**
 - The trial solution is x ~ exp(sigma*t) where sigma^2 = lambda:
   - lambda > 0: sigma real => exponential growth (UNSTABLE = Jeans instability)
   - lambda < 0: sigma imaginary => oscillation with omega = sqrt(|lambda|)
-- lambda_1 = +2*sqrt(2)*g > 0: gravitational collapse from Lagrangian (not assumed)
-- lambda_2 = -2*sqrt(2)*g < 0: oscillation (breathing mode) with omega = (2*sqrt(2)*g)^(1/2)
-- **Note:** The PDE version (Section 6b) gives omega^2 = c^2*k^2 +/- 2*sqrt(2)*g.
+- lambda_1 = +sqrt(3)*g > 0: gravitational collapse from Lagrangian (not assumed)
+- lambda_2 = -sqrt(3)*g < 0: oscillation (breathing mode) with omega = (sqrt(3)*g)^(1/2)
+- **Note:** The PDE version (Section 6b) gives omega^2 = c^2*k^2 +/- sqrt(3)*g.
   The ODE eigenvalue is the k=0 limit of that dispersion relation.
 - **Source:** Part 61; see `two_phase_lagrangian.py` Step 3 for full derivation
 
@@ -230,17 +246,17 @@ omega^2 = c^2 * k^2 + omega_gap^2
 
 ### 6b. Two-Phase Branches [PDTP Original, DERIVED] (Part 61)
 ```
-omega^2 = c^2 * k^2 +/- 2*sqrt(2)*g
+omega^2 = c^2 * k^2 +/- sqrt(3)*g
 ```
 - Branch A (+): gapped breathing mode (always stable)
 - Branch B (-): Jeans unstable mode at k < k_J (gravitational collapse)
 - These are omega^2 (frequency squared), NOT eigenvalues of the ODE matrix M.
-  The ODE eigenvalue lambda = +/- 2*sqrt(2)*g (Section 2f) is the k=0 limit.
+  The ODE eigenvalue lambda = +/- sqrt(3)*g (Section 2f) is the k=0 limit.
 - **Source:** Part 61
 
 ### 6c. phi_- Reversed Higgs Mass [PDTP Original, DERIVED] (Part 62)
 ```
-m_phi_minus^2 = 2*g*Phi   (near matter)
+m_phi_minus^2 = g*Phi   (near matter)
 m_phi_minus^2 = 0          (in vacuum)
 ```
 - Opposite of Higgs: massless in vacuum, massive near sources
@@ -548,7 +564,7 @@ L is C, P, T invariant
 | phi_- screening | <sin(A*sin(omega*t))> = 0 (all A) | [DERIVED] | Part 71 |
 | Z3 phase cancellation | psi_1+psi_2+psi_3 = 0 (120 deg spacing) | [DERIVED] | Part 71 |
 | Z3 coupling at centre | <alpha> = 0 (exact, any phi) | [DERIVED] | Part 71 |
-| phi_- resonant frequency | omega = sqrt(2*g*Phi), f = 6.55e37 Hz at Earth | [DERIVED] | Part 71 |
+| phi_- resonant frequency | omega = sqrt(g*Phi), f = 4.63e37 Hz at Earth (corrected Part 157; was 6.55e37) | [DERIVED] | Part 71 |
 | Metastability condition | g2/g1 >= 0.25 for V = -g1*cos + g2*cos(2*theta) | [DERIVED] | Part 71 |
 | Metastable angle | cos(theta*) = g1/(4*g2) | [DERIVED] | Part 71 |
 
@@ -842,7 +858,7 @@ analogous to m_cond for gravity. Same barrier: structure derived, values not.
 
 | # | Equation | Status | Source |
 |---|----------|--------|--------|
-| 80.1 | E_gap(phi_-) = hbar*sqrt(2*g*Phi) | [DERIVED] | Part 62 + Part 80 Check 1 |
+| 80.1 | E_gap(phi_-) = hbar*sqrt(g*Phi) | [DERIVED] | Part 62 + Part 80 Check 1 |
 | 80.2 | phi_- does not couple to A_mu or A_mu^a | [DERIVED] | Part 80 Check 2 (spin-0 vs spin-1) |
 | 80.3 | b0_QCD = 7 unchanged by phi_- | [DERIVED] | Part 80 Check 3 (quantum loops) |
 | 80.4 | E_gap(BH) = hbar*sqrt(g) ~ 2.83 MeV << E_GUT | [DERIVED] | Part 80 Check 4 |
@@ -979,7 +995,7 @@ SU(3):      g_mu_nu = Tr(d_mu U^dag d_nu U)   [DERIVED, Part 75; 2 TT modes]
 
 ```
 U(1):       nabla^2 Phi = 4 pi G rho                        [Poisson equation]
-Two-Phase:  nabla^4 Phi + 4g^2 Phi = source                 [biharmonic]
+Two-Phase:  nabla^4 phi_+ - g^2 phi_+ = -g^2 psi            [biharmonic; corrected Part 155; no 1/r]
 SU(3):      nabla^2 Phi = 4 pi G rho + O(chi^2) corrections [Poisson + SU(3)]
 ```
 
@@ -1016,7 +1032,7 @@ SU(3):      nabla^2 Phi = 4 pi G rho + O(chi^2) corrections [Poisson + SU(3)]
 | 86.10 | a_0 = 2*sqrt(ln(2))*l_P ~ 1.665*l_P  [entropy matching condition] | [DERIVED, PDTP Original] |
 | 86.11 | delta_Q = hbar*a*ln(2)/(2*pi*c*a_0^2) * dA  [PDTP Clausius] | [DERIVED, PDTP Original] |
 | 86.12 | G_mu_nu = 8*pi*G_eff T_mu_nu  [Jacobson + S_PDTP; exact at a_0=1.665*l_P] | [DERIVED, PARTIAL] |
-| 86.13 | nabla^4 Phi + 4*g^2*Phi = source  [biharmonic GR, Part 61] | [DERIVED] |
+| 86.13 | nabla^4 phi_+ - g^2 phi_+ = -g^2 psi  [corrected Part 155; was nabla^4 Phi + 4g^2 Phi] | [DERIVED, corrected] |
 | 86.14 | Phi(r) ~ source/(8*pi*r)  [biharmonic Green's fn at r << r* = l_P] | [DERIVED] |
 
 **Conclusion (Part 86):** B2 = PARTIALLY RESOLVED. Three strategies explored:
@@ -1167,9 +1183,9 @@ SM non-unification: alpha_1/alpha_GUT ~ 1.30 at M_GUT (non-SUSY SM fails to unif
 | 94.5  | g = sqrt(c^5/(hbar*G)) = omega_Planck ~ 1.855e43 rad/s | [DERIVED] | PDTP Original |
 | 94.6  | l_P = c/g; t_P = 1/g; m_P = hbar*g/c^2; E_P = hbar*g | [DERIVED] | Part 94 |
 | 94.7  | omega_gap = g [breathing mode gap = PDTP coupling] | [DERIVED] | Eq 6a + Part 94 |
-| 94.8  | 4g^2 = biharmonic coefficient in nabla^4 Phi + 4g^2*Phi | [DERIVED] | Eq 2e + Part 94 |
+| 94.8  | g^2 = biharmonic coefficient in nabla^4 phi_+ - g^2 phi_+ (corrected Part 155; was 4g^2) | [DERIVED, corrected] | Eq 2e + Part 94 |
 | 94.9  | n = (g/c)^3 = 1/l_P^3 [condensate number density] | [DERIVED] | Eq 4d + Part 94 |
-| 94.10 | omega_phi(Earth) = sqrt(2g*Phi_E) ~ 4.82e25 rad/s ~ 31.7 GeV | [DERIVED] | Eq 6c + Part 94 |
+| 94.10 | omega_phi(Earth) = sqrt(g*Phi_E) ~ 3.41e25 rad/s ~ 22.4 GeV (corrected Part 157; was 31.7) | [DERIVED] | Eq 6c + Part 94 |
 | 94.11 | G, g, m_cond: THREE NAMES for the same free parameter | [NEGATIVE] | PDTP Original |
 
 **Conclusion (Part 94):** A6 PARTIAL + FREE (12/12 PASS).
@@ -1223,7 +1239,7 @@ k_J << k_Planck: Jeans instability scale is nuclear (~0.26 pm), not Planck.
 | 96.6  | NA = sqrt(n_C1^2 - n_C2^2) = 1 [C1 fiber, sub-gap modes] | [DERIVED] | Part 96 |
 | 96.7a | m_phi-^2 = 2*g_SI*Phi_Newton [phi_- mass from gravity; Part 62] | [PDTP Original] | Part 62, 96 |
 | 96.7b | lambda_B2 < lambda_phi-(Earth) < lambda_B1 [ordering near Earth] | [DERIVED] | Part 96 |
-| 96.8  | omega_phi(Earth) ~ 4.82e25 rad/s ~ 31.7 GeV; lambda ~ 0.006 fm | [DERIVED] | Part 94+96 |
+| 96.8  | omega_phi(Earth) ~ 3.41e25 rad/s ~ 22.4 GeV (corrected Part 157; was 31.7); lambda ~ 0.0085 fm (was 0.006) | [DERIVED] | Part 94+96 |
 | 96.9  | m_DM = m_P / n for U(1)-only vortex, winding n = 1,2,3,... | [DERIVED, PDTP Original] | Part 33+96 |
 
 **Conclusion (Part 96):** B7 FULL FCC COMPLETE (24/24 PASS).
@@ -1231,7 +1247,7 @@ Three condensate layers (C1/C2/C3) and boundaries (B1/B2) fully analyzed with wa
 NEW: Bragg resonances E_Bragg(C2)~628 MeV, E_Bragg(C3)~252 GeV [PDTP Original, testable].
 NEW: Anderson localization xi_loc~1.8 fm at B1 (QCD thermal disorder W=0.75) [PDTP Original].
 C1 acts as optical fiber (NA=1) for all sub-gap excitations; gluon fiber NEGATIVE.
-phi_- creates PDTP-specific evanescent scale: 0.006 fm near Earth (between B1 and B2) [PDTP Original].
+phi_- creates PDTP-specific evanescent scale: 0.0085 fm near Earth (corrected Part 157; was 0.006) (between B1 and B2) [PDTP Original].
 DM mass spectrum m_P/n (wimpzilla to Lambda_QCD); all Bullet Cluster safe.
 phi_- is NOT a 4th boundary -- C1 mode, smooth variation with gravitational potential.
 Status change: OPEN (HIGH) --> FULL FCC COMPLETE -- CLOSED.
@@ -1260,7 +1276,7 @@ n_PDTP = 1/alpha derived from acoustic metric (g_tt = -alpha^2 c^2, Part 73).
 PDTP scalar (U(1)) gives n ~ 1+GM/(rc^2) = HALF of GR isotropic; PDTP SU(3) recovers GR.
 Factor-of-2 is the scalar-vs-tensor gravity discriminator (Eddington 1919 test).
 TIR at Schwarzschild radius derived: n -> inf as r -> r_S.
-Two-phase: n_- ~ 1 (negligible), n_+ = single-phase. G_eff = 2*G_bare consistent with Part 61.
+Two-phase: n_- ~ 1 (negligible), n_+ = single-phase. G_eff = 2*G_bare (at equal g; Part 156).
 Speculative: two-phase factor-2 may close lensing gap without SU(3).
 
 ---
@@ -1580,6 +1596,118 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 | 133-O1 | Goldstone is NOT the graviton (spin-0 vs spin-2, Goldstone theorem representation content) | [NEGATIVE, established physics applied] | representation-theoretic, not dynamical -- cites Weinberg 1996 Sec 19.2 |
 | 133-O2 | Goldstone is NOT Part 61's phi_- (different field content: 4 fields across 3 layers+matter vs 2 fields within C1) | [NEGATIVE, PDTP Original] | same underlying MECHANISM (cos-difference Lagrangians always have a center-of-mass zero mode) recurs at two different levels of the theory, but are different physical d.o.f. |
 | 133-O3 | Higgs mechanism not applicable to L_4 as written (no gauge field; symmetry is global not local) | [N/A, established physics applied] | would require a distinct future gauging extension |
+
+---
+
+### Part 157 additions (T83j: phi_- reversed-Higgs mass correction -- CLAUDE OPUS 5.5):
+
+**Source:** Part 157 (2026-09-28), `simulations/solver/t83j_phi_minus_mass.py`,
+`docs/research/phi_minus_mass_correction.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 157.1 | V(phi_-) = -2 g Phi sin(phi_-) | [ASSUMED, Part 62] | unchanged |
+| 157.2 | m^2(phi_-) = V''/I_- = g Phi (I_- = 2) | [DERIVED, VERIFIED] | REPLACES Part 62's 2 g Phi; masses/gaps x 1/sqrt(2): Earth 22.4 GeV, NS 400 TeV |
+| 157.3 | eps = K/V = m^2/(9 H^2), inertia-independent -> m/H = 3 sqrt(eps) | [VERIFIED] | Part 119 Eq 119.1-119.3 unchanged; g_dyn = 9 H0^2 eps0 = 4.07e-36 s^-2 (was 2.03e-36) |
+| 157.4 | lambda_4 = g^2 sin^2(beta)/(3 kbar^2); gap kbar^2 = g | [DERIVED, VERIFIED] | REPLACES Eq 117.16 prefactor; lambda_4/g = sin^2(beta)/3 at gap unchanged |
+| 157.N | Eq 113.7b "m^2(phi_-) at horizon = omega_gap^2" | [NEGATIVE] | g vs 2g -- coincidence withdrawn |
+| 157.T | T51: phi_vac,req = 1.5525 rad (was 2.1956) | [VERIFIED] | no longer > pi/2; still O(1); T51 conclusion stands |
+
+**Conclusion (Part 157):** 10/11 Sudoku. Same inertia slip as Parts 154/155.
+Also fixed 83b leftovers (g = omega_gap^2/(2 sqrt 2) calibrations) in
+scale_selection, leidenfrost_decoupling, t26_lazar_truth_table.
+Closes TODO_04.md T83 sub-task 83j.
+
+---
+
+### Part 156 additions (T83d: G_eff = 2 G_bare audit -- CLAUDE OPUS 5.5):
+
+**Source:** Part 156 (2026-09-28), `simulations/solver/t83d_geff.py`,
+`docs/research/geff_factor_audit.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 156.3 | L_int(phi_- = pi/2) = 2 g cos(psi - phi_+ - pi/2) | [VERIFIED] | coherent addition of bulk + surface couplings |
+| 156.4 | G_eff/G_single(g) = (source->field 1) x (field->test 2) = 2 | [DERIVED, VERIFIED] | CONFIRMS Part 62's value at equal g; unobservable (absorbed into G_N) |
+| 156.N | psi_tt = -(I_X/w_X) X_tt: k = 2 for phi_+ = avg, k = 1 for Sigma = sum | [VERIFIED] | Newton factor is a naming convention; NOT linked to G_eff |
+| 156.W | relative-mode omega^2 ratio two/single = 3/2 | [VERIFIED] | two-phase != single-phase with g -> 2g |
+| 156.5 | G_eff(phi_-)/G_single(g) = 2 sin^2(phi_-) | [DERIVED, VERIFIED] | corrects Part 62's implied linear 2 sin(phi_-) |
+
+**Conclusion (Part 156):** factor 2 confirmed, its stated origin and
+"consistency with Newton's 3rd law" withdrawn. 8/11 Sudoku (3
+contradictions = rejected readings). reversed_higgs.py S8 hardcoded True
+replaced by computation. Closes TODO_04.md T83 sub-task 83d.
+
+---
+
+### Part 155 additions (T83c: biharmonic re-derivation -- CLAUDE OPUS 5.5):
+
+**Source:** Part 155 (2026-09-28), `simulations/solver/t83c_biharmonic.py`,
+`docs/research/biharmonic_rederivation.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 155.2 | static: nabla^2 q = -F_q / I_q, inertias (1, 2, 2) | [ASSUMED, E-L] | Part 61 used nabla^2 q = +F_q with inertia 1 |
+| 155.3 | nabla^4 phi_+ - g^2 phi_+ = -g^2 psi (fixed psi) | [DERIVED, VERIFIED] | REPLACES Eq 2e / 86.13 / 150.17 "nabla^4 Phi + 4g^2 Phi = source"; no convention reproduces "+4g^2" (algebra slip) |
+| 155.4 | G(r) = (cos(kappa r) - exp(-kappa r))/(8 pi kappa^2 r), kappa = sqrt(g) = 1/a_0 | [DERIVED, VERIFIED] | (nabla^4 - kappa^4) G = delta |
+| 155.5 | G = 1/(8 pi kappa) - r/(8 pi) + O(r^2): no 1/r term | [VERIFIED] | withdraws Part 86's "source/(8 pi r) at r << 1/sqrt(g)" and Part 61's "Poisson at short range" |
+| 155.S | dynamical psi: eigenvalues of nabla^2 = {0, +/- sqrt(3) g} | [VERIFIED] | static twin of Part 154 |
+| 155.L | L_bih = 1/kappa = a_0 (was a_0/sqrt(2); T47 had a_0/2) | [DERIVED] | x sqrt(2); all OoM verdicts unchanged |
+
+**Conclusion (Part 155):** Part 61's biharmonic equation corrected
+(inertia, static sign, algebra sign); corrected equation has no 1/r regime
+at any range. 9/12 Sudoku (3 contradictions = the corrected claims).
+Prediction 11 (Eq F.16/F.17) in falsifiable_predictions.md updated with
+user approval, 2026-09-28. Closes TODO_04.md T83 sub-task 83c.
+
+---
+
+### Part 154 additions (T83b: two-phase Jeans eigenvalue correction -- CLAUDE OPUS 5.5):
+
+**Source:** Part 154 (2026-09-28), `simulations/solver/t83b_jeans_correction.py`,
+`docs/research/jeans_eigenvalue_correction.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 154.2-3 | Original fields (psi, phi_b, phi_s), unit inertia: M = -Hess V, eigenvalues {0, +/- sqrt(3) g} | [VERIFIED] | basis-independent; zero mode = joint-shift Goldstone |
+| 154.4 | (Theta, phi_-) with inertias (1,2,2): M = [[0, 3g], [g, 0]], lambda = +/- sqrt(3) g | [DERIVED, VERIFIED] | REPLACES Eq 2f's [[0,4g],[2g,0]], +/- 2 sqrt(2) g (inertia-1 slip) |
+| 154.5 | lambda_new/lambda_old = sqrt(6)/4 = 0.612 | [VERIFIED] | old matrix reproduced exactly by setting all inertias to 1 |
+| 154.6 | omega^2 = c^2 k^2 -/+ sqrt(3) g | [DERIVED] | REPLACES Eq 6b coefficient |
+| 154.7 | k_J = (sqrt(3) g)^(1/2)/c; k_J,new/k_J,old = 0.7825 | [VERIFIED] | observables written via omega_gap (cosmo_constant_v2) unchanged |
+| 154.V | Part 119 vacuum (Theta = phi_- = pi/2): M = diag(-3g, -g), stable | [VERIFIED] | Jeans instability belongs to the unlocked point phi_- = 0 |
+
+**Conclusion (Part 154):** Part 61's Jeans eigenvalue corrected from
++/- 2 sqrt(2) g to +/- sqrt(3) g; instability survives. Same slip found in
+Part 62's m^2 = 2g*Phi (true g*Phi) -- filed as T83 sub-task 83j; biharmonic
+coefficient -- sub-task 83c. 10/12 Sudoku (2 contradictions = the old value
+and its hidden inertia-1 assumption). Closes TODO_04.md T83 sub-task 83b.
+
+---
+
+### Part 153 additions (T83a: Newtonian source audit -- CLAUDE OPUS 5.5):
+
+**Source:** Part 153 (2026-09-28), `simulations/solver/t83a_newtonian_source.py`,
+`docs/research/newtonian_source_audit.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 153.6 | dL_int/dpsi + dL_int/dphi = 0 -> box(phi + psi) = 0 exactly | [VERIFIED] | joint-shift Noether current; same zero mode as Part 133's 133.2; two-phase: box(psi + 2 phi_+) = 0 |
+| 153.7 | nabla^2 Delta = k_Delta^2 Delta, k_Delta^2 = 2g (static, linear) | [VERIFIED] | the gap mode is screened; only phi+psi is free |
+| 153.S4 | Part 63 S4 "nabla^2 Phi ~ Phi -> 1/r" | [NEGATIVE, VERIFIED] | nabla^2 f = +/- m^2 f gives e^(-mr)/r or cos(mr)/r, never 1/r; 1/r comes from the exterior region where g = 0 |
+| 153.10 | C = Delta_inf (R - tanh(k_Delta R)/k_Delta) (psi extended, g localised) | [DERIVED, VERIFIED] | weak: C ~ (2g/3) Delta_inf R^3 (volume); strong: C -> Delta_inf R (radius); C = 0 if Delta_inf = 0 |
+| 153.12 | C = 0 for any static configuration with psi confined (Neumann) | [DERIVED, exact nonlinear] | net source integral g sin(Delta) = 0 by divergence theorem on the psi equation |
+| 153.13 | Q(t) = integral g sin(Delta) d^3x = -d^2/dt^2 integral psi d^3x | [DERIVED] | steady source requires ever-accelerating total matter phase |
+| 153.14 | two-phase vacuum Theta = phi_- = pi/2: grad V = 0, Hessian eig {2g, 2g} | [VERIFIED] | sourceless static solution; phi_- is the only channel not protected by the joint shift |
+
+**Conclusion (Part 153):** the 1/r SHAPE of Newtonian gravity is
+correctly recovered from the exterior (g = 0) region, but Part 63 S4's
+derivation of it is invalid. The STRENGTH of the 1/r field is not
+produced by the Lagrangians as written: matter in its locked ground state
+carries zero net gravitational charge (Noether/Goldstone argument, cf.
+Moody & Wilczek 1984). mathematical_formalization.md Sec 7.5's source
+rho_phase requires psi - phi held fixed by assumption. 9/14 Sudoku (5
+contradictions = the finding, in two sub-groups: screening; no source at
+rest). CONSTRUCTIVE NEGATIVE. TODO_04.md T83 sub-task 83a; follow-up 83i.
 
 ---
 
@@ -1920,7 +2048,7 @@ Nix), which is a separate, unexamined path.
 |------|-------------------|-----|-------|
 | 128.1 | [g] = 1/s^2 from box(phi) = g*sin(psi-phi), phi dimensionless | [DERIVED, SymPy] | resolves the "[mass]^2 units" flag in emergent_c.md Result 7; omega_gap = m_P*c^2/hbar carries [T]^-1, one power short -- omega_gap^2, not omega_gap, plays g's role wherever squared elsewhere (no existing result affected) |
 | 128.2 | Lambda = g_Lambda*phi_minus_vac^2/c^2, g_Lambda = 3*Omega_Lambda*omega_gap^2 = 7.067e+86 s^-2 | [DERIVED, PDTP Original] | dimensionally-complete form of the Part 87 schematic; reproduces Lambda_obs to 1.000000 with phi_vac = H0/omega_gap (T50 ansatz); no separate hbar term needed |
-| 128.3 | g_Lambda / g_dyn = 3.48e+122 (g_dyn = Part 119's dynamical coupling, m^2=2*g_dyn) | [DERIVED, NEGATIVE-BUT-USEFUL] | g_Lambda and g_dyn are NOT the same object despite sharing the bare symbol "g" across Parts 87/94 vs 119; substituting g_dyn into Eq 128.2 requires phi_vac = 2.196 rad > pi/2, inconsistent with the true-vacuum picture -- confirms they must not be substituted for each other |
+| 128.3 | g_Lambda / g_dyn = 1.74e+122 (corrected Part 157: g_dyn doubled, m^2 = g_dyn; was 3.48e+122) | [DERIVED, NEGATIVE-BUT-USEFUL] | g_Lambda and g_dyn are NOT the same object despite sharing the bare symbol "g" across Parts 87/94 vs 119; substituting g_dyn into Eq 128.2 requires phi_vac = 2.196 rad > pi/2, inconsistent with the true-vacuum picture -- confirms they must not be substituted for each other |
 
 ---
 
@@ -2005,8 +2133,8 @@ and non-ASCII print characters (cp1252 crash).
 | 117.5 | V(0,chi) = -2g cos(chi): quartic = -g/12 | [VERIFIED] | tree channel wrong sign — confirms Part 88 Eq 88.13 exactly |
 | 117.8 | V_zp = (1/2)sqrt(2g cos chi): quartic = -sqrt(2)sqrt(g)/192 | [DERIVED, NEGATIVE] | zero-point channel also wrong sign (single-mode approx) |
 | 117.13 | V_min = V_0 - J^2/(2M) with J = 2g sin(beta) sin(phi_-) | [VERIFIED, textbook Gaussian matching] | integrating out phi_+ fluctuation at partial lock psi - phi_+ = pi/2 - beta |
-| 117.14 | V_ind = -(2g^2 sin^2(beta)/kbar^2) sin^2(phi_-) | [PDTP Original, DERIVED] | gradient-dominated regime kbar^2 >> M_pot |
-| 117.16 | lambda_4 = +2g^2 sin^2(beta)/(3 kbar^2) > 0; = (g/3) sin^2(beta) at kbar^2 = 2g | [PDTP Original, DERIVED] | REQUIRED positive EDE quartic; Part 88 needs ~g (factor 3-6); sign SymPy-verified |
+| 117.14 | V_ind = -(g^2 sin^2(beta)/kbar^2) sin^2(phi_-) [corrected Part 157; was 2g^2] | [PDTP Original, DERIVED] | gradient-dominated regime kbar^2 >> M_pot |
+| 117.16 | lambda_4 = +g^2 sin^2(beta)/(3 kbar^2) > 0 [corrected Part 157; was 2g^2]; = (g/3) sin^2(beta) at kbar^2 = g (unchanged) | [PDTP Original, DERIVED] | REQUIRED positive EDE quartic; Part 88 needs ~g (factor 3-6); sign SymPy-verified |
 | 117.18 | J = V_ind = lambda_4 = 0 identically at beta = 0 | [VERIFIED] | self-switching: EDE transient by construction; w = -1 today automatic; Parts 61/63/87 untouched |
 
 Key results: the EDE-enabling positive quartic EXISTS in PDTP — generated by phi_+
@@ -2091,8 +2219,8 @@ Unchanged: N_eff = 6*pi gap, 2-DOF deficit, m_cond underdetermined.
 | 113.4 | tan(D-)/tan(D+) = sin(D-)cos(D+)/(cos(D-)sin(D+)) | [DERIVED, SymPy S3] | ratio diagnostic; 0 in vacuum, inf at equilibrium, 1 for D+=D- |
 | 113.5 | m^2(phi_-) = 2g*sin(D+) = 2g*alpha_+*tan(D+) | [DERIVED, SymPy S4] | reversed Higgs mass (Part 62) in tan language; 0 in vacuum, 2g at horizon |
 | 113.6 | S_two-phase ~ 1/(g*alpha_+) (T6 noise unchanged) | [VERIFIED] | phi_- mass saturates at 2g; does NOT cutoff phi_+ noise divergence; separate sectors |
-| 113.7 | kappa unchanged (T7); m^2(phi_-)=omega_gap^2=2g at horizon | [VERIFIED] | phi_- at equilibrium -> zero gradient on phi_+ -> same kappa; horizon: phi_- = breathing mode |
-| 113.7b | m^2(phi_-)\|_{r_S} = omega_gap^2 = 2g | [PDTP Original] | phi_- and breathing mode are the SAME excitation at event horizon |
+| 113.7 | kappa unchanged (T7); m^2(phi_-) = g at horizon [corrected Part 157; was 2g] | [VERIFIED, corrected] | phi_- at equilibrium -> zero gradient on phi_+ -> same kappa; horizon: phi_- = breathing mode |
+| 113.7b | m^2(phi_-)\|_{r_S} = omega_gap^2 = 2g -- WITHDRAWN (Part 157): m^2 = g vs omega_gap^2 = 2g | [NEGATIVE] | phi_- and breathing mode are the SAME excitation at event horizon |
 | 113.8 | Full decoupling: BOTH D+->pi/2 AND D-->0 required | [PDTP Original] | two-switch picture; D-->0 needs Phi=0 (no gravity) -- impossible near any mass |
 | 113.9 | L_residual = 2g at D+=pi/2, D-=pi/2 | [PDTP Original] | closing gravity channel OPENS surface channel maximally; NOT decoupled at single-phase Leidenfrost |
 | 113.10 | D-=pi/2 -> L = 2g*cos(D_chi), chi = phi_+ + pi/2 | [VERIFIED, SymPy S5] | single-phase recovery; same as Part 63 chi mapping; g -> 2g absorbed into G_eff |
@@ -2233,6 +2361,24 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-09-28: Added Part 157 (T83j, CLAUDE OPUS 5.5: phi_- mass m^2 = g*Phi, was 2g*Phi;
+  Part 119 observables unchanged, g_dyn doubles; lambda_4 prefactor halves; Eq 113.7b
+  withdrawn). See `docs/research/phi_minus_mass_correction.md`.
+- 2026-09-28: Added Part 156 (T83d, CLAUDE OPUS 5.5: G_eff = 2 G_bare confirmed
+  at equal g via coupling/stiffness; link to the Newton's-3rd-law factor withdrawn
+  (basis convention); G_eff(phi_-) = 2 sin^2 phi_-). See `docs/research/geff_factor_audit.md`.
+- 2026-09-28: Added Part 155 (T83c, CLAUDE OPUS 5.5: biharmonic corrected to
+  nabla^4 phi_+ - g^2 phi_+ = -g^2 psi; Green's function has no 1/r term;
+  Eq 2e, 21g, 86.13, 94.8 updated). See `docs/research/biharmonic_rederivation.md`.
+- 2026-09-28: Added Part 154 (T83b, CLAUDE OPUS 5.5: Jeans eigenvalue
+  corrected +/- 2 sqrt(2) g -> +/- sqrt(3) g in Eq 2f and Eq 6b; root cause
+  = forces used as accelerations for inertia-2 fields phi_+/phi_-). See
+  `docs/research/jeans_eigenvalue_correction.md`.
+- 2026-09-28: Added Part 153 (T83a, CLAUDE OPUS 5.5: Newtonian source
+  audit). Part 63 S4 "Poisson -> 1/r" step shown invalid (screened
+  equation); 1/r shape re-derived from the g = 0 exterior; source
+  strength shown to vanish for locked/confined matter (Eqs 153.10,
+  153.12-153.14). 9/14 Sudoku. See `docs/research/newtonian_source_audit.md`.
 - 2026-09-27: Added Part 152 (T71: CKN "factor 12" formula discrepancy
   audit, Part 54). Two cited rho_CKN formulas (`hbar*c/(l_P^2*L_H^2)`
   vs `c^2/(G*L_H^2)`) traced, via an independent `sympy.physics.units`
@@ -2636,7 +2782,7 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 - 2026-04-06: Added Part 100 (T16: two-phase G_eff NEGATIVE; ratio=2 invariant; Bergmann-Wagoner; 9/10 PASS)
 - 2026-04-06: Added Part 99 (T2: tan=1 crossover DERIVED; n_c=sqrt(2); f_c=29.3%; sizzling onset; 10/10 PASS)
 - 2026-04-04: Added Part 98 (T1: n_PDTP=1/alpha DERIVED; factor-2 scalar vs GR; TIR at horizon; 10/10 PASS)
-- 2026-04-04: Added Part 96 (B7 FCC: E_Bragg C2=628 MeV/C3=252 GeV; Anderson xi_loc=1.8 fm; C1 fiber NA=1; phi_-(Earth)=31.7 GeV; DM m_P/n; 24/24 PASS)
+- 2026-04-04: Added Part 96 (B7 FCC: E_Bragg C2=628 MeV/C3=252 GeV; Anderson xi_loc=1.8 fm; C1 fiber NA=1; phi_-(Earth)=22.4 GeV (corrected Part 157; was 31.7); DM m_P/n; 24/24 PASS)
 - 2026-04-04: Added Part 95 (A7 FCC: c=c_s DERIVED; photon=phonon; c_eff=c*sqrt(J_0); light-stop phi_0=2.4048; variable c from n; 12/12 PASS)
 - 2026-04-04: Added Part 94 (A6 FCC: G*g^2=c^5/hbar DERIVED; g=omega_P~1.855e43 rad/s; A6 PARTIAL+FREE; reduces to A1; 12/12 PASS)
 - 2026-04-03: Added Part 93 (B5: N_gen=|Z_3|=3 DERIVED from SU(3) center; B6: Fermi-Dirac+Pauli+spin-1/2 from Berry phase; 12/12 PASS)
@@ -2651,7 +2797,7 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 - 2026-03-28: Added Part 83 (N_eff=6pi gap B1 FCC; PARTIAL; G_ind=2.356G confirmed; N_eff range 10-34; 6pi between; Casimir near-miss 1%; 10/10 PASS)
 - 2026-03-27: Added Part 82 (Koide D4 re-exam; STILL NEGATIVE; chameleon=reversed Higgs; r_Yukawa~10^-18 m; theta_0~theta_C 2.2%; 7/10 PASS)
 - 2026-03-25: Added Part 81 (wave effects audit; SOFAR rejected; 55 effects audited, 12 missing; N_eff=12pi; DeepSeek 6 errors; 10/10 PASS)
-- 2026-03-24: Added Part 80 (dispersion two-phase; 4 checks, 2 improved, 2 unchanged; E_gap=hbar*sqrt(2gPhi); 10/10 PASS)
+- 2026-03-24: Added Part 80 (dispersion two-phase; 4 checks, 2 improved, 2 unchanged; E_gap=hbar*sqrt(g*Phi); 10/10 PASS)
 - 2026-03-22: Added Part 79 (alpha_EM FCC; 5 paths NEGATIVE; impedance duality; Wyler 0.6 ppm; backward-solve 1/64; 9/10 PASS)
 - 2026-03-22: Added Part 78 (extremal condensate; 4 paths NEGATIVE; S_Bek=2pi, S_holo=pi, VEV=3/pi, S_inst=pi; 9/9 PASS)
 - 2026-03-22: Added Section 21 (three Lagrangians in multiple mathematical forms)

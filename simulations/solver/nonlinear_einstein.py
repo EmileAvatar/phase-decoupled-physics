@@ -27,7 +27,7 @@ Key findings:
   - G_eff from entropy: G_eff = G/ln(2) at a_0=l_P; G_eff=G exactly at a_0=1.665*l_P
   - Independent gap check: entropy factor 4*ln(2)=2.772 vs Sakharov factor 3*pi/4=2.356
   - Both independent approaches give O(1) factor ~2-3; pointing at same micro-counting issue
-  - Biharmonic GR (Part 61): nabla^4 + 4g^2 differs from Poisson at k ~ sqrt(2)*g/c
+  - Biharmonic (Part 61): corrected to nabla^4 - g^2 (Part 155); never Poisson
 
 Sources:
   Part 74: einstein_from_pdtp.md (three routes; all partial)
@@ -380,84 +380,27 @@ def derive_biharmonic_comparison(rw):
     """
     rw.subsection("4. Biharmonic PDTP Gravity vs Nonlinear GR (Part 61 Connection)")
 
-    rw.print("Two-phase Lagrangian (Part 61) gives biharmonic field equation:")
-    rw.print("  nabla^4 Phi + 4*g^2 * Phi = source                     ... (86.6)")
-    rw.print("  (4th order in space, not 2nd order like GR Poisson)")
-    rw.print("")
-    rw.print("Standard GR Newtonian limit (Poisson equation):")
+    # CORRECTED T83c / Part 155 (2026-09-28). The original block stated
+    # nabla^4 Phi + 4 g^2 Phi = source, argued for the "+" sign, claimed
+    # Phi ~ source/(8 pi r) at r << 1/sqrt(g), and concluded that biharmonic
+    # gravity reduces to Newton at all observable scales. Re-derivation
+    # (t83c_biharmonic.py) gives nabla^4 phi_+ - g^2 phi_+ = -g^2 psi; its
+    # Green's function has no 1/r term at any range. Values below are
+    # computed, not quoted.
+    r_s, k_s, g_s = sp.symbols('r kappa g', positive=True)
+    G = (sp.cos(k_s * r_s) - sp.exp(-k_s * r_s)) / (8 * sp.pi * k_s**2 * r_s)
+    small_r = sp.expand(sp.series(G, r_s, 0, 3).removeO())
+    rw.print("Two-phase Lagrangian (Part 61), corrected (Part 155):")
+    rw.print("  nabla^4 phi_+ - g^2 phi_+ = -g^2 psi                    ... (86.6, corrected)")
+    rw.print("Standard Newtonian limit (Poisson):")
     rw.print("  nabla^2 Phi = 4*pi*G*rho                                ... (86.7)")
     rw.print("")
-
-    # Biharmonic in Fourier space
-    rw.print("Biharmonic in Fourier space (Phi ~ exp(i*k*x)):")
-    rw.print("  k^4 * Phi - 4*g^2 * Phi = source")
-    rw.print("  Note: nabla^2 -> -k^2, nabla^4 -> +k^4 in 3D Fourier convention")
-    rw.print("  (k^4 - 4*g^2) Phi = source")
-    rw.print("")
-    rw.print("  For k^2 << 2*g:   4*g^2 >> k^4  --> Phi ~ source / (4*g^2) = const")
-    rw.print("    This gives screened Yukawa (exponential), NOT 1/r Newtonian!")
-    rw.print("")
-    rw.print("  Correction: biharmonic form from Part 61 is:")
-    rw.print("    nabla^4 Phi + 4*g^2 Phi = source  [not nabla^4 Phi - 4*g^2 Phi]")
-    rw.print("  In Fourier: (k^4 + 4*g^2) Phi = source  [always positive definite]")
-    rw.print("  At k^2 << 2*g: 4*g^2 * Phi ~ source --> Phi = source/(4*g^2)")
-    rw.print("    This gives a SCREENED potential, NOT Newtonian 1/r.")
-    rw.print("")
-
-    # The biharmonic operator nabla^4 + m^2 in 3D has Green's function
-    # related to oscillating Yukawa -- Kelvin functions.
-    # At long range (r >> 1/sqrt(g)): Phi ~ (source/(4*g^2)) * r * exp(-sqrt(2)*g*r)
-    # At short range (r << 1/sqrt(g)): Phi ~ source/(8*pi*r) [1/r Newtonian]
-    rw.print("Green's function of nabla^4 + 4*g^2 in 3D:")
-    rw.print("  At r << 1/sqrt(g):  Phi(r) ~ source/(8*pi*r)   [Newtonian 1/r]")
-    rw.print("  At r >> 1/sqrt(g):  Phi(r) ~ exp(-sqrt(2)*g*r) [exponential screening]")
-    rw.print("")
-    rw.print("  Transition scale: r* = 1/sqrt(g)")
-    rw.print("")
-
-    # g is the coupling constant from the Lagrangian
-    # From Part 61: g has dimensions [1/length^2] (or [frequency^2/c^2])
-    # The biharmonic paper is nabla^4 + (m_phi)^2 where m_phi is the phi_- mass
-    # near matter. For vacuum: m_phi = 0 (massless) -- but the 4g^2 term is a
-    # MASS-LIKE term from the coupling.
-    # At the Planck scale: g ~ c^4/(hbar^2 * l_P^2) approximately
-
-    # For macroscopic r >> l_P: r* = 1/sqrt(g) >> l_P is needed for Newtonian gravity
-    # This means g << 1/l_P^2 at macroscopic scales.
-    # The biharmonic correction is only visible at r < r* = 1/sqrt(g) -- sub-Planck.
-    rw.print("  For macroscopic Newtonian gravity to work:")
-    rw.print("  Need r* = 1/sqrt(g) << macroscopic scales")
-    rw.print("  --> g >> 1/r_macro^2  (very large coupling at short scales)")
-    rw.print("")
-
-    # Estimate g from Part 61: coupling to phi_- (biharmonic comes from the
-    # phi_- field having mass m^2 = 2*g*Phi near matter -- the "reversed Higgs")
-    # At vacuum: m_phi- = 0; near heavy mass: m_phi- ~ sqrt(2*g*Phi)
-    # The biharmonic scale is set by the condensate coupling, not Planck
-    rw.print("  Biharmonic scale from Part 61 condensate coupling:")
-    rw.print("    g_biharmonic ~ m_cond^2 / (hbar * c)^2  (condensate scale)")
-    rw.print("    r* ~ sqrt(hbar*c / m_cond^2 * c^2) = hbar*c / (m_cond * c^2)")
-    rw.print("    For m_cond = m_P: r* = l_P = {:.3e} m".format(L_P))
-    rw.print("")
-    rw.print("  Conclusion: biharmonic deviation from GR is ONLY at r < l_P.")
-    rw.print("  At all observable scales (r >> l_P): biharmonic --> Newtonian (GR limit).")
-    rw.print("  Biharmonic is the PDTP modification of GR at Planck scale. [PDTP Original]")
-    rw.print("")
-
-    # SymPy: verify that k^4 >> 4*g^2 limit gives Poisson
-    k_sym = sp.Symbol('k', positive=True)
-    g_sym = sp.Symbol('g', positive=True)
-    # Green's function denominator in Fourier space
-    denom = k_sym**4 + 4 * g_sym**2
-    # Leading term at k >> sqrt(2)*g: denom ~ k^4
-    limit_large_k = sp.series(denom, g_sym, 0, 2)
-    rw.print("SymPy: biharmonic denominator at small g (k >> sqrt(g)):")
-    rw.print("  k^4 + 4*g^2 ~ {} + ...".format(limit_large_k))
-    rw.print("  --> k^4 dominates: phi_k ~ source/k^4 (biharmonic GR at high k)")
-    rw.print("  At low k (macroscopic): phi_k ~ source/(4*g^2) (screened)")
-    rw.print("  NOTE: The standard Poisson (1/r Newtonian) regime is k^2 >> 2*g,")
-    rw.print("  which in position space means r << r* = 1/sqrt(g) = l_P.")
-    rw.print("  Both regimes are sub-Planck -- confirming GR is the macroscopic limit.")
+    rw.print("Green's function of nabla^4 - kappa^4 (kappa = sqrt(g)):")
+    rw.print("  G(r) = {}".format(G))
+    rw.print("  small r: G = {}".format(small_r))
+    rw.print("  coefficient of 1/r at small r: {}".format(small_r.coeff(r_s, -1)))
+    rw.print("  large r: G ~ cos(kappa r)/(8 pi kappa^2 r) (oscillating)")
+    rw.print("  Crossover scale r* = 1/sqrt(g) = a_0; m_cond = m_P: r* = {:.3e} m".format(L_P))
     rw.print("")
 
     return {"r_star": L_P}
@@ -535,7 +478,7 @@ def run_sudoku_tests(rw, entropy_results, jacobson_results):
     # S10: Biharmonic GR limit: r* = 1/sqrt(g) ~ l_P for m_cond = m_P
     r_star = L_P
     r_star_ref = L_P
-    tests.append(("S10", "Biharmonic transition r* = l_P for m_cond = m_P",
+    tests.append(("S10", "Biharmonic crossover r* = a_0 = l_P for m_cond = m_P (scale only)",
                    r_star, r_star_ref))
 
     # S11: Unruh temperature at Planck acceleration = T_Planck / (2*pi)
@@ -609,9 +552,9 @@ def print_summary(rw, entropy_results, jacobson_results, sudoku_passed, sudoku_t
     rw.print("    VERDICT: PARTIAL -- full GR derived with O(1) correction to a_0")
     rw.print("")
     rw.print("  Strategy 3 -- Biharmonic PDTP gravity (Part 61):")
-    rw.print("    nabla^4 + 4*g^2 --> Poisson at r >> r* = l_P [GR limit confirmed]")
-    rw.print("    Differs from GR only at r < l_P (sub-Planck, unobservable)")
-    rw.print("    VERDICT: CONSISTENT -- biharmonic reduces to GR at all observable scales")
+    rw.print("    CORRECTED (T83c / Part 155): nabla^4 - g^2; Green fn has no 1/r term")
+    rw.print("    at any range (const - r/(8 pi) inside r*, cos(r/r*)/r outside)")
+    rw.print("    VERDICT: NEGATIVE -- does not reduce to Poisson/GR at any scale")
     rw.print("")
     rw.print("COMPARISON TABLE:")
     rw.print("  Route              | Linearized | Nonlinear  | Status")
@@ -620,14 +563,14 @@ def print_summary(rw, entropy_results, jacobson_results, sudoku_passed, sudoku_t
     rw.print("  Sigma model O(e^4) | N/A        | NEGATIVE   | Wrong structure")
     rw.print("  Jacobson + S_PDTP  | N/A        | PARTIAL    | a_0=1.665 l_P")
     rw.print("  Sakharov 1-loop    | EXACT      | N/A        | PARTIAL (N_eff gap)")
-    rw.print("  Biharmonic (P61)   | GR limit   | SUB-PLANCK | CONSISTENT")
+    rw.print("  Biharmonic (P61)   | no 1/r     | N/A        | NEGATIVE (Part 155)")
     rw.print("")
     rw.print("NEW PDTP ORIGINAL RESULTS:")
     rw.print("  1. S_PDTP = k_B*ln(2)*A/a_0^2  [microscopic entropy formula]")
     rw.print("  2. Entropy-area law: a_0 = 2*sqrt(ln(2))*l_P ~ 1.665*l_P")
     rw.print("  3. Entropy gap 4*ln(2)=2.772 and Sakharov gap 3*pi/4=2.356 both")
     rw.print("     point at same O(1) microstate counting uncertainty")
-    rw.print("  4. Biharmonic GR modification confined to r < l_P (Planck scale)")
+    rw.print("  4. [WITHDRAWN, Part 155] 'Biharmonic modification confined to r < l_P'")
     rw.print("")
     rw.key_value("  Sudoku", "{}/{} PASS".format(sudoku_passed, sudoku_total))
     rw.print("")

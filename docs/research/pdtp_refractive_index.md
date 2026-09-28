@@ -266,7 +266,7 @@ Refractive indices [Eq 98.10, PDTP Original]:
 - Δ_− ≈ φ_−_vac ≈ 10⁻⁷⁰ rad (Part 87) → n_− = 1.000...000 (negligible)
 
 **Consistency with Part 61:**
-Newton's 3rd law gives ψ̈ = −2φ̈_+, so G_eff = 2G_bare. This is NOT because n_+ is
+G_eff = 2G_bare (Part 156: from the coherent 2g coupling ÷ φ₊ stiffness 2; the ψ̈ = −2φ̈_+ factor is a separate, basis-dependent convention). This is NOT because n_+ is
 wrong — it is because the matter-condensate coupling is doubled in the two-phase system.
 The refractive index n_+ = 1/cos(Δ_+) uses G_bare (single condensate). The observable
 lensing uses G_eff = 2G_bare (both condensates). Net correction to lensing: factor 2 from

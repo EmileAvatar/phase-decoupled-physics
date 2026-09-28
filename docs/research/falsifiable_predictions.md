@@ -580,12 +580,12 @@ Inside a hollow massive shell (e.g., thick lead sphere):
 
 Therefore:
 - **Chameleon field:** massless inside (ρ = 0 → no screening → long-range force)
-- **PDTP φ_-:** massive inside (Φ > 0 → m² = 2gΦ → short-range, screened)
+- **PDTP φ_-:** massive inside (Φ > 0 → m² = gΦ → short-range, screened) [corrected Part 157; was 2gΦ]
 
 ```
 [DERIVED] Shell interior:
   Chameleon: m_cham(inside) = 0     → long-range fifth force    (Eq. F.11)
-  PDTP φ_-: m_phi(inside) = √(2gΦ) → short-range, Yukawa-type  (Eq. F.12)
+  PDTP φ_-: m_phi(inside) = √(gΦ) → short-range, Yukawa-type  (Eq. F.12; corrected Part 157, was √(2gΦ))
 ```
 
 **Source:** Part 62, reversed_higgs.py; chameleon comparison section
@@ -605,7 +605,7 @@ Place a torsion balance or atom interferometer inside a massive hollow shell.
 ### What confirms PDTP
 
 No long-range fifth force inside the shell, but a short-range Yukawa-type
-force detectable at distances < ℏc/√(2gΦ).
+force detectable at distances < ℏc/√(gΦ) (corrected Part 157; √2 longer than the former ℏc/√(2gΦ)).
 
 ### What kills PDTP
 
@@ -718,12 +718,19 @@ to be retuned depending on its distance from a massive object.
 | Black hole horizon (exact, not weak-field) | -- | ω_gap = √(2g) | see below |
 
 **Horizon special case [Part 113, Eq 113.7b, PDTP Original]:** the weak-field
-formula ω = √(2gΦ) breaks down at the horizon (Φ is not small there). The
+formula ω = √(gΦ) (corrected Part 157; was √(2gΦ)) breaks down at the horizon (Φ is not small there). The
 exact strong-field result is m²(φ_-)|_{r_S} = ω_gap² = 2g — **φ_- and the
 tensor breathing mode become the same excitation at the horizon.** This
 sharpens the test: a resonant detector tuned to ω_gap near a black hole
 horizon would be probing φ_- and the breathing mode simultaneously, not two
 independent signals.
+
+> **CORRECTED 2026-09-28 (Part 157, TODO_04 T83j — CLAUDE OPUS 5.5; user-approved
+> fixes session):** with φ₋'s inertia 2, the horizon value is m²(φ₋)|_{r_S} = g,
+> not 2g, so it does **not** equal ω_gap² = 2g. Eq 113.7b is withdrawn and the
+> "same excitation at the horizon" sharpening above is **not supported** as
+> stated (frequencies differ by √2). See
+> [phi_minus_mass_correction.md](phi_minus_mass_correction.md).
 
 ### How to test
 
@@ -764,21 +771,30 @@ or fermions directly. Compatible.
 The two-phase system (Part 61) produces a modified gravitational field
 equation that is **fourth-order** (biharmonic), not second-order (Poisson):
 
+> **CORRECTED 2026-09-28 (Part 155, TODO_04 T83c — CLAUDE OPUS 5.5; user-approved
+> edit).** Eq. F.16 as originally stated (∇⁴Φ + 4g²Φ = 4g²ψ) does not follow from
+> the two-phase Lagrangian (inertia slip + algebra sign slip). Eq. F.17 is
+> withdrawn: the corrected equation has no 1/r (Poisson) regime at any range.
+> See [biharmonic_rederivation.md](biharmonic_rederivation.md).
+
 ```
-[DERIVED] Two-phase weak-field equation:
-  ∇⁴Φ + 4g² Φ = 4g² ψ                                      (Eq. F.16)
+[DERIVED, corrected Part 155] Two-phase static equation (fixed ψ):
+  ∇⁴φ₊ − g² φ₊ = −g² ψ                                     (Eq. F.16)
 
-  where Φ = gravitational potential, ψ = matter source
+  where φ₊ = gravity-mode phase, ψ = matter phase (prescribed source),
+  g = bare coupling = 1/a₀² (m⁻²)
 
-[DERIVED] Short range (r << L_heal):
-  Reduces to ∇²Φ ≈ −ρ (standard Poisson)                    (Eq. F.17)
+[NEGATIVE, Part 155] Short range (r << L_bih):             (Eq. F.17, WITHDRAWN)
+  Point-source field = 1/(8πκ) − r/(8π) + … (constant + linear), NOT 1/r;
+  does not reduce to Poisson.
 
-[DERIVED] Long range (r >> L_heal):
-  Fourth-derivative corrections become significant
-  L_heal ~ ℓ_P (healing length of the condensate)
+[DERIVED, Part 155] Long range (r >> L_bih):
+  Field ~ cos(r/a₀)/(8π g r) — undamped ripple of wavelength 2π a₀
+  L_bih = a₀ (= ℓ_P for m_cond = m_P)
 ```
 
-**Source:** Part 61, two_phase_lagrangian.py (weak_field_limit section)
+**Source:** Part 61, two_phase_lagrangian.py (weak_field_limit section);
+corrected in Part 155, t83c_biharmonic.py
 
 ### What GR predicts
 
@@ -806,10 +822,15 @@ unfalsifiable at current precision.
 
 ### Current status
 
-Galaxy rotation curves show deviations from Newtonian gravity. Standard
-explanation: dark matter. Alternative: modified gravity (MOND, etc.).
-PDTP's biharmonic form is a specific prediction that could be tested
-against these alternatives — but only if L_heal is determined.
+**NOT CURRENTLY A VIABLE TEST (Part 155, 2026-09-28).** The corrected
+equation has no Newtonian regime to deviate from, and for m_cond = m_P its
+only long-range feature is a Planck-wavelength ripple that averages to zero
+over any measurable distance. It could become a test again only if (a) T83
+sub-task 83i supplies a mass-proportional source for the 1/r field, and (b)
+m_cond is far below the Planck mass, making L_bih = a₀ macroscopic — in
+which case the signature would be a spatially *oscillating* force
+correction, not a MOND-like one. (Historical text above: "rotation curves"
+reading already failed by ~54 orders, T77/Part 145.)
 
 ### SM compatibility
 
@@ -947,8 +968,9 @@ mode φ_+ generates an effective positive quartic for φ_-:
 
 ```
 [DERIVED, SymPy-verified]
-  λ₄ = 2 g² sin²(β) / (3 k̄²)  >  0                          (Eq. F.22)
-     = (g/3) sin²(β)   at the gap scale k̄² = 2g
+  λ₄ = g² sin²(β) / (3 k̄²)  >  0                            (Eq. F.22)
+     = (g/3) sin²(β)   at the gap scale k̄² = g
+  [corrected Part 157: prefactor was 2g², gap k̄² = 2g; value at gap unchanged]
 
 [VERIFIED] λ₄ → 0 identically as β → 0 (full lock, today)    (Eq. F.23)
 ```
@@ -1147,7 +1169,7 @@ probed is the spacetime phase field itself); no direct SM coupling.
 | 3 | Phase-dependent gravity (BEC test) | Yes | **In principle** | BEC vs thermal free-fall comparison |
 | 7 | φ_- environment-dependent mass | Yes | **In principle** | Sub-mm gravity near massive objects |
 | 9 | G_eff = 2 G_bare | Yes (G location-dependent) | **Difficult** | G measurements in different Φ environments |
-| 11 | Biharmonic gravity at long range | Yes (4th-order, not 2nd) | **If L_heal > ℓ_P** | Galaxy rotation curves, lensing |
+| 11 | Biharmonic gravity at long range (corrected Part 155: ∇⁴ − g², no 1/r regime) | Yes (4th-order, not 2nd) | **Not viable as stated**; needs 83i + light m_cond | Galaxy rotation curves, lensing |
 | 2 | GW birefringence | Yes | **Not yet** | Requires scalar mode detection first |
 | 14 | Transient EDE from incomplete locking (self-switching w(z)) | Yes | **Yes** | DESI DR2 + CMB-S4 w(z) and EDE searches |
 | 13 | Planck-vortex DM ⇒ detectable CMB tensor modes | Yes (links DM to r) | **Yes (2030s)** | LiteBIRD / CMB-S4 (σ_r ~ 0.001) |
@@ -1203,7 +1225,7 @@ provide **specific numbers:**
 | Dark energy parameters | w₀, w_a | Prediction 5 | Depends on ε₀ (currently free parameter) |
 | Condensate mass | m_cond | Predictions 7-11 | FREE PARAMETER (= m_P; all perturbative paths exhausted) |
 | φ_- coupling to Φ | 2gΦ | Predictions 7-10 | g known once m_cond known |
-| Healing length | L_heal | Prediction 11 | ~ℓ_P if m_cond = m_P |
+| Biharmonic scale | L_bih = a₀ (was "L_heal ~ ℓ_P") | Prediction 11 | = ℓ_P if m_cond = m_P (Part 155) |
 | GPU lattice σ at β=6.0 | σ_phys | Prediction 12 | Next task (Part 42, N≥16 GPU) |
 | Topological binding correction | δB_topo(Z, N) | Future Prediction 13 (Z=115 stability) | T28/T40 (Part 137) tested this and found NEGATIVE -- no PDTP formula available; stub `pdtp_topology_correction(Z, N) -> 0.0` stays as-is (not filled); SEMF baseline (Part 107) shows ~10 MeV still needed at (Z=115, N≈184), gap remains open via standard shell-correction theory only |
 

@@ -14,7 +14,7 @@ CONTEXT:
   - PDTP: alpha = cos(psi - phi); alpha = 0 means gravitational decoupling.
   - Part 28b: energy cost Delta_V = g per oscillator; ~10 kW/ton estimate.
   - Part 61-62: phi_- is massless in vacuum, massive near matter (reversed
-    Higgs). Resonant frequency omega(phi_-) = sqrt(2*g*Phi).
+    Higgs). Resonant frequency omega(phi_-) = sqrt(g*Phi).
   - Part 37: Z3 Y-junction at 120 deg; three phases cancel at centre.
 
 PHYSICS DERIVED IN THIS PART:
@@ -68,7 +68,7 @@ GEV_J = 1e9 * E_P                   # 1 GeV in Joules
 # Planck mass as condensate mass (Part 33-34)
 M_COND   = M_P                      # condensate mass = Planck mass
 OMEGA_GAP = M_COND * C**2 / HBAR    # gap frequency = m_cond*c^2/hbar [rad/s]
-G_COUPLING = OMEGA_GAP**2 / (2.0 * math.sqrt(2.0))  # Lagrangian coupling [rad^2/s^2]
+G_COUPLING = OMEGA_GAP**2 / math.sqrt(3.0)  # Lagrangian coupling [rad^2/s^2]
 
 # Healing length (Part 33-34)
 A_0 = HBAR / (M_COND * C)           # lattice spacing = hbar/(m_cond*c) = l_P
@@ -155,10 +155,10 @@ def derive_single_oscillator(rw):
     # Energy per site: E_site = K * g * a_0^2 ... but let's use Part 28b's result
     # Delta_V = g per oscillator in LAGRANGIAN units
     # Physical energy: Delta_E = hbar * g / omega_gap ... or more simply:
-    # g = omega_gap^2/(2*sqrt(2)), so g*hbar/omega_gap = omega_gap*hbar/(2*sqrt(2))
-    # = m_cond*c^2/(2*sqrt(2)) per oscillator
+    # g = omega_gap^2/sqrt(3), so g*hbar/omega_gap = omega_gap*hbar/sqrt(3)
+    # = m_cond*c^2/sqrt(3) per oscillator
 
-    E_per_site_J = M_COND * C**2 / (2.0 * math.sqrt(2.0))
+    E_per_site_J = M_COND * C**2 / math.sqrt(3.0)
     E_per_site_eV = E_per_site_J / E_P
 
     rw.print("  Energy cost to decouple ONE oscillator:")
@@ -168,7 +168,7 @@ def derive_single_oscillator(rw):
     rw.key_value("    Delta_E / E_Planck",   "{:.4f}".format(
         E_per_site_J / (M_COND * C**2)))
     rw.print("")
-    rw.print("  Note: Delta_E = m_cond*c^2/(2*sqrt(2)) = E_Planck/(2*sqrt(2))")
+    rw.print("  Note: Delta_E = m_cond*c^2/sqrt(3) = E_Planck/sqrt(3)")
     rw.print("  This is the energy to rotate ONE Planck-scale oscillator by 90 deg.")
     rw.print("")
 
@@ -207,9 +207,9 @@ def derive_macroscopic_decoupling(rw, step1):
     rw.key_value("    E_dec",               "{:.4e} kWh".format(E_dec_J / 3.6e6))
     rw.print("")
 
-    # Simplify: E_dec = (M/m_P) * m_P*c^2/(2*sqrt(2)) = M*c^2/(2*sqrt(2))
-    E_dec_simplified = M_obj * C**2 / (2.0 * math.sqrt(2.0))
-    rw.print("  Simplified: E_dec = M*c^2/(2*sqrt(2))")
+    # Simplify: E_dec = (M/m_P) * m_P*c^2/sqrt(3) = M*c^2/sqrt(3)
+    E_dec_simplified = M_obj * C**2 / math.sqrt(3.0)
+    rw.print("  Simplified: E_dec = M*c^2/sqrt(3)")
     rw.key_value("    E_dec (simplified)", "{:.4e} J".format(E_dec_simplified))
     rw.key_value("    Check (ratio)",      "{:.6f}".format(E_dec_J / E_dec_simplified))
     rw.print("")
@@ -250,7 +250,7 @@ def derive_macroscopic_decoupling(rw, step1):
     # Power estimate (sustained driving against dissipation)
     # Dissipation rate: gamma ~ omega_gap (fastest possible)
     # or gamma ~ omega_phi_minus at Earth surface (much slower)
-    omega_phi_minus = math.sqrt(2.0 * G_COUPLING * PHI_EARTH)
+    omega_phi_minus = math.sqrt(1.0 * G_COUPLING * PHI_EARTH)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
 
     # Conservative: gamma = omega_phi_minus (resonant driving)
     P_layer_W = E_layer_J * omega_phi_minus
@@ -355,11 +355,11 @@ def derive_phi_minus_screening(rw):
     rw.print("")
 
     # phi_- resonant frequency at Earth surface
-    omega_res = math.sqrt(2.0 * G_COUPLING * PHI_EARTH)
+    omega_res = math.sqrt(1.0 * G_COUPLING * PHI_EARTH)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
     f_res = omega_res / (2.0 * math.pi)
 
     rw.print("  phi_- resonant frequency (environment-dependent mass):")
-    rw.print("    omega(phi_-) = sqrt(2*g*Phi)")
+    rw.print("    omega(phi_-) = sqrt(g*Phi)")
     rw.print("    where Phi = G*M/(r*c^2) is dimensionless gravitational potential")
     rw.print("")
     rw.key_value("    Phi (Earth surface)",  "{:.4e}".format(PHI_EARTH))
@@ -528,8 +528,8 @@ def derive_leidenfrost_mapping(rw, step1, step2, step3):
     rw.print("  PDTP DECOUPLING ANALOGUE:")
     rw.key_value("    'Critical energy'",    "Delta_V = g per oscillator = {:.4e} J".format(
         step1["E_per_site_J"]))
-    rw.key_value("    'Latent heat'",        "E_dec/M = c^2/(2*sqrt(2)) = {:.4e} J/kg".format(
-        C**2 / (2.0 * math.sqrt(2.0))))
+    rw.key_value("    'Latent heat'",        "E_dec/M = c^2/sqrt(3) = {:.4e} J/kg".format(
+        C**2 / math.sqrt(3.0)))
     rw.key_value("    'Steam layer'",        "xi = l_P/sqrt(2) = {:.4e} m".format(XI))
     rw.key_value("    'Droplet'",            "craft/object inside Z3 defect")
     rw.print("")
@@ -548,8 +548,8 @@ def derive_leidenfrost_mapping(rw, step1, step2, step3):
          "xi = {:.2e} m".format(XI),
          "ratio = {:.2e}".format(D_STEAM / XI)],
         ["Latent heat (2.3e6 J/kg)",
-         "c^2/(2*sqrt(2)) = {:.2e} J/kg".format(C**2/(2*math.sqrt(2))),
-         "ratio = {:.2e}".format((C**2/(2*math.sqrt(2))) / L_LATENT_WATER)],
+         "c^2/sqrt(3) = {:.2e} J/kg".format(C**2/math.sqrt(3)),
+         "ratio = {:.2e}".format((C**2/math.sqrt(3)) / L_LATENT_WATER)],
         ["Self-sustaining (minutes)",
          "Requires continuous driving",
          "---"],
@@ -757,19 +757,19 @@ def run_sudoku_tests(rw, step1, step2, step3, step4, step5):
           0.0, step4["psi_sum"], abs_tol=1e-14)
 
     # LD-S2: Delta_V = g per oscillator
-    # g = omega_gap^2/(2*sqrt(2)), Delta_E = m_P*c^2/(2*sqrt(2))
-    expected_E = M_P * C**2 / (2.0 * math.sqrt(2.0))
+    # g = omega_gap^2/sqrt(3), Delta_E = m_P*c^2/sqrt(3)
+    expected_E = M_P * C**2 / math.sqrt(3.0)
     check("LD-S2", "Delta_E per oscillator [J]",
           expected_E, step1["E_per_site_J"], tol=0.001)
 
-    # LD-S3: E_dec for 1 kg = M*c^2/(2*sqrt(2))
-    expected_Edec = 1.0 * C**2 / (2.0 * math.sqrt(2.0))
-    check("LD-S3", "E_dec(1 kg) = M*c^2/(2*sqrt(2)) [J]",
+    # LD-S3: E_dec for 1 kg = M*c^2/sqrt(3)
+    expected_Edec = 1.0 * C**2 / math.sqrt(3.0)
+    check("LD-S3", "E_dec(1 kg) = M*c^2/sqrt(3) [J]",
           expected_Edec, step2["E_dec_bulk_J"], tol=0.001)
 
     # LD-S4: phi_- resonant frequency at Earth surface
-    # omega = sqrt(2*g*Phi_Earth)
-    expected_omega = math.sqrt(2.0 * G_COUPLING * PHI_EARTH)
+    # omega = sqrt(g*Phi_Earth)  (T83j: was sqrt(g*Phi))
+    expected_omega = math.sqrt(1.0 * G_COUPLING * PHI_EARTH)
     check("LD-S4", "omega(phi_-) at Earth [rad/s]",
           expected_omega, step2["omega_phi_minus"], tol=0.001)
 
@@ -873,7 +873,7 @@ def run_leidenfrost_phase(rw, engine):
     rw.print("     Same topology as baryon (Part 37) and Z3 vortex (Part 53)")
     rw.print("")
     rw.print("  3. ENERGY BUDGET [DERIVED]:")
-    rw.print("     Bulk decoupling: E ~ M*c^2/(2*sqrt(2)) (impractical)")
+    rw.print("     Bulk decoupling: E ~ M*c^2/sqrt(3) (impractical)")
     rw.print("     Boundary layer: much less (only Planck-thin shell)")
     rw.print("     Sustained power depends on dissipation rate (unknown)")
     rw.print("")

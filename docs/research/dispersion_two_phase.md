@@ -1,7 +1,7 @@
 # Dispersion Model Re-examination with Two-Phase phi_- — Part 80
 
 **Status:** NEGATIVE CONFIRMED — all 4 fatal problems persist (2 improved, 2 unchanged)
-**PDTP Original:** Environment-dependent gap E_gap = hbar*sqrt(2*g*Phi)
+**PDTP Original:** Environment-dependent gap E_gap = hbar*sqrt(g*Phi)
 **Date:** 2026-03-24
 **Prerequisites:**
 [fine_structure_derivation.md](fine_structure_derivation.md) (Parts 55-57 — dispersion model),
@@ -28,7 +28,7 @@ D3 in the FCC queue asks: does the two-phase phi_- (Parts 61-62) fix any of them
 | F1 | Hard cutoff at E_P | alpha=0 below E_P | Gap varies with Phi; smooth in SPACE | IMPROVED, STILL NEG |
 | F2 | Massless modes no dispersion | No running for EM/strong | phi_- is spin-0, no coupling to spin-1 | UNCHANGED, NEGATIVE |
 | F3 | Strong AF direction | Dispersion opposite to AF | phi_- not in color loops; AF is quantum | UNCHANGED, NEGATIVE |
-| F4 | GUT scale 3 orders off | E_gap=E_P vs E_GUT=10^16 | E_gap=hbar*sqrt(2gPhi); BH gap ~ MeV | REFRAMED, STILL NEG |
+| F4 | GUT scale 3 orders off | E_gap=E_P vs E_GUT=10^16 | E_gap=hbar*sqrt(g*Phi); BH gap ~ MeV | REFRAMED, STILL NEG |
 
 ### 1.3 The Conclusion
 
@@ -85,8 +85,8 @@ Key property: **massless in vacuum (Phi → 0), massive near matter (Phi > 0).**
 The two-phase gap varies continuously with environment:
 
 ```
-omega_gap = sqrt(2*g*Phi)                                          (80.1) [DERIVED]
-E_gap = hbar * omega_gap = hbar * sqrt(2*g*Phi)
+omega_gap = sqrt(g*Phi)                                          (80.1) [DERIVED]
+E_gap = hbar * omega_gap = hbar * sqrt(g*Phi)
 ```
 
 | Environment | Phi | E_gap [eV] | Range [m] |
@@ -166,7 +166,7 @@ The direction mismatch is structural:
 ### 6.1 Environment-Dependent Gap vs GUT Scale
 
 ```
-E_gap(Phi) = hbar * sqrt(2*g*Phi)                                 (80.4) [DERIVED]
+E_gap(Phi) = hbar * sqrt(g*Phi)                                 (80.4) [DERIVED]
 ```
 
 At BH horizon (Phi = 0.5, maximum physical potential):
@@ -209,7 +209,7 @@ These are different levels of physics. Two-phase enriches the classical level
 
 Despite the negative overall result, Part 80 produces useful insights:
 
-1. **phi_- dispersion IS physical:** omega^2 = c^2*k^2 + 2*g*Phi (massive Klein-Gordon).
+1. **phi_- dispersion IS physical:** omega^2 = c^2*k^2 + g*Phi (massive Klein-Gordon).
    The breathing mode really does have environment-dependent group velocity.
 
 2. **Environment-dependent gap** is a genuine PDTP prediction. Phi_- is massless in
@@ -228,7 +228,7 @@ Despite the negative overall result, Part 80 produces useful insights:
 | # | Test | Pass? |
 |---|------|-------|
 | S1 | phi_- mass: 0 in vacuum, >0 near Earth | PASS |
-| S2 | phi_- dispersion: omega^2=c^2*k^2+2*g*Phi | PASS |
+| S2 | phi_- dispersion: omega^2=c^2*k^2+g*Phi | PASS |
 | S3 | v_g(phi_-) < c near matter (massive KG) | PASS |
 | S4 | Photon mass = 0 (gauge invariance exact) | PASS |
 | S5 | Gluon mass = 0 (SU(3) gauge invariance) | PASS |

@@ -231,13 +231,13 @@ def compute_g_dyn(rw):
     """
     rw.section("PART 4: g_dyn (Part 119 DYNAMICAL COUPLING) -- NUMERIC")
 
-    g_dyn = 9.0 * H0_SI**2 * eps_0 / 2.0
-    m_phi_minus = math.sqrt(2.0 * g_dyn)
+    g_dyn = 9.0 * H0_SI**2 * eps_0        # T83j/Part 157: eps = g/(9H^2), m^2 = g (was /2 and 2g)
+    m_phi_minus = math.sqrt(1.0 * g_dyn)
 
     rw.print("  eps_0 = (1+w0)/(1-w0), w0 = {} [DESI 2024]  -> eps_0 = {:.4f}".format(
         w0_DESI, eps_0))
-    rw.print("  g_dyn = 9*H0^2*eps_0/2 = {:.6e} s^-2".format(g_dyn))
-    rw.print("  m_phi_minus = sqrt(2*g_dyn) = {:.6e} s^-1".format(m_phi_minus))
+    rw.print("  g_dyn = 9*H0^2*eps_0 = {:.6e} s^-2  [T83j: was /2]".format(g_dyn))
+    rw.print("  m_phi_minus = sqrt(g_dyn) = {:.6e} s^-1  [T83j: m unchanged]".format(m_phi_minus))
     rw.print("  (cross-check vs Part 119 Sec 3.3 printed values: g_cosmo = 2.03e-36 s^-2,")
     rw.print("   m_phi_minus = 2.02e-18 s^-1 -- independently reproduced above)")
 
@@ -381,9 +381,10 @@ def sudoku_checks(rw, s1, s1b, s2, s3, s4, s5, s6):
     chk("T7: omega_gap within 1% of Part 94's 1.86e43 rad/s",
         s3['omega_gap'] / 1.86e43, 1.0, tol=1e-2)
 
-    # T8: g_dyn (recomputed here) matches Part 119's printed g_cosmo = 2.03e-36 s^-2
-    chk("T8: g_dyn within 1% of Part 119's printed g_cosmo (2.03e-36 s^-2)",
-        s4['g_dyn'] / 2.03e-36, 1.0, tol=1e-2)
+    # T8: g_dyn matches Part 119's g_cosmo. CORRECTED T83j / Part 157: Part 119's
+    # g_cosmo is now 9 H0^2 eps0 = 4.065e-36 s^-2 (was 2.03e-36 with m^2 = 2g).
+    chk("T8: g_dyn within 1% of Part 119's corrected g_cosmo (4.065e-36 s^-2)",
+        s4['g_dyn'] / 4.065e-36, 1.0, tol=1e-2)
 
     # T9: m_phi_minus (recomputed here) matches Part 119's printed 2.02e-18 s^-1
     chk("T9: m_phi_minus within 1% of Part 119's printed value (2.02e-18 s^-1)",
@@ -394,6 +395,9 @@ def sudoku_checks(rw, s1, s1b, s2, s3, s4, s5, s6):
         s5['ratio_g'] > 1e50, True, is_bool=True)
 
     # T11: phi_vac required under g_dyn exceeds pi/2 (inconsistent with small-xi picture)
+    # NOTE T83j / Part 157: with the corrected g_dyn (x2) the required phi_vac is
+    # 2.1956/sqrt(2) = 1.5525 rad < pi/2, so this check now FAILS -- a real change
+    # to T51's conclusion, flagged (not interpreted) in newtonian/phi_minus docs.
     chk("T11: phi_vac_required_if_g_dyn > pi/2 (computed, not hardcoded)",
         s5['inconsistent_with_small_xi'], True, is_bool=True)
 

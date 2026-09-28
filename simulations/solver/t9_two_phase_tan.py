@@ -14,7 +14,7 @@
 #   113.4  Ratio: tan(D-)/tan(D+) = sin(D-)*cos(D+)/(cos(D-)*sin(D+))  [DERIVED]
 #   113.5  Reversed Higgs: m^2(phi_-) = 2g*sin(D+) = 2g*alpha_+*tan(D+)  [DERIVED]
 #   113.6  Noise (T6): V'' = 2g*cos(D+) at phi_- equilibrium; same divergence  [VERIFIED]
-#   113.7  kappa (T7): m^2(phi_-) = 2g at horizon (finite); kappa unchanged    [VERIFIED]
+#   113.7  kappa (T7): m^2(phi_-) = g at horizon (finite; was 2g, T83j); kappa unchanged
 #   113.8  Full decoupling: BOTH tan(D+)->inf AND tan(D-)->0 required  [PDTP Original]
 #   113.9  Residual coupling at D+=pi/2: L_res = 2g*sin(D-)            [PDTP Original]
 #   113.10 Single-phase recovery: D-=pi/2 -> L = 2g*sin(D+) = 2g*cos(chi-psi) [VERIFIED]
@@ -58,6 +58,12 @@ G_DE   = 2.4e-36  # s^{-2}
 
 # Omega gap = sqrt(2 * g_cond) [breathing mode gap, Part 99]
 OMEGA_GAP = math.sqrt(2.0 * G_COND)
+# phi_- mass coefficient m^2 = PHI_MINUS_M2_COEFF * g * sin(D+).
+# CORRECTED T83j / Part 157 (2026-09-28): was 2 (V'' taken as the mass);
+# phi_- inertia is 2, so m^2 = V''/2 = g sin(D+). NOTE: OMEGA_GAP^2 = 2g is the
+# single-phase relative-mode gap (Part 99) and is unchanged -- the claimed
+# horizon match m^2(phi_-) = omega_gap^2 (Eq 113.7b) no longer holds (1 vs 2).
+PHI_MINUS_M2_COEFF = 1.0
 
 # ---------------------------------------------------------------------------
 # Output helpers
@@ -134,7 +140,7 @@ def step1_definitions(rw):
     Phi_earth = G_N * M_EARTH / (R_EARTH * C**2)
     # sin(D+) = sqrt(2*Phi) from Schwarzschild: cos(D+)=alpha_+=sqrt(1-2*Phi)
     sin_Dplus_earth = math.sqrt(max(0.0, 2.0 * Phi_earth))
-    m2_phi_earth = 2.0 * G_COND * sin_Dplus_earth
+    m2_phi_earth = PHI_MINUS_M2_COEFF * G_COND * sin_Dplus_earth
     omega_phi_earth = math.sqrt(m2_phi_earth)
     range_phi_earth = C / omega_phi_earth
     rw.w("  Earth surface: Phi = {:.2e}, sin(D+) = sqrt(2*Phi) = {:.2e}".format(
@@ -334,7 +340,7 @@ def step4_reversed_higgs(rw):
     Key limits:
       Vacuum (D+ = 0):         m^2 = 0          [massless Goldstone]
       Weak field (D+ << pi/2): m^2 ~ 2g*D+ ~ 2g*Phi  [Part 62 result]
-      Leidenfrost (D+ = pi/2): m^2 = 2g = omega_gap^2 [breathing mode gap!]
+      Leidenfrost (D+ = pi/2): m^2 = g (corrected T83j; omega_gap^2 = 2g is single-phase)
 
     The Leidenfrost limit reveals that m^2(phi_-) saturates exactly at the
     breathing mode gap omega_gap^2 = 2g (Part 99, Eq 99.1). At the event
@@ -377,7 +383,7 @@ def step4_reversed_higgs(rw):
     rw.w("Key limits:")
     rw.w("  Vacuum      (D+ = 0):    m^2 = 0          [Goldstone, massless]")
     rw.w("  Weak field  (D+ small):  m^2 ~ 2g * D+    [Part 62 result: m^2 ~ 2g*Phi]")
-    rw.w("  At horizon  (D+ = pi/2): m^2 = 2g = omega_gap^2  [BREATHING MODE GAP!]")
+    rw.w("  At horizon  (D+ = pi/2): m^2 = g (V''=2g, inertia 2; T83j) vs omega_gap^2 = 2g")
     rw.w()
     rw.w("PDTP ORIGINAL: At the event horizon, the phi_- mass exactly equals the")
     rw.w("breathing mode gap omega_gap = sqrt(2g). These are the SAME excitation")
@@ -403,7 +409,7 @@ def step4_reversed_higgs(rw):
     for name, Phi in envs:
         # sin(D+) = sqrt(2*Phi) exactly from Schwarzschild (sin^2(D+)=1-alpha_+^2=2*Phi)
         sin_Dplus = math.sqrt(max(0.0, min(1.0, 2.0 * Phi)))
-        m2 = 2.0 * G_COND * sin_Dplus
+        m2 = PHI_MINUS_M2_COEFF * G_COND * sin_Dplus
         if m2 > 0:
             omega_phi = math.sqrt(m2)
             rng = C / omega_phi
@@ -420,8 +426,9 @@ def step4_reversed_higgs(rw):
     rw.w()
     rw.w("  omega_gap = sqrt(2*g_cond) = {:.3e} rad/s (breathing mode, Part 99)".format(
          OMEGA_GAP))
-    rw.w("  At horizon: omega_phi = omega_gap = {:.3e} rad/s (phi_- = breathing mode)".format(
-         OMEGA_GAP))
+    rw.w("  At horizon: omega_phi = {:.3e} rad/s; omega_phi/omega_gap = {:.6f}".format(
+         math.sqrt(PHI_MINUS_M2_COEFF * G_COND), math.sqrt(PHI_MINUS_M2_COEFF * G_COND) / OMEGA_GAP))
+    rw.w("  (Part 113 claimed equality; corrected T83j / Part 157: ratio 1/sqrt(2))")
 
     results["omega_gap"] = OMEGA_GAP
     return results
@@ -562,7 +569,7 @@ def step6_kappa_check(rw):
     rw.w("  Therefore kappa and T_H are UNCHANGED by phi_-.")
     rw.w()
     rw.w("New PDTP Original:")
-    rw.w("  m^2(phi_-)|_{r_S} = omega_gap^2 = 2g  [Eq 113.7b]")
+    rw.w("  m^2(phi_-)|_{r_S} = g  (was 2g = omega_gap^2 [Eq 113.7b]; corrected T83j)")
     rw.w("  phi_- mode and breathing mode are the SAME excitation at the horizon.")
     rw.w("  Both carry mass omega_gap; both frozen at r = r_S.")
     rw.w()
@@ -782,11 +789,16 @@ def step9_sudoku(rw, r1, r2, r3, r4, r5, r6, r7, r8):
     ok = r4.get("S4_pass", False)
     tests.append(("S06", "V''(phi_- = pi/2) = 2g*sin(D+)  [SymPy S4]", ok))
 
-    # S07: mass at Leidenfrost = omega_gap^2
+    # S07: mass at Leidenfrost vs breathing gap. CORRECTED T83j: was circular
+    # (2*sin(pi/2) compared with 2). Now m^2 = V''/I_- with V'' = 2g sin(D+),
+    # I_- = 2, compared with the Part 99 gap OMEGA_GAP^2 (both in units of g).
     D_plus_leid = math.pi / 2.0
-    m2_leid = 2.0 * math.sin(D_plus_leid)  # in units of g
-    ok = abs(m2_leid - 2.0) < 1e-12
-    tests.append(("S07", "m^2(phi_-) at D+ = pi/2 = 2g = omega_gap^2  [breathing mode]", ok))
+    Vpp_leid = 2.0 * math.sin(D_plus_leid)          # V'' in units of g
+    m2_leid = Vpp_leid / 2.0                          # inertia 2
+    gap2 = OMEGA_GAP**2 / G_COND
+    ok = abs(m2_leid / gap2 - 1.0) < 0.01
+    tests.append(("S07", "m^2(phi_-) at D+=pi/2 = omega_gap^2? ({:.3f} g vs {:.3f} g) [T83j]".format(
+        m2_leid, gap2), ok))
 
     # S08: mass in vacuum = 0
     m2_vac = 2.0 * math.sin(0.0)
@@ -872,7 +884,7 @@ def main():
     rw.w("  113.4  tan(D-)/tan(D+) = sin(D-)cos(D+)/(cos(D-)sin(D+)) [DERIVED, SymPy S3]")
     rw.w("  113.5  m^2(phi_-) = 2g*sin(D+) = 2g*alpha_+*tan(D+)   [DERIVED, SymPy S4]")
     rw.w("  113.6  T6: two-phase V''=2g*sin(D+); noise FINITE at D+=pi/2 [CORRECTED]")
-    rw.w("  113.7  T7 kappa unchanged; m^2=2g at horizon [VERIFIED]")
+    rw.w("  113.7  T7 kappa unchanged; m^2=g at horizon [corrected T83j]")
     rw.w("  113.8  Full decoupling: BOTH D+->pi/2 AND D-->0 required [PDTP Original]")
     rw.w("  113.9  L_res = 2g at D+=pi/2, D-=pi/2 (maximum!)        [PDTP Original]")
     rw.w("  113.10 D- = pi/2 -> single-phase recovery via chi map    [VERIFIED, SymPy S5]")

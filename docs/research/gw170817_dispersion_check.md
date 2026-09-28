@@ -96,7 +96,7 @@ first place is even stricter.
 relation:
 
 ```
-omega^2 = c^2*k^2 + 2*g*Phi,   omega_gap^2 = 2*g*Phi              [Eq S7.5-S7.6, DERIVED]
+omega^2 = c^2*k^2 + g*Phi,   omega_gap^2 = g*Phi              [Eq S7.5-S7.6, DERIVED]
 ```
 
 where Φ is the **local, dimensionless** gravitational potential

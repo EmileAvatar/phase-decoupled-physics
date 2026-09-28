@@ -248,10 +248,17 @@ experiment is a proof of concept for this mechanism, just in a non-relativistic 
 
 ## Result 7: Two-Phase Group Velocities [DERIVED, Part 61]
 
+> **CORRECTED 2026-09-28 (Part 154, TODO_04 T83b — CLAUDE OPUS 5.5):** the Jeans
+> eigenvalue is **±√3·g**, not ±2√2·g. The old value used forces as
+> accelerations for φ₊/φ₋, whose inertia is 2 (kinetic term φ̇₊² + φ̇₋²);
+> consistent inertias give M = [[0, 3g], [g, 0]]. Sign (instability) unchanged;
+> magnitude × √6/4 ≈ 0.612, k_J × 0.7825. Values below are the corrected ones.
+> Full derivation: [jeans_eigenvalue_correction.md](jeans_eigenvalue_correction.md).
+
 From the two-phase dispersion relation (Eq 6b):
 ```
-Branch A (phi_+, gravity): omega_A^2 = c^2*k^2 + 2*sqrt(2)*g   [gapped, breathing mode]
-Branch B (phi_-, surface): omega_B^2 = c^2*k^2 - 2*sqrt(2)*g   [Jeans unstable for k < k_J]
+Branch A (phi_+, gravity): omega_A^2 = c^2*k^2 + sqrt(3)*g   [gapped, breathing mode]
+Branch B (phi_-, surface): omega_B^2 = c^2*k^2 - sqrt(3)*g   [Jeans unstable for k < k_J]
 ```
 
 Group velocities:
@@ -264,8 +271,8 @@ Group velocities:
 
 **Jeans wavenumber:**
 ```
-(95.16) k_J = sqrt(2*sqrt(2)*g) / c ~ 2.4e13 /m
-k_J / k_Planck = 3.9e-22  <<  1
+(95.16) k_J = sqrt(sqrt(3)*g) / c ~ 1.9e13 /m   [was 2.4e13 with 2*sqrt(2); corrected T83b]
+k_J / k_Planck = 3.1e-22  <<  1   [was 3.9e-22]
 ```
 
 The Jeans instability scale (lambda_J ~ 0.26 pm) is much larger than the Planck length

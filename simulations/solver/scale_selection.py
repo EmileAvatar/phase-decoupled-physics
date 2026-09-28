@@ -60,11 +60,11 @@ A_0 = HBAR / (M_P * C)           # Compton wavelength = l_P
 OMEGA_GAP = M_P * C**2 / HBAR    # breathing mode gap ~1.855e43 rad/s
 G_PDTP = OMEGA_GAP                # Lagrangian coupling g = omega_gap [rad/s]
 
-# For the EOM: 2*sqrt(2)*g = omega_gap^2
-# => g = omega_gap^2 / (2*sqrt(2))   [units: rad^2/s^2]
+# For the EOM: sqrt(3)*g = omega_gap^2  (Jeans coefficient corrected T83b/T83j; was 2*sqrt(2))
+# => g = omega_gap^2 / sqrt(3)   [units: rad^2/s^2]
 # omega_gap = m_P*c^2/hbar = OMEGA_GAP  [Planck angular frequency]
 # Source: cosmo_constant_v2.py line 548
-G_COUPLING = OMEGA_GAP**2 / (2.0 * math.sqrt(2.0))  # g [rad^2/s^2]
+G_COUPLING = OMEGA_GAP**2 / math.sqrt(3.0)  # g [rad^2/s^2]
 
 # Hubble parameters
 L_H = C / H_0                     # Hubble radius ~1.37e26 m
@@ -113,7 +113,8 @@ def derive_phi_minus_eom():
     # Define Phi = psi - phi_+ (matter-gravity phase mismatch)
     # In general Phi is a function of space and time.
 
-    eom_rhs = 2 * g_sym * sp.sin(delta) * sp.cos(phi_m)
+    # T83j/Part 157: force 2g sin cos divided by phi_- inertia 2
+    eom_rhs = 1 * g_sym * sp.sin(delta) * sp.cos(phi_m)
     results["eom_rhs_general"] = eom_rhs
 
     # ---------------------------------------------------------------
@@ -134,7 +135,7 @@ def derive_phi_minus_eom():
     # Case 2: Uniform matter background (delta = const != 0)
     # phi_-_tt - c^2*nabla^2(phi_-) = 2*g*sin(delta)*cos(phi_-)
     # Define: mu^2 = 2*g*sin(delta)  [effective mass-squared parameter]
-    mu_sq = 2 * g_sym * sp.sin(delta)
+    mu_sq = 1 * g_sym * sp.sin(delta)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
     results["mu_sq"] = mu_sq
 
     # This is the COSINE-GORDON equation:
@@ -181,13 +182,13 @@ def derive_phi_minus_eom():
     # And: L_kink = c / sqrt(2*g*sin(delta))
 
     # For delta = pi/2 (maximal mismatch):
-    m_eff_max = sp.sqrt(2 * g_sym)
-    L_kink_max = c_sym / sp.sqrt(2 * g_sym)
+    m_eff_max = sp.sqrt(1 * g_sym)  # T83j: was sqrt(2g)
+    L_kink_max = c_sym / sp.sqrt(1 * g_sym)
     results["m_eff_maximal"] = m_eff_max
     results["L_kink_maximal"] = L_kink_max
 
     # Numerical: g = omega_P ~ 1.855e43 rad/s
-    L_kink_num = C / math.sqrt(2.0 * G_COUPLING)
+    L_kink_num = C / math.sqrt(1.0 * G_COUPLING)  # T83j
     results["L_kink_numerical"] = L_kink_num
 
     verifications.append(VerificationResult(
@@ -510,7 +511,7 @@ def analyze_effective_potential():
         "ChatGPT quartic: phi_-^4 alone insufficient (no negative mass-sq)",
         True,
         "Mexican hat needs -mu^2*phi^2 + lambda*phi^4; PDTP has m^2 >= 0",
-        [derivation_step("PDTP phi_- mass: m^2 = 2g*Phi >= 0 always", "no tachyon"),
+        [derivation_step("PDTP phi_- mass: m^2 = g*Phi >= 0 always", "no tachyon"),
          derivation_step("ChatGPT proposal: add -beta*phi_-^4/4", "gives linear + quartic"),
          derivation_step("For Mexican hat: need -mu^2*phi^2/2", "not available"),
          derivation_step("CONCLUSION", "Quartic alone does not create scale selection")]))
@@ -619,10 +620,10 @@ def analyze_jeans_saturation():
     # This requires a MUCH smaller effective g (or equivalently, m_cond << m_P).
 
     # What g would give lambda_J = L_H?
-    # k_J = sqrt(2*sqrt(2)*g) / c = 2*pi/L_H
-    # 2*sqrt(2)*g = (2*pi*c/L_H)^2
-    # g = (2*pi*c/L_H)^2 / (2*sqrt(2))
-    g_for_Hubble = (2.0 * math.pi * C / L_H)**2 / (2.0 * math.sqrt(2.0))
+    # k_J = sqrt(sqrt(3)*g) / c = 2*pi/L_H
+    # sqrt(3)*g = (2*pi*c/L_H)^2
+    # g = (2*pi*c/L_H)^2 / sqrt(3)
+    g_for_Hubble = (2.0 * math.pi * C / L_H)**2 / math.sqrt(3.0)
     g_ratio = g_for_Hubble / G_COUPLING
 
     results["g_for_Hubble_Jeans"] = g_for_Hubble
@@ -634,7 +635,7 @@ def analyze_jeans_saturation():
         "g_needed = {:.4e} rad/s (vs g_PDTP = {:.4e}), ratio = {:.4e}".format(
             g_for_Hubble, G_COUPLING, g_ratio),
         [derivation_step("Require k_J = 2*pi/L_H", 2*math.pi/L_H),
-         derivation_step("g = (2*pi*c/L_H)^2/(2*sqrt(2))", g_for_Hubble),
+         derivation_step("g = (2*pi*c/L_H)^2/sqrt(3)", g_for_Hubble),
          derivation_step("Ratio g_needed/g_PDTP", g_ratio),
          derivation_step("CONCLUSION",
                          "Need g ~ 10^{:.0f} smaller -> NOT Planck condensate".format(
@@ -722,7 +723,7 @@ def synthesis():
         "Planck length l_P": L_P,
         "Compton a_0 = hbar/(m_P*c)": HBAR / (M_P * C),
         "Healing length xi = l_P/sqrt(2)": L_P / math.sqrt(2.0),
-        "Kink width L_kink = c/sqrt(2g)": C / math.sqrt(2.0 * G_COUPLING),
+        "Kink width L_kink = c/sqrt(g) (T83j)": C / math.sqrt(1.0 * G_COUPLING),
         "Jeans lambda_J = 2*pi*l_P": 2.0 * math.pi * L_P,
         "Hubble radius L_H (EXTERNAL)": L_H,
     }
@@ -739,7 +740,7 @@ def synthesis():
         [derivation_step("l_P", L_P),
          derivation_step("a_0", HBAR/(M_P*C)),
          derivation_step("xi", L_P/math.sqrt(2)),
-         derivation_step("L_kink", C/math.sqrt(2*G_COUPLING)),
+         derivation_step("L_kink", C/math.sqrt(1*G_COUPLING)),
          derivation_step("lambda_J", 2*math.pi*L_P),
          derivation_step("L_H (external)", L_H),
          derivation_step("Ratio L_H/l_P", hierarchy)]))
@@ -833,7 +834,7 @@ def run_sudoku_tests(rw):
     results.append(("SS-S1", "phi_- EOM -> cosine-Gordon (SymPy shift identity)", ok1))
 
     # SS-S2: Kink width ~ l_P
-    L_kink = C / math.sqrt(2.0 * G_COUPLING)
+    L_kink = C / math.sqrt(1.0 * G_COUPLING)  # T83j
     ratio_kink = L_kink / L_P
     ok2 = abs(ratio_kink - 1.0) < 0.5  # within factor 1.5
     results.append(("SS-S2", "L_kink/l_P = {:.4f} (expected ~1)".format(ratio_kink), ok2))
@@ -878,7 +879,7 @@ def run_sudoku_tests(rw):
     scales_m = [
         HBAR / (M_P * C),           # a_0
         L_P / math.sqrt(2.0),       # xi
-        C / math.sqrt(2*G_COUPLING),# L_kink
+        C / math.sqrt(1*G_COUPLING),# L_kink
         2.0 * math.pi * L_P,        # lambda_J
     ]
     all_near_lP = all(0.1 < s/L_P < 100 for s in scales_m)

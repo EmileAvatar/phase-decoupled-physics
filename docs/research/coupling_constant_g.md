@@ -91,8 +91,8 @@ In PDTP, g controls the strength of phase coupling between matter (psi) and spac
 | Equation | Role of g | Source |
 |---|---|---|
 | omega_gap = g | Breathing mode gap frequency | Eq 6a, Part 33 |
-| nabla^4 Phi + 4g^2 Phi = source | Biharmonic gravity coefficient | Eq 2e, Part 61 |
-| m_phi^2 = 2g * Phi (near matter) | phi_- reversed-Higgs mass | Eq 6c, Part 62 |
+| nabla^4 phi_+ - g^2 phi_+ = -g^2 psi | Biharmonic coefficient (corrected Part 155; was 4g^2) | Eq 2e / 155.3 |
+| m_phi^2 = g*Phi (near matter) | phi_- reversed-Higgs mass | Eq 6c, Part 62 |
 | n = (g/c)^3 | Condensate number density | Eq 4d, Part 34 |
 | mu = m_cond * c^2 = hbar * g | Chemical potential | Eq 4c, Part 34 |
 
@@ -125,13 +125,13 @@ where Phi(r) = G * M / r is the Newtonian gravitational potential (units m^2/s^2
 
 At Earth's surface (Phi_E = G * M_E / R_E = 6.26e7 m^2/s^2):
 ```
-omega_phi = sqrt(2 * 1.855e43 * 6.26e7) = 4.82e25 rad/s
-E_phi = hbar * omega_phi ~ 31.7 GeV
+omega_phi = sqrt(1.855e43 * 6.26e7) = 3.41e25 rad/s   [corrected Part 157; was sqrt(2*...) = 4.82e25]
+E_phi = hbar * omega_phi ~ 22.4 GeV (corrected Part 157; was 31.7)
 ```
 
-**Plain English:** Near Earth, the phi_- field acts like a particle of about 31.7 GeV. Near the Sun or near a neutron star, it would be heavier. In empty vacuum (Phi = 0), it is exactly massless — the "reversed Higgs" behavior from Part 62.
+**Plain English:** Near Earth, the phi_- field acts like a particle of about 22.4 GeV (corrected Part 157; was 31.7). Near the Sun or near a neutron star, it would be heavier. In empty vacuum (Phi = 0), it is exactly massless — the "reversed Higgs" behavior from Part 62.
 
-**Note on units:** The "m_phi^2 = 2g*Phi" formula from Eq 6c mixes SI units in a PDTP-specific way. The quantity omega_phi^2 = 2g*Phi has units (rad/s)(m^2/s^2) = m^2/s^3, which is not a mass^2. The correct interpretation is omega_phi = sqrt(2g*Phi) as a frequency (rad/s), with mass equivalent m_phi = hbar * omega_phi / c^2.
+**Note on units:** The "m_phi^2 = g*Phi" formula from Eq 6c mixes SI units in a PDTP-specific way. The quantity omega_phi^2 = 2g*Phi has units (rad/s)(m^2/s^2) = m^2/s^3, which is not a mass^2. The correct interpretation is omega_phi = sqrt(g*Phi) as a frequency (rad/s), with mass equivalent m_phi = hbar * omega_phi / c^2.
 
 ---
 
@@ -179,16 +179,16 @@ Numerical residual: |G*g^2 - c^5/hbar| / (c^5/hbar) = 1.4e-16 [machine precision
 | S4: t_P = 1/g | PASS | 1.000000 | [DERIVED] |
 | S5: E_P = hbar*g | PASS | 1.000000 | [DERIVED] |
 | S6: omega_gap = g [Eq 6a] | PASS | 1.000000 | [DERIVED] |
-| S7: 4g^2 biharmonic coeff [Eq 2e] | PASS | 1.000000 | [DERIVED] |
+| S7: g^2 biharmonic coeff [Eq 155.3; was 4g^2] | PASS | 1.000000 | [DERIVED; circular — see Part 155] |
 | S8: n = (g/c)^3 = 1/l_P^3 [Eq 4d] | PASS | 1.000000 | [DERIVED] |
 | S9: BEC mu = g_GP*n = m_cond*c^2 [Eq 4c] | PASS | 1.000000 | [DERIVED] |
 | S10: omega_phi(Earth) << g [Eq 6c] | PASS | 2.6e-18 | [DERIVED] |
 | S11: G*g^2 = c^5/hbar [PDTP Original] | PASS | 1.000000 | [DERIVED] |
 | S12: E_P = m_P*c^2 = hbar*g | PASS | 1.000000 | [DERIVED] |
 
-**Note on S10:** The phi_- frequency near Earth (4.82e25 rad/s) is 2.6e-18 times g. This confirms phi_- is a sub-Planck mode near ordinary matter — physically sensible.
+**Note on S10:** The phi_- frequency near Earth (3.41e25 rad/s; was 4.82e25 before the Part 157 correction) is 1.8e-18 times g. This confirms phi_- is a sub-Planck mode near ordinary matter — physically sensible.
 
-**Note on Jeans test:** Eq 2f (lambda = 2*sqrt(2)*g) uses g in natural units [mass^2], while Eq 4e uses SI units [rad/s]. These are different normalizations and cannot be directly compared in SI. The Jeans eigenvalue formula is dimensionally consistent within the two-phase natural-unit framework but excluded from cross-unit tests.
+**Note on Jeans test:** Eq 2f (lambda = sqrt(3)*g) uses g in natural units [mass^2], while Eq 4e uses SI units [rad/s]. These are different normalizations and cannot be directly compared in SI. The Jeans eigenvalue formula is dimensionally consistent within the two-phase natural-unit framework but excluded from cross-unit tests.
 
 ---
 
@@ -243,8 +243,8 @@ G, g, m_cond are three encodings of the same single free parameter of the PDTP c
 **Sources:**
 - Part 33, `vortex_winding_derivation.md` — Eq 2a: G = hbar*c/m_cond^2
 - Part 34, `condensate_selfconsist.py` — Eq 4e: g = m_cond*c^2/hbar
-- Part 61, `two_phase_lagrangian.py` — Eq 2e: 4g^2 biharmonic
-- Part 62, `reversed_higgs.py` — Eq 6c: m_phi^2 = 2g*Phi
+- Part 61, `two_phase_lagrangian.py` — Eq 2e: biharmonic (coefficient corrected to g², Part 155)
+- Part 62, `reversed_higgs.py` — Eq 6c: m_phi^2 = g*Phi
 - PDG 2023 — G, hbar, c, m_P numerical values
 
 **Changelog:** 2026-04-04 — Part 94 created (A6 FCC)

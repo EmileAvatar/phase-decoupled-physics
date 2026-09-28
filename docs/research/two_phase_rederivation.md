@@ -45,7 +45,7 @@ With the redefinition chi = phi_+ + pi/2:
 | S4 | 1/r potential | A-Algebraic | Poisson limit of linearized eq. | PASS |
 | S5 | G = hbar*c/m_cond^2 | A-Algebraic | Topological (vortex), coupling-independent | PASS |
 | S6 | n = m_cond/m | A-Algebraic | Topological (winding), coupling-independent | PASS |
-| S7 | Breathing mode | A-Algebraic | phi_- IS the breathing mode, m^2=2gPhi | PASS |
+| S7 | Breathing mode | A-Algebraic | phi_- IS the breathing mode, m^2=g*Phi | PASS |
 | S8 | c_s = c | A-Algebraic | BEC equation, condensate property | PASS |
 | S9 | PPN gamma=1, beta=1 | B-Structural | chi = phi_+ + pi/2 maps to single-phase | PASS |
 | S10 | Hawking temperature | B-Structural | c_s=c unchanged, acoustic horizon intact | PASS |
@@ -247,8 +247,7 @@ This CORRECTS Part 61 which stated psi_ddot = -phi_+_ddot (factor 2 was missing)
    In the two-phase system, phi_b AND phi_s BOTH react to psi. The matter field
    pushes against TWO condensate fields, so the total reaction is twice as strong.
 
-   **This is consistent with G_eff = 2*G_bare (Part 62):**
-   stronger coupling ↔ stronger reaction force ↔ factor 2 in Newton's 3rd law.
+   ~~This is consistent with G_eff = 2*G_bare (Part 62)~~ [Corrected Part 156 (T83d): the ψ̈ = −2φ̈₊ factor is a naming convention for φ₊ (it is 1 for Σ = φ_b+φ_s); G_eff = 2G_bare holds for a different reason — coherent 2g coupling ÷ stiffness 2 — see [geff_factor_audit.md](geff_factor_audit.md).]
 
 **CORRECTION to Part 61:** Part 61 stated psi_ddot = -phi_+_ddot.
 The correct result is psi_ddot = -2*phi_+_ddot. The missing factor of 2 arose
@@ -256,7 +255,7 @@ because Part 61 incorrectly treated phi_+_ddot = phi_b_ddot + phi_s_ddot
 instead of (phi_b_ddot + phi_s_ddot)/2.
 
 **Result:** [DERIVED] psi_ddot = -2*phi_+_ddot (exact, SymPy-verified).
-Factor 2 consistent with G_eff = 2*G_bare. ✓ PASS
+✓ PASS (the link to G_eff = 2*G_bare is withdrawn — Part 156)
 
 ---
 
@@ -319,6 +318,18 @@ the Poisson equation, recovering the Newtonian 1/r gravitational potential.
 
 **Result:** [DERIVED] Two-phase static limit gives Poisson equation →
 Newtonian 1/r gravitational potential, identical to single-phase. ✓ PASS
+
+> **ERRATUM (2026-09-28, Part 153, TODO_04 T83a — CLAUDE OPUS 5.5):**
+> Steps 5–6 above are **invalid** [NEGATIVE]. An equation of the form
+> ∇²Φ ∝ Φ is *not* Poisson's equation: ∇²(e^{−mr}/r) = +m²(e^{−mr}/r)
+> (Yukawa) and ∇²(cos(mr)/r) = −m²(cos(mr)/r) (oscillatory); neither is
+> 1/r. The 1/r *shape* does survive, by a different argument: outside
+> matter the coupling is zero, so the free (joint-shift Goldstone) mode
+> ψ + 2φ₊ obeys Laplace's equation there. But the *strength* of that 1/r
+> field is not produced by the Lagrangian for matter in its locked ground
+> state (confined-ψ theorem, Eq 153.12). Verdict for S4: shape PASS via
+> the corrected argument; source strength OPEN. Full derivation:
+> [newtonian_source_audit.md](newtonian_source_audit.md).
 
 ---
 
@@ -444,7 +455,7 @@ Topological, unchanged by two-phase extension. ✓ PASS
 ### S7: Breathing Mode Dispersion (phi_- = Breathing Mode)
 
 **Claim:** The breathing mode gravitational wave has dispersion
-omega^2 = c^2*k^2 + omega_gap^2, with omega_gap^2 = 2*g*Phi.
+omega^2 = c^2*k^2 + omega_gap^2, with omega_gap^2 = g*Phi.
 In the two-phase framework, phi_- IS the breathing mode.
 
 **Starting point:**
@@ -473,7 +484,7 @@ In the two-phase framework, phi_- IS the breathing mode.
    ```
    V''(pi/2) = 2*g*Phi*sin(pi/2) = 2*g*Phi    ... (S7.3)
    ```
-   This is the **mass squared** of phi_-: m_phi_-^2 = 2*g*Phi.
+   This is the **mass squared** of phi_-: m_phi_-^2 = g*Phi.
    [VERIFIED: SymPy `diff(V_eff, phi_minus, 2).subs(phi_minus, pi/2)` = 2*g*Phi]
 
 4. Since V''(pi/2) > 0 (g > 0, Phi > 0 near matter), the equilibrium at
@@ -486,19 +497,19 @@ In the two-phase framework, phi_- IS the breathing mode.
    Plane wave ansatz phi_- ~ exp(i*k*x - i*omega*t):
    ```
    -omega^2 + c^2*k^2 + 2*g*Phi = 0
-   omega^2 = c^2*k^2 + 2*g*Phi    ... (S7.5)
+   omega^2 = c^2*k^2 + g*Phi    ... (S7.5)
    ```
 
 6. **Identify with single-phase breathing mode:**
    The single-phase prediction (Part 3) was omega^2 = c^2*k^2 + omega_gap^2.
    The two-phase framework identifies:
    ```
-   omega_gap^2 = 2*g*Phi    ... (S7.6)
+   omega_gap^2 = g*Phi    ... (S7.6)
    ```
    **Same dispersion structure.** The breathing mode IS phi_-.
 
 7. **Key new physics (unique to two-phase):** The mass of phi_- is
-   **environment-dependent**: m^2 = 2*g*Phi. Near massive objects (large Phi),
+   **environment-dependent**: m^2 = g*Phi. Near massive objects (large Phi),
    phi_- is heavy → short range. In vacuum (Phi → 0), phi_- is massless → long
    range. This is the "reversed Higgs" mechanism (Part 62).
 
@@ -532,15 +543,22 @@ potential, including the emptiest cosmic voids — an even stronger
 "far above any detector band" conclusion than this corrected block's
 own numbers already suggest.
 
-**Result:** [DERIVED] Breathing mode = phi_- with omega^2 = c^2*k^2 + 2*g*Phi.
+**Result:** [DERIVED] Breathing mode = phi_- with omega^2 = c^2*k^2 + g*Phi.
 Same structure as single-phase; environment-dependent mass is new. ✓ PASS
 
 ---
 
 ### Note: Jeans Instability — Eigenvalue vs Frequency Clarification
 
+> **CORRECTED 2026-09-28 (Part 154, TODO_04 T83b — CLAUDE OPUS 5.5):** the Jeans
+> eigenvalue is **±√3·g**, not ±2√2·g. The old value used forces as
+> accelerations for φ₊/φ₋, whose inertia is 2 (kinetic term φ̇₊² + φ̇₋²);
+> consistent inertias give M = [[0, 3g], [g, 0]]. Sign (instability) unchanged;
+> magnitude × √6/4 ≈ 0.612, k_J × 0.7825. Values below are the corrected ones.
+> Full derivation: [jeans_eigenvalue_correction.md](jeans_eigenvalue_correction.md).
+
 **Important distinction for reviewers.** The Jeans instability eigenvalue
-+2*sqrt(2)*g (Part 61) is often mentioned alongside the breathing mode
++sqrt(3)*g (Part 61) is often mentioned alongside the breathing mode
 frequency. These are related but different quantities. This note clarifies
 the relationship.
 
@@ -550,36 +568,36 @@ The linearized two-phase equations give a coupled system (see
 `two_phase_lagrangian.py`, Step 3, lines 445-483):
 ```
 d^2/dt^2 [Phi, phi_-] = M [Phi, phi_-]
-where M = [[0, 4g], [2g, 0]]
+where M = [[0, 3g], [g, 0]]
 ```
 Here Phi = psi - phi_+ is the gravitational potential analogue.
 
 **Eigenvalue analysis:**
 ```
-det(M - lambda*I) = lambda^2 - 8g^2 = 0
-lambda = +/- 2*sqrt(2)*g
+det(M - lambda*I) = lambda^2 - 3g^2 = 0
+lambda = +/- sqrt(3)*g
 ```
 
 **Critical point: lambda is NOT omega^2.** The trial solution is
 x ~ exp(sigma*t) where sigma^2 = lambda. Therefore:
 
-- lambda_1 = +2*sqrt(2)*g > 0: sigma is real => exponential growth
+- lambda_1 = +sqrt(3)*g > 0: sigma is real => exponential growth
   (UNSTABLE). This is the **Jeans instability** — gravitational collapse
   derived from the Lagrangian, not assumed. [PDTP Original, DERIVED]
 
-- lambda_2 = -2*sqrt(2)*g < 0: sigma is imaginary => oscillation with
-  frequency omega = sqrt(|lambda|) = (2*sqrt(2)*g)^(1/2). This is the
+- lambda_2 = -sqrt(3)*g < 0: sigma is imaginary => oscillation with
+  frequency omega = sqrt(|lambda|) = (sqrt(3)*g)^(1/2). This is the
   **breathing mode** at k=0.
 
 **Connection to the PDE dispersion relation** (S7 above):
 
 The full PDE with spatial dependence gives:
 ```
-omega^2 = c^2*k^2 +/- 2*sqrt(2)*g    (Part 61, Eq. 14a/b)
+omega^2 = c^2*k^2 +/- sqrt(3)*g    (Part 61, Eq. 14a/b)
 ```
-At k=0, the unstable branch gives omega^2 = -2*sqrt(2)*g < 0, which is
-equivalent to saying sigma^2 = +2*sqrt(2)*g > 0 (exponential growth).
-The ODE eigenvalue lambda = +2*sqrt(2)*g IS the k=0 limit of the PDE
+At k=0, the unstable branch gives omega^2 = -sqrt(3)*g < 0, which is
+equivalent to saying sigma^2 = +sqrt(3)*g > 0 (exponential growth).
+The ODE eigenvalue lambda = +sqrt(3)*g IS the k=0 limit of the PDE
 dispersion relation.
 
 **Summary of notation:**
@@ -588,10 +606,10 @@ dispersion relation.
 | lambda | ODE matrix eigenvalue | lambda > 0 = unstable |
 | sigma | Growth/oscillation rate: sigma^2 = lambda | sigma real = growth |
 | omega | Oscillation frequency: omega^2 = -lambda | omega^2 > 0 = stable |
-| omega^2(k) | PDE dispersion: c^2*k^2 +/- 2*sqrt(2)*g | omega^2 < 0 at small k = Jeans |
+| omega^2(k) | PDE dispersion: c^2*k^2 +/- sqrt(3)*g | omega^2 < 0 at small k = Jeans |
 
 **Source:** Part 61, `two_phase_lagrangian.py` Step 3 (lines 453-473).
-SymPy verified: eigenvalues of M match +/- 2*sqrt(2)*g.
+SymPy verified: eigenvalues of M match +/- sqrt(3)*g.
 
 ---
 
@@ -715,7 +733,7 @@ are unchanged by the two-phase extension.
 5. Since chi satisfies the exact same PDE as single-phase phi, the entire
    weak-field expansion is identical → gamma=1, beta=1.
 
-6. **phi_- contribution to PPN:** phi_- is massive (m^2 = 2*g*Phi from S7).
+6. **phi_- contribution to PPN:** phi_- is massive (m^2 = g*Phi from S7).
    Its potential is Yukawa-suppressed: V_phi_- ~ exp(-m*r)/r.
    PPN parameters are defined at 1/r order (long range). The massive phi_-
    contributes only at exponentially short range → no PPN modification.
@@ -1047,7 +1065,7 @@ drift is unchanged by the two-phase extension.
    ```
 
 4. **phi_- contribution:** phi_- oscillates around pi/2 with frequency
-   omega ~ sqrt(2*g*Phi). The roll time is ~10^-18 s on Earth (Part 62),
+   omega ~ sqrt(g*Phi). The roll time is ~10^-18 s on Earth (Part 62),
    vastly faster than cosmological timescales (~10^17 s). Over cosmic time:
    ```
    <sin^2(pi/2 + oscillation)> ≈ 1 - O(amplitude^2)
@@ -1083,7 +1101,7 @@ phi_- locked at pi/2, no cosmological drift. ✓ PASS
 7. **psi_ddot = -2*phi_+_ddot** [VERIFIED: SymPy, S3 PASS]
 
 The factor of 2 arises because **two** condensate fields (phi_b, phi_s) both
-react to psi. This is consistent with G_eff = 2*G_bare (Part 62).
+react to psi. [Corrected Part 156 (T83d): the ψ̈ = −2φ̈₊ factor is a naming convention for φ₊ (it is 1 for Σ = φ_b+φ_s); G_eff = 2G_bare holds for a different reason — coherent 2g coupling ÷ stiffness 2 — see [geff_factor_audit.md](geff_factor_audit.md).]
 
 In the single-phase system (one condensate field): psi_ddot = -phi_ddot.
 The two-phase result is a genuine extension, not a contradiction.
@@ -1129,8 +1147,8 @@ Live in SU(3), Koide, or cosmological sectors that do not depend on the
 |--------|----------------|------------|--------|
 | phi_- field | [SPECULATIVE] | [DERIVED] | 16/16 pass; no contradictions |
 | Biharmonic gravity | [SPECULATIVE] | [DERIVED] | Compatible with Poisson limit (S4) |
-| Jeans instability | [SPECULATIVE] | [DERIVED] | Eigenvalue +2*sqrt(2)*g = growth rate (not omega^2); see Note after S7 |
-| G_eff = 2*G_bare | [SPECULATIVE] | [DERIVED] | Consistent with 3rd law factor 2 (S3) |
+| Jeans instability | [SPECULATIVE] | [DERIVED] | Eigenvalue +sqrt(3)*g = growth rate (not omega^2); see Note after S7 |
+| G_eff = 2*G_bare | [SPECULATIVE] | [DERIVED] | At equal g: coherent 2g ÷ stiffness 2 (Part 156); NOT tied to the 3rd-law factor (basis-dependent) |
 | Newton's 3rd: psi_ddot=-phi_+_ddot | [DERIVED] | **CORRECTED** | Should be -2*phi_+_ddot |
 
 ---

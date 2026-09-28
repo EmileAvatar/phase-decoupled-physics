@@ -979,6 +979,17 @@ See [Poisson's equation — Wikipedia](https://en.wikipedia.org/wiki/Poisson%27s
 
 **PDTP recovers Newtonian gravity exactly in the weak-field, static limit.** ✓
 
+> **Caveat (2026-09-28, Part 153, TODO_04 T83a — CLAUDE OPUS 5.5):**
+> §7.1–7.3 (1/r shape from the source-free exterior) are correct. §7.4–7.5
+> treat the phase offset ψᵢ − φ inside the mass as fixed [ASSUMED]. If ψ is
+> kept dynamical, the joint-shift symmetry ψ, φ → ψ + a, φ + a forces the
+> net source ∫ Σ gᵢ sin(ψᵢ − φ) d³x to vanish for any static body whose
+> matter phase is confined to it (Eq 153.12), so the exterior coefficient
+> C is zero unless some additional ingredient maintains the offset. The
+> Newtonian *shape* is recovered; the Newtonian *strength* ("mass") is
+> currently supplied by assumption. See
+> [newtonian_source_audit.md](newtonian_source_audit.md).
+
 ---
 
 ## 8. Energy Cost of Phase Control

@@ -267,7 +267,7 @@ The specific formulas and mechanism are wrong, but the chain of reasoning is sou
 | S5 | c_s = c (Part 34) | c | c | 1.000 | PASS |
 | S6 | Newton's 3rd factor | -2.0 | -2.0 | 1.000 | PASS |
 | S7 | DeepSeek error confirmed | 2.0 | 1.0 | 2.0 | PASS |
-| S8 | Biharmonic 4g^2 | 4g^2 | 4g^2 | 1.000 | PASS |
+| S8 | Biharmonic 4g^2 (coefficient corrected to g^2, Part 155; this check was circular) | 4g^2 | 4g^2 | 1.000 | PASS |
 | S9 | G(2m_P) = G/4 | G/4 | G/4 | 1.000 | PASS |
 | S10 | Sakharov sign: N_bos-N_ferm<0 | <0 | -7 | — | PASS |
 

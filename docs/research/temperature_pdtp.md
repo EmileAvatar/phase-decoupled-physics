@@ -625,7 +625,7 @@ automatic phase-locking makes BEC and thermal matter gravitate identically.
 From Part 62 (reversed Higgs):
 
 ```
-m_phi_minus^2 = 2 * g * Phi                                       ... (9.1)
+m_phi_minus^2 = g*Phi                                       ... (9.1)
 ```
 
 where g is the PDTP coupling constant and Phi is the local gravitational

@@ -246,8 +246,8 @@ Consequences:
 - The single-phase U(1) PDTP theory, and therefore the **two-phase
   Lagrangian of Part 61** (which lives entirely in the Abelian sector:
   φ_b, φ_s are U(1) phases), is untouched: Newton's 3rd law
-  (ψ̈ = −2φ̈₊), the biharmonic equation (∇⁴ + 4g²), and the Jeans
-  eigenvalue (+2√2 g) are all unaffected by Part 114. [Sudoku rule 4 ✓]
+  (ψ̈ = −2φ̈₊), the biharmonic equation (∇⁴ − g², corrected Part 155), and the Jeans
+  eigenvalue (+√3 g (corrected from 2√2 g, Part 154)) are all unaffected by Part 114. [Sudoku rule 4 ✓]
 - Newton's laws check (Sudoku rule 5): the vertex does not modify the
   U(1) phase-locking sector from which Newton's laws were derived. ✓
 

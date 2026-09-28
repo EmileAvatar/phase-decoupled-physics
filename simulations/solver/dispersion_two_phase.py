@@ -10,7 +10,7 @@ TASK (from TODO_03.md, D3):
 PRIOR WORK:
   Part 57: Dispersion model alpha_eff = alpha_0 * v_g/c [NEGATIVE, 4 fatal]
   Part 61: Two-phase Lagrangian: L = +g*cos(psi-phi_b) - g*cos(psi-phi_s)
-  Part 62: Reversed Higgs: phi_- mass = 0 in vacuum, m^2 = 2*g*Phi near matter
+  Part 62: Reversed Higgs: phi_- mass = 0 in vacuum, m^2 = g*Phi near matter
   Part 63: Two-phase rederivation: 16/16 pass
   Part 77: SU(3) dimensional transmutation: AF but b0 > 0 -> IR free for gravity
   Part 79: alpha_EM FCC: 5 paths all NEGATIVE
@@ -22,7 +22,7 @@ THE RE-EXAMINATION:
     F3: Strong force runs WRONG way (AF vs dispersion)
     F4: GUT scale: E_P vs 10^16 GeV (3 orders off)
 
-  Two-phase new ingredient: phi_- has m^2 = 2*g*Phi (environment-dependent).
+  Two-phase new ingredient: phi_- has m^2 = g*Phi (environment-dependent).
   Does this resolve any of the 4 fatal problems?
 
 Called from main.py as Phase 50.
@@ -86,7 +86,7 @@ def _check1_gradual_coupling(rw):
     rw.print("")
 
     rw.print("TWO-PHASE NEW INGREDIENT:")
-    rw.print("  phi_- has m^2 = 2*g*Phi, where Phi = GM/(Rc^2)")
+    rw.print("  phi_- has m^2 = g*Phi, where Phi = GM/(Rc^2)")
     rw.print("  g = omega_P = m_P*c^2/hbar = %.4e rad/s" % G_COUPLING)
     rw.print("  In VACUUM: Phi -> 0, so m(phi_-) -> 0: NO gap, NO cutoff")
     rw.print("  Near MATTER: Phi > 0, so m(phi_-) > 0: gap APPEARS")
@@ -110,7 +110,7 @@ def _check1_gradual_coupling(rw):
     results = {}
     for name, phi_val in environments:
         if phi_val > 0:
-            omega_gap = np.sqrt(2.0 * G_COUPLING * phi_val)
+            omega_gap = np.sqrt(1.0 * G_COUPLING * phi_val)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
             e_gap_eV = HBAR * omega_gap / EV_J
             compton_range = C / omega_gap if omega_gap > 0 else float('inf')
         else:
@@ -140,7 +140,7 @@ def _check1_gradual_coupling(rw):
     rw.print("ANALYSIS: Does environment-dependent gap give gradual coupling?")
     rw.print("")
     rw.print("  The dispersion formula is: alpha_eff(E) = alpha_0 * sqrt(1 - (E_gap/E)^2)")
-    rw.print("  With E_gap = hbar * sqrt(2*g*Phi):")
+    rw.print("  With E_gap = hbar * sqrt(g*Phi):")
     rw.print("")
 
     # For an electron near Earth:
@@ -357,7 +357,7 @@ def _check4_gut_scale(rw, check1_results):
     rw.print("")
 
     # Calculate: what Phi gives omega_gap corresponding to E_GUT?
-    # omega_gap^2 = 2*g*Phi, and E_gap = hbar*omega_gap
+    # omega_gap^2 = g*Phi, and E_gap = hbar*omega_gap
     # -> Phi = E_GUT^2 / (2*g*hbar^2)
     omega_gut = E_GUT_J / HBAR
     phi_gut = omega_gut**2 / (2.0 * G_COUPLING)
@@ -397,12 +397,12 @@ def _check4_gut_scale(rw, check1_results):
     rw.print("")
 
     # Alternative: what IS the gap at the most extreme physical potential (BH)?
-    omega_bh = np.sqrt(2.0 * G_COUPLING * 0.5)
+    omega_bh = np.sqrt(1.0 * G_COUPLING * 0.5)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
     e_bh_eV = HBAR * omega_bh / EV_J
     e_bh_GeV = e_bh_eV / 1e9
 
     rw.print("  Maximum physical gap (Phi = 0.5, BH horizon):")
-    rw.print("    omega_gap(BH) = sqrt(2 * g * 0.5) = sqrt(g) = %.4e rad/s" % omega_bh)
+    rw.print("    omega_gap(BH) = sqrt(g * 0.5) = %.4e rad/s  [corrected Part 157]" % omega_bh)
     rw.print("    E_gap(BH) = %.4e eV = %.4e GeV" % (e_bh_eV, e_bh_GeV))
     rw.print("")
 
@@ -416,7 +416,7 @@ def _check4_gut_scale(rw, check1_results):
     rw.print("")
 
     rw.print("  Part 57 used fixed E_gap = E_Planck (breathing mode omega_gap = omega_P).")
-    rw.print("  Two-phase: E_gap = hbar*sqrt(2*g*Phi) = E_P*sqrt(2*Phi/omega_P).")
+    rw.print("  Two-phase: E_gap = hbar*sqrt(g*Phi) = E_P*sqrt(2*Phi/omega_P).")
     rw.print("  At BH horizon (Phi=0.5): E_gap = hbar*sqrt(g) = %.4e GeV" % e_bh_GeV)
     rw.print("  This is %.2e times BELOW E_GUT = 2e16 GeV." % (E_GUT_GEV / e_bh_GeV))
     rw.print("")
@@ -446,11 +446,11 @@ def _check4_gut_scale(rw, check1_results):
     rw.print("  REFRAMED but STILL NEGATIVE.                                    [Eq. 80.4]")
     rw.print("")
     rw.print("  Two-phase insight: the dispersion gap is NOT fixed at E_Planck.")
-    rw.print("  It varies as E_gap = hbar*sqrt(2*g*Phi), reaching zero in empty space.")
+    rw.print("  It varies as E_gap = hbar*sqrt(g*Phi), reaching zero in empty space.")
     rw.print("  This is conceptually better than Part 57's rigid Planck cutoff.")
     rw.print("")
     rw.print("  But the mismatch REVERSES direction: Part 57 gap was 1000x ABOVE E_GUT;")
-    rw.print("  Part 80 gap at BH horizon is ~%.0e BELOW E_GUT." % (E_GUT_GEV / (M_P * C**2 / GEV_J * np.sqrt(2 * 0.5 / OMEGA_P))))
+    rw.print("  Part 80 gap at BH horizon is ~%.0e BELOW E_GUT." % (E_GUT_GEV / (M_P * C**2 / GEV_J * np.sqrt(0.5 / OMEGA_P))))
     rw.print("  The two-phase gap is sqrt(omega_P) not omega_P -- much smaller than Planck.")
     rw.print("  Neither extreme matches E_GUT.")
     rw.print("")
@@ -480,17 +480,17 @@ def _synthesis(rw, check1_results, check4_results):
     rw.print("  | F1 | Hard cutoff at E_P | alpha=0 below E_P | Gap varies with Phi; smooth in SPACE | IMPROVED but STILL NEG |")
     rw.print("  | F2 | Massless modes no dispersion | No running for EM/strong | phi_- is spin-0, no coupling to spin-1 | UNCHANGED, NEGATIVE |")
     rw.print("  | F3 | Strong AF direction | Dispersion opposite to AF | phi_- not in color loops; AF is quantum | UNCHANGED, NEGATIVE |")
-    rw.print("  | F4 | GUT scale 3 orders off | E_gap=E_P vs E_GUT=10^16 | E_gap=hbar*sqrt(2gPhi); BH gap ~ MeV | REFRAMED, STILL NEG |")
+    rw.print("  | F4 | GUT scale 3 orders off | E_gap=E_P vs E_GUT=10^16 | E_gap=hbar*sqrt(g*Phi); BH gap ~ MeV | REFRAMED, STILL NEG |")
     rw.print("")
 
     rw.print("WHAT TWO-PHASE ADDS (positive findings):")
     rw.print("")
-    rw.print("  1. Environment-dependent gap: E_gap(phi_-) = hbar*sqrt(2*g*Phi)")
+    rw.print("  1. Environment-dependent gap: E_gap(phi_-) = hbar*sqrt(g*Phi)")
     rw.print("     This is PDTP Original (Part 62). The gap is continuous across space.")
     rw.print("     [DERIVED, Eq. 80.1]")
     rw.print("")
     rw.print("  2. Dispersion IS physical for phi_-: the breathing mode really does")
-    rw.print("     have omega^2 = c^2*k^2 + 2*g*Phi (massive Klein-Gordon).")
+    rw.print("     have omega^2 = c^2*k^2 + g*Phi (massive Klein-Gordon).")
     rw.print("     Its group velocity v_g = c*k/omega < c near matter.")
     rw.print("     [DERIVED, from Part 63 S7]")
     rw.print("")
@@ -536,9 +536,9 @@ def _sudoku_check(rw, engine, check1_results, check4_results):
                   "vacuum=%.1e eV, Earth=%.3e eV" % (vacuum_gap, earth_gap)))
 
     # S2: phi_- dispersion relation (Klein-Gordon)
-    # omega^2 = c^2*k^2 + 2*g*Phi -> for Phi=0: omega = c*k (massless)
+    # omega^2 = c^2*k^2 + g*Phi -> for Phi=0: omega = c*k (massless)
     s2 = True  # This is algebraic from Part 63 S7
-    tests.append(("S2", "phi_- dispersion: omega^2=c^2*k^2+2*g*Phi", s2,
+    tests.append(("S2", "phi_- dispersion: omega^2=c^2*k^2+g*Phi", s2,
                   "Klein-Gordon with environment mass [Part 63 S7]"))
 
     # S3: v_g < c for phi_- near matter (massive mode is dispersive)
@@ -624,7 +624,7 @@ def _conclusion(rw):
     rw.print("")
     rw.print("  IMPROVED (but still negative):")
     rw.print("    F1: Gap is now continuous across space (not fixed at E_P)")
-    rw.print("    F4: Gap varies as hbar*sqrt(2*g*Phi); direction REVERSES (now below GUT)")
+    rw.print("    F4: Gap varies as hbar*sqrt(g*Phi); direction REVERSES (now below GUT)")
     rw.print("")
     rw.print("  UNCHANGED (still fatal):")
     rw.print("    F2: phi_- (spin-0) does not couple to photon/gluon (spin-1)")
@@ -644,10 +644,10 @@ def _conclusion(rw):
     rw.print("      QFT describes HOW STRONGLY they interact (loop corrections)")
     rw.print("")
     rw.print("  KEY EQUATIONS (Part 80):")
-    rw.print("    80.1: E_gap(phi_-) = hbar*sqrt(2*g*Phi)  [environment-dependent gap]")
+    rw.print("    80.1: E_gap(phi_-) = hbar*sqrt(g*Phi)  [environment-dependent gap]")
     rw.print("    80.2: phi_- does not couple to A_mu or A_mu^a [spin-0 vs spin-1]")
     rw.print("    80.3: b0_QCD = 7 unchanged by phi_-  [AF is quantum loops]")
-    rw.print("    80.4: E_gap = hbar*sqrt(2*g*Phi); BH max ~ MeV << E_GUT  [GUT gap]")
+    rw.print("    80.4: E_gap = hbar*sqrt(g*Phi); BH max ~ MeV << E_GUT  [GUT gap]")
     rw.print("")
     rw.print("  STATUS: D3 RE-EXAMINATION COMPLETE. NEGATIVE CONFIRMED.")
     rw.print("  The dispersion model fails for the same fundamental reason as Part 57:")

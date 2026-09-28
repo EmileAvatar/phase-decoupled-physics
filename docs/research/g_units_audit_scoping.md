@@ -159,7 +159,7 @@ audited.
 [FLAGGED, not yet resolved] `phi_minus_local_mass_and_crossover.md` Sec 7
 states that applying Convention B moves the Earth-surface phi_- mass
 prediction from ~105 eV to ~4.5e14 GeV — described as "a ~42 order-of-
-magnitude swing." A first-pass hand check, assuming only `m^2 = 2*g*Phi`
+magnitude swing." A first-pass hand check, assuming only `m^2 = g*Phi`
 with `g -> omega_gap^2` replacing `g -> omega_gap` (holding Phi fixed),
 gives:
 
@@ -390,7 +390,7 @@ formula's own internal structure was right for reasons independent of
 whether the "[g]" units label attached to it was correct.
 
 **Consequence for the rest of the checklist:** any OTHER formula that uses
-bare "g" WITHOUT its own explicit "/c^2" (Part 62/131's `m^2 = 2*g*Phi` is
+bare "g" WITHOUT its own explicit "/c^2" (Part 62/131's `m^2 = g*Phi` is
 the prime suspect -- there is no visible /c^2 in that formula as stated)
 is a live candidate for the same missing-factor bug, and should be checked
 for exactly this pattern first, before anything else.
@@ -452,7 +452,7 @@ route (direct Planck-energy scaling), independent confirmation the
 corrected formula is right.
 
 **Consequence flagged, not yet acted on:** `falsifiable_predictions.md`
-Eq. F.12 (the hollow-shell test, `m_phi(inside) = sqrt(2*g*Phi)`) is
+Eq. F.12 (the hollow-shell test, `m_phi(inside) = sqrt(g*Phi)`) is
 built on this exact formula. With the corrected mass ~21.6 orders heavier
 than originally stated, the predicted Yukawa range collapses from a
 sub-mm, laboratory-testable scale to something far too short to detect

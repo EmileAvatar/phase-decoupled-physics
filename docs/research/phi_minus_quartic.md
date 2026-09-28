@@ -6,6 +6,13 @@ locking. Algebra SymPy-verified; the cosmological mechanism remains [SPECULATIVE
 **PDTP Original:** Induced positive quartic from integrating out the gravity mode
 phi_+ at a partially locked background.
 **Date:** 2026-06-11 (Phase 85)
+
+> **CORRECTED 2026-09-28 (Part 157, TODO_04 T83j — CLAUDE OPUS 5.5):** the φ₊ gradient stiffness is
+> k̄²η² (kinetic term (∂φ₊)², coefficient 1), not ½k̄²η², so V_ind and λ₄ halve:
+> **λ₄ = g² sin²β/(3k̄²)**. The natural gap scale also halves (φ₋ mass² = g, not 2g),
+> so λ₄/g = sin²β/3 at the gap is **unchanged**; sign, β → 0 switch-off and all
+> verdicts unchanged. Formulas below are the original (uncorrected) ones.
+> See [phi_minus_mass_correction.md](phi_minus_mass_correction.md).
 **Script:** `simulations/solver/phi_minus_quartic.py`
 **Log:** `simulations/solver/outputs/phi_minus_quartic_20260611_193027.txt`
 **Prerequisites:** [two_phase_rederivation.md](two_phase_rederivation.md) (Parts 61/63),
@@ -269,8 +276,8 @@ Sudoku check, CLAUDE.md rule 4):
 
 - Newton's 3rd law psi_dd = -2 phi_+_dd (Part 61) — unchanged (derived at
   the locked background, where the new term is zero).
-- Biharmonic equation nabla^4 Phi + 4g^2 Phi (Part 61) — unchanged.
-- Jeans eigenvalue +2 sqrt(2) g (Part 61) — unchanged.
+- Biharmonic equation (Part 61; corrected to nabla^4 phi_+ - g^2 phi_+, Part 155) — unchanged.
+- Jeans eigenvalue +sqrt(3) g (Part 61) — unchanged.
 - Lambda = g phi_-_vac^2 (Part 87) and w = -1 today — recovered automatically.
 
 **This is the self-switching-off property: EDE is transient by construction.**

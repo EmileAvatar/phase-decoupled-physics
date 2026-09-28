@@ -244,7 +244,7 @@ criticality has the same character: black holes are held at the critical point b
 (Hawking depletion), not by a free-energy minimum. No critical exponents are claimed here;
 extracting them for the grain flow is future work.
 
-**Part 61 (from-below drive) [SPECULATIVE]:** the Jeans instability (eigenvalue +2√2·g,
+**Part 61 (from-below drive) [SPECULATIVE]:** the Jeans instability (eigenvalue +√3·g,
 derived in Part 61) drives collective clumping — mass concentration grows until horizon
 formation, feeding the Route 3 flow from below. This makes the ceiling *populated*, not
 just enforced; but it is a statement about collective modes, not a single-grain mass
@@ -298,7 +298,7 @@ scale (breathing-mode cutoff, Part 111 machinery). [OPEN]
 - Bekenstein, J. D. (1973). "Black holes and entropy." *Phys. Rev. D* 7, 2333.
 - Part 24/111 — Hawking temperature derived/verified in PDTP.
 - Part 47 — `bh_evaporation_endpoint.md` (complete evaporation; E_final = m_P·c²).
-- Part 61 — `two_phase_lagrangian.py` (Jeans eigenvalue +2√2·g).
+- Part 61 — `two_phase_lagrangian.py` (Jeans eigenvalue +√3·g).
 - Part 110 — `leidenfrost_tan.md` (laser-threshold universality class).
 - Part 115 — `extremal_condensate_closure.md` (no-go theorem; bridge = DG criticality).
 - Part 116 — `dm_winding_selection.md` (Planck vortex relic, m_DM = m_P).

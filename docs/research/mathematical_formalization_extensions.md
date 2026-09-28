@@ -384,23 +384,31 @@ psi_ddot = -2 * phi_+_ddot                                            (150.14)
 matter's phase acceleration and spacetime's phase acceleration are
 exactly opposite, not by assumption but as a consequence of the
 Lagrangian's own symmetry. **The factor is 2, not 1** — a real,
-SymPy-caught correction from the original Part 61 draft, consistent with
-`G_eff = 2·G_bare` (the extra factor of 2 is absorbed into the measured
-value of Newton's constant, so no new prediction is lost, but the
-internal bookkeeping changed).
+SymPy-caught correction from the original Part 61 draft. (**Corrected
+Part 156:** this factor reflects defining φ₊ as the *average* of φ_b and
+φ_s — it is 1 for Σ = φ_b + φ_s — and is *not* the origin of
+`G_eff = 2·G_bare`, which comes from the coherent 2g coupling divided by
+φ₊'s stiffness 2; see `geff_factor_audit.md`.)
+
+> **CORRECTED 2026-09-28 (Part 154, TODO_04 T83b — CLAUDE OPUS 5.5):** the Jeans
+> eigenvalue is **±√3·g**, not ±2√2·g. The old value used forces as
+> accelerations for φ₊/φ₋, whose inertia is 2 (kinetic term φ̇₊² + φ̇₋²);
+> consistent inertias give M = [[0, 3g], [g, 0]]. Sign (instability) unchanged;
+> magnitude × √6/4 ≈ 0.612, k_J × 0.7825. Values below are the corrected ones.
+> Full derivation: [jeans_eigenvalue_correction.md](jeans_eigenvalue_correction.md).
 
 **Jeans instability [DERIVED]:** in the spatially-uniform (k=0) limit,
 the coupled `(Φ,φ₋)` system has the matrix form:
 
 ```
-d^2/dt^2 [Phi; phi_-] = M [Phi; phi_-],   M = [[0, 4g],[2g, 0]]        (150.15)
-Characteristic equation: lambda^2 - 8*g^2 = 0
-Eigenvalues: lambda = +/- 2*sqrt(2)*g                                  (150.16)
+d^2/dt^2 [Phi; phi_-] = M [Phi; phi_-],   M = [[0, 3g],[g, 0]]        (150.15)
+Characteristic equation: lambda^2 - 3*g^2 = 0
+Eigenvalues: lambda = +/- sqrt(3)*g                                  (150.16)
 ```
 
-`λ₁=+2√2g>0`: an unstable (exponentially growing) mode — gravitational
+`λ₁=+√3g>0`: an unstable (exponentially growing) mode — gravitational
 collapse, falling directly out of the Lagrangian rather than assumed.
-`λ₂=−2√2g<0`: an oscillatory mode at `ω=√(2√2g)` — this is the
+`λ₂=−√3g<0`: an oscillatory mode at `ω=√(√3g)` — this is the
 **breathing mode**, and it is `φ₋` itself (§2.6).
 
 ### 2.5 Biharmonic Gravity
@@ -411,9 +419,18 @@ spatially-uniform ODE (Eq. 150.15) to the full field PDE and eliminating
 equation for the gravitational potential:
 
 ```
-nabla^4(Phi) + 4*g^2*Phi = source                                     (150.17)
-                                    [DERIVED, PDTP Original, Part 61]
+nabla^4(phi_+) - g^2*phi_+ = -g^2*psi                                 (150.17)
+                   [DERIVED, PDTP Original, Part 61; corrected Part 155]
 ```
+
+> **CORRECTED 2026-09-28 (Part 155, TODO_04 T83c — CLAUDE OPUS 5.5):** the
+> two-phase static equation is **∇⁴φ₊ − g²φ₊ = −g²ψ**, not ∇⁴Φ + 4g²Φ = source
+> (three slips: inertia 1 instead of 2 for φ₊/φ₋, static sign, and an algebra
+> sign error in the final rearrangement). Its Green's function
+> (cos(κr) − e^{−κr})/(8πκ²r), κ = √g = 1/a₀, has **no 1/r term at any range**
+> (constant − r/8π inside a₀; cos(r/a₀)/r ripple outside). It does not reduce to
+> Poisson/Newton at short range. Scale a₀/√2 → a₀. Full derivation:
+> [biharmonic_rederivation.md](biharmonic_rederivation.md).
 
 — fourth order in spatial derivatives, not the ordinary second-order
 Poisson equation. **The full field-elimination steps are not reproduced
@@ -421,7 +438,7 @@ here** (this document's scope is the structural result and its role in
 the framework, not a re-typing of `two_phase_lagrangian.py`'s own
 algebra) — see that script and `equation_reference.md` §2e for the
 complete derivation; the coupled system (Eq. 150.15) and its consistent
-`ω²=c²k²±2√2g` dispersion relation (main-doc-adjacent result, Part 61)
+`ω²=c²k²±√3g` dispersion relation (main-doc-adjacent result, Part 61)
 are the load-bearing pieces reproduced here as directly-verifiable
 supporting structure.
 
@@ -439,7 +456,7 @@ MOND-related work) tested and found insufficient at galactic scale by
 (density coupled through `Φ`):
 
 ```
-m_phi_minus^2 = 2*g*Phi                    (near matter)              (150.18)
+m_phi_minus^2 = g*Phi                    (near matter)              (150.18)
 m_phi_minus^2 = 0                          (in vacuum, Phi=0)         (150.19)
                                     [DERIVED, PDTP Original, Part 62]
 ```
@@ -484,8 +501,8 @@ through this substitution and passes unchanged.
 | φ₊/φ₋ change of variables | [DERIVED] | 150.11–150.12 |
 | Product-coupling identity `2·sin(ψ−φ₊)·sin(φ₋)` | [DERIVED] | 150.13 |
 | Newton's 3rd law, factor 2 (corrected) | [DERIVED] | 150.14 |
-| Jeans instability eigenvalues `±2√2g` | [DERIVED] | 150.15–150.16 |
-| Biharmonic gravity `∇⁴Φ+4g²Φ=source` | [DERIVED] | 150.17 |
+| Jeans instability eigenvalues `±√3g` | [DERIVED] | 150.15–150.16 |
+| Biharmonic `∇⁴φ₊−g²φ₊=−g²ψ` (corrected Part 155) | [DERIVED] | 150.17 |
 | φ₋ reversed-Higgs mass, `2gΦ` near matter / `0` in vacuum | [DERIVED] | 150.18–150.19 |
 | 16/16 single-phase results re-derived | [VERIFIED] | §2.7 |
 

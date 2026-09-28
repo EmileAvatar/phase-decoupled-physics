@@ -47,7 +47,7 @@ Sources:
   Part 24/111: T_H derived/verified in PDTP
   Part 47: evaporation endpoint M_evap = m_P/(8*pi), E_final = m_P*c^2,
       complete evaporation (no remnant)
-  Part 61: Jeans eigenvalue +2*sqrt(2)*g (collective clumping drive)
+  Part 61: Jeans eigenvalue +sqrt(3)*g (collective clumping drive)
   Part 110: laser-threshold universality class (driven criticality)
   Part 115: scale-invariance no-go theorem; bridge = DG criticality
   Part 116: DM = Planck vortex relic, m_DM = m_cond = m_P

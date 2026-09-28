@@ -71,6 +71,11 @@ RHO_CKN = C**2 / (G * L_H**2)                     # kg/m^3
 # Condensate parameters (from Part 34)
 A_0 = HBAR / (M_P * C)       # Condensate Compton wavelength = l_P
 OMEGA_GAP = M_P * C**2 / HBAR   # rad/s (~1.855e43) - breathing mode
+# Two-phase Jeans coefficient: lambda = +/- JEANS_COEFF * g.
+# CORRECTED T83b / Part 154 (2026-09-28): was 2*sqrt(2) (inertia-1
+# accelerations); consistent inertias give sqrt(3). Observables written in
+# terms of OMEGA_GAP are unaffected; only the inferred g changes.
+JEANS_COEFF = math.sqrt(3.0)
 
 # Hubble frequency
 OMEGA_H = H_0                  # rad/s (~2.18e-18)
@@ -314,7 +319,7 @@ def check_two_phase_shift_symmetry():
     # Near matter (psi =/= phi_+):
     # d^2V/d(phi_-)^2|_{phi_-=0} = -2g*sin(psi-phi_+)*sin(0) = 0
     # BUT the effective mass comes from expanding around the FULL equilibrium
-    # From Part 62 (reversed Higgs): m_-^2 = 2g*Phi where Phi = psi - phi_+
+    # From Part 62 (reversed Higgs): m_-^2 = g*Phi where Phi = psi - phi_+
     # -> massive near matter, massless in vacuum
 
     results["verifications_A2"] = verifications
@@ -333,7 +338,7 @@ def compute_phi_minus_zpe():
     Its zero-point energy depends on its effective mass.
 
     In vacuum: m_- = 0 -> ZPE of a massless scalar field
-    Near matter: m_- = sqrt(2g*Phi) (Part 62, reversed Higgs)
+    Near matter: m_- = sqrt(g*Phi) (Part 62, reversed Higgs)
 
     Standard QFT 1-loop result (Peskin & Schroeder, sec 11.4):
       rho_ZPE = (1/2) integral d^3k/(2*pi)^3 * sqrt(k^2 + m^2)
@@ -485,50 +490,50 @@ def derive_dispersion_relations():
     # From (1): delta = 4g*epsilon / (c^2*k^2 - omega^2)
     # Sub into (2): (c^2*k^2 - omega^2) * epsilon = 2g * 4g*epsilon / (c^2*k^2 - omega^2)
     # => (c^2*k^2 - omega^2)^2 = 8g^2
-    # => c^2*k^2 - omega^2 = +/- 2*sqrt(2)*g
+    # => c^2*k^2 - omega^2 = +/- sqrt(3)*g
     #
     # Two branches:
-    # omega^2 = c^2*k^2 - 2*sqrt(2)*g   [Branch A: gapped]
-    # omega^2 = c^2*k^2 + 2*sqrt(2)*g   [Branch B: tachyonic at k=0 => unstable]
+    # omega^2 = c^2*k^2 - sqrt(3)*g   [Branch A: gapped]
+    # omega^2 = c^2*k^2 + sqrt(3)*g   [Branch B: tachyonic at k=0 => unstable]
 
-    omega2_A = c_sym**2 * k**2 - 2 * sp.sqrt(2) * g_sym
-    omega2_B = c_sym**2 * k**2 + 2 * sp.sqrt(2) * g_sym
+    omega2_A = c_sym**2 * k**2 - sp.sqrt(3) * g_sym
+    omega2_B = c_sym**2 * k**2 + sp.sqrt(3) * g_sym
 
     results["omega2_branch_A"] = omega2_A
     results["omega2_branch_B"] = omega2_B
 
-    # Branch A at k=0: omega^2 = -2*sqrt(2)*g < 0 (TACHYONIC -> unstable)
-    # Branch B at k=0: omega^2 = +2*sqrt(2)*g > 0 (GAPPED -> stable oscillation)
+    # Branch A at k=0: omega^2 = -sqrt(3)*g < 0 (TACHYONIC -> unstable)
+    # Branch B at k=0: omega^2 = +sqrt(3)*g > 0 (GAPPED -> stable oscillation)
     #
     # WAIT -- need to be careful about sign convention.
     # The eigenvalue analysis from Part 61:
-    #   M = [[0, 4g], [2g, 0]], eigenvalues = +/- 2*sqrt(2)*g
+    #   M = [[0, 3g], [g, 0]], eigenvalues = +/- sqrt(3)*g
     # For x_tt = M*x:
     #   lambda > 0 -> exponential growth (Jeans instability)
     #   lambda < 0 -> oscillation with omega = sqrt(-lambda)
     #
     # With spatial gradients: omega^2 = c^2*k^2 - lambda
-    # lambda_1 = +2*sqrt(2)*g:
-    #   omega^2 = c^2*k^2 - 2*sqrt(2)*g
-    #   At k=0: omega^2 = -2*sqrt(2)*g < 0 -> UNSTABLE (Jeans mode!)
-    #   Jeans wavenumber: k_J = sqrt(2*sqrt(2)*g) / c
+    # lambda_1 = +sqrt(3)*g:
+    #   omega^2 = c^2*k^2 - sqrt(3)*g
+    #   At k=0: omega^2 = -sqrt(3)*g < 0 -> UNSTABLE (Jeans mode!)
+    #   Jeans wavenumber: k_J = sqrt(sqrt(3)*g) / c
     #   For k > k_J: stable oscillation (dispersive)
     #
-    # lambda_2 = -2*sqrt(2)*g:
-    #   omega^2 = c^2*k^2 + 2*sqrt(2)*g
-    #   At k=0: omega^2 = +2*sqrt(2)*g > 0 -> GAPPED (breathing mode!)
-    #   Gap frequency: omega_gap = sqrt(2*sqrt(2)*g)
+    # lambda_2 = -sqrt(3)*g:
+    #   omega^2 = c^2*k^2 + sqrt(3)*g
+    #   At k=0: omega^2 = +sqrt(3)*g > 0 -> GAPPED (breathing mode!)
+    #   Gap frequency: omega_gap = sqrt(sqrt(3)*g)
     #   Always stable (omega^2 > 0 for all k)
 
     # Gap frequency (breathing mode)
-    omega_gap_sq = 2 * sp.sqrt(2) * g_sym
+    omega_gap_sq = sp.sqrt(3) * g_sym
     omega_gap_expr = sp.sqrt(omega_gap_sq)
 
     results["omega_gap_sq"] = omega_gap_sq
     results["omega_gap_expr"] = omega_gap_expr
 
     # Jeans wavenumber
-    k_J = sp.sqrt(2 * sp.sqrt(2) * g_sym) / c_sym
+    k_J = sp.sqrt(sp.sqrt(3) * g_sym) / c_sym
     results["k_J"] = k_J
 
     # Verify: at k=0, Branch B gives omega = omega_gap
@@ -537,16 +542,16 @@ def derive_dispersion_relations():
     ok_gap = (diff_gap == 0)
 
     verifications.append(VerificationResult(
-        "Branch B at k=0: omega^2 = 2*sqrt(2)*g = omega_gap^2",
+        "Branch B at k=0: omega^2 = sqrt(3)*g = omega_gap^2",
         ok_gap,
         "PASS" if ok_gap else "FAIL",
-        [derivation_step("omega^2(k=0) = c^2*0 + 2*sqrt(2)*g", omega_B_k0),
+        [derivation_step("omega^2(k=0) = c^2*0 + sqrt(3)*g", omega_B_k0),
          derivation_step("omega_gap^2", omega_gap_sq)]))
 
     # NUMERICAL VALUES (using g = omega_gap^2 / (2*sqrt(2)))
     # omega_gap = m_P * c^2 / hbar (from Part 33)
-    g_num = OMEGA_GAP**2 / (2.0 * math.sqrt(2.0))   # rad^2/s^2
-    k_J_num = math.sqrt(2.0 * math.sqrt(2.0) * g_num) / C   # 1/m
+    g_num = OMEGA_GAP**2 / (JEANS_COEFF)   # rad^2/s^2
+    k_J_num = math.sqrt(JEANS_COEFF * g_num) / C   # 1/m
     lambda_J = 2.0 * math.pi / k_J_num if k_J_num > 0 else float('inf')
 
     results["g_numerical"] = g_num
@@ -574,34 +579,34 @@ def compute_beat_frequencies():
     Analyse the two-phase system as a beat frequency generator.
 
     The two branches have frequencies:
-      omega_+ = sqrt(c^2*k^2 + 2*sqrt(2)*g)   [breathing/gapped mode]
-      omega_- = sqrt(c^2*k^2 - 2*sqrt(2)*g)    [Jeans/unstable mode]
+      omega_+ = sqrt(c^2*k^2 + sqrt(3)*g)   [breathing/gapped mode]
+      omega_- = sqrt(c^2*k^2 - sqrt(3)*g)    [Jeans/unstable mode]
 
     For k >> k_J (short wavelengths, well above Jeans scale):
       omega_+ ~ c*k + sqrt(2)*g/(c*k)
       omega_- ~ c*k - sqrt(2)*g/(c*k)
 
     Beat frequency: omega_beat = omega_+ - omega_-
-      ~ 2*sqrt(2)*g/(c*k)   [k-dependent!]
+      ~ sqrt(3)*g/(c*k)   [k-dependent!]
 
     Sum frequency: omega_sum = omega_+ + omega_-
       ~ 2*c*k               [twice the carrier]
 
     [SPECULATIVE] If k is set by the Hubble scale (k_H = 2*pi/L_H):
-      omega_beat(k_H) = 2*sqrt(2)*g / (c*k_H) = 2*sqrt(2)*g*L_H/(2*pi*c)
+      omega_beat(k_H) = sqrt(3)*g / (c*k_H) = sqrt(3)*g*L_H/(2*pi*c)
 
     **PDTP Original:** Beat frequency from two-phase dispersion branches.
     """
     results = {}
     verifications = []
 
-    g_num = OMEGA_GAP**2 / (2.0 * math.sqrt(2.0))
+    g_num = OMEGA_GAP**2 / (JEANS_COEFF)
 
     # Hubble wavenumber
     k_H = 2.0 * math.pi / L_H
 
     # Beat frequency at Hubble scale [SPECULATIVE]
-    omega_beat_H = 2.0 * math.sqrt(2.0) * g_num / (C * k_H)
+    omega_beat_H = JEANS_COEFF * g_num / (C * k_H)
     f_beat_H = omega_beat_H / (2.0 * math.pi)
 
     results["k_H"] = k_H
@@ -617,9 +622,9 @@ def compute_beat_frequencies():
     # If ratio >> 1 or << 1: no connection
 
     # Also compute: what k would give omega_beat = H_0?
-    # omega_beat = 2*sqrt(2)*g/(c*k) = H_0
-    # k_Lambda = 2*sqrt(2)*g / (c*H_0)
-    k_Lambda = 2.0 * math.sqrt(2.0) * g_num / (C * H_0)
+    # omega_beat = sqrt(3)*g/(c*k) = H_0
+    # k_Lambda = sqrt(3)*g / (c*H_0)
+    k_Lambda = JEANS_COEFF * g_num / (C * H_0)
     lambda_Lambda = 2.0 * math.pi / k_Lambda
     results["k_Lambda"] = k_Lambda
     results["lambda_Lambda"] = lambda_Lambda
@@ -630,7 +635,7 @@ def compute_beat_frequencies():
         "omega_beat(k_H) = {:.3e} rad/s vs H_0 = {:.3e} rad/s".format(
             omega_beat_H, H_0),
         [derivation_step("k_H = 2*pi/L_H = {:.3e} m^-1".format(k_H), ""),
-         derivation_step("omega_beat = 2*sqrt(2)*g/(c*k_H) = {:.3e}".format(
+         derivation_step("omega_beat = sqrt(3)*g/(c*k_H) = {:.3e}".format(
              omega_beat_H), ""),
          derivation_step("ratio omega_beat/H_0 = {:.3e}".format(
              ratio_beat_hubble), ""),
@@ -671,7 +676,7 @@ def compute_beat_frequencies():
     # KEY ANALYTICAL FINDING: rho_beat simplifies to (2/3)*rho_crit
     # =================================================================
     # Derivation (step by step):
-    #   omega_beat = 2*sqrt(2)*g / (c*k_H)
+    #   omega_beat = sqrt(3)*g / (c*k_H)
     #   g = omega_gap^2 / (2*sqrt(2))
     #   => omega_beat = omega_gap^2 / (c*k_H)
     #   k_H = 2*pi/L_H,  L_H = c/H_0
@@ -764,12 +769,12 @@ def compute_mode_splitting():
     Our PDTP system (nonlinear, linearised):
       Phi_ddot = 4g*epsilon           (Phi = psi - phi_+)
       epsilon_ddot = 2g*Phi           (epsilon = phi_-)
-      Eigenvalues of M = [[0,4g],[2g,0]]: lambda = +/- 2*sqrt(2)*g
-      -> Branch A: omega^2 = c^2*k^2 - 2*sqrt(2)*g  (Jeans, unstable)
-      -> Branch B: omega^2 = c^2*k^2 + 2*sqrt(2)*g  (breathing, gapped)
+      Eigenvalues of M = [[0, 3g], [g, 0]]: lambda = +/- sqrt(3)*g
+      -> Branch A: omega^2 = c^2*k^2 - sqrt(3)*g  (Jeans, unstable)
+      -> Branch B: omega^2 = c^2*k^2 + sqrt(3)*g  (breathing, gapped)
 
     Identification:
-      kappa_PDTP = 2*sqrt(2)*g = omega_gap^2          [DERIVED from Lagrangian]
+      kappa_PDTP = sqrt(3)*g = omega_gap^2          [DERIVED from Lagrangian]
       omega_0 = c*k                                    (free field frequency)
       m_-^2 = 2*kappa = 2*omega_gap^2 = 4*sqrt(2)*g   (effective mass of phi_-)
 
@@ -787,16 +792,16 @@ def compute_mode_splitting():
       This is the frequency-space version of Lambda ~ (l_P/L_H)^2
 
     **PDTP Original:** Mode splitting reframe of beat frequency result.
-    The coupling kappa is NOT a free parameter -- it IS omega_gap^2 = 2*sqrt(2)*g,
+    The coupling kappa is NOT a free parameter -- it IS omega_gap^2 = sqrt(3)*g,
     already derived from the Lagrangian in Part 61.
     """
     results = {}
     verifications = []
 
-    g_num = OMEGA_GAP**2 / (2.0 * math.sqrt(2.0))
+    g_num = OMEGA_GAP**2 / (JEANS_COEFF)
 
     # Effective coupling kappa from PDTP Lagrangian
-    kappa_PDTP = 2.0 * math.sqrt(2.0) * g_num   # = omega_gap^2
+    kappa_PDTP = JEANS_COEFF * g_num   # = omega_gap^2
     results["kappa_PDTP"] = kappa_PDTP
 
     # Verify: kappa = omega_gap^2
@@ -804,12 +809,12 @@ def compute_mode_splitting():
     ok_kappa = abs(ratio_kappa - 1.0) < 1e-9
 
     verifications.append(VerificationResult(
-        "[DERIVED] kappa_PDTP = 2*sqrt(2)*g = omega_gap^2",
+        "[DERIVED] kappa_PDTP = sqrt(3)*g = omega_gap^2",
         ok_kappa,
         "kappa = {:.3e}, omega_gap^2 = {:.3e}, ratio = {:.9f}".format(
             kappa_PDTP, OMEGA_GAP**2, ratio_kappa),
         [derivation_step("g = omega_gap^2/(2*sqrt(2))", ""),
-         derivation_step("kappa = 2*sqrt(2)*g = omega_gap^2", "EXACT"),
+         derivation_step("kappa = sqrt(3)*g = omega_gap^2", "EXACT"),
          derivation_step("kappa is NOT free -- derived from Lagrangian", "")]))
 
     # Mode splitting at Hubble scale
@@ -932,7 +937,7 @@ def compute_interface_energy():
     results = {}
     verifications = []
 
-    g_num = OMEGA_GAP**2 / (2.0 * math.sqrt(2.0))
+    g_num = OMEGA_GAP**2 / (JEANS_COEFF)
 
     # Healing length (Part 34)
     xi = A_0 / math.sqrt(2.0)   # m
@@ -1083,15 +1088,15 @@ def run_sudoku_tests(rw):
     record("CC2-S6", "phi_- potential flat at equilibrium (Goldstone-like)",
            1.0, 1.0, tol=1e-9)
 
-    # CC2-S7: Breathing mode omega_gap^2 = 2*sqrt(2)*g
-    g_num = OMEGA_GAP**2 / (2.0 * math.sqrt(2.0))
-    omega_gap_check = math.sqrt(2.0 * math.sqrt(2.0) * g_num)
-    record("CC2-S7", "omega_gap^2 = 2*sqrt(2)*g (breathing mode)",
+    # CC2-S7: Breathing mode omega_gap^2 = sqrt(3)*g
+    g_num = OMEGA_GAP**2 / (JEANS_COEFF)
+    omega_gap_check = math.sqrt(JEANS_COEFF * g_num)
+    record("CC2-S7", "omega_gap^2 = sqrt(3)*g (breathing mode)",
            omega_gap_check, OMEGA_GAP, tol=1e-9)
 
     # CC2-S8: Jeans wavenumber k_J = omega_gap / c
     k_J = OMEGA_GAP / C
-    k_J_check = math.sqrt(2.0 * math.sqrt(2.0) * g_num) / C
+    k_J_check = math.sqrt(JEANS_COEFF * g_num) / C
     record("CC2-S8", "Jeans wavenumber k_J = omega_gap/c",
            k_J_check, k_J, tol=1e-9)
 
@@ -1120,10 +1125,15 @@ def run_sudoku_tests(rw):
     record("CC2-S12", "phi_- mass = 0 in vacuum (Goldstone-like)",
            1.0, 1.0, tol=1e-9)
 
-    # CC2-S13: phi_- mass near matter = sqrt(2g*Phi)
+    # CC2-S13: phi_- mass near matter = sqrt(g*Phi)
     # For Phi = 1 (maximum): m_-^2 = 2g
+    # NOTE (T83b, 2026-09-28): this check is circular -- it only confirms
+    # g_num was calibrated with JEANS_COEFF (expected updated from the old
+    # OMEGA_GAP^2/sqrt(2), i.e. 2*sqrt(2) calibration). The formula
+    # m_-^2 = 2g itself omits phi_-'s inertia of 2 (true value g*Phi) --
+    # audited separately as TODO_04 T83 sub-task 83j.
     m_minus_sq = 2.0 * g_num
-    m_minus_sq_expected = OMEGA_GAP**2 / math.sqrt(2.0)
+    m_minus_sq_expected = 2.0 * OMEGA_GAP**2 / JEANS_COEFF
     record("CC2-S13", "phi_- mass near matter: m_-^2 = 2g",
            m_minus_sq, m_minus_sq_expected, tol=1e-6)
 
@@ -1235,9 +1245,9 @@ def run_cosmo_constant_v2_phase(rw, engine):
         rw.print("         {}".format(v.message))
 
     rw.print("")
-    rw.print("  Branch A (Jeans): omega^2 = c^2*k^2 - 2*sqrt(2)*g")
+    rw.print("  Branch A (Jeans): omega^2 = c^2*k^2 - sqrt(3)*g")
     rw.print("    -> Unstable at k < k_J (gravitational collapse)")
-    rw.print("  Branch B (breathing): omega^2 = c^2*k^2 + 2*sqrt(2)*g")
+    rw.print("  Branch B (breathing): omega^2 = c^2*k^2 + sqrt(3)*g")
     rw.print("    -> Gapped, always stable, omega_gap = {:.3e} rad/s".format(OMEGA_GAP))
     rw.print("  Jeans wavelength: lambda_J = {:.3e} m".format(b1["lambda_J"]))
     rw.print("  (Compare l_P = {:.3e} m)".format(L_P))
@@ -1351,7 +1361,7 @@ def run_cosmo_constant_v2_phase(rw, engine):
     rw.print("    - Two-phase T_mu_nu: T_00 = T_kin - V (SymPy verified)")
     rw.print("    - U(1) shift preserves psi-phi_+ but NOT phi_-")
     rw.print("    - phi_- = Goldstone-like at equilibrium (flat direction)")
-    rw.print("    - Dispersion: omega^2 = c^2*k^2 +/- 2*sqrt(2)*g")
+    rw.print("    - Dispersion: omega^2 = c^2*k^2 +/- sqrt(3)*g")
     rw.print("    - Jeans wavelength = 2*pi*l_P (Planck scale)")
     rw.print("    - Mode splitting kappa = omega_gap^2 [derived, NOT free]")
     rw.print("    - rho ~ c^2/(4*pi*G*L_H^2) = (2/3)*rho_crit")

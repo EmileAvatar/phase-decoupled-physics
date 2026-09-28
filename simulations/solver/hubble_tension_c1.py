@@ -23,7 +23,7 @@ Three new approaches (Part 16 found all mechanisms ~9 orders too small):
     RESULT: NEGATIVE -- G constant in PDTP; phi_- back-reaction negligible.
 
   Approach C -- Biharmonic GR correction to CMB sound horizon:
-    nabla^4 + 4*g^2 differs from Poisson only at r < l_P = 1.6e-35 m.
+    nabla^4 - g^2 (corrected T83c, Part 155; never exactly Poisson) -- crossover scale a_0 = l_P = 1.6e-35 m.
     CMB sound horizon: r_s ~ 147 Mpc = 4.5e24 m.
     Correction suppressed by (l_P/r_s)^2 ~ 10^-120. Completely negligible.
     RESULT: NEGATIVE -- 120 orders too small.
@@ -263,11 +263,11 @@ def derive_G_variation(rw):
 def derive_biharmonic_correction(rw):
     """
     Estimate the biharmonic GR correction at CMB scales.
-    nabla^4 + 4*g^2 differs from Poisson only at r < l_P.
+    nabla^4 - g^2 (corrected T83c, Part 155); crossover scale a_0 = l_P.
     """
     rw.subsection("4. Approach C -- Biharmonic GR Correction to Sound Horizon")
 
-    rw.print("Biharmonic gravity (Part 61, 86): nabla^4*Phi + 4*g^2*Phi = source")
+    rw.print("Biharmonic gravity (Part 61, 86; corrected Part 155): nabla^4*phi_+ - g^2*phi_+ = -g^2*psi")
     rw.print("Differs from Poisson only at r < r* ~ l_P.")
     rw.print("")
     rw.print("CMB sound horizon:")

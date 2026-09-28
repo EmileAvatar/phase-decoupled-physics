@@ -2093,6 +2093,18 @@ per CLAUDE.md URL Rules item 1-3).
 | 332 | Higgs mechanism | https://en.wikipedia.org/wiki/Higgs_mechanism | theory_of_everything_master_equation.md §4.6 |
 | 333 | Mathematical formulation of the Standard Model | https://en.wikipedia.org/wiki/Mathematical_formulation_of_the_Standard_Model | theory_of_everything_master_equation.md §7 |
 | 334 | Standard Model | https://en.wikipedia.org/wiki/Standard_Model | theory_of_everything_master_equation.md §7 (already #25/#44 above, re-cited here) |
+| 335 | Laplace operator | https://en.wikipedia.org/wiki/Laplace_operator | newtonian_source_audit.md §2 (Part 153) |
+| 336 | Harmonic function (Liouville's theorem) | https://en.wikipedia.org/wiki/Harmonic_function#Liouville's_theorem | newtonian_source_audit.md §4.1 (Part 153) |
+| 337 | Goldstone boson | https://en.wikipedia.org/wiki/Goldstone_boson | newtonian_source_audit.md §7.1 (Part 153) |
+| 338 | Yukawa potential / Poisson's equation / Divergence theorem / Noether's theorem | (already #30 and earlier entries) | newtonian_source_audit.md §2-4 (Part 153), re-cited |
+
+**Papers cited by Part 153 (2026-09-28, T83a, CLAUDE OPUS 5.5):**
+- Moody, J. E. and Wilczek, F. (1984), "New macroscopic forces?",
+  *Phys. Rev. D* 30, 130 — [DOI](https://doi.org/10.1103/PhysRevD.30.130)
+  (verified resolves) — newtonian_source_audit.md §7.1
+- Adler, R. (1946), "A study of locking phenomena in oscillators",
+  *Proc. IRE* 34, 351 — no URL (IEEE DOI blocks automated checks; add
+  the link once the user confirms it opens) — newtonian_source_audit.md §7.2
 
 **Note (2026-09-14):** this file had not been updated since Part 116
 (2026-06-11) despite many Parts and TODO items (T69-T81, T80) citing new

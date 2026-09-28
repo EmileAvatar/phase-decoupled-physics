@@ -183,8 +183,9 @@ def derive_induced_quartic(rw):
 
         V(eta, phi_-) = -2 g sin(pi/2 - beta + eta) sin(phi_-)
 
-    Expand to O(eta^2), add gradient stiffness (1/2) kbar2 eta^2 from the
-    phi_+ kinetic term (mode of momentum kbar), integrate eta out exactly
+    Expand to O(eta^2), add gradient stiffness kbar2 eta^2 from the
+    phi_+ kinetic term (d phi_+)^2 -- coefficient 1, i.e. (1/2)(2 kbar2) eta^2;
+    CORRECTED T83j / Part 157, was (1/2) kbar2 eta^2 -- integrate eta out exactly
     (Gaussian / tree-level matching, Peskin & Schroeder ch. 11):
 
         V(eta) = (M/2) eta^2 - J eta + V_0
@@ -192,7 +193,7 @@ def derive_induced_quartic(rw):
         V_min  = V_0 - J^2/(2M)        [exact for quadratic action]
 
     Then extract the phi_-^4 coefficient of V_min in the gradient-
-    dominated regime M ~ kbar2.
+    dominated regime M ~ 2 kbar2.
     """
     rw.subsection("S4: Induced channel -- integrate out phi_+ at partial lock")
 
@@ -206,7 +207,7 @@ def derive_induced_quartic(rw):
     rw.print("  M_pot = " + str(sp.trigsimp(M_pot)) + "   [potential stiffness]")
 
     # exact Gaussian minimisation, COMPUTED with full stiffness M = kbar2 + M_pot
-    M_full = kbar2 + M_pot
+    M_full = 2 * kbar2 + M_pot          # T83j: phi_+ gradient stiffness 2*kbar2
     V_eta = (M_full / 2) * eta**2 - J * eta + V0
     eta_star = solve(diff(V_eta, eta), eta)[0]
     V_min = simplify(V_eta.subs(eta, eta_star))
@@ -215,24 +216,24 @@ def derive_induced_quartic(rw):
         V_min, V_expected, label="V_min = V_0 - J^2/(2M) (exact Gaussian)")
     rw.print("  " + msg_gauss)
 
-    # gradient-dominated regime: M -> kbar2
-    V_ind = simplify(-J**2 / (2 * kbar2))
+    # gradient-dominated regime: M -> 2 kbar2 (T83j)
+    V_ind = simplify(-J**2 / (2 * 2 * kbar2))
     rw.print("")
-    rw.print("  gradient-dominated (kbar2 >> M_pot):")
+    rw.print("  gradient-dominated (2 kbar2 >> M_pot):")
     rw.print("  V_ind = " + str(V_ind))
-    rw.print("        = -(2 g^2 sin^2(beta)/kbar2) * sin^2(phi_-)")
+    rw.print("        = -(g^2 sin^2(beta)/kbar2) * sin^2(phi_-)   [T83j: was 2 g^2]")
 
-    sin2_form = -(2 * g**2 * sin(beta)**2 / kbar2) * sin(phi_m)**2
+    sin2_form = -(g**2 * sin(beta)**2 / kbar2) * sin(phi_m)**2
     ok_form, msg_form = check_equal(V_ind, sin2_form,
                                     label="V_ind closed form")
     rw.print("  " + msg_form)
 
     c4_ind = quartic_coeff(V_ind, phi_m)
     c2_ind = sp.expand(sp.series(V_ind, phi_m, 0, 6).removeO()).coeff(phi_m, 2)
-    lam4_expected = 2 * g**2 * sin(beta)**2 / (3 * kbar2)
+    lam4_expected = g**2 * sin(beta)**2 / (3 * kbar2)     # T83j: was 2 g^2 ...
     ok_c4, msg_c4 = check_equal(
         c4_ind, lam4_expected,
-        label="lambda_4 = 2 g^2 sin^2(beta)/(3 kbar2)")
+        label="lambda_4 = g^2 sin^2(beta)/(3 kbar2)")
     rw.print("")
     rw.print("  induced mass coeff   = " + str(sp.simplify(c2_ind)))
     rw.print("  induced quartic      = " + str(sp.simplify(c4_ind)))
@@ -269,15 +270,15 @@ def derive_induced_quartic(rw):
 def compute_magnitude(rw, s4):
     """
     Part 88 requirement: lambda_4 ~ g.  Evaluate lambda_4/g for the
-    natural stiffness kbar2 = 2g (mode at the condensate gap scale,
+    natural stiffness kbar2 = g (T83j: phi_- gap mass^2 = g, was 2g) (mode at the condensate gap scale,
     Part 61: mass^2 of the locked modes = 2g) at several beta.
     """
     rw.subsection("S5: Magnitude check vs Part 88 requirement")
 
     lam4 = s4['lambda4']
-    lam4_at_gap = simplify(lam4.subs(kbar2, 2 * g))
+    lam4_at_gap = simplify(lam4.subs(kbar2, 1 * g))   # T83j: gap kbar2 = g
     ratio_expr = simplify(lam4_at_gap / g)
-    rw.print("  at kbar2 = 2g:  lambda_4/g = " + str(ratio_expr))
+    rw.print("  at kbar2 = g:  lambda_4/g = " + str(ratio_expr))
 
     rows = []
     vals = {}
@@ -325,7 +326,7 @@ def verify_locked_limit(rw, s4):
     rw.print("  -> induced term vanishes identically at full lock: "
              + ("YES" if ok else "NO"))
     rw.print("  Part 61/63 derivations (Newton 3rd law psi_dd = -2 phi_+_dd,")
-    rw.print("  biharmonic nabla^4 + 4g^2, Jeans +2 sqrt(2) g) are all")
+    rw.print("  biharmonic nabla^4 - g^2 (corrected T83c), Jeans +sqrt(3) g) are all")
     rw.print("  evaluated AT the locked background -> unchanged. [VERIFIED]")
     return {'vanishes_at_lock': ok}
 
@@ -361,7 +362,7 @@ def sudoku_check(rw, s1, s2, s3, s4, s5, s6):
     add("T5 V_ind closed form -c sin^2(phi_-)",
         "match", s4['closed_form_ok'], "induced potential")
 
-    add("T6 lambda_4 = 2g^2 sin^2(beta)/(3 kbar2)",
+    add("T6 lambda_4 = g^2 sin^2(beta)/(3 kbar2) (T83j)",
         "match", s4['lambda4_matches'], "series = closed form")
 
     add("T7 lambda_4 > 0 for beta != 0",
@@ -378,7 +379,7 @@ def sudoku_check(rw, s1, s2, s3, s4, s5, s6):
 
     add("T10 induced mass^2 < 0 at partial lock (tachyonic roll)",
         str(s4['c2_ind']),
-        simplify(s4['c2_ind'].subs([(g, 1), (kbar2, 2),
+        simplify(s4['c2_ind'].subs([(g, 1), (kbar2, 1),
                                     (beta, sp.pi / 4)])) < 0,
         "phi_- driven 0 -> pi/2; transient EDE [SPECULATIVE]")
 
@@ -413,8 +414,8 @@ def main():
     rw.print("  Channel 1 (tree cosine):    quartic -g/12      [NEGATIVE]")
     rw.print("  Channel 2 (zero-point):     quartic < 0        [NEGATIVE]")
     rw.print("  Channel 3 (induced, partial lock):")
-    rw.print("      lambda_4 = 2 g^2 sin^2(beta) / (3 kbar2) > 0")
-    rw.print("      = (g/3) sin^2(beta) at the gap scale kbar2 = 2g")
+    rw.print("      lambda_4 = g^2 sin^2(beta) / (3 kbar2) > 0   [T83j]")
+    rw.print("      = (g/3) sin^2(beta) at the gap scale kbar2 = g")
     rw.print("      [PDTP Original -- POSITIVE quartic of the required")
     rw.print("       order, present ONLY while locking is incomplete]")
     rw.print("  EDE switches itself off as the universe locks (beta -> 0):")

@@ -174,7 +174,7 @@ into Eq 131.1 and Taylor-expanding in Delta_- to second order
   V_eff = -2g sin(Delta_+) + g sin(Delta_+) Delta_-^2 + O(Delta_-^3)
 
 matching the standard SHM form V = const + (1/2) m^2 Delta_-^2 with
-m^2 = 2g sin(Delta_+) -- **identical to Eq 131.4** (residual = 0, Sudoku S8-S9).
+m^2 = g sin(Delta_+) -- **identical to Eq 131.4** (residual = 0, Sudoku S8-S9).
 Two independent routes (direct 2nd derivative; series-expansion coefficient)
 agree exactly.
 

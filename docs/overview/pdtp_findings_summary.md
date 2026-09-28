@@ -118,8 +118,8 @@ numerically. Each is tagged [DERIVED] and [VERIFIED].
 | 3 coupled EL equations (SymPy verified) | DERIVED | two_phase_lagrangian.py |
 | Product coupling: 2g*sin(psi-phi_+)*sin(phi_-) | DERIVED | trig identity, verified |
 | Newton's 3rd law: psi_ddot = -phi_+_ddot | EXACT | Lagrangian symmetry |
-| Jeans instability (eigenvalue +2*sqrt(2)*g > 0) | DERIVED | eigenvalue analysis |
-| Biharmonic gravity: nabla^4(Phi) + 4g^2*Phi = source | DERIVED | weak-field limit |
+| Jeans instability (eigenvalue +sqrt(3)*g > 0) | DERIVED | eigenvalue analysis |
+| Biharmonic: nabla^4 phi_+ - g^2 phi_+ = -g^2 psi (corrected Part 155; no 1/r at any range) | DERIVED (corrected) | weak-field limit |
 | phi_- massless in vacuum, massive near matter | DERIVED | reversed_higgs.py |
 | phi_- equilibrium at pi/2 (not 0) near matter | DERIVED, CORRECTED | Part 62 |
 | G_eff = 2*G_bare at equilibrium | DERIVED | Part 62 |

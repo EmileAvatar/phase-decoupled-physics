@@ -243,7 +243,7 @@ available in the universe, under the *currently derived* mechanism.
 
 **Frequency requirement** [DERIVED, Part 71 Eq 11-13, re-derived here]:
 the resonant driving frequency at Earth's surface, omega(phi_-) =
-sqrt(2*g*Phi), comes out to f_gap ~ 2.95e42 Hz for the fundamental
+sqrt(g*Phi), comes out to f_gap ~ 2.95e42 Hz for the fundamental
 coupling gap itself (omega_gap = g = sqrt(c^5/(hbar*G)), independently
 re-computed in `t26_lazar_truth_table.py`, matching coupling_constant_g.md's
 1.86e43 rad/s to 4 significant figures) — gamma-ray-and-far-beyond

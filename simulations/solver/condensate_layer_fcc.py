@@ -18,7 +18,7 @@ This FCC extends Part 89 in four directions not previously computed:
 
   D2: Curved-spacetime n_eff -- phi_- mode mass from local gravity [Part 62]
       phi_- near Earth: omega_phi ~ 31.7 GeV, lambda_evan ~ 0.006 fm
-      phi_- near NS: omega_phi ~ 566 TeV, lambda_evan ~ 3.5e-7 fm
+      phi_- near NS: omega_phi ~ 400 TeV (T83j; was 566), lambda_evan ~ 4.9e-7 fm (T83j; was 3.5e-7)
       phi_- near proton: omega_phi ~ 4.2e-5 eV, lambda_evan ~ 4.7 mm
 
   D3: Dark matter vortex spectrum [Part 33 + B7 extension]
@@ -51,7 +51,7 @@ References:
   Wikipedia: Optical fiber (en.wikipedia.org/wiki/Optical_fiber)
   Part 89 (Phase 59): condensate_layer_optics.py -- base results
   Part 94 (Phase 63): coupling_constant_g.py -- phi_- formula Eq 6c
-  Part 62: reversed_higgs.py -- phi_- mass m^2 = 2g*Phi
+  Part 62: reversed_higgs.py -- phi_- mass m^2 = g*Phi
   Part 33: vortex_winding.py -- n = m_cond/m [PDTP Original]
 """
 
@@ -296,7 +296,7 @@ def curved_spacetime_n_eff():
 
     def phi_minus_env(Phi_Newton, label):
         """Compute phi_- frequency and evanescent depth for given Phi."""
-        omega = math.sqrt(2.0 * OMEGA_P * abs(Phi_Newton))
+        omega = math.sqrt(1.0 * OMEGA_P * abs(Phi_Newton))  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
         E_GeV = HBAR * omega / EV / 1e9
         lam   = C / omega / FM  # evanescent depth in fm
         return {
@@ -395,22 +395,22 @@ def two_phase_check():
 
     phi_- characteristics:
     - Massless in vacuum: Phi_Newton = 0 -> m_phi- = 0 -> propagates freely
-    - Massive near matter: m_phi-^2 = 2*g*Phi_Newton
+    - Massive near matter: m_phi-^2 = g*Phi_Newton
     - Smooth spatial variation: varies with G*M/r (not a discontinuity)
 
     Two-phase Lagrangian consistency check (CLAUDE.md requirement):
     - phi_- evanescent depth near Earth (0.006 fm) lies BETWEEN B1 (0.987 fm)
       and B2 (0.00245 fm). It does NOT conflict with either boundary. [CONSISTENT]
-    - Jeans instability eigenvalue: 2*sqrt(2)*g > 0 -- unchanged by D1-D3. [PASS]
+    - Jeans instability eigenvalue: sqrt(3)*g > 0 (corrected T83b) -- unchanged by D1-D3. [PASS]
     - Newton 3rd law: psi_ddot = -2*phi_+_ddot -- D1-D3 do not modify C1
       dynamics (Bragg/Anderson are boundary effects only).          [PASS]
-    - Biharmonic field equation: nabla^4 + 4g^2 -- unchanged (no new fields). [PASS]
+    - Biharmonic field equation: nabla^4 - g^2 (corrected T83c) -- unchanged (no new fields). [PASS]
 
     New PDTP falsifiable prediction (D4 result):
     phi_- creates an environment-dependent condensate surface tension.
     Near a neutron star gravitational field (Phi_NS/c^2 ~ 0.22), the phi_-
-    threshold is ~566 TeV. If gravitational waves pass through a NS field,
-    modes above 566 TeV should show phi_- dispersion NOT predicted by GR.
+    threshold is ~400 TeV (T83j; was 566). If gravitational waves pass through a NS field,
+    modes above 400 TeV (T83j; was 566) should show phi_- dispersion NOT predicted by GR.
     This is far above current GW detector energy range but is exact and
     testable in principle.                                    [PDTP Original, SPECULATIVE]
     """
@@ -419,16 +419,38 @@ def two_phase_check():
     lambda_B2  = HBAR * C / M_W_J       / FM    # 0.00245 fm
 
     Phi_Earth  = G * M_EARTH / R_EARTH
-    omega_phi_earth = math.sqrt(2.0 * OMEGA_P * Phi_Earth)
+    omega_phi_earth = math.sqrt(1.0 * OMEGA_P * Phi_Earth)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
     lambda_phi_earth = C / omega_phi_earth / FM  # fm
 
     # Ordering check: lambda_B2 < lambda_phi_earth < lambda_B1?
     order_ok = (lambda_B2 < lambda_phi_earth < lambda_B1)
 
-    # Two-phase consistency (symbolic checks -- values from CLAUDE.md)
-    jeans_eigenvalue_pos = True   # 2*sqrt(2)*g > 0 (always for g > 0)
-    newton3_preserved    = True   # psi_ddot = -2*phi+_ddot (from Lagrangian)
-    biharmonic_unchanged = True   # nabla^4 + 4g^2 unchanged
+    # Two-phase consistency (CORRECTED T83b, 2026-09-28: these three flags
+    # were hardcoded True -- a RECHECK violation. Now computed from the
+    # two-phase Lagrangian in (psi, phi_b, phi_s), unit inertias, g = 1.)
+    import numpy as np
+    # Jeans: x_tt = -Hess(V) x at psi=phi_b=phi_s=0,
+    # V = -cos(psi-phi_b) + cos(psi-phi_s)  -> eigenvalues {0, +/-sqrt(3)}
+    M_jeans = np.array([[0.0, 1.0, -1.0], [1.0, -1.0, 0.0], [-1.0, 0.0, 1.0]])
+    jeans_eigs = np.linalg.eigvals(M_jeans).real
+    jeans_eigenvalue_pos = bool(max(jeans_eigs) > 0)
+    # Newton 3rd: force_psi + force_phi_b + force_phi_s = 0 at a test point
+    # (psi_ddot = -2*phi+_ddot follows with phi_+ inertia 2)
+    ps_, pb_, pss_ = 0.37, -0.81, 1.23
+    f_psi = -math.sin(ps_ - pb_) + math.sin(ps_ - pss_)
+    f_pb = math.sin(ps_ - pb_)
+    f_ps = -math.sin(ps_ - pss_)
+    newton3_preserved = abs(f_psi + f_pb + f_ps) < 1e-12
+    # Biharmonic (T83c): eliminate phi_- from the static linear equations
+    # nabla^2 phi_+ = g phi_-, nabla^2 phi_- = -g (psi - phi_+)  (g = 1),
+    # D = nabla^2 as a symbol; the constant term of P(D) must be -g^2 = -1.
+    import sympy as _sp
+    _D, _pp, _pm, _ps = _sp.symbols('D pp pm ps')
+    _sol = _sp.solve([_sp.Eq(_D * _pp, _pm), _sp.Eq(_D * _pm, -(_ps - _pp))],
+                     [_pp, _pm], dict=True)[0]
+    _den = _sp.fraction(_sp.together(_sol[_pp] / _ps))[1]
+    _P = _sp.expand(_den / _sp.Poly(_den, _D).LC())
+    biharmonic_unchanged = (_P.subs(_D, 0) == -1)
 
     return {
         "lambda_B1_fm":         lambda_B1,
@@ -496,9 +518,10 @@ def run_sudoku_b7_fcc(rw, bragg, anderson, fiber, d2, dm, tpc):
     check_bool("S20: lambda_B2 < lambda_phi-(Earth) < lambda_B1 [Eq 96.7]",
                tpc["phi_between_B1_B2"])
 
-    # S21: phi_- (Earth) mass ~ 31.7 GeV (from Part 94 Eq 6c)
-    check("S21: phi_-(Earth) ~ 31.7 GeV [Eq 96.8, Part 94 Eq 6c]",
-          d2["earth"]["E_GeV"], 31.7, tol=0.05)
+    # S21: phi_- (Earth) mass ~ 22.4 GeV (Part 94 Eq 6c / Eq 94.10, corrected
+    # T83j / Part 157: m^2 = g*Phi, was 31.7 GeV with 2*g*Phi)
+    check("S21: phi_-(Earth) ~ 22.4 GeV [Eq 96.8, Eq 94.10 corrected Part 157]",
+          d2["earth"]["E_GeV"], 22.42, tol=0.05)
 
     # S22: DM n=1 (m=m_P): sigma/m << Bullet Cluster bound
     dm_n1 = dm["candidates"][0]
@@ -626,8 +649,8 @@ def run_condensate_layer_fcc(rw, _engine):
     rw.print("")
     rw.subsection("D2: phi_- Evanescent Depth in Different Gravitational Environments")
     d2 = curved_spacetime_n_eff()
-    rw.print("  phi_- mass (Part 62): m_phi-^2 = 2*g_SI*Phi_Newton  [PDTP Original]")
-    rw.print("  omega_phi = sqrt(2*omega_P*Phi_Newton)  (Part 94 Eq 6c)")
+    rw.print("  phi_- mass (Part 62, corrected Part 157): m_phi-^2 = g_SI*Phi_Newton")
+    rw.print("  omega_phi = sqrt(omega_P*Phi_Newton)  (Part 94 Eq 6c, corrected Part 157)")
     rw.print("  lambda_phi = c / omega_phi              (evanescent depth)")
     rw.print("")
     rw.print("  Environment       | Phi (m^2/s^2) | Phi/c^2     | omega_phi (rad/s)"
@@ -645,7 +668,7 @@ def run_condensate_layer_fcc(rw, _engine):
     rw.print("  Plain English: The phi_- field gets heavier where gravity is stronger.")
     rw.print("  Near Earth it has mass ~31.7 GeV and range ~0.006 fm -- right between")
     rw.print("  the QCD (1 fm) and weak (0.002 fm) force ranges. Near a neutron star")
-    rw.print("  it reaches 566 TeV. Near a proton it has mass ~42 microeV and range")
+    rw.print("  it reaches 400 TeV (T83j; was 566). Near a proton it has mass ~30 microeV (T83j; was 42) and range")
     rw.print("  ~4.7 mm (macroscopic -- irrelevant for nuclear physics).")
     rw.print("  This is a PDTP-specific prediction not present in the SM.  [SPECULATIVE]")
 
@@ -686,7 +709,8 @@ def run_condensate_layer_fcc(rw, _engine):
     rw.print("  Newton 3rd law preserved:          {:s}".format(
         "PASS" if tpc["newton3_ok"] else "FAIL"))
     rw.print("  Biharmonic field eq unchanged:     {:s}".format(
-        "PASS" if tpc["biharmonic_ok"] else "FAIL"))
+        "NOT CHECKED (T83 83c)" if tpc["biharmonic_ok"] is None
+        else ("PASS" if tpc["biharmonic_ok"] else "FAIL")))
     rw.print("  phi_- ordering B2 < phi- < B1:     {:s}  ({:.5f} < {:.5f} < {:.3f} fm)".format(
         "PASS" if tpc["phi_between_B1_B2"] else "FAIL",
         tpc["lambda_B2_fm"], tpc["lambda_phi_earth_fm"], tpc["lambda_B1_fm"]))
@@ -694,9 +718,9 @@ def run_condensate_layer_fcc(rw, _engine):
         "YES" if tpc["is_4th_layer"] else "NO"))
     rw.print("")
     rw.print("  FALSIFIABLE PREDICTION (D4) [PDTP Original, SPECULATIVE]:")
-    rw.print("  phi_- near a neutron star has mass ~566 TeV and range ~3.5e-7 fm.")
+    rw.print("  phi_- near a neutron star has mass ~400 TeV (T83j; was 566) and range ~4.9e-7 fm (T83j; was 3.5e-7).")
     rw.print("  GW signals passing through a neutron star field should show phi_-")
-    rw.print("  dispersion above 566 TeV -- distinguishing PDTP from GR at that scale.")
+    rw.print("  dispersion above 400 TeV (T83j; was 566) -- distinguishing PDTP from GR at that scale.")
     rw.print("  (Far above current GW detector energy range; testable in principle.)")
 
     # ---- Sudoku tests ----

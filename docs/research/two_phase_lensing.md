@@ -71,6 +71,13 @@ psi_ddot = -2*phi_+_ddot                          [Eq 100.A2, Part 63 S3.6, DERI
 In single-phase: psi_ddot = -phi_ddot. So the ratio of accelerations is 2.
 This gives G_eff/G_bare = 2.
 
+> **CORRECTED 2026-09-28 (Part 156, T83d — CLAUDE OPUS 5.5):** the acceleration-ratio
+> route is invalid (the factor 2 in ψ̈ = −2φ̈₊ depends on defining φ₊ as an average;
+> it is 1 for Σ = φ_b + φ_s). G_eff/G_bare = 2 is nevertheless correct at equal g,
+> from the coherent 2g coupling divided by φ₊'s stiffness 2 (source→field ×1,
+> field→test ×2). This Part's verdict — already absorbed into G_N, does not close
+> the lensing gap — is unchanged. See [geff_factor_audit.md](geff_factor_audit.md).
+
 **Crucially:** G_N (Newton's measured constant) is already G_eff.
 When Cavendish measured G, he measured the full two-condensate reaction.
 G_bare = G_N/2 is a theoretical construct — it has never been and cannot
@@ -337,7 +344,7 @@ Two-phase scalar => gamma = 0 => lensing factor = 1 => theta = 0.875".
 | S3 | theta_GR / theta_scalar = 2 | 2.0000 | 2.0000 | PASS |
 | S4 | Ratio with G_bare=G_N/2 (Case 1) | 2.0000 | 2.0000 | PASS |
 | S5 | Ratio with G_eff=2*G_N (Case 2) | 2.0000 | 2.0000 | PASS |
-| S6 | G_eff/G_bare from Newton 3rd law (Part 61) | 2.0000 | 2.0000 | PASS |
+| S6 | G_eff/G_bare from Newton 3rd law (Part 61) [route invalid; value 2 confirmed by Part 156's coupling/stiffness route] | 2.0000 | 2.0000 | PASS |
 | S7 | n_scalar at solar limb ~ 1+u | 2.12e-6 | 2.12e-6 | PASS* |
 | S8 | n_GR ~ 1+2u: (n_GR-1)/u = 2 | 2.0000 | 2.0000 | PASS |
 | S9 | PPN lensing factor (1+gamma): GR=2 | 2.0000 | 2.0000 | PASS |

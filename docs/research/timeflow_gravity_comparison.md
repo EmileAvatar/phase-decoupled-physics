@@ -91,7 +91,7 @@ labeled "Falsifiable Prediction 9" — a separate numbering track from the
 project's canonical `falsifiable_predictions.md` list, worth reconciling
 as a minor housekeeping item sometime, not attempted here) already
 attempted a structural MOND analogue via the biharmonic screening length
-(∇⁴Φ + 4g²Φ = source, Part 61): **already found to fail by ~54 orders of
+(∇⁴Φ + 4g²Φ = source, Part 61; corrected to ∇⁴φ₊ − g²φ₊ = −g²ψ in Part 155, verdict unchanged): **already found to fail by ~54 orders of
 magnitude** (L_heal ~ l_Planck ~ 1.6×10⁻³⁵ m vs. a representative galactic
 scale of 1 kpc ~ 3.1×10¹⁹ m, computed directly — corrects a stale "20
 orders" figure in `dark_matter_energy.md`, caught and fixed while writing

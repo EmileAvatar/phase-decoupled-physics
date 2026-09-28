@@ -16,7 +16,7 @@ than quoted from memory):
   Scalar/breathing sector (phi_-, Parts 61-63/113): NOT what GW170817's
   arrival-time measurement probes. Has an already-derived, Phi-dependent
   massive dispersion relation (two_phase_rederivation.md Eq S7.5,
-  omega^2 = c^2*k^2 + 2*g*Phi). This script recomputes that relation's
+  omega^2 = c^2*k^2 + g*Phi). This script recomputes that relation's
   local mass gap using T68's corrected bare-g formula (g = omega_gap^2/
   c^2, NOT g = omega_gap directly -- that was the exact bug T68 fixed)
   and shows the mode is evanescent (cannot propagate as an oscillating
@@ -142,7 +142,7 @@ def derive_local_gap_frequency_formula():
     reintroduced:
     Route 1 (this script, direct): omega_local = omega_gap*sqrt(2*Phi)
       -- substituting g_bare = omega_gap^2/c^2 (T68) into
-      omega^2 = c^2*k^2 + 2*g*Phi (two_phase_rederivation.md Eq S7.5)
+      omega^2 = c^2*k^2 + g*Phi (two_phase_rederivation.md Eq S7.5)
       at k=0 (the local mass-gap/rest-frequency piece).
     Route 2 (T68's route, t68_g_units_phi_minus_mass.py): kappa =
       sqrt(2*(omega_gap^2/c^2)*Phi), then omega_local = c*kappa.
@@ -150,11 +150,11 @@ def derive_local_gap_frequency_formula():
     omega_gap, Phi, c = sp.symbols('omega_gap Phi c', positive=True)
 
     # Route 1
-    omega_local_route1 = omega_gap * sp.sqrt(2 * Phi)
+    omega_local_route1 = omega_gap * sp.sqrt(1 * Phi)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
 
     # Route 2 (T68's kappa route)
     g_bare = omega_gap**2 / c**2
-    kappa = sp.sqrt(2 * g_bare * Phi)
+    kappa = sp.sqrt(1 * g_bare * Phi)  # T83j/Part 157: phi_- mass m^2 = g*Phi (inertia 2); was 2*g*Phi
     omega_local_route2 = c * kappa
 
     residual = sp.simplify(omega_local_route1 - omega_local_route2)
