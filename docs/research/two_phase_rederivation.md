@@ -927,7 +927,7 @@ to cos(psi-phi) in the U(1) limit, unchanged by two-phase.
    L_SU3_2phase = ... + g*Re[Tr(Psi_dag*U_b)]/3 - g*Re[Tr(Psi_dag*U_s)]/3
    ```
    Same Wilson action structure with opposite signs. The 8 gluons
-   (from N^2-1 = 8 generators), Z3 vortices (quarks), and Casimir
+   (from N^2-1 = 8 generators), Z3 vortices (quarks; conditional, Part 158 (T83e)), and Casimir
    factors are all properties of SU(3) group theory — unchanged by
    the sign of the potential.
 

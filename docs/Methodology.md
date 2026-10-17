@@ -72,7 +72,11 @@ you, even if it is unexpected. The surprise is the prediction.
 
 **PDTP parallel:** The SU(3) extension was the natural generalisation of U(1).
 Z₃ vortices (quarks) and 8 gluons fell out of the algebra automatically — not
-assumed, derived from symmetry.
+assumed, derived from symmetry. *(Caveat, Part 158 / T83e: the Z₃ vortices turned
+out NOT to be supported by the Lagrangian as written. Its coupling breaks the Z₃
+center, so the target space is SU(3), which has no protected vortices. Accepting
+"what the math gives you" still requires checking that the math gives it. See
+`research/su3_z3_target_audit.md`.)*
 
 ---
 

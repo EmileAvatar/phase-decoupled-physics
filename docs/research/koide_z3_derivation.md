@@ -16,7 +16,9 @@ Parts 32 and 37 established two seemingly independent results:
 1. **Part 32 (Koide):** The charged lepton masses satisfy Q = 2/3 exactly,
    with Brannen parametrization √mᵢ = μ(1 + √2 cos(θ₀ + 2πi/3))
 2. **Part 37 (SU(3)):** Baryons are Y-junctions of three Z₃ vortices at 120°,
-   from force balance ê₁+ê₂+ê₃ = 0
+   from force balance ê₁+ê₂+ê₃ = 0 (the 120° force balance stands; the Z₃
+   vortices themselves are conditional, Part 158 (T83e), [su3_z3_target_audit.md](su3_z3_target_audit.md). The Koide result here uses
+   the Z₃ *center group*, not vortex topology, and is unaffected.)
 
 The key insight: **these are the same Z₃ geometry expressed at two levels.**
 

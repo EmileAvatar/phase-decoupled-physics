@@ -132,7 +132,7 @@ not necessarily physical layers of the condensate (see Section 3a for that).
 ### Layer Interactions (where PDTP makes claims)
 
 - **L1 <-> L6:** Gravity = phase locking between spacetime (phi) and matter (psi). This is the core PDTP mechanism.
-- **L1 <-> L3:** SU(3) condensate extension; QCD flux tubes from Z_3 vortices in condensate.
+- **L1 <-> L3:** SU(3) condensate extension; QCD flux tubes from Z_3 vortices in condensate (Z_3 vortices conditional, [Part 158](research/su3_z3_target_audit.md)).
 - **L1 <-> L5:** phi_- (breathing mode) has reversed Higgs behavior: massless in vacuum, massive near matter.
 - **L1 <-> L10:** Dark energy from slow phase drift (beats) between phi and psi fields.
 - **L1 <-> L7:** Exact structural analogy: c^2 = kappa/rho in both; PDTP spacetime IS a superfluid/elastic medium.
@@ -209,6 +209,8 @@ and which can cross boundaries:
 | W/Z boson | SU(2) adjoint | Confined to SU(2) above EW scale | NO — trapped above B2 (massive) | Foam on water surface: confined to top layer |
 | Photon | U(1) gauge | Gauge field of U(1) -> free | YES — propagates everywhere | Light: passes through all transparent layers |
 | Gluon | SU(3) adjoint | Confined to SU(3) | NO — trapped between B1 and B2 | Currents inside oil: can't escape into water |
+
+*(Part 158 (T83e): the Z_3 winding below assumes a Z_3-invariant SU(3) target, which the Part 37 Lagrangian does not have; see [su3_z3_target_audit.md](research/su3_z3_target_audit.md).)*
 
 **This IS colour confinement, restated topologically.** A quark has winding 1/3
 in SU(3), but U(1) only allows integer windings. The quark literally cannot exist

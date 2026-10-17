@@ -45,7 +45,7 @@ L_2 = (1/2)(d phi_b)^2 + (1/2)(d phi_s)^2 + (1/2)(d psi)^2
 
 L_3 = K Tr[(d U_dag)(d U)] + Sum_i K_i Tr[(d Psi_i_dag)(d Psi_i)]
     + Sum_i g_i Re[Tr(Psi_i_dag U)] / 3
-      [SU(3) matrix fields; 8 gluons; Z3 vortices]
+      [SU(3) matrix fields; 8 gluons; Z3 vortices -- conditional, Part 158]
 ```
 
 All three have independent condensates. Matter ψ couples to each, but
@@ -504,7 +504,7 @@ Lagrangian   Fields         Coupling form          New modes
 L_1          phi, psi       g cos(psi-phi)         Breathing mode (omega_gap^2=2g)
 L_2          phi_b,phi_s,   g cos - g cos          phi_- surface mode (reversed Higgs)
              psi
-L_3          U in SU(3),    Re[Tr(Psi_dag U)]/3    8 gluons, Z3 vortices (quarks)
+L_3          U in SU(3),    Re[Tr(Psi_dag U)]/3    8 gluons, Z3 vortices (quarks; conditional, Part 158)
              Psi_i
 L_4 (NEW)    phi_1,phi_2,   J_ab cos(phi_a-phi_b)  3 inter-layer modes:
              phi_3, psi     [inter-condensate]      Goldstone (m=0),

@@ -232,6 +232,7 @@ Y = can propagate; N = evanescent or mode-mismatch
 2. **Quark confinement has two origins** (consistent, not contradictory):
    - (A) String tension from flux tubes (Part 38): sigma ~ 0.173 GeV^2
    - (B) Topological: fractional winding 1/3 incompatible with integer C1 winding
+     [conditional, Part 158 (T83e): requires a Z_3-invariant SU(3) target]
    - (C) Evanescent: even if quarks could enter C1, they'd decay in l_P ~ 10^-35 m
 
 3. **Electron interaction with strong force:** The electron has integer winding

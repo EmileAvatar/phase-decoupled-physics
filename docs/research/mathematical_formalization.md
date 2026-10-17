@@ -6,7 +6,8 @@ result is marked as PDTP Original. Every derivation is shown step by step.
 
 **Companion documents:** this file covers the single-phase U(1) foundations
 (§§1–9 below) end-to-end. The two largest structural extensions — the
-SU(3) extension (Part 37: quarks, gluons, Z₃ vortices) and the two-phase
+SU(3) extension (Part 37: quarks, gluons, Z₃ vortices — the latter conditional
+per Part 158) and the two-phase
 Lagrangian (Part 61: φ₊/φ₋ split, Newton's 3rd law, biharmonic gravity,
 the reversed-Higgs φ₋ mode) — are shown at the same step-by-step depth in
 `mathematical_formalization_extensions.md`, kept in its own file per the

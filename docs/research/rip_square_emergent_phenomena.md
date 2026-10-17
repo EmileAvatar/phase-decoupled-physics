@@ -368,7 +368,10 @@ This is geometry, not dynamics — it follows from the topology of the winding n
 In SU(3) color: quarks come in triplets (3 colors). Baryons = color singlets of type 3⊗3⊗3.
 
 For Z₃ vortices: three vortices of winding +1/3 meet at a point and the total winding = 1
-(a stable integer vortex, or the vacuum). This is why Nature chose 3 colors:
+(a stable integer vortex, or the vacuum). [Corrected Part 158 (T83e): in Z₃ the total is
+1+1+1 ≡ 0 (the trivial class). That is what permits the junction. The 3-component
+vector field of §9.2 below is a different target from Part 37's SU(3) matrix field, and
+is close to alternative D (U(3)) in [su3_z3_target_audit.md](su3_z3_target_audit.md).] This is why Nature chose 3 colors:
 
 ```
 Z₃ group → 3 quarks per baryon → SU(3) color symmetry → 8 gluons

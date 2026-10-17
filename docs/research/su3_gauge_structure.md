@@ -10,7 +10,9 @@
 The SU(3) condensate extension (Part 37) showed that replacing the U(1) phase
 field φ with an SU(3) matrix field U(x) automatically produces:
 - 8 independent fluctuation modes → claimed to be gluons
-- Z₃ fractional vortices → claimed to be quarks
+- Z₃ fractional vortices → claimed to be quarks (Part 158 (T83e): not supported by
+  the Lagrangian as written, since the coupling breaks the Z₃ center; see
+  [su3_z3_target_audit.md](su3_z3_target_audit.md))
 - Linear confinement via flux tubes → claimed to match QCD string tension
 
 **Open questions (from TODO_02.md):**

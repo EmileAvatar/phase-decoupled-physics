@@ -170,7 +170,9 @@ audit untangling.
 | **∇²** | `\nabla^2` | Laplacian | Spatial second derivative (divergence of gradient). Appears in Poisson's equation. |
 | **∇⁴** | `\nabla^4` | Biharmonic | Two Laplacians applied in series. Appears in the two-phase biharmonic equation ∇⁴φ₊ − g²φ₊ = −g²ψ (corrected Part 155; was stated as ∇⁴Φ + 4g²Φ). |
 | **T_μν** | `T_{\mu\nu}` | Stress-energy tensor | Encodes energy, momentum, and pressure at each spacetime point. The source term in Einstein's equations. |
-| **Re[Tr(Ψ†U)]/N** | — | Wilson loop coupling | The SU(3) generalisation of cos(ψ−φ). Reduces exactly to cos(ψ−φ) in the U(1) limit (N=1). Connects PDTP to Wilson's lattice gauge theory (1974). |
+| **Re[Tr(Ψ†U)]/N** | — | Wilson loop coupling | The SU(3) generalisation of cos(ψ−φ). Reduces exactly to cos(ψ−φ) in the U(1) limit (N=1). Connects PDTP to Wilson's lattice gauge theory (1974). **Not Z₃-invariant** (changes under U → ωU), so the Part 37 field space is SU(3), not SU(3)/Z₃ (Part 158). |
+| **ω** (bare, SU(3) context) | `\omega` | Z₃ center element | e^{2πi/3}, dimensionless; ω·1 is the non-trivial center of SU(3) (ω³ = 1). **Not** ω_gap (a frequency, s⁻¹) and not a mode frequency; used only in SU(3)/Z₃ statements (Parts 37, 105, 158). |
+| **X** | `X` | Vortex generator | Dimensionless Hermitian traceless 3×3 matrix with U(θ) = exp(iθX) around a vortex; line energy E/L = 2πK·Tr(X²)·ln(R/ξ). Minimal Z₃ vortex: X_min = diag(1/3, 1/3, −2/3), Tr X_min² = 2/3 [Part 158]. Written X, not Q, to avoid the Koide parameter Q = 2/3 (Part 53), an unrelated quantity with the same value. |
 
 ---
 
@@ -201,7 +203,7 @@ audit untangling.
 |-------------|-----------|---------|
 | PDTP | Phase-Decoupled Transport Physics | This project. |
 | U(1) | Unitary group of dimension 1 | Single phase angle φ ∈ ℝ. The original PDTP Lagrangian. |
-| SU(3) | Special Unitary group of dimension 3 | 3×3 matrix extension. Produces 8 gluons and Z₃ vortices (quarks). Part 37+. |
+| SU(3) | Special Unitary group of dimension 3 | 3×3 matrix extension. Produces 8 spin-0 modes (T70) and, *conditionally*, Z₃ vortices (quarks): the Part 37 Lagrangian has target SU(3) (π₁ = 0), so the Z₃ vortices need a Z₃-invariant target ([Part 158](research/su3_z3_target_audit.md)). Part 37+. |
 | BEC | Bose-Einstein Condensate | The spacetime medium in PDTP. |
 | EDE | Early Dark Energy | Transient dark energy before recombination. Derived from λ₄ in Part 117. |
 | EOS | Equation of State | Relation w = p/ρ between pressure and density. Determines dark energy behaviour. |

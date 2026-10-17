@@ -84,7 +84,9 @@ but cannot be confirmed as a derivation given the large quark mass uncertainties
 do not (Q_up = 0.849, Q_down = 0.732). This is consistent with the Part 53
 PDTP interpretation: leptons are Z3-neutral (SU(3) color singlets), so the full
 Z3 center symmetry applies, giving the equal partition (Q = 2/3). Quarks carry
-color charge (they ARE Z3 vortices), which breaks the equal partition — confirmed
+color charge (they ARE Z3 vortices [conditional, Part 158 (T83e): the Part 37
+Lagrangian does not protect Z3 vortices; the color-charge argument itself uses
+only the Z3 center group]), which breaks the equal partition — confirmed
 numerically here.
 
 **Eq. 91.5** [DERIVED — explains Q_lepton = 2/3 exactly]:

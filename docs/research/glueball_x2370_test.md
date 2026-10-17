@@ -53,7 +53,8 @@ introduced:
 ### 2.1 Why a Closed Loop Is the Natural PDTP Construction
 
 A real glueball has no quark ends — it is pure glue. PDTP's own confining
-object is the Abrikosov flux tube between Z₃ vortices (Part 36–37): the
+object is the Abrikosov flux tube between Z₃ vortices (Part 36–37; the
+Z₃ vortices are conditional, Part 158 (T83e), [su3_z3_target_audit.md](su3_z3_target_audit.md)): the
 same tube that stretches between two quarks, or meets at 120° in a
 Y-junction baryon (Part 37 Section 8), can in principle close on itself
 with no vortex endpoints at all. This is the standard "flux-tube model of

@@ -385,7 +385,7 @@ levels of detail.
 | **Gravitational waves** | scalar (breathing) | -- | tensor (h_+, h_x) |
 | **Strong force (QCD)** | -- | -- | 8 gluons, confinement |
 | **Weak force** | -- | W+, W-, Z (3 bosons) | -- |
-| **Particle types** | -- | Z_2 vortices (fermions) | Z_3 vortices (quarks) |
+| **Particle types** | -- | Z_2 vortices (fermions) | Z_3 vortices (quarks) — conditional, [Part 158](../research/su3_z3_target_audit.md) |
 | **Generations** | -- | -- | 3 (from |Z_3| = 3) |
 
 ### Why Not Just Use SU(3) for Everything?

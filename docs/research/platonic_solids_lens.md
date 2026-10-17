@@ -151,7 +151,7 @@ Energy **monotonically decreases** with n. If only energy mattered, `n → ∞`
 (continuous flux) would be preferred. So energy minimisation does NOT select
 n=3 either.
 
-**What actually selects n=3:** the topology of `SU(3)/Z_3`:
+**What actually selects n=3:** the topology of `SU(3)/Z_3` [conditional, Part 158 (T83e): the Part 37 Lagrangian's target is SU(3), not SU(3)/Z_3; the group-theory fact |Z(SU(3))| = 3 is unaffected; see [su3_z3_target_audit.md](su3_z3_target_audit.md)]:
 
 $$
 \pi_1(\text{SU}(3)/Z_3) = Z_3

@@ -34,7 +34,9 @@ SUDOKU CHECKS (10 tests):
   S4:  String tension (U(1)) -- sigma = hbar/(8*pi*c)  [reproduce Part 36]
   S5:  String tension (SU(3)) -- sigma_SU3 = C2_fund * sigma_U1_est --> compare to 0.18 GeV^2
   S6:  Flux tube width -- xi = a0/sqrt(2) for Lambda_QCD condensate --> fm range?
-  S7:  Z3 vortex energy -- E/L = 2*pi*K * (1/N)^2 * ln(R/xi); 3 Z3 < 1 full vortex
+  S7:  Z3 vortex energy -- Part 37 claimed (1/N)^2 = 1/9; T83e (Part 158):
+       minimal SU(3) generator gives Tr(X^2)/3 = 2/9, and Z3 vortices need
+       a Z3-invariant target (see t83e_z3_target.py)
   S8:  Junction angle -- three equal-tension strings at Y-junction --> 120 degrees
   S9:  kappa_GL -- lambda_L / xi = a0 / (a0/sqrt(2)) = sqrt(2)  (same as Part 34)
   S10: m_cond from sigma -- invert sigma ~ m_cond^2; compare to Lambda_QCD
@@ -407,10 +409,18 @@ def _z3_vortex_energy(rw):
     rw.print("    3 Z3 vortices have {:.1f}x LESS energy than 1 U(1) vortex.".format(
         1.0 / (3.0 * ratio_z3)))
     rw.print("")
-    rw.print("  TOPOLOGICAL STABILITY:")
-    rw.print("    Total winding = 3 x (1/3) = 1  (integer) --> stable!")
-    rw.print("    Three Z3 vortices cannot unwind individually.")
-    rw.print("    They are tied together at the Y-junction.")
+    rw.print("  ERRATUM (T83e, Part 158, CLAUDE OPUS 5.5, 2026-10-17):")
+    rw.print("    The path exp(i*theta/3)*1_3 used above has det = exp(i*theta) != 1,")
+    rw.print("    so it is NOT an SU(3) path; the 1/9 above is withdrawn.")
+    q_min, trq2_min = _min_z3_generator()
+    rw.print("    Minimal traceless X with exp(2 pi i X) = w*1: eigenvalues {}".format(
+        tuple(round(q, 4) for q in q_min)))
+    rw.print("    Tr(X^2) = {:.4f}; E_Z3/E_ref(Tr=3) = {:.4f}".format(
+        trq2_min, trq2_min / 3.0))
+    rw.print("    Z3 fusion: 1+1+1 = {} mod 3 (trivial class, not 'winding 1')".format(
+        (1 + 1 + 1) % 3))
+    rw.print("    pi_1(SU(3)) = 0: Z3 vortices need target SU(3)/Z3, but")
+    rw.print("    Re Tr(Psi^dag U) is not invariant under U -> w*U (t83e_z3_target.py).")
     rw.print("")
     rw.print("  NUMERICAL CHECK (for R/xi = 10, representative hadronic scale):")
     R_over_xi = 10.0
@@ -425,9 +435,21 @@ def _z3_vortex_energy(rw):
     rw.print("    3*E_Z3/L = {:.4e} J/m  (baryon = three quarks)".format(E_3Z3_per_L))
     rw.print("    Ratio 3*E_Z3 / E_U1 = {:.4f}  = 1/3".format(E_3Z3_per_L / E_U1_per_L))
     rw.print("")
-    rw.print("  S7 RESULT: PASS -- 3 Z3 vortices carry 1/3 the energy of a full")
-    rw.print("    U(1) vortex; they are energetically preferred and topologically stable.")
+    rw.print("  S7 RESULT: see scorecard (recomputed from the minimal SU(3) generator).")
     rw.print("")
+
+
+def _min_z3_generator(kmax=3):
+    """Minimal Tr(X^2) over traceless diagonal X with exp(2 pi i X) = w*1,
+    i.e. eigenvalues in 1/3 + Z summing to zero (T83e)."""
+    best = None
+    for k1 in range(-kmax, kmax + 1):
+        for k2 in range(-kmax, kmax + 1):
+            q = (1.0 / 3 + k1, 1.0 / 3 + k2, -(2.0 / 3 + k1 + k2))
+            tr2 = sum(v * v for v in q)
+            if best is None or tr2 < best[1]:
+                best = (q, tr2)
+    return best
 
 
 # ===========================================================================
@@ -579,9 +601,13 @@ def _sudoku_scorecard(rw, engine):
         "S2", "N^2-1 generators = gluons", 8, N_GENERATORS,
         N_GENERATORS / 8.0, "EXACT"))
 
-    # S3: U(1) limit (already computed above, exact)
+    # S3: U(1) limit, computed at a test angle (T83e RECHECK: was literal 1.0)
+    th_t = 0.7
+    re_tr_1x1 = np.real(np.trace(np.array([[np.exp(-1j * th_t)]])))
     rw.print("  {:>4s}  {:>30s}  {:>10.4f}  {:>10.4f}  {:>8.4f}  {:>6s}".format(
-        "S3", "U(1) limit Re[Tr]/1=cos(th)", 1.0, 1.0, 1.0, "EXACT"))
+        "S3", "U(1) limit Re[Tr]/1=cos(th)", np.cos(th_t), re_tr_1x1,
+        re_tr_1x1 / np.cos(th_t),
+        "EXACT" if np.isclose(re_tr_1x1, np.cos(th_t)) else "FAIL"))
 
     # S4: String tension (U(1))
     ratio_S4 = SIGMA_U1_SI / (HBAR / (8.0 * np.pi * C))
@@ -603,15 +629,22 @@ def _sudoku_scorecard(rw, engine):
         "S6", "xi_QCD [fm]", xi_expected_fm, xi_fm, ratio_S6,
         "MATCH" if 0.5 <= xi_fm <= 1.0 else "~"))
 
-    # S7: Z3 vortex energy ratio
-    ratio_S7 = 1.0 / 9.0  # = (1/N)^2 = per vortex
+    # S7: Z3 vortex energy ratio. T83e RECHECK: was ratio_S7 = 1/9 compared
+    # with 1/9 (circular). Now computed from the minimal SU(3) generator.
+    ratio_S7 = _min_z3_generator()[1] / 3.0
     rw.print("  {:>4s}  {:>30s}  {:>10.4f}  {:>10.4f}  {:>8.4f}  {:>6s}".format(
-        "S7", "E_Z3/E_U1 per vortex = 1/9", 1.0/9.0, ratio_S7,
-        ratio_S7 / (1.0/9.0), "EXACT"))
+        "S7", "E_Z3/E_U1 per vortex (P37: 1/9)", 1.0/9.0, ratio_S7,
+        ratio_S7 / (1.0/9.0),
+        "EXACT" if np.isclose(ratio_S7, 1.0 / 9.0) else "FAIL"))
 
-    # S8: Junction angle
+    # S8: Junction angle, computed from force balance (T83e RECHECK: was literal)
+    e_vec = [np.array([np.cos(2 * np.pi * k / 3), np.sin(2 * np.pi * k / 3)])
+             for k in range(3)]
+    net = np.linalg.norm(e_vec[0] + e_vec[1] + e_vec[2])
+    ang = np.degrees(np.arccos(np.dot(e_vec[0], e_vec[1])))
     rw.print("  {:>4s}  {:>30s}  {:>10.2f}  {:>10.2f}  {:>8.4f}  {:>6s}".format(
-        "S8", "Y-junction angle [deg]", 120.0, 120.0, 1.0, "EXACT"))
+        "S8", "Y-junction angle [deg]", 120.0, ang, ang / 120.0,
+        "EXACT" if net < 1e-12 and np.isclose(ang, 120.0) else "FAIL"))
 
     # S9: kappa_GL
     ratio_S9 = KGL_QCD / np.sqrt(2.0)
@@ -628,7 +661,9 @@ def _sudoku_scorecard(rw, engine):
 
     rw.print("")
     rw.print("  SUMMARY:")
-    rw.print("    S1a, S1b, S2, S3, S4, S7, S8, S9 -- EXACT (algebraic / trivial)")
+    rw.print("    S1a, S1b, S2, S3, S4, S8, S9 -- EXACT (algebraic / trivial)")
+    rw.print("    S7  E_Z3/E_U1 = {:.4f} vs claimed 1/9 -- FAIL (T83e, Part 158)".format(
+        ratio_S7))
     rw.print("    S6                                -- MATCH (within 0.5-1.0 fm range)")
     rw.print("    S5                                -- ORDER-OF-MAGNITUDE (~{:.1f}x off)".format(
         1.0 / (SIGMA_SU3_GEV2 / SIGMA_QCD_GEV2)))
@@ -718,13 +753,13 @@ def _conclusion(rw):
     rw.print("  2. The SU(3) coupling Re[Tr(Psi† U)]/3 reduces EXACTLY to")
     rw.print("     cos(psi - phi) in the N=1 limit -- U(1) is recovered.")
     rw.print("")
-    rw.print("  3. Z3 fractional vortices exist in SU(3):")
-    rw.print("     winding = 1/3;  three of them total to winding = 1 (stable).")
-    rw.print("     Their combined energy = 1/3 of a full U(1) vortex --> preferred.")
+    rw.print("  3. [T83e ERRATUM] Z3 vortices are NOT supported by this Lagrangian")
+    rw.print("     as written: pi_1(SU(3)) = 0 and Re Tr(Psi^dag U) breaks the Z3")
+    rw.print("     center. If the target were SU(3)/Z3: E_Z3/E_ref = 2/9 (not 1/9),")
+    rw.print("     and three Z3 units fuse to the trivial class (0 mod 3).")
     rw.print("")
     rw.print("  4. Y-junction at 120 degrees is force balance -- EXACT.")
-    rw.print("     Three Z3 flux tubes at 120 deg = energy minimum.")
-    rw.print("     This is why baryons have three quarks.")
+    rw.print("     (Topology-independent; Z3 charge 0 mod 3 permits the junction.)")
     rw.print("")
     rw.print("  5. String tension improved by SU(3) Casimir:")
     rw.print("     U(1) estimate: 0.04 GeV^2  (factor 4.5 from measured)")
@@ -740,9 +775,10 @@ def _conclusion(rw):
     rw.print("     The QCD condensate is also Type II --> flux tubes form.")
     rw.print("")
     rw.print("  SUDOKU SCORECARD:")
-    rw.print("    Exact:             S1, S2, S3, S4, S7, S8, S9  (7/10)")
+    rw.print("    Exact:             S1, S2, S3, S4, S8, S9      (6/10)")
     rw.print("    Match (range):     S6                           (1/10)")
     rw.print("    Order-of-magnitude: S5, S10                     (2/10)")
+    rw.print("    Fail:              S7 (2/9 vs 1/9, T83e)        (1/10)")
     rw.print("")
     rw.print("  OPEN PROBLEM:")
     rw.print("    The PDTP condensate field is currently U(1) (scalar phi).")

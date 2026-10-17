@@ -6,6 +6,18 @@ condensate implementation is the next step.
 **PDTP Original:** SU(3) coupling Re[Tr(Ψ†U)]/3 as PDTP Wilson loop;
 Casimir-corrected string tension; Z₃ vortex energy ratio 1/9 per quark.
 **Date:** 2026-03-07
+
+> **ERRATUM — Part 158 (T83e, CLAUDE OPUS 5.5, 2026-10-17).** As written, the
+> Lagrangian below does **not** support topologically stable Z₃ vortices:
+> π₁(SU(3)) = 0, and the coupling Re Tr(Ψ†U) is not invariant under U → ωU,
+> so the target is SU(3), not SU(3)/Z₃. Even with a Z₃-invariant target, the
+> minimal Z₃ vortex costs **2/9** (not 1/9) of the reference, and three Z₃
+> units fuse to the **trivial** class (1+1+1 ≡ 0 mod 3), not "winding 1".
+> That is what *permits* the Y-junction. The 120° angle, the U(1) limit and
+> the lattice results of Parts 38–41 (a gauge theory, a different model) are
+> unaffected. Three alternative postulates (B adjoint coupling, C co-rotating
+> matter, D U(3) target) that would make the Z₃ vortices genuine are kept
+> open. See [su3_z3_target_audit.md](su3_z3_target_audit.md).
 **Prerequisites:**
 [rip_square_emergent_phenomena.md](rip_square_emergent_phenomena.md) (Part 36 — flux tubes, string tension),
 [vortex_winding_derivation.md](vortex_winding_derivation.md) (Part 33 — vortex = particle),
@@ -54,7 +66,7 @@ and the full color structure of QCD as emergent phenomena?
 |--------|--------|
 | 8 gluons from N²−1 = 8 SU(3) generators | **EXACT** |
 | U(1) limit: Re[Tr(Ψ†U)]/1 = cos(ψ−φ) | **EXACT** — derived below |
-| Z₃ vortex energy = 1/9 of U(1) vortex per quark | **EXACT** — topology |
+| ~~Z₃ vortex energy = 1/9 of U(1) vortex per quark~~ | **WITHDRAWN** (Part 158): 2/9, and only if the target is made Z₃-invariant |
 | Y-junction at 120° from force balance | **EXACT** — Steiner point geometry |
 | κ_GL = √2 for QCD-scale condensate | **EXACT** — same as Part 34 |
 | String tension σ ≈ 0.053 GeV² (vs 0.18 measured) | **Order-of-magnitude** (factor 3.4) |
@@ -219,6 +231,11 @@ Three Z₃ vortices: 1/3 + 1/3 + 1/3 = 1    (stable integer winding)
 One Z₃ vortex:     1/3                       (cannot unwind alone)
 ```
 
+[Corrected Part 158 (T83e): Z₃ charges add mod 3, so three units give
+1+1+1 ≡ **0** (the trivial class), not "integer winding 1". And the
+Lagrangian (§3.1) does not provide the SU(3)/Z₃ target that a Z₃ vortex
+needs — see [su3_z3_target_audit.md](su3_z3_target_audit.md).]
+
 **Source:** Standard result for center vortices in SU(N) gauge theories — see
 Greensite, J. (2011), *An Introduction to the Confinement Problem*, Springer, Ch. 6.
 
@@ -230,6 +247,9 @@ invariant, like the integer winding of a U(1) vortex. The vortex can only be rem
 bringing in an anti-vortex (winding −1/3).
 
 This topological stability = why quarks cannot be separated from the baryon.
+[Corrected Part 158 (T83e): this holds only on an SU(3)/Z₃ target. The
+coupling Re Tr(Ψ†U) breaks the Z₃ center, so in this Lagrangian the
+"vortex" can unwind, like a QCD flux tube breaking when quarks are present.]
 
 ### 5.3 Vortex Energy
 
@@ -250,6 +270,13 @@ Three Z₃ vortices together (a baryon):
 Three Z₃ vortices carry **1/3 the energy of a full U(1) vortex**. They are
 energetically preferred, and they are topologically required to group in threes.
 This is the microscopic origin of the three-quark baryon structure.
+
+[Corrected Part 158 (T83e): the path with winding "1/N" of one overall phase,
+e^{iθ/3}·1, has det = e^{iθ} ≠ 1 and is not in SU(3). The cheapest SU(3)
+path to ω·1 is X = diag(1/3, 1/3, −2/3), Tr Q² = 2/3, giving
+E_Z₃/E_U₁ = **2/9** per vortex and 2/3 for three (log level, conditional
+on a Z₃-invariant target). Three Z₃ units fuse to the trivial class, which
+*allows* them to meet at a junction; it does not "require" them to.]
 
 ---
 
@@ -394,8 +421,8 @@ meet at equal 120° angles.
 ### 8.3 Why This Matters
 
 The PDTP condensate:
-1. Forces quarks to be Z₃ vortices (fractional winding)
-2. Forces three quarks to form a junction (winding sums to integer)
+1. Forces quarks to be Z₃ vortices (fractional winding) [Corrected Part 158: only on an SU(3)/Z₃ target, which this Lagrangian does not have]
+2. Forces three quarks to form a junction (winding sums to integer) [Corrected Part 158: Z₃ charge sums to 0 mod 3, which *permits* the junction]
 3. Forces the junction angle to be 120° (force balance)
 4. Forces exactly three quarks per baryon (the simplest stable Z₃ configuration)
 
@@ -455,12 +482,14 @@ condensates — gravitational and QCD — from the same mechanism.
 | S4 | σ_U₁ = ħ/(8πc) [J/m] | formula | K_PDTP/2 | 1.000 | ✓ EXACT |
 | S5 | σ_SU₃ [GeV²] | 0.18 | 0.053 | 0.296 | ~ (×3.4) |
 | S6 | ξ_QCD [fm] | 0.5–1.0 | 0.70 | 0.93 | ✓ MATCH |
-| S7 | E_Z₃/E_U₁ per vortex = 1/9 | 0.111 | 0.111 | 1.000 | ✓ EXACT |
+| S7 | E_Z₃/E_U₁ per vortex = 1/9 | 0.111 | 0.222 | 2.000 | ✗ FAIL (Part 158; old check was circular) |
 | S8 | Y-junction angle [°] | 120 | 120 | 1.000 | ✓ EXACT |
 | S9 | κ_GL = √2 | 1.414 | 1.414 | 1.000 | ✓ EXACT |
 | S10 | m_cond from σ [MeV] | 200 | 367 | 1.84 | ~ (×1.8) |
 
 **Result: 7/10 exact, 1/10 range match, 2/10 order-of-magnitude.**
+[Corrected Part 158 (T83e): 6/10 exact, 1/10 range match, 2/10
+order-of-magnitude, 1/10 FAIL (S7).]
 
 ### 10.2 Progress from Part 36
 
@@ -584,8 +613,10 @@ identified as the natural future direction.
 2. **U(1) limit is exact**: Re[Tr(Ψ†U)]/1 = cos(ψ−φ). The SU(3) Lagrangian
    is a genuine generalisation of the current PDTP Lagrangian. **[EXACT]**
 
-3. **Z₃ vortex energy**: 1/9 of a full U(1) vortex per quark; three quarks together
-   carry 1/3 the energy. They are topologically stable and energetically preferred. **[EXACT]**
+3. ~~**Z₃ vortex energy**: 1/9 of a full U(1) vortex per quark; three quarks together
+   carry 1/3 the energy. They are topologically stable and energetically preferred. **[EXACT]**~~
+   **WITHDRAWN (Part 158):** not supported by this Lagrangian (target SU(3), π₁ = 0);
+   on a Z₃-invariant target the ratio is 2/9 per vortex. Alternatives B/C/D open.
 
 4. **Y-junction at 120°**: force balance between three equal-tension flux tubes
    uniquely requires 120° — geometry, not assumption. **[EXACT]**
@@ -671,7 +702,7 @@ Theoretical and Experimental Physics* 2022, 083C01. — σ_QCD = 0.18 GeV², Λ_
 **PDTP Originals in this document:**
 - SU(3) coupling Re[Tr(Ψ†U)]/3 as the PDTP Wilson loop action (Section 3.2)
 - U(1) limit: Re[Tr(Ψ†U)]/1 = cos(ψ−φ) exactly (Section 4)
-- Z₃ vortex energy = 1/9 of U(1) per quark; three Z₃ = 1/3 of U(1) (Section 5.3)
+- ~~Z₃ vortex energy = 1/9 of U(1) per quark; three Z₃ = 1/3 of U(1) (Section 5.3)~~ — withdrawn, Part 158 (2/9, conditional)
 - κ_GL = √2 is universal (holds for any m_cond, including Λ_QCD) (Section 9.2)
 - SU(3) Casimir factor improves σ from 4.5× off to 3.4× off (Section 7.2)
 - m_cond inferred from σ: 367 MeV, within factor 1.8 of Λ_QCD (Section 11.1)

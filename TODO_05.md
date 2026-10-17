@@ -63,6 +63,7 @@ questions.
 
 New additions go on top. One line per item. Full details below.
 
+- [ ] T85 — SU(3) Z₃ target: alternative postulates B/C/D (kept open by user instruction after T83e/Part 158 downgraded Part 37's Z₃ vortices). B: adjoint coupling |Tr(Ψ†U)|² (Z₃-invariant; loses the U(1) limit; 3 degenerate vacua → domain walls). C: co-rotating matter, (U,Ψ)~(ωU,ωΨ) as a discrete gauge redundancy (keeps every CLAUDE.md equation; quark = joint matter+condensate twist). D: U(3) target (semi-superfluid strings, Balachandran–Digal–Matsuura 2006; extra massless U(1) = SM tension). Each is structural: plan + approval before adopting [PENDING, SPEC, MEDIUM, filed 2026-10-17; see docs/research/su3_z3_target_audit.md §3]
 - [ ] T84 — Primordial magnetic fields from a PDTP phase transition? Jedamzik, Pogosian & Abel (Nature Astronomy 2025, arXiv:2503.09599) find a 1.8–3σ preference for ~5–10 pG primordial fields that partly ease the Hubble tension (H₀ 67.88 → 69.93), but the fields' origin is open. Scope whether PDTP's Kibble–Zurek vortex transition (Part 116) could seed them, Vachaspati-style. BLOCKER: φ is the gravitational phase with no electromagnetic coupling, so this needs a new term (overlaps T57). Also wait for T83i, which re-establishes how matter sources gravity [PENDING, SPEC, LOW PRIORITY, filed 2026-10-17; mainstream summary in hubble_tension_analysis.md §1.3]
 - [ ] T72 — Reconcile Part 94's g=omega_gap (linear, from Part 34's
   condensate self-consistency) against Part 99's pendulum equation, which
@@ -815,6 +816,35 @@ gradients across such a transition can seed magnetic fields
 (gauge invariance, photon masslessness, axion bounds); (b) an order-of-
 magnitude field strength, if any, versus the 5–10 pG target; (c)
 GO / NO-GO for a full Part. An honest NO-GO is an acceptable outcome.
+
+---
+
+### [ ] T85 — SU(3) Z₃ Target: Alternative Postulates B, C, D — PENDING [SPEC, MEDIUM]
+
+**Status:** PENDING (filed 2026-10-17 by CLAUDE OPUS 5.5 from TODO_04 T83e / Part 158)
+**Source:** `docs/research/su3_z3_target_audit.md` §3, with SymPy/numeric checks
+in `simulations/solver/t83e_z3_target.py` (S2, S3, S5, S15–S17, S20)
+
+**Why this exists:** T83e found that Part 37's SU(3) Lagrangian has
+target SU(3) (π₁ = 0), because Re Tr(Ψ†U) breaks the Z₃ center, so Z₃
+"quark" vortices are not protected. The user chose to downgrade (option
+A) **and to keep the three ways of restoring them as live alternative
+postulates**, since a cost in one place may be a feature elsewhere.
+
+| | Postulate | Keeps U(1) limit | Gains | Costs |
+|---|---|---|---|---|
+| B | coupling (g/9)\|Tr(Ψ†U)\|² | **no** | genuine Z₃ vortices | U(1) limit lost; 3 degenerate vacua → Z₃ domain walls |
+| C | (U,Ψ) ~ (ωU, ωΨ), discrete gauge | yes | no equation changes | new postulate; quark = joint matter+condensate twist, energy 2π(K+K_i)(2/3)ln |
+| D | U ∈ U(3) (drop det = 1) | yes | precedent: CFL dense-QCD semi-superfluid strings | extra massless U(1) mode (SM particle-content tension) |
+
+**Suggested first pass (per alternative, ~1 session each):**
+1. Re-run the Part 37 10-item scorecard under the alternative.
+2. Standard Model check (particle content, gauge invariance). Decisive for D.
+3. Check interaction with existing "three" threads: B's three vacua vs
+   Koide Z₃ partition (Part 53) and N_c = 3 (Part 105); D's extra U(1)
+   vs baryon number.
+4. Write up as a Part; adopting any alternative requires user approval
+   plus a `mathematical_formalization_extensions.md` and CLAUDE.md update.
 
 ---
 

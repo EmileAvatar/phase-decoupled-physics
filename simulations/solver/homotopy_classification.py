@@ -75,7 +75,15 @@ S2:  Homotopy of SU(3): pi_1 = 0 (trivial); pi_1(SU(3)/Z_3) = Z_3 [exact]
 S3:  Homotopy of SU(2): pi_1 = 0; pi_1(SU(2)/Z_2) = Z_2 [exact]
 S4:  Casimir C2_fund = 4/3, C2_adj = 3 [exact, textbook]
 S5:  N^2 - 1 generators: U(1)->0, SU(2)->3, SU(3)->8 [exact]
-S6:  Vortex energy ratio: Z_3 vortex = (1/N)^2 = 1/9 of U(1) [exact, Part 37]
+S6:  Vortex energy ratio: Part 37 claimed Z_3 vortex = (1/N)^2 = 1/9; T83e
+     (Part 158) recomputes from the minimal SU(3) generator: 2/9 -> FAIL
+
+T83e NOTE (Part 158, CLAUDE OPUS 5.5, 2026-10-17): the pi_1 values in this
+table are correct mathematics, but the "Strong | SU(3)/Z_3" row is CONDITIONAL.
+The PDTP SU(3) Lagrangian (Part 37) has target SU(3) as written (pi_1 = 0):
+its coupling Re Tr(Psi^dag U) is not invariant under U -> w*U, so the Z_3
+quotient is not available. Alternative postulates that would supply it are
+recorded in docs/research/su3_z3_target_audit.md (options B, C, D).
 S7:  Y-junction 120 deg: force balance e1+e2+e3 = 0 [exact geometry]
 S8:  EM coupling candidate: K_0^2 = 1/158 ~ 1/137 (13.2% off) [Part 55]
 S9:  Strong coupling at confinement: alpha_s(1 GeV) ~ 0.3-0.5 [experimental]
@@ -328,6 +336,18 @@ def coupling_from_topology():
 # WHY THE INTERACTION LAW CHANGES
 # ===========================================================================
 
+def _min_z3_trq2(kmax=3):
+    """Minimal Tr(X^2), X traceless diagonal with exp(2 pi i X) = w*1
+    (eigenvalues in 1/3 + Z summing to 0). T83e, Part 158."""
+    best = None
+    for k1 in range(-kmax, kmax + 1):
+        for k2 in range(-kmax, kmax + 1):
+            q = (1.0 / 3 + k1, 1.0 / 3 + k2, -(2.0 / 3 + k1 + k2))
+            tr2 = sum(v * v for v in q)
+            best = tr2 if best is None else min(best, tr2)
+    return best
+
+
 def interaction_law_analysis():
     """
     Explain why Z gives 1/r (Coulomb) but Z_3 gives linear (confining).
@@ -368,13 +388,14 @@ def interaction_law_analysis():
     # Energy ~ 1^2 = 1 (in units of 2*pi*K*ln(R/xi))
     results["E_U1_n1"] = 1.0
 
-    # Z_3 vortex: n = 1/3
-    # Energy ~ (1/3)^2 = 1/9
-    results["E_Z3_n1_3"] = (1.0 / 3.0)**2
+    # Z_3 vortex. T83e (Part 158): Part 37's n = 1/3 path exp(i th/3)*1 is
+    # not in SU(3) (det != 1). Minimal SU(3) path: X = diag(1/3,1/3,-2/3),
+    # Tr(X^2) = 2/3; reference exp(i th)*1_3 has Tr = 3 (CONDITIONAL on an
+    # SU(3)/Z_3 target, see module docstring).
+    results["E_Z3_n1_3"] = _min_z3_trq2() / 3.0
 
-    # Three Z_3 vortices: 3 * 1/9 = 1/3 < 1
-    # A baryon (3 quarks) has LESS vortex energy than a single U(1) vortex
-    results["E_3_Z3"] = 3.0 * (1.0 / 3.0)**2
+    # Three Z_3 vortices (log level)
+    results["E_3_Z3"] = 3.0 * results["E_Z3_n1_3"]
 
     # Y-junction angle: force balance
     # Three equal-tension strings at a point: 120 degrees
@@ -530,8 +551,9 @@ def run_sudoku_checks(rw):
                     "3 and 8",
                     "{} and {}".format(ng_su2, ng_su3), 1.000, s5_pass))
 
-    # S6: Z_3 vortex energy = (1/3)^2 = 1/9 of full vortex [exact, Part 37]
-    e_z3 = (1.0 / 3.0)**2
+    # S6: Part 37 claim E_Z3 = 1/9; T83e RECHECK: was (1/3)^2 vs 1/9
+    # (circular). Now the minimal SU(3) generator value (2/9) is compared.
+    e_z3 = _min_z3_trq2() / 3.0
     ratio_s6 = e_z3 / (1.0 / 9.0)
     s6_pass = abs(ratio_s6 - 1.0) < 0.01
     checks.append(("S6", "Z_3 energy = 1/9", "1/9",
@@ -667,9 +689,9 @@ def run_homotopy_classification(rw, engine=None):
     rw.print("VORTEX ENERGY COMPARISON:")
     rw.print("  U(1) vortex (n=1):  E ~ n^2 = {:.3f}  (in units of 2*pi*K*ln(R/xi))".format(
         ilaw["E_U1_n1"]))
-    rw.print("  Z_3 vortex (n=1/3): E ~ n^2 = {:.6f} = 1/9".format(
+    rw.print("  Z_3 vortex (min SU(3) path, T83e): E = Tr(X^2)/3 = {:.6f}".format(
         ilaw["E_Z3_n1_3"]))
-    rw.print("  Baryon (3 x Z_3):   E = 3 * 1/9 = {:.3f} < 1  (less than one full vortex!)".format(
+    rw.print("  3 x Z_3 (log level): E = {:.3f}  [conditional on SU(3)/Z_3 target]".format(
         ilaw["E_3_Z3"]))
     rw.print("")
     rw.print("Y-JUNCTION:")

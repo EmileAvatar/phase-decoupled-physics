@@ -169,6 +169,35 @@ group in threes. This is PDTP's proposed microscopic origin of the
 three-quark baryon structure: not imposed, but forced by the Z₃
 topology of the extended Lagrangian.
 
+> **Correction — Part 158 (T83e, CLAUDE OPUS 5.5, 2026-10-17).** Three
+> statements above do not hold, and Eq. 150.2–150.3 are withdrawn:
+> 1. **No protected Z₃ vortices in this Lagrangian.** π₁(SU(3)) = 0. A
+>    Z₃ vortex needs the target SU(3)/Z₃ (π₁ = Z₃), i.e. U and ωU must be
+>    physically identical. The coupling Re Tr(Ψ†U) changes under U → ωU,
+>    so they are not.
+> 2. **The energy is 2/9, not 1/9** (conditional on a Z₃-invariant
+>    target). Winding "1/N" of one overall phase, e^{iθ/3}I, has
+>    det = e^{iθ} ≠ 1. The cheapest SU(3) path to ωI is
+>    X = diag(1/3, 1/3, −2/3) with Tr Q² = 2/3, and E/L = 2πK Tr(Q²) ln(R/ξ).
+> 3. **Three Z₃ units fuse to the trivial class** (1+1+1 ≡ 0 mod 3), not
+>    "integer winding 1". This *permits* the baryon Y-junction (§1.7),
+>    whose 120° force balance stands.
+>
+> ```
+> E_Z3/L = 2*pi*K*Tr(X_min^2)*ln(R/xi),  Tr(X_min^2) = 2/3
+> E_Z3/E_ref(Tr=3) = 2/9   [DERIVED, CONDITIONAL on SU(3)/Z_3 target]   (158.7)
+> ```
+>
+> $$
+> \frac{E_{Z_3}}{E_{\rm ref}} = \frac{2}{9} \quad \text{(conditional on an } SU(3)/\mathbb{Z}_3 \text{ target)}
+> $$
+>
+> Three alternative postulates that would supply the Z₃-invariant target
+> (B adjoint coupling, which loses the U(1) limit; C co-rotating matter
+> as a discrete gauge redundancy; D U(3) target, which adds an extra
+> massless mode) are kept open as TODO_05 T85. See
+> [su3_z3_target_audit.md](su3_z3_target_audit.md).
+
 ### 1.5 The 8 Gluons from Linearization
 
 In the ordered ground state, `U=I` (the identity matrix) everywhere.
@@ -280,7 +309,7 @@ required for integer winding → equal tensions → 120° junction.
 |---|---|---|
 | Extended Lagrangian, matrix field U(x) ∈ SU(3) | [PDTP Original] | §1.2 |
 | U(1) limit recovery, exact | [DERIVED] | 150.1 |
-| Z₃ vortex energy = 1/9 of U(1) per quark | [DERIVED] | 150.2–150.3 |
+| ~~Z₃ vortex energy = 1/9 of U(1) per quark~~ | WITHDRAWN (Part 158): no protected Z₃ vortex in this Lagrangian; 2/9 if the target is made Z₃-invariant | 150.2–150.3 → 158.7 |
 | 8 gluons from 8 Gell-Mann generators | [DERIVED] | 150.4–150.5 |
 | String tension via Casimir factor, 3.4× off measured | [PDTP Original] | 150.6–150.8 |
 | m_cond(QCD) = 367 MeV, 1.8× off Λ_QCD | [PDTP Original] | 150.9 |
@@ -540,7 +569,7 @@ Mathematical Functions*, eq. 4.3.37.
 *Progress of Theoretical and Experimental Physics* 2022, 083C01.
 
 **PDTP Originals in this document:** the extended Lagrangian (§1.2), the
-Z₃ vortex energy result (§1.6, Eq. 150.2–150.3), the Casimir-corrected
+Z₃ vortex energy result (§1.6, Eq. 150.2–150.3; withdrawn by Part 158), the Casimir-corrected
 string tension and inferred `m_cond` (§1.6, Eq. 150.6–150.9), the
 two-phase Lagrangian and its φ₊/φ₋ split (§2.1–2.2), Newton's 3rd law
 correction (§2.4, Eq. 150.14), biharmonic gravity (§2.5, Eq. 150.17),

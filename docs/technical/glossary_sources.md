@@ -2074,6 +2074,22 @@ physics. They should not be cited as if they are.
 - **Description:** Phase gradients across a cosmological phase transition seed magnetic fields.
 - **Used in:** `hubble_tension_analysis.md` §1.3 note; TODO_05 T84.
 
+#### P113: Balachandran, Digal & Matsuura (2006) — Semi-superfluid Strings in High Density QCD
+- **Citation:** *Phys. Rev. D* 73, 074009 (2006)
+- **URL:** https://arxiv.org/abs/hep-ph/0509276 (verified 2026-10-17)
+- **Description:** U(3)-type fractional ("semi-superfluid") strings in the color-flavor-locked phase.
+- **Used in:** Part 158 `su3_z3_target_audit.md` §3 (alternative D); TODO_05 T85.
+
+**Wikipedia sources added 2026-10-17 (Part 158 / T83e), verified by search before citing:**
+
+| # | Topic | URL | Used In |
+|---|-------|-----|---------|
+| 339 | Projective unitary group (PSU(n) = SU(n)/Z_n, π₁ = Z_n) | https://en.wikipedia.org/wiki/Projective_unitary_group | su3_z3_target_audit.md §1 |
+| 340 | Unitary group (π₁(U(n)) ≅ ℤ) | https://en.wikipedia.org/wiki/Unitary_group | su3_z3_target_audit.md §1 |
+| 341 | Special unitary group (center, simple connectivity) | (already cited above) | su3_z3_target_audit.md §1, re-cited |
+
+Also re-cited by Part 158: Mermin (1979) (P90), Kosterlitz & Thouless (1973).
+
 ### Wikipedia Sources (added 2026-06-11)
 
 | # | Topic | URL | Used In |

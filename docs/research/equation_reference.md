@@ -150,6 +150,9 @@ e_1 + e_2 + e_3 = 0 (120 degree angles)
 - Three Z_3 vortices at Steiner point
 - Baryon = Y-junction of three quarks
 - **Source:** Part 37
+- Part 158 (T83e): 120 deg force balance STANDS; the Z_3 vortices themselves are
+  CONDITIONAL (the Part 37 Lagrangian has target SU(3), pi_1 = 0); Z_3 charges
+  fuse to 0 mod 3, which permits the junction
 
 ---
 
@@ -1599,6 +1602,32 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 
 ---
 
+### Part 158 additions (T83e: SU(3) Z_3 target-space audit -- CLAUDE OPUS 5.5):
+
+**Source:** Part 158 (2026-10-17), `simulations/solver/t83e_z3_target.py`,
+`docs/research/su3_z3_target_audit.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 158.3 | pi_1(SU(3)) = 0; pi_1(SU(3)/Z_3) = Z_3; pi_1(U(3)) = Z | [ASSUMED, cited math] | Wikipedia: Projective unitary group, Unitary group |
+| 158.4 | Re Tr(Psi^dag w U) - Re Tr(Psi^dag U) = -3x/2 - sqrt(3) y/2 != 0 | [DERIVED, VERIFIED] | coupling breaks Z_3 center -> target SU(3) -> NO protected Z_3 vortices in Part 37 L |
+| 158.5 | E/L = 2 pi K Tr(X^2) ln(R/xi) for U = exp(i theta X) | [DERIVED, VERIFIED] | matrix generalisation of 2 pi K n^2 ln(R/xi) |
+| 158.6 | X_min = diag(1/3,1/3,-2/3), Tr(X_min^2) = 2/3 | [DERIVED, VERIFIED] | cheapest SU(3) path 1 -> w*1 |
+| 158.7 | E_Z3/E_ref = 2/9 (ref Tr = 3) | [DERIVED, CONDITIONAL] | REPLACES Eq 150.2-150.3 (1/9); needs a Z_3-invariant target |
+| 158.8 | det(e^{i theta/3} 1_3) = e^{i theta} != 1 | [NEGATIVE] | why Part 37 got 1/9: its path leaves SU(3) |
+| 158.9 | 1+1+1 = 0 mod 3 | [DERIVED] | three Z_3 units fuse to the trivial class -> permits Y-junction (not "winding 1") |
+| 158.10 | ALT B: (g/9)\|Tr(Psi^dag U)\|^2 | [SPECULATIVE, OPEN] | Z_3-invariant; loses U(1) limit; 3 degenerate vacua |
+| 158.11 | ALT C: (U,Psi) ~ (wU, wPsi) discrete gauge | [SPECULATIVE, OPEN] | keeps U(1) limit; quark = joint matter+condensate twist |
+| 158.12 | ALT D: U in U(3), minimal loop diag(e^{i theta},1,1) | [SPECULATIVE, OPEN] | semi-superfluid strings (Balachandran-Digal-Matsuura 2006); extra massless U(1) |
+
+**Conclusion (Part 158):** 15/20 Sudoku (5 contradictions = the four withdrawn
+Part 37 claims + the stated cost of ALT B). Option A (downgrade) adopted;
+B/C/D kept as alternative postulates (TODO_05 T85). RECHECK: circular 1/9
+checks fixed in su3_condensate.py S7 and homotopy_classification.py S6.
+Closes TODO_04.md T83 sub-task 83e.
+
+---
+
 ### Part 157 additions (T83j: phi_- reversed-Higgs mass correction -- CLAUDE OPUS 5.5):
 
 **Source:** Part 157 (2026-09-28), `simulations/solver/t83j_phi_minus_mass.py`,
@@ -2361,6 +2390,10 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-10-17: Added Part 158 (T83e, CLAUDE OPUS 5.5: Part 37 SU(3) Lagrangian has target
+  SU(3) (pi_1 = 0) because Re Tr(Psi^dag U) breaks the Z_3 center -> no protected Z_3
+  vortices; Eq 150.2-150.3 (1/9) withdrawn, conditional value 2/9; three Z_3 units fuse
+  to 0 mod 3; alternatives B/C/D kept open). See `docs/research/su3_z3_target_audit.md`.
 - 2026-09-28: Added Part 157 (T83j, CLAUDE OPUS 5.5: phi_- mass m^2 = g*Phi, was 2g*Phi;
   Part 119 observables unchanged, g_dyn doubles; lambda_4 prefactor halves; Eq 113.7b
   withdrawn). See `docs/research/phi_minus_mass_correction.md`.

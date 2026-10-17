@@ -44,7 +44,7 @@ T28 (Key Questions 1-3) and T40 (Key Questions 1-2, 4) ask essentially the
 same core question through different framings, confirmed by direct
 comparison of their TODO_04.md text: does the magic-number sequence
 (2, 8, 20, 28, 50, 82, 126, 184) correspond to closed Z₃ vortex-network
-topology in the SU(3) condensate (Part 37), and can such topology supply
+topology in the SU(3) condensate (Part 37; Z₃ vortices later found conditional, Part 158 (T83e)), and can such topology supply
 the ~1-2 MeV shell-binding gap (T28) or the specific ~8-14 MeV gap needed
 to bridge T37's Lazar-claim comparison at Mc-299 (T40)? Because the
 underlying test is identical, this document runs it once and reports the
