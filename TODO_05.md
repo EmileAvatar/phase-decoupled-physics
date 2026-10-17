@@ -63,6 +63,7 @@ questions.
 
 New additions go on top. One line per item. Full details below.
 
+- [ ] T84 — Primordial magnetic fields from a PDTP phase transition? Jedamzik, Pogosian & Abel (Nature Astronomy 2025, arXiv:2503.09599) find a 1.8–3σ preference for ~5–10 pG primordial fields that partly ease the Hubble tension (H₀ 67.88 → 69.93), but the fields' origin is open. Scope whether PDTP's Kibble–Zurek vortex transition (Part 116) could seed them, Vachaspati-style. BLOCKER: φ is the gravitational phase with no electromagnetic coupling, so this needs a new term (overlaps T57). Also wait for T83i, which re-establishes how matter sources gravity [PENDING, SPEC, LOW PRIORITY, filed 2026-10-17; mainstream summary in hubble_tension_analysis.md §1.3]
 - [ ] T72 — Reconcile Part 94's g=omega_gap (linear, from Part 34's
   condensate self-consistency) against Part 99's pendulum equation, which
   implies g=omega_gap^2/2 (quadratic, from linearizing d^2Delta/dt^2=
@@ -770,6 +771,50 @@ Per the Open Problem Tracking Rule, even "not yet investigated" must be recorded
 **Deliverables:**
 - `docs/research/weak_force_placement.md` (< 1 page; scoping only)
 - Add as OPEN question to equation_reference.md
+
+---
+
+### [ ] T84 — Primordial Magnetic Fields from a PDTP Phase Transition? — PENDING [SPEC, LOW PRIORITY]
+
+**Status:** PENDING (scoping only, filed 2026-10-17; nothing calculated)
+**Estimated effort:** ~1–2 hours for the scoping note; any real calculation is much larger
+**Source:** user question, 2026-10-17 (Sabine Hossenfelder video) → Jedamzik,
+Pogosian & Abel (2025), *Nature Astronomy*, doi:10.1038/s41550-025-02737-x,
+[arXiv:2503.09599](https://arxiv.org/abs/2503.09599); PDF in `assets/pdfs/2503.09599v2.pdf`
+
+**Background (mainstream, [EXTERNAL]):** full 3D MHD simulations of
+recombination show that primordial magnetic fields (PMFs) of ~5–10 pG
+(today) clump baryons, recombination happens earlier, the sound horizon
+shrinks, and the inferred H₀ rises (67.88 → 69.93 km/s/Mpc in the best
+case). Preference is 1.8σ (Planck+DESI) to 3σ (+SH0ES-calibrated SN).
+The paper does NOT explain where the fields come from. Its candidate
+origins are inflation (needs conformal-invariance breaking of EM) or
+early-universe phase transitions (Vachaspati 1991). Summary recorded in
+`docs/research/hubble_tension_analysis.md` §1.3.
+
+**Question for PDTP:** Part 116 already has a Kibble–Zurek phase
+transition that leaves a vortex network. In standard physics, phase
+gradients across such a transition can seed magnetic fields
+(Vachaspati mechanism). Could PDTP's transition seed ~5–10 pG fields?
+
+**Known blockers (state these up front, do not paper over them):**
+1. φ is the *gravitational* condensate phase. The PDTP Lagrangian has no
+   coupling between φ (or ψ) and the EM gauge field A_μ, so as written
+   PDTP produces **zero** magnetic field. Any mechanism needs a new term
+   (e.g. an axion-like φ F F̃ or a charged condensate). That is a
+   structural extension: plan + user approval first, and it overlaps
+   T57 (cross-medium coupling) and T58 (EM condensate).
+2. Part 116 found the KZ vortex abundance NEGATIVE by ~50 orders and
+   inflation dilutes pre-inflation relics (P110). A seeding mechanism
+   would have to survive the same dilution argument.
+3. T83a (Part 153) found locked static sources give zero net 1/r
+   strength. Cosmological claims should wait for T83i.
+
+**Deliverable (scoping only):** short note answering (a) what minimal
+φ–A_μ coupling would be needed and whether it conflicts with known EM
+(gauge invariance, photon masslessness, axion bounds); (b) an order-of-
+magnitude field strength, if any, versus the 5–10 pG target; (c)
+GO / NO-GO for a full Part. An honest NO-GO is an acceptable outcome.
 
 ---
 

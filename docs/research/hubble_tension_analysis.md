@@ -72,11 +72,63 @@ while CMB + BAO consistently give H₀ ~ 67.
 | **Local void** | We live in an underdense region → faster local expansion | Debated; requires δ ~ −0.3 to −0.5 |
 | **New neutrino physics** | Extra N_eff or self-interacting neutrinos | Constrained by BBN |
 | **Systematic errors** | Calibration of distance ladder | Cannot explain all independent methods |
+| **Primordial magnetic fields** (PMF, "bΛCDM") | Weak fields clump the pre-recombination plasma; recombination rate ∝ n_e n_p, so clumping makes recombination slightly earlier, shrinks the sound horizon, raises inferred H₀ | Partial relief; ~1.8σ (Planck+DESI) to ~3σ (+SH0ES) preference; see note below |
 
 **Source:** Di Valentino et al. (2021), "In the realm of the Hubble
 tension — a review of solutions," CQG, 38, 153001.
 
 **Source:** [Hubble's law: Hubble tension — Wikipedia](https://en.wikipedia.org/wiki/Hubble%27s_law#Hubble_tension)
+
+**Note — primordial magnetic fields (added 2026-10-17)** `[EXTERNAL]`
+
+Mainstream result, recorded here for completeness. **No PDTP claim is
+attached to it.** Values below are taken from the paper's Tables I–II.
+
+- Field strength preferred: total comoving b_pmf ≈ 5–10 pG today
+  (about 10× larger at recombination, z ≈ 1090); non-helical,
+  Batchelor spectrum; one extra parameter beyond ΛCDM.
+- H₀ (km/s/Mpc): ΛCDM Planck+DESI 67.88 ± 0.37 → bΛCDM Planck+DESI
+  68.52 (+0.54/−0.62) → bΛCDM Planck+DESI+Pantheon+ with SH0ES
+  calibration 69.93 (+0.53/−0.66). Disagreement with SH0ES
+  (73.04 ± 1.04) falls to 2.7σ. **Partial relief, not a full resolution.**
+- Planck+DESI χ² is equal to or better than ΛCDM's (worse Planck fit is
+  offset by a better DESI fit). Partial S₈ relief as well; Ω_m tension
+  with supernovae gets slightly worse (true of every
+  modified-recombination model).
+- 5 pG is also the minimum needed for galaxy-cluster fields to be purely
+  primordial, with no dynamo amplification.
+- Tests: Silk-damping-tail CMB spectra (SPT-3G, Simons Observatory),
+  γ-ray halos around blazars (void fields ≳ 1 pG), Lyman-α forest.
+- The paper does not say where the fields came from. Candidate origins
+  it cites are inflation (needs new physics that breaks conformal
+  invariance of electromagnetism) and early-universe phase transitions
+  (Vachaspati 1991).
+
+**Plain English:** if the early plasma carried very weak magnetic
+fields, they stirred it into denser and thinner patches. Atoms form
+faster in the dense patches, so the universe became see-through a little
+earlier. That shrinks the "ruler" cosmologists read from the CMB, and a
+smaller ruler implies faster expansion, closer to the local
+measurement. Even the most favourable data combination closes only
+about 40% of the gap (67.88 → 69.93, against 73.04 measured locally),
+and the evidence is still only 2–3σ.
+
+**PDTP relevance:** none yet. PDTP's own early-universe attempts to
+shrink the sound horizon (§4.4; `hubble_tension_c1.md`: φ₋ as EDE is
+9.4 orders too weak, the biharmonic correction is ~10⁻¹¹⁹) use the
+same lever, so this is a competing mechanism, not support. The possible
+PDTP hook is the *origin* of the fields (a Kibble–Zurek vortex
+transition, Part 116), filed as TODO_05 T84. It is speculative and
+unstarted.
+
+**Source:** Jedamzik, K., Pogosian, L. & Abel, T. (2025), "Hints of
+primordial magnetic fields at recombination and implications for the
+Hubble tension," *Nature Astronomy*, doi:10.1038/s41550-025-02737-x;
+preprint [arXiv:2503.09599](https://arxiv.org/abs/2503.09599) (v2 PDF
+in `assets/pdfs/2503.09599v2.pdf`)
+
+**Source:** Vachaspati, T. (1991), "Magnetic fields from cosmological
+phase transitions," *Phys. Lett. B* 265, 258
 
 ---
 

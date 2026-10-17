@@ -2063,6 +2063,17 @@ physics. They should not be cited as if they are.
   but thereby removes KZ vortices as a DM abundance source).
 - **Used in:** Part 116 — e-fold dilution computation.
 
+#### P111: Jedamzik, Pogosian & Abel (2025) — Hints of Primordial Magnetic Fields at Recombination
+- **Citation:** *Nature Astronomy* (2025), doi:10.1038/s41550-025-02737-x
+- **URL:** https://arxiv.org/abs/2503.09599 (verified 2026-10-17); v2 PDF in `assets/pdfs/2503.09599v2.pdf`
+- **Description:** MHD-based PMF-enhanced recombination (bΛCDM); 5–10 pG preferred; H₀ up to 69.93 km/s/Mpc.
+- **Used in:** `hubble_tension_analysis.md` §1.3 note; TODO_05 T84.
+
+#### P112: Vachaspati (1991) — Magnetic Fields from Cosmological Phase Transitions
+- **Citation:** *Phys. Lett. B* 265, 258 (1991) — no URL yet (not verified)
+- **Description:** Phase gradients across a cosmological phase transition seed magnetic fields.
+- **Used in:** `hubble_tension_analysis.md` §1.3 note; TODO_05 T84.
+
 ### Wikipedia Sources (added 2026-06-11)
 
 | # | Topic | URL | Used In |
