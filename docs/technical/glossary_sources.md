@@ -2090,6 +2090,55 @@ physics. They should not be cited as if they are.
 
 Also re-cited by Part 158: Mermin (1979) (P90), Kosterlitz & Thouless (1973).
 
+#### P114: LHCb Collaboration (2026) — B⁰ → K*⁰μ⁺μ⁻ angular analysis and branching fraction
+- **Citation:** *Phys. Rev. Lett.* 137, 021802 (2026) (reported via APS *Physics*; primary paper not read directly)
+- **URL:** https://physics.aps.org/articles/v19/94 (APS *Physics* article, verified 2026-11-07)
+- **Description:** b → sμμ rate below the SM; P5′ and A_FB deviate; ~4σ.
+- **Used in:** `b_meson_anomaly_note.md` §2; TODO_05 T86.
+
+#### P115: LHCb Collaboration (2022) — Test of Lepton Universality in b → sℓ⁺ℓ⁻ Decays
+- **URL:** https://arxiv.org/abs/2212.09152 (verified 2026-11-07)
+- **Description:** R(K), R(K*) agree with the SM; resolves the 2014–2021 lepton-universality hint.
+- **Used in:** `b_meson_anomaly_note.md` §2.3; TODO_05 T86.
+
+**Press/review sources for the b → sμμ anomaly (2026-11-07, all verified to resolve):**
+- APS *Physics*, "A Widening Anomaly Strains the Standard Model": https://physics.aps.org/articles/v19/94 (AIP mirror: https://www.aip.org/news-and-analysis/aps/a-widening-anomaly-strains-the-standard-model)
+- Physics Today: https://physicstoday.aip.org/news/analysis-of-b-meson-decay-hints-at-new-physics
+- Phys.org: https://phys.org/news/2026-04-lhc-decay-anomaly-reveals-standard.html
+- CERN Courier: https://cerncourier.com/a/anomalies-persist-in-flavour-changing-b-decays/ and https://cerncourier.com/a/bs-decays-remain-anomalous/
+
+| # | Topic | URL | Used In |
+|---|-------|-----|---------|
+| 342 | B meson | https://en.wikipedia.org/wiki/B_meson | b_meson_anomaly_note.md |
+| 343 | Penguin diagram | https://en.wikipedia.org/wiki/Penguin_diagram | b_meson_anomaly_note.md |
+| 344 | Lepton (Universality section) | https://en.wikipedia.org/wiki/Lepton#Universality | b_meson_anomaly_note.md (note: /wiki/Lepton_universality only redirects to the Lepton article) |
+| 345 | Leptoquark | https://en.wikipedia.org/wiki/Leptoquark | b_meson_anomaly_note.md |
+| 346 | W′ and Z′ bosons | https://en.wikipedia.org/wiki/W%E2%80%B2_and_Z%E2%80%B2_bosons | b_meson_anomaly_note.md |
+| 347 | Baryon number | https://en.wikipedia.org/wiki/Baryon_number | quark_lepton_twist_note.md |
+| 348 | Lepton number | https://en.wikipedia.org/wiki/Lepton_number | quark_lepton_twist_note.md |
+| 349 | Sphaleron | https://en.wikipedia.org/wiki/Sphaleron | quark_lepton_twist_note.md |
+| 350 | Proton decay | https://en.wikipedia.org/wiki/Proton_decay | quark_lepton_twist_note.md |
+| 351 | Grand Unified Theory | https://en.wikipedia.org/wiki/Grand_Unified_Theory | quark_lepton_twist_note.md |
+| 352 | Georgi–Glashow model | https://en.wikipedia.org/wiki/Georgi%E2%80%93Glashow_model | quark_lepton_twist_note.md |
+| 353 | Pati–Salam model | https://en.wikipedia.org/wiki/Pati%E2%80%93Salam_model | quark_lepton_twist_note.md |
+| 354 | Preon | https://en.wikipedia.org/wiki/Preon | quark_lepton_twist_note.md |
+| 355 | Rishon model | https://en.wikipedia.org/wiki/Rishon_model | quark_lepton_twist_note.md |
+| 356 | String-net liquid | https://en.wikipedia.org/wiki/String-net_liquid | quark_lepton_twist_note.md |
+
+#### P116: Super-Kamiokande Collaboration (2020) — Proton decay p → e⁺π⁰, p → μ⁺π⁰
+- **Citation:** *Phys. Rev. D* 102, 112011 (2020)
+- **URL:** https://arxiv.org/abs/2010.16098 (verified 2026-11-07)
+- **Description:** τ/B(p → e⁺π⁰) > 2.4×10³⁴ yr (90% CL).
+- **Used in:** `quark_lepton_twist_note.md` §2.3, §3.3.
+
+#### P117–P121: quark–lepton unification and B/L violation (citations only, no URL verified)
+- P117: Georgi & Glashow (1974), *Phys. Rev. Lett.* 32, 438 — SU(5) GUT
+- P118: Pati & Salam (1974), *Phys. Rev. D* 10, 275 — lepton as 4th colour
+- P119: 't Hooft (1976), *Phys. Rev. Lett.* 37, 8 — anomalous B+L violation
+- P120: Klinkhamer & Manton (1984), *Phys. Rev. D* 30, 2212 — sphaleron
+- P121: Harari (1979), *Phys. Lett. B* 86, 83 — rishon (preon) model
+- **Used in:** `quark_lepton_twist_note.md` §2.
+
 ### Wikipedia Sources (added 2026-06-11)
 
 | # | Topic | URL | Used In |

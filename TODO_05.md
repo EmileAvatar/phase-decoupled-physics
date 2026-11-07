@@ -63,7 +63,8 @@ questions.
 
 New additions go on top. One line per item. Full details below.
 
-- [ ] T85 — SU(3) Z₃ target: alternative postulates B/C/D (kept open by user instruction after T83e/Part 158 downgraded Part 37's Z₃ vortices). B: adjoint coupling |Tr(Ψ†U)|² (Z₃-invariant; loses the U(1) limit; 3 degenerate vacua → domain walls). C: co-rotating matter, (U,Ψ)~(ωU,ωΨ) as a discrete gauge redundancy (keeps every CLAUDE.md equation; quark = joint matter+condensate twist). D: U(3) target (semi-superfluid strings, Balachandran–Digal–Matsuura 2006; extra massless U(1) = SM tension). Each is structural: plan + approval before adopting [PENDING, SPEC, MEDIUM, filed 2026-10-17; see docs/research/su3_z3_target_audit.md §3]
+- [ ] T86 — B-meson b → sμμ anomaly (LHCb, PRL 137, 021802, 2026: decay rate too low, P5′/A_FB angles off; ~4σ, global fits ~4–5σ; "4.8σ" quoted in a Sabine Hossenfelder video, source unverified). Initial note says PDTP cannot explain it now: gravity is ~10³⁷ too weak, there is no flavour change, and the weak/QCD sectors are undeveloped. CONSISTENT with Part 51 lepton universality (R(K) resolved to SM in 2022; the surviving anomaly looks lepton-universal). Revisit after T59 + T85; watch item if it reaches 5σ [PENDING, SPEC, LOW PRIORITY, filed 2026-11-07; see docs/research/b_meson_anomaly_note.md; related speculative note on quark↔lepton conversion: docs/research/quark_lepton_twist_note.md]
+- [ ] T85 — SU(3) Z₃ target: alternative postulates B/C/D (kept open by user instruction after T83e/Part 158 downgraded Part 37's Z₃ vortices). B: adjoint coupling |Tr(Ψ†U)|² (Z₃-invariant; loses the U(1) limit; 3 degenerate vacua → domain walls). C: co-rotating matter, (U,Ψ)~(ωU,ωΨ) as a discrete gauge redundancy (keeps every CLAUDE.md equation; quark = joint matter+condensate twist). D: U(3) target (semi-superfluid strings, Balachandran–Digal–Matsuura 2006; extra massless U(1) = SM tension). Each is structural: plan + approval before adopting [PENDING, SPEC, MEDIUM, filed 2026-10-17; see docs/research/su3_z3_target_audit.md §3. Also prerequisite for the speculative "quark/lepton = twist type" idea, docs/research/quark_lepton_twist_note.md]
 - [ ] T84 — Primordial magnetic fields from a PDTP phase transition? Jedamzik, Pogosian & Abel (Nature Astronomy 2025, arXiv:2503.09599) find a 1.8–3σ preference for ~5–10 pG primordial fields that partly ease the Hubble tension (H₀ 67.88 → 69.93), but the fields' origin is open. Scope whether PDTP's Kibble–Zurek vortex transition (Part 116) could seed them, Vachaspati-style. BLOCKER: φ is the gravitational phase with no electromagnetic coupling, so this needs a new term (overlaps T57). Also wait for T83i, which re-establishes how matter sources gravity [PENDING, SPEC, LOW PRIORITY, filed 2026-10-17; mainstream summary in hubble_tension_analysis.md §1.3]
 - [ ] T72 — Reconcile Part 94's g=omega_gap (linear, from Part 34's
   condensate self-consistency) against Part 99's pendulum equation, which
@@ -775,6 +776,41 @@ Per the Open Problem Tracking Rule, even "not yet investigated" must be recorded
 
 ---
 
+### [ ] T86 — B-Meson b → sμμ Anomaly: PDTP Scoping — PENDING [SPEC, LOW PRIORITY]
+
+**Status:** PENDING (initial note only, filed 2026-11-07 by CLAUDE OPUS 5.5 at the user's request)
+**Estimated effort:** none until T59 and T85 progress; then ~1 session for a scoping Part
+**Source:** user question (2026-11-07) about the recently reported B-meson anomaly;
+initial findings in `docs/research/b_meson_anomaly_note.md`
+
+**Mainstream summary ([EXTERNAL]):** In B⁰ → K*⁰μ⁺μ⁻ (quark level b → sμμ,
+a loop-only "penguin" decay, ~1 in 10⁶ B decays), LHCb (*Phys. Rev. Lett.* 137,
+021802, 2026; ~17,000 events, 8.4 fb⁻¹) finds the rate consistently below
+the SM, with the angular observable P5′ deviating where it has since 2013 and
+A_FB starting to deviate. CP asymmetries agree with the SM. Significance ~4σ
+(LHCb), ~4–5σ in global fits. A "4.8σ" figure was quoted in a Sabine
+Hossenfelder YouTube video, but no primary source was found. Main SM caveat: charm-loop ("charming penguin")
+contributions. New-physics candidates: Z′ boson, leptoquark (shift in the
+coupling C₉). The related R(K)/R(K*) lepton-universality hint was resolved to
+the SM by LHCb in 2022 (arXiv:2212.09152).
+
+**PDTP status (initial note, tiered):**
+1. Gravity-strength coupling (m_b/m_P)² ≈ 1.2×10⁻³⁷ vs a ~10–20% effect: NO.
+2. No flavour-changing mechanism in any PDTP Lagrangian (weak force = T59): NO.
+3. Part 51 lepton universality matches the now lepton-universal anomaly: CONSISTENT.
+4. Speculative hook: b → s as a radial-mode transition (n_r = 2 → 1) of a quark
+   vortex (Part 51). Never computed, and needs T59 + T85 first: IDEA ONLY.
+
+**Next steps (when picked up):** close T59 and T85; derive a radial-mode
+transition amplitude; estimate its C₉ contribution against the global fit.
+Watch item: if the anomaly reaches 5σ and survives the charm-loop question,
+record it as a constraint any PDTP weak/QCD extension must not contradict.
+
+**Attached idea (SPECULATIVE, 2026-11-07):** quark↔lepton conversion in the
+PDTP "twist type" picture, and the leptoquark link to this anomaly: `docs/research/quark_lepton_twist_note.md`.
+
+---
+
 ### [ ] T84 — Primordial Magnetic Fields from a PDTP Phase Transition? — PENDING [SPEC, LOW PRIORITY]
 
 **Status:** PENDING (scoping only, filed 2026-10-17; nothing calculated)
@@ -845,6 +881,13 @@ postulates**, since a cost in one place may be a feature elsewhere.
    vs baryon number.
 4. Write up as a Part; adopting any alternative requires user approval
    plus a `mathematical_formalization_extensions.md` and CLAUDE.md update.
+
+**Attached idea (SPECULATIVE, 2026-11-07):** `docs/research/quark_lepton_twist_note.md`. If quarks are Z₃
+(⅓) twists and leptons whole twists, a single quark can never become a lepton,
+but three quarks (Z₃ charge 1+1+1 ≡ 0) may topologically unwind into lepton-type
+twists, mirroring GUT proton decay and sphalerons. Needs a T85 alternative that
+protects Z₃ vortices; D (U(3)) is structurally closest. Must give
+τ_p > 2.4×10³⁴ yr. No rate computed.
 
 ---
 
