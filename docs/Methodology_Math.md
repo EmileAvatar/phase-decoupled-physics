@@ -134,6 +134,24 @@ these; this section is the fuller, general-purpose form they are drawn from.
   Invariants are one of the most powerful tools for proving something is
   *impossible* (if the invariant differs between the start and target states, no
   sequence of allowed moves can connect them).
+- **Draw a figure (visualise).** One of Pólya's own first instructions in
+  *How to Solve It*: "Draw a figure. Introduce suitable notation." A picture
+  often shows the structure before any algebra does. Standard graphical tools:
+  - **Plot the function and look for crossings.** If a continuous function changes
+    sign between two points, it has a root in between (intermediate value
+    theorem). Plotting "prediction − target" against the unknown finds every
+    solution at once and shows how many there are.
+  - **Log–log plots** turn power laws y = A xⁿ into straight lines,
+    log y = log A + n log x. The **slope is the exponent**, so scaling laws can be
+    read off by eye.
+  - **Phase portraits** (Poincaré; Strogatz 1994) plot a system's state against
+    its rate of change. Fixed points, stable versus unstable equilibria, limit
+    cycles and separatrices are visible without solving the equations.
+  - **Dispersion / growth-rate plots** (growth rate against wavenumber) show
+    which wavelengths are unstable, and whether the instability prefers a finite
+    size (a peak) or the largest scales (a maximum at k → 0).
+  PDTP's practical version, with a table of what each graph shape means, is in
+  `Methodology.md` §9.
 
 ---
 
@@ -190,6 +208,10 @@ off by (m_e/m_P)²) pinpointed exactly where the assumption broke.
 | Working backwards | Start from the goal; find what precedes it | Pólya |
 | Invariants | Find a fixed quantity; use it to prove impossibility | — |
 | Proof-and-refutation | Counterexample locates the false lemma, not just "wrong" | Lakatos 1976 |
+| Draw a figure | Visualise before calculating; structure often appears in the picture | Pólya 1945 |
+| Plot and find crossings | Sign change of (prediction − target) brackets every solution | Intermediate value theorem |
+| Log–log slope | A power law is a straight line; the slope is the exponent | Standard practice |
+| Phase portrait | See equilibria and stability without solving | Poincaré; Strogatz 1994 |
 
 ---
 
@@ -206,6 +228,11 @@ off by (m_e/m_P)²) pinpointed exactly where the assumption broke.
 5. [Mathematical proof — Wikipedia](https://en.wikipedia.org/wiki/Mathematical_proof)
 6. [Pólya's How to Solve It — Wikipedia](https://en.wikipedia.org/wiki/How_to_Solve_It)
 7. [Proofs and Refutations — Wikipedia](https://en.wikipedia.org/wiki/Proofs_and_Refutations)
+8. Strogatz, S. H. (1994), *Nonlinear Dynamics and Chaos*, Addison-Wesley
+   (phase portraits, stability of fixed points).
+9. [Phase portrait — Wikipedia](https://en.wikipedia.org/wiki/Phase_portrait);
+   [Intermediate value theorem — Wikipedia](https://en.wikipedia.org/wiki/Intermediate_value_theorem);
+   [Log–log plot — Wikipedia](https://en.wikipedia.org/wiki/Log%E2%80%93log_plot)
 
 ---
 

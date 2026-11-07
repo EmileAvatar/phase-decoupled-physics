@@ -22,8 +22,9 @@ that prompted this document's creation, 2026-07-11).
 4. [Occam's Razor](#4-occams-razor)
 5. [Feynman: Cargo Cult Science](#5-feynman-cargo-cult-science)
 6. [Model-Building Methodology](#6-model-building-methodology)
-7. [Quick Reference Summary](#7-quick-reference-summary)
-8. [References](#8-references)
+7. [Visualisation, Global Fits and the Look-Elsewhere Effect](#7-visualisation-global-fits-and-the-look-elsewhere-effect)
+8. [Quick Reference Summary](#8-quick-reference-summary)
+9. [References](#9-references)
 
 ---
 
@@ -225,7 +226,48 @@ standard this section describes.
 
 ---
 
-## 7. Quick Reference Summary
+## 7. Visualisation, Global Fits and the Look-Elsewhere Effect
+
+*Added 2026-11-07 (user request). PDTP's practical version, including a table of
+what common graph shapes mean, is `Methodology.md` §9.*
+
+- **Plot the data: Anscombe's quartet.** Anscombe (1973) built four data
+  sets with identical means, variances, correlation and best-fit line. Plotted,
+  they look completely different: a clean line, a curve, a line with one
+  outlier, and a vertical cluster with one far point. Summary numbers alone can
+  hide exactly the structure that matters. A graph is a test, not an
+  illustration.
+- **Show the data honestly: Tufte.** Tufte's *The Visual Display of
+  Quantitative Information* (1983) set the modern standard. Maximise the ink
+  spent on data, avoid distortion (e.g. truncated or non-labelled axes), and
+  let comparisons sit side by side. In physics: use log axes for quantities
+  spanning many orders of magnitude (on a log–log plot a power law is a straight
+  line whose slope is the exponent), and plot **residuals** (data minus model)
+  so agreement is a flat zero line.
+- **Global fits / concordance.** A model earns credibility when a *small* number
+  of parameters fits *many independent* data sets at once. The standard example
+  is ΛCDM: six parameters fit the CMB, baryon acoustic oscillations, supernova
+  distances and light-element abundances together. The fit is usually found by
+  scanning or sampling the parameters and minimising χ² (or maximising a
+  likelihood).
+- **The look-elsewhere effect.** If you search many places (many parameter
+  values, many formulas, many energy bins) for a match, some will match by
+  chance. The significance must be corrected for the number of places searched
+  (Gross & Vitells 2010, developed for LHC searches). Practical defences: fix the
+  list of predictions *before* looking, count the trials, and compute the chance
+  of an accidental match directly (a null test). This is the statistical form of
+  Feynman's "don't fool yourself" (§5) and of numerology warnings (e.g.
+  Eddington's attempts to "derive" 1/137).
+
+**Why this matters for PDTP:** T88 (`docs/research/concordance_scan.md`)
+applies all three. A residual plot over 70 decades, a frozen prediction list
+with a built-in duplicate as a control, and a null test (chance 3-way match
+= 6×10⁻⁴). The graph showed at once that PDTP's single knob fits G only, with
+QCD and the Hubble mechanism wanting values 19.5 and 58.9 decades away.
+
+---
+
+## 8. Quick Reference Summary
 
 | Concept | One-line description | Source |
 |---|---|---|
@@ -237,10 +279,14 @@ standard this section describes.
 | Effective field theory | A model can be correct within a domain without being universal | Standard QFT practice |
 | Toy models | Isolate one mechanism cheaply before building the full system | Standard physics practice |
 | "All models are wrong, some are useful" | Usefulness, not metaphysical truth, is the operative test | Box 1976 |
+| Plot the data | Same statistics can hide different shapes; graphs are tests | Anscombe 1973 |
+| Honest graphics | Log axes for power laws; plot residuals; no distortion | Tufte 1983 |
+| Global fit / concordance | Few parameters fitting many independent data sets | ΛCDM practice |
+| Look-elsewhere effect | Correct significance for the number of places searched | Gross & Vitells 2010 |
 
 ---
 
-## 8. References
+## 9. References
 
 1. Bacon, F. (1620), *Novum Organum*.
 2. Popper, K. (1959), *The Logic of Scientific Discovery*, Hutchinson & Co.
@@ -258,6 +304,15 @@ standard this section describes.
 9. [The Structure of Scientific Revolutions — Wikipedia](https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions)
 10. [Occam's razor — Wikipedia](https://en.wikipedia.org/wiki/Occam%27s_razor)
 11. [Cargo cult science — Wikipedia](https://en.wikipedia.org/wiki/Cargo_cult_science)
+12. Anscombe, F. J. (1973), "Graphs in Statistical Analysis," *The American
+    Statistician*, 27(1), 17–21. [Anscombe's quartet — Wikipedia](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)
+13. Tufte, E. R. (1983), *The Visual Display of Quantitative Information*,
+    Graphics Press. [Edward Tufte — Wikipedia](https://en.wikipedia.org/wiki/Edward_Tufte)
+14. Gross, E. & Vitells, O. (2010), "Trial factors for the look elsewhere effect
+    in high energy physics," *Eur. Phys. J. C* 70, 525–530, [arXiv:1005.1891](https://arxiv.org/abs/1005.1891).
+    [Look-elsewhere effect — Wikipedia](https://en.wikipedia.org/wiki/Look-elsewhere_effect)
+15. [Log–log plot — Wikipedia](https://en.wikipedia.org/wiki/Log%E2%80%93log_plot);
+    [Lambda-CDM model — Wikipedia](https://en.wikipedia.org/wiki/Lambda-CDM_model)
 
 ---
 
