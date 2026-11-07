@@ -172,6 +172,10 @@ audit untangling.
 | **T_μν** | `T_{\mu\nu}` | Stress-energy tensor | Encodes energy, momentum, and pressure at each spacetime point. The source term in Einstein's equations. |
 | **Re[Tr(Ψ†U)]/N** | — | Wilson loop coupling | The SU(3) generalisation of cos(ψ−φ). Reduces exactly to cos(ψ−φ) in the U(1) limit (N=1). Connects PDTP to Wilson's lattice gauge theory (1974). **Not Z₃-invariant** (changes under U → ωU), so the Part 37 field space is SU(3), not SU(3)/Z₃ (Part 158). |
 | **ω** (bare, SU(3) context) | `\omega` | Z₃ center element | e^{2πi/3}, dimensionless; ω·1 is the non-trivial center of SU(3) (ω³ = 1). **Not** ω_gap (a frequency, s⁻¹) and not a mode frequency; used only in SU(3)/Z₃ statements (Parts 37, 105, 158). |
+| **g_φγ** | `g_{\phi\gamma}` | Phase–photon (axion-type) coupling | GeV⁻¹; = αC/(2πf_φ) ≈ 2.4×10⁻²² GeV⁻¹ [Part 159, hypothetical, NOT adopted]. Strength of a possible φ·E·B term. Not part of PDTP; scoped in T84. Not the bare locking coupling g. |
+| **f_φ** | `f_\phi` | Phase decay constant | GeV; = √(2K₀)·m_P ≈ 4.87×10¹⁸ GeV [Part 159]. Converts the dimensionless phase φ to a canonical field a = f_φφ. Drops out of every Part 159 result. |
+| **N_amp** | `N_{\rm amp}` | Field-amplification e-folds | Dimensionless; = αCΔφ/(4π) [Part 159]. e-folds of magnetic-field growth from a phase change Δφ via φ·E·B. Equals θ_CB. |
+| **θ_CB** | `\theta_{\rm CB}` | Cosmic birefringence angle | rad; = αCΔφ/(4π) [Part 159]; observed hint 0.342° ± 0.09°. Rotation of CMB polarization by a φ·E·B coupling. Not the vortex azimuth θ. |
 | **X** | `X` | Vortex generator | Dimensionless Hermitian traceless 3×3 matrix with U(θ) = exp(iθX) around a vortex; line energy E/L = 2πK·Tr(X²)·ln(R/ξ). Minimal Z₃ vortex: X_min = diag(1/3, 1/3, −2/3), Tr X_min² = 2/3 [Part 158]. Written X, not Q, to avoid the Koide parameter Q = 2/3 (Part 53), an unrelated quantity with the same value. |
 
 ---

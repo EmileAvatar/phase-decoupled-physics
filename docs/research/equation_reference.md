@@ -1602,6 +1602,27 @@ external, no-go-compatible). C4 update in `docs/research/hierarchy_problem_refra
 
 ---
 
+### Part 159 additions (TODO_05 T84: primordial magnetic fields scoping -- CLAUDE OPUS 5.5):
+
+**Source:** Part 159 (2026-11-07), `simulations/solver/t84_pmf_scoping.py`,
+`docs/research/pmf_pdtp_scoping.md`.
+
+| Eq # | Equation / result | Tag | Notes |
+|------|-------------------|-----|-------|
+| 159.2 | f_phi = sqrt(2 K_0) m_P = 4.87e18 GeV | [ASSUMED] | from K_0 = 1/(4 pi); drops out of 159.9 |
+| 159.3 | charged phi: m_A = e v = 1.47e27 eV | [DERIVED, VERIFIED] [NEGATIVE] | x6.7e40 over lenient photon-mass bound |
+| 159.4 | L_c = 1/2(E^2-B^2) + g_pg a E.B, a = f_phi phi | [ASSUMED, not adopted] | only shift-symmetric coupling (eps F F total derivative, 159.5) |
+| 159.6 | g_pg = alpha C/(2 pi f_phi) = 2.4e-22 GeV^-1 | [ASSUMED] | 3.6e-12 of CAST limit |
+| 159.7 | u'' + (k^2 -/+ s k) u = 0, s = g_pg da/dt | [DERIVED, VERIFIED] | helical photon modes |
+| 159.9-10 | N = theta_CB = (alpha C/4 pi) Delta_phi | [DERIVED, VERIFIED] | independent of f_phi; KZ: N = 0.0036 |
+| 159.11 | N >= 1 needs Delta_phi >= 4 pi/alpha = 1722 rad | [DERIVED] | 274 coherent turns |
+
+**Conclusion (Part 159):** 11/16 Sudoku; NO-GO for PDTP magnetogenesis with current
+fields. Static locked vacuum -> theta_CB = 0 (if 159.4 exists); spinning vacuum
+(omega_gap) excluded. Closes TODO_05 T84.
+
+---
+
 ### Part 158 additions (T83e: SU(3) Z_3 target-space audit -- CLAUDE OPUS 5.5):
 
 **Source:** Part 158 (2026-10-17), `simulations/solver/t83e_z3_target.py`,
@@ -2390,6 +2411,9 @@ GR prediction: no such angle exists. Absent in any single-mode GW theory.
 ---
 
 ## Changelog
+- 2026-11-07: Added Part 159 (TODO_05 T84, CLAUDE OPUS 5.5: primordial magnetic
+  fields from PDTP: NO-GO; only axion-type phi E.B is shift-symmetric; N = theta_CB =
+  alpha Delta_phi/(4 pi); KZ gives 0.004). See `docs/research/pmf_pdtp_scoping.md`.
 - 2026-10-17: Added Part 158 (T83e, CLAUDE OPUS 5.5: Part 37 SU(3) Lagrangian has target
   SU(3) (pi_1 = 0) because Re Tr(Psi^dag U) breaks the Z_3 center -> no protected Z_3
   vortices; Eq 150.2-150.3 (1/9) withdrawn, conditional value 2/9; three Z_3 units fuse

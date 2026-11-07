@@ -118,8 +118,10 @@ shrink the sound horizon (§4.4; `hubble_tension_c1.md`: φ₋ as EDE is
 9.4 orders too weak, the biharmonic correction is ~10⁻¹¹⁹) use the
 same lever, so this is a competing mechanism, not support. The possible
 PDTP hook is the *origin* of the fields (a Kibble–Zurek vortex
-transition, Part 116), filed as TODO_05 T84. It is speculative and
-unstarted.
+transition, Part 116), filed as TODO_05 T84. **Result (Part 159, 2026-11-07): NO-GO** with
+PDTP's current fields. The only symmetry-allowed photon coupling
+(axion-type φ·E·B) amplifies fields by αΔφ/4π e-folds, about 0.004 for the
+Kibble–Zurek winding. See [pmf_pdtp_scoping.md](pmf_pdtp_scoping.md).
 
 **Source:** Jedamzik, K., Pogosian, L. & Abel, T. (2025), "Hints of
 primordial magnetic fields at recombination and implications for the

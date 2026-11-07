@@ -1157,6 +1157,85 @@ probed is the spacetime phase field itself); no direct SM coupling.
 
 ---
 
+## Prediction 17: Zero Cosmic Birefringence from the Locked PDTP Vacuum (conditional)
+
+**Added 2026-11-07 with user approval** (Part 159, TODO_05 T84, CLAUDE OPUS 5.5).
+**Conditional:** this applies only *if* PDTP's phase couples to photons at
+all. PDTP as written has no φ–photon coupling, and then the prediction is
+trivially θ_CB = 0.
+
+### What PDTP predicts
+
+Of the lowest-order φ–photon couplings, only the axion-type term keeps PDTP's
+shift symmetry φ → φ + c (Part 159 §2–3; εFF is a total derivative). For
+that coupling, the isotropic rotation of CMB polarization since recombination is
+
+```
+[DERIVED, SymPy VERIFIED]
+  theta_CB = (alpha C / 4 pi) * Delta_phi(since recombination)       (Eq. F.29)
+  independent of the coupling scale f_phi (it cancels)
+```
+
+$$
+\theta_{\rm CB} = \frac{\alpha C}{4\pi}\,\Delta\phi_{\rm since\ rec}
+$$
+
+PDTP's locked vacuum is static: the homogeneous mode obeys
+φ̈ + 3Hφ̇ = Σgᵢ sin(ψᵢ − φ), which vanishes once locked, and any φ̇ redshifts
+away as a⁻³. φ₋ sits at π/2 with displacement ~10⁻⁷⁰ rad (Part 87). Hence:
+
+```
+  theta_CB (PDTP, static locked vacuum) = 0                           (Eq. F.30)
+```
+
+A corollary is already excluded by data: a PDTP vacuum phase *spinning* at
+ω_gap would give θ_CB ~ 10⁵⁷ rad. So if the coupling exists, the vacuum
+cannot spin.
+
+**Source:** Part 159, `t84_pmf_scoping.py` (11/16 Sudoku; S5–S11 verify the
+formula); `pmf_pdtp_scoping.md` §7. Formula agrees with Harari & Sikivie
+(1992) for a Nambu–Goldstone boson.
+
+### What GR predicts
+
+GR plus the Standard Model gives θ_CB = 0 (no parity-violating photon
+coupling). **So this prediction does NOT distinguish PDTP from GR.** It
+distinguishes PDTP from axion-like early-dark-energy and quintessence models,
+which can produce θ_CB ≠ 0.
+
+### How to test
+
+Measure the isotropic CMB polarization rotation angle (EB correlation) with
+improved calibration of instrument polarization angles. Current: Planck + WMAP.
+Next: Simons Observatory, LiteBIRD, CMB-S4.
+
+### What confirms PDTP
+
+θ_CB consistent with 0 at high precision. This is weak confirmation, because
+GR predicts the same.
+
+### What kills PDTP
+
+Not a kill of PDTP itself. A ≥ 5σ detection of θ_CB ≈ 0.34° would rule out
+"PDTP's phase couples to photons with a static locked vacuum", unless φ
+unwound by about 10 radians after recombination, which PDTP does not currently
+produce. Separately, any PDTP reinterpretation in which the vacuum phase
+rotates (a BEC-like chemical potential) is excluded if the coupling exists.
+
+### Current status
+
+**In tension with a hint.** Planck + WMAP give θ_CB = 0.342° ± 0.09° (3.6σ;
+Eskilt & Komatsu 2022, arXiv:2205.13962). Not yet a detection, and systematics
+(polarization-angle calibration) are actively debated.
+
+### SM compatibility
+
+The axion-type coupling is gauge-invariant, adds no new particle (φ is already
+massless in PDTP), and is CP-odd like the QCD θ-term. Natural strength
+g ≈ 2.4×10⁻²² GeV⁻¹ is 10¹² below the CAST limit. Compatible.
+
+---
+
 ## Summary: Predictions Ranked by Testability
 
 | # | Prediction | Differs from GR? | Testable now? | Strongest test |
@@ -1177,6 +1256,7 @@ probed is the spacetime phase field itself); no direct SM coupling.
 | 6 | Planck-scale dispersion | Yes | **Barely** | Gamma-ray burst timing |
 | 15 | Gravitational Brewster angle (polarization split at interface) | Yes | **Partially** | Requires scalar mode + natural density interface |
 | 16 | Leidenfrost critical exponents (β,ν,γ)=(1,1/2,1) | Yes | **In principle** | Lab BEC/superfluid/Josephson analog experiment |
+| 17 | Zero cosmic birefringence, θ_CB = 0 (conditional on a φ·E·B coupling) | **No** (GR also 0); differs from axion-EDE | **Yes** | Planck/WMAP now (0.34° ± 0.09° hint, in tension); SO, LiteBIRD, CMB-S4 |
 
 ### The critical path
 
@@ -1197,7 +1277,7 @@ specific parts of the framework must be abandoned or revised.
 
 ### Standard Model compatibility
 
-All 16 predictions have been checked for compatibility with the Standard
+All 17 predictions have been checked for compatibility with the Standard
 Model Lagrangian (SU(3)×SU(2)×U(1) gauge symmetry, Higgs mechanism,
 particle content, conservation laws). None of the predictions contradict
 established particle physics. Predictions 7-11 and 14 involve a new
@@ -1207,7 +1287,9 @@ action with a specific coupling constant K_NAT = 1/(4π). Prediction 13
 involves a gauge-singlet topological defect (no SM charges). Predictions
 15-16 are pure gravitational-sector wave-optics/critical-phenomena results
 (Fresnel equations and critical exponents applied to the PDTP acoustic
-metric); neither introduces any new SM coupling.
+metric); neither introduces any new SM coupling. Prediction 17 is conditional
+on a hypothetical axion-type φ·E·B term (gauge-invariant, CP-odd, no new
+particle), not part of PDTP as written.
 
 ---
 

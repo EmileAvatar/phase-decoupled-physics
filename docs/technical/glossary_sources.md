@@ -2131,6 +2131,17 @@ Also re-cited by Part 158: Mermin (1979) (P90), Kosterlitz & Thouless (1973).
 - **Description:** τ/B(p → e⁺π⁰) > 2.4×10³⁴ yr (90% CL).
 - **Used in:** `quark_lepton_twist_note.md` §2.3, §3.3.
 
+#### P122–P127: Part 159 (T84) primordial-magnetic-field scoping
+- P122: Harari & Sikivie (1992), *Phys. Lett. B* 289, 67 — Nambu–Goldstone boson rotates CMB/radio polarization (citation verified by search)
+- P123: Carroll, Field & Jackiw (1990), *Phys. Rev. D* 41, 1231 — Chern–Simons modification of electrodynamics (citation verified by search)
+- P124: Eskilt & Komatsu (2022), https://arxiv.org/abs/2205.13962 (verified 2026-11-07) — cosmic birefringence 0.342° ± 0.09°, 3.6σ
+- P125: CAST Collaboration (2017), *Nature Physics* 13, 584, https://arxiv.org/abs/1705.02290 (verified) — g_aγ < 0.66×10⁻¹⁰ GeV⁻¹
+- P126: MICROSCOPE Collaboration (2022), *Phys. Rev. Lett.* 129, 121102, https://arxiv.org/abs/2209.15487 (verified) — WEP η ~ 10⁻¹⁵
+- P127: Particle Data Group photon listings, https://pdg.lbl.gov/2021/listings/rpp2021-list-photon.pdf (verified) — photon mass bounds
+- Also: Ratra (1992) *ApJ* 391, L1; Vachaspati (1991) = P112; Jedamzik+ (2025) = P111
+- Wikipedia #357 [Higgs mechanism](https://en.wikipedia.org/wiki/Higgs_mechanism) (re-cited, = #332), #358 [Axion](https://en.wikipedia.org/wiki/Axion) — both verified 2026-11-07
+- **Used in:** `pmf_pdtp_scoping.md`.
+
 #### P117–P121: quark–lepton unification and B/L violation (citations only, no URL verified)
 - P117: Georgi & Glashow (1974), *Phys. Rev. Lett.* 32, 438 — SU(5) GUT
 - P118: Pati & Salam (1974), *Phys. Rev. D* 10, 275 — lepton as 4th colour
