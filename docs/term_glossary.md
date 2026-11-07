@@ -176,6 +176,8 @@ audit untangling.
 | **f_φ** | `f_\phi` | Phase decay constant | GeV; = √(2K₀)·m_P ≈ 4.87×10¹⁸ GeV [Part 159]. Converts the dimensionless phase φ to a canonical field a = f_φφ. Drops out of every Part 159 result. |
 | **N_amp** | `N_{\rm amp}` | Field-amplification e-folds | Dimensionless; = αCΔφ/(4π) [Part 159]. e-folds of magnetic-field growth from a phase change Δφ via φ·E·B. Equals θ_CB. |
 | **θ_CB** | `\theta_{\rm CB}` | Cosmic birefringence angle | rad; = αCΔφ/(4π) [Part 159]; observed hint 0.342° ± 0.09°. Rotation of CMB polarization by a φ·E·B coupling. Not the vortex azimuth θ. |
+| **ℓ_T** | `\ell_T` | Turing spacing (dimensional) | m; = √(D_eff/ω_r), D_eff = c²/(3H) [T87 note §6b, speculative]. Pattern spacing IF PDTP had a Turing band; with ω_r = ω_P it is √(ℓ_P R_H/3) ≈ 27 μm. |
+| **E_Λ, ℓ_Λ** | `E_\Lambda, \ell_\Lambda` | Dark-energy energy / length scale | E_Λ = (ρ_Λ(ℏc)³)^¼ = ℏ√(ω_P H_Λ)(3/8π)^¼ ≈ 2.25 meV; ℓ_Λ = ℏc/E_Λ ≈ 88 μm [T87 note §6b]. H_Λ = c√(Λ/3) ≈ 1.81×10⁻¹⁸ s⁻¹. |
 | **X** | `X` | Vortex generator | Dimensionless Hermitian traceless 3×3 matrix with U(θ) = exp(iθX) around a vortex; line energy E/L = 2πK·Tr(X²)·ln(R/ξ). Minimal Z₃ vortex: X_min = diag(1/3, 1/3, −2/3), Tr X_min² = 2/3 [Part 158]. Written X, not Q, to avoid the Koide parameter Q = 2/3 (Part 53), an unrelated quantity with the same value. |
 
 ---

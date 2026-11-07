@@ -2131,6 +2131,16 @@ Also re-cited by Part 158: Mermin (1979) (P90), Kosterlitz & Thouless (1973).
 - **Description:** τ/B(p → e⁺π⁰) > 2.4×10³⁴ yr (90% CL).
 - **Used in:** `quark_lepton_twist_note.md` §2.3, §3.3.
 
+#### P128–P129: Turing morphogenesis note (TODO_05 T87)
+- P128: Turing, A.M. (1952), "The Chemical Basis of Morphogenesis", *Phil. Trans. R. Soc. B* 237, 37–72, https://doi.org/10.1098/rstb.1952.0012 (resolves; publisher blocks automated checks). Local PDF supplied by the user: `assets/pdfs/rstb.1952.0012.pdf` (§7–§9 read 2026-11-07; finite-wavelength case (d) requires bc < 0, eq. 9.4)
+- P129: Sheth, R. et al. (2012), "Hox genes regulate digit patterning by controlling the wavelength of a Turing-type mechanism", *Science* 338, 1476 (citation verified by search)
+- Wikipedia (checked 2026-11-07): #359 [The Chemical Basis of Morphogenesis](https://en.wikipedia.org/wiki/The_Chemical_Basis_of_Morphogenesis), #360 [Turing pattern](https://en.wikipedia.org/wiki/Turing_pattern), #361 [Reaction–diffusion system](https://en.wikipedia.org/wiki/Reaction%E2%80%93diffusion_system), #362 [Morphogenesis](https://en.wikipedia.org/wiki/Morphogenesis), #363 [Kuramoto model](https://en.wikipedia.org/wiki/Kuramoto_model)
+- Publisher page (via DOI redirect, verified 2026-11-07): https://royalsocietypublishing.org/rstb/article/237/641/37/112910/The-chemical-basis-of-morphogenesis
+- P130: Lee, J.G. et al. (2020), *Phys. Rev. Lett.* 124, 101101, https://arxiv.org/abs/2002.11761 (verified) — 1/r² tested to 52 μm
+- P131: Kapner, D.J. et al. (2007), *Phys. Rev. Lett.* 98, 021101, https://arxiv.org/abs/hep-ph/0611184 (verified) — below the dark-energy length scale
+- P132: Planck Collaboration (2020), *A&A* 641, A6, https://arxiv.org/abs/1807.06209 (verified) — Λ = 1.1056e-52 m⁻² (TT,TE,EE+lowE+lensing+BAO)
+- **Used in:** `turing_morphogenesis_note.md` (§2.5, §6b), `t87_turing_scales.py`.
+
 #### P122–P127: Part 159 (T84) primordial-magnetic-field scoping
 - P122: Harari & Sikivie (1992), *Phys. Lett. B* 289, 67 — Nambu–Goldstone boson rotates CMB/radio polarization (citation verified by search)
 - P123: Carroll, Field & Jackiw (1990), *Phys. Rev. D* 41, 1231 — Chern–Simons modification of electrodynamics (citation verified by search)

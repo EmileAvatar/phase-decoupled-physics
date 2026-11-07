@@ -63,6 +63,7 @@ questions.
 
 New additions go on top. One line per item. Full details below.
 
+- [ ] T87 — Turing morphogenesis (reaction–diffusion) in PDTP: spacetime φ and matter ψ as Turing's two "substances" (user's framing). Self cos-coupling between neighbouring cells = the spreading/stiffness term; cross cos(ψ−φ) = the reaction term. First pass: plain PDTP CANNOT make Turing patterns, because one Lagrangian gives a symmetric coupling (b = c = g), and Turing's finite-wavelength case needs bc < 0 (his eq. 9.4). PDTP sits exactly on his boundary bc = ad (the Goldstone mode). Two-phase Jeans is long-wave, not a finite-k band. To investigate: add matter's intrinsic frequency (T83i/T52, Kuramoto), expansion overdamping D = c²/3H, and the two-phase sign structure; look for a finite-k band and a preferred cosmic spacing. Ticking-frequency scan (t87_turing_scales.py, 12/12): E_Λ = ℏ√(ω_P·H_Λ)(3/8π)^¼ = 2.25 meV; a Planck-rate reaction with Hubble damping would give spacing √(ℓ_P R_H/3) = 27 μm, ~3× below the 88 μm dark-energy length, at the Eöt-Wash 52 μm frontier (dimensional only) [PENDING, SPEC, LOW-MEDIUM, filed 2026-11-07; see docs/research/turing_morphogenesis_note.md]
 - [ ] T86 — B-meson b → sμμ anomaly (LHCb, PRL 137, 021802, 2026: decay rate too low, P5′/A_FB angles off; ~4σ, global fits ~4–5σ; "4.8σ" quoted in a Sabine Hossenfelder video, source unverified). Initial note says PDTP cannot explain it now: gravity is ~10³⁷ too weak, there is no flavour change, and the weak/QCD sectors are undeveloped. CONSISTENT with Part 51 lepton universality (R(K) resolved to SM in 2022; the surviving anomaly looks lepton-universal). Revisit after T59 + T85; watch item if it reaches 5σ [PENDING, SPEC, LOW PRIORITY, filed 2026-11-07; see docs/research/b_meson_anomaly_note.md; related speculative note on quark↔lepton conversion: docs/research/quark_lepton_twist_note.md]
 - [ ] T85 — SU(3) Z₃ target: alternative postulates B/C/D (kept open by user instruction after T83e/Part 158 downgraded Part 37's Z₃ vortices). B: adjoint coupling |Tr(Ψ†U)|² (Z₃-invariant; loses the U(1) limit; 3 degenerate vacua → domain walls). C: co-rotating matter, (U,Ψ)~(ωU,ωΨ) as a discrete gauge redundancy (keeps every CLAUDE.md equation; quark = joint matter+condensate twist). D: U(3) target (semi-superfluid strings, Balachandran–Digal–Matsuura 2006; extra massless U(1) = SM tension). Each is structural: plan + approval before adopting [PENDING, SPEC, MEDIUM, filed 2026-10-17; see docs/research/su3_z3_target_audit.md §3. Also prerequisite for the speculative "quark/lepton = twist type" idea, docs/research/quark_lepton_twist_note.md]
 - [x] T84 — Primordial magnetic fields from a PDTP phase transition? **DONE — NO-GO (Part 159, 2026-11-07, CLAUDE OPUS 5.5, 11/16 Sudoku).** (a) charged φ → photon mass ×10⁴¹ over bound; (b) f(φ)F² breaks the shift symmetry, (b′) f(ψ−φ)F² bounded; (c) axion-type φ·E·B allowed (g ~ 2×10⁻²² GeV⁻¹) but amplification N = θ_CB = αΔφ/4π, independent of f_φ; KZ Δφ≈2π → N≈0.004 (needs ≥1722 rad coherent). By-product: static PDTP vacuum → zero cosmic birefringence (vs 0.34° 3.6σ hint); spinning vacuum excluded (θ~10⁵⁷ rad). Added as falsifiable_predictions.md Prediction 17 (user-approved 2026-11-07). See docs/research/pmf_pdtp_scoping.md. Original filing: Jedamzik, Pogosian & Abel (Nature Astronomy 2025, arXiv:2503.09599) find a 1.8–3σ preference for ~5–10 pG primordial fields that partly ease the Hubble tension (H₀ 67.88 → 69.93), but the fields' origin is open. Scope whether PDTP's Kibble–Zurek vortex transition (Part 116) could seed them, Vachaspati-style. BLOCKER: φ is the gravitational phase with no electromagnetic coupling, so this needs a new term (overlaps T57). Also wait for T83i, which re-establishes how matter sources gravity [PENDING, SPEC, LOW PRIORITY, filed 2026-10-17; mainstream summary in hubble_tension_analysis.md §1.3]
@@ -773,6 +774,45 @@ Per the Open Problem Tracking Rule, even "not yet investigated" must be recorded
 **Deliverables:**
 - `docs/research/weak_force_placement.md` (< 1 page; scoping only)
 - Add as OPEN question to equation_reference.md
+
+---
+
+### [ ] T87 — Turing Morphogenesis (Reaction–Diffusion) in PDTP — PENDING [SPEC, LOW-MEDIUM]
+
+**Status:** PENDING (exploratory note only, filed 2026-11-07 by CLAUDE OPUS 5.5 at the user's request)
+**Source:** user question after a Jim Al-Khalili video on Turing (1952); note:
+`docs/research/turing_morphogenesis_note.md`; primary source read from `assets/pdfs/rstb.1952.0012.pdf`.
+
+**User's framing:** spacetime (φ) and matter (ψ) are the two "substances"; each is
+cos-coupled to itself (neighbouring cells) and to the other. Their interplay gives
+the structure of the universe.
+
+**First-pass findings (SymPy-checked in scratch, not a Part):**
+1. PDTP has Turing's reaction + spreading structure: the self cos-coupling of
+   neighbouring cells IS the gradient term; g cos(ψ−φ) is the reaction.
+2. Linearised PDTP: symmetric matrix, tr < 0, det = k²[c²c_ψ²k² + g(c²+c_ψ²)] ≥ 0,
+   so there is no growing mode at any k. Theorem: a Lagrangian (gradient) system
+   gives a symmetric coupling, and Turing's finite-wavelength case (d) needs bc < 0
+   (Turing eq. 9.4). PDTP has b = c = g and bc = ad exactly, i.e. it sits on
+   Turing's case-(a) boundary (Goldstone mode).
+3. Two-phase Jeans (Part 154, √3·g) grows fastest at k → 0: a long-wave instability
+   with no preferred spacing, so not a Turing pattern.
+
+**To investigate (each breaks the single-potential condition):**
+(a) matter's intrinsic frequency (Adler/Kuramoto drive; overlaps T83i candidate 1
+and T52); (b) expansion overdamping 3Hφ̇ ≈ c²∇²φ/a² + ..., which gives diffusion
+form D = c²/(3Ha²), with different damping for φ and ψ; (c) two-phase +cos/−cos
+signs. Goal: a finite-k unstable band, its k_c, and whether any unexplained
+preferred cosmic spacing exists (BAO is already acoustic). An honest negative is
+acceptable.
+
+**Ticking-frequency scan (2026-11-07, user suggestion: Planck + cosmological
+constant):** `simulations/solver/t87_turing_scales.py`, 12/12. The dark-energy scale is
+the geometric mean of the Planck and Λ ticking rates (E_Λ = 2.25 meV, ℓ_Λ = 88 μm).
+IF a band exists with Planck-rate reaction and Hubble damping, its spacing is
+√(ℓ_P R_H/3) = 27 μm, the sub-mm gravity frontier (Eöt-Wash, 52 μm). Matter Compton
+rates give ~100–4000 km. Dimensional only; it gives T87 a target number, not evidence.
+See note §6b.
 
 ---
 
